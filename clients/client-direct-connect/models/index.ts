@@ -36,8 +36,7 @@ export namespace AcceptDirectConnectGatewayAssociationProposalRequest {
   }
 }
 
-export interface AcceptDirectConnectGatewayAssociationProposalResult
-  extends $MetadataBearer {
+export interface AcceptDirectConnectGatewayAssociationProposalResult {
   __type?: "AcceptDirectConnectGatewayAssociationProposalResult";
   /**
    * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
@@ -212,7 +211,7 @@ export namespace AllocateTransitVirtualInterfaceRequest {
   }
 }
 
-export interface AllocateTransitVirtualInterfaceResult extends $MetadataBearer {
+export interface AllocateTransitVirtualInterfaceResult {
   __type?: "AllocateTransitVirtualInterfaceResult";
   /**
    * <p>Information about a virtual interface.</p>
@@ -437,7 +436,7 @@ export namespace ConfirmConnectionRequest {
   }
 }
 
-export interface ConfirmConnectionResponse extends $MetadataBearer {
+export interface ConfirmConnectionResponse {
   __type?: "ConfirmConnectionResponse";
   /**
    * <p>The state of the connection. The following are the possible values:</p>
@@ -513,8 +512,7 @@ export namespace ConfirmPrivateVirtualInterfaceRequest {
   }
 }
 
-export interface ConfirmPrivateVirtualInterfaceResponse
-  extends $MetadataBearer {
+export interface ConfirmPrivateVirtualInterfaceResponse {
   __type?: "ConfirmPrivateVirtualInterfaceResponse";
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -580,7 +578,7 @@ export namespace ConfirmPublicVirtualInterfaceRequest {
   }
 }
 
-export interface ConfirmPublicVirtualInterfaceResponse extends $MetadataBearer {
+export interface ConfirmPublicVirtualInterfaceResponse {
   __type?: "ConfirmPublicVirtualInterfaceResponse";
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -651,8 +649,7 @@ export namespace ConfirmTransitVirtualInterfaceRequest {
   }
 }
 
-export interface ConfirmTransitVirtualInterfaceResponse
-  extends $MetadataBearer {
+export interface ConfirmTransitVirtualInterfaceResponse {
   __type?: "ConfirmTransitVirtualInterfaceResponse";
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -707,7 +704,7 @@ export namespace ConfirmTransitVirtualInterfaceResponse {
 /**
  * <p>Information about an AWS Direct Connect connection.</p>
  */
-export interface Connection extends $MetadataBearer {
+export interface Connection {
   __type?: "Connection";
   /**
    * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
@@ -850,7 +847,7 @@ export type ConnectionState =
   | "requested"
   | "unknown";
 
-export interface Connections extends $MetadataBearer {
+export interface Connections {
   __type?: "Connections";
   /**
    * <p>The connections.</p>
@@ -883,7 +880,7 @@ export namespace CreateBGPPeerRequest {
   }
 }
 
-export interface CreateBGPPeerResponse extends $MetadataBearer {
+export interface CreateBGPPeerResponse {
   __type?: "CreateBGPPeerResponse";
   /**
    * <p>The virtual interface.</p>
@@ -972,8 +969,7 @@ export namespace CreateDirectConnectGatewayAssociationProposalRequest {
   }
 }
 
-export interface CreateDirectConnectGatewayAssociationProposalResult
-  extends $MetadataBearer {
+export interface CreateDirectConnectGatewayAssociationProposalResult {
   __type?: "CreateDirectConnectGatewayAssociationProposalResult";
   /**
    * <p>Information about the Direct Connect gateway proposal.</p>
@@ -1022,8 +1018,7 @@ export namespace CreateDirectConnectGatewayAssociationRequest {
   }
 }
 
-export interface CreateDirectConnectGatewayAssociationResult
-  extends $MetadataBearer {
+export interface CreateDirectConnectGatewayAssociationResult {
   __type?: "CreateDirectConnectGatewayAssociationResult";
   /**
    * <p>The association to be created.</p>
@@ -1060,7 +1055,7 @@ export namespace CreateDirectConnectGatewayRequest {
   }
 }
 
-export interface CreateDirectConnectGatewayResult extends $MetadataBearer {
+export interface CreateDirectConnectGatewayResult {
   __type?: "CreateDirectConnectGatewayResult";
   /**
    * <p>The Direct Connect gateway.</p>
@@ -1219,7 +1214,7 @@ export namespace CreateTransitVirtualInterfaceRequest {
   }
 }
 
-export interface CreateTransitVirtualInterfaceResult extends $MetadataBearer {
+export interface CreateTransitVirtualInterfaceResult {
   __type?: "CreateTransitVirtualInterfaceResult";
   /**
    * <p>Information about a virtual interface.</p>
@@ -1262,7 +1257,7 @@ export namespace DeleteBGPPeerRequest {
   }
 }
 
-export interface DeleteBGPPeerResponse extends $MetadataBearer {
+export interface DeleteBGPPeerResponse {
   __type?: "DeleteBGPPeerResponse";
   /**
    * <p>The virtual interface.</p>
@@ -1306,8 +1301,7 @@ export namespace DeleteDirectConnectGatewayAssociationProposalRequest {
   }
 }
 
-export interface DeleteDirectConnectGatewayAssociationProposalResult
-  extends $MetadataBearer {
+export interface DeleteDirectConnectGatewayAssociationProposalResult {
   __type?: "DeleteDirectConnectGatewayAssociationProposalResult";
   /**
    * <p>The ID of the associated gateway.</p>
@@ -1349,8 +1343,7 @@ export namespace DeleteDirectConnectGatewayAssociationRequest {
   }
 }
 
-export interface DeleteDirectConnectGatewayAssociationResult
-  extends $MetadataBearer {
+export interface DeleteDirectConnectGatewayAssociationResult {
   __type?: "DeleteDirectConnectGatewayAssociationResult";
   /**
    * <p>Information about the deleted association.</p>
@@ -1380,7 +1373,7 @@ export namespace DeleteDirectConnectGatewayRequest {
   }
 }
 
-export interface DeleteDirectConnectGatewayResult extends $MetadataBearer {
+export interface DeleteDirectConnectGatewayResult {
   __type?: "DeleteDirectConnectGatewayResult";
   /**
    * <p>The Direct Connect gateway.</p>
@@ -1408,7 +1401,7 @@ export namespace DeleteInterconnectRequest {
   }
 }
 
-export interface DeleteInterconnectResponse extends $MetadataBearer {
+export interface DeleteInterconnectResponse {
   __type?: "DeleteInterconnectResponse";
   /**
    * <p>The state of the interconnect. The following are the possible values:</p>
@@ -1481,7 +1474,7 @@ export namespace DeleteVirtualInterfaceRequest {
   }
 }
 
-export interface DeleteVirtualInterfaceResponse extends $MetadataBearer {
+export interface DeleteVirtualInterfaceResponse {
   __type?: "DeleteVirtualInterfaceResponse";
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -1558,7 +1551,7 @@ export namespace DescribeConnectionLoaRequest {
   }
 }
 
-export interface DescribeConnectionLoaResponse extends $MetadataBearer {
+export interface DescribeConnectionLoaResponse {
   __type?: "DescribeConnectionLoaResponse";
   /**
    * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
@@ -1639,8 +1632,7 @@ export namespace DescribeDirectConnectGatewayAssociationProposalsRequest {
   }
 }
 
-export interface DescribeDirectConnectGatewayAssociationProposalsResult
-  extends $MetadataBearer {
+export interface DescribeDirectConnectGatewayAssociationProposalsResult {
   __type?: "DescribeDirectConnectGatewayAssociationProposalsResult";
   /**
    * <p>Describes the Direct Connect gateway association proposals.</p>
@@ -1707,8 +1699,7 @@ export namespace DescribeDirectConnectGatewayAssociationsRequest {
   }
 }
 
-export interface DescribeDirectConnectGatewayAssociationsResult
-  extends $MetadataBearer {
+export interface DescribeDirectConnectGatewayAssociationsResult {
   __type?: "DescribeDirectConnectGatewayAssociationsResult";
   /**
    * <p>Information about the associations.</p>
@@ -1763,8 +1754,7 @@ export namespace DescribeDirectConnectGatewayAttachmentsRequest {
   }
 }
 
-export interface DescribeDirectConnectGatewayAttachmentsResult
-  extends $MetadataBearer {
+export interface DescribeDirectConnectGatewayAttachmentsResult {
   __type?: "DescribeDirectConnectGatewayAttachmentsResult";
   /**
    * <p>The attachments.</p>
@@ -1812,7 +1802,7 @@ export namespace DescribeDirectConnectGatewaysRequest {
   }
 }
 
-export interface DescribeDirectConnectGatewaysResult extends $MetadataBearer {
+export interface DescribeDirectConnectGatewaysResult {
   __type?: "DescribeDirectConnectGatewaysResult";
   /**
    * <p>The Direct Connect gateways.</p>
@@ -1869,7 +1859,7 @@ export namespace DescribeInterconnectLoaRequest {
   }
 }
 
-export interface DescribeInterconnectLoaResponse extends $MetadataBearer {
+export interface DescribeInterconnectLoaResponse {
   __type?: "DescribeInterconnectLoaResponse";
   /**
    * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
@@ -1950,7 +1940,7 @@ export namespace DescribeTagsRequest {
   }
 }
 
-export interface DescribeTagsResponse extends $MetadataBearer {
+export interface DescribeTagsResponse {
   __type?: "DescribeTagsResponse";
   /**
    * <p>Information about the tags.</p>
@@ -2361,7 +2351,7 @@ export enum HasLogicalRedundancy {
 /**
  * <p>Information about an interconnect.</p>
  */
-export interface Interconnect extends $MetadataBearer {
+export interface Interconnect {
   __type?: "Interconnect";
   /**
    * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
@@ -2480,7 +2470,7 @@ export type InterconnectState =
   | "requested"
   | "unknown";
 
-export interface Interconnects extends $MetadataBearer {
+export interface Interconnects {
   __type?: "Interconnects";
   /**
    * <p>The interconnects.</p>
@@ -2497,7 +2487,7 @@ export namespace Interconnects {
 /**
  * <p>Information about a link aggregation group (LAG).</p>
  */
-export interface Lag extends $MetadataBearer {
+export interface Lag {
   __type?: "Lag";
   /**
    * <p>Indicates whether the LAG can host other connections.</p>
@@ -2632,7 +2622,7 @@ export type LagState =
   | "requested"
   | "unknown";
 
-export interface Lags extends $MetadataBearer {
+export interface Lags {
   __type?: "Lags";
   /**
    * <p>The LAGs.</p>
@@ -2649,7 +2639,7 @@ export namespace Lags {
 /**
  * <p>Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
  */
-export interface Loa extends $MetadataBearer {
+export interface Loa {
   __type?: "Loa";
   /**
    * <p>The binary contents of the LOA-CFA document.</p>
@@ -2709,7 +2699,7 @@ export namespace Location {
   }
 }
 
-export interface Locations extends $MetadataBearer {
+export interface Locations {
   __type?: "Locations";
   /**
    * <p>The locations.</p>
@@ -3204,7 +3194,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -3250,7 +3240,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -3286,8 +3276,7 @@ export namespace UpdateDirectConnectGatewayAssociationRequest {
   }
 }
 
-export interface UpdateDirectConnectGatewayAssociationResult
-  extends $MetadataBearer {
+export interface UpdateDirectConnectGatewayAssociationResult {
   __type?: "UpdateDirectConnectGatewayAssociationResult";
   /**
    * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
@@ -3386,7 +3375,7 @@ export namespace VirtualGateway {
   }
 }
 
-export interface VirtualGateways extends $MetadataBearer {
+export interface VirtualGateways {
   __type?: "VirtualGateways";
   /**
    * <p>The virtual private gateways.</p>
@@ -3403,7 +3392,7 @@ export namespace VirtualGateways {
 /**
  * <p>Information about a virtual interface.</p>
  */
-export interface VirtualInterface extends $MetadataBearer {
+export interface VirtualInterface {
   __type?: "VirtualInterface";
   /**
    * <p>The address family for the BGP peer.</p>
@@ -3583,7 +3572,7 @@ export type VirtualInterfaceState =
   | "unknown"
   | "verifying";
 
-export interface VirtualInterfaces extends $MetadataBearer {
+export interface VirtualInterfaces {
   __type?: "VirtualInterfaces";
   /**
    * <p>The virtual interfaces</p>

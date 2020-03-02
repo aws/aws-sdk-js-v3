@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PollForActivityTaskCommandInput = PollForActivityTaskInput;
-export type PollForActivityTaskCommandOutput = ActivityTask;
+export type PollForActivityTaskCommandOutput = ActivityTask & __MetadataBearer;
 
 export class PollForActivityTaskCommand extends $Command<
   PollForActivityTaskCommandInput,

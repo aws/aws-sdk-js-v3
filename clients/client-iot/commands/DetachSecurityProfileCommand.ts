@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachSecurityProfileCommandInput = DetachSecurityProfileRequest;
-export type DetachSecurityProfileCommandOutput = DetachSecurityProfileResponse;
+export type DetachSecurityProfileCommandOutput = DetachSecurityProfileResponse &
+  __MetadataBearer;
 
 export class DetachSecurityProfileCommand extends $Command<
   DetachSecurityProfileCommandInput,

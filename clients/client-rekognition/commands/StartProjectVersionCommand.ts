@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartProjectVersionCommandInput = StartProjectVersionRequest;
-export type StartProjectVersionCommandOutput = StartProjectVersionResponse;
+export type StartProjectVersionCommandOutput = StartProjectVersionResponse &
+  __MetadataBearer;
 
 export class StartProjectVersionCommand extends $Command<
   StartProjectVersionCommandInput,

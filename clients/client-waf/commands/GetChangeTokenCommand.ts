@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetChangeTokenCommandInput = GetChangeTokenRequest;
-export type GetChangeTokenCommandOutput = GetChangeTokenResponse;
+export type GetChangeTokenCommandOutput = GetChangeTokenResponse &
+  __MetadataBearer;
 
 export class GetChangeTokenCommand extends $Command<
   GetChangeTokenCommandInput,

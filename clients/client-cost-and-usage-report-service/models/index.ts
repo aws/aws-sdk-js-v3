@@ -51,7 +51,7 @@ export namespace DeleteReportDefinitionRequest {
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  */
-export interface DeleteReportDefinitionResponse extends $MetadataBearer {
+export interface DeleteReportDefinitionResponse {
   __type?: "DeleteReportDefinitionResponse";
   /**
    * <p>Whether the deletion was successful or not.</p>
@@ -90,7 +90,7 @@ export namespace DescribeReportDefinitionsRequest {
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  */
-export interface DescribeReportDefinitionsResponse extends $MetadataBearer {
+export interface DescribeReportDefinitionsResponse {
   __type?: "DescribeReportDefinitionsResponse";
   /**
    * <p>A generic string.</p>
@@ -172,7 +172,7 @@ export namespace ModifyReportDefinitionRequest {
   }
 }
 
-export interface ModifyReportDefinitionResponse extends $MetadataBearer {
+export interface ModifyReportDefinitionResponse {
   __type?: "ModifyReportDefinitionResponse";
 }
 
@@ -203,7 +203,7 @@ export namespace PutReportDefinitionRequest {
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
  */
-export interface PutReportDefinitionResponse extends $MetadataBearer {
+export interface PutReportDefinitionResponse {
   __type?: "PutReportDefinitionResponse";
 }
 

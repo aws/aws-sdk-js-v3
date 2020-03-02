@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAccountRolesCommandInput = ListAccountRolesRequest;
-export type ListAccountRolesCommandOutput = ListAccountRolesResponse;
+export type ListAccountRolesCommandOutput = ListAccountRolesResponse &
+  __MetadataBearer;
 
 export class ListAccountRolesCommand extends $Command<
   ListAccountRolesCommandInput,

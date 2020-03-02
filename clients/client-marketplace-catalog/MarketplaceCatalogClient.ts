@@ -1,17 +1,27 @@
 import {
-  CancelChangeSetRequest,
-  CancelChangeSetResponse,
-  DescribeChangeSetRequest,
-  DescribeChangeSetResponse,
-  DescribeEntityRequest,
-  DescribeEntityResponse,
-  ListChangeSetsRequest,
-  ListChangeSetsResponse,
-  ListEntitiesRequest,
-  ListEntitiesResponse,
-  StartChangeSetRequest,
-  StartChangeSetResponse
-} from "./models/index";
+  CancelChangeSetCommandInput,
+  CancelChangeSetCommandOutput
+} from "./commands/CancelChangeSetCommand";
+import {
+  DescribeChangeSetCommandInput,
+  DescribeChangeSetCommandOutput
+} from "./commands/DescribeChangeSetCommand";
+import {
+  DescribeEntityCommandInput,
+  DescribeEntityCommandOutput
+} from "./commands/DescribeEntityCommand";
+import {
+  ListChangeSetsCommandInput,
+  ListChangeSetsCommandOutput
+} from "./commands/ListChangeSetsCommand";
+import {
+  ListEntitiesCommandInput,
+  ListEntitiesCommandOutput
+} from "./commands/ListEntitiesCommand";
+import {
+  StartChangeSetCommandInput,
+  StartChangeSetCommandOutput
+} from "./commands/StartChangeSetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -65,20 +75,20 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelChangeSetRequest
-  | DescribeChangeSetRequest
-  | DescribeEntityRequest
-  | ListChangeSetsRequest
-  | ListEntitiesRequest
-  | StartChangeSetRequest;
+  | CancelChangeSetCommandInput
+  | DescribeChangeSetCommandInput
+  | DescribeEntityCommandInput
+  | ListChangeSetsCommandInput
+  | ListEntitiesCommandInput
+  | StartChangeSetCommandInput;
 
 export type ServiceOutputTypes =
-  | CancelChangeSetResponse
-  | DescribeChangeSetResponse
-  | DescribeEntityResponse
-  | ListChangeSetsResponse
-  | ListEntitiesResponse
-  | StartChangeSetResponse;
+  | CancelChangeSetCommandOutput
+  | DescribeChangeSetCommandOutput
+  | DescribeEntityCommandOutput
+  | ListChangeSetsCommandOutput
+  | ListEntitiesCommandOutput
+  | StartChangeSetCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

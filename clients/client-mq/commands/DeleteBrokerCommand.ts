@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBrokerCommandInput = DeleteBrokerRequest;
-export type DeleteBrokerCommandOutput = DeleteBrokerResponse;
+export type DeleteBrokerCommandOutput = DeleteBrokerResponse & __MetadataBearer;
 
 export class DeleteBrokerCommand extends $Command<
   DeleteBrokerCommandInput,

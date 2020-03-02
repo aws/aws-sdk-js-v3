@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRepositoryCommandInput = DeleteRepositoryInput;
-export type DeleteRepositoryCommandOutput = DeleteRepositoryOutput;
+export type DeleteRepositoryCommandOutput = DeleteRepositoryOutput &
+  __MetadataBearer;
 
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,

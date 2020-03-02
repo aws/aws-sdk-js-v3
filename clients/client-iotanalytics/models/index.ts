@@ -184,7 +184,7 @@ export namespace CancelPipelineReprocessingRequest {
   }
 }
 
-export interface CancelPipelineReprocessingResponse extends $MetadataBearer {
+export interface CancelPipelineReprocessingResponse {
   __type?: "CancelPipelineReprocessingResponse";
 }
 
@@ -456,7 +456,7 @@ export namespace CreateChannelRequest {
   }
 }
 
-export interface CreateChannelResponse extends $MetadataBearer {
+export interface CreateChannelResponse {
   __type?: "CreateChannelResponse";
   /**
    * <p>The ARN of the channel.</p>
@@ -494,7 +494,7 @@ export namespace CreateDatasetContentRequest {
   }
 }
 
-export interface CreateDatasetContentResponse extends $MetadataBearer {
+export interface CreateDatasetContentResponse {
   __type?: "CreateDatasetContentResponse";
   /**
    * <p>The version ID of the data set contents which are being created.</p>
@@ -561,7 +561,7 @@ export namespace CreateDatasetRequest {
   }
 }
 
-export interface CreateDatasetResponse extends $MetadataBearer {
+export interface CreateDatasetResponse {
   __type?: "CreateDatasetResponse";
   /**
    * <p>The ARN of the data set.</p>
@@ -617,7 +617,7 @@ export namespace CreateDatastoreRequest {
   }
 }
 
-export interface CreateDatastoreResponse extends $MetadataBearer {
+export interface CreateDatastoreResponse {
   __type?: "CreateDatastoreResponse";
   /**
    * <p>The ARN of the data store.</p>
@@ -682,7 +682,7 @@ export namespace CreatePipelineRequest {
   }
 }
 
-export interface CreatePipelineResponse extends $MetadataBearer {
+export interface CreatePipelineResponse {
   __type?: "CreatePipelineResponse";
   /**
    * <p>The ARN of the pipeline.</p>
@@ -1491,7 +1491,7 @@ export namespace DescribeChannelRequest {
   }
 }
 
-export interface DescribeChannelResponse extends $MetadataBearer {
+export interface DescribeChannelResponse {
   __type?: "DescribeChannelResponse";
   /**
    * <p>An object that contains information about the channel.</p>
@@ -1525,7 +1525,7 @@ export namespace DescribeDatasetRequest {
   }
 }
 
-export interface DescribeDatasetResponse extends $MetadataBearer {
+export interface DescribeDatasetResponse {
   __type?: "DescribeDatasetResponse";
   /**
    * <p>An object that contains information about the data set.</p>
@@ -1559,7 +1559,7 @@ export namespace DescribeDatastoreRequest {
   }
 }
 
-export interface DescribeDatastoreResponse extends $MetadataBearer {
+export interface DescribeDatastoreResponse {
   __type?: "DescribeDatastoreResponse";
   /**
    * <p>Information about the data store.</p>
@@ -1589,7 +1589,7 @@ export namespace DescribeLoggingOptionsRequest {
   }
 }
 
-export interface DescribeLoggingOptionsResponse extends $MetadataBearer {
+export interface DescribeLoggingOptionsResponse {
   __type?: "DescribeLoggingOptionsResponse";
   /**
    * <p>The current settings of the AWS IoT Analytics logging options.</p>
@@ -1617,7 +1617,7 @@ export namespace DescribePipelineRequest {
   }
 }
 
-export interface DescribePipelineResponse extends $MetadataBearer {
+export interface DescribePipelineResponse {
   __type?: "DescribePipelineResponse";
   /**
    * <p>A "Pipeline" object
@@ -1778,7 +1778,7 @@ export namespace GetDatasetContentRequest {
   }
 }
 
-export interface GetDatasetContentResponse extends $MetadataBearer {
+export interface GetDatasetContentResponse {
   __type?: "GetDatasetContentResponse";
   /**
    * <p>A list of "DatasetEntry" objects.</p>
@@ -1905,7 +1905,7 @@ export namespace ListChannelsRequest {
   }
 }
 
-export interface ListChannelsResponse extends $MetadataBearer {
+export interface ListChannelsResponse {
   __type?: "ListChannelsResponse";
   /**
    * <p>A list of "ChannelSummary" objects.</p>
@@ -1962,7 +1962,7 @@ export namespace ListDatasetContentsRequest {
   }
 }
 
-export interface ListDatasetContentsResponse extends $MetadataBearer {
+export interface ListDatasetContentsResponse {
   __type?: "ListDatasetContentsResponse";
   /**
    * <p>Summary information about data set contents that have been created.</p>
@@ -2002,7 +2002,7 @@ export namespace ListDatasetsRequest {
   }
 }
 
-export interface ListDatasetsResponse extends $MetadataBearer {
+export interface ListDatasetsResponse {
   __type?: "ListDatasetsResponse";
   /**
    * <p>A list of "DatasetSummary" objects.</p>
@@ -2042,7 +2042,7 @@ export namespace ListDatastoresRequest {
   }
 }
 
-export interface ListDatastoresResponse extends $MetadataBearer {
+export interface ListDatastoresResponse {
   __type?: "ListDatastoresResponse";
   /**
    * <p>A list of "DatastoreSummary" objects.</p>
@@ -2082,7 +2082,7 @@ export namespace ListPipelinesRequest {
   }
 }
 
-export interface ListPipelinesResponse extends $MetadataBearer {
+export interface ListPipelinesResponse {
   __type?: "ListPipelinesResponse";
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
@@ -2116,7 +2116,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags (metadata) which you have assigned to the resource.</p>
@@ -2512,7 +2512,7 @@ export namespace RunPipelineActivityRequest {
   }
 }
 
-export interface RunPipelineActivityResponse extends $MetadataBearer {
+export interface RunPipelineActivityResponse {
   __type?: "RunPipelineActivityResponse";
   /**
    * <p>In case the pipeline activity fails, the log message that is generated.</p>
@@ -2601,7 +2601,7 @@ export namespace SampleChannelDataRequest {
   }
 }
 
-export interface SampleChannelDataResponse extends $MetadataBearer {
+export interface SampleChannelDataResponse {
   __type?: "SampleChannelDataResponse";
   /**
    * <p>The list of message samples.  Each sample message is returned as a base64-encoded
@@ -2765,7 +2765,7 @@ export namespace StartPipelineReprocessingRequest {
   }
 }
 
-export interface StartPipelineReprocessingResponse extends $MetadataBearer {
+export interface StartPipelineReprocessingResponse {
   __type?: "StartPipelineReprocessingResponse";
   /**
    * <p>The ID of the pipeline reprocessing activity that was started.</p>
@@ -2820,7 +2820,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -2868,7 +2868,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -3146,7 +3146,7 @@ export namespace BatchPutMessageRequest {
   }
 }
 
-export interface BatchPutMessageResponse extends $MetadataBearer {
+export interface BatchPutMessageResponse {
   __type?: "BatchPutMessageResponse";
   /**
    * <p>A list of any errors encountered when sending the messages to the channel.</p>

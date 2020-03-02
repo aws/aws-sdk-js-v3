@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateImagePipelineCommandInput = CreateImagePipelineRequest;
-export type CreateImagePipelineCommandOutput = CreateImagePipelineResponse;
+export type CreateImagePipelineCommandOutput = CreateImagePipelineResponse &
+  __MetadataBearer;
 
 export class CreateImagePipelineCommand extends $Command<
   CreateImagePipelineCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDomainEntryCommandInput = DeleteDomainEntryRequest;
-export type DeleteDomainEntryCommandOutput = DeleteDomainEntryResult;
+export type DeleteDomainEntryCommandOutput = DeleteDomainEntryResult &
+  __MetadataBearer;
 
 export class DeleteDomainEntryCommand extends $Command<
   DeleteDomainEntryCommandInput,

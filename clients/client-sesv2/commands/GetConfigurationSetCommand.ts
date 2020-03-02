@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetConfigurationSetCommandInput = GetConfigurationSetRequest;
-export type GetConfigurationSetCommandOutput = GetConfigurationSetResponse;
+export type GetConfigurationSetCommandOutput = GetConfigurationSetResponse &
+  __MetadataBearer;
 
 export class GetConfigurationSetCommand extends $Command<
   GetConfigurationSetCommandInput,

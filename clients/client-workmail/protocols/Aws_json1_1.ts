@@ -720,38 +720,53 @@ async function deserializeAws_json1_1AssociateDelegateToResourceCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -810,59 +825,83 @@ async function deserializeAws_json1_1AssociateMemberToGroupCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail.service#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -915,59 +954,83 @@ async function deserializeAws_json1_1CreateAliasCommandError(
   switch (errorCode) {
     case "EmailAddressInUseException":
     case "com.amazonaws.workmail.service#EmailAddressInUseException":
-      response = await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail.service#MailDomainNotFoundException":
-      response = await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MailDomainStateException":
     case "com.amazonaws.workmail.service#MailDomainStateException":
-      response = await deserializeAws_json1_1MailDomainStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MailDomainStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1020,59 +1083,83 @@ async function deserializeAws_json1_1CreateGroupCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameAvailabilityException":
     case "com.amazonaws.workmail.service#NameAvailabilityException":
-      response = await deserializeAws_json1_1NameAvailabilityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameAvailabilityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNameException":
     case "com.amazonaws.workmail.service#ReservedNameException":
-      response = await deserializeAws_json1_1ReservedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReservedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail.service#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1125,52 +1212,73 @@ async function deserializeAws_json1_1CreateResourceCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameAvailabilityException":
     case "com.amazonaws.workmail.service#NameAvailabilityException":
-      response = await deserializeAws_json1_1NameAvailabilityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameAvailabilityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNameException":
     case "com.amazonaws.workmail.service#ReservedNameException":
-      response = await deserializeAws_json1_1ReservedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReservedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1223,66 +1331,93 @@ async function deserializeAws_json1_1CreateUserCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.workmail.service#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameAvailabilityException":
     case "com.amazonaws.workmail.service#NameAvailabilityException":
-      response = await deserializeAws_json1_1NameAvailabilityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameAvailabilityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNameException":
     case "com.amazonaws.workmail.service#ReservedNameException":
-      response = await deserializeAws_json1_1ReservedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReservedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail.service#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1335,38 +1470,53 @@ async function deserializeAws_json1_1DeleteAliasCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1419,52 +1569,73 @@ async function deserializeAws_json1_1DeleteGroupCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail.service#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1523,38 +1694,53 @@ async function deserializeAws_json1_1DeleteMailboxPermissionsCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1607,31 +1793,43 @@ async function deserializeAws_json1_1DeleteResourceCommandError(
   switch (errorCode) {
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1684,52 +1882,73 @@ async function deserializeAws_json1_1DeleteUserCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail.service#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1788,38 +2007,53 @@ async function deserializeAws_json1_1DeregisterFromWorkMailCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1872,31 +2106,43 @@ async function deserializeAws_json1_1DescribeGroupCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1952,17 +2198,23 @@ async function deserializeAws_json1_1DescribeOrganizationCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2015,31 +2267,43 @@ async function deserializeAws_json1_1DescribeResourceCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2092,31 +2356,43 @@ async function deserializeAws_json1_1DescribeUserCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2175,38 +2451,53 @@ async function deserializeAws_json1_1DisassociateDelegateFromResourceCommandErro
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2265,59 +2556,83 @@ async function deserializeAws_json1_1DisassociateMemberFromGroupCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail.service#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2370,24 +2685,33 @@ async function deserializeAws_json1_1GetMailboxDetailsCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2440,38 +2764,53 @@ async function deserializeAws_json1_1ListAliasesCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2524,38 +2863,53 @@ async function deserializeAws_json1_1ListGroupMembersCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2608,31 +2962,43 @@ async function deserializeAws_json1_1ListGroupsCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2691,31 +3057,43 @@ async function deserializeAws_json1_1ListMailboxPermissionsCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2768,10 +3146,13 @@ async function deserializeAws_json1_1ListOrganizationsCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2827,38 +3208,53 @@ async function deserializeAws_json1_1ListResourceDelegatesCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2911,24 +3307,33 @@ async function deserializeAws_json1_1ListResourcesCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2981,24 +3386,33 @@ async function deserializeAws_json1_1ListUsersCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3054,38 +3468,53 @@ async function deserializeAws_json1_1PutMailboxPermissionsCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3141,80 +3570,113 @@ async function deserializeAws_json1_1RegisterToWorkMailCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EmailAddressInUseException":
     case "com.amazonaws.workmail.service#EmailAddressInUseException":
-      response = await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyRegisteredException":
     case "com.amazonaws.workmail.service#EntityAlreadyRegisteredException":
-      response = await deserializeAws_json1_1EntityAlreadyRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityAlreadyRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail.service#MailDomainNotFoundException":
-      response = await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MailDomainStateException":
     case "com.amazonaws.workmail.service#MailDomainStateException":
-      response = await deserializeAws_json1_1MailDomainStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MailDomainStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3267,66 +3729,93 @@ async function deserializeAws_json1_1ResetPasswordCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.workmail.service#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail.service#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3382,38 +3871,53 @@ async function deserializeAws_json1_1UpdateMailboxQuotaCommandError(
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3472,80 +3976,113 @@ async function deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError(
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
-      response = await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EmailAddressInUseException":
     case "com.amazonaws.workmail.service#EmailAddressInUseException":
-      response = await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.workmail.service#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail.service#MailDomainNotFoundException":
-      response = await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MailDomainStateException":
     case "com.amazonaws.workmail.service#MailDomainStateException":
-      response = await deserializeAws_json1_1MailDomainStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MailDomainStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail.service#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3598,73 +4135,103 @@ async function deserializeAws_json1_1UpdateResourceCommandError(
   switch (errorCode) {
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail.service#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EmailAddressInUseException":
     case "com.amazonaws.workmail.service#EmailAddressInUseException":
-      response = await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotFoundException":
     case "com.amazonaws.workmail.service#EntityNotFoundException":
-      response = await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityStateException":
     case "com.amazonaws.workmail.service#EntityStateException":
-      response = await deserializeAws_json1_1EntityStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationException":
     case "com.amazonaws.workmail.service#InvalidConfigurationException":
-      response = await deserializeAws_json1_1InvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail.service#MailDomainNotFoundException":
-      response = await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MailDomainStateException":
     case "com.amazonaws.workmail.service#MailDomainStateException":
-      response = await deserializeAws_json1_1MailDomainStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MailDomainStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameAvailabilityException":
     case "com.amazonaws.workmail.service#NameAvailabilityException":
-      response = await deserializeAws_json1_1NameAvailabilityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameAvailabilityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail.service#OrganizationNotFoundException":
-      response = await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationStateException":
     case "com.amazonaws.workmail.service#OrganizationStateException":
-      response = await deserializeAws_json1_1OrganizationStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

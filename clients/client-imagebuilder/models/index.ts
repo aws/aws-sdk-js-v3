@@ -109,7 +109,7 @@ export namespace CancelImageCreationRequest {
   }
 }
 
-export interface CancelImageCreationResponse extends $MetadataBearer {
+export interface CancelImageCreationResponse {
   __type?: "CancelImageCreationResponse";
   /**
    * <p>The idempotency token used to make this request idempotent.</p>
@@ -424,7 +424,7 @@ export namespace CreateComponentRequest {
   }
 }
 
-export interface CreateComponentResponse extends $MetadataBearer {
+export interface CreateComponentResponse {
   __type?: "CreateComponentResponse";
   /**
    * <p>CThe idempotency token used to make this request idempotent.</p>
@@ -482,8 +482,7 @@ export namespace CreateDistributionConfigurationRequest {
   }
 }
 
-export interface CreateDistributionConfigurationResponse
-  extends $MetadataBearer {
+export interface CreateDistributionConfigurationResponse {
   __type?: "CreateDistributionConfigurationResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -566,7 +565,7 @@ export namespace CreateImagePipelineRequest {
   }
 }
 
-export interface CreateImagePipelineResponse extends $MetadataBearer {
+export interface CreateImagePipelineResponse {
   __type?: "CreateImagePipelineResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -639,7 +638,7 @@ export namespace CreateImageRecipeRequest {
   }
 }
 
-export interface CreateImageRecipeResponse extends $MetadataBearer {
+export interface CreateImageRecipeResponse {
   __type?: "CreateImageRecipeResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -702,7 +701,7 @@ export namespace CreateImageRequest {
   }
 }
 
-export interface CreateImageResponse extends $MetadataBearer {
+export interface CreateImageResponse {
   __type?: "CreateImageResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -795,8 +794,7 @@ export namespace CreateInfrastructureConfigurationRequest {
   }
 }
 
-export interface CreateInfrastructureConfigurationResponse
-  extends $MetadataBearer {
+export interface CreateInfrastructureConfigurationResponse {
   __type?: "CreateInfrastructureConfigurationResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -834,7 +832,7 @@ export namespace DeleteComponentRequest {
   }
 }
 
-export interface DeleteComponentResponse extends $MetadataBearer {
+export interface DeleteComponentResponse {
   __type?: "DeleteComponentResponse";
   /**
    * <p> The Amazon Resource Name (ARN) of the component build version that was deleted. </p>
@@ -867,8 +865,7 @@ export namespace DeleteDistributionConfigurationRequest {
   }
 }
 
-export interface DeleteDistributionConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteDistributionConfigurationResponse {
   __type?: "DeleteDistributionConfigurationResponse";
   /**
    * <p> The Amazon Resource Name (ARN) of the distribution configuration that was deleted. </p>
@@ -901,7 +898,7 @@ export namespace DeleteImagePipelineRequest {
   }
 }
 
-export interface DeleteImagePipelineResponse extends $MetadataBearer {
+export interface DeleteImagePipelineResponse {
   __type?: "DeleteImagePipelineResponse";
   /**
    * <p> The Amazon Resource Name (ARN) of the image pipeline that was deleted. </p>
@@ -934,7 +931,7 @@ export namespace DeleteImageRecipeRequest {
   }
 }
 
-export interface DeleteImageRecipeResponse extends $MetadataBearer {
+export interface DeleteImageRecipeResponse {
   __type?: "DeleteImageRecipeResponse";
   /**
    * <p> The Amazon Resource Name (ARN) of the image recipe that was deleted. </p>
@@ -967,7 +964,7 @@ export namespace DeleteImageRequest {
   }
 }
 
-export interface DeleteImageResponse extends $MetadataBearer {
+export interface DeleteImageResponse {
   __type?: "DeleteImageResponse";
   /**
    * <p> The Amazon Resource Name (ARN) of the image that was deleted. </p>
@@ -1000,8 +997,7 @@ export namespace DeleteInfrastructureConfigurationRequest {
   }
 }
 
-export interface DeleteInfrastructureConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteInfrastructureConfigurationResponse {
   __type?: "DeleteInfrastructureConfigurationResponse";
   /**
    * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that was deleted. </p>
@@ -1247,7 +1243,7 @@ export namespace GetComponentPolicyRequest {
   }
 }
 
-export interface GetComponentPolicyResponse extends $MetadataBearer {
+export interface GetComponentPolicyResponse {
   __type?: "GetComponentPolicyResponse";
   /**
    * <p> The component policy. </p>
@@ -1280,7 +1276,7 @@ export namespace GetComponentRequest {
   }
 }
 
-export interface GetComponentResponse extends $MetadataBearer {
+export interface GetComponentResponse {
   __type?: "GetComponentResponse";
   /**
    * <p> The component object associated with the specified ARN. </p>
@@ -1313,7 +1309,7 @@ export namespace GetDistributionConfigurationRequest {
   }
 }
 
-export interface GetDistributionConfigurationResponse extends $MetadataBearer {
+export interface GetDistributionConfigurationResponse {
   __type?: "GetDistributionConfigurationResponse";
   /**
    * <p> The distribution configuration object. </p>
@@ -1346,7 +1342,7 @@ export namespace GetImagePipelineRequest {
   }
 }
 
-export interface GetImagePipelineResponse extends $MetadataBearer {
+export interface GetImagePipelineResponse {
   __type?: "GetImagePipelineResponse";
   /**
    * <p> The image pipeline object. </p>
@@ -1379,7 +1375,7 @@ export namespace GetImagePolicyRequest {
   }
 }
 
-export interface GetImagePolicyResponse extends $MetadataBearer {
+export interface GetImagePolicyResponse {
   __type?: "GetImagePolicyResponse";
   /**
    * <p> The image policy object. </p>
@@ -1412,7 +1408,7 @@ export namespace GetImageRecipePolicyRequest {
   }
 }
 
-export interface GetImageRecipePolicyResponse extends $MetadataBearer {
+export interface GetImageRecipePolicyResponse {
   __type?: "GetImageRecipePolicyResponse";
   /**
    * <p> The image recipe policy object. </p>
@@ -1445,7 +1441,7 @@ export namespace GetImageRecipeRequest {
   }
 }
 
-export interface GetImageRecipeResponse extends $MetadataBearer {
+export interface GetImageRecipeResponse {
   __type?: "GetImageRecipeResponse";
   /**
    * <p> The image recipe object. </p>
@@ -1478,7 +1474,7 @@ export namespace GetImageRequest {
   }
 }
 
-export interface GetImageResponse extends $MetadataBearer {
+export interface GetImageResponse {
   __type?: "GetImageResponse";
   /**
    * <p> The image object. </p>
@@ -1517,8 +1513,7 @@ export namespace GetInfrastructureConfigurationRequest {
 /**
  * <p> GetInfrastructureConfiguration response object. </p>
  */
-export interface GetInfrastructureConfigurationResponse
-  extends $MetadataBearer {
+export interface GetInfrastructureConfigurationResponse {
   __type?: "GetInfrastructureConfigurationResponse";
   /**
    * <p> The infrastructure configuration object. </p>
@@ -2063,7 +2058,7 @@ export namespace ImportComponentRequest {
   }
 }
 
-export interface ImportComponentResponse extends $MetadataBearer {
+export interface ImportComponentResponse {
   __type?: "ImportComponentResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -2391,7 +2386,7 @@ export namespace ListComponentBuildVersionsRequest {
   }
 }
 
-export interface ListComponentBuildVersionsResponse extends $MetadataBearer {
+export interface ListComponentBuildVersionsResponse {
   __type?: "ListComponentBuildVersionsResponse";
   /**
    * <p> The list of component summaries for the specified semantic version. </p>
@@ -2444,7 +2439,7 @@ export namespace ListComponentsRequest {
   }
 }
 
-export interface ListComponentsResponse extends $MetadataBearer {
+export interface ListComponentsResponse {
   __type?: "ListComponentsResponse";
   /**
    * <p> The list of component semantic versions. </p>
@@ -2492,8 +2487,7 @@ export namespace ListDistributionConfigurationsRequest {
   }
 }
 
-export interface ListDistributionConfigurationsResponse
-  extends $MetadataBearer {
+export interface ListDistributionConfigurationsResponse {
   __type?: "ListDistributionConfigurationsResponse";
   /**
    * <p> The list of distributions. </p>
@@ -2548,7 +2542,7 @@ export namespace ListImageBuildVersionsRequest {
   }
 }
 
-export interface ListImageBuildVersionsResponse extends $MetadataBearer {
+export interface ListImageBuildVersionsResponse {
   __type?: "ListImageBuildVersionsResponse";
   /**
    * <p> The list of image build versions. </p>
@@ -2601,7 +2595,7 @@ export namespace ListImagePipelineImagesRequest {
   }
 }
 
-export interface ListImagePipelineImagesResponse extends $MetadataBearer {
+export interface ListImagePipelineImagesResponse {
   __type?: "ListImagePipelineImagesResponse";
   /**
    * <p> The list of images built by this pipeline. </p>
@@ -2649,7 +2643,7 @@ export namespace ListImagePipelinesRequest {
   }
 }
 
-export interface ListImagePipelinesResponse extends $MetadataBearer {
+export interface ListImagePipelinesResponse {
   __type?: "ListImagePipelinesResponse";
   /**
    * <p> The list of image pipelines. </p>
@@ -2702,7 +2696,7 @@ export namespace ListImageRecipesRequest {
   }
 }
 
-export interface ListImageRecipesResponse extends $MetadataBearer {
+export interface ListImageRecipesResponse {
   __type?: "ListImageRecipesResponse";
   /**
    * <p> The list of image pipelines. </p>
@@ -2755,7 +2749,7 @@ export namespace ListImagesRequest {
   }
 }
 
-export interface ListImagesResponse extends $MetadataBearer {
+export interface ListImagesResponse {
   __type?: "ListImagesResponse";
   /**
    * <p> The list of image semantic versions. </p>
@@ -2803,8 +2797,7 @@ export namespace ListInfrastructureConfigurationsRequest {
   }
 }
 
-export interface ListInfrastructureConfigurationsResponse
-  extends $MetadataBearer {
+export interface ListInfrastructureConfigurationsResponse {
   __type?: "ListInfrastructureConfigurationsResponse";
   /**
    * <p> The list of infrastructure configurations. </p>
@@ -2844,7 +2837,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p> The tags for the specified resource. </p>
@@ -2932,7 +2925,7 @@ export namespace PutComponentPolicyRequest {
   }
 }
 
-export interface PutComponentPolicyResponse extends $MetadataBearer {
+export interface PutComponentPolicyResponse {
   __type?: "PutComponentPolicyResponse";
   /**
    * <p> The Amazon Resource Name (ARN) of the component that this policy was applied to. </p>
@@ -2970,7 +2963,7 @@ export namespace PutImagePolicyRequest {
   }
 }
 
-export interface PutImagePolicyResponse extends $MetadataBearer {
+export interface PutImagePolicyResponse {
   __type?: "PutImagePolicyResponse";
   /**
    * <p> The Amazon Resource Name (ARN) of the image that this policy was applied to. </p>
@@ -3008,7 +3001,7 @@ export namespace PutImageRecipePolicyRequest {
   }
 }
 
-export interface PutImageRecipePolicyResponse extends $MetadataBearer {
+export interface PutImageRecipePolicyResponse {
   __type?: "PutImageRecipePolicyResponse";
   /**
    * <p> The Amazon Resource Name (ARN) of the image recipe that this policy was applied to. </p>
@@ -3190,7 +3183,7 @@ export namespace StartImagePipelineExecutionRequest {
   }
 }
 
-export interface StartImagePipelineExecutionResponse extends $MetadataBearer {
+export interface StartImagePipelineExecutionResponse {
   __type?: "StartImagePipelineExecutionResponse";
   /**
    * <p> The idempotency token used to make this request idempotent.</p>
@@ -3233,7 +3226,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -3262,7 +3255,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -3301,8 +3294,7 @@ export namespace UpdateDistributionConfigurationRequest {
   }
 }
 
-export interface UpdateDistributionConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateDistributionConfigurationResponse {
   __type?: "UpdateDistributionConfigurationResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -3380,7 +3372,7 @@ export namespace UpdateImagePipelineRequest {
   }
 }
 
-export interface UpdateImagePipelineResponse extends $MetadataBearer {
+export interface UpdateImagePipelineResponse {
   __type?: "UpdateImagePipelineResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -3468,8 +3460,7 @@ export namespace UpdateInfrastructureConfigurationRequest {
   }
 }
 
-export interface UpdateInfrastructureConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateInfrastructureConfigurationResponse {
   __type?: "UpdateInfrastructureConfigurationResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>

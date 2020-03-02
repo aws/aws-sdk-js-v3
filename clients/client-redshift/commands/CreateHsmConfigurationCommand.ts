@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateHsmConfigurationCommandInput = CreateHsmConfigurationMessage;
-export type CreateHsmConfigurationCommandOutput = CreateHsmConfigurationResult;
+export type CreateHsmConfigurationCommandOutput = CreateHsmConfigurationResult &
+  __MetadataBearer;
 
 export class CreateHsmConfigurationCommand extends $Command<
   CreateHsmConfigurationCommandInput,

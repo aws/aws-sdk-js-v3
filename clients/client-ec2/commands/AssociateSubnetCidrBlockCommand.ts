@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateSubnetCidrBlockCommandInput = AssociateSubnetCidrBlockRequest;
-export type AssociateSubnetCidrBlockCommandOutput = AssociateSubnetCidrBlockResult;
+export type AssociateSubnetCidrBlockCommandOutput = AssociateSubnetCidrBlockResult &
+  __MetadataBearer;
 
 export class AssociateSubnetCidrBlockCommand extends $Command<
   AssociateSubnetCidrBlockCommandInput,

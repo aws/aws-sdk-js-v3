@@ -1,17 +1,31 @@
 import {
-  DeletePlaybackConfigurationRequest,
-  DeletePlaybackConfigurationResponse,
-  GetPlaybackConfigurationRequest,
-  GetPlaybackConfigurationResponse,
-  ListPlaybackConfigurationsRequest,
-  ListPlaybackConfigurationsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutPlaybackConfigurationRequest,
-  PutPlaybackConfigurationResponse,
-  TagResourceRequest,
-  UntagResourceRequest
-} from "./models/index";
+  DeletePlaybackConfigurationCommandInput,
+  DeletePlaybackConfigurationCommandOutput
+} from "./commands/DeletePlaybackConfigurationCommand";
+import {
+  GetPlaybackConfigurationCommandInput,
+  GetPlaybackConfigurationCommandOutput
+} from "./commands/GetPlaybackConfigurationCommand";
+import {
+  ListPlaybackConfigurationsCommandInput,
+  ListPlaybackConfigurationsCommandOutput
+} from "./commands/ListPlaybackConfigurationsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutPlaybackConfigurationCommandInput,
+  PutPlaybackConfigurationCommandOutput
+} from "./commands/PutPlaybackConfigurationCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -59,28 +73,28 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeletePlaybackConfigurationRequest
-  | GetPlaybackConfigurationRequest
-  | ListPlaybackConfigurationsRequest
-  | ListTagsForResourceRequest
-  | PutPlaybackConfigurationRequest
-  | TagResourceRequest
-  | UntagResourceRequest;
+  | DeletePlaybackConfigurationCommandInput
+  | GetPlaybackConfigurationCommandInput
+  | ListPlaybackConfigurationsCommandInput
+  | ListTagsForResourceCommandInput
+  | PutPlaybackConfigurationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | DeletePlaybackConfigurationResponse
-  | GetPlaybackConfigurationResponse
-  | ListPlaybackConfigurationsResponse
-  | ListTagsForResourceResponse
-  | PutPlaybackConfigurationResponse;
+  | DeletePlaybackConfigurationCommandOutput
+  | GetPlaybackConfigurationCommandOutput
+  | ListPlaybackConfigurationsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutPlaybackConfigurationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

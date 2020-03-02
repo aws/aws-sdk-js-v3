@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReserveContactCommandInput = ReserveContactRequest;
-export type ReserveContactCommandOutput = ContactIdResponse;
+export type ReserveContactCommandOutput = ContactIdResponse & __MetadataBearer;
 
 export class ReserveContactCommand extends $Command<
   ReserveContactCommandInput,

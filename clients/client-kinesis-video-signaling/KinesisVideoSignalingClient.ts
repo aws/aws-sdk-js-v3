@@ -1,9 +1,11 @@
 import {
-  GetIceServerConfigRequest,
-  GetIceServerConfigResponse,
-  SendAlexaOfferToMasterRequest,
-  SendAlexaOfferToMasterResponse
-} from "./models/index";
+  GetIceServerConfigCommandInput,
+  GetIceServerConfigCommandOutput
+} from "./commands/GetIceServerConfigCommand";
+import {
+  SendAlexaOfferToMasterCommandInput,
+  SendAlexaOfferToMasterCommandOutput
+} from "./commands/SendAlexaOfferToMasterCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -57,12 +59,12 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | GetIceServerConfigRequest
-  | SendAlexaOfferToMasterRequest;
+  | GetIceServerConfigCommandInput
+  | SendAlexaOfferToMasterCommandInput;
 
 export type ServiceOutputTypes =
-  | GetIceServerConfigResponse
-  | SendAlexaOfferToMasterResponse;
+  | GetIceServerConfigCommandOutput
+  | SendAlexaOfferToMasterCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreFromClusterSnapshotCommandInput = RestoreFromClusterSnapshotMessage;
-export type RestoreFromClusterSnapshotCommandOutput = RestoreFromClusterSnapshotResult;
+export type RestoreFromClusterSnapshotCommandOutput = RestoreFromClusterSnapshotResult &
+  __MetadataBearer;
 
 export class RestoreFromClusterSnapshotCommand extends $Command<
   RestoreFromClusterSnapshotCommandInput,

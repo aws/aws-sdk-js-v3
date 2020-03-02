@@ -1,215 +1,423 @@
 import {
-  AllocateStaticIpRequest,
-  AllocateStaticIpResult,
-  AttachDiskRequest,
-  AttachDiskResult,
-  AttachInstancesToLoadBalancerRequest,
-  AttachInstancesToLoadBalancerResult,
-  AttachLoadBalancerTlsCertificateRequest,
-  AttachLoadBalancerTlsCertificateResult,
-  AttachStaticIpRequest,
-  AttachStaticIpResult,
-  CloseInstancePublicPortsRequest,
-  CloseInstancePublicPortsResult,
-  CopySnapshotRequest,
-  CopySnapshotResult,
-  CreateCloudFormationStackRequest,
-  CreateCloudFormationStackResult,
-  CreateDiskFromSnapshotRequest,
-  CreateDiskFromSnapshotResult,
-  CreateDiskRequest,
-  CreateDiskResult,
-  CreateDiskSnapshotRequest,
-  CreateDiskSnapshotResult,
-  CreateDomainEntryRequest,
-  CreateDomainEntryResult,
-  CreateDomainRequest,
-  CreateDomainResult,
-  CreateInstanceSnapshotRequest,
-  CreateInstanceSnapshotResult,
-  CreateInstancesFromSnapshotRequest,
-  CreateInstancesFromSnapshotResult,
-  CreateInstancesRequest,
-  CreateInstancesResult,
-  CreateKeyPairRequest,
-  CreateKeyPairResult,
-  CreateLoadBalancerRequest,
-  CreateLoadBalancerResult,
-  CreateLoadBalancerTlsCertificateRequest,
-  CreateLoadBalancerTlsCertificateResult,
-  CreateRelationalDatabaseFromSnapshotRequest,
-  CreateRelationalDatabaseFromSnapshotResult,
-  CreateRelationalDatabaseRequest,
-  CreateRelationalDatabaseResult,
-  CreateRelationalDatabaseSnapshotRequest,
-  CreateRelationalDatabaseSnapshotResult,
-  DeleteAutoSnapshotRequest,
-  DeleteAutoSnapshotResult,
-  DeleteDiskRequest,
-  DeleteDiskResult,
-  DeleteDiskSnapshotRequest,
-  DeleteDiskSnapshotResult,
-  DeleteDomainEntryRequest,
-  DeleteDomainEntryResult,
-  DeleteDomainRequest,
-  DeleteDomainResult,
-  DeleteInstanceRequest,
-  DeleteInstanceResult,
-  DeleteInstanceSnapshotRequest,
-  DeleteInstanceSnapshotResult,
-  DeleteKeyPairRequest,
-  DeleteKeyPairResult,
-  DeleteKnownHostKeysRequest,
-  DeleteKnownHostKeysResult,
-  DeleteLoadBalancerRequest,
-  DeleteLoadBalancerResult,
-  DeleteLoadBalancerTlsCertificateRequest,
-  DeleteLoadBalancerTlsCertificateResult,
-  DeleteRelationalDatabaseRequest,
-  DeleteRelationalDatabaseResult,
-  DeleteRelationalDatabaseSnapshotRequest,
-  DeleteRelationalDatabaseSnapshotResult,
-  DetachDiskRequest,
-  DetachDiskResult,
-  DetachInstancesFromLoadBalancerRequest,
-  DetachInstancesFromLoadBalancerResult,
-  DetachStaticIpRequest,
-  DetachStaticIpResult,
-  DisableAddOnRequest,
-  DisableAddOnResult,
-  DownloadDefaultKeyPairRequest,
-  DownloadDefaultKeyPairResult,
-  EnableAddOnRequest,
-  EnableAddOnResult,
-  ExportSnapshotRequest,
-  ExportSnapshotResult,
-  GetActiveNamesRequest,
-  GetActiveNamesResult,
-  GetAutoSnapshotsRequest,
-  GetAutoSnapshotsResult,
-  GetBlueprintsRequest,
-  GetBlueprintsResult,
-  GetBundlesRequest,
-  GetBundlesResult,
-  GetCloudFormationStackRecordsRequest,
-  GetCloudFormationStackRecordsResult,
-  GetDiskRequest,
-  GetDiskResult,
-  GetDiskSnapshotRequest,
-  GetDiskSnapshotResult,
-  GetDiskSnapshotsRequest,
-  GetDiskSnapshotsResult,
-  GetDisksRequest,
-  GetDisksResult,
-  GetDomainRequest,
-  GetDomainResult,
-  GetDomainsRequest,
-  GetDomainsResult,
-  GetExportSnapshotRecordsRequest,
-  GetExportSnapshotRecordsResult,
-  GetInstanceAccessDetailsRequest,
-  GetInstanceAccessDetailsResult,
-  GetInstanceMetricDataRequest,
-  GetInstanceMetricDataResult,
-  GetInstancePortStatesRequest,
-  GetInstancePortStatesResult,
-  GetInstanceRequest,
-  GetInstanceResult,
-  GetInstanceSnapshotRequest,
-  GetInstanceSnapshotResult,
-  GetInstanceSnapshotsRequest,
-  GetInstanceSnapshotsResult,
-  GetInstanceStateRequest,
-  GetInstanceStateResult,
-  GetInstancesRequest,
-  GetInstancesResult,
-  GetKeyPairRequest,
-  GetKeyPairResult,
-  GetKeyPairsRequest,
-  GetKeyPairsResult,
-  GetLoadBalancerMetricDataRequest,
-  GetLoadBalancerMetricDataResult,
-  GetLoadBalancerRequest,
-  GetLoadBalancerResult,
-  GetLoadBalancerTlsCertificatesRequest,
-  GetLoadBalancerTlsCertificatesResult,
-  GetLoadBalancersRequest,
-  GetLoadBalancersResult,
-  GetOperationRequest,
-  GetOperationResult,
-  GetOperationsForResourceRequest,
-  GetOperationsForResourceResult,
-  GetOperationsRequest,
-  GetOperationsResult,
-  GetRegionsRequest,
-  GetRegionsResult,
-  GetRelationalDatabaseBlueprintsRequest,
-  GetRelationalDatabaseBlueprintsResult,
-  GetRelationalDatabaseBundlesRequest,
-  GetRelationalDatabaseBundlesResult,
-  GetRelationalDatabaseEventsRequest,
-  GetRelationalDatabaseEventsResult,
-  GetRelationalDatabaseLogEventsRequest,
-  GetRelationalDatabaseLogEventsResult,
-  GetRelationalDatabaseLogStreamsRequest,
-  GetRelationalDatabaseLogStreamsResult,
-  GetRelationalDatabaseMasterUserPasswordRequest,
-  GetRelationalDatabaseMasterUserPasswordResult,
-  GetRelationalDatabaseMetricDataRequest,
-  GetRelationalDatabaseMetricDataResult,
-  GetRelationalDatabaseParametersRequest,
-  GetRelationalDatabaseParametersResult,
-  GetRelationalDatabaseRequest,
-  GetRelationalDatabaseResult,
-  GetRelationalDatabaseSnapshotRequest,
-  GetRelationalDatabaseSnapshotResult,
-  GetRelationalDatabaseSnapshotsRequest,
-  GetRelationalDatabaseSnapshotsResult,
-  GetRelationalDatabasesRequest,
-  GetRelationalDatabasesResult,
-  GetStaticIpRequest,
-  GetStaticIpResult,
-  GetStaticIpsRequest,
-  GetStaticIpsResult,
-  ImportKeyPairRequest,
-  ImportKeyPairResult,
-  IsVpcPeeredRequest,
-  IsVpcPeeredResult,
-  OpenInstancePublicPortsRequest,
-  OpenInstancePublicPortsResult,
-  PeerVpcRequest,
-  PeerVpcResult,
-  PutInstancePublicPortsRequest,
-  PutInstancePublicPortsResult,
-  RebootInstanceRequest,
-  RebootInstanceResult,
-  RebootRelationalDatabaseRequest,
-  RebootRelationalDatabaseResult,
-  ReleaseStaticIpRequest,
-  ReleaseStaticIpResult,
-  StartInstanceRequest,
-  StartInstanceResult,
-  StartRelationalDatabaseRequest,
-  StartRelationalDatabaseResult,
-  StopInstanceRequest,
-  StopInstanceResult,
-  StopRelationalDatabaseRequest,
-  StopRelationalDatabaseResult,
-  TagResourceRequest,
-  TagResourceResult,
-  UnpeerVpcRequest,
-  UnpeerVpcResult,
-  UntagResourceRequest,
-  UntagResourceResult,
-  UpdateDomainEntryRequest,
-  UpdateDomainEntryResult,
-  UpdateLoadBalancerAttributeRequest,
-  UpdateLoadBalancerAttributeResult,
-  UpdateRelationalDatabaseParametersRequest,
-  UpdateRelationalDatabaseParametersResult,
-  UpdateRelationalDatabaseRequest,
-  UpdateRelationalDatabaseResult
-} from "./models/index";
+  AllocateStaticIpCommandInput,
+  AllocateStaticIpCommandOutput
+} from "./commands/AllocateStaticIpCommand";
+import {
+  AttachDiskCommandInput,
+  AttachDiskCommandOutput
+} from "./commands/AttachDiskCommand";
+import {
+  AttachInstancesToLoadBalancerCommandInput,
+  AttachInstancesToLoadBalancerCommandOutput
+} from "./commands/AttachInstancesToLoadBalancerCommand";
+import {
+  AttachLoadBalancerTlsCertificateCommandInput,
+  AttachLoadBalancerTlsCertificateCommandOutput
+} from "./commands/AttachLoadBalancerTlsCertificateCommand";
+import {
+  AttachStaticIpCommandInput,
+  AttachStaticIpCommandOutput
+} from "./commands/AttachStaticIpCommand";
+import {
+  CloseInstancePublicPortsCommandInput,
+  CloseInstancePublicPortsCommandOutput
+} from "./commands/CloseInstancePublicPortsCommand";
+import {
+  CopySnapshotCommandInput,
+  CopySnapshotCommandOutput
+} from "./commands/CopySnapshotCommand";
+import {
+  CreateCloudFormationStackCommandInput,
+  CreateCloudFormationStackCommandOutput
+} from "./commands/CreateCloudFormationStackCommand";
+import {
+  CreateDiskCommandInput,
+  CreateDiskCommandOutput
+} from "./commands/CreateDiskCommand";
+import {
+  CreateDiskFromSnapshotCommandInput,
+  CreateDiskFromSnapshotCommandOutput
+} from "./commands/CreateDiskFromSnapshotCommand";
+import {
+  CreateDiskSnapshotCommandInput,
+  CreateDiskSnapshotCommandOutput
+} from "./commands/CreateDiskSnapshotCommand";
+import {
+  CreateDomainCommandInput,
+  CreateDomainCommandOutput
+} from "./commands/CreateDomainCommand";
+import {
+  CreateDomainEntryCommandInput,
+  CreateDomainEntryCommandOutput
+} from "./commands/CreateDomainEntryCommand";
+import {
+  CreateInstanceSnapshotCommandInput,
+  CreateInstanceSnapshotCommandOutput
+} from "./commands/CreateInstanceSnapshotCommand";
+import {
+  CreateInstancesCommandInput,
+  CreateInstancesCommandOutput
+} from "./commands/CreateInstancesCommand";
+import {
+  CreateInstancesFromSnapshotCommandInput,
+  CreateInstancesFromSnapshotCommandOutput
+} from "./commands/CreateInstancesFromSnapshotCommand";
+import {
+  CreateKeyPairCommandInput,
+  CreateKeyPairCommandOutput
+} from "./commands/CreateKeyPairCommand";
+import {
+  CreateLoadBalancerCommandInput,
+  CreateLoadBalancerCommandOutput
+} from "./commands/CreateLoadBalancerCommand";
+import {
+  CreateLoadBalancerTlsCertificateCommandInput,
+  CreateLoadBalancerTlsCertificateCommandOutput
+} from "./commands/CreateLoadBalancerTlsCertificateCommand";
+import {
+  CreateRelationalDatabaseCommandInput,
+  CreateRelationalDatabaseCommandOutput
+} from "./commands/CreateRelationalDatabaseCommand";
+import {
+  CreateRelationalDatabaseFromSnapshotCommandInput,
+  CreateRelationalDatabaseFromSnapshotCommandOutput
+} from "./commands/CreateRelationalDatabaseFromSnapshotCommand";
+import {
+  CreateRelationalDatabaseSnapshotCommandInput,
+  CreateRelationalDatabaseSnapshotCommandOutput
+} from "./commands/CreateRelationalDatabaseSnapshotCommand";
+import {
+  DeleteAutoSnapshotCommandInput,
+  DeleteAutoSnapshotCommandOutput
+} from "./commands/DeleteAutoSnapshotCommand";
+import {
+  DeleteDiskCommandInput,
+  DeleteDiskCommandOutput
+} from "./commands/DeleteDiskCommand";
+import {
+  DeleteDiskSnapshotCommandInput,
+  DeleteDiskSnapshotCommandOutput
+} from "./commands/DeleteDiskSnapshotCommand";
+import {
+  DeleteDomainCommandInput,
+  DeleteDomainCommandOutput
+} from "./commands/DeleteDomainCommand";
+import {
+  DeleteDomainEntryCommandInput,
+  DeleteDomainEntryCommandOutput
+} from "./commands/DeleteDomainEntryCommand";
+import {
+  DeleteInstanceCommandInput,
+  DeleteInstanceCommandOutput
+} from "./commands/DeleteInstanceCommand";
+import {
+  DeleteInstanceSnapshotCommandInput,
+  DeleteInstanceSnapshotCommandOutput
+} from "./commands/DeleteInstanceSnapshotCommand";
+import {
+  DeleteKeyPairCommandInput,
+  DeleteKeyPairCommandOutput
+} from "./commands/DeleteKeyPairCommand";
+import {
+  DeleteKnownHostKeysCommandInput,
+  DeleteKnownHostKeysCommandOutput
+} from "./commands/DeleteKnownHostKeysCommand";
+import {
+  DeleteLoadBalancerCommandInput,
+  DeleteLoadBalancerCommandOutput
+} from "./commands/DeleteLoadBalancerCommand";
+import {
+  DeleteLoadBalancerTlsCertificateCommandInput,
+  DeleteLoadBalancerTlsCertificateCommandOutput
+} from "./commands/DeleteLoadBalancerTlsCertificateCommand";
+import {
+  DeleteRelationalDatabaseCommandInput,
+  DeleteRelationalDatabaseCommandOutput
+} from "./commands/DeleteRelationalDatabaseCommand";
+import {
+  DeleteRelationalDatabaseSnapshotCommandInput,
+  DeleteRelationalDatabaseSnapshotCommandOutput
+} from "./commands/DeleteRelationalDatabaseSnapshotCommand";
+import {
+  DetachDiskCommandInput,
+  DetachDiskCommandOutput
+} from "./commands/DetachDiskCommand";
+import {
+  DetachInstancesFromLoadBalancerCommandInput,
+  DetachInstancesFromLoadBalancerCommandOutput
+} from "./commands/DetachInstancesFromLoadBalancerCommand";
+import {
+  DetachStaticIpCommandInput,
+  DetachStaticIpCommandOutput
+} from "./commands/DetachStaticIpCommand";
+import {
+  DisableAddOnCommandInput,
+  DisableAddOnCommandOutput
+} from "./commands/DisableAddOnCommand";
+import {
+  DownloadDefaultKeyPairCommandInput,
+  DownloadDefaultKeyPairCommandOutput
+} from "./commands/DownloadDefaultKeyPairCommand";
+import {
+  EnableAddOnCommandInput,
+  EnableAddOnCommandOutput
+} from "./commands/EnableAddOnCommand";
+import {
+  ExportSnapshotCommandInput,
+  ExportSnapshotCommandOutput
+} from "./commands/ExportSnapshotCommand";
+import {
+  GetActiveNamesCommandInput,
+  GetActiveNamesCommandOutput
+} from "./commands/GetActiveNamesCommand";
+import {
+  GetAutoSnapshotsCommandInput,
+  GetAutoSnapshotsCommandOutput
+} from "./commands/GetAutoSnapshotsCommand";
+import {
+  GetBlueprintsCommandInput,
+  GetBlueprintsCommandOutput
+} from "./commands/GetBlueprintsCommand";
+import {
+  GetBundlesCommandInput,
+  GetBundlesCommandOutput
+} from "./commands/GetBundlesCommand";
+import {
+  GetCloudFormationStackRecordsCommandInput,
+  GetCloudFormationStackRecordsCommandOutput
+} from "./commands/GetCloudFormationStackRecordsCommand";
+import {
+  GetDiskCommandInput,
+  GetDiskCommandOutput
+} from "./commands/GetDiskCommand";
+import {
+  GetDiskSnapshotCommandInput,
+  GetDiskSnapshotCommandOutput
+} from "./commands/GetDiskSnapshotCommand";
+import {
+  GetDiskSnapshotsCommandInput,
+  GetDiskSnapshotsCommandOutput
+} from "./commands/GetDiskSnapshotsCommand";
+import {
+  GetDisksCommandInput,
+  GetDisksCommandOutput
+} from "./commands/GetDisksCommand";
+import {
+  GetDomainCommandInput,
+  GetDomainCommandOutput
+} from "./commands/GetDomainCommand";
+import {
+  GetDomainsCommandInput,
+  GetDomainsCommandOutput
+} from "./commands/GetDomainsCommand";
+import {
+  GetExportSnapshotRecordsCommandInput,
+  GetExportSnapshotRecordsCommandOutput
+} from "./commands/GetExportSnapshotRecordsCommand";
+import {
+  GetInstanceAccessDetailsCommandInput,
+  GetInstanceAccessDetailsCommandOutput
+} from "./commands/GetInstanceAccessDetailsCommand";
+import {
+  GetInstanceCommandInput,
+  GetInstanceCommandOutput
+} from "./commands/GetInstanceCommand";
+import {
+  GetInstanceMetricDataCommandInput,
+  GetInstanceMetricDataCommandOutput
+} from "./commands/GetInstanceMetricDataCommand";
+import {
+  GetInstancePortStatesCommandInput,
+  GetInstancePortStatesCommandOutput
+} from "./commands/GetInstancePortStatesCommand";
+import {
+  GetInstanceSnapshotCommandInput,
+  GetInstanceSnapshotCommandOutput
+} from "./commands/GetInstanceSnapshotCommand";
+import {
+  GetInstanceSnapshotsCommandInput,
+  GetInstanceSnapshotsCommandOutput
+} from "./commands/GetInstanceSnapshotsCommand";
+import {
+  GetInstanceStateCommandInput,
+  GetInstanceStateCommandOutput
+} from "./commands/GetInstanceStateCommand";
+import {
+  GetInstancesCommandInput,
+  GetInstancesCommandOutput
+} from "./commands/GetInstancesCommand";
+import {
+  GetKeyPairCommandInput,
+  GetKeyPairCommandOutput
+} from "./commands/GetKeyPairCommand";
+import {
+  GetKeyPairsCommandInput,
+  GetKeyPairsCommandOutput
+} from "./commands/GetKeyPairsCommand";
+import {
+  GetLoadBalancerCommandInput,
+  GetLoadBalancerCommandOutput
+} from "./commands/GetLoadBalancerCommand";
+import {
+  GetLoadBalancerMetricDataCommandInput,
+  GetLoadBalancerMetricDataCommandOutput
+} from "./commands/GetLoadBalancerMetricDataCommand";
+import {
+  GetLoadBalancerTlsCertificatesCommandInput,
+  GetLoadBalancerTlsCertificatesCommandOutput
+} from "./commands/GetLoadBalancerTlsCertificatesCommand";
+import {
+  GetLoadBalancersCommandInput,
+  GetLoadBalancersCommandOutput
+} from "./commands/GetLoadBalancersCommand";
+import {
+  GetOperationCommandInput,
+  GetOperationCommandOutput
+} from "./commands/GetOperationCommand";
+import {
+  GetOperationsCommandInput,
+  GetOperationsCommandOutput
+} from "./commands/GetOperationsCommand";
+import {
+  GetOperationsForResourceCommandInput,
+  GetOperationsForResourceCommandOutput
+} from "./commands/GetOperationsForResourceCommand";
+import {
+  GetRegionsCommandInput,
+  GetRegionsCommandOutput
+} from "./commands/GetRegionsCommand";
+import {
+  GetRelationalDatabaseBlueprintsCommandInput,
+  GetRelationalDatabaseBlueprintsCommandOutput
+} from "./commands/GetRelationalDatabaseBlueprintsCommand";
+import {
+  GetRelationalDatabaseBundlesCommandInput,
+  GetRelationalDatabaseBundlesCommandOutput
+} from "./commands/GetRelationalDatabaseBundlesCommand";
+import {
+  GetRelationalDatabaseCommandInput,
+  GetRelationalDatabaseCommandOutput
+} from "./commands/GetRelationalDatabaseCommand";
+import {
+  GetRelationalDatabaseEventsCommandInput,
+  GetRelationalDatabaseEventsCommandOutput
+} from "./commands/GetRelationalDatabaseEventsCommand";
+import {
+  GetRelationalDatabaseLogEventsCommandInput,
+  GetRelationalDatabaseLogEventsCommandOutput
+} from "./commands/GetRelationalDatabaseLogEventsCommand";
+import {
+  GetRelationalDatabaseLogStreamsCommandInput,
+  GetRelationalDatabaseLogStreamsCommandOutput
+} from "./commands/GetRelationalDatabaseLogStreamsCommand";
+import {
+  GetRelationalDatabaseMasterUserPasswordCommandInput,
+  GetRelationalDatabaseMasterUserPasswordCommandOutput
+} from "./commands/GetRelationalDatabaseMasterUserPasswordCommand";
+import {
+  GetRelationalDatabaseMetricDataCommandInput,
+  GetRelationalDatabaseMetricDataCommandOutput
+} from "./commands/GetRelationalDatabaseMetricDataCommand";
+import {
+  GetRelationalDatabaseParametersCommandInput,
+  GetRelationalDatabaseParametersCommandOutput
+} from "./commands/GetRelationalDatabaseParametersCommand";
+import {
+  GetRelationalDatabaseSnapshotCommandInput,
+  GetRelationalDatabaseSnapshotCommandOutput
+} from "./commands/GetRelationalDatabaseSnapshotCommand";
+import {
+  GetRelationalDatabaseSnapshotsCommandInput,
+  GetRelationalDatabaseSnapshotsCommandOutput
+} from "./commands/GetRelationalDatabaseSnapshotsCommand";
+import {
+  GetRelationalDatabasesCommandInput,
+  GetRelationalDatabasesCommandOutput
+} from "./commands/GetRelationalDatabasesCommand";
+import {
+  GetStaticIpCommandInput,
+  GetStaticIpCommandOutput
+} from "./commands/GetStaticIpCommand";
+import {
+  GetStaticIpsCommandInput,
+  GetStaticIpsCommandOutput
+} from "./commands/GetStaticIpsCommand";
+import {
+  ImportKeyPairCommandInput,
+  ImportKeyPairCommandOutput
+} from "./commands/ImportKeyPairCommand";
+import {
+  IsVpcPeeredCommandInput,
+  IsVpcPeeredCommandOutput
+} from "./commands/IsVpcPeeredCommand";
+import {
+  OpenInstancePublicPortsCommandInput,
+  OpenInstancePublicPortsCommandOutput
+} from "./commands/OpenInstancePublicPortsCommand";
+import {
+  PeerVpcCommandInput,
+  PeerVpcCommandOutput
+} from "./commands/PeerVpcCommand";
+import {
+  PutInstancePublicPortsCommandInput,
+  PutInstancePublicPortsCommandOutput
+} from "./commands/PutInstancePublicPortsCommand";
+import {
+  RebootInstanceCommandInput,
+  RebootInstanceCommandOutput
+} from "./commands/RebootInstanceCommand";
+import {
+  RebootRelationalDatabaseCommandInput,
+  RebootRelationalDatabaseCommandOutput
+} from "./commands/RebootRelationalDatabaseCommand";
+import {
+  ReleaseStaticIpCommandInput,
+  ReleaseStaticIpCommandOutput
+} from "./commands/ReleaseStaticIpCommand";
+import {
+  StartInstanceCommandInput,
+  StartInstanceCommandOutput
+} from "./commands/StartInstanceCommand";
+import {
+  StartRelationalDatabaseCommandInput,
+  StartRelationalDatabaseCommandOutput
+} from "./commands/StartRelationalDatabaseCommand";
+import {
+  StopInstanceCommandInput,
+  StopInstanceCommandOutput
+} from "./commands/StopInstanceCommand";
+import {
+  StopRelationalDatabaseCommandInput,
+  StopRelationalDatabaseCommandOutput
+} from "./commands/StopRelationalDatabaseCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UnpeerVpcCommandInput,
+  UnpeerVpcCommandOutput
+} from "./commands/UnpeerVpcCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDomainEntryCommandInput,
+  UpdateDomainEntryCommandOutput
+} from "./commands/UpdateDomainEntryCommand";
+import {
+  UpdateLoadBalancerAttributeCommandInput,
+  UpdateLoadBalancerAttributeCommandOutput
+} from "./commands/UpdateLoadBalancerAttributeCommand";
+import {
+  UpdateRelationalDatabaseCommandInput,
+  UpdateRelationalDatabaseCommandOutput
+} from "./commands/UpdateRelationalDatabaseCommand";
+import {
+  UpdateRelationalDatabaseParametersCommandInput,
+  UpdateRelationalDatabaseParametersCommandOutput
+} from "./commands/UpdateRelationalDatabaseParametersCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -263,218 +471,218 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AllocateStaticIpRequest
-  | AttachDiskRequest
-  | AttachInstancesToLoadBalancerRequest
-  | AttachLoadBalancerTlsCertificateRequest
-  | AttachStaticIpRequest
-  | CloseInstancePublicPortsRequest
-  | CopySnapshotRequest
-  | CreateCloudFormationStackRequest
-  | CreateDiskFromSnapshotRequest
-  | CreateDiskRequest
-  | CreateDiskSnapshotRequest
-  | CreateDomainEntryRequest
-  | CreateDomainRequest
-  | CreateInstanceSnapshotRequest
-  | CreateInstancesFromSnapshotRequest
-  | CreateInstancesRequest
-  | CreateKeyPairRequest
-  | CreateLoadBalancerRequest
-  | CreateLoadBalancerTlsCertificateRequest
-  | CreateRelationalDatabaseFromSnapshotRequest
-  | CreateRelationalDatabaseRequest
-  | CreateRelationalDatabaseSnapshotRequest
-  | DeleteAutoSnapshotRequest
-  | DeleteDiskRequest
-  | DeleteDiskSnapshotRequest
-  | DeleteDomainEntryRequest
-  | DeleteDomainRequest
-  | DeleteInstanceRequest
-  | DeleteInstanceSnapshotRequest
-  | DeleteKeyPairRequest
-  | DeleteKnownHostKeysRequest
-  | DeleteLoadBalancerRequest
-  | DeleteLoadBalancerTlsCertificateRequest
-  | DeleteRelationalDatabaseRequest
-  | DeleteRelationalDatabaseSnapshotRequest
-  | DetachDiskRequest
-  | DetachInstancesFromLoadBalancerRequest
-  | DetachStaticIpRequest
-  | DisableAddOnRequest
-  | DownloadDefaultKeyPairRequest
-  | EnableAddOnRequest
-  | ExportSnapshotRequest
-  | GetActiveNamesRequest
-  | GetAutoSnapshotsRequest
-  | GetBlueprintsRequest
-  | GetBundlesRequest
-  | GetCloudFormationStackRecordsRequest
-  | GetDiskRequest
-  | GetDiskSnapshotRequest
-  | GetDiskSnapshotsRequest
-  | GetDisksRequest
-  | GetDomainRequest
-  | GetDomainsRequest
-  | GetExportSnapshotRecordsRequest
-  | GetInstanceAccessDetailsRequest
-  | GetInstanceMetricDataRequest
-  | GetInstancePortStatesRequest
-  | GetInstanceRequest
-  | GetInstanceSnapshotRequest
-  | GetInstanceSnapshotsRequest
-  | GetInstanceStateRequest
-  | GetInstancesRequest
-  | GetKeyPairRequest
-  | GetKeyPairsRequest
-  | GetLoadBalancerMetricDataRequest
-  | GetLoadBalancerRequest
-  | GetLoadBalancerTlsCertificatesRequest
-  | GetLoadBalancersRequest
-  | GetOperationRequest
-  | GetOperationsForResourceRequest
-  | GetOperationsRequest
-  | GetRegionsRequest
-  | GetRelationalDatabaseBlueprintsRequest
-  | GetRelationalDatabaseBundlesRequest
-  | GetRelationalDatabaseEventsRequest
-  | GetRelationalDatabaseLogEventsRequest
-  | GetRelationalDatabaseLogStreamsRequest
-  | GetRelationalDatabaseMasterUserPasswordRequest
-  | GetRelationalDatabaseMetricDataRequest
-  | GetRelationalDatabaseParametersRequest
-  | GetRelationalDatabaseRequest
-  | GetRelationalDatabaseSnapshotRequest
-  | GetRelationalDatabaseSnapshotsRequest
-  | GetRelationalDatabasesRequest
-  | GetStaticIpRequest
-  | GetStaticIpsRequest
-  | ImportKeyPairRequest
-  | IsVpcPeeredRequest
-  | OpenInstancePublicPortsRequest
-  | PeerVpcRequest
-  | PutInstancePublicPortsRequest
-  | RebootInstanceRequest
-  | RebootRelationalDatabaseRequest
-  | ReleaseStaticIpRequest
-  | StartInstanceRequest
-  | StartRelationalDatabaseRequest
-  | StopInstanceRequest
-  | StopRelationalDatabaseRequest
-  | TagResourceRequest
-  | UnpeerVpcRequest
-  | UntagResourceRequest
-  | UpdateDomainEntryRequest
-  | UpdateLoadBalancerAttributeRequest
-  | UpdateRelationalDatabaseParametersRequest
-  | UpdateRelationalDatabaseRequest;
+  | AllocateStaticIpCommandInput
+  | AttachDiskCommandInput
+  | AttachInstancesToLoadBalancerCommandInput
+  | AttachLoadBalancerTlsCertificateCommandInput
+  | AttachStaticIpCommandInput
+  | CloseInstancePublicPortsCommandInput
+  | CopySnapshotCommandInput
+  | CreateCloudFormationStackCommandInput
+  | CreateDiskCommandInput
+  | CreateDiskFromSnapshotCommandInput
+  | CreateDiskSnapshotCommandInput
+  | CreateDomainCommandInput
+  | CreateDomainEntryCommandInput
+  | CreateInstanceSnapshotCommandInput
+  | CreateInstancesCommandInput
+  | CreateInstancesFromSnapshotCommandInput
+  | CreateKeyPairCommandInput
+  | CreateLoadBalancerCommandInput
+  | CreateLoadBalancerTlsCertificateCommandInput
+  | CreateRelationalDatabaseCommandInput
+  | CreateRelationalDatabaseFromSnapshotCommandInput
+  | CreateRelationalDatabaseSnapshotCommandInput
+  | DeleteAutoSnapshotCommandInput
+  | DeleteDiskCommandInput
+  | DeleteDiskSnapshotCommandInput
+  | DeleteDomainCommandInput
+  | DeleteDomainEntryCommandInput
+  | DeleteInstanceCommandInput
+  | DeleteInstanceSnapshotCommandInput
+  | DeleteKeyPairCommandInput
+  | DeleteKnownHostKeysCommandInput
+  | DeleteLoadBalancerCommandInput
+  | DeleteLoadBalancerTlsCertificateCommandInput
+  | DeleteRelationalDatabaseCommandInput
+  | DeleteRelationalDatabaseSnapshotCommandInput
+  | DetachDiskCommandInput
+  | DetachInstancesFromLoadBalancerCommandInput
+  | DetachStaticIpCommandInput
+  | DisableAddOnCommandInput
+  | DownloadDefaultKeyPairCommandInput
+  | EnableAddOnCommandInput
+  | ExportSnapshotCommandInput
+  | GetActiveNamesCommandInput
+  | GetAutoSnapshotsCommandInput
+  | GetBlueprintsCommandInput
+  | GetBundlesCommandInput
+  | GetCloudFormationStackRecordsCommandInput
+  | GetDiskCommandInput
+  | GetDiskSnapshotCommandInput
+  | GetDiskSnapshotsCommandInput
+  | GetDisksCommandInput
+  | GetDomainCommandInput
+  | GetDomainsCommandInput
+  | GetExportSnapshotRecordsCommandInput
+  | GetInstanceAccessDetailsCommandInput
+  | GetInstanceCommandInput
+  | GetInstanceMetricDataCommandInput
+  | GetInstancePortStatesCommandInput
+  | GetInstanceSnapshotCommandInput
+  | GetInstanceSnapshotsCommandInput
+  | GetInstanceStateCommandInput
+  | GetInstancesCommandInput
+  | GetKeyPairCommandInput
+  | GetKeyPairsCommandInput
+  | GetLoadBalancerCommandInput
+  | GetLoadBalancerMetricDataCommandInput
+  | GetLoadBalancerTlsCertificatesCommandInput
+  | GetLoadBalancersCommandInput
+  | GetOperationCommandInput
+  | GetOperationsCommandInput
+  | GetOperationsForResourceCommandInput
+  | GetRegionsCommandInput
+  | GetRelationalDatabaseBlueprintsCommandInput
+  | GetRelationalDatabaseBundlesCommandInput
+  | GetRelationalDatabaseCommandInput
+  | GetRelationalDatabaseEventsCommandInput
+  | GetRelationalDatabaseLogEventsCommandInput
+  | GetRelationalDatabaseLogStreamsCommandInput
+  | GetRelationalDatabaseMasterUserPasswordCommandInput
+  | GetRelationalDatabaseMetricDataCommandInput
+  | GetRelationalDatabaseParametersCommandInput
+  | GetRelationalDatabaseSnapshotCommandInput
+  | GetRelationalDatabaseSnapshotsCommandInput
+  | GetRelationalDatabasesCommandInput
+  | GetStaticIpCommandInput
+  | GetStaticIpsCommandInput
+  | ImportKeyPairCommandInput
+  | IsVpcPeeredCommandInput
+  | OpenInstancePublicPortsCommandInput
+  | PeerVpcCommandInput
+  | PutInstancePublicPortsCommandInput
+  | RebootInstanceCommandInput
+  | RebootRelationalDatabaseCommandInput
+  | ReleaseStaticIpCommandInput
+  | StartInstanceCommandInput
+  | StartRelationalDatabaseCommandInput
+  | StopInstanceCommandInput
+  | StopRelationalDatabaseCommandInput
+  | TagResourceCommandInput
+  | UnpeerVpcCommandInput
+  | UntagResourceCommandInput
+  | UpdateDomainEntryCommandInput
+  | UpdateLoadBalancerAttributeCommandInput
+  | UpdateRelationalDatabaseCommandInput
+  | UpdateRelationalDatabaseParametersCommandInput;
 
 export type ServiceOutputTypes =
-  | AllocateStaticIpResult
-  | AttachDiskResult
-  | AttachInstancesToLoadBalancerResult
-  | AttachLoadBalancerTlsCertificateResult
-  | AttachStaticIpResult
-  | CloseInstancePublicPortsResult
-  | CopySnapshotResult
-  | CreateCloudFormationStackResult
-  | CreateDiskFromSnapshotResult
-  | CreateDiskResult
-  | CreateDiskSnapshotResult
-  | CreateDomainEntryResult
-  | CreateDomainResult
-  | CreateInstanceSnapshotResult
-  | CreateInstancesFromSnapshotResult
-  | CreateInstancesResult
-  | CreateKeyPairResult
-  | CreateLoadBalancerResult
-  | CreateLoadBalancerTlsCertificateResult
-  | CreateRelationalDatabaseFromSnapshotResult
-  | CreateRelationalDatabaseResult
-  | CreateRelationalDatabaseSnapshotResult
-  | DeleteAutoSnapshotResult
-  | DeleteDiskResult
-  | DeleteDiskSnapshotResult
-  | DeleteDomainEntryResult
-  | DeleteDomainResult
-  | DeleteInstanceResult
-  | DeleteInstanceSnapshotResult
-  | DeleteKeyPairResult
-  | DeleteKnownHostKeysResult
-  | DeleteLoadBalancerResult
-  | DeleteLoadBalancerTlsCertificateResult
-  | DeleteRelationalDatabaseResult
-  | DeleteRelationalDatabaseSnapshotResult
-  | DetachDiskResult
-  | DetachInstancesFromLoadBalancerResult
-  | DetachStaticIpResult
-  | DisableAddOnResult
-  | DownloadDefaultKeyPairResult
-  | EnableAddOnResult
-  | ExportSnapshotResult
-  | GetActiveNamesResult
-  | GetAutoSnapshotsResult
-  | GetBlueprintsResult
-  | GetBundlesResult
-  | GetCloudFormationStackRecordsResult
-  | GetDiskResult
-  | GetDiskSnapshotResult
-  | GetDiskSnapshotsResult
-  | GetDisksResult
-  | GetDomainResult
-  | GetDomainsResult
-  | GetExportSnapshotRecordsResult
-  | GetInstanceAccessDetailsResult
-  | GetInstanceMetricDataResult
-  | GetInstancePortStatesResult
-  | GetInstanceResult
-  | GetInstanceSnapshotResult
-  | GetInstanceSnapshotsResult
-  | GetInstanceStateResult
-  | GetInstancesResult
-  | GetKeyPairResult
-  | GetKeyPairsResult
-  | GetLoadBalancerMetricDataResult
-  | GetLoadBalancerResult
-  | GetLoadBalancerTlsCertificatesResult
-  | GetLoadBalancersResult
-  | GetOperationResult
-  | GetOperationsForResourceResult
-  | GetOperationsResult
-  | GetRegionsResult
-  | GetRelationalDatabaseBlueprintsResult
-  | GetRelationalDatabaseBundlesResult
-  | GetRelationalDatabaseEventsResult
-  | GetRelationalDatabaseLogEventsResult
-  | GetRelationalDatabaseLogStreamsResult
-  | GetRelationalDatabaseMasterUserPasswordResult
-  | GetRelationalDatabaseMetricDataResult
-  | GetRelationalDatabaseParametersResult
-  | GetRelationalDatabaseResult
-  | GetRelationalDatabaseSnapshotResult
-  | GetRelationalDatabaseSnapshotsResult
-  | GetRelationalDatabasesResult
-  | GetStaticIpResult
-  | GetStaticIpsResult
-  | ImportKeyPairResult
-  | IsVpcPeeredResult
-  | OpenInstancePublicPortsResult
-  | PeerVpcResult
-  | PutInstancePublicPortsResult
-  | RebootInstanceResult
-  | RebootRelationalDatabaseResult
-  | ReleaseStaticIpResult
-  | StartInstanceResult
-  | StartRelationalDatabaseResult
-  | StopInstanceResult
-  | StopRelationalDatabaseResult
-  | TagResourceResult
-  | UnpeerVpcResult
-  | UntagResourceResult
-  | UpdateDomainEntryResult
-  | UpdateLoadBalancerAttributeResult
-  | UpdateRelationalDatabaseParametersResult
-  | UpdateRelationalDatabaseResult;
+  | AllocateStaticIpCommandOutput
+  | AttachDiskCommandOutput
+  | AttachInstancesToLoadBalancerCommandOutput
+  | AttachLoadBalancerTlsCertificateCommandOutput
+  | AttachStaticIpCommandOutput
+  | CloseInstancePublicPortsCommandOutput
+  | CopySnapshotCommandOutput
+  | CreateCloudFormationStackCommandOutput
+  | CreateDiskCommandOutput
+  | CreateDiskFromSnapshotCommandOutput
+  | CreateDiskSnapshotCommandOutput
+  | CreateDomainCommandOutput
+  | CreateDomainEntryCommandOutput
+  | CreateInstanceSnapshotCommandOutput
+  | CreateInstancesCommandOutput
+  | CreateInstancesFromSnapshotCommandOutput
+  | CreateKeyPairCommandOutput
+  | CreateLoadBalancerCommandOutput
+  | CreateLoadBalancerTlsCertificateCommandOutput
+  | CreateRelationalDatabaseCommandOutput
+  | CreateRelationalDatabaseFromSnapshotCommandOutput
+  | CreateRelationalDatabaseSnapshotCommandOutput
+  | DeleteAutoSnapshotCommandOutput
+  | DeleteDiskCommandOutput
+  | DeleteDiskSnapshotCommandOutput
+  | DeleteDomainCommandOutput
+  | DeleteDomainEntryCommandOutput
+  | DeleteInstanceCommandOutput
+  | DeleteInstanceSnapshotCommandOutput
+  | DeleteKeyPairCommandOutput
+  | DeleteKnownHostKeysCommandOutput
+  | DeleteLoadBalancerCommandOutput
+  | DeleteLoadBalancerTlsCertificateCommandOutput
+  | DeleteRelationalDatabaseCommandOutput
+  | DeleteRelationalDatabaseSnapshotCommandOutput
+  | DetachDiskCommandOutput
+  | DetachInstancesFromLoadBalancerCommandOutput
+  | DetachStaticIpCommandOutput
+  | DisableAddOnCommandOutput
+  | DownloadDefaultKeyPairCommandOutput
+  | EnableAddOnCommandOutput
+  | ExportSnapshotCommandOutput
+  | GetActiveNamesCommandOutput
+  | GetAutoSnapshotsCommandOutput
+  | GetBlueprintsCommandOutput
+  | GetBundlesCommandOutput
+  | GetCloudFormationStackRecordsCommandOutput
+  | GetDiskCommandOutput
+  | GetDiskSnapshotCommandOutput
+  | GetDiskSnapshotsCommandOutput
+  | GetDisksCommandOutput
+  | GetDomainCommandOutput
+  | GetDomainsCommandOutput
+  | GetExportSnapshotRecordsCommandOutput
+  | GetInstanceAccessDetailsCommandOutput
+  | GetInstanceCommandOutput
+  | GetInstanceMetricDataCommandOutput
+  | GetInstancePortStatesCommandOutput
+  | GetInstanceSnapshotCommandOutput
+  | GetInstanceSnapshotsCommandOutput
+  | GetInstanceStateCommandOutput
+  | GetInstancesCommandOutput
+  | GetKeyPairCommandOutput
+  | GetKeyPairsCommandOutput
+  | GetLoadBalancerCommandOutput
+  | GetLoadBalancerMetricDataCommandOutput
+  | GetLoadBalancerTlsCertificatesCommandOutput
+  | GetLoadBalancersCommandOutput
+  | GetOperationCommandOutput
+  | GetOperationsCommandOutput
+  | GetOperationsForResourceCommandOutput
+  | GetRegionsCommandOutput
+  | GetRelationalDatabaseBlueprintsCommandOutput
+  | GetRelationalDatabaseBundlesCommandOutput
+  | GetRelationalDatabaseCommandOutput
+  | GetRelationalDatabaseEventsCommandOutput
+  | GetRelationalDatabaseLogEventsCommandOutput
+  | GetRelationalDatabaseLogStreamsCommandOutput
+  | GetRelationalDatabaseMasterUserPasswordCommandOutput
+  | GetRelationalDatabaseMetricDataCommandOutput
+  | GetRelationalDatabaseParametersCommandOutput
+  | GetRelationalDatabaseSnapshotCommandOutput
+  | GetRelationalDatabaseSnapshotsCommandOutput
+  | GetRelationalDatabasesCommandOutput
+  | GetStaticIpCommandOutput
+  | GetStaticIpsCommandOutput
+  | ImportKeyPairCommandOutput
+  | IsVpcPeeredCommandOutput
+  | OpenInstancePublicPortsCommandOutput
+  | PeerVpcCommandOutput
+  | PutInstancePublicPortsCommandOutput
+  | RebootInstanceCommandOutput
+  | RebootRelationalDatabaseCommandOutput
+  | ReleaseStaticIpCommandOutput
+  | StartInstanceCommandOutput
+  | StartRelationalDatabaseCommandOutput
+  | StopInstanceCommandOutput
+  | StopRelationalDatabaseCommandOutput
+  | TagResourceCommandOutput
+  | UnpeerVpcCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDomainEntryCommandOutput
+  | UpdateLoadBalancerAttributeCommandOutput
+  | UpdateRelationalDatabaseCommandOutput
+  | UpdateRelationalDatabaseParametersCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

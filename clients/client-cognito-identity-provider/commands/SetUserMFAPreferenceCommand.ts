@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetUserMFAPreferenceCommandInput = SetUserMFAPreferenceRequest;
-export type SetUserMFAPreferenceCommandOutput = SetUserMFAPreferenceResponse;
+export type SetUserMFAPreferenceCommandOutput = SetUserMFAPreferenceResponse &
+  __MetadataBearer;
 
 export class SetUserMFAPreferenceCommand extends $Command<
   SetUserMFAPreferenceCommandInput,

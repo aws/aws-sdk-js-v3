@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetSubnetsCommandInput = SetSubnetsInput;
-export type SetSubnetsCommandOutput = SetSubnetsOutput;
+export type SetSubnetsCommandOutput = SetSubnetsOutput & __MetadataBearer;
 
 export class SetSubnetsCommand extends $Command<
   SetSubnetsCommandInput,

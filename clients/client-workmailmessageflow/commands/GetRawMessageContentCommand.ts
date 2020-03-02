@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRawMessageContentCommandInput = GetRawMessageContentRequest;
-export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse;
+export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse &
+  __MetadataBearer;
 
 export class GetRawMessageContentCommand extends $Command<
   GetRawMessageContentCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteKeyPairCommandInput = DeleteKeyPairRequest;
-export type DeleteKeyPairCommandOutput = DeleteKeyPairResult;
+export type DeleteKeyPairCommandOutput = DeleteKeyPairResult & __MetadataBearer;
 
 export class DeleteKeyPairCommand extends $Command<
   DeleteKeyPairCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateOriginEndpointCommandInput = CreateOriginEndpointRequest;
-export type CreateOriginEndpointCommandOutput = CreateOriginEndpointResponse;
+export type CreateOriginEndpointCommandOutput = CreateOriginEndpointResponse &
+  __MetadataBearer;
 
 export class CreateOriginEndpointCommand extends $Command<
   CreateOriginEndpointCommandInput,

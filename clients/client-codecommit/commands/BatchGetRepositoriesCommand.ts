@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetRepositoriesCommandInput = BatchGetRepositoriesInput;
-export type BatchGetRepositoriesCommandOutput = BatchGetRepositoriesOutput;
+export type BatchGetRepositoriesCommandOutput = BatchGetRepositoriesOutput &
+  __MetadataBearer;
 
 export class BatchGetRepositoriesCommand extends $Command<
   BatchGetRepositoriesCommandInput,

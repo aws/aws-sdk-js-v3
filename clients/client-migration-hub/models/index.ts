@@ -89,7 +89,7 @@ export namespace AssociateCreatedArtifactRequest {
   }
 }
 
-export interface AssociateCreatedArtifactResult extends $MetadataBearer {
+export interface AssociateCreatedArtifactResult {
   __type?: "AssociateCreatedArtifactResult";
 }
 
@@ -131,7 +131,7 @@ export namespace AssociateDiscoveredResourceRequest {
   }
 }
 
-export interface AssociateDiscoveredResourceResult extends $MetadataBearer {
+export interface AssociateDiscoveredResourceResult {
   __type?: "AssociateDiscoveredResourceResult";
 }
 
@@ -163,7 +163,7 @@ export namespace CreateProgressUpdateStreamRequest {
   }
 }
 
-export interface CreateProgressUpdateStreamResult extends $MetadataBearer {
+export interface CreateProgressUpdateStreamResult {
   __type?: "CreateProgressUpdateStreamResult";
 }
 
@@ -219,7 +219,7 @@ export namespace DeleteProgressUpdateStreamRequest {
   }
 }
 
-export interface DeleteProgressUpdateStreamResult extends $MetadataBearer {
+export interface DeleteProgressUpdateStreamResult {
   __type?: "DeleteProgressUpdateStreamResult";
 }
 
@@ -244,7 +244,7 @@ export namespace DescribeApplicationStateRequest {
   }
 }
 
-export interface DescribeApplicationStateResult extends $MetadataBearer {
+export interface DescribeApplicationStateResult {
   __type?: "DescribeApplicationStateResult";
   /**
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
@@ -284,7 +284,7 @@ export namespace DescribeMigrationTaskRequest {
   }
 }
 
-export interface DescribeMigrationTaskResult extends $MetadataBearer {
+export interface DescribeMigrationTaskResult {
   __type?: "DescribeMigrationTaskResult";
   /**
    * <p>Object encapsulating information about the migration task.</p>
@@ -331,7 +331,7 @@ export namespace DisassociateCreatedArtifactRequest {
   }
 }
 
-export interface DisassociateCreatedArtifactResult extends $MetadataBearer {
+export interface DisassociateCreatedArtifactResult {
   __type?: "DisassociateCreatedArtifactResult";
 }
 
@@ -374,7 +374,7 @@ export namespace DisassociateDiscoveredResourceRequest {
   }
 }
 
-export interface DisassociateDiscoveredResourceResult extends $MetadataBearer {
+export interface DisassociateDiscoveredResourceResult {
   __type?: "DisassociateDiscoveredResourceResult";
 }
 
@@ -468,7 +468,7 @@ export namespace ImportMigrationTaskRequest {
   }
 }
 
-export interface ImportMigrationTaskResult extends $MetadataBearer {
+export interface ImportMigrationTaskResult {
   __type?: "ImportMigrationTaskResult";
 }
 
@@ -541,7 +541,7 @@ export namespace ListApplicationStatesRequest {
   }
 }
 
-export interface ListApplicationStatesResult extends $MetadataBearer {
+export interface ListApplicationStatesResult {
   __type?: "ListApplicationStatesResult";
   /**
    * <p>A list of Applications that exist in Application Discovery Service.</p>
@@ -595,7 +595,7 @@ export namespace ListCreatedArtifactsRequest {
   }
 }
 
-export interface ListCreatedArtifactsResult extends $MetadataBearer {
+export interface ListCreatedArtifactsResult {
   __type?: "ListCreatedArtifactsResult";
   /**
    * <p>List of created artifacts up to the maximum number of results specified in the
@@ -649,7 +649,7 @@ export namespace ListDiscoveredResourcesRequest {
   }
 }
 
-export interface ListDiscoveredResourcesResult extends $MetadataBearer {
+export interface ListDiscoveredResourcesResult {
   __type?: "ListDiscoveredResourcesResult";
   /**
    * <p>Returned list of discovered resources associated with the given MigrationTask.</p>
@@ -695,7 +695,7 @@ export namespace ListMigrationTasksRequest {
   }
 }
 
-export interface ListMigrationTasksResult extends $MetadataBearer {
+export interface ListMigrationTasksResult {
   __type?: "ListMigrationTasksResult";
   /**
    * <p>Lists the migration task's summary which includes: <code>MigrationTaskName</code>,
@@ -738,7 +738,7 @@ export namespace ListProgressUpdateStreamsRequest {
   }
 }
 
-export interface ListProgressUpdateStreamsResult extends $MetadataBearer {
+export interface ListProgressUpdateStreamsResult {
   __type?: "ListProgressUpdateStreamsResult";
   /**
    * <p>If there are more streams created than the max result, return the next token to be
@@ -877,7 +877,7 @@ export namespace NotifyApplicationStateRequest {
   }
 }
 
-export interface NotifyApplicationStateResult extends $MetadataBearer {
+export interface NotifyApplicationStateResult {
   __type?: "NotifyApplicationStateResult";
 }
 
@@ -931,7 +931,7 @@ export namespace NotifyMigrationTaskStateRequest {
   }
 }
 
-export interface NotifyMigrationTaskStateResult extends $MetadataBearer {
+export interface NotifyMigrationTaskStateResult {
   __type?: "NotifyMigrationTaskStateResult";
 }
 
@@ -1039,7 +1039,7 @@ export namespace PutResourceAttributesRequest {
   }
 }
 
-export interface PutResourceAttributesResult extends $MetadataBearer {
+export interface PutResourceAttributesResult {
   __type?: "PutResourceAttributesResult";
 }
 

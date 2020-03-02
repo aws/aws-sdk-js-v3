@@ -1,23 +1,39 @@
 import {
-  CreateProjectRequest,
-  CreateProjectResult,
-  DeleteProjectRequest,
-  DeleteProjectResult,
-  DescribeBundleRequest,
-  DescribeBundleResult,
-  DescribeProjectRequest,
-  DescribeProjectResult,
-  ExportBundleRequest,
-  ExportBundleResult,
-  ExportProjectRequest,
-  ExportProjectResult,
-  ListBundlesRequest,
-  ListBundlesResult,
-  ListProjectsRequest,
-  ListProjectsResult,
-  UpdateProjectRequest,
-  UpdateProjectResult
-} from "./models/index";
+  CreateProjectCommandInput,
+  CreateProjectCommandOutput
+} from "./commands/CreateProjectCommand";
+import {
+  DeleteProjectCommandInput,
+  DeleteProjectCommandOutput
+} from "./commands/DeleteProjectCommand";
+import {
+  DescribeBundleCommandInput,
+  DescribeBundleCommandOutput
+} from "./commands/DescribeBundleCommand";
+import {
+  DescribeProjectCommandInput,
+  DescribeProjectCommandOutput
+} from "./commands/DescribeProjectCommand";
+import {
+  ExportBundleCommandInput,
+  ExportBundleCommandOutput
+} from "./commands/ExportBundleCommand";
+import {
+  ExportProjectCommandInput,
+  ExportProjectCommandOutput
+} from "./commands/ExportProjectCommand";
+import {
+  ListBundlesCommandInput,
+  ListBundlesCommandOutput
+} from "./commands/ListBundlesCommand";
+import {
+  ListProjectsCommandInput,
+  ListProjectsCommandOutput
+} from "./commands/ListProjectsCommand";
+import {
+  UpdateProjectCommandInput,
+  UpdateProjectCommandOutput
+} from "./commands/UpdateProjectCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -71,26 +87,26 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateProjectRequest
-  | DeleteProjectRequest
-  | DescribeBundleRequest
-  | DescribeProjectRequest
-  | ExportBundleRequest
-  | ExportProjectRequest
-  | ListBundlesRequest
-  | ListProjectsRequest
-  | UpdateProjectRequest;
+  | CreateProjectCommandInput
+  | DeleteProjectCommandInput
+  | DescribeBundleCommandInput
+  | DescribeProjectCommandInput
+  | ExportBundleCommandInput
+  | ExportProjectCommandInput
+  | ListBundlesCommandInput
+  | ListProjectsCommandInput
+  | UpdateProjectCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateProjectResult
-  | DeleteProjectResult
-  | DescribeBundleResult
-  | DescribeProjectResult
-  | ExportBundleResult
-  | ExportProjectResult
-  | ListBundlesResult
-  | ListProjectsResult
-  | UpdateProjectResult;
+  | CreateProjectCommandOutput
+  | DeleteProjectCommandOutput
+  | DescribeBundleCommandOutput
+  | DescribeProjectCommandOutput
+  | ExportBundleCommandOutput
+  | ExportProjectCommandOutput
+  | ListBundlesCommandOutput
+  | ListProjectsCommandOutput
+  | UpdateProjectCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

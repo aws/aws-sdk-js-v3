@@ -1,89 +1,171 @@
 import {
-  CancelImageCreationRequest,
-  CancelImageCreationResponse,
-  CreateComponentRequest,
-  CreateComponentResponse,
-  CreateDistributionConfigurationRequest,
-  CreateDistributionConfigurationResponse,
-  CreateImagePipelineRequest,
-  CreateImagePipelineResponse,
-  CreateImageRecipeRequest,
-  CreateImageRecipeResponse,
-  CreateImageRequest,
-  CreateImageResponse,
-  CreateInfrastructureConfigurationRequest,
-  CreateInfrastructureConfigurationResponse,
-  DeleteComponentRequest,
-  DeleteComponentResponse,
-  DeleteDistributionConfigurationRequest,
-  DeleteDistributionConfigurationResponse,
-  DeleteImagePipelineRequest,
-  DeleteImagePipelineResponse,
-  DeleteImageRecipeRequest,
-  DeleteImageRecipeResponse,
-  DeleteImageRequest,
-  DeleteImageResponse,
-  DeleteInfrastructureConfigurationRequest,
-  DeleteInfrastructureConfigurationResponse,
-  GetComponentPolicyRequest,
-  GetComponentPolicyResponse,
-  GetComponentRequest,
-  GetComponentResponse,
-  GetDistributionConfigurationRequest,
-  GetDistributionConfigurationResponse,
-  GetImagePipelineRequest,
-  GetImagePipelineResponse,
-  GetImagePolicyRequest,
-  GetImagePolicyResponse,
-  GetImageRecipePolicyRequest,
-  GetImageRecipePolicyResponse,
-  GetImageRecipeRequest,
-  GetImageRecipeResponse,
-  GetImageRequest,
-  GetImageResponse,
-  GetInfrastructureConfigurationRequest,
-  GetInfrastructureConfigurationResponse,
-  ImportComponentRequest,
-  ImportComponentResponse,
-  ListComponentBuildVersionsRequest,
-  ListComponentBuildVersionsResponse,
-  ListComponentsRequest,
-  ListComponentsResponse,
-  ListDistributionConfigurationsRequest,
-  ListDistributionConfigurationsResponse,
-  ListImageBuildVersionsRequest,
-  ListImageBuildVersionsResponse,
-  ListImagePipelineImagesRequest,
-  ListImagePipelineImagesResponse,
-  ListImagePipelinesRequest,
-  ListImagePipelinesResponse,
-  ListImageRecipesRequest,
-  ListImageRecipesResponse,
-  ListImagesRequest,
-  ListImagesResponse,
-  ListInfrastructureConfigurationsRequest,
-  ListInfrastructureConfigurationsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutComponentPolicyRequest,
-  PutComponentPolicyResponse,
-  PutImagePolicyRequest,
-  PutImagePolicyResponse,
-  PutImageRecipePolicyRequest,
-  PutImageRecipePolicyResponse,
-  StartImagePipelineExecutionRequest,
-  StartImagePipelineExecutionResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateDistributionConfigurationRequest,
-  UpdateDistributionConfigurationResponse,
-  UpdateImagePipelineRequest,
-  UpdateImagePipelineResponse,
-  UpdateInfrastructureConfigurationRequest,
-  UpdateInfrastructureConfigurationResponse
-} from "./models/index";
+  CancelImageCreationCommandInput,
+  CancelImageCreationCommandOutput
+} from "./commands/CancelImageCreationCommand";
+import {
+  CreateComponentCommandInput,
+  CreateComponentCommandOutput
+} from "./commands/CreateComponentCommand";
+import {
+  CreateDistributionConfigurationCommandInput,
+  CreateDistributionConfigurationCommandOutput
+} from "./commands/CreateDistributionConfigurationCommand";
+import {
+  CreateImageCommandInput,
+  CreateImageCommandOutput
+} from "./commands/CreateImageCommand";
+import {
+  CreateImagePipelineCommandInput,
+  CreateImagePipelineCommandOutput
+} from "./commands/CreateImagePipelineCommand";
+import {
+  CreateImageRecipeCommandInput,
+  CreateImageRecipeCommandOutput
+} from "./commands/CreateImageRecipeCommand";
+import {
+  CreateInfrastructureConfigurationCommandInput,
+  CreateInfrastructureConfigurationCommandOutput
+} from "./commands/CreateInfrastructureConfigurationCommand";
+import {
+  DeleteComponentCommandInput,
+  DeleteComponentCommandOutput
+} from "./commands/DeleteComponentCommand";
+import {
+  DeleteDistributionConfigurationCommandInput,
+  DeleteDistributionConfigurationCommandOutput
+} from "./commands/DeleteDistributionConfigurationCommand";
+import {
+  DeleteImageCommandInput,
+  DeleteImageCommandOutput
+} from "./commands/DeleteImageCommand";
+import {
+  DeleteImagePipelineCommandInput,
+  DeleteImagePipelineCommandOutput
+} from "./commands/DeleteImagePipelineCommand";
+import {
+  DeleteImageRecipeCommandInput,
+  DeleteImageRecipeCommandOutput
+} from "./commands/DeleteImageRecipeCommand";
+import {
+  DeleteInfrastructureConfigurationCommandInput,
+  DeleteInfrastructureConfigurationCommandOutput
+} from "./commands/DeleteInfrastructureConfigurationCommand";
+import {
+  GetComponentCommandInput,
+  GetComponentCommandOutput
+} from "./commands/GetComponentCommand";
+import {
+  GetComponentPolicyCommandInput,
+  GetComponentPolicyCommandOutput
+} from "./commands/GetComponentPolicyCommand";
+import {
+  GetDistributionConfigurationCommandInput,
+  GetDistributionConfigurationCommandOutput
+} from "./commands/GetDistributionConfigurationCommand";
+import {
+  GetImageCommandInput,
+  GetImageCommandOutput
+} from "./commands/GetImageCommand";
+import {
+  GetImagePipelineCommandInput,
+  GetImagePipelineCommandOutput
+} from "./commands/GetImagePipelineCommand";
+import {
+  GetImagePolicyCommandInput,
+  GetImagePolicyCommandOutput
+} from "./commands/GetImagePolicyCommand";
+import {
+  GetImageRecipeCommandInput,
+  GetImageRecipeCommandOutput
+} from "./commands/GetImageRecipeCommand";
+import {
+  GetImageRecipePolicyCommandInput,
+  GetImageRecipePolicyCommandOutput
+} from "./commands/GetImageRecipePolicyCommand";
+import {
+  GetInfrastructureConfigurationCommandInput,
+  GetInfrastructureConfigurationCommandOutput
+} from "./commands/GetInfrastructureConfigurationCommand";
+import {
+  ImportComponentCommandInput,
+  ImportComponentCommandOutput
+} from "./commands/ImportComponentCommand";
+import {
+  ListComponentBuildVersionsCommandInput,
+  ListComponentBuildVersionsCommandOutput
+} from "./commands/ListComponentBuildVersionsCommand";
+import {
+  ListComponentsCommandInput,
+  ListComponentsCommandOutput
+} from "./commands/ListComponentsCommand";
+import {
+  ListDistributionConfigurationsCommandInput,
+  ListDistributionConfigurationsCommandOutput
+} from "./commands/ListDistributionConfigurationsCommand";
+import {
+  ListImageBuildVersionsCommandInput,
+  ListImageBuildVersionsCommandOutput
+} from "./commands/ListImageBuildVersionsCommand";
+import {
+  ListImagePipelineImagesCommandInput,
+  ListImagePipelineImagesCommandOutput
+} from "./commands/ListImagePipelineImagesCommand";
+import {
+  ListImagePipelinesCommandInput,
+  ListImagePipelinesCommandOutput
+} from "./commands/ListImagePipelinesCommand";
+import {
+  ListImageRecipesCommandInput,
+  ListImageRecipesCommandOutput
+} from "./commands/ListImageRecipesCommand";
+import {
+  ListImagesCommandInput,
+  ListImagesCommandOutput
+} from "./commands/ListImagesCommand";
+import {
+  ListInfrastructureConfigurationsCommandInput,
+  ListInfrastructureConfigurationsCommandOutput
+} from "./commands/ListInfrastructureConfigurationsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutComponentPolicyCommandInput,
+  PutComponentPolicyCommandOutput
+} from "./commands/PutComponentPolicyCommand";
+import {
+  PutImagePolicyCommandInput,
+  PutImagePolicyCommandOutput
+} from "./commands/PutImagePolicyCommand";
+import {
+  PutImageRecipePolicyCommandInput,
+  PutImageRecipePolicyCommandOutput
+} from "./commands/PutImageRecipePolicyCommand";
+import {
+  StartImagePipelineExecutionCommandInput,
+  StartImagePipelineExecutionCommandOutput
+} from "./commands/StartImagePipelineExecutionCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDistributionConfigurationCommandInput,
+  UpdateDistributionConfigurationCommandOutput
+} from "./commands/UpdateDistributionConfigurationCommand";
+import {
+  UpdateImagePipelineCommandInput,
+  UpdateImagePipelineCommandOutput
+} from "./commands/UpdateImagePipelineCommand";
+import {
+  UpdateInfrastructureConfigurationCommandInput,
+  UpdateInfrastructureConfigurationCommandOutput
+} from "./commands/UpdateInfrastructureConfigurationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -137,92 +219,92 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelImageCreationRequest
-  | CreateComponentRequest
-  | CreateDistributionConfigurationRequest
-  | CreateImagePipelineRequest
-  | CreateImageRecipeRequest
-  | CreateImageRequest
-  | CreateInfrastructureConfigurationRequest
-  | DeleteComponentRequest
-  | DeleteDistributionConfigurationRequest
-  | DeleteImagePipelineRequest
-  | DeleteImageRecipeRequest
-  | DeleteImageRequest
-  | DeleteInfrastructureConfigurationRequest
-  | GetComponentPolicyRequest
-  | GetComponentRequest
-  | GetDistributionConfigurationRequest
-  | GetImagePipelineRequest
-  | GetImagePolicyRequest
-  | GetImageRecipePolicyRequest
-  | GetImageRecipeRequest
-  | GetImageRequest
-  | GetInfrastructureConfigurationRequest
-  | ImportComponentRequest
-  | ListComponentBuildVersionsRequest
-  | ListComponentsRequest
-  | ListDistributionConfigurationsRequest
-  | ListImageBuildVersionsRequest
-  | ListImagePipelineImagesRequest
-  | ListImagePipelinesRequest
-  | ListImageRecipesRequest
-  | ListImagesRequest
-  | ListInfrastructureConfigurationsRequest
-  | ListTagsForResourceRequest
-  | PutComponentPolicyRequest
-  | PutImagePolicyRequest
-  | PutImageRecipePolicyRequest
-  | StartImagePipelineExecutionRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateDistributionConfigurationRequest
-  | UpdateImagePipelineRequest
-  | UpdateInfrastructureConfigurationRequest;
+  | CancelImageCreationCommandInput
+  | CreateComponentCommandInput
+  | CreateDistributionConfigurationCommandInput
+  | CreateImageCommandInput
+  | CreateImagePipelineCommandInput
+  | CreateImageRecipeCommandInput
+  | CreateInfrastructureConfigurationCommandInput
+  | DeleteComponentCommandInput
+  | DeleteDistributionConfigurationCommandInput
+  | DeleteImageCommandInput
+  | DeleteImagePipelineCommandInput
+  | DeleteImageRecipeCommandInput
+  | DeleteInfrastructureConfigurationCommandInput
+  | GetComponentCommandInput
+  | GetComponentPolicyCommandInput
+  | GetDistributionConfigurationCommandInput
+  | GetImageCommandInput
+  | GetImagePipelineCommandInput
+  | GetImagePolicyCommandInput
+  | GetImageRecipeCommandInput
+  | GetImageRecipePolicyCommandInput
+  | GetInfrastructureConfigurationCommandInput
+  | ImportComponentCommandInput
+  | ListComponentBuildVersionsCommandInput
+  | ListComponentsCommandInput
+  | ListDistributionConfigurationsCommandInput
+  | ListImageBuildVersionsCommandInput
+  | ListImagePipelineImagesCommandInput
+  | ListImagePipelinesCommandInput
+  | ListImageRecipesCommandInput
+  | ListImagesCommandInput
+  | ListInfrastructureConfigurationsCommandInput
+  | ListTagsForResourceCommandInput
+  | PutComponentPolicyCommandInput
+  | PutImagePolicyCommandInput
+  | PutImageRecipePolicyCommandInput
+  | StartImagePipelineExecutionCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateDistributionConfigurationCommandInput
+  | UpdateImagePipelineCommandInput
+  | UpdateInfrastructureConfigurationCommandInput;
 
 export type ServiceOutputTypes =
-  | CancelImageCreationResponse
-  | CreateComponentResponse
-  | CreateDistributionConfigurationResponse
-  | CreateImagePipelineResponse
-  | CreateImageRecipeResponse
-  | CreateImageResponse
-  | CreateInfrastructureConfigurationResponse
-  | DeleteComponentResponse
-  | DeleteDistributionConfigurationResponse
-  | DeleteImagePipelineResponse
-  | DeleteImageRecipeResponse
-  | DeleteImageResponse
-  | DeleteInfrastructureConfigurationResponse
-  | GetComponentPolicyResponse
-  | GetComponentResponse
-  | GetDistributionConfigurationResponse
-  | GetImagePipelineResponse
-  | GetImagePolicyResponse
-  | GetImageRecipePolicyResponse
-  | GetImageRecipeResponse
-  | GetImageResponse
-  | GetInfrastructureConfigurationResponse
-  | ImportComponentResponse
-  | ListComponentBuildVersionsResponse
-  | ListComponentsResponse
-  | ListDistributionConfigurationsResponse
-  | ListImageBuildVersionsResponse
-  | ListImagePipelineImagesResponse
-  | ListImagePipelinesResponse
-  | ListImageRecipesResponse
-  | ListImagesResponse
-  | ListInfrastructureConfigurationsResponse
-  | ListTagsForResourceResponse
-  | PutComponentPolicyResponse
-  | PutImagePolicyResponse
-  | PutImageRecipePolicyResponse
-  | StartImagePipelineExecutionResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateDistributionConfigurationResponse
-  | UpdateImagePipelineResponse
-  | UpdateInfrastructureConfigurationResponse;
+  | CancelImageCreationCommandOutput
+  | CreateComponentCommandOutput
+  | CreateDistributionConfigurationCommandOutput
+  | CreateImageCommandOutput
+  | CreateImagePipelineCommandOutput
+  | CreateImageRecipeCommandOutput
+  | CreateInfrastructureConfigurationCommandOutput
+  | DeleteComponentCommandOutput
+  | DeleteDistributionConfigurationCommandOutput
+  | DeleteImageCommandOutput
+  | DeleteImagePipelineCommandOutput
+  | DeleteImageRecipeCommandOutput
+  | DeleteInfrastructureConfigurationCommandOutput
+  | GetComponentCommandOutput
+  | GetComponentPolicyCommandOutput
+  | GetDistributionConfigurationCommandOutput
+  | GetImageCommandOutput
+  | GetImagePipelineCommandOutput
+  | GetImagePolicyCommandOutput
+  | GetImageRecipeCommandOutput
+  | GetImageRecipePolicyCommandOutput
+  | GetInfrastructureConfigurationCommandOutput
+  | ImportComponentCommandOutput
+  | ListComponentBuildVersionsCommandOutput
+  | ListComponentsCommandOutput
+  | ListDistributionConfigurationsCommandOutput
+  | ListImageBuildVersionsCommandOutput
+  | ListImagePipelineImagesCommandOutput
+  | ListImagePipelinesCommandOutput
+  | ListImageRecipesCommandOutput
+  | ListImagesCommandOutput
+  | ListInfrastructureConfigurationsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutComponentPolicyCommandOutput
+  | PutImagePolicyCommandOutput
+  | PutImageRecipePolicyCommandOutput
+  | StartImagePipelineExecutionCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDistributionConfigurationCommandOutput
+  | UpdateImagePipelineCommandOutput
+  | UpdateInfrastructureConfigurationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

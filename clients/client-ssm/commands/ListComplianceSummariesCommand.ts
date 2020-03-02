@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListComplianceSummariesCommandInput = ListComplianceSummariesRequest;
-export type ListComplianceSummariesCommandOutput = ListComplianceSummariesResult;
+export type ListComplianceSummariesCommandOutput = ListComplianceSummariesResult &
+  __MetadataBearer;
 
 export class ListComplianceSummariesCommand extends $Command<
   ListComplianceSummariesCommandInput,

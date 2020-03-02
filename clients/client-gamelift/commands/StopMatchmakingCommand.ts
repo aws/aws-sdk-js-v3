@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopMatchmakingCommandInput = StopMatchmakingInput;
-export type StopMatchmakingCommandOutput = StopMatchmakingOutput;
+export type StopMatchmakingCommandOutput = StopMatchmakingOutput &
+  __MetadataBearer;
 
 export class StopMatchmakingCommand extends $Command<
   StopMatchmakingCommandInput,

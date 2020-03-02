@@ -1,94 +1,215 @@
 import {
-  AcceptDirectConnectGatewayAssociationProposalRequest,
-  AcceptDirectConnectGatewayAssociationProposalResult,
-  AllocateConnectionOnInterconnectRequest,
-  AllocateHostedConnectionRequest,
-  AllocatePrivateVirtualInterfaceRequest,
-  AllocatePublicVirtualInterfaceRequest,
-  AllocateTransitVirtualInterfaceRequest,
-  AllocateTransitVirtualInterfaceResult,
-  AssociateConnectionWithLagRequest,
-  AssociateHostedConnectionRequest,
-  AssociateVirtualInterfaceRequest,
-  ConfirmConnectionRequest,
-  ConfirmConnectionResponse,
-  ConfirmPrivateVirtualInterfaceRequest,
-  ConfirmPrivateVirtualInterfaceResponse,
-  ConfirmPublicVirtualInterfaceRequest,
-  ConfirmPublicVirtualInterfaceResponse,
-  ConfirmTransitVirtualInterfaceRequest,
-  ConfirmTransitVirtualInterfaceResponse,
-  Connection,
-  Connections,
-  CreateBGPPeerRequest,
-  CreateBGPPeerResponse,
-  CreateConnectionRequest,
-  CreateDirectConnectGatewayAssociationProposalRequest,
-  CreateDirectConnectGatewayAssociationProposalResult,
-  CreateDirectConnectGatewayAssociationRequest,
-  CreateDirectConnectGatewayAssociationResult,
-  CreateDirectConnectGatewayRequest,
-  CreateDirectConnectGatewayResult,
-  CreateInterconnectRequest,
-  CreateLagRequest,
-  CreatePrivateVirtualInterfaceRequest,
-  CreatePublicVirtualInterfaceRequest,
-  CreateTransitVirtualInterfaceRequest,
-  CreateTransitVirtualInterfaceResult,
-  DeleteBGPPeerRequest,
-  DeleteBGPPeerResponse,
-  DeleteConnectionRequest,
-  DeleteDirectConnectGatewayAssociationProposalRequest,
-  DeleteDirectConnectGatewayAssociationProposalResult,
-  DeleteDirectConnectGatewayAssociationRequest,
-  DeleteDirectConnectGatewayAssociationResult,
-  DeleteDirectConnectGatewayRequest,
-  DeleteDirectConnectGatewayResult,
-  DeleteInterconnectRequest,
-  DeleteInterconnectResponse,
-  DeleteLagRequest,
-  DeleteVirtualInterfaceRequest,
-  DeleteVirtualInterfaceResponse,
-  DescribeConnectionLoaRequest,
-  DescribeConnectionLoaResponse,
-  DescribeConnectionsOnInterconnectRequest,
-  DescribeConnectionsRequest,
-  DescribeDirectConnectGatewayAssociationProposalsRequest,
-  DescribeDirectConnectGatewayAssociationProposalsResult,
-  DescribeDirectConnectGatewayAssociationsRequest,
-  DescribeDirectConnectGatewayAssociationsResult,
-  DescribeDirectConnectGatewayAttachmentsRequest,
-  DescribeDirectConnectGatewayAttachmentsResult,
-  DescribeDirectConnectGatewaysRequest,
-  DescribeDirectConnectGatewaysResult,
-  DescribeHostedConnectionsRequest,
-  DescribeInterconnectLoaRequest,
-  DescribeInterconnectLoaResponse,
-  DescribeInterconnectsRequest,
-  DescribeLagsRequest,
-  DescribeLoaRequest,
-  DescribeTagsRequest,
-  DescribeTagsResponse,
-  DescribeVirtualInterfacesRequest,
-  DisassociateConnectionFromLagRequest,
-  Interconnect,
-  Interconnects,
-  Lag,
-  Lags,
-  Loa,
-  Locations,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateDirectConnectGatewayAssociationRequest,
-  UpdateDirectConnectGatewayAssociationResult,
-  UpdateLagRequest,
-  UpdateVirtualInterfaceAttributesRequest,
-  VirtualGateways,
-  VirtualInterface,
-  VirtualInterfaces
-} from "./models/index";
+  AcceptDirectConnectGatewayAssociationProposalCommandInput,
+  AcceptDirectConnectGatewayAssociationProposalCommandOutput
+} from "./commands/AcceptDirectConnectGatewayAssociationProposalCommand";
+import {
+  AllocateConnectionOnInterconnectCommandInput,
+  AllocateConnectionOnInterconnectCommandOutput
+} from "./commands/AllocateConnectionOnInterconnectCommand";
+import {
+  AllocateHostedConnectionCommandInput,
+  AllocateHostedConnectionCommandOutput
+} from "./commands/AllocateHostedConnectionCommand";
+import {
+  AllocatePrivateVirtualInterfaceCommandInput,
+  AllocatePrivateVirtualInterfaceCommandOutput
+} from "./commands/AllocatePrivateVirtualInterfaceCommand";
+import {
+  AllocatePublicVirtualInterfaceCommandInput,
+  AllocatePublicVirtualInterfaceCommandOutput
+} from "./commands/AllocatePublicVirtualInterfaceCommand";
+import {
+  AllocateTransitVirtualInterfaceCommandInput,
+  AllocateTransitVirtualInterfaceCommandOutput
+} from "./commands/AllocateTransitVirtualInterfaceCommand";
+import {
+  AssociateConnectionWithLagCommandInput,
+  AssociateConnectionWithLagCommandOutput
+} from "./commands/AssociateConnectionWithLagCommand";
+import {
+  AssociateHostedConnectionCommandInput,
+  AssociateHostedConnectionCommandOutput
+} from "./commands/AssociateHostedConnectionCommand";
+import {
+  AssociateVirtualInterfaceCommandInput,
+  AssociateVirtualInterfaceCommandOutput
+} from "./commands/AssociateVirtualInterfaceCommand";
+import {
+  ConfirmConnectionCommandInput,
+  ConfirmConnectionCommandOutput
+} from "./commands/ConfirmConnectionCommand";
+import {
+  ConfirmPrivateVirtualInterfaceCommandInput,
+  ConfirmPrivateVirtualInterfaceCommandOutput
+} from "./commands/ConfirmPrivateVirtualInterfaceCommand";
+import {
+  ConfirmPublicVirtualInterfaceCommandInput,
+  ConfirmPublicVirtualInterfaceCommandOutput
+} from "./commands/ConfirmPublicVirtualInterfaceCommand";
+import {
+  ConfirmTransitVirtualInterfaceCommandInput,
+  ConfirmTransitVirtualInterfaceCommandOutput
+} from "./commands/ConfirmTransitVirtualInterfaceCommand";
+import {
+  CreateBGPPeerCommandInput,
+  CreateBGPPeerCommandOutput
+} from "./commands/CreateBGPPeerCommand";
+import {
+  CreateConnectionCommandInput,
+  CreateConnectionCommandOutput
+} from "./commands/CreateConnectionCommand";
+import {
+  CreateDirectConnectGatewayAssociationCommandInput,
+  CreateDirectConnectGatewayAssociationCommandOutput
+} from "./commands/CreateDirectConnectGatewayAssociationCommand";
+import {
+  CreateDirectConnectGatewayAssociationProposalCommandInput,
+  CreateDirectConnectGatewayAssociationProposalCommandOutput
+} from "./commands/CreateDirectConnectGatewayAssociationProposalCommand";
+import {
+  CreateDirectConnectGatewayCommandInput,
+  CreateDirectConnectGatewayCommandOutput
+} from "./commands/CreateDirectConnectGatewayCommand";
+import {
+  CreateInterconnectCommandInput,
+  CreateInterconnectCommandOutput
+} from "./commands/CreateInterconnectCommand";
+import {
+  CreateLagCommandInput,
+  CreateLagCommandOutput
+} from "./commands/CreateLagCommand";
+import {
+  CreatePrivateVirtualInterfaceCommandInput,
+  CreatePrivateVirtualInterfaceCommandOutput
+} from "./commands/CreatePrivateVirtualInterfaceCommand";
+import {
+  CreatePublicVirtualInterfaceCommandInput,
+  CreatePublicVirtualInterfaceCommandOutput
+} from "./commands/CreatePublicVirtualInterfaceCommand";
+import {
+  CreateTransitVirtualInterfaceCommandInput,
+  CreateTransitVirtualInterfaceCommandOutput
+} from "./commands/CreateTransitVirtualInterfaceCommand";
+import {
+  DeleteBGPPeerCommandInput,
+  DeleteBGPPeerCommandOutput
+} from "./commands/DeleteBGPPeerCommand";
+import {
+  DeleteConnectionCommandInput,
+  DeleteConnectionCommandOutput
+} from "./commands/DeleteConnectionCommand";
+import {
+  DeleteDirectConnectGatewayAssociationCommandInput,
+  DeleteDirectConnectGatewayAssociationCommandOutput
+} from "./commands/DeleteDirectConnectGatewayAssociationCommand";
+import {
+  DeleteDirectConnectGatewayAssociationProposalCommandInput,
+  DeleteDirectConnectGatewayAssociationProposalCommandOutput
+} from "./commands/DeleteDirectConnectGatewayAssociationProposalCommand";
+import {
+  DeleteDirectConnectGatewayCommandInput,
+  DeleteDirectConnectGatewayCommandOutput
+} from "./commands/DeleteDirectConnectGatewayCommand";
+import {
+  DeleteInterconnectCommandInput,
+  DeleteInterconnectCommandOutput
+} from "./commands/DeleteInterconnectCommand";
+import {
+  DeleteLagCommandInput,
+  DeleteLagCommandOutput
+} from "./commands/DeleteLagCommand";
+import {
+  DeleteVirtualInterfaceCommandInput,
+  DeleteVirtualInterfaceCommandOutput
+} from "./commands/DeleteVirtualInterfaceCommand";
+import {
+  DescribeConnectionLoaCommandInput,
+  DescribeConnectionLoaCommandOutput
+} from "./commands/DescribeConnectionLoaCommand";
+import {
+  DescribeConnectionsCommandInput,
+  DescribeConnectionsCommandOutput
+} from "./commands/DescribeConnectionsCommand";
+import {
+  DescribeConnectionsOnInterconnectCommandInput,
+  DescribeConnectionsOnInterconnectCommandOutput
+} from "./commands/DescribeConnectionsOnInterconnectCommand";
+import {
+  DescribeDirectConnectGatewayAssociationProposalsCommandInput,
+  DescribeDirectConnectGatewayAssociationProposalsCommandOutput
+} from "./commands/DescribeDirectConnectGatewayAssociationProposalsCommand";
+import {
+  DescribeDirectConnectGatewayAssociationsCommandInput,
+  DescribeDirectConnectGatewayAssociationsCommandOutput
+} from "./commands/DescribeDirectConnectGatewayAssociationsCommand";
+import {
+  DescribeDirectConnectGatewayAttachmentsCommandInput,
+  DescribeDirectConnectGatewayAttachmentsCommandOutput
+} from "./commands/DescribeDirectConnectGatewayAttachmentsCommand";
+import {
+  DescribeDirectConnectGatewaysCommandInput,
+  DescribeDirectConnectGatewaysCommandOutput
+} from "./commands/DescribeDirectConnectGatewaysCommand";
+import {
+  DescribeHostedConnectionsCommandInput,
+  DescribeHostedConnectionsCommandOutput
+} from "./commands/DescribeHostedConnectionsCommand";
+import {
+  DescribeInterconnectLoaCommandInput,
+  DescribeInterconnectLoaCommandOutput
+} from "./commands/DescribeInterconnectLoaCommand";
+import {
+  DescribeInterconnectsCommandInput,
+  DescribeInterconnectsCommandOutput
+} from "./commands/DescribeInterconnectsCommand";
+import {
+  DescribeLagsCommandInput,
+  DescribeLagsCommandOutput
+} from "./commands/DescribeLagsCommand";
+import {
+  DescribeLoaCommandInput,
+  DescribeLoaCommandOutput
+} from "./commands/DescribeLoaCommand";
+import {
+  DescribeLocationsCommandInput,
+  DescribeLocationsCommandOutput
+} from "./commands/DescribeLocationsCommand";
+import {
+  DescribeTagsCommandInput,
+  DescribeTagsCommandOutput
+} from "./commands/DescribeTagsCommand";
+import {
+  DescribeVirtualGatewaysCommandInput,
+  DescribeVirtualGatewaysCommandOutput
+} from "./commands/DescribeVirtualGatewaysCommand";
+import {
+  DescribeVirtualInterfacesCommandInput,
+  DescribeVirtualInterfacesCommandOutput
+} from "./commands/DescribeVirtualInterfacesCommand";
+import {
+  DisassociateConnectionFromLagCommandInput,
+  DisassociateConnectionFromLagCommandOutput
+} from "./commands/DisassociateConnectionFromLagCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDirectConnectGatewayAssociationCommandInput,
+  UpdateDirectConnectGatewayAssociationCommandOutput
+} from "./commands/UpdateDirectConnectGatewayAssociationCommand";
+import {
+  UpdateLagCommandInput,
+  UpdateLagCommandOutput
+} from "./commands/UpdateLagCommand";
+import {
+  UpdateVirtualInterfaceAttributesCommandInput,
+  UpdateVirtualInterfaceAttributesCommandOutput
+} from "./commands/UpdateVirtualInterfaceAttributesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -142,113 +263,114 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AcceptDirectConnectGatewayAssociationProposalRequest
-  | AllocateConnectionOnInterconnectRequest
-  | AllocateHostedConnectionRequest
-  | AllocatePrivateVirtualInterfaceRequest
-  | AllocatePublicVirtualInterfaceRequest
-  | AllocateTransitVirtualInterfaceRequest
-  | AssociateConnectionWithLagRequest
-  | AssociateHostedConnectionRequest
-  | AssociateVirtualInterfaceRequest
-  | ConfirmConnectionRequest
-  | ConfirmPrivateVirtualInterfaceRequest
-  | ConfirmPublicVirtualInterfaceRequest
-  | ConfirmTransitVirtualInterfaceRequest
-  | CreateBGPPeerRequest
-  | CreateConnectionRequest
-  | CreateDirectConnectGatewayAssociationProposalRequest
-  | CreateDirectConnectGatewayAssociationRequest
-  | CreateDirectConnectGatewayRequest
-  | CreateInterconnectRequest
-  | CreateLagRequest
-  | CreatePrivateVirtualInterfaceRequest
-  | CreatePublicVirtualInterfaceRequest
-  | CreateTransitVirtualInterfaceRequest
-  | DeleteBGPPeerRequest
-  | DeleteConnectionRequest
-  | DeleteDirectConnectGatewayAssociationProposalRequest
-  | DeleteDirectConnectGatewayAssociationRequest
-  | DeleteDirectConnectGatewayRequest
-  | DeleteInterconnectRequest
-  | DeleteLagRequest
-  | DeleteVirtualInterfaceRequest
-  | DescribeConnectionLoaRequest
-  | DescribeConnectionsOnInterconnectRequest
-  | DescribeConnectionsRequest
-  | DescribeDirectConnectGatewayAssociationProposalsRequest
-  | DescribeDirectConnectGatewayAssociationsRequest
-  | DescribeDirectConnectGatewayAttachmentsRequest
-  | DescribeDirectConnectGatewaysRequest
-  | DescribeHostedConnectionsRequest
-  | DescribeInterconnectLoaRequest
-  | DescribeInterconnectsRequest
-  | DescribeLagsRequest
-  | DescribeLoaRequest
-  | DescribeTagsRequest
-  | DescribeVirtualInterfacesRequest
-  | DisassociateConnectionFromLagRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateDirectConnectGatewayAssociationRequest
-  | UpdateLagRequest
-  | UpdateVirtualInterfaceAttributesRequest;
+  | AcceptDirectConnectGatewayAssociationProposalCommandInput
+  | AllocateConnectionOnInterconnectCommandInput
+  | AllocateHostedConnectionCommandInput
+  | AllocatePrivateVirtualInterfaceCommandInput
+  | AllocatePublicVirtualInterfaceCommandInput
+  | AllocateTransitVirtualInterfaceCommandInput
+  | AssociateConnectionWithLagCommandInput
+  | AssociateHostedConnectionCommandInput
+  | AssociateVirtualInterfaceCommandInput
+  | ConfirmConnectionCommandInput
+  | ConfirmPrivateVirtualInterfaceCommandInput
+  | ConfirmPublicVirtualInterfaceCommandInput
+  | ConfirmTransitVirtualInterfaceCommandInput
+  | CreateBGPPeerCommandInput
+  | CreateConnectionCommandInput
+  | CreateDirectConnectGatewayAssociationCommandInput
+  | CreateDirectConnectGatewayAssociationProposalCommandInput
+  | CreateDirectConnectGatewayCommandInput
+  | CreateInterconnectCommandInput
+  | CreateLagCommandInput
+  | CreatePrivateVirtualInterfaceCommandInput
+  | CreatePublicVirtualInterfaceCommandInput
+  | CreateTransitVirtualInterfaceCommandInput
+  | DeleteBGPPeerCommandInput
+  | DeleteConnectionCommandInput
+  | DeleteDirectConnectGatewayAssociationCommandInput
+  | DeleteDirectConnectGatewayAssociationProposalCommandInput
+  | DeleteDirectConnectGatewayCommandInput
+  | DeleteInterconnectCommandInput
+  | DeleteLagCommandInput
+  | DeleteVirtualInterfaceCommandInput
+  | DescribeConnectionLoaCommandInput
+  | DescribeConnectionsCommandInput
+  | DescribeConnectionsOnInterconnectCommandInput
+  | DescribeDirectConnectGatewayAssociationProposalsCommandInput
+  | DescribeDirectConnectGatewayAssociationsCommandInput
+  | DescribeDirectConnectGatewayAttachmentsCommandInput
+  | DescribeDirectConnectGatewaysCommandInput
+  | DescribeHostedConnectionsCommandInput
+  | DescribeInterconnectLoaCommandInput
+  | DescribeInterconnectsCommandInput
+  | DescribeLagsCommandInput
+  | DescribeLoaCommandInput
+  | DescribeLocationsCommandInput
+  | DescribeTagsCommandInput
+  | DescribeVirtualGatewaysCommandInput
+  | DescribeVirtualInterfacesCommandInput
+  | DisassociateConnectionFromLagCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateDirectConnectGatewayAssociationCommandInput
+  | UpdateLagCommandInput
+  | UpdateVirtualInterfaceAttributesCommandInput;
 
 export type ServiceOutputTypes =
-  | AcceptDirectConnectGatewayAssociationProposalResult
-  | AllocateTransitVirtualInterfaceResult
-  | ConfirmConnectionResponse
-  | ConfirmPrivateVirtualInterfaceResponse
-  | ConfirmPublicVirtualInterfaceResponse
-  | ConfirmTransitVirtualInterfaceResponse
-  | Connection
-  | Connection
-  | Connection
-  | Connection
-  | Connection
-  | Connection
-  | Connection
-  | Connections
-  | Connections
-  | Connections
-  | CreateBGPPeerResponse
-  | CreateDirectConnectGatewayAssociationProposalResult
-  | CreateDirectConnectGatewayAssociationResult
-  | CreateDirectConnectGatewayResult
-  | CreateTransitVirtualInterfaceResult
-  | DeleteBGPPeerResponse
-  | DeleteDirectConnectGatewayAssociationProposalResult
-  | DeleteDirectConnectGatewayAssociationResult
-  | DeleteDirectConnectGatewayResult
-  | DeleteInterconnectResponse
-  | DeleteVirtualInterfaceResponse
-  | DescribeConnectionLoaResponse
-  | DescribeDirectConnectGatewayAssociationProposalsResult
-  | DescribeDirectConnectGatewayAssociationsResult
-  | DescribeDirectConnectGatewayAttachmentsResult
-  | DescribeDirectConnectGatewaysResult
-  | DescribeInterconnectLoaResponse
-  | DescribeTagsResponse
-  | Interconnect
-  | Interconnects
-  | Lag
-  | Lag
-  | Lag
-  | Lags
-  | Loa
-  | Locations
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateDirectConnectGatewayAssociationResult
-  | VirtualGateways
-  | VirtualInterface
-  | VirtualInterface
-  | VirtualInterface
-  | VirtualInterface
-  | VirtualInterface
-  | VirtualInterface
-  | VirtualInterfaces;
+  | AcceptDirectConnectGatewayAssociationProposalCommandOutput
+  | AllocateConnectionOnInterconnectCommandOutput
+  | AllocateHostedConnectionCommandOutput
+  | AllocatePrivateVirtualInterfaceCommandOutput
+  | AllocatePublicVirtualInterfaceCommandOutput
+  | AllocateTransitVirtualInterfaceCommandOutput
+  | AssociateConnectionWithLagCommandOutput
+  | AssociateHostedConnectionCommandOutput
+  | AssociateVirtualInterfaceCommandOutput
+  | ConfirmConnectionCommandOutput
+  | ConfirmPrivateVirtualInterfaceCommandOutput
+  | ConfirmPublicVirtualInterfaceCommandOutput
+  | ConfirmTransitVirtualInterfaceCommandOutput
+  | CreateBGPPeerCommandOutput
+  | CreateConnectionCommandOutput
+  | CreateDirectConnectGatewayAssociationCommandOutput
+  | CreateDirectConnectGatewayAssociationProposalCommandOutput
+  | CreateDirectConnectGatewayCommandOutput
+  | CreateInterconnectCommandOutput
+  | CreateLagCommandOutput
+  | CreatePrivateVirtualInterfaceCommandOutput
+  | CreatePublicVirtualInterfaceCommandOutput
+  | CreateTransitVirtualInterfaceCommandOutput
+  | DeleteBGPPeerCommandOutput
+  | DeleteConnectionCommandOutput
+  | DeleteDirectConnectGatewayAssociationCommandOutput
+  | DeleteDirectConnectGatewayAssociationProposalCommandOutput
+  | DeleteDirectConnectGatewayCommandOutput
+  | DeleteInterconnectCommandOutput
+  | DeleteLagCommandOutput
+  | DeleteVirtualInterfaceCommandOutput
+  | DescribeConnectionLoaCommandOutput
+  | DescribeConnectionsCommandOutput
+  | DescribeConnectionsOnInterconnectCommandOutput
+  | DescribeDirectConnectGatewayAssociationProposalsCommandOutput
+  | DescribeDirectConnectGatewayAssociationsCommandOutput
+  | DescribeDirectConnectGatewayAttachmentsCommandOutput
+  | DescribeDirectConnectGatewaysCommandOutput
+  | DescribeHostedConnectionsCommandOutput
+  | DescribeInterconnectLoaCommandOutput
+  | DescribeInterconnectsCommandOutput
+  | DescribeLagsCommandOutput
+  | DescribeLoaCommandOutput
+  | DescribeLocationsCommandOutput
+  | DescribeTagsCommandOutput
+  | DescribeVirtualGatewaysCommandOutput
+  | DescribeVirtualInterfacesCommandOutput
+  | DisassociateConnectionFromLagCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDirectConnectGatewayAssociationCommandOutput
+  | UpdateLagCommandOutput
+  | UpdateVirtualInterfaceAttributesCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

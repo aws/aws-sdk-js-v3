@@ -22,11 +22,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyObjectCommandInput = CopyObjectRequest;
-export type CopyObjectCommandOutput = CopyObjectOutput;
+export type CopyObjectCommandOutput = CopyObjectOutput & __MetadataBearer;
 
 export class CopyObjectCommand extends $Command<
   CopyObjectCommandInput,

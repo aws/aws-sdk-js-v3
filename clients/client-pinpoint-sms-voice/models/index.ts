@@ -109,8 +109,7 @@ export namespace CreateConfigurationSetEventDestinationRequest {
 /**
  * An empty object that indicates that the event destination was created successfully.
  */
-export interface CreateConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface CreateConfigurationSetEventDestinationResponse {
   __type?: "CreateConfigurationSetEventDestinationResponse";
 }
 
@@ -142,7 +141,7 @@ export namespace CreateConfigurationSetRequest {
 /**
  * An empty object that indicates that the configuration set was successfully created.
  */
-export interface CreateConfigurationSetResponse extends $MetadataBearer {
+export interface CreateConfigurationSetResponse {
   __type?: "CreateConfigurationSetResponse";
 }
 
@@ -176,8 +175,7 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
 /**
  * An empty object that indicates that the event destination was deleted successfully.
  */
-export interface DeleteConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface DeleteConfigurationSetEventDestinationResponse {
   __type?: "DeleteConfigurationSetEventDestinationResponse";
 }
 
@@ -206,7 +204,7 @@ export namespace DeleteConfigurationSetRequest {
 /**
  * An empty object that indicates that the configuration set was deleted successfully.
  */
-export interface DeleteConfigurationSetResponse extends $MetadataBearer {
+export interface DeleteConfigurationSetResponse {
   __type?: "DeleteConfigurationSetResponse";
 }
 
@@ -324,8 +322,7 @@ export namespace GetConfigurationSetEventDestinationsRequest {
 /**
  * An object that contains information about an event destination.
  */
-export interface GetConfigurationSetEventDestinationsResponse
-  extends $MetadataBearer {
+export interface GetConfigurationSetEventDestinationsResponse {
   __type?: "GetConfigurationSetEventDestinationsResponse";
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
@@ -419,7 +416,7 @@ export namespace ListConfigurationSetsRequest {
 /**
  * An object that contains information about the configuration sets for your account in the current region.
  */
-export interface ListConfigurationSetsResponse extends $MetadataBearer {
+export interface ListConfigurationSetsResponse {
   __type?: "ListConfigurationSetsResponse";
   /**
    * An object that contains a list of configuration sets for your account in the current region.
@@ -547,7 +544,7 @@ export namespace SendVoiceMessageRequest {
 /**
  * An object that that contains the Message ID of a Voice message that was sent successfully.
  */
-export interface SendVoiceMessageResponse extends $MetadataBearer {
+export interface SendVoiceMessageResponse {
   __type?: "SendVoiceMessageResponse";
   /**
    * A unique identifier for the voice message.
@@ -627,8 +624,7 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
 /**
  * An empty object that indicates that the event destination was updated successfully.
  */
-export interface UpdateConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface UpdateConfigurationSetEventDestinationResponse {
   __type?: "UpdateConfigurationSetEventDestinationResponse";
 }
 

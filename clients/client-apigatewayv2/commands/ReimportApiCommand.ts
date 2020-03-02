@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReimportApiCommandInput = ReimportApiRequest;
-export type ReimportApiCommandOutput = ReimportApiResponse;
+export type ReimportApiCommandOutput = ReimportApiResponse & __MetadataBearer;
 
 export class ReimportApiCommand extends $Command<
   ReimportApiCommandInput,

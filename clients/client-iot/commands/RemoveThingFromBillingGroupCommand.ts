@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveThingFromBillingGroupCommandInput = RemoveThingFromBillingGroupRequest;
-export type RemoveThingFromBillingGroupCommandOutput = RemoveThingFromBillingGroupResponse;
+export type RemoveThingFromBillingGroupCommandOutput = RemoveThingFromBillingGroupResponse &
+  __MetadataBearer;
 
 export class RemoveThingFromBillingGroupCommand extends $Command<
   RemoveThingFromBillingGroupCommandInput,

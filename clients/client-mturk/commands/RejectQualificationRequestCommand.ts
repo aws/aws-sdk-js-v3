@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RejectQualificationRequestCommandInput = RejectQualificationRequestRequest;
-export type RejectQualificationRequestCommandOutput = RejectQualificationRequestResponse;
+export type RejectQualificationRequestCommandOutput = RejectQualificationRequestResponse &
+  __MetadataBearer;
 
 export class RejectQualificationRequestCommand extends $Command<
   RejectQualificationRequestCommandInput,

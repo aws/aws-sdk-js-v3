@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateLoadBalancerAttributeCommandInput = UpdateLoadBalancerAttributeRequest;
-export type UpdateLoadBalancerAttributeCommandOutput = UpdateLoadBalancerAttributeResult;
+export type UpdateLoadBalancerAttributeCommandOutput = UpdateLoadBalancerAttributeResult &
+  __MetadataBearer;
 
 export class UpdateLoadBalancerAttributeCommand extends $Command<
   UpdateLoadBalancerAttributeCommandInput,

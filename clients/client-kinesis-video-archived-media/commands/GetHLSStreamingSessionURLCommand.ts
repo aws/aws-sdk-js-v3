@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetHLSStreamingSessionURLCommandInput = GetHLSStreamingSessionURLInput;
-export type GetHLSStreamingSessionURLCommandOutput = GetHLSStreamingSessionURLOutput;
+export type GetHLSStreamingSessionURLCommandOutput = GetHLSStreamingSessionURLOutput &
+  __MetadataBearer;
 
 export class GetHLSStreamingSessionURLCommand extends $Command<
   GetHLSStreamingSessionURLCommandInput,

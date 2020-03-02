@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePendingMaintenanceActionsCommandInput = DescribePendingMaintenanceActionsMessage;
-export type DescribePendingMaintenanceActionsCommandOutput = DescribePendingMaintenanceActionsResponse;
+export type DescribePendingMaintenanceActionsCommandOutput = DescribePendingMaintenanceActionsResponse &
+  __MetadataBearer;
 
 export class DescribePendingMaintenanceActionsCommand extends $Command<
   DescribePendingMaintenanceActionsCommandInput,

@@ -182,7 +182,7 @@ export namespace DeleteThingShadowRequest {
 /**
  * <p>The output from the DeleteThingShadow operation.</p>
  */
-export interface DeleteThingShadowResponse extends $MetadataBearer {
+export interface DeleteThingShadowResponse {
   __type?: "DeleteThingShadowResponse";
   /**
    * <p>The state information, in JSON format.</p>
@@ -216,7 +216,7 @@ export namespace GetThingShadowRequest {
 /**
  * <p>The output from the GetThingShadow operation.</p>
  */
-export interface GetThingShadowResponse extends $MetadataBearer {
+export interface GetThingShadowResponse {
   __type?: "GetThingShadowResponse";
   /**
    * <p>The state information, in JSON format.</p>
@@ -322,7 +322,7 @@ export namespace UpdateThingShadowRequest {
 /**
  * <p>The output from the UpdateThingShadow operation.</p>
  */
-export interface UpdateThingShadowResponse extends $MetadataBearer {
+export interface UpdateThingShadowResponse {
   __type?: "UpdateThingShadowResponse";
   /**
    * <p>The state information, in JSON format.</p>

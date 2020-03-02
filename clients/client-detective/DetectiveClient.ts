@@ -1,22 +1,47 @@
 import {
-  AcceptInvitationRequest,
-  CreateGraphResponse,
-  CreateMembersRequest,
-  CreateMembersResponse,
-  DeleteGraphRequest,
-  DeleteMembersRequest,
-  DeleteMembersResponse,
-  DisassociateMembershipRequest,
-  GetMembersRequest,
-  GetMembersResponse,
-  ListGraphsRequest,
-  ListGraphsResponse,
-  ListInvitationsRequest,
-  ListInvitationsResponse,
-  ListMembersRequest,
-  ListMembersResponse,
-  RejectInvitationRequest
-} from "./models/index";
+  AcceptInvitationCommandInput,
+  AcceptInvitationCommandOutput
+} from "./commands/AcceptInvitationCommand";
+import {
+  CreateGraphCommandInput,
+  CreateGraphCommandOutput
+} from "./commands/CreateGraphCommand";
+import {
+  CreateMembersCommandInput,
+  CreateMembersCommandOutput
+} from "./commands/CreateMembersCommand";
+import {
+  DeleteGraphCommandInput,
+  DeleteGraphCommandOutput
+} from "./commands/DeleteGraphCommand";
+import {
+  DeleteMembersCommandInput,
+  DeleteMembersCommandOutput
+} from "./commands/DeleteMembersCommand";
+import {
+  DisassociateMembershipCommandInput,
+  DisassociateMembershipCommandOutput
+} from "./commands/DisassociateMembershipCommand";
+import {
+  GetMembersCommandInput,
+  GetMembersCommandOutput
+} from "./commands/GetMembersCommand";
+import {
+  ListGraphsCommandInput,
+  ListGraphsCommandOutput
+} from "./commands/ListGraphsCommand";
+import {
+  ListInvitationsCommandInput,
+  ListInvitationsCommandOutput
+} from "./commands/ListInvitationsCommand";
+import {
+  ListMembersCommandInput,
+  ListMembersCommandOutput
+} from "./commands/ListMembersCommand";
+import {
+  RejectInvitationCommandInput,
+  RejectInvitationCommandOutput
+} from "./commands/RejectInvitationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -64,34 +89,36 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AcceptInvitationRequest
-  | CreateMembersRequest
-  | DeleteGraphRequest
-  | DeleteMembersRequest
-  | DisassociateMembershipRequest
-  | GetMembersRequest
-  | ListGraphsRequest
-  | ListInvitationsRequest
-  | ListMembersRequest
-  | RejectInvitationRequest;
+  | AcceptInvitationCommandInput
+  | CreateGraphCommandInput
+  | CreateMembersCommandInput
+  | DeleteGraphCommandInput
+  | DeleteMembersCommandInput
+  | DisassociateMembershipCommandInput
+  | GetMembersCommandInput
+  | ListGraphsCommandInput
+  | ListInvitationsCommandInput
+  | ListMembersCommandInput
+  | RejectInvitationCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateGraphResponse
-  | CreateMembersResponse
-  | DeleteMembersResponse
-  | GetMembersResponse
-  | ListGraphsResponse
-  | ListInvitationsResponse
-  | ListMembersResponse;
+  | AcceptInvitationCommandOutput
+  | CreateGraphCommandOutput
+  | CreateMembersCommandOutput
+  | DeleteGraphCommandOutput
+  | DeleteMembersCommandOutput
+  | DisassociateMembershipCommandOutput
+  | GetMembersCommandOutput
+  | ListGraphsCommandOutput
+  | ListInvitationsCommandOutput
+  | ListMembersCommandOutput
+  | RejectInvitationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

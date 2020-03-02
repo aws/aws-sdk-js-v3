@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartCopyJobCommandInput = StartCopyJobInput;
-export type StartCopyJobCommandOutput = StartCopyJobOutput;
+export type StartCopyJobCommandOutput = StartCopyJobOutput & __MetadataBearer;
 
 export class StartCopyJobCommand extends $Command<
   StartCopyJobCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateFleetCapacityCommandInput = UpdateFleetCapacityInput;
-export type UpdateFleetCapacityCommandOutput = UpdateFleetCapacityOutput;
+export type UpdateFleetCapacityCommandOutput = UpdateFleetCapacityOutput &
+  __MetadataBearer;
 
 export class UpdateFleetCapacityCommand extends $Command<
   UpdateFleetCapacityCommandInput,

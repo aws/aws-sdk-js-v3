@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateInsightCommandInput = CreateInsightRequest;
-export type CreateInsightCommandOutput = CreateInsightResponse;
+export type CreateInsightCommandOutput = CreateInsightResponse &
+  __MetadataBearer;
 
 export class CreateInsightCommand extends $Command<
   CreateInsightCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeScalingActivitiesCommandInput = DescribeScalingActivitiesRequest;
-export type DescribeScalingActivitiesCommandOutput = DescribeScalingActivitiesResponse;
+export type DescribeScalingActivitiesCommandOutput = DescribeScalingActivitiesResponse &
+  __MetadataBearer;
 
 export class DescribeScalingActivitiesCommand extends $Command<
   DescribeScalingActivitiesCommandInput,

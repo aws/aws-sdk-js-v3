@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAnalyzersCommandInput = ListAnalyzersRequest;
-export type ListAnalyzersCommandOutput = ListAnalyzersResponse;
+export type ListAnalyzersCommandOutput = ListAnalyzersResponse &
+  __MetadataBearer;
 
 export class ListAnalyzersCommand extends $Command<
   ListAnalyzersCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBudgetCommandInput = CreateBudgetRequest;
-export type CreateBudgetCommandOutput = CreateBudgetResponse;
+export type CreateBudgetCommandOutput = CreateBudgetResponse & __MetadataBearer;
 
 export class CreateBudgetCommand extends $Command<
   CreateBudgetCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeInsightRulesCommandInput = DescribeInsightRulesInput;
-export type DescribeInsightRulesCommandOutput = DescribeInsightRulesOutput;
+export type DescribeInsightRulesCommandOutput = DescribeInsightRulesOutput &
+  __MetadataBearer;
 
 export class DescribeInsightRulesCommand extends $Command<
   DescribeInsightRulesCommandInput,

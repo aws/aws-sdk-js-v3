@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutVoiceConnectorTerminationCommandInput = PutVoiceConnectorTerminationRequest;
-export type PutVoiceConnectorTerminationCommandOutput = PutVoiceConnectorTerminationResponse;
+export type PutVoiceConnectorTerminationCommandOutput = PutVoiceConnectorTerminationResponse &
+  __MetadataBearer;
 
 export class PutVoiceConnectorTerminationCommand extends $Command<
   PutVoiceConnectorTerminationCommandInput,

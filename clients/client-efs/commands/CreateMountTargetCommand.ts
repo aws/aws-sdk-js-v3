@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateMountTargetCommandInput = CreateMountTargetRequest;
-export type CreateMountTargetCommandOutput = MountTargetDescription;
+export type CreateMountTargetCommandOutput = MountTargetDescription &
+  __MetadataBearer;
 
 export class CreateMountTargetCommand extends $Command<
   CreateMountTargetCommandInput,

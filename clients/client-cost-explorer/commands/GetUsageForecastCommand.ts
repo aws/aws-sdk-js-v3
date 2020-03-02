@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUsageForecastCommandInput = GetUsageForecastRequest;
-export type GetUsageForecastCommandOutput = GetUsageForecastResponse;
+export type GetUsageForecastCommandOutput = GetUsageForecastResponse &
+  __MetadataBearer;
 
 export class GetUsageForecastCommand extends $Command<
   GetUsageForecastCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCrawlerCommandInput = DeleteCrawlerRequest;
-export type DeleteCrawlerCommandOutput = DeleteCrawlerResponse;
+export type DeleteCrawlerCommandOutput = DeleteCrawlerResponse &
+  __MetadataBearer;
 
 export class DeleteCrawlerCommand extends $Command<
   DeleteCrawlerCommandInput,

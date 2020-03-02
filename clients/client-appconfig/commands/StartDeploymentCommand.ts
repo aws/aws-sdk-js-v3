@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartDeploymentCommandInput = StartDeploymentRequest;
-export type StartDeploymentCommandOutput = Deployment;
+export type StartDeploymentCommandOutput = Deployment & __MetadataBearer;
 
 export class StartDeploymentCommand extends $Command<
   StartDeploymentCommandInput,

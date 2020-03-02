@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCoipPoolsCommandInput = DescribeCoipPoolsRequest;
-export type DescribeCoipPoolsCommandOutput = DescribeCoipPoolsResult;
+export type DescribeCoipPoolsCommandOutput = DescribeCoipPoolsResult &
+  __MetadataBearer;
 
 export class DescribeCoipPoolsCommand extends $Command<
   DescribeCoipPoolsCommandInput,

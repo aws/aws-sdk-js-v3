@@ -55,7 +55,7 @@ export namespace CreateOutpostInput {
   }
 }
 
-export interface CreateOutpostOutput extends $MetadataBearer {
+export interface CreateOutpostOutput {
   __type?: "CreateOutpostOutput";
   /**
    * <p>Information about an Outpost.</p>
@@ -107,7 +107,7 @@ export namespace GetOutpostInstanceTypesInput {
   }
 }
 
-export interface GetOutpostInstanceTypesOutput extends $MetadataBearer {
+export interface GetOutpostInstanceTypesOutput {
   __type?: "GetOutpostInstanceTypesOutput";
   /**
    * <p>Information about the instance types.</p>
@@ -136,7 +136,7 @@ export namespace GetOutpostInstanceTypesOutput {
   }
 }
 
-export interface GetOutpostOutput extends $MetadataBearer {
+export interface GetOutpostOutput {
   __type?: "GetOutpostOutput";
   /**
    * <p>Information about an Outpost.</p>
@@ -203,7 +203,7 @@ export namespace ListOutpostsInput {
   }
 }
 
-export interface ListOutpostsOutput extends $MetadataBearer {
+export interface ListOutpostsOutput {
   __type?: "ListOutpostsOutput";
   /**
    * <p>The pagination token.</p>
@@ -241,7 +241,7 @@ export namespace ListSitesInput {
   }
 }
 
-export interface ListSitesOutput extends $MetadataBearer {
+export interface ListSitesOutput {
   __type?: "ListSitesOutput";
   /**
    * <p>The pagination token.</p>

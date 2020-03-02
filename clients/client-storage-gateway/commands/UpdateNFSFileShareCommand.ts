@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateNFSFileShareCommandInput = UpdateNFSFileShareInput;
-export type UpdateNFSFileShareCommandOutput = UpdateNFSFileShareOutput;
+export type UpdateNFSFileShareCommandOutput = UpdateNFSFileShareOutput &
+  __MetadataBearer;
 
 export class UpdateNFSFileShareCommand extends $Command<
   UpdateNFSFileShareCommandInput,

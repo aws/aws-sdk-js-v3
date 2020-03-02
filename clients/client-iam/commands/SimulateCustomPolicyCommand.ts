@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SimulateCustomPolicyCommandInput = SimulateCustomPolicyRequest;
-export type SimulateCustomPolicyCommandOutput = SimulatePolicyResponse;
+export type SimulateCustomPolicyCommandOutput = SimulatePolicyResponse &
+  __MetadataBearer;
 
 export class SimulateCustomPolicyCommand extends $Command<
   SimulateCustomPolicyCommandInput,

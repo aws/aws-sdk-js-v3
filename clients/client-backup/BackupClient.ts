@@ -1,86 +1,187 @@
 import {
-  CreateBackupPlanInput,
-  CreateBackupPlanOutput,
-  CreateBackupSelectionInput,
-  CreateBackupSelectionOutput,
-  CreateBackupVaultInput,
-  CreateBackupVaultOutput,
-  DeleteBackupPlanInput,
-  DeleteBackupPlanOutput,
-  DeleteBackupSelectionInput,
-  DeleteBackupVaultAccessPolicyInput,
-  DeleteBackupVaultInput,
-  DeleteBackupVaultNotificationsInput,
-  DeleteRecoveryPointInput,
-  DescribeBackupJobInput,
-  DescribeBackupJobOutput,
-  DescribeBackupVaultInput,
-  DescribeBackupVaultOutput,
-  DescribeCopyJobInput,
-  DescribeCopyJobOutput,
-  DescribeProtectedResourceInput,
-  DescribeProtectedResourceOutput,
-  DescribeRecoveryPointInput,
-  DescribeRecoveryPointOutput,
-  DescribeRestoreJobInput,
-  DescribeRestoreJobOutput,
-  ExportBackupPlanTemplateInput,
-  ExportBackupPlanTemplateOutput,
-  GetBackupPlanFromJSONInput,
-  GetBackupPlanFromJSONOutput,
-  GetBackupPlanFromTemplateInput,
-  GetBackupPlanFromTemplateOutput,
-  GetBackupPlanInput,
-  GetBackupPlanOutput,
-  GetBackupSelectionInput,
-  GetBackupSelectionOutput,
-  GetBackupVaultAccessPolicyInput,
-  GetBackupVaultAccessPolicyOutput,
-  GetBackupVaultNotificationsInput,
-  GetBackupVaultNotificationsOutput,
-  GetRecoveryPointRestoreMetadataInput,
-  GetRecoveryPointRestoreMetadataOutput,
-  GetSupportedResourceTypesOutput,
-  ListBackupJobsInput,
-  ListBackupJobsOutput,
-  ListBackupPlanTemplatesInput,
-  ListBackupPlanTemplatesOutput,
-  ListBackupPlanVersionsInput,
-  ListBackupPlanVersionsOutput,
-  ListBackupPlansInput,
-  ListBackupPlansOutput,
-  ListBackupSelectionsInput,
-  ListBackupSelectionsOutput,
-  ListBackupVaultsInput,
-  ListBackupVaultsOutput,
-  ListCopyJobsInput,
-  ListCopyJobsOutput,
-  ListProtectedResourcesInput,
-  ListProtectedResourcesOutput,
-  ListRecoveryPointsByBackupVaultInput,
-  ListRecoveryPointsByBackupVaultOutput,
-  ListRecoveryPointsByResourceInput,
-  ListRecoveryPointsByResourceOutput,
-  ListRestoreJobsInput,
-  ListRestoreJobsOutput,
-  ListTagsInput,
-  ListTagsOutput,
-  PutBackupVaultAccessPolicyInput,
-  PutBackupVaultNotificationsInput,
-  StartBackupJobInput,
-  StartBackupJobOutput,
-  StartCopyJobInput,
-  StartCopyJobOutput,
-  StartRestoreJobInput,
-  StartRestoreJobOutput,
-  StopBackupJobInput,
-  TagResourceInput,
-  UntagResourceInput,
-  UpdateBackupPlanInput,
-  UpdateBackupPlanOutput,
-  UpdateRecoveryPointLifecycleInput,
-  UpdateRecoveryPointLifecycleOutput
-} from "./models/index";
+  CreateBackupPlanCommandInput,
+  CreateBackupPlanCommandOutput
+} from "./commands/CreateBackupPlanCommand";
+import {
+  CreateBackupSelectionCommandInput,
+  CreateBackupSelectionCommandOutput
+} from "./commands/CreateBackupSelectionCommand";
+import {
+  CreateBackupVaultCommandInput,
+  CreateBackupVaultCommandOutput
+} from "./commands/CreateBackupVaultCommand";
+import {
+  DeleteBackupPlanCommandInput,
+  DeleteBackupPlanCommandOutput
+} from "./commands/DeleteBackupPlanCommand";
+import {
+  DeleteBackupSelectionCommandInput,
+  DeleteBackupSelectionCommandOutput
+} from "./commands/DeleteBackupSelectionCommand";
+import {
+  DeleteBackupVaultAccessPolicyCommandInput,
+  DeleteBackupVaultAccessPolicyCommandOutput
+} from "./commands/DeleteBackupVaultAccessPolicyCommand";
+import {
+  DeleteBackupVaultCommandInput,
+  DeleteBackupVaultCommandOutput
+} from "./commands/DeleteBackupVaultCommand";
+import {
+  DeleteBackupVaultNotificationsCommandInput,
+  DeleteBackupVaultNotificationsCommandOutput
+} from "./commands/DeleteBackupVaultNotificationsCommand";
+import {
+  DeleteRecoveryPointCommandInput,
+  DeleteRecoveryPointCommandOutput
+} from "./commands/DeleteRecoveryPointCommand";
+import {
+  DescribeBackupJobCommandInput,
+  DescribeBackupJobCommandOutput
+} from "./commands/DescribeBackupJobCommand";
+import {
+  DescribeBackupVaultCommandInput,
+  DescribeBackupVaultCommandOutput
+} from "./commands/DescribeBackupVaultCommand";
+import {
+  DescribeCopyJobCommandInput,
+  DescribeCopyJobCommandOutput
+} from "./commands/DescribeCopyJobCommand";
+import {
+  DescribeProtectedResourceCommandInput,
+  DescribeProtectedResourceCommandOutput
+} from "./commands/DescribeProtectedResourceCommand";
+import {
+  DescribeRecoveryPointCommandInput,
+  DescribeRecoveryPointCommandOutput
+} from "./commands/DescribeRecoveryPointCommand";
+import {
+  DescribeRestoreJobCommandInput,
+  DescribeRestoreJobCommandOutput
+} from "./commands/DescribeRestoreJobCommand";
+import {
+  ExportBackupPlanTemplateCommandInput,
+  ExportBackupPlanTemplateCommandOutput
+} from "./commands/ExportBackupPlanTemplateCommand";
+import {
+  GetBackupPlanCommandInput,
+  GetBackupPlanCommandOutput
+} from "./commands/GetBackupPlanCommand";
+import {
+  GetBackupPlanFromJSONCommandInput,
+  GetBackupPlanFromJSONCommandOutput
+} from "./commands/GetBackupPlanFromJSONCommand";
+import {
+  GetBackupPlanFromTemplateCommandInput,
+  GetBackupPlanFromTemplateCommandOutput
+} from "./commands/GetBackupPlanFromTemplateCommand";
+import {
+  GetBackupSelectionCommandInput,
+  GetBackupSelectionCommandOutput
+} from "./commands/GetBackupSelectionCommand";
+import {
+  GetBackupVaultAccessPolicyCommandInput,
+  GetBackupVaultAccessPolicyCommandOutput
+} from "./commands/GetBackupVaultAccessPolicyCommand";
+import {
+  GetBackupVaultNotificationsCommandInput,
+  GetBackupVaultNotificationsCommandOutput
+} from "./commands/GetBackupVaultNotificationsCommand";
+import {
+  GetRecoveryPointRestoreMetadataCommandInput,
+  GetRecoveryPointRestoreMetadataCommandOutput
+} from "./commands/GetRecoveryPointRestoreMetadataCommand";
+import {
+  GetSupportedResourceTypesCommandInput,
+  GetSupportedResourceTypesCommandOutput
+} from "./commands/GetSupportedResourceTypesCommand";
+import {
+  ListBackupJobsCommandInput,
+  ListBackupJobsCommandOutput
+} from "./commands/ListBackupJobsCommand";
+import {
+  ListBackupPlanTemplatesCommandInput,
+  ListBackupPlanTemplatesCommandOutput
+} from "./commands/ListBackupPlanTemplatesCommand";
+import {
+  ListBackupPlanVersionsCommandInput,
+  ListBackupPlanVersionsCommandOutput
+} from "./commands/ListBackupPlanVersionsCommand";
+import {
+  ListBackupPlansCommandInput,
+  ListBackupPlansCommandOutput
+} from "./commands/ListBackupPlansCommand";
+import {
+  ListBackupSelectionsCommandInput,
+  ListBackupSelectionsCommandOutput
+} from "./commands/ListBackupSelectionsCommand";
+import {
+  ListBackupVaultsCommandInput,
+  ListBackupVaultsCommandOutput
+} from "./commands/ListBackupVaultsCommand";
+import {
+  ListCopyJobsCommandInput,
+  ListCopyJobsCommandOutput
+} from "./commands/ListCopyJobsCommand";
+import {
+  ListProtectedResourcesCommandInput,
+  ListProtectedResourcesCommandOutput
+} from "./commands/ListProtectedResourcesCommand";
+import {
+  ListRecoveryPointsByBackupVaultCommandInput,
+  ListRecoveryPointsByBackupVaultCommandOutput
+} from "./commands/ListRecoveryPointsByBackupVaultCommand";
+import {
+  ListRecoveryPointsByResourceCommandInput,
+  ListRecoveryPointsByResourceCommandOutput
+} from "./commands/ListRecoveryPointsByResourceCommand";
+import {
+  ListRestoreJobsCommandInput,
+  ListRestoreJobsCommandOutput
+} from "./commands/ListRestoreJobsCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  PutBackupVaultAccessPolicyCommandInput,
+  PutBackupVaultAccessPolicyCommandOutput
+} from "./commands/PutBackupVaultAccessPolicyCommand";
+import {
+  PutBackupVaultNotificationsCommandInput,
+  PutBackupVaultNotificationsCommandOutput
+} from "./commands/PutBackupVaultNotificationsCommand";
+import {
+  StartBackupJobCommandInput,
+  StartBackupJobCommandOutput
+} from "./commands/StartBackupJobCommand";
+import {
+  StartCopyJobCommandInput,
+  StartCopyJobCommandOutput
+} from "./commands/StartCopyJobCommand";
+import {
+  StartRestoreJobCommandInput,
+  StartRestoreJobCommandOutput
+} from "./commands/StartRestoreJobCommand";
+import {
+  StopBackupJobCommandInput,
+  StopBackupJobCommandOutput
+} from "./commands/StopBackupJobCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateBackupPlanCommandInput,
+  UpdateBackupPlanCommandOutput
+} from "./commands/UpdateBackupPlanCommand";
+import {
+  UpdateRecoveryPointLifecycleCommandInput,
+  UpdateRecoveryPointLifecycleCommandOutput
+} from "./commands/UpdateRecoveryPointLifecycleCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -128,98 +229,106 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | CreateBackupPlanInput
-  | CreateBackupSelectionInput
-  | CreateBackupVaultInput
-  | DeleteBackupPlanInput
-  | DeleteBackupSelectionInput
-  | DeleteBackupVaultAccessPolicyInput
-  | DeleteBackupVaultInput
-  | DeleteBackupVaultNotificationsInput
-  | DeleteRecoveryPointInput
-  | DescribeBackupJobInput
-  | DescribeBackupVaultInput
-  | DescribeCopyJobInput
-  | DescribeProtectedResourceInput
-  | DescribeRecoveryPointInput
-  | DescribeRestoreJobInput
-  | ExportBackupPlanTemplateInput
-  | GetBackupPlanFromJSONInput
-  | GetBackupPlanFromTemplateInput
-  | GetBackupPlanInput
-  | GetBackupSelectionInput
-  | GetBackupVaultAccessPolicyInput
-  | GetBackupVaultNotificationsInput
-  | GetRecoveryPointRestoreMetadataInput
-  | ListBackupJobsInput
-  | ListBackupPlanTemplatesInput
-  | ListBackupPlanVersionsInput
-  | ListBackupPlansInput
-  | ListBackupSelectionsInput
-  | ListBackupVaultsInput
-  | ListCopyJobsInput
-  | ListProtectedResourcesInput
-  | ListRecoveryPointsByBackupVaultInput
-  | ListRecoveryPointsByResourceInput
-  | ListRestoreJobsInput
-  | ListTagsInput
-  | PutBackupVaultAccessPolicyInput
-  | PutBackupVaultNotificationsInput
-  | StartBackupJobInput
-  | StartCopyJobInput
-  | StartRestoreJobInput
-  | StopBackupJobInput
-  | TagResourceInput
-  | UntagResourceInput
-  | UpdateBackupPlanInput
-  | UpdateRecoveryPointLifecycleInput;
+  | CreateBackupPlanCommandInput
+  | CreateBackupSelectionCommandInput
+  | CreateBackupVaultCommandInput
+  | DeleteBackupPlanCommandInput
+  | DeleteBackupSelectionCommandInput
+  | DeleteBackupVaultAccessPolicyCommandInput
+  | DeleteBackupVaultCommandInput
+  | DeleteBackupVaultNotificationsCommandInput
+  | DeleteRecoveryPointCommandInput
+  | DescribeBackupJobCommandInput
+  | DescribeBackupVaultCommandInput
+  | DescribeCopyJobCommandInput
+  | DescribeProtectedResourceCommandInput
+  | DescribeRecoveryPointCommandInput
+  | DescribeRestoreJobCommandInput
+  | ExportBackupPlanTemplateCommandInput
+  | GetBackupPlanCommandInput
+  | GetBackupPlanFromJSONCommandInput
+  | GetBackupPlanFromTemplateCommandInput
+  | GetBackupSelectionCommandInput
+  | GetBackupVaultAccessPolicyCommandInput
+  | GetBackupVaultNotificationsCommandInput
+  | GetRecoveryPointRestoreMetadataCommandInput
+  | GetSupportedResourceTypesCommandInput
+  | ListBackupJobsCommandInput
+  | ListBackupPlanTemplatesCommandInput
+  | ListBackupPlanVersionsCommandInput
+  | ListBackupPlansCommandInput
+  | ListBackupSelectionsCommandInput
+  | ListBackupVaultsCommandInput
+  | ListCopyJobsCommandInput
+  | ListProtectedResourcesCommandInput
+  | ListRecoveryPointsByBackupVaultCommandInput
+  | ListRecoveryPointsByResourceCommandInput
+  | ListRestoreJobsCommandInput
+  | ListTagsCommandInput
+  | PutBackupVaultAccessPolicyCommandInput
+  | PutBackupVaultNotificationsCommandInput
+  | StartBackupJobCommandInput
+  | StartCopyJobCommandInput
+  | StartRestoreJobCommandInput
+  | StopBackupJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateBackupPlanCommandInput
+  | UpdateRecoveryPointLifecycleCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateBackupPlanOutput
-  | CreateBackupSelectionOutput
-  | CreateBackupVaultOutput
-  | DeleteBackupPlanOutput
-  | DescribeBackupJobOutput
-  | DescribeBackupVaultOutput
-  | DescribeCopyJobOutput
-  | DescribeProtectedResourceOutput
-  | DescribeRecoveryPointOutput
-  | DescribeRestoreJobOutput
-  | ExportBackupPlanTemplateOutput
-  | GetBackupPlanFromJSONOutput
-  | GetBackupPlanFromTemplateOutput
-  | GetBackupPlanOutput
-  | GetBackupSelectionOutput
-  | GetBackupVaultAccessPolicyOutput
-  | GetBackupVaultNotificationsOutput
-  | GetRecoveryPointRestoreMetadataOutput
-  | GetSupportedResourceTypesOutput
-  | ListBackupJobsOutput
-  | ListBackupPlanTemplatesOutput
-  | ListBackupPlanVersionsOutput
-  | ListBackupPlansOutput
-  | ListBackupSelectionsOutput
-  | ListBackupVaultsOutput
-  | ListCopyJobsOutput
-  | ListProtectedResourcesOutput
-  | ListRecoveryPointsByBackupVaultOutput
-  | ListRecoveryPointsByResourceOutput
-  | ListRestoreJobsOutput
-  | ListTagsOutput
-  | StartBackupJobOutput
-  | StartCopyJobOutput
-  | StartRestoreJobOutput
-  | UpdateBackupPlanOutput
-  | UpdateRecoveryPointLifecycleOutput;
+  | CreateBackupPlanCommandOutput
+  | CreateBackupSelectionCommandOutput
+  | CreateBackupVaultCommandOutput
+  | DeleteBackupPlanCommandOutput
+  | DeleteBackupSelectionCommandOutput
+  | DeleteBackupVaultAccessPolicyCommandOutput
+  | DeleteBackupVaultCommandOutput
+  | DeleteBackupVaultNotificationsCommandOutput
+  | DeleteRecoveryPointCommandOutput
+  | DescribeBackupJobCommandOutput
+  | DescribeBackupVaultCommandOutput
+  | DescribeCopyJobCommandOutput
+  | DescribeProtectedResourceCommandOutput
+  | DescribeRecoveryPointCommandOutput
+  | DescribeRestoreJobCommandOutput
+  | ExportBackupPlanTemplateCommandOutput
+  | GetBackupPlanCommandOutput
+  | GetBackupPlanFromJSONCommandOutput
+  | GetBackupPlanFromTemplateCommandOutput
+  | GetBackupSelectionCommandOutput
+  | GetBackupVaultAccessPolicyCommandOutput
+  | GetBackupVaultNotificationsCommandOutput
+  | GetRecoveryPointRestoreMetadataCommandOutput
+  | GetSupportedResourceTypesCommandOutput
+  | ListBackupJobsCommandOutput
+  | ListBackupPlanTemplatesCommandOutput
+  | ListBackupPlanVersionsCommandOutput
+  | ListBackupPlansCommandOutput
+  | ListBackupSelectionsCommandOutput
+  | ListBackupVaultsCommandOutput
+  | ListCopyJobsCommandOutput
+  | ListProtectedResourcesCommandOutput
+  | ListRecoveryPointsByBackupVaultCommandOutput
+  | ListRecoveryPointsByResourceCommandOutput
+  | ListRestoreJobsCommandOutput
+  | ListTagsCommandOutput
+  | PutBackupVaultAccessPolicyCommandOutput
+  | PutBackupVaultNotificationsCommandOutput
+  | StartBackupJobCommandOutput
+  | StartCopyJobCommandOutput
+  | StartRestoreJobCommandOutput
+  | StopBackupJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateBackupPlanCommandOutput
+  | UpdateRecoveryPointLifecycleCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

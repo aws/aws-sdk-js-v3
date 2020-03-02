@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateUserProfileCommandInput = CreateUserProfileRequest;
-export type CreateUserProfileCommandOutput = CreateUserProfileResponse;
+export type CreateUserProfileCommandOutput = CreateUserProfileResponse &
+  __MetadataBearer;
 
 export class CreateUserProfileCommand extends $Command<
   CreateUserProfileCommandInput,

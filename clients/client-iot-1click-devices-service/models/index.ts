@@ -28,7 +28,7 @@ export namespace ClaimDevicesByClaimCodeRequest {
   }
 }
 
-export interface ClaimDevicesByClaimCodeResponse extends $MetadataBearer {
+export interface ClaimDevicesByClaimCodeResponse {
   __type?: "ClaimDevicesByClaimCodeResponse";
   /**
    * <p>The claim code provided by the device manufacturer.</p>
@@ -62,7 +62,7 @@ export namespace DescribeDeviceRequest {
   }
 }
 
-export interface DescribeDeviceResponse extends $MetadataBearer {
+export interface DescribeDeviceResponse {
   __type?: "DescribeDeviceResponse";
   /**
    * <p>Device details.</p>
@@ -207,7 +207,7 @@ export namespace FinalizeDeviceClaimRequest {
   }
 }
 
-export interface FinalizeDeviceClaimResponse extends $MetadataBearer {
+export interface FinalizeDeviceClaimResponse {
   __type?: "FinalizeDeviceClaimResponse";
   /**
    * <p>The device's final claim state.</p>
@@ -255,7 +255,7 @@ export namespace GetDeviceMethodsRequest {
   }
 }
 
-export interface GetDeviceMethodsResponse extends $MetadataBearer {
+export interface GetDeviceMethodsResponse {
   __type?: "GetDeviceMethodsResponse";
   /**
    * <p>List of available device APIs.</p>
@@ -283,7 +283,7 @@ export namespace InitiateDeviceClaimRequest {
   }
 }
 
-export interface InitiateDeviceClaimResponse extends $MetadataBearer {
+export interface InitiateDeviceClaimResponse {
   __type?: "InitiateDeviceClaimResponse";
   /**
    * <p>The device's final claim state.</p>
@@ -365,7 +365,7 @@ export namespace InvokeDeviceMethodRequest {
   }
 }
 
-export interface InvokeDeviceMethodResponse extends $MetadataBearer {
+export interface InvokeDeviceMethodResponse {
   __type?: "InvokeDeviceMethodResponse";
   /**
    * <p>A JSON encoded string containing the device method response.</p>
@@ -418,7 +418,7 @@ export namespace ListDeviceEventsRequest {
   }
 }
 
-export interface ListDeviceEventsResponse extends $MetadataBearer {
+export interface ListDeviceEventsResponse {
   __type?: "ListDeviceEventsResponse";
   /**
    * <p>An array of zero or more elements describing the event(s) associated with the
@@ -463,7 +463,7 @@ export namespace ListDevicesRequest {
   }
 }
 
-export interface ListDevicesResponse extends $MetadataBearer {
+export interface ListDevicesResponse {
   __type?: "ListDevicesResponse";
   /**
    * <p>A list of devices.</p>
@@ -496,7 +496,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>A collection of key/value pairs defining the resource tags. For example, {
@@ -640,7 +640,7 @@ export namespace UnclaimDeviceRequest {
   }
 }
 
-export interface UnclaimDeviceResponse extends $MetadataBearer {
+export interface UnclaimDeviceResponse {
   __type?: "UnclaimDeviceResponse";
   /**
    * <p>The device's final claim state.</p>
@@ -693,7 +693,7 @@ export namespace UpdateDeviceStateRequest {
   }
 }
 
-export interface UpdateDeviceStateResponse extends $MetadataBearer {
+export interface UpdateDeviceStateResponse {
   __type?: "UpdateDeviceStateResponse";
 }
 

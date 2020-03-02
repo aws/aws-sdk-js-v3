@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetGlobalSettingsCommandInput = {};
-export type GetGlobalSettingsCommandOutput = GetGlobalSettingsResponse;
+export type GetGlobalSettingsCommandOutput = GetGlobalSettingsResponse &
+  __MetadataBearer;
 
 export class GetGlobalSettingsCommand extends $Command<
   GetGlobalSettingsCommandInput,

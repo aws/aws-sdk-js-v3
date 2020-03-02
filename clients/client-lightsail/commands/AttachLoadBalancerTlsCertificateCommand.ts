@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AttachLoadBalancerTlsCertificateCommandInput = AttachLoadBalancerTlsCertificateRequest;
-export type AttachLoadBalancerTlsCertificateCommandOutput = AttachLoadBalancerTlsCertificateResult;
+export type AttachLoadBalancerTlsCertificateCommandOutput = AttachLoadBalancerTlsCertificateResult &
+  __MetadataBearer;
 
 export class AttachLoadBalancerTlsCertificateCommand extends $Command<
   AttachLoadBalancerTlsCertificateCommandInput,

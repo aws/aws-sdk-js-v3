@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DefineExpressionCommandInput = DefineExpressionRequest;
-export type DefineExpressionCommandOutput = DefineExpressionResponse;
+export type DefineExpressionCommandOutput = DefineExpressionResponse &
+  __MetadataBearer;
 
 export class DefineExpressionCommand extends $Command<
   DefineExpressionCommandInput,

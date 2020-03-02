@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateDomainCommandInput = AssociateDomainRequest;
-export type AssociateDomainCommandOutput = AssociateDomainResponse;
+export type AssociateDomainCommandOutput = AssociateDomainResponse &
+  __MetadataBearer;
 
 export class AssociateDomainCommand extends $Command<
   AssociateDomainCommandInput,

@@ -1,81 +1,199 @@
 import {
-  AddLayerVersionPermissionRequest,
-  AddLayerVersionPermissionResponse,
-  AddPermissionRequest,
-  AddPermissionResponse,
-  AliasConfiguration,
-  Concurrency,
-  CreateAliasRequest,
-  CreateEventSourceMappingRequest,
-  CreateFunctionRequest,
-  DeleteAliasRequest,
-  DeleteEventSourceMappingRequest,
-  DeleteFunctionConcurrencyRequest,
-  DeleteFunctionEventInvokeConfigRequest,
-  DeleteFunctionRequest,
-  DeleteLayerVersionRequest,
-  DeleteProvisionedConcurrencyConfigRequest,
-  EventSourceMappingConfiguration,
-  FunctionConfiguration,
-  FunctionEventInvokeConfig,
-  GetAccountSettingsRequest,
-  GetAccountSettingsResponse,
-  GetAliasRequest,
-  GetEventSourceMappingRequest,
-  GetFunctionConcurrencyRequest,
-  GetFunctionConcurrencyResponse,
-  GetFunctionConfigurationRequest,
-  GetFunctionEventInvokeConfigRequest,
-  GetFunctionRequest,
-  GetFunctionResponse,
-  GetLayerVersionByArnRequest,
-  GetLayerVersionPolicyRequest,
-  GetLayerVersionPolicyResponse,
-  GetLayerVersionRequest,
-  GetLayerVersionResponse,
-  GetPolicyRequest,
-  GetPolicyResponse,
-  GetProvisionedConcurrencyConfigRequest,
-  GetProvisionedConcurrencyConfigResponse,
-  InvocationRequest,
-  InvocationResponse,
-  InvokeAsyncRequest,
-  InvokeAsyncResponse,
-  ListAliasesRequest,
-  ListAliasesResponse,
-  ListEventSourceMappingsRequest,
-  ListEventSourceMappingsResponse,
-  ListFunctionEventInvokeConfigsRequest,
-  ListFunctionEventInvokeConfigsResponse,
-  ListFunctionsRequest,
-  ListFunctionsResponse,
-  ListLayerVersionsRequest,
-  ListLayerVersionsResponse,
-  ListLayersRequest,
-  ListLayersResponse,
-  ListProvisionedConcurrencyConfigsRequest,
-  ListProvisionedConcurrencyConfigsResponse,
-  ListTagsRequest,
-  ListTagsResponse,
-  ListVersionsByFunctionRequest,
-  ListVersionsByFunctionResponse,
-  PublishLayerVersionRequest,
-  PublishLayerVersionResponse,
-  PublishVersionRequest,
-  PutFunctionConcurrencyRequest,
-  PutFunctionEventInvokeConfigRequest,
-  PutProvisionedConcurrencyConfigRequest,
-  PutProvisionedConcurrencyConfigResponse,
-  RemoveLayerVersionPermissionRequest,
-  RemovePermissionRequest,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateAliasRequest,
-  UpdateEventSourceMappingRequest,
-  UpdateFunctionCodeRequest,
-  UpdateFunctionConfigurationRequest,
-  UpdateFunctionEventInvokeConfigRequest
-} from "./models/index";
+  AddLayerVersionPermissionCommandInput,
+  AddLayerVersionPermissionCommandOutput
+} from "./commands/AddLayerVersionPermissionCommand";
+import {
+  AddPermissionCommandInput,
+  AddPermissionCommandOutput
+} from "./commands/AddPermissionCommand";
+import {
+  CreateAliasCommandInput,
+  CreateAliasCommandOutput
+} from "./commands/CreateAliasCommand";
+import {
+  CreateEventSourceMappingCommandInput,
+  CreateEventSourceMappingCommandOutput
+} from "./commands/CreateEventSourceMappingCommand";
+import {
+  CreateFunctionCommandInput,
+  CreateFunctionCommandOutput
+} from "./commands/CreateFunctionCommand";
+import {
+  DeleteAliasCommandInput,
+  DeleteAliasCommandOutput
+} from "./commands/DeleteAliasCommand";
+import {
+  DeleteEventSourceMappingCommandInput,
+  DeleteEventSourceMappingCommandOutput
+} from "./commands/DeleteEventSourceMappingCommand";
+import {
+  DeleteFunctionCommandInput,
+  DeleteFunctionCommandOutput
+} from "./commands/DeleteFunctionCommand";
+import {
+  DeleteFunctionConcurrencyCommandInput,
+  DeleteFunctionConcurrencyCommandOutput
+} from "./commands/DeleteFunctionConcurrencyCommand";
+import {
+  DeleteFunctionEventInvokeConfigCommandInput,
+  DeleteFunctionEventInvokeConfigCommandOutput
+} from "./commands/DeleteFunctionEventInvokeConfigCommand";
+import {
+  DeleteLayerVersionCommandInput,
+  DeleteLayerVersionCommandOutput
+} from "./commands/DeleteLayerVersionCommand";
+import {
+  DeleteProvisionedConcurrencyConfigCommandInput,
+  DeleteProvisionedConcurrencyConfigCommandOutput
+} from "./commands/DeleteProvisionedConcurrencyConfigCommand";
+import {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput
+} from "./commands/GetAccountSettingsCommand";
+import {
+  GetAliasCommandInput,
+  GetAliasCommandOutput
+} from "./commands/GetAliasCommand";
+import {
+  GetEventSourceMappingCommandInput,
+  GetEventSourceMappingCommandOutput
+} from "./commands/GetEventSourceMappingCommand";
+import {
+  GetFunctionCommandInput,
+  GetFunctionCommandOutput
+} from "./commands/GetFunctionCommand";
+import {
+  GetFunctionConcurrencyCommandInput,
+  GetFunctionConcurrencyCommandOutput
+} from "./commands/GetFunctionConcurrencyCommand";
+import {
+  GetFunctionConfigurationCommandInput,
+  GetFunctionConfigurationCommandOutput
+} from "./commands/GetFunctionConfigurationCommand";
+import {
+  GetFunctionEventInvokeConfigCommandInput,
+  GetFunctionEventInvokeConfigCommandOutput
+} from "./commands/GetFunctionEventInvokeConfigCommand";
+import {
+  GetLayerVersionByArnCommandInput,
+  GetLayerVersionByArnCommandOutput
+} from "./commands/GetLayerVersionByArnCommand";
+import {
+  GetLayerVersionCommandInput,
+  GetLayerVersionCommandOutput
+} from "./commands/GetLayerVersionCommand";
+import {
+  GetLayerVersionPolicyCommandInput,
+  GetLayerVersionPolicyCommandOutput
+} from "./commands/GetLayerVersionPolicyCommand";
+import {
+  GetPolicyCommandInput,
+  GetPolicyCommandOutput
+} from "./commands/GetPolicyCommand";
+import {
+  GetProvisionedConcurrencyConfigCommandInput,
+  GetProvisionedConcurrencyConfigCommandOutput
+} from "./commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  InvokeAsyncCommandInput,
+  InvokeAsyncCommandOutput
+} from "./commands/InvokeAsyncCommand";
+import {
+  InvokeCommandInput,
+  InvokeCommandOutput
+} from "./commands/InvokeCommand";
+import {
+  ListAliasesCommandInput,
+  ListAliasesCommandOutput
+} from "./commands/ListAliasesCommand";
+import {
+  ListEventSourceMappingsCommandInput,
+  ListEventSourceMappingsCommandOutput
+} from "./commands/ListEventSourceMappingsCommand";
+import {
+  ListFunctionEventInvokeConfigsCommandInput,
+  ListFunctionEventInvokeConfigsCommandOutput
+} from "./commands/ListFunctionEventInvokeConfigsCommand";
+import {
+  ListFunctionsCommandInput,
+  ListFunctionsCommandOutput
+} from "./commands/ListFunctionsCommand";
+import {
+  ListLayerVersionsCommandInput,
+  ListLayerVersionsCommandOutput
+} from "./commands/ListLayerVersionsCommand";
+import {
+  ListLayersCommandInput,
+  ListLayersCommandOutput
+} from "./commands/ListLayersCommand";
+import {
+  ListProvisionedConcurrencyConfigsCommandInput,
+  ListProvisionedConcurrencyConfigsCommandOutput
+} from "./commands/ListProvisionedConcurrencyConfigsCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  ListVersionsByFunctionCommandInput,
+  ListVersionsByFunctionCommandOutput
+} from "./commands/ListVersionsByFunctionCommand";
+import {
+  PublishLayerVersionCommandInput,
+  PublishLayerVersionCommandOutput
+} from "./commands/PublishLayerVersionCommand";
+import {
+  PublishVersionCommandInput,
+  PublishVersionCommandOutput
+} from "./commands/PublishVersionCommand";
+import {
+  PutFunctionConcurrencyCommandInput,
+  PutFunctionConcurrencyCommandOutput
+} from "./commands/PutFunctionConcurrencyCommand";
+import {
+  PutFunctionEventInvokeConfigCommandInput,
+  PutFunctionEventInvokeConfigCommandOutput
+} from "./commands/PutFunctionEventInvokeConfigCommand";
+import {
+  PutProvisionedConcurrencyConfigCommandInput,
+  PutProvisionedConcurrencyConfigCommandOutput
+} from "./commands/PutProvisionedConcurrencyConfigCommand";
+import {
+  RemoveLayerVersionPermissionCommandInput,
+  RemoveLayerVersionPermissionCommandOutput
+} from "./commands/RemoveLayerVersionPermissionCommand";
+import {
+  RemovePermissionCommandInput,
+  RemovePermissionCommandOutput
+} from "./commands/RemovePermissionCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAliasCommandInput,
+  UpdateAliasCommandOutput
+} from "./commands/UpdateAliasCommand";
+import {
+  UpdateEventSourceMappingCommandInput,
+  UpdateEventSourceMappingCommandOutput
+} from "./commands/UpdateEventSourceMappingCommand";
+import {
+  UpdateFunctionCodeCommandInput,
+  UpdateFunctionCodeCommandOutput
+} from "./commands/UpdateFunctionCodeCommand";
+import {
+  UpdateFunctionConfigurationCommandInput,
+  UpdateFunctionConfigurationCommandOutput
+} from "./commands/UpdateFunctionConfigurationCommand";
+import {
+  UpdateFunctionEventInvokeConfigCommandInput,
+  UpdateFunctionEventInvokeConfigCommandOutput
+} from "./commands/UpdateFunctionEventInvokeConfigCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -123,104 +241,112 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddLayerVersionPermissionRequest
-  | AddPermissionRequest
-  | CreateAliasRequest
-  | CreateEventSourceMappingRequest
-  | CreateFunctionRequest
-  | DeleteAliasRequest
-  | DeleteEventSourceMappingRequest
-  | DeleteFunctionConcurrencyRequest
-  | DeleteFunctionEventInvokeConfigRequest
-  | DeleteFunctionRequest
-  | DeleteLayerVersionRequest
-  | DeleteProvisionedConcurrencyConfigRequest
-  | GetAccountSettingsRequest
-  | GetAliasRequest
-  | GetEventSourceMappingRequest
-  | GetFunctionConcurrencyRequest
-  | GetFunctionConfigurationRequest
-  | GetFunctionEventInvokeConfigRequest
-  | GetFunctionRequest
-  | GetLayerVersionByArnRequest
-  | GetLayerVersionPolicyRequest
-  | GetLayerVersionRequest
-  | GetPolicyRequest
-  | GetProvisionedConcurrencyConfigRequest
-  | InvocationRequest
-  | InvokeAsyncRequest
-  | ListAliasesRequest
-  | ListEventSourceMappingsRequest
-  | ListFunctionEventInvokeConfigsRequest
-  | ListFunctionsRequest
-  | ListLayerVersionsRequest
-  | ListLayersRequest
-  | ListProvisionedConcurrencyConfigsRequest
-  | ListTagsRequest
-  | ListVersionsByFunctionRequest
-  | PublishLayerVersionRequest
-  | PublishVersionRequest
-  | PutFunctionConcurrencyRequest
-  | PutFunctionEventInvokeConfigRequest
-  | PutProvisionedConcurrencyConfigRequest
-  | RemoveLayerVersionPermissionRequest
-  | RemovePermissionRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateAliasRequest
-  | UpdateEventSourceMappingRequest
-  | UpdateFunctionCodeRequest
-  | UpdateFunctionConfigurationRequest
-  | UpdateFunctionEventInvokeConfigRequest;
+  | AddLayerVersionPermissionCommandInput
+  | AddPermissionCommandInput
+  | CreateAliasCommandInput
+  | CreateEventSourceMappingCommandInput
+  | CreateFunctionCommandInput
+  | DeleteAliasCommandInput
+  | DeleteEventSourceMappingCommandInput
+  | DeleteFunctionCommandInput
+  | DeleteFunctionConcurrencyCommandInput
+  | DeleteFunctionEventInvokeConfigCommandInput
+  | DeleteLayerVersionCommandInput
+  | DeleteProvisionedConcurrencyConfigCommandInput
+  | GetAccountSettingsCommandInput
+  | GetAliasCommandInput
+  | GetEventSourceMappingCommandInput
+  | GetFunctionCommandInput
+  | GetFunctionConcurrencyCommandInput
+  | GetFunctionConfigurationCommandInput
+  | GetFunctionEventInvokeConfigCommandInput
+  | GetLayerVersionByArnCommandInput
+  | GetLayerVersionCommandInput
+  | GetLayerVersionPolicyCommandInput
+  | GetPolicyCommandInput
+  | GetProvisionedConcurrencyConfigCommandInput
+  | InvokeAsyncCommandInput
+  | InvokeCommandInput
+  | ListAliasesCommandInput
+  | ListEventSourceMappingsCommandInput
+  | ListFunctionEventInvokeConfigsCommandInput
+  | ListFunctionsCommandInput
+  | ListLayerVersionsCommandInput
+  | ListLayersCommandInput
+  | ListProvisionedConcurrencyConfigsCommandInput
+  | ListTagsCommandInput
+  | ListVersionsByFunctionCommandInput
+  | PublishLayerVersionCommandInput
+  | PublishVersionCommandInput
+  | PutFunctionConcurrencyCommandInput
+  | PutFunctionEventInvokeConfigCommandInput
+  | PutProvisionedConcurrencyConfigCommandInput
+  | RemoveLayerVersionPermissionCommandInput
+  | RemovePermissionCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAliasCommandInput
+  | UpdateEventSourceMappingCommandInput
+  | UpdateFunctionCodeCommandInput
+  | UpdateFunctionConfigurationCommandInput
+  | UpdateFunctionEventInvokeConfigCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AddLayerVersionPermissionResponse
-  | AddPermissionResponse
-  | AliasConfiguration
-  | AliasConfiguration
-  | AliasConfiguration
-  | Concurrency
-  | EventSourceMappingConfiguration
-  | EventSourceMappingConfiguration
-  | EventSourceMappingConfiguration
-  | EventSourceMappingConfiguration
-  | FunctionConfiguration
-  | FunctionConfiguration
-  | FunctionConfiguration
-  | FunctionConfiguration
-  | FunctionConfiguration
-  | FunctionEventInvokeConfig
-  | FunctionEventInvokeConfig
-  | FunctionEventInvokeConfig
-  | GetAccountSettingsResponse
-  | GetFunctionConcurrencyResponse
-  | GetFunctionResponse
-  | GetLayerVersionPolicyResponse
-  | GetLayerVersionResponse
-  | GetLayerVersionResponse
-  | GetPolicyResponse
-  | GetProvisionedConcurrencyConfigResponse
-  | InvocationResponse
-  | InvokeAsyncResponse
-  | ListAliasesResponse
-  | ListEventSourceMappingsResponse
-  | ListFunctionEventInvokeConfigsResponse
-  | ListFunctionsResponse
-  | ListLayerVersionsResponse
-  | ListLayersResponse
-  | ListProvisionedConcurrencyConfigsResponse
-  | ListTagsResponse
-  | ListVersionsByFunctionResponse
-  | PublishLayerVersionResponse
-  | PutProvisionedConcurrencyConfigResponse;
+  | AddLayerVersionPermissionCommandOutput
+  | AddPermissionCommandOutput
+  | CreateAliasCommandOutput
+  | CreateEventSourceMappingCommandOutput
+  | CreateFunctionCommandOutput
+  | DeleteAliasCommandOutput
+  | DeleteEventSourceMappingCommandOutput
+  | DeleteFunctionCommandOutput
+  | DeleteFunctionConcurrencyCommandOutput
+  | DeleteFunctionEventInvokeConfigCommandOutput
+  | DeleteLayerVersionCommandOutput
+  | DeleteProvisionedConcurrencyConfigCommandOutput
+  | GetAccountSettingsCommandOutput
+  | GetAliasCommandOutput
+  | GetEventSourceMappingCommandOutput
+  | GetFunctionCommandOutput
+  | GetFunctionConcurrencyCommandOutput
+  | GetFunctionConfigurationCommandOutput
+  | GetFunctionEventInvokeConfigCommandOutput
+  | GetLayerVersionByArnCommandOutput
+  | GetLayerVersionCommandOutput
+  | GetLayerVersionPolicyCommandOutput
+  | GetPolicyCommandOutput
+  | GetProvisionedConcurrencyConfigCommandOutput
+  | InvokeAsyncCommandOutput
+  | InvokeCommandOutput
+  | ListAliasesCommandOutput
+  | ListEventSourceMappingsCommandOutput
+  | ListFunctionEventInvokeConfigsCommandOutput
+  | ListFunctionsCommandOutput
+  | ListLayerVersionsCommandOutput
+  | ListLayersCommandOutput
+  | ListProvisionedConcurrencyConfigsCommandOutput
+  | ListTagsCommandOutput
+  | ListVersionsByFunctionCommandOutput
+  | PublishLayerVersionCommandOutput
+  | PublishVersionCommandOutput
+  | PutFunctionConcurrencyCommandOutput
+  | PutFunctionEventInvokeConfigCommandOutput
+  | PutProvisionedConcurrencyConfigCommandOutput
+  | RemoveLayerVersionPermissionCommandOutput
+  | RemovePermissionCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAliasCommandOutput
+  | UpdateEventSourceMappingCommandOutput
+  | UpdateFunctionCodeCommandOutput
+  | UpdateFunctionConfigurationCommandOutput
+  | UpdateFunctionEventInvokeConfigCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

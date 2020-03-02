@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RollbackTransactionCommandInput = RollbackTransactionRequest;
-export type RollbackTransactionCommandOutput = RollbackTransactionResponse;
+export type RollbackTransactionCommandOutput = RollbackTransactionResponse &
+  __MetadataBearer;
 
 export class RollbackTransactionCommand extends $Command<
   RollbackTransactionCommandInput,

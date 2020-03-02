@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteReservationCommandInput = DeleteReservationRequest;
-export type DeleteReservationCommandOutput = DeleteReservationResponse;
+export type DeleteReservationCommandOutput = DeleteReservationResponse &
+  __MetadataBearer;
 
 export class DeleteReservationCommand extends $Command<
   DeleteReservationCommandInput,

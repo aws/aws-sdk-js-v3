@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSoftwareUpdateJobCommandInput = CreateSoftwareUpdateJobRequest;
-export type CreateSoftwareUpdateJobCommandOutput = CreateSoftwareUpdateJobResponse;
+export type CreateSoftwareUpdateJobCommandOutput = CreateSoftwareUpdateJobResponse &
+  __MetadataBearer;
 
 export class CreateSoftwareUpdateJobCommand extends $Command<
   CreateSoftwareUpdateJobCommandInput,

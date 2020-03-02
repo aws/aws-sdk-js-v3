@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterWorkspaceDirectoryCommandInput = RegisterWorkspaceDirectoryRequest;
-export type RegisterWorkspaceDirectoryCommandOutput = RegisterWorkspaceDirectoryResult;
+export type RegisterWorkspaceDirectoryCommandOutput = RegisterWorkspaceDirectoryResult &
+  __MetadataBearer;
 
 export class RegisterWorkspaceDirectoryCommand extends $Command<
   RegisterWorkspaceDirectoryCommandInput,

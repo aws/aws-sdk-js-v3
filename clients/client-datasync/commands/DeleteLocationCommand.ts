@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLocationCommandInput = DeleteLocationRequest;
-export type DeleteLocationCommandOutput = DeleteLocationResponse;
+export type DeleteLocationCommandOutput = DeleteLocationResponse &
+  __MetadataBearer;
 
 export class DeleteLocationCommand extends $Command<
   DeleteLocationCommandInput,

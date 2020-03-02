@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ValidateTemplateCommandInput = ValidateTemplateInput;
-export type ValidateTemplateCommandOutput = ValidateTemplateOutput;
+export type ValidateTemplateCommandOutput = ValidateTemplateOutput &
+  __MetadataBearer;
 
 export class ValidateTemplateCommand extends $Command<
   ValidateTemplateCommandInput,

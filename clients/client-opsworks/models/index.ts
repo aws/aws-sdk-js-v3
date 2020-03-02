@@ -638,7 +638,7 @@ export namespace CloneStackRequest {
 /**
  * <p>Contains the response to a <code>CloneStack</code> request.</p>
  */
-export interface CloneStackResult extends $MetadataBearer {
+export interface CloneStackResult {
   __type?: "CloneStackResult";
   /**
    * <p>The cloned stack ID.</p>
@@ -1077,7 +1077,7 @@ export namespace CreateAppRequest {
 /**
  * <p>Contains the response to a <code>CreateApp</code> request.</p>
  */
-export interface CreateAppResult extends $MetadataBearer {
+export interface CreateAppResult {
   __type?: "CreateAppResult";
   /**
    * <p>The app ID.</p>
@@ -1145,7 +1145,7 @@ export namespace CreateDeploymentRequest {
 /**
  * <p>Contains the response to a <code>CreateDeployment</code> request.</p>
  */
-export interface CreateDeploymentResult extends $MetadataBearer {
+export interface CreateDeploymentResult {
   __type?: "CreateDeploymentResult";
   /**
    * <p>The deployment ID, which can be used with other requests to identify the deployment.</p>
@@ -1335,7 +1335,7 @@ export namespace CreateInstanceRequest {
 /**
  * <p>Contains the response to a <code>CreateInstance</code> request.</p>
  */
-export interface CreateInstanceResult extends $MetadataBearer {
+export interface CreateInstanceResult {
   __type?: "CreateInstanceResult";
   /**
    * <p>The instance ID.</p>
@@ -1473,7 +1473,7 @@ export namespace CreateLayerRequest {
 /**
  * <p>Contains the response to a <code>CreateLayer</code> request.</p>
  */
-export interface CreateLayerResult extends $MetadataBearer {
+export interface CreateLayerResult {
   __type?: "CreateLayerResult";
   /**
    * <p>The layer ID.</p>
@@ -1796,7 +1796,7 @@ export namespace CreateStackRequest {
 /**
  * <p>Contains the response to a <code>CreateStack</code> request.</p>
  */
-export interface CreateStackResult extends $MetadataBearer {
+export interface CreateStackResult {
   __type?: "CreateStackResult";
   /**
    * <p>The stack ID, which is an opaque string that you use to identify the stack when performing
@@ -1848,7 +1848,7 @@ export namespace CreateUserProfileRequest {
 /**
  * <p>Contains the response to a <code>CreateUserProfile</code> request.</p>
  */
-export interface CreateUserProfileResult extends $MetadataBearer {
+export interface CreateUserProfileResult {
   __type?: "CreateUserProfileResult";
   /**
    * <p>The user's IAM ARN.</p>
@@ -2266,7 +2266,7 @@ export namespace DescribeAgentVersionsRequest {
 /**
  * <p>Contains the response to a <code>DescribeAgentVersions</code> request.</p>
  */
-export interface DescribeAgentVersionsResult extends $MetadataBearer {
+export interface DescribeAgentVersionsResult {
   __type?: "DescribeAgentVersionsResult";
   /**
    * <p>The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.</p>
@@ -2305,7 +2305,7 @@ export namespace DescribeAppsRequest {
 /**
  * <p>Contains the response to a <code>DescribeApps</code> request.</p>
  */
-export interface DescribeAppsResult extends $MetadataBearer {
+export interface DescribeAppsResult {
   __type?: "DescribeAppsResult";
   /**
    * <p>An array of <code>App</code> objects that describe the specified apps. </p>
@@ -2350,7 +2350,7 @@ export namespace DescribeCommandsRequest {
 /**
  * <p>Contains the response to a <code>DescribeCommands</code> request.</p>
  */
-export interface DescribeCommandsResult extends $MetadataBearer {
+export interface DescribeCommandsResult {
   __type?: "DescribeCommandsResult";
   /**
    * <p>An array of <code>Command</code> objects that describe each of the specified commands.</p>
@@ -2395,7 +2395,7 @@ export namespace DescribeDeploymentsRequest {
 /**
  * <p>Contains the response to a <code>DescribeDeployments</code> request.</p>
  */
-export interface DescribeDeploymentsResult extends $MetadataBearer {
+export interface DescribeDeploymentsResult {
   __type?: "DescribeDeploymentsResult";
   /**
    * <p>An array of <code>Deployment</code> objects that describe the deployments.</p>
@@ -2450,7 +2450,7 @@ export namespace DescribeEcsClustersRequest {
 /**
  * <p>Contains the response to a <code>DescribeEcsClusters</code> request.</p>
  */
-export interface DescribeEcsClustersResult extends $MetadataBearer {
+export interface DescribeEcsClustersResult {
   __type?: "DescribeEcsClustersResult";
   /**
    * <p>A list of <code>EcsCluster</code> objects containing the cluster descriptions.</p>
@@ -2503,7 +2503,7 @@ export namespace DescribeElasticIpsRequest {
 /**
  * <p>Contains the response to a <code>DescribeElasticIps</code> request.</p>
  */
-export interface DescribeElasticIpsResult extends $MetadataBearer {
+export interface DescribeElasticIpsResult {
   __type?: "DescribeElasticIpsResult";
   /**
    * <p>An <code>ElasticIps</code> object that describes the specified Elastic IP addresses.</p>
@@ -2539,7 +2539,7 @@ export namespace DescribeElasticLoadBalancersRequest {
 /**
  * <p>Contains the response to a <code>DescribeElasticLoadBalancers</code> request.</p>
  */
-export interface DescribeElasticLoadBalancersResult extends $MetadataBearer {
+export interface DescribeElasticLoadBalancersResult {
   __type?: "DescribeElasticLoadBalancersResult";
   /**
    * <p>A list of <code>ElasticLoadBalancer</code> objects that describe the specified Elastic Load Balancing
@@ -2585,7 +2585,7 @@ export namespace DescribeInstancesRequest {
 /**
  * <p>Contains the response to a <code>DescribeInstances</code> request.</p>
  */
-export interface DescribeInstancesResult extends $MetadataBearer {
+export interface DescribeInstancesResult {
   __type?: "DescribeInstancesResult";
   /**
    * <p>An array of <code>Instance</code> objects that describe the instances.</p>
@@ -2622,7 +2622,7 @@ export namespace DescribeLayersRequest {
 /**
  * <p>Contains the response to a <code>DescribeLayers</code> request.</p>
  */
-export interface DescribeLayersResult extends $MetadataBearer {
+export interface DescribeLayersResult {
   __type?: "DescribeLayersResult";
   /**
    * <p>An array of <code>Layer</code> objects that describe the layers.</p>
@@ -2653,7 +2653,7 @@ export namespace DescribeLoadBasedAutoScalingRequest {
 /**
  * <p>Contains the response to a <code>DescribeLoadBasedAutoScaling</code> request.</p>
  */
-export interface DescribeLoadBasedAutoScalingResult extends $MetadataBearer {
+export interface DescribeLoadBasedAutoScalingResult {
   __type?: "DescribeLoadBasedAutoScalingResult";
   /**
    * <p>An array of <code>LoadBasedAutoScalingConfiguration</code> objects that describe each layer's
@@ -2671,7 +2671,7 @@ export namespace DescribeLoadBasedAutoScalingResult {
 /**
  * <p>Contains the response to a <code>DescribeMyUserProfile</code> request.</p>
  */
-export interface DescribeMyUserProfileResult extends $MetadataBearer {
+export interface DescribeMyUserProfileResult {
   __type?: "DescribeMyUserProfileResult";
   /**
    * <p>A <code>UserProfile</code> object that describes the user's SSH information.</p>
@@ -2688,7 +2688,7 @@ export namespace DescribeMyUserProfileResult {
 /**
  * <p>The response to a <code>DescribeOperatingSystems</code> request.</p>
  */
-export interface DescribeOperatingSystemsResponse extends $MetadataBearer {
+export interface DescribeOperatingSystemsResponse {
   __type?: "DescribeOperatingSystemsResponse";
   /**
    * <p>Contains information in response to a <code>DescribeOperatingSystems</code> request.</p>
@@ -2725,7 +2725,7 @@ export namespace DescribePermissionsRequest {
 /**
  * <p>Contains the response to a <code>DescribePermissions</code> request.</p>
  */
-export interface DescribePermissionsResult extends $MetadataBearer {
+export interface DescribePermissionsResult {
   __type?: "DescribePermissionsResult";
   /**
    * <p>An array of <code>Permission</code> objects that describe the stack permissions.</p>
@@ -2783,7 +2783,7 @@ export namespace DescribeRaidArraysRequest {
 /**
  * <p>Contains the response to a <code>DescribeRaidArrays</code> request.</p>
  */
-export interface DescribeRaidArraysResult extends $MetadataBearer {
+export interface DescribeRaidArraysResult {
   __type?: "DescribeRaidArraysResult";
   /**
    * <p>A <code>RaidArrays</code> object that describes the specified RAID arrays.</p>
@@ -2819,7 +2819,7 @@ export namespace DescribeRdsDbInstancesRequest {
 /**
  * <p>Contains the response to a <code>DescribeRdsDbInstances</code> request.</p>
  */
-export interface DescribeRdsDbInstancesResult extends $MetadataBearer {
+export interface DescribeRdsDbInstancesResult {
   __type?: "DescribeRdsDbInstancesResult";
   /**
    * <p>An a array of <code>RdsDbInstance</code> objects that describe the instances.</p>
@@ -2864,7 +2864,7 @@ export namespace DescribeServiceErrorsRequest {
 /**
  * <p>Contains the response to a <code>DescribeServiceErrors</code> request.</p>
  */
-export interface DescribeServiceErrorsResult extends $MetadataBearer {
+export interface DescribeServiceErrorsResult {
   __type?: "DescribeServiceErrorsResult";
   /**
    * <p>An array of <code>ServiceError</code> objects that describe the specified service errors.</p>
@@ -2895,8 +2895,7 @@ export namespace DescribeStackProvisioningParametersRequest {
 /**
  * <p>Contains the response to a <code>DescribeStackProvisioningParameters</code> request.</p>
  */
-export interface DescribeStackProvisioningParametersResult
-  extends $MetadataBearer {
+export interface DescribeStackProvisioningParametersResult {
   __type?: "DescribeStackProvisioningParametersResult";
   /**
    * <p>The AWS OpsWorks Stacks agent installer's URL.</p>
@@ -2932,7 +2931,7 @@ export namespace DescribeStackSummaryRequest {
 /**
  * <p>Contains the response to a <code>DescribeStackSummary</code> request.</p>
  */
-export interface DescribeStackSummaryResult extends $MetadataBearer {
+export interface DescribeStackSummaryResult {
   __type?: "DescribeStackSummaryResult";
   /**
    * <p>A <code>StackSummary</code> object that contains the results.</p>
@@ -2964,7 +2963,7 @@ export namespace DescribeStacksRequest {
 /**
  * <p>Contains the response to a <code>DescribeStacks</code> request.</p>
  */
-export interface DescribeStacksResult extends $MetadataBearer {
+export interface DescribeStacksResult {
   __type?: "DescribeStacksResult";
   /**
    * <p>An array of <code>Stack</code> objects that describe the stacks.</p>
@@ -2995,7 +2994,7 @@ export namespace DescribeTimeBasedAutoScalingRequest {
 /**
  * <p>Contains the response to a <code>DescribeTimeBasedAutoScaling</code> request.</p>
  */
-export interface DescribeTimeBasedAutoScalingResult extends $MetadataBearer {
+export interface DescribeTimeBasedAutoScalingResult {
   __type?: "DescribeTimeBasedAutoScalingResult";
   /**
    * <p>An array of <code>TimeBasedAutoScalingConfiguration</code> objects that describe the
@@ -3027,7 +3026,7 @@ export namespace DescribeUserProfilesRequest {
 /**
  * <p>Contains the response to a <code>DescribeUserProfiles</code> request.</p>
  */
-export interface DescribeUserProfilesResult extends $MetadataBearer {
+export interface DescribeUserProfilesResult {
   __type?: "DescribeUserProfilesResult";
   /**
    * <p>A <code>Users</code> object that describes the specified users.</p>
@@ -3077,7 +3076,7 @@ export namespace DescribeVolumesRequest {
 /**
  * <p>Contains the response to a <code>DescribeVolumes</code> request.</p>
  */
-export interface DescribeVolumesResult extends $MetadataBearer {
+export interface DescribeVolumesResult {
   __type?: "DescribeVolumesResult";
   /**
    * <p>An array of volume IDs.</p>
@@ -3340,7 +3339,7 @@ export namespace GetHostnameSuggestionRequest {
 /**
  * <p>Contains the response to a <code>GetHostnameSuggestion</code> request.</p>
  */
-export interface GetHostnameSuggestionResult extends $MetadataBearer {
+export interface GetHostnameSuggestionResult {
   __type?: "GetHostnameSuggestionResult";
   /**
    * <p>The generated host name.</p>
@@ -3381,7 +3380,7 @@ export namespace GrantAccessRequest {
 /**
  * <p>Contains the response to a <code>GrantAccess</code> request.</p>
  */
-export interface GrantAccessResult extends $MetadataBearer {
+export interface GrantAccessResult {
   __type?: "GrantAccessResult";
   /**
    * <p>A <code>TemporaryCredential</code> object that contains the data needed to log in to the
@@ -4084,7 +4083,7 @@ export namespace ListTagsRequest {
 /**
  * <p>Contains the response to a <code>ListTags</code> request.</p>
  */
-export interface ListTagsResult extends $MetadataBearer {
+export interface ListTagsResult {
   __type?: "ListTagsResult";
   /**
    * <p>If a paginated request does not return all of the remaining results, this parameter is set to a token that
@@ -4495,7 +4494,7 @@ export namespace RegisterEcsClusterRequest {
 /**
  * <p>Contains the response to a <code>RegisterEcsCluster</code> request.</p>
  */
-export interface RegisterEcsClusterResult extends $MetadataBearer {
+export interface RegisterEcsClusterResult {
   __type?: "RegisterEcsClusterResult";
   /**
    * <p>The cluster's ARN.</p>
@@ -4531,7 +4530,7 @@ export namespace RegisterElasticIpRequest {
 /**
  * <p>Contains the response to a <code>RegisterElasticIp</code> request.</p>
  */
-export interface RegisterElasticIpResult extends $MetadataBearer {
+export interface RegisterElasticIpResult {
   __type?: "RegisterElasticIpResult";
   /**
    * <p>The Elastic IP address.</p>
@@ -4592,7 +4591,7 @@ export namespace RegisterInstanceRequest {
 /**
  * <p>Contains the response to a <code>RegisterInstanceResult</code> request.</p>
  */
-export interface RegisterInstanceResult extends $MetadataBearer {
+export interface RegisterInstanceResult {
   __type?: "RegisterInstanceResult";
   /**
    * <p>The registered instance's AWS OpsWorks Stacks ID.</p>
@@ -4657,7 +4656,7 @@ export namespace RegisterVolumeRequest {
 /**
  * <p>Contains the response to a <code>RegisterVolume</code> request.</p>
  */
-export interface RegisterVolumeResult extends $MetadataBearer {
+export interface RegisterVolumeResult {
   __type?: "RegisterVolumeResult";
   /**
    * <p>The volume ID.</p>

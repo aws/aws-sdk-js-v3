@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetIdentityHeadersInNotificationsEnabledCommandInput = SetIdentityHeadersInNotificationsEnabledRequest;
-export type SetIdentityHeadersInNotificationsEnabledCommandOutput = SetIdentityHeadersInNotificationsEnabledResponse;
+export type SetIdentityHeadersInNotificationsEnabledCommandOutput = SetIdentityHeadersInNotificationsEnabledResponse &
+  __MetadataBearer;
 
 export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
   SetIdentityHeadersInNotificationsEnabledCommandInput,

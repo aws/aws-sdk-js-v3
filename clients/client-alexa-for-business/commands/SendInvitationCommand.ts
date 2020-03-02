@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendInvitationCommandInput = SendInvitationRequest;
-export type SendInvitationCommandOutput = SendInvitationResponse;
+export type SendInvitationCommandOutput = SendInvitationResponse &
+  __MetadataBearer;
 
 export class SendInvitationCommand extends $Command<
   SendInvitationCommandInput,

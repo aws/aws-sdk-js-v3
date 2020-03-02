@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetKeyPairCommandInput = GetKeyPairRequest;
-export type GetKeyPairCommandOutput = GetKeyPairResult;
+export type GetKeyPairCommandOutput = GetKeyPairResult & __MetadataBearer;
 
 export class GetKeyPairCommand extends $Command<
   GetKeyPairCommandInput,

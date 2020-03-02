@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type JoinDomainCommandInput = JoinDomainInput;
-export type JoinDomainCommandOutput = JoinDomainOutput;
+export type JoinDomainCommandOutput = JoinDomainOutput & __MetadataBearer;
 
 export class JoinDomainCommand extends $Command<
   JoinDomainCommandInput,

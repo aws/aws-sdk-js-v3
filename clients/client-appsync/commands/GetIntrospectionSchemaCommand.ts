@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIntrospectionSchemaCommandInput = GetIntrospectionSchemaRequest;
-export type GetIntrospectionSchemaCommandOutput = GetIntrospectionSchemaResponse;
+export type GetIntrospectionSchemaCommandOutput = GetIntrospectionSchemaResponse &
+  __MetadataBearer;
 
 export class GetIntrospectionSchemaCommand extends $Command<
   GetIntrospectionSchemaCommandInput,

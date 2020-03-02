@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnclaimDeviceCommandInput = UnclaimDeviceRequest;
-export type UnclaimDeviceCommandOutput = UnclaimDeviceResponse;
+export type UnclaimDeviceCommandOutput = UnclaimDeviceResponse &
+  __MetadataBearer;
 
 export class UnclaimDeviceCommand extends $Command<
   UnclaimDeviceCommandInput,

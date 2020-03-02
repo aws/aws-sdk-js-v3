@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBillingGroupCommandInput = CreateBillingGroupRequest;
-export type CreateBillingGroupCommandOutput = CreateBillingGroupResponse;
+export type CreateBillingGroupCommandOutput = CreateBillingGroupResponse &
+  __MetadataBearer;
 
 export class CreateBillingGroupCommand extends $Command<
   CreateBillingGroupCommandInput,

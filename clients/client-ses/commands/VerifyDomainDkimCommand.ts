@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type VerifyDomainDkimCommandInput = VerifyDomainDkimRequest;
-export type VerifyDomainDkimCommandOutput = VerifyDomainDkimResponse;
+export type VerifyDomainDkimCommandOutput = VerifyDomainDkimResponse &
+  __MetadataBearer;
 
 export class VerifyDomainDkimCommand extends $Command<
   VerifyDomainDkimCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteNamespaceCommandInput = DeleteNamespaceRequest;
-export type DeleteNamespaceCommandOutput = DeleteNamespaceResponse;
+export type DeleteNamespaceCommandOutput = DeleteNamespaceResponse &
+  __MetadataBearer;
 
 export class DeleteNamespaceCommand extends $Command<
   DeleteNamespaceCommandInput,

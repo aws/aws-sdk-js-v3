@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type MergePullRequestBySquashCommandInput = MergePullRequestBySquashInput;
-export type MergePullRequestBySquashCommandOutput = MergePullRequestBySquashOutput;
+export type MergePullRequestBySquashCommandOutput = MergePullRequestBySquashOutput &
+  __MetadataBearer;
 
 export class MergePullRequestBySquashCommand extends $Command<
   MergePullRequestBySquashCommandInput,

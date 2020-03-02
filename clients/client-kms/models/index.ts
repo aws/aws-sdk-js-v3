@@ -83,7 +83,7 @@ export namespace CancelKeyDeletionRequest {
   }
 }
 
-export interface CancelKeyDeletionResponse extends $MetadataBearer {
+export interface CancelKeyDeletionResponse {
   __type?: "CancelKeyDeletionResponse";
   /**
    * <p>The unique identifier of the master key for which deletion is canceled.</p>
@@ -245,7 +245,7 @@ export namespace ConnectCustomKeyStoreRequest {
   }
 }
 
-export interface ConnectCustomKeyStoreResponse extends $MetadataBearer {
+export interface ConnectCustomKeyStoreResponse {
   __type?: "ConnectCustomKeyStoreResponse";
 }
 
@@ -338,7 +338,7 @@ export namespace CreateCustomKeyStoreRequest {
   }
 }
 
-export interface CreateCustomKeyStoreResponse extends $MetadataBearer {
+export interface CreateCustomKeyStoreResponse {
   __type?: "CreateCustomKeyStoreResponse";
   /**
    * <p>A unique identifier for the new custom key store.</p>
@@ -439,7 +439,7 @@ export namespace CreateGrantRequest {
   }
 }
 
-export interface CreateGrantResponse extends $MetadataBearer {
+export interface CreateGrantResponse {
   __type?: "CreateGrantResponse";
   /**
    * <p>The unique identifier for the grant.</p>
@@ -665,7 +665,7 @@ export namespace CreateKeyRequest {
   }
 }
 
-export interface CreateKeyResponse extends $MetadataBearer {
+export interface CreateKeyResponse {
   __type?: "CreateKeyResponse";
   /**
    * <p>Metadata associated with the CMK.</p>
@@ -984,7 +984,7 @@ export namespace DecryptRequest {
   }
 }
 
-export interface DecryptResponse extends $MetadataBearer {
+export interface DecryptResponse {
   __type?: "DecryptResponse";
   /**
    * <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
@@ -1037,7 +1037,7 @@ export namespace DeleteCustomKeyStoreRequest {
   }
 }
 
-export interface DeleteCustomKeyStoreResponse extends $MetadataBearer {
+export interface DeleteCustomKeyStoreResponse {
   __type?: "DeleteCustomKeyStoreResponse";
 }
 
@@ -1135,7 +1135,7 @@ export namespace DescribeCustomKeyStoresRequest {
   }
 }
 
-export interface DescribeCustomKeyStoresResponse extends $MetadataBearer {
+export interface DescribeCustomKeyStoresResponse {
   __type?: "DescribeCustomKeyStoresResponse";
   /**
    * <p>Contains metadata about each custom key store.</p>
@@ -1209,7 +1209,7 @@ export namespace DescribeKeyRequest {
   }
 }
 
-export interface DescribeKeyResponse extends $MetadataBearer {
+export interface DescribeKeyResponse {
   __type?: "DescribeKeyResponse";
   /**
    * <p>Metadata associated with the key.</p>
@@ -1308,7 +1308,7 @@ export namespace DisconnectCustomKeyStoreRequest {
   }
 }
 
-export interface DisconnectCustomKeyStoreResponse extends $MetadataBearer {
+export interface DisconnectCustomKeyStoreResponse {
   __type?: "DisconnectCustomKeyStoreResponse";
 }
 
@@ -1439,7 +1439,7 @@ export namespace EncryptRequest {
   }
 }
 
-export interface EncryptResponse extends $MetadataBearer {
+export interface EncryptResponse {
   __type?: "EncryptResponse";
   /**
    * <p>The encrypted plaintext. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -1551,7 +1551,7 @@ export namespace GenerateDataKeyPairRequest {
   }
 }
 
-export interface GenerateDataKeyPairResponse extends $MetadataBearer {
+export interface GenerateDataKeyPairResponse {
   __type?: "GenerateDataKeyPairResponse";
   /**
    * <p>The identifier of the CMK that encrypted the private key.</p>
@@ -1646,8 +1646,7 @@ export namespace GenerateDataKeyPairWithoutPlaintextRequest {
   }
 }
 
-export interface GenerateDataKeyPairWithoutPlaintextResponse
-  extends $MetadataBearer {
+export interface GenerateDataKeyPairWithoutPlaintextResponse {
   __type?: "GenerateDataKeyPairWithoutPlaintextResponse";
   /**
    * <p>Specifies the CMK that encrypted the private key in the data key pair. You must specify a
@@ -1770,7 +1769,7 @@ export namespace GenerateDataKeyRequest {
   }
 }
 
-export interface GenerateDataKeyResponse extends $MetadataBearer {
+export interface GenerateDataKeyResponse {
   __type?: "GenerateDataKeyResponse";
   /**
    * <p>The encrypted copy of the data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -1860,8 +1859,7 @@ export namespace GenerateDataKeyWithoutPlaintextRequest {
   }
 }
 
-export interface GenerateDataKeyWithoutPlaintextResponse
-  extends $MetadataBearer {
+export interface GenerateDataKeyWithoutPlaintextResponse {
   __type?: "GenerateDataKeyWithoutPlaintextResponse";
   /**
    * <p>The encrypted data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -1900,7 +1898,7 @@ export namespace GenerateRandomRequest {
   }
 }
 
-export interface GenerateRandomResponse extends $MetadataBearer {
+export interface GenerateRandomResponse {
   __type?: "GenerateRandomResponse";
   /**
    * <p>The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -1947,7 +1945,7 @@ export namespace GetKeyPolicyRequest {
   }
 }
 
-export interface GetKeyPolicyResponse extends $MetadataBearer {
+export interface GetKeyPolicyResponse {
   __type?: "GetKeyPolicyResponse";
   /**
    * <p>A key policy document in JSON format.</p>
@@ -1989,7 +1987,7 @@ export namespace GetKeyRotationStatusRequest {
   }
 }
 
-export interface GetKeyRotationStatusResponse extends $MetadataBearer {
+export interface GetKeyRotationStatusResponse {
   __type?: "GetKeyRotationStatusResponse";
   /**
    * <p>A Boolean value that specifies whether key rotation is enabled.</p>
@@ -2043,7 +2041,7 @@ export namespace GetParametersForImportRequest {
   }
 }
 
-export interface GetParametersForImportResponse extends $MetadataBearer {
+export interface GetParametersForImportResponse {
   __type?: "GetParametersForImportResponse";
   /**
    * <p>The import token to send in a subsequent <a>ImportKeyMaterial</a>
@@ -2120,7 +2118,7 @@ export namespace GetPublicKeyRequest {
   }
 }
 
-export interface GetPublicKeyResponse extends $MetadataBearer {
+export interface GetPublicKeyResponse {
   __type?: "GetPublicKeyResponse";
   /**
    * <p>The type of the of the public key that was downloaded.</p>
@@ -2377,7 +2375,7 @@ export namespace ImportKeyMaterialRequest {
   }
 }
 
-export interface ImportKeyMaterialResponse extends $MetadataBearer {
+export interface ImportKeyMaterialResponse {
   __type?: "ImportKeyMaterialResponse";
 }
 
@@ -2904,7 +2902,7 @@ export namespace ListAliasesRequest {
   }
 }
 
-export interface ListAliasesResponse extends $MetadataBearer {
+export interface ListAliasesResponse {
   __type?: "ListAliasesResponse";
   /**
    * <p>A list of aliases.</p>
@@ -2976,7 +2974,7 @@ export namespace ListGrantsRequest {
   }
 }
 
-export interface ListGrantsResponse extends $MetadataBearer {
+export interface ListGrantsResponse {
   __type?: "ListGrantsResponse";
   /**
    * <p>A list of grants.</p>
@@ -3048,7 +3046,7 @@ export namespace ListKeyPoliciesRequest {
   }
 }
 
-export interface ListKeyPoliciesResponse extends $MetadataBearer {
+export interface ListKeyPoliciesResponse {
   __type?: "ListKeyPoliciesResponse";
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
@@ -3101,7 +3099,7 @@ export namespace ListKeysRequest {
   }
 }
 
-export interface ListKeysResponse extends $MetadataBearer {
+export interface ListKeysResponse {
   __type?: "ListKeysResponse";
   /**
    * <p>A list of customer master keys (CMKs).</p>
@@ -3174,7 +3172,7 @@ export namespace ListResourceTagsRequest {
   }
 }
 
-export interface ListResourceTagsResponse extends $MetadataBearer {
+export interface ListResourceTagsResponse {
   __type?: "ListResourceTagsResponse";
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
@@ -3477,7 +3475,7 @@ export namespace ReEncryptRequest {
   }
 }
 
-export interface ReEncryptResponse extends $MetadataBearer {
+export interface ReEncryptResponse {
   __type?: "ReEncryptResponse";
   /**
    * <p>The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -3615,7 +3613,7 @@ export namespace ScheduleKeyDeletionRequest {
   }
 }
 
-export interface ScheduleKeyDeletionResponse extends $MetadataBearer {
+export interface ScheduleKeyDeletionResponse {
   __type?: "ScheduleKeyDeletionResponse";
   /**
    * <p>The date and time after which AWS KMS deletes the customer master key (CMK).</p>
@@ -3702,7 +3700,7 @@ export namespace SignRequest {
   }
 }
 
-export interface SignResponse extends $MetadataBearer {
+export interface SignResponse {
   __type?: "SignResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the asymmetric CMK that was used to sign the
@@ -3942,7 +3940,7 @@ export namespace UpdateCustomKeyStoreRequest {
   }
 }
 
-export interface UpdateCustomKeyStoreResponse extends $MetadataBearer {
+export interface UpdateCustomKeyStoreResponse {
   __type?: "UpdateCustomKeyStoreResponse";
 }
 
@@ -4062,7 +4060,7 @@ export namespace VerifyRequest {
   }
 }
 
-export interface VerifyResponse extends $MetadataBearer {
+export interface VerifyResponse {
   __type?: "VerifyResponse";
   /**
    * <p>The unique identifier for the asymmetric CMK that was used to verify the signature.</p>

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestInvokeMethodCommandInput = TestInvokeMethodRequest;
-export type TestInvokeMethodCommandOutput = TestInvokeMethodResponse;
+export type TestInvokeMethodCommandOutput = TestInvokeMethodResponse &
+  __MetadataBearer;
 
 export class TestInvokeMethodCommand extends $Command<
   TestInvokeMethodCommandInput,

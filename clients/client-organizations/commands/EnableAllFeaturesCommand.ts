@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableAllFeaturesCommandInput = EnableAllFeaturesRequest;
-export type EnableAllFeaturesCommandOutput = EnableAllFeaturesResponse;
+export type EnableAllFeaturesCommandOutput = EnableAllFeaturesResponse &
+  __MetadataBearer;
 
 export class EnableAllFeaturesCommand extends $Command<
   EnableAllFeaturesCommandInput,

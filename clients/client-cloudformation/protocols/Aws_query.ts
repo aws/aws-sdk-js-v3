@@ -1341,10 +1341,13 @@ async function deserializeAws_queryCancelUpdateStackCommandError(
   switch (errorCode) {
     case "TokenAlreadyExistsException":
     case "amzn.aws21.activities#TokenAlreadyExistsException":
-      response = await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1402,10 +1405,13 @@ async function deserializeAws_queryContinueUpdateRollbackCommandError(
   switch (errorCode) {
     case "TokenAlreadyExistsException":
     case "amzn.aws21.activities#TokenAlreadyExistsException":
-      response = await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1460,24 +1466,33 @@ async function deserializeAws_queryCreateChangeSetCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "amzn.aws21.activities#AlreadyExistsException":
-      response = await deserializeAws_queryAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCapabilitiesException":
     case "amzn.aws21.activities#InsufficientCapabilitiesException":
-      response = await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "amzn.aws21.activities#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1532,31 +1547,43 @@ async function deserializeAws_queryCreateStackCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "amzn.aws21.activities#AlreadyExistsException":
-      response = await deserializeAws_queryAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCapabilitiesException":
     case "amzn.aws21.activities#InsufficientCapabilitiesException":
-      response = await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "amzn.aws21.activities#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TokenAlreadyExistsException":
     case "amzn.aws21.activities#TokenAlreadyExistsException":
-      response = await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1611,10 +1638,13 @@ async function deserializeAws_queryDeleteChangeSetCommandError(
   switch (errorCode) {
     case "InvalidChangeSetStatusException":
     case "amzn.aws21.activities#InvalidChangeSetStatusException":
-      response = await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1662,10 +1692,13 @@ async function deserializeAws_queryDeleteStackCommandError(
   switch (errorCode) {
     case "TokenAlreadyExistsException":
     case "amzn.aws21.activities#TokenAlreadyExistsException":
-      response = await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1720,17 +1753,23 @@ async function deserializeAws_queryDeregisterTypeCommandError(
   switch (errorCode) {
     case "CFNRegistryException":
     case "amzn.aws21.activities#CFNRegistryException":
-      response = await deserializeAws_queryCFNRegistryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeNotFoundException":
     case "amzn.aws21.activities#TypeNotFoundException":
-      response = await deserializeAws_queryTypeNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1839,10 +1878,13 @@ async function deserializeAws_queryDescribeChangeSetCommandError(
   switch (errorCode) {
     case "ChangeSetNotFoundException":
     case "amzn.aws21.activities#ChangeSetNotFoundException":
-      response = await deserializeAws_queryChangeSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2215,17 +2257,23 @@ async function deserializeAws_queryDescribeTypeCommandError(
   switch (errorCode) {
     case "CFNRegistryException":
     case "amzn.aws21.activities#CFNRegistryException":
-      response = await deserializeAws_queryCFNRegistryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeNotFoundException":
     case "amzn.aws21.activities#TypeNotFoundException":
-      response = await deserializeAws_queryTypeNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2283,10 +2331,13 @@ async function deserializeAws_queryDescribeTypeRegistrationCommandError(
   switch (errorCode) {
     case "CFNRegistryException":
     case "amzn.aws21.activities#CFNRegistryException":
-      response = await deserializeAws_queryCFNRegistryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2500,31 +2551,43 @@ async function deserializeAws_queryExecuteChangeSetCommandError(
   switch (errorCode) {
     case "ChangeSetNotFoundException":
     case "amzn.aws21.activities#ChangeSetNotFoundException":
-      response = await deserializeAws_queryChangeSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCapabilitiesException":
     case "amzn.aws21.activities#InsufficientCapabilitiesException":
-      response = await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidChangeSetStatusException":
     case "amzn.aws21.activities#InvalidChangeSetStatusException":
-      response = await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TokenAlreadyExistsException":
     case "amzn.aws21.activities#TokenAlreadyExistsException":
-      response = await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2630,10 +2693,13 @@ async function deserializeAws_queryGetTemplateCommandError(
   switch (errorCode) {
     case "ChangeSetNotFoundException":
     case "amzn.aws21.activities#ChangeSetNotFoundException":
-      response = await deserializeAws_queryChangeSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2688,10 +2754,13 @@ async function deserializeAws_queryGetTemplateSummaryCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3004,10 +3073,13 @@ async function deserializeAws_queryListTypeRegistrationsCommandError(
   switch (errorCode) {
     case "CFNRegistryException":
     case "amzn.aws21.activities#CFNRegistryException":
-      response = await deserializeAws_queryCFNRegistryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3062,10 +3134,13 @@ async function deserializeAws_queryListTypeVersionsCommandError(
   switch (errorCode) {
     case "CFNRegistryException":
     case "amzn.aws21.activities#CFNRegistryException":
-      response = await deserializeAws_queryCFNRegistryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3117,10 +3192,13 @@ async function deserializeAws_queryListTypesCommandError(
   switch (errorCode) {
     case "CFNRegistryException":
     case "amzn.aws21.activities#CFNRegistryException":
-      response = await deserializeAws_queryCFNRegistryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3178,17 +3256,23 @@ async function deserializeAws_queryRecordHandlerProgressCommandError(
   switch (errorCode) {
     case "InvalidStateTransitionException":
     case "amzn.aws21.activities#InvalidStateTransitionException":
-      response = await deserializeAws_queryInvalidStateTransitionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidStateTransitionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationStatusCheckFailedException":
     case "amzn.aws21.activities#OperationStatusCheckFailedException":
-      response = await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3243,10 +3327,13 @@ async function deserializeAws_queryRegisterTypeCommandError(
   switch (errorCode) {
     case "CFNRegistryException":
     case "amzn.aws21.activities#CFNRegistryException":
-      response = await deserializeAws_queryCFNRegistryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3348,17 +3435,23 @@ async function deserializeAws_querySetTypeDefaultVersionCommandError(
   switch (errorCode) {
     case "CFNRegistryException":
     case "amzn.aws21.activities#CFNRegistryException":
-      response = await deserializeAws_queryCFNRegistryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeNotFoundException":
     case "amzn.aws21.activities#TypeNotFoundException":
-      response = await deserializeAws_queryTypeNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3457,17 +3550,23 @@ async function deserializeAws_queryUpdateStackCommandError(
   switch (errorCode) {
     case "InsufficientCapabilitiesException":
     case "amzn.aws21.activities#InsufficientCapabilitiesException":
-      response = await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TokenAlreadyExistsException":
     case "amzn.aws21.activities#TokenAlreadyExistsException":
-      response = await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3630,45 +3729,63 @@ async function deserializeAws_queryCreateStackInstancesCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "amzn.aws21.activities#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOperationException":
     case "com.amazonaws.maestro.service.v20160713#InvalidOperationException":
-      response = await deserializeAws_queryInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationIdAlreadyExistsException":
     case "com.amazonaws.maestro.service.v20160713#OperationIdAlreadyExistsException":
-      response = await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.maestro.service.v20160713#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StaleRequestException":
     case "com.amazonaws.maestro.service.v20160713#StaleRequestException":
-      response = await deserializeAws_queryStaleRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStaleRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3723,24 +3840,33 @@ async function deserializeAws_queryCreateStackSetCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "amzn.aws21.activities#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CreatedButModifiedException":
     case "com.amazonaws.maestro.service.v20160713#CreatedButModifiedException":
-      response = await deserializeAws_queryCreatedButModifiedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCreatedButModifiedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameAlreadyExistsException":
     case "com.amazonaws.maestro.service.v20160713#NameAlreadyExistsException":
-      response = await deserializeAws_queryNameAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNameAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3798,38 +3924,53 @@ async function deserializeAws_queryDeleteStackInstancesCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOperationException":
     case "com.amazonaws.maestro.service.v20160713#InvalidOperationException":
-      response = await deserializeAws_queryInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationIdAlreadyExistsException":
     case "com.amazonaws.maestro.service.v20160713#OperationIdAlreadyExistsException":
-      response = await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.maestro.service.v20160713#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StaleRequestException":
     case "com.amazonaws.maestro.service.v20160713#StaleRequestException":
-      response = await deserializeAws_queryStaleRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStaleRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3884,17 +4025,23 @@ async function deserializeAws_queryDeleteStackSetCommandError(
   switch (errorCode) {
     case "OperationInProgressException":
     case "com.amazonaws.maestro.service.v20160713#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StackSetNotEmptyException":
     case "com.amazonaws.maestro.service.v20160713#StackSetNotEmptyException":
-      response = await deserializeAws_queryStackSetNotEmptyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotEmptyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3952,17 +4099,23 @@ async function deserializeAws_queryDescribeStackInstanceCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StackInstanceNotFoundException":
     case "com.amazonaws.maestro.service.v20160713#StackInstanceNotFoundException":
-      response = await deserializeAws_queryStackInstanceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackInstanceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4017,10 +4170,13 @@ async function deserializeAws_queryDescribeStackSetCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4078,17 +4234,23 @@ async function deserializeAws_queryDescribeStackSetOperationCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotFoundException":
     case "com.amazonaws.maestro.service.v20160713#OperationNotFoundException":
-      response = await deserializeAws_queryOperationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4143,24 +4305,33 @@ async function deserializeAws_queryDetectStackSetDriftCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOperationException":
     case "com.amazonaws.maestro.service.v20160713#InvalidOperationException":
-      response = await deserializeAws_queryInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.maestro.service.v20160713#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4215,10 +4386,13 @@ async function deserializeAws_queryListStackInstancesCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4276,17 +4450,23 @@ async function deserializeAws_queryListStackSetOperationResultsCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotFoundException":
     case "com.amazonaws.maestro.service.v20160713#OperationNotFoundException":
-      response = await deserializeAws_queryOperationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4344,10 +4524,13 @@ async function deserializeAws_queryListStackSetOperationsCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4456,24 +4639,33 @@ async function deserializeAws_queryStopStackSetOperationCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOperationException":
     case "com.amazonaws.maestro.service.v20160713#InvalidOperationException":
-      response = await deserializeAws_queryInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotFoundException":
     case "com.amazonaws.maestro.service.v20160713#OperationNotFoundException":
-      response = await deserializeAws_queryOperationNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4531,45 +4723,63 @@ async function deserializeAws_queryUpdateStackInstancesCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOperationException":
     case "com.amazonaws.maestro.service.v20160713#InvalidOperationException":
-      response = await deserializeAws_queryInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationIdAlreadyExistsException":
     case "com.amazonaws.maestro.service.v20160713#OperationIdAlreadyExistsException":
-      response = await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.maestro.service.v20160713#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StackInstanceNotFoundException":
     case "com.amazonaws.maestro.service.v20160713#StackInstanceNotFoundException":
-      response = await deserializeAws_queryStackInstanceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackInstanceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StaleRequestException":
     case "com.amazonaws.maestro.service.v20160713#StaleRequestException":
-      response = await deserializeAws_queryStaleRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStaleRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4624,45 +4834,63 @@ async function deserializeAws_queryUpdateStackSetCommandError(
   switch (errorCode) {
     case "StackSetNotFoundException":
     case "amzn.aws21.activities#StackSetNotFoundException":
-      response = await deserializeAws_queryStackSetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOperationException":
     case "com.amazonaws.maestro.service.v20160713#InvalidOperationException":
-      response = await deserializeAws_queryInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationIdAlreadyExistsException":
     case "com.amazonaws.maestro.service.v20160713#OperationIdAlreadyExistsException":
-      response = await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.maestro.service.v20160713#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StackInstanceNotFoundException":
     case "com.amazonaws.maestro.service.v20160713#StackInstanceNotFoundException":
-      response = await deserializeAws_queryStackInstanceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStackInstanceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StaleRequestException":
     case "com.amazonaws.maestro.service.v20160713#StaleRequestException":
-      response = await deserializeAws_queryStaleRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStaleRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

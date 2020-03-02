@@ -260,7 +260,7 @@ export namespace CancelDataRepositoryTaskRequest {
   }
 }
 
-export interface CancelDataRepositoryTaskResponse extends $MetadataBearer {
+export interface CancelDataRepositoryTaskResponse {
   __type?: "CancelDataRepositoryTaskResponse";
   /**
    * <p>The lifecycle status of the data repository task, as follows:</p>
@@ -384,7 +384,7 @@ export namespace CreateBackupRequest {
 /**
  * <p>The response object for the <code>CreateBackup</code> operation.</p>
  */
-export interface CreateBackupResponse extends $MetadataBearer {
+export interface CreateBackupResponse {
   __type?: "CreateBackupResponse";
   /**
    * <p>A description of the backup.</p>
@@ -443,7 +443,7 @@ export namespace CreateDataRepositoryTaskRequest {
   }
 }
 
-export interface CreateDataRepositoryTaskResponse extends $MetadataBearer {
+export interface CreateDataRepositoryTaskResponse {
   __type?: "CreateDataRepositoryTaskResponse";
   /**
    * <p>The description of the data repository task that you just created.</p>
@@ -512,7 +512,7 @@ export namespace CreateFileSystemFromBackupRequest {
  * <p>The response object for the <code>CreateFileSystemFromBackup</code>
  *             operation.</p>
  */
-export interface CreateFileSystemFromBackupResponse extends $MetadataBearer {
+export interface CreateFileSystemFromBackupResponse {
   __type?: "CreateFileSystemFromBackupResponse";
   /**
    * <p>A description of the file system.</p>
@@ -662,7 +662,7 @@ export namespace CreateFileSystemRequest {
 /**
  * <p>The response object returned after the file system is created.</p>
  */
-export interface CreateFileSystemResponse extends $MetadataBearer {
+export interface CreateFileSystemResponse {
   __type?: "CreateFileSystemResponse";
   /**
    * <p>The configuration of the file system that was created.</p>
@@ -1116,7 +1116,7 @@ export namespace DeleteBackupRequest {
 /**
  * <p>The response object for <code>DeleteBackup</code> operation.</p>
  */
-export interface DeleteBackupResponse extends $MetadataBearer {
+export interface DeleteBackupResponse {
   __type?: "DeleteBackupResponse";
   /**
    * <p>The ID of the backup deleted.</p>
@@ -1168,7 +1168,7 @@ export namespace DeleteFileSystemRequest {
 /**
  * <p>The response object for the <code>DeleteFileSystem</code> operation.</p>
  */
-export interface DeleteFileSystemResponse extends $MetadataBearer {
+export interface DeleteFileSystemResponse {
   __type?: "DeleteFileSystemResponse";
   /**
    * <p>The ID of the file system being deleted.</p>
@@ -1285,7 +1285,7 @@ export namespace DescribeBackupsRequest {
 /**
  * <p>Response object for <code>DescribeBackups</code> operation.</p>
  */
-export interface DescribeBackupsResponse extends $MetadataBearer {
+export interface DescribeBackupsResponse {
   __type?: "DescribeBackupsResponse";
   /**
    * <p>Any array of backups.</p>
@@ -1340,7 +1340,7 @@ export namespace DescribeDataRepositoryTasksRequest {
   }
 }
 
-export interface DescribeDataRepositoryTasksResponse extends $MetadataBearer {
+export interface DescribeDataRepositoryTasksResponse {
   __type?: "DescribeDataRepositoryTasksResponse";
   /**
    * <p>The collection of data repository task descriptions returned.</p>
@@ -1397,7 +1397,7 @@ export namespace DescribeFileSystemsRequest {
 /**
  * <p>The response object for <code>DescribeFileSystems</code> operation.</p>
  */
-export interface DescribeFileSystemsResponse extends $MetadataBearer {
+export interface DescribeFileSystemsResponse {
   __type?: "DescribeFileSystemsResponse";
   /**
    * <p>An array of file system descriptions.</p>
@@ -1799,7 +1799,7 @@ export namespace ListTagsForResourceRequest {
 /**
  * <p>The response object for <code>ListTagsForResource</code> operation.</p>
  */
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>This is present if there are more tags than returned in the response (String). You
@@ -2187,7 +2187,7 @@ export namespace TagResourceRequest {
 /**
  * <p>The response object for the <code>TagResource</code> operation.</p>
  */
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -2243,7 +2243,7 @@ export namespace UntagResourceRequest {
 /**
  * <p>The response object for <code>UntagResource</code> action.</p>
  */
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -2310,7 +2310,7 @@ export namespace UpdateFileSystemRequest {
 /**
  * <p>The response object for the <code>UpdateFileSystem</code> operation.</p>
  */
-export interface UpdateFileSystemResponse extends $MetadataBearer {
+export interface UpdateFileSystemResponse {
   __type?: "UpdateFileSystemResponse";
   /**
    * <p>A description of the file system that was updated.</p>

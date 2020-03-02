@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReservedElasticsearchInstancesCommandInput = DescribeReservedElasticsearchInstancesRequest;
-export type DescribeReservedElasticsearchInstancesCommandOutput = DescribeReservedElasticsearchInstancesResponse;
+export type DescribeReservedElasticsearchInstancesCommandOutput = DescribeReservedElasticsearchInstancesResponse &
+  __MetadataBearer;
 
 export class DescribeReservedElasticsearchInstancesCommand extends $Command<
   DescribeReservedElasticsearchInstancesCommandInput,

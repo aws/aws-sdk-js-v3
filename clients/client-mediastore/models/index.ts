@@ -193,7 +193,7 @@ export namespace CreateContainerInput {
   }
 }
 
-export interface CreateContainerOutput extends $MetadataBearer {
+export interface CreateContainerOutput {
   __type?: "CreateContainerOutput";
   /**
    * <p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN
@@ -232,7 +232,7 @@ export namespace DeleteContainerInput {
   }
 }
 
-export interface DeleteContainerOutput extends $MetadataBearer {
+export interface DeleteContainerOutput {
   __type?: "DeleteContainerOutput";
 }
 
@@ -256,7 +256,7 @@ export namespace DeleteContainerPolicyInput {
   }
 }
 
-export interface DeleteContainerPolicyOutput extends $MetadataBearer {
+export interface DeleteContainerPolicyOutput {
   __type?: "DeleteContainerPolicyOutput";
 }
 
@@ -280,7 +280,7 @@ export namespace DeleteCorsPolicyInput {
   }
 }
 
-export interface DeleteCorsPolicyOutput extends $MetadataBearer {
+export interface DeleteCorsPolicyOutput {
   __type?: "DeleteCorsPolicyOutput";
 }
 
@@ -304,7 +304,7 @@ export namespace DeleteLifecyclePolicyInput {
   }
 }
 
-export interface DeleteLifecyclePolicyOutput extends $MetadataBearer {
+export interface DeleteLifecyclePolicyOutput {
   __type?: "DeleteLifecyclePolicyOutput";
 }
 
@@ -328,7 +328,7 @@ export namespace DescribeContainerInput {
   }
 }
 
-export interface DescribeContainerOutput extends $MetadataBearer {
+export interface DescribeContainerOutput {
   __type?: "DescribeContainerOutput";
   /**
    * <p>The name of the queried container.</p>
@@ -356,7 +356,7 @@ export namespace GetContainerPolicyInput {
   }
 }
 
-export interface GetContainerPolicyOutput extends $MetadataBearer {
+export interface GetContainerPolicyOutput {
   __type?: "GetContainerPolicyOutput";
   /**
    * <p>The contents of the access policy.</p>
@@ -384,7 +384,7 @@ export namespace GetCorsPolicyInput {
   }
 }
 
-export interface GetCorsPolicyOutput extends $MetadataBearer {
+export interface GetCorsPolicyOutput {
   __type?: "GetCorsPolicyOutput";
   /**
    * <p>The CORS policy assigned to the container.</p>
@@ -412,7 +412,7 @@ export namespace GetLifecyclePolicyInput {
   }
 }
 
-export interface GetLifecyclePolicyOutput extends $MetadataBearer {
+export interface GetLifecyclePolicyOutput {
   __type?: "GetLifecyclePolicyOutput";
   /**
    * <p>The object lifecycle policy that is assigned to the container.</p>
@@ -482,7 +482,7 @@ export namespace ListContainersInput {
   }
 }
 
-export interface ListContainersOutput extends $MetadataBearer {
+export interface ListContainersOutput {
   __type?: "ListContainersOutput";
   /**
    * <p>The names of the containers.</p>
@@ -518,7 +518,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>An array of key:value pairs that are assigned to the container.</p>
@@ -584,7 +584,7 @@ export namespace PutContainerPolicyInput {
   }
 }
 
-export interface PutContainerPolicyOutput extends $MetadataBearer {
+export interface PutContainerPolicyOutput {
   __type?: "PutContainerPolicyOutput";
 }
 
@@ -613,7 +613,7 @@ export namespace PutCorsPolicyInput {
   }
 }
 
-export interface PutCorsPolicyOutput extends $MetadataBearer {
+export interface PutCorsPolicyOutput {
   __type?: "PutCorsPolicyOutput";
 }
 
@@ -642,7 +642,7 @@ export namespace PutLifecyclePolicyInput {
   }
 }
 
-export interface PutLifecyclePolicyOutput extends $MetadataBearer {
+export interface PutLifecyclePolicyOutput {
   __type?: "PutLifecyclePolicyOutput";
 }
 
@@ -666,7 +666,7 @@ export namespace StartAccessLoggingInput {
   }
 }
 
-export interface StartAccessLoggingOutput extends $MetadataBearer {
+export interface StartAccessLoggingOutput {
   __type?: "StartAccessLoggingOutput";
 }
 
@@ -690,7 +690,7 @@ export namespace StopAccessLoggingInput {
   }
 }
 
-export interface StopAccessLoggingOutput extends $MetadataBearer {
+export interface StopAccessLoggingOutput {
   __type?: "StopAccessLoggingOutput";
 }
 
@@ -749,7 +749,7 @@ export namespace TagResourceInput {
   }
 }
 
-export interface TagResourceOutput extends $MetadataBearer {
+export interface TagResourceOutput {
   __type?: "TagResourceOutput";
 }
 
@@ -780,7 +780,7 @@ export namespace UntagResourceInput {
   }
 }
 
-export interface UntagResourceOutput extends $MetadataBearer {
+export interface UntagResourceOutput {
   __type?: "UntagResourceOutput";
 }
 

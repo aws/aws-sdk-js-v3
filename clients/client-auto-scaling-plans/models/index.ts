@@ -70,7 +70,7 @@ export namespace CreateScalingPlanRequest {
   }
 }
 
-export interface CreateScalingPlanResponse extends $MetadataBearer {
+export interface CreateScalingPlanResponse {
   __type?: "CreateScalingPlanResponse";
   /**
    * <p>The version number of the scaling plan. This value is always 1.</p>
@@ -238,7 +238,7 @@ export namespace DeleteScalingPlanRequest {
   }
 }
 
-export interface DeleteScalingPlanResponse extends $MetadataBearer {
+export interface DeleteScalingPlanResponse {
   __type?: "DeleteScalingPlanResponse";
 }
 
@@ -278,7 +278,7 @@ export namespace DescribeScalingPlanResourcesRequest {
   }
 }
 
-export interface DescribeScalingPlanResourcesResponse extends $MetadataBearer {
+export interface DescribeScalingPlanResourcesResponse {
   __type?: "DescribeScalingPlanResourcesResponse";
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
@@ -336,7 +336,7 @@ export namespace DescribeScalingPlansRequest {
   }
 }
 
-export interface DescribeScalingPlansResponse extends $MetadataBearer {
+export interface DescribeScalingPlansResponse {
   __type?: "DescribeScalingPlansResponse";
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
@@ -466,8 +466,7 @@ export namespace GetScalingPlanResourceForecastDataRequest {
   }
 }
 
-export interface GetScalingPlanResourceForecastDataResponse
-  extends $MetadataBearer {
+export interface GetScalingPlanResourceForecastDataResponse {
   __type?: "GetScalingPlanResourceForecastDataResponse";
   /**
    * <p>The data points to return.</p>
@@ -1325,7 +1324,7 @@ export namespace UpdateScalingPlanRequest {
   }
 }
 
-export interface UpdateScalingPlanResponse extends $MetadataBearer {
+export interface UpdateScalingPlanResponse {
   __type?: "UpdateScalingPlanResponse";
 }
 

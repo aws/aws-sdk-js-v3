@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSampledRequestsCommandInput = GetSampledRequestsRequest;
-export type GetSampledRequestsCommandOutput = GetSampledRequestsResponse;
+export type GetSampledRequestsCommandOutput = GetSampledRequestsResponse &
+  __MetadataBearer;
 
 export class GetSampledRequestsCommand extends $Command<
   GetSampledRequestsCommandInput,

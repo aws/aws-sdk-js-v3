@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteResolverCommandInput = DeleteResolverRequest;
-export type DeleteResolverCommandOutput = DeleteResolverResponse;
+export type DeleteResolverCommandOutput = DeleteResolverResponse &
+  __MetadataBearer;
 
 export class DeleteResolverCommand extends $Command<
   DeleteResolverCommandInput,

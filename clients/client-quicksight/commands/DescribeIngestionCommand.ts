@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeIngestionCommandInput = DescribeIngestionRequest;
-export type DescribeIngestionCommandOutput = DescribeIngestionResponse;
+export type DescribeIngestionCommandOutput = DescribeIngestionResponse &
+  __MetadataBearer;
 
 export class DescribeIngestionCommand extends $Command<
   DescribeIngestionCommandInput,

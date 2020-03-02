@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeClusterVersionsCommandInput = DescribeClusterVersionsMessage;
-export type DescribeClusterVersionsCommandOutput = ClusterVersionsMessage;
+export type DescribeClusterVersionsCommandOutput = ClusterVersionsMessage &
+  __MetadataBearer;
 
 export class DescribeClusterVersionsCommand extends $Command<
   DescribeClusterVersionsCommandInput,

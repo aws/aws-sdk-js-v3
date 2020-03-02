@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddListenerCertificatesCommandInput = AddListenerCertificatesInput;
-export type AddListenerCertificatesCommandOutput = AddListenerCertificatesOutput;
+export type AddListenerCertificatesCommandOutput = AddListenerCertificatesOutput &
+  __MetadataBearer;
 
 export class AddListenerCertificatesCommand extends $Command<
   AddListenerCertificatesCommandInput,

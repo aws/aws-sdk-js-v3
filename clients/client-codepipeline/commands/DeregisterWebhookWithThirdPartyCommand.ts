@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterWebhookWithThirdPartyCommandInput = DeregisterWebhookWithThirdPartyInput;
-export type DeregisterWebhookWithThirdPartyCommandOutput = DeregisterWebhookWithThirdPartyOutput;
+export type DeregisterWebhookWithThirdPartyCommandOutput = DeregisterWebhookWithThirdPartyOutput &
+  __MetadataBearer;
 
 export class DeregisterWebhookWithThirdPartyCommand extends $Command<
   DeregisterWebhookWithThirdPartyCommandInput,

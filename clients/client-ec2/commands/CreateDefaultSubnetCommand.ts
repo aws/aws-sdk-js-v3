@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDefaultSubnetCommandInput = CreateDefaultSubnetRequest;
-export type CreateDefaultSubnetCommandOutput = CreateDefaultSubnetResult;
+export type CreateDefaultSubnetCommandOutput = CreateDefaultSubnetResult &
+  __MetadataBearer;
 
 export class CreateDefaultSubnetCommand extends $Command<
   CreateDefaultSubnetCommandInput,

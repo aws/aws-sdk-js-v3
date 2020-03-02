@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMLModelCommandInput = DeleteMLModelInput;
-export type DeleteMLModelCommandOutput = DeleteMLModelOutput;
+export type DeleteMLModelCommandOutput = DeleteMLModelOutput & __MetadataBearer;
 
 export class DeleteMLModelCommand extends $Command<
   DeleteMLModelCommandInput,

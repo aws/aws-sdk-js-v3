@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeFastSnapshotRestoresCommandInput = DescribeFastSnapshotRestoresRequest;
-export type DescribeFastSnapshotRestoresCommandOutput = DescribeFastSnapshotRestoresResult;
+export type DescribeFastSnapshotRestoresCommandOutput = DescribeFastSnapshotRestoresResult &
+  __MetadataBearer;
 
 export class DescribeFastSnapshotRestoresCommand extends $Command<
   DescribeFastSnapshotRestoresCommandInput,

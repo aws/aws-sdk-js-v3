@@ -77,7 +77,7 @@ export namespace AccessLogSettings {
  *             <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-account.html">AWS CLI</a>
  *         </div>
  */
-export interface Account extends $MetadataBearer {
+export interface Account {
   __type?: "Account";
   /**
    * <p>The version of the API keys used for the account.</p>
@@ -112,7 +112,7 @@ export namespace Account {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html">Use API Keys</a>
  *       </div>
  */
-export interface ApiKey extends $MetadataBearer {
+export interface ApiKey {
   __type?: "ApiKey";
   /**
    * <p>The timestamp when the API Key was created.</p>
@@ -174,7 +174,7 @@ export namespace ApiKey {
 /**
  * <p>The identifier of an <a>ApiKey</a> used in a <a>UsagePlan</a>.</p>
  */
-export interface ApiKeyIds extends $MetadataBearer {
+export interface ApiKeyIds {
   __type?: "ApiKeyIds";
   /**
    * <p>A list of all the <a>ApiKey</a> identifiers.</p>
@@ -204,7 +204,7 @@ export enum ApiKeySourceType {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html">Use API Keys</a>
  *       </div>
  */
-export interface ApiKeys extends $MetadataBearer {
+export interface ApiKeys {
   __type?: "ApiKeys";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -266,7 +266,7 @@ export namespace ApiStage {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use Cognito User Pool as Authorizer</a>
  *       </div>
  */
-export interface Authorizer extends $MetadataBearer {
+export interface Authorizer {
   __type?: "Authorizer";
   /**
    * <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
@@ -338,7 +338,7 @@ export enum AuthorizerType {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use Cognito User Pool as Authorizer</a>
  *       </div>
  */
-export interface Authorizers extends $MetadataBearer {
+export interface Authorizers {
   __type?: "Authorizers";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -364,7 +364,7 @@ export namespace Authorizers {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Custom Domain Names</a>
  *       </div>
  */
-export interface BasePathMapping extends $MetadataBearer {
+export interface BasePathMapping {
   __type?: "BasePathMapping";
   /**
    * <p>The base path name that callers of the API must provide as part of the URL after the domain name.</p>
@@ -394,7 +394,7 @@ export namespace BasePathMapping {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Custom Domain Names</a>
  *       </div>
  */
-export interface BasePathMappings extends $MetadataBearer {
+export interface BasePathMappings {
   __type?: "BasePathMappings";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -471,7 +471,7 @@ export namespace CanarySettings {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html">Use Client-Side Certificate</a>
  *       </div>
  */
-export interface ClientCertificate extends $MetadataBearer {
+export interface ClientCertificate {
   __type?: "ClientCertificate";
   /**
    * <p>The identifier of the client certificate.</p>
@@ -516,7 +516,7 @@ export namespace ClientCertificate {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html">Use Client-Side Certificate</a>
  *       </div>
  */
-export interface ClientCertificates extends $MetadataBearer {
+export interface ClientCertificates {
   __type?: "ClientCertificates";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -1839,7 +1839,7 @@ export namespace DeleteVpcLinkRequest {
  *             <a href="https://aws.amazon.com/tools/">AWS SDKs</a>
  *         </div>
  */
-export interface Deployment extends $MetadataBearer {
+export interface Deployment {
   __type?: "Deployment";
   /**
    * <p>A summary of the <a>RestApi</a> at the date and time that the deployment resource was created.</p>
@@ -1905,7 +1905,7 @@ export namespace DeploymentCanarySettings {
  *             <a href="https://aws.amazon.com/tools/">AWS SDKs</a>
  *         </div>
  */
-export interface Deployments extends $MetadataBearer {
+export interface Deployments {
   __type?: "Deployments";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -1933,7 +1933,7 @@ export namespace Deployments {
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationParts</a>
  *     </div>
  */
-export interface DocumentationPart extends $MetadataBearer {
+export interface DocumentationPart {
   __type?: "DocumentationPart";
   /**
    * <p>The <a>DocumentationPart</a> identifier, generated by API Gateway when the <code>DocumentationPart</code> is created.</p>
@@ -1964,7 +1964,7 @@ export namespace DocumentationPart {
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a href="https://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/">documentationpart:import</a>, <a>DocumentationPart</a>
  *     </div>
  */
-export interface DocumentationPartIds extends $MetadataBearer {
+export interface DocumentationPartIds {
   __type?: "DocumentationPartIds";
   /**
    * <p>A list of the returned documentation part identifiers.</p>
@@ -2042,7 +2042,7 @@ export enum DocumentationPartType {
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>
  *     </div>
  */
-export interface DocumentationParts extends $MetadataBearer {
+export interface DocumentationParts {
   __type?: "DocumentationParts";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -2068,7 +2068,7 @@ export namespace DocumentationParts {
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>, <a>DocumentationVersions</a>
  *     </div>
  */
-export interface DocumentationVersion extends $MetadataBearer {
+export interface DocumentationVersion {
   __type?: "DocumentationVersion";
   /**
    * <p>The date when the API documentation snapshot is created.</p>
@@ -2099,7 +2099,7 @@ export namespace DocumentationVersion {
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>, <a>DocumentationVersion</a>
  *     </div>
  */
-export interface DocumentationVersions extends $MetadataBearer {
+export interface DocumentationVersions {
   __type?: "DocumentationVersions";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -2128,7 +2128,7 @@ export namespace DocumentationVersions {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Set a Custom Host Name for an API</a>
  *       </div>
  */
-export interface DomainName extends $MetadataBearer {
+export interface DomainName {
   __type?: "DomainName";
   /**
    * <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
@@ -2224,7 +2224,7 @@ export enum DomainNameStatus {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Client-Side Certificate</a>
  *       </div>
  */
-export interface DomainNames extends $MetadataBearer {
+export interface DomainNames {
   __type?: "DomainNames";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -2270,7 +2270,7 @@ export type EndpointType = "EDGE" | "PRIVATE" | "REGIONAL";
 /**
  * <p>The binary blob response to <a>GetExport</a>, which contains the generated SDK.</p>
  */
-export interface ExportResponse extends $MetadataBearer {
+export interface ExportResponse {
   __type?: "ExportResponse";
   /**
    * <p>The binary blob response to <a>GetExport</a>, which contains the export.</p>
@@ -2410,7 +2410,7 @@ export namespace FlushStageCacheRequest {
  *           <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a>
  *         </div>
  */
-export interface GatewayResponse extends $MetadataBearer {
+export interface GatewayResponse {
   __type?: "GatewayResponse";
   /**
    * <p>A Boolean flag to indicate whether this <a>GatewayResponse</a> is the default gateway response (<code>true</code>) or not (<code>false</code>). A default gateway response is one generated by API Gateway without any customization by an API developer. </p>
@@ -2998,7 +2998,7 @@ export enum GatewayResponseType {
  *           <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a>
  *         </div>
  */
-export interface GatewayResponses extends $MetadataBearer {
+export interface GatewayResponses {
   __type?: "GatewayResponses";
   /**
    * <p>Returns the entire collection, because of no pagination support.</p>
@@ -4526,7 +4526,7 @@ export namespace ImportRestApiRequest {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a>
  *       </div>
  */
-export interface Integration extends $MetadataBearer {
+export interface Integration {
   __type?: "Integration";
   /**
    * <p>A list of request parameters whose values API Gateway caches. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
@@ -4696,7 +4696,7 @@ export namespace Integration {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a>
  *       </div>
  */
-export interface IntegrationResponse extends $MetadataBearer {
+export interface IntegrationResponse {
   __type?: "IntegrationResponse";
   /**
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
@@ -4915,7 +4915,7 @@ export enum LocationStatusType {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html">Set up an API's method</a>
  *       </div>
  */
-export interface Method extends $MetadataBearer {
+export interface Method {
   __type?: "Method";
   /**
    * <p>A boolean flag specifying whether a valid <a>ApiKey</a> is required to invoke this method.</p>
@@ -5161,7 +5161,7 @@ export namespace Method {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a>
  *       </div>
  */
-export interface MethodResponse extends $MetadataBearer {
+export interface MethodResponse {
   __type?: "MethodResponse";
   /**
    * <p>Specifies the <a>Model</a> resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a <a>Model</a> name as the value.</p>
@@ -5281,7 +5281,7 @@ export namespace MethodSnapshot {
  *         <a>Method</a>, <a>MethodResponse</a>, <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a>
  *       </div>
  */
-export interface Model extends $MetadataBearer {
+export interface Model {
   __type?: "Model";
   /**
    * <p>The content-type for the model.</p>
@@ -5321,7 +5321,7 @@ export namespace Model {
  *         <a>Method</a>, <a>MethodResponse</a>, <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a>
  *       </div>
  */
-export interface Models extends $MetadataBearer {
+export interface Models {
   __type?: "Models";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -5760,7 +5760,7 @@ export namespace QuotaSettings {
  *         </div>
  *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html">Enable Basic Request Validation in API Gateway</a></div>
  */
-export interface RequestValidator extends $MetadataBearer {
+export interface RequestValidator {
   __type?: "RequestValidator";
   /**
    * <p>The identifier of this <a>RequestValidator</a>.</p>
@@ -5796,7 +5796,7 @@ export namespace RequestValidator {
  *         </div>
  *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html">Enable Basic Request Validation in API Gateway</a></div>
  */
-export interface RequestValidators extends $MetadataBearer {
+export interface RequestValidators {
   __type?: "RequestValidators";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -5821,7 +5821,7 @@ export namespace RequestValidators {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a>
  *       </div>
  */
-export interface Resource extends $MetadataBearer {
+export interface Resource {
   __type?: "Resource";
   /**
    * <p>The resource's identifier.</p>
@@ -6013,7 +6013,7 @@ export namespace Resource {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a>
  *       </div>
  */
-export interface Resources extends $MetadataBearer {
+export interface Resources {
   __type?: "Resources";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -6038,7 +6038,7 @@ export namespace Resources {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a>
  *       </div>
  */
-export interface RestApi extends $MetadataBearer {
+export interface RestApi {
   __type?: "RestApi";
   /**
    * <p>The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> </p>
@@ -6113,7 +6113,7 @@ export namespace RestApi {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a>
  *       </div>
  */
-export interface RestApis extends $MetadataBearer {
+export interface RestApis {
   __type?: "RestApis";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -6172,7 +6172,7 @@ export namespace SdkConfigurationProperty {
 /**
  * <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
  */
-export interface SdkResponse extends $MetadataBearer {
+export interface SdkResponse {
   __type?: "SdkResponse";
   /**
    * <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
@@ -6199,7 +6199,7 @@ export namespace SdkResponse {
 /**
  * <p>A type of SDK that API Gateway can generate.</p>
  */
-export interface SdkType extends $MetadataBearer {
+export interface SdkType {
   __type?: "SdkType";
   /**
    * <p>A list of configuration properties of an <a>SdkType</a>.</p>
@@ -6231,7 +6231,7 @@ export namespace SdkType {
 /**
  * <p>The collection of <a>SdkType</a> instances.</p>
  */
-export interface SdkTypes extends $MetadataBearer {
+export interface SdkTypes {
   __type?: "SdkTypes";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -6253,7 +6253,7 @@ export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy an API</a>
  *       </div>
  */
-export interface Stage extends $MetadataBearer {
+export interface Stage {
   __type?: "Stage";
   /**
    * <p>Settings for logging access in this stage.</p>
@@ -6374,7 +6374,7 @@ export namespace StageKey {
  * <p>A list of <a>Stage</a> resources that are associated with the <a>ApiKey</a> resource.</p>
  *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html">Deploying API in Stages</a></div>
  */
-export interface Stages extends $MetadataBearer {
+export interface Stages {
   __type?: "Stages";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -6418,7 +6418,7 @@ export namespace TagResourceRequest {
 /**
  * <p>The collection of tags. Each tag element is associated with a given resource.</p>
  */
-export interface Tags extends $MetadataBearer {
+export interface Tags {
   __type?: "Tags";
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
@@ -6438,7 +6438,7 @@ export namespace Tags {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings">Mapping Templates</a>
  *       </div>
  */
-export interface Template extends $MetadataBearer {
+export interface Template {
   __type?: "Template";
   /**
    * <p>The Apache <a target="_blank" href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html">Velocity Template Language (VTL)</a> template content used for the template resource.</p>
@@ -6507,7 +6507,7 @@ export namespace TestInvokeAuthorizerRequest {
 /**
  * <p>Represents the response of the test invoke request for a custom <a>Authorizer</a></p>
  */
-export interface TestInvokeAuthorizerResponse extends $MetadataBearer {
+export interface TestInvokeAuthorizerResponse {
   __type?: "TestInvokeAuthorizerResponse";
   authorization?: { [key: string]: Array<string> };
   /**
@@ -6610,7 +6610,7 @@ export namespace TestInvokeMethodRequest {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console">Test API using the API Gateway console</a>
  *       </div>
  */
-export interface TestInvokeMethodResponse extends $MetadataBearer {
+export interface TestInvokeMethodResponse {
   __type?: "TestInvokeMethodResponse";
   /**
    * <p>The body of the HTTP response.</p>
@@ -7404,7 +7404,7 @@ export namespace UpdateVpcLinkRequest {
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-usage-plans-with-console.html#api-gateway-usage-plan-manage-usage">Manage Usage in a Usage Plan</a>
  *     </div>
  */
-export interface Usage extends $MetadataBearer {
+export interface Usage {
   __type?: "Usage";
   /**
    * <p>The ending date of the usage data.</p>
@@ -7447,7 +7447,7 @@ export namespace Usage {
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>
  *       </div>
  */
-export interface UsagePlan extends $MetadataBearer {
+export interface UsagePlan {
   __type?: "UsagePlan";
   /**
    * <p>The associated API stages of a usage plan.</p>
@@ -7505,7 +7505,7 @@ export namespace UsagePlan {
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>
  *     </div>
  */
-export interface UsagePlanKey extends $MetadataBearer {
+export interface UsagePlanKey {
   __type?: "UsagePlanKey";
   /**
    * <p>The Id of a usage plan key.</p>
@@ -7540,7 +7540,7 @@ export namespace UsagePlanKey {
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>
  *     </div>
  */
-export interface UsagePlanKeys extends $MetadataBearer {
+export interface UsagePlanKeys {
   __type?: "UsagePlanKeys";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -7565,7 +7565,7 @@ export namespace UsagePlanKeys {
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>
  *     </div>
  */
-export interface UsagePlans extends $MetadataBearer {
+export interface UsagePlans {
   __type?: "UsagePlans";
   /**
    * <p>The current page of elements from this collection.</p>
@@ -7592,7 +7592,7 @@ export namespace UsagePlans {
  * </p>
  *         </div>
  */
-export interface VpcLink extends $MetadataBearer {
+export interface VpcLink {
   __type?: "VpcLink";
   /**
    * <p>The description of the VPC link.</p>
@@ -7652,7 +7652,7 @@ export enum VpcLinkStatus {
  *
  *         </div>
  */
-export interface VpcLinks extends $MetadataBearer {
+export interface VpcLinks {
   __type?: "VpcLinks";
   /**
    * <p>The current page of elements from this collection.</p>

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDimensionKeysCommandInput = DescribeDimensionKeysRequest;
-export type DescribeDimensionKeysCommandOutput = DescribeDimensionKeysResponse;
+export type DescribeDimensionKeysCommandOutput = DescribeDimensionKeysResponse &
+  __MetadataBearer;
 
 export class DescribeDimensionKeysCommand extends $Command<
   DescribeDimensionKeysCommandInput,

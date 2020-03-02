@@ -1,65 +1,123 @@
 import {
-  AssociateDomainRequest,
-  AssociateDomainResponse,
-  AssociateWebsiteAuthorizationProviderRequest,
-  AssociateWebsiteAuthorizationProviderResponse,
-  AssociateWebsiteCertificateAuthorityRequest,
-  AssociateWebsiteCertificateAuthorityResponse,
-  CreateFleetRequest,
-  CreateFleetResponse,
-  DeleteFleetRequest,
-  DeleteFleetResponse,
-  DescribeAuditStreamConfigurationRequest,
-  DescribeAuditStreamConfigurationResponse,
-  DescribeCompanyNetworkConfigurationRequest,
-  DescribeCompanyNetworkConfigurationResponse,
-  DescribeDevicePolicyConfigurationRequest,
-  DescribeDevicePolicyConfigurationResponse,
-  DescribeDeviceRequest,
-  DescribeDeviceResponse,
-  DescribeDomainRequest,
-  DescribeDomainResponse,
-  DescribeFleetMetadataRequest,
-  DescribeFleetMetadataResponse,
-  DescribeIdentityProviderConfigurationRequest,
-  DescribeIdentityProviderConfigurationResponse,
-  DescribeWebsiteCertificateAuthorityRequest,
-  DescribeWebsiteCertificateAuthorityResponse,
-  DisassociateDomainRequest,
-  DisassociateDomainResponse,
-  DisassociateWebsiteAuthorizationProviderRequest,
-  DisassociateWebsiteAuthorizationProviderResponse,
-  DisassociateWebsiteCertificateAuthorityRequest,
-  DisassociateWebsiteCertificateAuthorityResponse,
-  ListDevicesRequest,
-  ListDevicesResponse,
-  ListDomainsRequest,
-  ListDomainsResponse,
-  ListFleetsRequest,
-  ListFleetsResponse,
-  ListWebsiteAuthorizationProvidersRequest,
-  ListWebsiteAuthorizationProvidersResponse,
-  ListWebsiteCertificateAuthoritiesRequest,
-  ListWebsiteCertificateAuthoritiesResponse,
-  RestoreDomainAccessRequest,
-  RestoreDomainAccessResponse,
-  RevokeDomainAccessRequest,
-  RevokeDomainAccessResponse,
-  SignOutUserRequest,
-  SignOutUserResponse,
-  UpdateAuditStreamConfigurationRequest,
-  UpdateAuditStreamConfigurationResponse,
-  UpdateCompanyNetworkConfigurationRequest,
-  UpdateCompanyNetworkConfigurationResponse,
-  UpdateDevicePolicyConfigurationRequest,
-  UpdateDevicePolicyConfigurationResponse,
-  UpdateDomainMetadataRequest,
-  UpdateDomainMetadataResponse,
-  UpdateFleetMetadataRequest,
-  UpdateFleetMetadataResponse,
-  UpdateIdentityProviderConfigurationRequest,
-  UpdateIdentityProviderConfigurationResponse
-} from "./models/index";
+  AssociateDomainCommandInput,
+  AssociateDomainCommandOutput
+} from "./commands/AssociateDomainCommand";
+import {
+  AssociateWebsiteAuthorizationProviderCommandInput,
+  AssociateWebsiteAuthorizationProviderCommandOutput
+} from "./commands/AssociateWebsiteAuthorizationProviderCommand";
+import {
+  AssociateWebsiteCertificateAuthorityCommandInput,
+  AssociateWebsiteCertificateAuthorityCommandOutput
+} from "./commands/AssociateWebsiteCertificateAuthorityCommand";
+import {
+  CreateFleetCommandInput,
+  CreateFleetCommandOutput
+} from "./commands/CreateFleetCommand";
+import {
+  DeleteFleetCommandInput,
+  DeleteFleetCommandOutput
+} from "./commands/DeleteFleetCommand";
+import {
+  DescribeAuditStreamConfigurationCommandInput,
+  DescribeAuditStreamConfigurationCommandOutput
+} from "./commands/DescribeAuditStreamConfigurationCommand";
+import {
+  DescribeCompanyNetworkConfigurationCommandInput,
+  DescribeCompanyNetworkConfigurationCommandOutput
+} from "./commands/DescribeCompanyNetworkConfigurationCommand";
+import {
+  DescribeDeviceCommandInput,
+  DescribeDeviceCommandOutput
+} from "./commands/DescribeDeviceCommand";
+import {
+  DescribeDevicePolicyConfigurationCommandInput,
+  DescribeDevicePolicyConfigurationCommandOutput
+} from "./commands/DescribeDevicePolicyConfigurationCommand";
+import {
+  DescribeDomainCommandInput,
+  DescribeDomainCommandOutput
+} from "./commands/DescribeDomainCommand";
+import {
+  DescribeFleetMetadataCommandInput,
+  DescribeFleetMetadataCommandOutput
+} from "./commands/DescribeFleetMetadataCommand";
+import {
+  DescribeIdentityProviderConfigurationCommandInput,
+  DescribeIdentityProviderConfigurationCommandOutput
+} from "./commands/DescribeIdentityProviderConfigurationCommand";
+import {
+  DescribeWebsiteCertificateAuthorityCommandInput,
+  DescribeWebsiteCertificateAuthorityCommandOutput
+} from "./commands/DescribeWebsiteCertificateAuthorityCommand";
+import {
+  DisassociateDomainCommandInput,
+  DisassociateDomainCommandOutput
+} from "./commands/DisassociateDomainCommand";
+import {
+  DisassociateWebsiteAuthorizationProviderCommandInput,
+  DisassociateWebsiteAuthorizationProviderCommandOutput
+} from "./commands/DisassociateWebsiteAuthorizationProviderCommand";
+import {
+  DisassociateWebsiteCertificateAuthorityCommandInput,
+  DisassociateWebsiteCertificateAuthorityCommandOutput
+} from "./commands/DisassociateWebsiteCertificateAuthorityCommand";
+import {
+  ListDevicesCommandInput,
+  ListDevicesCommandOutput
+} from "./commands/ListDevicesCommand";
+import {
+  ListDomainsCommandInput,
+  ListDomainsCommandOutput
+} from "./commands/ListDomainsCommand";
+import {
+  ListFleetsCommandInput,
+  ListFleetsCommandOutput
+} from "./commands/ListFleetsCommand";
+import {
+  ListWebsiteAuthorizationProvidersCommandInput,
+  ListWebsiteAuthorizationProvidersCommandOutput
+} from "./commands/ListWebsiteAuthorizationProvidersCommand";
+import {
+  ListWebsiteCertificateAuthoritiesCommandInput,
+  ListWebsiteCertificateAuthoritiesCommandOutput
+} from "./commands/ListWebsiteCertificateAuthoritiesCommand";
+import {
+  RestoreDomainAccessCommandInput,
+  RestoreDomainAccessCommandOutput
+} from "./commands/RestoreDomainAccessCommand";
+import {
+  RevokeDomainAccessCommandInput,
+  RevokeDomainAccessCommandOutput
+} from "./commands/RevokeDomainAccessCommand";
+import {
+  SignOutUserCommandInput,
+  SignOutUserCommandOutput
+} from "./commands/SignOutUserCommand";
+import {
+  UpdateAuditStreamConfigurationCommandInput,
+  UpdateAuditStreamConfigurationCommandOutput
+} from "./commands/UpdateAuditStreamConfigurationCommand";
+import {
+  UpdateCompanyNetworkConfigurationCommandInput,
+  UpdateCompanyNetworkConfigurationCommandOutput
+} from "./commands/UpdateCompanyNetworkConfigurationCommand";
+import {
+  UpdateDevicePolicyConfigurationCommandInput,
+  UpdateDevicePolicyConfigurationCommandOutput
+} from "./commands/UpdateDevicePolicyConfigurationCommand";
+import {
+  UpdateDomainMetadataCommandInput,
+  UpdateDomainMetadataCommandOutput
+} from "./commands/UpdateDomainMetadataCommand";
+import {
+  UpdateFleetMetadataCommandInput,
+  UpdateFleetMetadataCommandOutput
+} from "./commands/UpdateFleetMetadataCommand";
+import {
+  UpdateIdentityProviderConfigurationCommandInput,
+  UpdateIdentityProviderConfigurationCommandOutput
+} from "./commands/UpdateIdentityProviderConfigurationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -113,68 +171,68 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateDomainRequest
-  | AssociateWebsiteAuthorizationProviderRequest
-  | AssociateWebsiteCertificateAuthorityRequest
-  | CreateFleetRequest
-  | DeleteFleetRequest
-  | DescribeAuditStreamConfigurationRequest
-  | DescribeCompanyNetworkConfigurationRequest
-  | DescribeDevicePolicyConfigurationRequest
-  | DescribeDeviceRequest
-  | DescribeDomainRequest
-  | DescribeFleetMetadataRequest
-  | DescribeIdentityProviderConfigurationRequest
-  | DescribeWebsiteCertificateAuthorityRequest
-  | DisassociateDomainRequest
-  | DisassociateWebsiteAuthorizationProviderRequest
-  | DisassociateWebsiteCertificateAuthorityRequest
-  | ListDevicesRequest
-  | ListDomainsRequest
-  | ListFleetsRequest
-  | ListWebsiteAuthorizationProvidersRequest
-  | ListWebsiteCertificateAuthoritiesRequest
-  | RestoreDomainAccessRequest
-  | RevokeDomainAccessRequest
-  | SignOutUserRequest
-  | UpdateAuditStreamConfigurationRequest
-  | UpdateCompanyNetworkConfigurationRequest
-  | UpdateDevicePolicyConfigurationRequest
-  | UpdateDomainMetadataRequest
-  | UpdateFleetMetadataRequest
-  | UpdateIdentityProviderConfigurationRequest;
+  | AssociateDomainCommandInput
+  | AssociateWebsiteAuthorizationProviderCommandInput
+  | AssociateWebsiteCertificateAuthorityCommandInput
+  | CreateFleetCommandInput
+  | DeleteFleetCommandInput
+  | DescribeAuditStreamConfigurationCommandInput
+  | DescribeCompanyNetworkConfigurationCommandInput
+  | DescribeDeviceCommandInput
+  | DescribeDevicePolicyConfigurationCommandInput
+  | DescribeDomainCommandInput
+  | DescribeFleetMetadataCommandInput
+  | DescribeIdentityProviderConfigurationCommandInput
+  | DescribeWebsiteCertificateAuthorityCommandInput
+  | DisassociateDomainCommandInput
+  | DisassociateWebsiteAuthorizationProviderCommandInput
+  | DisassociateWebsiteCertificateAuthorityCommandInput
+  | ListDevicesCommandInput
+  | ListDomainsCommandInput
+  | ListFleetsCommandInput
+  | ListWebsiteAuthorizationProvidersCommandInput
+  | ListWebsiteCertificateAuthoritiesCommandInput
+  | RestoreDomainAccessCommandInput
+  | RevokeDomainAccessCommandInput
+  | SignOutUserCommandInput
+  | UpdateAuditStreamConfigurationCommandInput
+  | UpdateCompanyNetworkConfigurationCommandInput
+  | UpdateDevicePolicyConfigurationCommandInput
+  | UpdateDomainMetadataCommandInput
+  | UpdateFleetMetadataCommandInput
+  | UpdateIdentityProviderConfigurationCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateDomainResponse
-  | AssociateWebsiteAuthorizationProviderResponse
-  | AssociateWebsiteCertificateAuthorityResponse
-  | CreateFleetResponse
-  | DeleteFleetResponse
-  | DescribeAuditStreamConfigurationResponse
-  | DescribeCompanyNetworkConfigurationResponse
-  | DescribeDevicePolicyConfigurationResponse
-  | DescribeDeviceResponse
-  | DescribeDomainResponse
-  | DescribeFleetMetadataResponse
-  | DescribeIdentityProviderConfigurationResponse
-  | DescribeWebsiteCertificateAuthorityResponse
-  | DisassociateDomainResponse
-  | DisassociateWebsiteAuthorizationProviderResponse
-  | DisassociateWebsiteCertificateAuthorityResponse
-  | ListDevicesResponse
-  | ListDomainsResponse
-  | ListFleetsResponse
-  | ListWebsiteAuthorizationProvidersResponse
-  | ListWebsiteCertificateAuthoritiesResponse
-  | RestoreDomainAccessResponse
-  | RevokeDomainAccessResponse
-  | SignOutUserResponse
-  | UpdateAuditStreamConfigurationResponse
-  | UpdateCompanyNetworkConfigurationResponse
-  | UpdateDevicePolicyConfigurationResponse
-  | UpdateDomainMetadataResponse
-  | UpdateFleetMetadataResponse
-  | UpdateIdentityProviderConfigurationResponse;
+  | AssociateDomainCommandOutput
+  | AssociateWebsiteAuthorizationProviderCommandOutput
+  | AssociateWebsiteCertificateAuthorityCommandOutput
+  | CreateFleetCommandOutput
+  | DeleteFleetCommandOutput
+  | DescribeAuditStreamConfigurationCommandOutput
+  | DescribeCompanyNetworkConfigurationCommandOutput
+  | DescribeDeviceCommandOutput
+  | DescribeDevicePolicyConfigurationCommandOutput
+  | DescribeDomainCommandOutput
+  | DescribeFleetMetadataCommandOutput
+  | DescribeIdentityProviderConfigurationCommandOutput
+  | DescribeWebsiteCertificateAuthorityCommandOutput
+  | DisassociateDomainCommandOutput
+  | DisassociateWebsiteAuthorizationProviderCommandOutput
+  | DisassociateWebsiteCertificateAuthorityCommandOutput
+  | ListDevicesCommandOutput
+  | ListDomainsCommandOutput
+  | ListFleetsCommandOutput
+  | ListWebsiteAuthorizationProvidersCommandOutput
+  | ListWebsiteCertificateAuthoritiesCommandOutput
+  | RestoreDomainAccessCommandOutput
+  | RevokeDomainAccessCommandOutput
+  | SignOutUserCommandOutput
+  | UpdateAuditStreamConfigurationCommandOutput
+  | UpdateCompanyNetworkConfigurationCommandOutput
+  | UpdateDevicePolicyConfigurationCommandOutput
+  | UpdateDomainMetadataCommandOutput
+  | UpdateFleetMetadataCommandOutput
+  | UpdateIdentityProviderConfigurationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

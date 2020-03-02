@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddJobFlowStepsCommandInput = AddJobFlowStepsInput;
-export type AddJobFlowStepsCommandOutput = AddJobFlowStepsOutput;
+export type AddJobFlowStepsCommandOutput = AddJobFlowStepsOutput &
+  __MetadataBearer;
 
 export class AddJobFlowStepsCommand extends $Command<
   AddJobFlowStepsCommandInput,

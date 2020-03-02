@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAssociationStatusCommandInput = UpdateAssociationStatusRequest;
-export type UpdateAssociationStatusCommandOutput = UpdateAssociationStatusResult;
+export type UpdateAssociationStatusCommandOutput = UpdateAssociationStatusResult &
+  __MetadataBearer;
 
 export class UpdateAssociationStatusCommand extends $Command<
   UpdateAssociationStatusCommandInput,

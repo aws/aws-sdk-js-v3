@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSendQuotaCommandInput = {};
-export type GetSendQuotaCommandOutput = GetSendQuotaResponse;
+export type GetSendQuotaCommandOutput = GetSendQuotaResponse & __MetadataBearer;
 
 export class GetSendQuotaCommand extends $Command<
   GetSendQuotaCommandInput,

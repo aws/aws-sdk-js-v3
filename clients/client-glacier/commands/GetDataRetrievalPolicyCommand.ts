@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDataRetrievalPolicyCommandInput = GetDataRetrievalPolicyInput;
-export type GetDataRetrievalPolicyCommandOutput = GetDataRetrievalPolicyOutput;
+export type GetDataRetrievalPolicyCommandOutput = GetDataRetrievalPolicyOutput &
+  __MetadataBearer;
 
 export class GetDataRetrievalPolicyCommand extends $Command<
   GetDataRetrievalPolicyCommandInput,

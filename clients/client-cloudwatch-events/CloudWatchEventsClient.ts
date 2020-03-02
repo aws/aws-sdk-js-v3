@@ -1,58 +1,127 @@
 import {
-  ActivateEventSourceRequest,
-  CreateEventBusRequest,
-  CreateEventBusResponse,
-  CreatePartnerEventSourceRequest,
-  CreatePartnerEventSourceResponse,
-  DeactivateEventSourceRequest,
-  DeleteEventBusRequest,
-  DeletePartnerEventSourceRequest,
-  DeleteRuleRequest,
-  DescribeEventBusRequest,
-  DescribeEventBusResponse,
-  DescribeEventSourceRequest,
-  DescribeEventSourceResponse,
-  DescribePartnerEventSourceRequest,
-  DescribePartnerEventSourceResponse,
-  DescribeRuleRequest,
-  DescribeRuleResponse,
-  DisableRuleRequest,
-  EnableRuleRequest,
-  ListEventBusesRequest,
-  ListEventBusesResponse,
-  ListEventSourcesRequest,
-  ListEventSourcesResponse,
-  ListPartnerEventSourceAccountsRequest,
-  ListPartnerEventSourceAccountsResponse,
-  ListPartnerEventSourcesRequest,
-  ListPartnerEventSourcesResponse,
-  ListRuleNamesByTargetRequest,
-  ListRuleNamesByTargetResponse,
-  ListRulesRequest,
-  ListRulesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTargetsByRuleRequest,
-  ListTargetsByRuleResponse,
-  PutEventsRequest,
-  PutEventsResponse,
-  PutPartnerEventsRequest,
-  PutPartnerEventsResponse,
-  PutPermissionRequest,
-  PutRuleRequest,
-  PutRuleResponse,
-  PutTargetsRequest,
-  PutTargetsResponse,
-  RemovePermissionRequest,
-  RemoveTargetsRequest,
-  RemoveTargetsResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  TestEventPatternRequest,
-  TestEventPatternResponse,
-  UntagResourceRequest,
-  UntagResourceResponse
-} from "./models/index";
+  ActivateEventSourceCommandInput,
+  ActivateEventSourceCommandOutput
+} from "./commands/ActivateEventSourceCommand";
+import {
+  CreateEventBusCommandInput,
+  CreateEventBusCommandOutput
+} from "./commands/CreateEventBusCommand";
+import {
+  CreatePartnerEventSourceCommandInput,
+  CreatePartnerEventSourceCommandOutput
+} from "./commands/CreatePartnerEventSourceCommand";
+import {
+  DeactivateEventSourceCommandInput,
+  DeactivateEventSourceCommandOutput
+} from "./commands/DeactivateEventSourceCommand";
+import {
+  DeleteEventBusCommandInput,
+  DeleteEventBusCommandOutput
+} from "./commands/DeleteEventBusCommand";
+import {
+  DeletePartnerEventSourceCommandInput,
+  DeletePartnerEventSourceCommandOutput
+} from "./commands/DeletePartnerEventSourceCommand";
+import {
+  DeleteRuleCommandInput,
+  DeleteRuleCommandOutput
+} from "./commands/DeleteRuleCommand";
+import {
+  DescribeEventBusCommandInput,
+  DescribeEventBusCommandOutput
+} from "./commands/DescribeEventBusCommand";
+import {
+  DescribeEventSourceCommandInput,
+  DescribeEventSourceCommandOutput
+} from "./commands/DescribeEventSourceCommand";
+import {
+  DescribePartnerEventSourceCommandInput,
+  DescribePartnerEventSourceCommandOutput
+} from "./commands/DescribePartnerEventSourceCommand";
+import {
+  DescribeRuleCommandInput,
+  DescribeRuleCommandOutput
+} from "./commands/DescribeRuleCommand";
+import {
+  DisableRuleCommandInput,
+  DisableRuleCommandOutput
+} from "./commands/DisableRuleCommand";
+import {
+  EnableRuleCommandInput,
+  EnableRuleCommandOutput
+} from "./commands/EnableRuleCommand";
+import {
+  ListEventBusesCommandInput,
+  ListEventBusesCommandOutput
+} from "./commands/ListEventBusesCommand";
+import {
+  ListEventSourcesCommandInput,
+  ListEventSourcesCommandOutput
+} from "./commands/ListEventSourcesCommand";
+import {
+  ListPartnerEventSourceAccountsCommandInput,
+  ListPartnerEventSourceAccountsCommandOutput
+} from "./commands/ListPartnerEventSourceAccountsCommand";
+import {
+  ListPartnerEventSourcesCommandInput,
+  ListPartnerEventSourcesCommandOutput
+} from "./commands/ListPartnerEventSourcesCommand";
+import {
+  ListRuleNamesByTargetCommandInput,
+  ListRuleNamesByTargetCommandOutput
+} from "./commands/ListRuleNamesByTargetCommand";
+import {
+  ListRulesCommandInput,
+  ListRulesCommandOutput
+} from "./commands/ListRulesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTargetsByRuleCommandInput,
+  ListTargetsByRuleCommandOutput
+} from "./commands/ListTargetsByRuleCommand";
+import {
+  PutEventsCommandInput,
+  PutEventsCommandOutput
+} from "./commands/PutEventsCommand";
+import {
+  PutPartnerEventsCommandInput,
+  PutPartnerEventsCommandOutput
+} from "./commands/PutPartnerEventsCommand";
+import {
+  PutPermissionCommandInput,
+  PutPermissionCommandOutput
+} from "./commands/PutPermissionCommand";
+import {
+  PutRuleCommandInput,
+  PutRuleCommandOutput
+} from "./commands/PutRuleCommand";
+import {
+  PutTargetsCommandInput,
+  PutTargetsCommandOutput
+} from "./commands/PutTargetsCommand";
+import {
+  RemovePermissionCommandInput,
+  RemovePermissionCommandOutput
+} from "./commands/RemovePermissionCommand";
+import {
+  RemoveTargetsCommandInput,
+  RemoveTargetsCommandOutput
+} from "./commands/RemoveTargetsCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  TestEventPatternCommandInput,
+  TestEventPatternCommandOutput
+} from "./commands/TestEventPatternCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -100,69 +169,76 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | ActivateEventSourceRequest
-  | CreateEventBusRequest
-  | CreatePartnerEventSourceRequest
-  | DeactivateEventSourceRequest
-  | DeleteEventBusRequest
-  | DeletePartnerEventSourceRequest
-  | DeleteRuleRequest
-  | DescribeEventBusRequest
-  | DescribeEventSourceRequest
-  | DescribePartnerEventSourceRequest
-  | DescribeRuleRequest
-  | DisableRuleRequest
-  | EnableRuleRequest
-  | ListEventBusesRequest
-  | ListEventSourcesRequest
-  | ListPartnerEventSourceAccountsRequest
-  | ListPartnerEventSourcesRequest
-  | ListRuleNamesByTargetRequest
-  | ListRulesRequest
-  | ListTagsForResourceRequest
-  | ListTargetsByRuleRequest
-  | PutEventsRequest
-  | PutPartnerEventsRequest
-  | PutPermissionRequest
-  | PutRuleRequest
-  | PutTargetsRequest
-  | RemovePermissionRequest
-  | RemoveTargetsRequest
-  | TagResourceRequest
-  | TestEventPatternRequest
-  | UntagResourceRequest;
+  | ActivateEventSourceCommandInput
+  | CreateEventBusCommandInput
+  | CreatePartnerEventSourceCommandInput
+  | DeactivateEventSourceCommandInput
+  | DeleteEventBusCommandInput
+  | DeletePartnerEventSourceCommandInput
+  | DeleteRuleCommandInput
+  | DescribeEventBusCommandInput
+  | DescribeEventSourceCommandInput
+  | DescribePartnerEventSourceCommandInput
+  | DescribeRuleCommandInput
+  | DisableRuleCommandInput
+  | EnableRuleCommandInput
+  | ListEventBusesCommandInput
+  | ListEventSourcesCommandInput
+  | ListPartnerEventSourceAccountsCommandInput
+  | ListPartnerEventSourcesCommandInput
+  | ListRuleNamesByTargetCommandInput
+  | ListRulesCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTargetsByRuleCommandInput
+  | PutEventsCommandInput
+  | PutPartnerEventsCommandInput
+  | PutPermissionCommandInput
+  | PutRuleCommandInput
+  | PutTargetsCommandInput
+  | RemovePermissionCommandInput
+  | RemoveTargetsCommandInput
+  | TagResourceCommandInput
+  | TestEventPatternCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateEventBusResponse
-  | CreatePartnerEventSourceResponse
-  | DescribeEventBusResponse
-  | DescribeEventSourceResponse
-  | DescribePartnerEventSourceResponse
-  | DescribeRuleResponse
-  | ListEventBusesResponse
-  | ListEventSourcesResponse
-  | ListPartnerEventSourceAccountsResponse
-  | ListPartnerEventSourcesResponse
-  | ListRuleNamesByTargetResponse
-  | ListRulesResponse
-  | ListTagsForResourceResponse
-  | ListTargetsByRuleResponse
-  | PutEventsResponse
-  | PutPartnerEventsResponse
-  | PutRuleResponse
-  | PutTargetsResponse
-  | RemoveTargetsResponse
-  | TagResourceResponse
-  | TestEventPatternResponse
-  | UntagResourceResponse;
+  | ActivateEventSourceCommandOutput
+  | CreateEventBusCommandOutput
+  | CreatePartnerEventSourceCommandOutput
+  | DeactivateEventSourceCommandOutput
+  | DeleteEventBusCommandOutput
+  | DeletePartnerEventSourceCommandOutput
+  | DeleteRuleCommandOutput
+  | DescribeEventBusCommandOutput
+  | DescribeEventSourceCommandOutput
+  | DescribePartnerEventSourceCommandOutput
+  | DescribeRuleCommandOutput
+  | DisableRuleCommandOutput
+  | EnableRuleCommandOutput
+  | ListEventBusesCommandOutput
+  | ListEventSourcesCommandOutput
+  | ListPartnerEventSourceAccountsCommandOutput
+  | ListPartnerEventSourcesCommandOutput
+  | ListRuleNamesByTargetCommandOutput
+  | ListRulesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTargetsByRuleCommandOutput
+  | PutEventsCommandOutput
+  | PutPartnerEventsCommandOutput
+  | PutPermissionCommandOutput
+  | PutRuleCommandOutput
+  | PutTargetsCommandOutput
+  | RemovePermissionCommandOutput
+  | RemoveTargetsCommandOutput
+  | TagResourceCommandOutput
+  | TestEventPatternCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

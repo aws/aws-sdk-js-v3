@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTableVersionCommandInput = DeleteTableVersionRequest;
-export type DeleteTableVersionCommandOutput = DeleteTableVersionResponse;
+export type DeleteTableVersionCommandOutput = DeleteTableVersionResponse &
+  __MetadataBearer;
 
 export class DeleteTableVersionCommand extends $Command<
   DeleteTableVersionCommandInput,

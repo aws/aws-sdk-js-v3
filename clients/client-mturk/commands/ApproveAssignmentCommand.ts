@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ApproveAssignmentCommandInput = ApproveAssignmentRequest;
-export type ApproveAssignmentCommandOutput = ApproveAssignmentResponse;
+export type ApproveAssignmentCommandOutput = ApproveAssignmentResponse &
+  __MetadataBearer;
 
 export class ApproveAssignmentCommand extends $Command<
   ApproveAssignmentCommandInput,

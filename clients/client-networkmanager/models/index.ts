@@ -51,7 +51,7 @@ export namespace AssociateCustomerGatewayRequest {
   }
 }
 
-export interface AssociateCustomerGatewayResponse extends $MetadataBearer {
+export interface AssociateCustomerGatewayResponse {
   __type?: "AssociateCustomerGatewayResponse";
   /**
    * <p>The customer gateway association.</p>
@@ -89,7 +89,7 @@ export namespace AssociateLinkRequest {
   }
 }
 
-export interface AssociateLinkResponse extends $MetadataBearer {
+export interface AssociateLinkResponse {
   __type?: "AssociateLinkResponse";
   /**
    * <p>The link association.</p>
@@ -208,7 +208,7 @@ export namespace CreateDeviceRequest {
   }
 }
 
-export interface CreateDeviceResponse extends $MetadataBearer {
+export interface CreateDeviceResponse {
   __type?: "CreateDeviceResponse";
   /**
    * <p>Information about the device.</p>
@@ -242,7 +242,7 @@ export namespace CreateGlobalNetworkRequest {
   }
 }
 
-export interface CreateGlobalNetworkResponse extends $MetadataBearer {
+export interface CreateGlobalNetworkResponse {
   __type?: "CreateGlobalNetworkResponse";
   /**
    * <p>Information about the global network object.</p>
@@ -305,7 +305,7 @@ export namespace CreateLinkRequest {
   }
 }
 
-export interface CreateLinkResponse extends $MetadataBearer {
+export interface CreateLinkResponse {
   __type?: "CreateLinkResponse";
   /**
    * <p>Information about the link.</p>
@@ -363,7 +363,7 @@ export namespace CreateSiteRequest {
   }
 }
 
-export interface CreateSiteResponse extends $MetadataBearer {
+export interface CreateSiteResponse {
   __type?: "CreateSiteResponse";
   /**
    * <p>Information about the site.</p>
@@ -440,7 +440,7 @@ export namespace DeleteDeviceRequest {
   }
 }
 
-export interface DeleteDeviceResponse extends $MetadataBearer {
+export interface DeleteDeviceResponse {
   __type?: "DeleteDeviceResponse";
   /**
    * <p>Information about the device.</p>
@@ -468,7 +468,7 @@ export namespace DeleteGlobalNetworkRequest {
   }
 }
 
-export interface DeleteGlobalNetworkResponse extends $MetadataBearer {
+export interface DeleteGlobalNetworkResponse {
   __type?: "DeleteGlobalNetworkResponse";
   /**
    * <p>Information about the global network.</p>
@@ -501,7 +501,7 @@ export namespace DeleteLinkRequest {
   }
 }
 
-export interface DeleteLinkResponse extends $MetadataBearer {
+export interface DeleteLinkResponse {
   __type?: "DeleteLinkResponse";
   /**
    * <p>Information about the link.</p>
@@ -534,7 +534,7 @@ export namespace DeleteSiteRequest {
   }
 }
 
-export interface DeleteSiteResponse extends $MetadataBearer {
+export interface DeleteSiteResponse {
   __type?: "DeleteSiteResponse";
   /**
    * <p>Information about the site.</p>
@@ -567,7 +567,7 @@ export namespace DeregisterTransitGatewayRequest {
   }
 }
 
-export interface DeregisterTransitGatewayResponse extends $MetadataBearer {
+export interface DeregisterTransitGatewayResponse {
   __type?: "DeregisterTransitGatewayResponse";
   /**
    * <p>The transit gateway registration information.</p>
@@ -605,7 +605,7 @@ export namespace DescribeGlobalNetworksRequest {
   }
 }
 
-export interface DescribeGlobalNetworksResponse extends $MetadataBearer {
+export interface DescribeGlobalNetworksResponse {
   __type?: "DescribeGlobalNetworksResponse";
   /**
    * <p>Information about the global networks.</p>
@@ -728,7 +728,7 @@ export namespace DisassociateCustomerGatewayRequest {
   }
 }
 
-export interface DisassociateCustomerGatewayResponse extends $MetadataBearer {
+export interface DisassociateCustomerGatewayResponse {
   __type?: "DisassociateCustomerGatewayResponse";
   /**
    * <p>Information about the customer gateway association.</p>
@@ -766,7 +766,7 @@ export namespace DisassociateLinkRequest {
   }
 }
 
-export interface DisassociateLinkResponse extends $MetadataBearer {
+export interface DisassociateLinkResponse {
   __type?: "DisassociateLinkResponse";
   /**
    * <p>Information about the link association.</p>
@@ -810,8 +810,7 @@ export namespace GetCustomerGatewayAssociationsRequest {
   }
 }
 
-export interface GetCustomerGatewayAssociationsResponse
-  extends $MetadataBearer {
+export interface GetCustomerGatewayAssociationsResponse {
   __type?: "GetCustomerGatewayAssociationsResponse";
   /**
    * <p>The customer gateway associations.</p>
@@ -864,7 +863,7 @@ export namespace GetDevicesRequest {
   }
 }
 
-export interface GetDevicesResponse extends $MetadataBearer {
+export interface GetDevicesResponse {
   __type?: "GetDevicesResponse";
   /**
    * <p>The devices.</p>
@@ -917,7 +916,7 @@ export namespace GetLinkAssociationsRequest {
   }
 }
 
-export interface GetLinkAssociationsResponse extends $MetadataBearer {
+export interface GetLinkAssociationsResponse {
   __type?: "GetLinkAssociationsResponse";
   /**
    * <p>The link associations.</p>
@@ -980,7 +979,7 @@ export namespace GetLinksRequest {
   }
 }
 
-export interface GetLinksResponse extends $MetadataBearer {
+export interface GetLinksResponse {
   __type?: "GetLinksResponse";
   /**
    * <p>The links.</p>
@@ -1028,7 +1027,7 @@ export namespace GetSitesRequest {
   }
 }
 
-export interface GetSitesResponse extends $MetadataBearer {
+export interface GetSitesResponse {
   __type?: "GetSitesResponse";
   /**
    * <p>The token for the next page of results.</p>
@@ -1077,8 +1076,7 @@ export namespace GetTransitGatewayRegistrationsRequest {
   }
 }
 
-export interface GetTransitGatewayRegistrationsResponse
-  extends $MetadataBearer {
+export interface GetTransitGatewayRegistrationsResponse {
   __type?: "GetTransitGatewayRegistrationsResponse";
   /**
    * <p>The token for the next page of results.</p>
@@ -1294,7 +1292,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of tags.</p>
@@ -1355,7 +1353,7 @@ export namespace RegisterTransitGatewayRequest {
   }
 }
 
-export interface RegisterTransitGatewayResponse extends $MetadataBearer {
+export interface RegisterTransitGatewayResponse {
   __type?: "RegisterTransitGatewayResponse";
   /**
    * <p>Information about the transit gateway registration.</p>
@@ -1537,7 +1535,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1644,7 +1642,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1712,7 +1710,7 @@ export namespace UpdateDeviceRequest {
   }
 }
 
-export interface UpdateDeviceResponse extends $MetadataBearer {
+export interface UpdateDeviceResponse {
   __type?: "UpdateDeviceResponse";
   /**
    * <p>Information about the device.</p>
@@ -1746,7 +1744,7 @@ export namespace UpdateGlobalNetworkRequest {
   }
 }
 
-export interface UpdateGlobalNetworkResponse extends $MetadataBearer {
+export interface UpdateGlobalNetworkResponse {
   __type?: "UpdateGlobalNetworkResponse";
   /**
    * <p>Information about the global network object.</p>
@@ -1802,7 +1800,7 @@ export namespace UpdateLinkRequest {
   }
 }
 
-export interface UpdateLinkResponse extends $MetadataBearer {
+export interface UpdateLinkResponse {
   __type?: "UpdateLinkResponse";
   /**
    * <p>Information about the link.</p>
@@ -1860,7 +1858,7 @@ export namespace UpdateSiteRequest {
   }
 }
 
-export interface UpdateSiteResponse extends $MetadataBearer {
+export interface UpdateSiteResponse {
   __type?: "UpdateSiteResponse";
   /**
    * <p>Information about the site.</p>

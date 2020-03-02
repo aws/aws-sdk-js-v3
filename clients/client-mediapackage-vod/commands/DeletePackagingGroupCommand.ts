@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePackagingGroupCommandInput = DeletePackagingGroupRequest;
-export type DeletePackagingGroupCommandOutput = DeletePackagingGroupResponse;
+export type DeletePackagingGroupCommandOutput = DeletePackagingGroupResponse &
+  __MetadataBearer;
 
 export class DeletePackagingGroupCommand extends $Command<
   DeletePackagingGroupCommandInput,

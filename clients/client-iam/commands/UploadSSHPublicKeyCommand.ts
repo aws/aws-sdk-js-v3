@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UploadSSHPublicKeyCommandInput = UploadSSHPublicKeyRequest;
-export type UploadSSHPublicKeyCommandOutput = UploadSSHPublicKeyResponse;
+export type UploadSSHPublicKeyCommandOutput = UploadSSHPublicKeyResponse &
+  __MetadataBearer;
 
 export class UploadSSHPublicKeyCommand extends $Command<
   UploadSSHPublicKeyCommandInput,

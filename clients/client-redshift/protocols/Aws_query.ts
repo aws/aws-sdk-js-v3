@@ -2284,52 +2284,73 @@ async function deserializeAws_queryAcceptReservedNodeExchangeCommandError(
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
     case "redshift.admin#DependentServiceUnavailableFault":
-      response = await deserializeAws_queryDependentServiceUnavailableFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReservedNodeStateFault":
     case "redshift.admin#InvalidReservedNodeStateFault":
-      response = await deserializeAws_queryInvalidReservedNodeStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReservedNodeStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeAlreadyExistsFault":
     case "redshift.admin#ReservedNodeAlreadyExistsFault":
-      response = await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeAlreadyMigratedFault":
     case "redshift.admin#ReservedNodeAlreadyMigratedFault":
-      response = await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeNotFoundFault":
     case "redshift.admin#ReservedNodeNotFoundFault":
-      response = await deserializeAws_queryReservedNodeNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeOfferingNotFoundFault":
     case "redshift.admin#ReservedNodeOfferingNotFoundFault":
-      response = await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationFault":
     case "redshift.admin#UnsupportedOperationFault":
-      response = await deserializeAws_queryUnsupportedOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2387,31 +2408,43 @@ async function deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandEr
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
     case "redshift.admin#AuthorizationAlreadyExistsFault":
-      response = await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationQuotaExceededFault":
     case "redshift.admin#AuthorizationQuotaExceededFault":
-      response = await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSecurityGroupNotFoundFault":
     case "redshift.admin#ClusterSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSecurityGroupStateFault":
     case "redshift.admin#InvalidClusterSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2469,45 +2502,63 @@ async function deserializeAws_queryAuthorizeSnapshotAccessCommandError(
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
     case "redshift.admin#AuthorizationAlreadyExistsFault":
-      response = await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationQuotaExceededFault":
     case "redshift.admin#AuthorizationQuotaExceededFault":
-      response = await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotNotFoundFault":
     case "redshift.admin#ClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceRequestThrottlingFault":
     case "redshift.admin#DependentServiceRequestThrottlingFault":
-      response = await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSnapshotStateFault":
     case "redshift.admin#InvalidClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "redshift.admin#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2565,10 +2616,13 @@ async function deserializeAws_queryBatchDeleteClusterSnapshotsCommandError(
   switch (errorCode) {
     case "BatchDeleteRequestSizeExceededFault":
     case "redshift.admin#BatchDeleteRequestSizeExceededFault":
-      response = await deserializeAws_queryBatchDeleteRequestSizeExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBatchDeleteRequestSizeExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2626,17 +2680,23 @@ async function deserializeAws_queryBatchModifyClusterSnapshotsCommandError(
   switch (errorCode) {
     case "BatchModifyClusterSnapshotsLimitExceededFault":
     case "redshift.admin#BatchModifyClusterSnapshotsLimitExceededFault":
-      response = await deserializeAws_queryBatchModifyClusterSnapshotsLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBatchModifyClusterSnapshotsLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRetentionPeriodFault":
     case "redshift.admin#InvalidRetentionPeriodFault":
-      response = await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2691,31 +2751,43 @@ async function deserializeAws_queryCancelResizeCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResizeNotFoundFault":
     case "redshift.admin#ResizeNotFoundFault":
-      response = await deserializeAws_queryResizeNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResizeNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationFault":
     case "redshift.admin#UnsupportedOperationFault":
-      response = await deserializeAws_queryUnsupportedOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2770,38 +2842,53 @@ async function deserializeAws_queryCopyClusterSnapshotCommandError(
   switch (errorCode) {
     case "ClusterSnapshotAlreadyExistsFault":
     case "redshift.admin#ClusterSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotNotFoundFault":
     case "redshift.admin#ClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotQuotaExceededFault":
     case "redshift.admin#ClusterSnapshotQuotaExceededFault":
-      response = await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSnapshotStateFault":
     case "redshift.admin#InvalidClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRetentionPeriodFault":
     case "redshift.admin#InvalidRetentionPeriodFault":
-      response = await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2856,157 +2943,223 @@ async function deserializeAws_queryCreateClusterCommandError(
   switch (errorCode) {
     case "ClusterAlreadyExistsFault":
     case "redshift.admin#ClusterAlreadyExistsFault":
-      response = await deserializeAws_queryClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterParameterGroupNotFoundFault":
     case "redshift.admin#ClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterQuotaExceededFault":
     case "redshift.admin#ClusterQuotaExceededFault":
-      response = await deserializeAws_queryClusterQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSecurityGroupNotFoundFault":
     case "redshift.admin#ClusterSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSubnetGroupNotFoundFault":
     case "redshift.admin#ClusterSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceRequestThrottlingFault":
     case "redshift.admin#DependentServiceRequestThrottlingFault":
-      response = await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HsmClientCertificateNotFoundFault":
     case "redshift.admin#HsmClientCertificateNotFoundFault":
-      response = await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HsmConfigurationNotFoundFault":
     case "redshift.admin#HsmConfigurationNotFoundFault":
-      response = await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientClusterCapacityFault":
     case "redshift.admin#InsufficientClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSubnetGroupStateFault":
     case "redshift.admin#InvalidClusterSubnetGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterTrackFault":
     case "redshift.admin#InvalidClusterTrackFault":
-      response = await deserializeAws_queryInvalidClusterTrackFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterTrackFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidElasticIpFault":
     case "redshift.admin#InvalidElasticIpFault":
-      response = await deserializeAws_queryInvalidElasticIpFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidElasticIpFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRetentionPeriodFault":
     case "redshift.admin#InvalidRetentionPeriodFault":
-      response = await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "redshift.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "redshift.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "redshift.admin#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfNodesPerClusterLimitExceededFault":
     case "redshift.admin#NumberOfNodesPerClusterLimitExceededFault":
-      response = await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfNodesQuotaExceededFault":
     case "redshift.admin#NumberOfNodesQuotaExceededFault":
-      response = await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotScheduleNotFoundFault":
     case "redshift.admin#SnapshotScheduleNotFoundFault":
-      response = await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3064,31 +3217,43 @@ async function deserializeAws_queryCreateClusterParameterGroupCommandError(
   switch (errorCode) {
     case "ClusterParameterGroupAlreadyExistsFault":
     case "redshift.admin#ClusterParameterGroupAlreadyExistsFault":
-      response = await deserializeAws_queryClusterParameterGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterParameterGroupQuotaExceededFault":
     case "redshift.admin#ClusterParameterGroupQuotaExceededFault":
-      response = await deserializeAws_queryClusterParameterGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3146,31 +3311,43 @@ async function deserializeAws_queryCreateClusterSecurityGroupCommandError(
   switch (errorCode) {
     case "ClusterSecurityGroupAlreadyExistsFault":
     case "redshift.admin#ClusterSecurityGroupAlreadyExistsFault":
-      response = await deserializeAws_queryClusterSecurityGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSecurityGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSecurityGroupQuotaExceededFault":
     case "redshift.admin#ClusterSecurityGroupQuotaExceededFault":
-      response = await deserializeAws_queryClusterSecurityGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSecurityGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3228,52 +3405,73 @@ async function deserializeAws_queryCreateClusterSnapshotCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotAlreadyExistsFault":
     case "redshift.admin#ClusterSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotQuotaExceededFault":
     case "redshift.admin#ClusterSnapshotQuotaExceededFault":
-      response = await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRetentionPeriodFault":
     case "redshift.admin#InvalidRetentionPeriodFault":
-      response = await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3331,59 +3529,83 @@ async function deserializeAws_queryCreateClusterSubnetGroupCommandError(
   switch (errorCode) {
     case "ClusterSubnetGroupAlreadyExistsFault":
     case "redshift.admin#ClusterSubnetGroupAlreadyExistsFault":
-      response = await deserializeAws_queryClusterSubnetGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSubnetGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSubnetGroupQuotaExceededFault":
     case "redshift.admin#ClusterSubnetGroupQuotaExceededFault":
-      response = await deserializeAws_queryClusterSubnetGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSubnetGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSubnetQuotaExceededFault":
     case "redshift.admin#ClusterSubnetQuotaExceededFault":
-      response = await deserializeAws_queryClusterSubnetQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSubnetQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceRequestThrottlingFault":
     case "redshift.admin#DependentServiceRequestThrottlingFault":
-      response = await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "redshift.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3441,80 +3663,113 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
     case "redshift.admin#EventSubscriptionQuotaExceededFault":
-      response = await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSInvalidTopicFault":
     case "redshift.admin#SNSInvalidTopicFault":
-      response = await deserializeAws_querySNSInvalidTopicFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSInvalidTopicFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSNoAuthorizationFault":
     case "redshift.admin#SNSNoAuthorizationFault":
-      response = await deserializeAws_querySNSNoAuthorizationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSTopicArnNotFoundFault":
     case "redshift.admin#SNSTopicArnNotFoundFault":
-      response = await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SourceNotFoundFault":
     case "redshift.admin#SourceNotFoundFault":
-      response = await deserializeAws_querySourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionAlreadyExistFault":
     case "redshift.admin#SubscriptionAlreadyExistFault":
-      response = await deserializeAws_querySubscriptionAlreadyExistFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionAlreadyExistFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionCategoryNotFoundFault":
     case "redshift.admin#SubscriptionCategoryNotFoundFault":
-      response = await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionEventIdNotFoundFault":
     case "redshift.admin#SubscriptionEventIdNotFoundFault":
-      response = await deserializeAws_querySubscriptionEventIdNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionEventIdNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionSeverityNotFoundFault":
     case "redshift.admin#SubscriptionSeverityNotFoundFault":
-      response = await deserializeAws_querySubscriptionSeverityNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionSeverityNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3572,31 +3827,43 @@ async function deserializeAws_queryCreateHsmClientCertificateCommandError(
   switch (errorCode) {
     case "HsmClientCertificateAlreadyExistsFault":
     case "redshift.admin#HsmClientCertificateAlreadyExistsFault":
-      response = await deserializeAws_queryHsmClientCertificateAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmClientCertificateAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HsmClientCertificateQuotaExceededFault":
     case "redshift.admin#HsmClientCertificateQuotaExceededFault":
-      response = await deserializeAws_queryHsmClientCertificateQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmClientCertificateQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3654,31 +3921,43 @@ async function deserializeAws_queryCreateHsmConfigurationCommandError(
   switch (errorCode) {
     case "HsmConfigurationAlreadyExistsFault":
     case "redshift.admin#HsmConfigurationAlreadyExistsFault":
-      response = await deserializeAws_queryHsmConfigurationAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmConfigurationAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HsmConfigurationQuotaExceededFault":
     case "redshift.admin#HsmConfigurationQuotaExceededFault":
-      response = await deserializeAws_queryHsmConfigurationQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmConfigurationQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3736,45 +4015,63 @@ async function deserializeAws_queryCreateScheduledActionCommandError(
   switch (errorCode) {
     case "InvalidScheduleFault":
     case "redshift.admin#InvalidScheduleFault":
-      response = await deserializeAws_queryInvalidScheduleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidScheduleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidScheduledActionFault":
     case "redshift.admin#InvalidScheduledActionFault":
-      response = await deserializeAws_queryInvalidScheduledActionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidScheduledActionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScheduledActionAlreadyExistsFault":
     case "redshift.admin#ScheduledActionAlreadyExistsFault":
-      response = await deserializeAws_queryScheduledActionAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScheduledActionAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScheduledActionQuotaExceededFault":
     case "redshift.admin#ScheduledActionQuotaExceededFault":
-      response = await deserializeAws_queryScheduledActionQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScheduledActionQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScheduledActionTypeUnsupportedFault":
     case "redshift.admin#ScheduledActionTypeUnsupportedFault":
-      response = await deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3832,45 +4129,63 @@ async function deserializeAws_queryCreateSnapshotCopyGrantCommandError(
   switch (errorCode) {
     case "DependentServiceRequestThrottlingFault":
     case "redshift.admin#DependentServiceRequestThrottlingFault":
-      response = await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "redshift.admin#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotCopyGrantAlreadyExistsFault":
     case "redshift.admin#SnapshotCopyGrantAlreadyExistsFault":
-      response = await deserializeAws_querySnapshotCopyGrantAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotCopyGrantAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotCopyGrantQuotaExceededFault":
     case "redshift.admin#SnapshotCopyGrantQuotaExceededFault":
-      response = await deserializeAws_querySnapshotCopyGrantQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotCopyGrantQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3928,38 +4243,53 @@ async function deserializeAws_queryCreateSnapshotScheduleCommandError(
   switch (errorCode) {
     case "InvalidScheduleFault":
     case "redshift.admin#InvalidScheduleFault":
-      response = await deserializeAws_queryInvalidScheduleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidScheduleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScheduleDefinitionTypeUnsupportedFault":
     case "redshift.admin#ScheduleDefinitionTypeUnsupportedFault":
-      response = await deserializeAws_queryScheduleDefinitionTypeUnsupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScheduleDefinitionTypeUnsupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotScheduleAlreadyExistsFault":
     case "redshift.admin#SnapshotScheduleAlreadyExistsFault":
-      response = await deserializeAws_querySnapshotScheduleAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotScheduleAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotScheduleQuotaExceededFault":
     case "redshift.admin#SnapshotScheduleQuotaExceededFault":
-      response = await deserializeAws_querySnapshotScheduleQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotScheduleQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4007,24 +4337,33 @@ async function deserializeAws_queryCreateTagsCommandError(
   switch (errorCode) {
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "redshift.admin#ResourceNotFoundFault":
-      response = await deserializeAws_queryResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4079,38 +4418,53 @@ async function deserializeAws_queryDeleteClusterCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotAlreadyExistsFault":
     case "redshift.admin#ClusterSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotQuotaExceededFault":
     case "redshift.admin#ClusterSnapshotQuotaExceededFault":
-      response = await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRetentionPeriodFault":
     case "redshift.admin#InvalidRetentionPeriodFault":
-      response = await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4161,17 +4515,23 @@ async function deserializeAws_queryDeleteClusterParameterGroupCommandError(
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "redshift.admin#ClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterParameterGroupStateFault":
     case "redshift.admin#InvalidClusterParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4222,17 +4582,23 @@ async function deserializeAws_queryDeleteClusterSecurityGroupCommandError(
   switch (errorCode) {
     case "ClusterSecurityGroupNotFoundFault":
     case "redshift.admin#ClusterSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSecurityGroupStateFault":
     case "redshift.admin#InvalidClusterSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4290,17 +4656,23 @@ async function deserializeAws_queryDeleteClusterSnapshotCommandError(
   switch (errorCode) {
     case "ClusterSnapshotNotFoundFault":
     case "redshift.admin#ClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSnapshotStateFault":
     case "redshift.admin#InvalidClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4351,24 +4723,33 @@ async function deserializeAws_queryDeleteClusterSubnetGroupCommandError(
   switch (errorCode) {
     case "ClusterSubnetGroupNotFoundFault":
     case "redshift.admin#ClusterSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSubnetGroupStateFault":
     case "redshift.admin#InvalidClusterSubnetGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSubnetStateFault":
     case "redshift.admin#InvalidClusterSubnetStateFault":
-      response = await deserializeAws_queryInvalidClusterSubnetStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSubnetStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4419,17 +4800,23 @@ async function deserializeAws_queryDeleteEventSubscriptionCommandError(
   switch (errorCode) {
     case "InvalidSubscriptionStateFault":
     case "redshift.admin#InvalidSubscriptionStateFault":
-      response = await deserializeAws_queryInvalidSubscriptionStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubscriptionStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionNotFoundFault":
     case "redshift.admin#SubscriptionNotFoundFault":
-      response = await deserializeAws_querySubscriptionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4480,17 +4867,23 @@ async function deserializeAws_queryDeleteHsmClientCertificateCommandError(
   switch (errorCode) {
     case "HsmClientCertificateNotFoundFault":
     case "redshift.admin#HsmClientCertificateNotFoundFault":
-      response = await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidHsmClientCertificateStateFault":
     case "redshift.admin#InvalidHsmClientCertificateStateFault":
-      response = await deserializeAws_queryInvalidHsmClientCertificateStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidHsmClientCertificateStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4541,17 +4934,23 @@ async function deserializeAws_queryDeleteHsmConfigurationCommandError(
   switch (errorCode) {
     case "HsmConfigurationNotFoundFault":
     case "redshift.admin#HsmConfigurationNotFoundFault":
-      response = await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidHsmConfigurationStateFault":
     case "redshift.admin#InvalidHsmConfigurationStateFault":
-      response = await deserializeAws_queryInvalidHsmConfigurationStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidHsmConfigurationStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4602,17 +5001,23 @@ async function deserializeAws_queryDeleteScheduledActionCommandError(
   switch (errorCode) {
     case "ScheduledActionNotFoundFault":
     case "redshift.admin#ScheduledActionNotFoundFault":
-      response = await deserializeAws_queryScheduledActionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScheduledActionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4663,17 +5068,23 @@ async function deserializeAws_queryDeleteSnapshotCopyGrantCommandError(
   switch (errorCode) {
     case "InvalidSnapshotCopyGrantStateFault":
     case "redshift.admin#InvalidSnapshotCopyGrantStateFault":
-      response = await deserializeAws_queryInvalidSnapshotCopyGrantStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSnapshotCopyGrantStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotCopyGrantNotFoundFault":
     case "redshift.admin#SnapshotCopyGrantNotFoundFault":
-      response = await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4724,17 +5135,23 @@ async function deserializeAws_queryDeleteSnapshotScheduleCommandError(
   switch (errorCode) {
     case "InvalidClusterSnapshotScheduleStateFault":
     case "redshift.admin#InvalidClusterSnapshotScheduleStateFault":
-      response = await deserializeAws_queryInvalidClusterSnapshotScheduleStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSnapshotScheduleStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotScheduleNotFoundFault":
     case "redshift.admin#SnapshotScheduleNotFoundFault":
-      response = await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4782,17 +5199,23 @@ async function deserializeAws_queryDeleteTagsCommandError(
   switch (errorCode) {
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "redshift.admin#ResourceNotFoundFault":
-      response = await deserializeAws_queryResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4904,17 +5327,23 @@ async function deserializeAws_queryDescribeClusterDbRevisionsCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4972,17 +5401,23 @@ async function deserializeAws_queryDescribeClusterParameterGroupsCommandError(
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "redshift.admin#ClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5040,10 +5475,13 @@ async function deserializeAws_queryDescribeClusterParametersCommandError(
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "redshift.admin#ClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5101,17 +5539,23 @@ async function deserializeAws_queryDescribeClusterSecurityGroupsCommandError(
   switch (errorCode) {
     case "ClusterSecurityGroupNotFoundFault":
     case "redshift.admin#ClusterSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5169,24 +5613,33 @@ async function deserializeAws_queryDescribeClusterSnapshotsCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotNotFoundFault":
     case "redshift.admin#ClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5244,17 +5697,23 @@ async function deserializeAws_queryDescribeClusterSubnetGroupsCommandError(
   switch (errorCode) {
     case "ClusterSubnetGroupNotFoundFault":
     case "redshift.admin#ClusterSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5312,17 +5771,23 @@ async function deserializeAws_queryDescribeClusterTracksCommandError(
   switch (errorCode) {
     case "InvalidClusterTrackFault":
     case "redshift.admin#InvalidClusterTrackFault":
-      response = await deserializeAws_queryInvalidClusterTrackFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterTrackFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5431,17 +5896,23 @@ async function deserializeAws_queryDescribeClustersCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5607,17 +6078,23 @@ async function deserializeAws_queryDescribeEventSubscriptionsCommandError(
   switch (errorCode) {
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionNotFoundFault":
     case "redshift.admin#SubscriptionNotFoundFault":
-      response = await deserializeAws_querySubscriptionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5726,17 +6203,23 @@ async function deserializeAws_queryDescribeHsmClientCertificatesCommandError(
   switch (errorCode) {
     case "HsmClientCertificateNotFoundFault":
     case "redshift.admin#HsmClientCertificateNotFoundFault":
-      response = await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5794,17 +6277,23 @@ async function deserializeAws_queryDescribeHsmConfigurationsCommandError(
   switch (errorCode) {
     case "HsmConfigurationNotFoundFault":
     case "redshift.admin#HsmConfigurationNotFoundFault":
-      response = await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5862,10 +6351,13 @@ async function deserializeAws_queryDescribeLoggingStatusCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5923,31 +6415,43 @@ async function deserializeAws_queryDescribeNodeConfigurationOptionsCommandError(
   switch (errorCode) {
     case "AccessToSnapshotDeniedFault":
     case "redshift.admin#AccessToSnapshotDeniedFault":
-      response = await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotNotFoundFault":
     case "redshift.admin#ClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSnapshotStateFault":
     case "redshift.admin#InvalidClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6059,24 +6563,33 @@ async function deserializeAws_queryDescribeReservedNodeOfferingsCommandError(
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
     case "redshift.admin#DependentServiceUnavailableFault":
-      response = await deserializeAws_queryDependentServiceUnavailableFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeOfferingNotFoundFault":
     case "redshift.admin#ReservedNodeOfferingNotFoundFault":
-      response = await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationFault":
     case "redshift.admin#UnsupportedOperationFault":
-      response = await deserializeAws_queryUnsupportedOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6134,17 +6647,23 @@ async function deserializeAws_queryDescribeReservedNodesCommandError(
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
     case "redshift.admin#DependentServiceUnavailableFault":
-      response = await deserializeAws_queryDependentServiceUnavailableFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeNotFoundFault":
     case "redshift.admin#ReservedNodeNotFoundFault":
-      response = await deserializeAws_queryReservedNodeNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6199,17 +6718,23 @@ async function deserializeAws_queryDescribeResizeCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResizeNotFoundFault":
     case "redshift.admin#ResizeNotFoundFault":
-      response = await deserializeAws_queryResizeNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResizeNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6267,17 +6792,23 @@ async function deserializeAws_queryDescribeScheduledActionsCommandError(
   switch (errorCode) {
     case "ScheduledActionNotFoundFault":
     case "redshift.admin#ScheduledActionNotFoundFault":
-      response = await deserializeAws_queryScheduledActionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScheduledActionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6335,17 +6866,23 @@ async function deserializeAws_queryDescribeSnapshotCopyGrantsCommandError(
   switch (errorCode) {
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotCopyGrantNotFoundFault":
     case "redshift.admin#SnapshotCopyGrantNotFoundFault":
-      response = await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6508,17 +7045,23 @@ async function deserializeAws_queryDescribeTableRestoreStatusCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TableRestoreNotFoundFault":
     case "redshift.admin#TableRestoreNotFoundFault":
-      response = await deserializeAws_queryTableRestoreNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTableRestoreNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6573,17 +7116,23 @@ async function deserializeAws_queryDescribeTagsCommandError(
   switch (errorCode) {
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "redshift.admin#ResourceNotFoundFault":
-      response = await deserializeAws_queryResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6638,10 +7187,13 @@ async function deserializeAws_queryDisableLoggingCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6696,31 +7248,43 @@ async function deserializeAws_queryDisableSnapshotCopyCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotCopyAlreadyDisabledFault":
     case "redshift.admin#SnapshotCopyAlreadyDisabledFault":
-      response = await deserializeAws_querySnapshotCopyAlreadyDisabledFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotCopyAlreadyDisabledFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6775,38 +7339,53 @@ async function deserializeAws_queryEnableLoggingCommandError(
   switch (errorCode) {
     case "BucketNotFoundFault":
     case "redshift.admin#BucketNotFoundFault":
-      response = await deserializeAws_queryBucketNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBucketNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientS3BucketPolicyFault":
     case "redshift.admin#InsufficientS3BucketPolicyFault":
-      response = await deserializeAws_queryInsufficientS3BucketPolicyFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientS3BucketPolicyFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3BucketNameFault":
     case "redshift.admin#InvalidS3BucketNameFault":
-      response = await deserializeAws_queryInvalidS3BucketNameFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidS3BucketNameFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3KeyPrefixFault":
     case "redshift.admin#InvalidS3KeyPrefixFault":
-      response = await deserializeAws_queryInvalidS3KeyPrefixFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidS3KeyPrefixFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6861,80 +7440,113 @@ async function deserializeAws_queryEnableSnapshotCopyCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CopyToRegionDisabledFault":
     case "redshift.admin#CopyToRegionDisabledFault":
-      response = await deserializeAws_queryCopyToRegionDisabledFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCopyToRegionDisabledFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceRequestThrottlingFault":
     case "redshift.admin#DependentServiceRequestThrottlingFault":
-      response = await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleOrderableOptions":
     case "redshift.admin#IncompatibleOrderableOptions":
-      response = await deserializeAws_queryIncompatibleOrderableOptionsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryIncompatibleOrderableOptionsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRetentionPeriodFault":
     case "redshift.admin#InvalidRetentionPeriodFault":
-      response = await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "redshift.admin#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotCopyAlreadyEnabledFault":
     case "redshift.admin#SnapshotCopyAlreadyEnabledFault":
-      response = await deserializeAws_querySnapshotCopyAlreadyEnabledFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotCopyAlreadyEnabledFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotCopyGrantNotFoundFault":
     case "redshift.admin#SnapshotCopyGrantNotFoundFault":
-      response = await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownSnapshotCopyRegionFault":
     case "redshift.admin#UnknownSnapshotCopyRegionFault":
-      response = await deserializeAws_queryUnknownSnapshotCopyRegionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnknownSnapshotCopyRegionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6992,17 +7604,23 @@ async function deserializeAws_queryGetClusterCredentialsCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationFault":
     case "redshift.admin#UnsupportedOperationFault":
-      response = await deserializeAws_queryUnsupportedOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7060,45 +7678,63 @@ async function deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError(
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
     case "redshift.admin#DependentServiceUnavailableFault":
-      response = await deserializeAws_queryDependentServiceUnavailableFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReservedNodeStateFault":
     case "redshift.admin#InvalidReservedNodeStateFault":
-      response = await deserializeAws_queryInvalidReservedNodeStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReservedNodeStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeAlreadyMigratedFault":
     case "redshift.admin#ReservedNodeAlreadyMigratedFault":
-      response = await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeNotFoundFault":
     case "redshift.admin#ReservedNodeNotFoundFault":
-      response = await deserializeAws_queryReservedNodeNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeOfferingNotFoundFault":
     case "redshift.admin#ReservedNodeOfferingNotFoundFault":
-      response = await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationFault":
     case "redshift.admin#UnsupportedOperationFault":
-      response = await deserializeAws_queryUnsupportedOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7153,136 +7789,193 @@ async function deserializeAws_queryModifyClusterCommandError(
   switch (errorCode) {
     case "ClusterAlreadyExistsFault":
     case "redshift.admin#ClusterAlreadyExistsFault":
-      response = await deserializeAws_queryClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterParameterGroupNotFoundFault":
     case "redshift.admin#ClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSecurityGroupNotFoundFault":
     case "redshift.admin#ClusterSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceRequestThrottlingFault":
     case "redshift.admin#DependentServiceRequestThrottlingFault":
-      response = await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HsmClientCertificateNotFoundFault":
     case "redshift.admin#HsmClientCertificateNotFoundFault":
-      response = await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HsmConfigurationNotFoundFault":
     case "redshift.admin#HsmConfigurationNotFoundFault":
-      response = await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientClusterCapacityFault":
     case "redshift.admin#InsufficientClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSecurityGroupStateFault":
     case "redshift.admin#InvalidClusterSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterTrackFault":
     case "redshift.admin#InvalidClusterTrackFault":
-      response = await deserializeAws_queryInvalidClusterTrackFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterTrackFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidElasticIpFault":
     case "redshift.admin#InvalidElasticIpFault":
-      response = await deserializeAws_queryInvalidElasticIpFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidElasticIpFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRetentionPeriodFault":
     case "redshift.admin#InvalidRetentionPeriodFault":
-      response = await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "redshift.admin#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfNodesPerClusterLimitExceededFault":
     case "redshift.admin#NumberOfNodesPerClusterLimitExceededFault":
-      response = await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfNodesQuotaExceededFault":
     case "redshift.admin#NumberOfNodesQuotaExceededFault":
-      response = await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TableLimitExceededFault":
     case "redshift.admin#TableLimitExceededFault":
-      response = await deserializeAws_queryTableLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTableLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOptionFault":
     case "redshift.admin#UnsupportedOptionFault":
-      response = await deserializeAws_queryUnsupportedOptionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOptionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7340,24 +8033,33 @@ async function deserializeAws_queryModifyClusterDbRevisionCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterOnLatestRevisionFault":
     case "redshift.admin#ClusterOnLatestRevisionFault":
-      response = await deserializeAws_queryClusterOnLatestRevisionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterOnLatestRevisionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7415,17 +8117,23 @@ async function deserializeAws_queryModifyClusterIamRolesCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7483,10 +8191,13 @@ async function deserializeAws_queryModifyClusterMaintenanceCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7544,17 +8255,23 @@ async function deserializeAws_queryModifyClusterParameterGroupCommandError(
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "redshift.admin#ClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterParameterGroupStateFault":
     case "redshift.admin#InvalidClusterParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7612,24 +8329,33 @@ async function deserializeAws_queryModifyClusterSnapshotCommandError(
   switch (errorCode) {
     case "ClusterSnapshotNotFoundFault":
     case "redshift.admin#ClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSnapshotStateFault":
     case "redshift.admin#InvalidClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRetentionPeriodFault":
     case "redshift.admin#InvalidRetentionPeriodFault":
-      response = await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7680,24 +8406,33 @@ async function deserializeAws_queryModifyClusterSnapshotScheduleCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSnapshotScheduleStateFault":
     case "redshift.admin#InvalidClusterSnapshotScheduleStateFault":
-      response = await deserializeAws_queryInvalidClusterSnapshotScheduleStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSnapshotScheduleStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotScheduleNotFoundFault":
     case "redshift.admin#SnapshotScheduleNotFoundFault":
-      response = await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7755,45 +8490,63 @@ async function deserializeAws_queryModifyClusterSubnetGroupCommandError(
   switch (errorCode) {
     case "ClusterSubnetGroupNotFoundFault":
     case "redshift.admin#ClusterSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSubnetQuotaExceededFault":
     case "redshift.admin#ClusterSubnetQuotaExceededFault":
-      response = await deserializeAws_queryClusterSubnetQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSubnetQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceRequestThrottlingFault":
     case "redshift.admin#DependentServiceRequestThrottlingFault":
-      response = await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "redshift.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubnetAlreadyInUse":
     case "redshift.admin#SubnetAlreadyInUse":
-      response = await deserializeAws_querySubnetAlreadyInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubnetAlreadyInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7851,66 +8604,93 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
   switch (errorCode) {
     case "InvalidSubscriptionStateFault":
     case "redshift.admin#InvalidSubscriptionStateFault":
-      response = await deserializeAws_queryInvalidSubscriptionStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubscriptionStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSInvalidTopicFault":
     case "redshift.admin#SNSInvalidTopicFault":
-      response = await deserializeAws_querySNSInvalidTopicFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSInvalidTopicFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSNoAuthorizationFault":
     case "redshift.admin#SNSNoAuthorizationFault":
-      response = await deserializeAws_querySNSNoAuthorizationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSTopicArnNotFoundFault":
     case "redshift.admin#SNSTopicArnNotFoundFault":
-      response = await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SourceNotFoundFault":
     case "redshift.admin#SourceNotFoundFault":
-      response = await deserializeAws_querySourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionCategoryNotFoundFault":
     case "redshift.admin#SubscriptionCategoryNotFoundFault":
-      response = await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionEventIdNotFoundFault":
     case "redshift.admin#SubscriptionEventIdNotFoundFault":
-      response = await deserializeAws_querySubscriptionEventIdNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionEventIdNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionNotFoundFault":
     case "redshift.admin#SubscriptionNotFoundFault":
-      response = await deserializeAws_querySubscriptionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionSeverityNotFoundFault":
     case "redshift.admin#SubscriptionSeverityNotFoundFault":
-      response = await deserializeAws_querySubscriptionSeverityNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionSeverityNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7968,38 +8748,53 @@ async function deserializeAws_queryModifyScheduledActionCommandError(
   switch (errorCode) {
     case "InvalidScheduleFault":
     case "redshift.admin#InvalidScheduleFault":
-      response = await deserializeAws_queryInvalidScheduleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidScheduleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidScheduledActionFault":
     case "redshift.admin#InvalidScheduledActionFault":
-      response = await deserializeAws_queryInvalidScheduledActionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidScheduledActionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScheduledActionNotFoundFault":
     case "redshift.admin#ScheduledActionNotFoundFault":
-      response = await deserializeAws_queryScheduledActionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScheduledActionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScheduledActionTypeUnsupportedFault":
     case "redshift.admin#ScheduledActionTypeUnsupportedFault":
-      response = await deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8057,38 +8852,53 @@ async function deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRetentionPeriodFault":
     case "redshift.admin#InvalidRetentionPeriodFault":
-      response = await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotCopyDisabledFault":
     case "redshift.admin#SnapshotCopyDisabledFault":
-      response = await deserializeAws_querySnapshotCopyDisabledFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotCopyDisabledFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8146,24 +8956,33 @@ async function deserializeAws_queryModifySnapshotScheduleCommandError(
   switch (errorCode) {
     case "InvalidScheduleFault":
     case "redshift.admin#InvalidScheduleFault":
-      response = await deserializeAws_queryInvalidScheduleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidScheduleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotScheduleNotFoundFault":
     case "redshift.admin#SnapshotScheduleNotFoundFault":
-      response = await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotScheduleUpdateInProgressFault":
     case "redshift.admin#SnapshotScheduleUpdateInProgressFault":
-      response = await deserializeAws_querySnapshotScheduleUpdateInProgressFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotScheduleUpdateInProgressFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8221,31 +9040,43 @@ async function deserializeAws_queryPurchaseReservedNodeOfferingCommandError(
   switch (errorCode) {
     case "ReservedNodeAlreadyExistsFault":
     case "redshift.admin#ReservedNodeAlreadyExistsFault":
-      response = await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeOfferingNotFoundFault":
     case "redshift.admin#ReservedNodeOfferingNotFoundFault":
-      response = await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedNodeQuotaExceededFault":
     case "redshift.admin#ReservedNodeQuotaExceededFault":
-      response = await deserializeAws_queryReservedNodeQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedNodeQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationFault":
     case "redshift.admin#UnsupportedOperationFault":
-      response = await deserializeAws_queryUnsupportedOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8300,17 +9131,23 @@ async function deserializeAws_queryRebootClusterCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8368,17 +9205,23 @@ async function deserializeAws_queryResetClusterParameterGroupCommandError(
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "redshift.admin#ClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterParameterGroupStateFault":
     case "redshift.admin#InvalidClusterParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8433,66 +9276,93 @@ async function deserializeAws_queryResizeClusterCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientClusterCapacityFault":
     case "redshift.admin#InsufficientClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "redshift.admin#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfNodesPerClusterLimitExceededFault":
     case "redshift.admin#NumberOfNodesPerClusterLimitExceededFault":
-      response = await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfNodesQuotaExceededFault":
     case "redshift.admin#NumberOfNodesQuotaExceededFault":
-      response = await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationFault":
     case "redshift.admin#UnsupportedOperationFault":
-      response = await deserializeAws_queryUnsupportedOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOptionFault":
     case "redshift.admin#UnsupportedOptionFault":
-      response = await deserializeAws_queryUnsupportedOptionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOptionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8550,178 +9420,253 @@ async function deserializeAws_queryRestoreFromClusterSnapshotCommandError(
   switch (errorCode) {
     case "AccessToSnapshotDeniedFault":
     case "redshift.admin#AccessToSnapshotDeniedFault":
-      response = await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterAlreadyExistsFault":
     case "redshift.admin#ClusterAlreadyExistsFault":
-      response = await deserializeAws_queryClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterParameterGroupNotFoundFault":
     case "redshift.admin#ClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterQuotaExceededFault":
     case "redshift.admin#ClusterQuotaExceededFault":
-      response = await deserializeAws_queryClusterQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSecurityGroupNotFoundFault":
     case "redshift.admin#ClusterSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotNotFoundFault":
     case "redshift.admin#ClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSubnetGroupNotFoundFault":
     case "redshift.admin#ClusterSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceRequestThrottlingFault":
     case "redshift.admin#DependentServiceRequestThrottlingFault":
-      response = await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HsmClientCertificateNotFoundFault":
     case "redshift.admin#HsmClientCertificateNotFoundFault":
-      response = await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HsmConfigurationNotFoundFault":
     case "redshift.admin#HsmConfigurationNotFoundFault":
-      response = await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientClusterCapacityFault":
     case "redshift.admin#InsufficientClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSnapshotStateFault":
     case "redshift.admin#InvalidClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSubnetGroupStateFault":
     case "redshift.admin#InvalidClusterSubnetGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterTrackFault":
     case "redshift.admin#InvalidClusterTrackFault":
-      response = await deserializeAws_queryInvalidClusterTrackFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterTrackFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidElasticIpFault":
     case "redshift.admin#InvalidElasticIpFault":
-      response = await deserializeAws_queryInvalidElasticIpFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidElasticIpFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRestoreFault":
     case "redshift.admin#InvalidRestoreFault":
-      response = await deserializeAws_queryInvalidRestoreFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRestoreFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "redshift.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFault":
     case "redshift.admin#InvalidTagFault":
-      response = await deserializeAws_queryInvalidTagFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "redshift.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "redshift.admin#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfNodesPerClusterLimitExceededFault":
     case "redshift.admin#NumberOfNodesPerClusterLimitExceededFault":
-      response = await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfNodesQuotaExceededFault":
     case "redshift.admin#NumberOfNodesQuotaExceededFault":
-      response = await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotScheduleNotFoundFault":
     case "redshift.admin#SnapshotScheduleNotFoundFault":
-      response = await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededFault":
     case "redshift.admin#TagLimitExceededFault":
-      response = await deserializeAws_queryTagLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperation":
     case "redshift.admin#UnauthorizedOperation":
-      response = await deserializeAws_queryUnauthorizedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8779,52 +9724,73 @@ async function deserializeAws_queryRestoreTableFromClusterSnapshotCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotNotFoundFault":
     case "redshift.admin#ClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InProgressTableRestoreQuotaExceededFault":
     case "redshift.admin#InProgressTableRestoreQuotaExceededFault":
-      response = await deserializeAws_queryInProgressTableRestoreQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInProgressTableRestoreQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSnapshotStateFault":
     case "redshift.admin#InvalidClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTableRestoreArgumentFault":
     case "redshift.admin#InvalidTableRestoreArgumentFault":
-      response = await deserializeAws_queryInvalidTableRestoreArgumentFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTableRestoreArgumentFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationFault":
     case "redshift.admin#UnsupportedOperationFault":
-      response = await deserializeAws_queryUnsupportedOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8882,24 +9848,33 @@ async function deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "redshift.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSecurityGroupNotFoundFault":
     case "redshift.admin#ClusterSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterSecurityGroupStateFault":
     case "redshift.admin#InvalidClusterSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8957,24 +9932,33 @@ async function deserializeAws_queryRevokeSnapshotAccessCommandError(
   switch (errorCode) {
     case "AccessToSnapshotDeniedFault":
     case "redshift.admin#AccessToSnapshotDeniedFault":
-      response = await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationNotFoundFault":
     case "redshift.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterSnapshotNotFoundFault":
     case "redshift.admin#ClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9029,24 +10013,33 @@ async function deserializeAws_queryRotateEncryptionKeyCommandError(
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "redshift.admin#ClusterNotFoundFault":
-      response = await deserializeAws_queryClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceRequestThrottlingFault":
     case "redshift.admin#DependentServiceRequestThrottlingFault":
-      response = await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClusterStateFault":
     case "redshift.admin#InvalidClusterStateFault":
-      response = await deserializeAws_queryInvalidClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

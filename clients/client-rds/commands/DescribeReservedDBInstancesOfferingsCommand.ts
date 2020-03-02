@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReservedDBInstancesOfferingsCommandInput = DescribeReservedDBInstancesOfferingsMessage;
-export type DescribeReservedDBInstancesOfferingsCommandOutput = ReservedDBInstancesOfferingMessage;
+export type DescribeReservedDBInstancesOfferingsCommandOutput = ReservedDBInstancesOfferingMessage &
+  __MetadataBearer;
 
 export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
   DescribeReservedDBInstancesOfferingsCommandInput,

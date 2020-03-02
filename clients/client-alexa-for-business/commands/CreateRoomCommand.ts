@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateRoomCommandInput = CreateRoomRequest;
-export type CreateRoomCommandOutput = CreateRoomResponse;
+export type CreateRoomCommandOutput = CreateRoomResponse & __MetadataBearer;
 
 export class CreateRoomCommand extends $Command<
   CreateRoomCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateRegexPatternSetCommandInput = CreateRegexPatternSetRequest;
-export type CreateRegexPatternSetCommandOutput = CreateRegexPatternSetResponse;
+export type CreateRegexPatternSetCommandOutput = CreateRegexPatternSetResponse &
+  __MetadataBearer;
 
 export class CreateRegexPatternSetCommand extends $Command<
   CreateRegexPatternSetCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEnvironmentManagedActionHistoryCommandInput = DescribeEnvironmentManagedActionHistoryRequest;
-export type DescribeEnvironmentManagedActionHistoryCommandOutput = DescribeEnvironmentManagedActionHistoryResult;
+export type DescribeEnvironmentManagedActionHistoryCommandOutput = DescribeEnvironmentManagedActionHistoryResult &
+  __MetadataBearer;
 
 export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
   DescribeEnvironmentManagedActionHistoryCommandInput,

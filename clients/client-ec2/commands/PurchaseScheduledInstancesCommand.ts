@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PurchaseScheduledInstancesCommandInput = PurchaseScheduledInstancesRequest;
-export type PurchaseScheduledInstancesCommandOutput = PurchaseScheduledInstancesResult;
+export type PurchaseScheduledInstancesCommandOutput = PurchaseScheduledInstancesResult &
+  __MetadataBearer;
 
 export class PurchaseScheduledInstancesCommand extends $Command<
   PurchaseScheduledInstancesCommandInput,

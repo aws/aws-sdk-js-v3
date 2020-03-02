@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketLocationCommandInput = GetBucketLocationRequest;
-export type GetBucketLocationCommandOutput = GetBucketLocationOutput;
+export type GetBucketLocationCommandOutput = GetBucketLocationOutput &
+  __MetadataBearer;
 
 export class GetBucketLocationCommand extends $Command<
   GetBucketLocationCommandInput,

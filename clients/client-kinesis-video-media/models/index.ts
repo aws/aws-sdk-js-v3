@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 export interface GetMediaInput {
   __type?: "GetMediaInput";
@@ -31,7 +32,7 @@ export namespace GetMediaInput {
   }
 }
 
-export interface GetMediaOutput extends $MetadataBearer {
+export interface GetMediaOutput {
   __type?: "GetMediaOutput";
   /**
    * <p>The content type of the requested media.</p>
@@ -108,7 +109,7 @@ export interface GetMediaOutput extends $MetadataBearer {
    *             </li>
    *          </ul>
    */
-  Payload?: Uint8Array;
+  Payload?: Readable | ReadableStream | Blob;
 }
 
 export namespace GetMediaOutput {

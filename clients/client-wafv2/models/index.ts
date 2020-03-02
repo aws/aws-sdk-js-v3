@@ -94,7 +94,7 @@ export namespace AssociateWebACLRequest {
   }
 }
 
-export interface AssociateWebACLResponse extends $MetadataBearer {
+export interface AssociateWebACLResponse {
   __type?: "AssociateWebACLResponse";
 }
 
@@ -266,7 +266,7 @@ export namespace CheckCapacityRequest {
   }
 }
 
-export interface CheckCapacityResponse extends $MetadataBearer {
+export interface CheckCapacityResponse {
   __type?: "CheckCapacityResponse";
   /**
    * <p>The capacity required by the rules and scope.</p>
@@ -623,7 +623,7 @@ export namespace CreateIPSetRequest {
   }
 }
 
-export interface CreateIPSetResponse extends $MetadataBearer {
+export interface CreateIPSetResponse {
   __type?: "CreateIPSetResponse";
   /**
    * <p>High-level information about an <a>IPSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage an <code>IPSet</code>, and the ARN, that you provide to the <a>IPSetReferenceStatement</a> to use the address set in a <a>Rule</a>.</p>
@@ -680,7 +680,7 @@ export namespace CreateRegexPatternSetRequest {
   }
 }
 
-export interface CreateRegexPatternSetResponse extends $MetadataBearer {
+export interface CreateRegexPatternSetResponse {
   __type?: "CreateRegexPatternSetResponse";
   /**
    * <p>High-level information about a <a>RegexPatternSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RegexPatternSet</code>, and the ARN, that you provide to the <a>RegexPatternSetReferenceStatement</a> to use the pattern set in a <a>Rule</a>.</p>
@@ -761,7 +761,7 @@ export namespace CreateRuleGroupRequest {
   }
 }
 
-export interface CreateRuleGroupResponse extends $MetadataBearer {
+export interface CreateRuleGroupResponse {
   __type?: "CreateRuleGroupResponse";
   /**
    * <p>High-level information about a <a>RuleGroup</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RuleGroup</code>, and the ARN, that you provide to the <a>RuleGroupReferenceStatement</a> to use the rule group in a <a>Rule</a>.</p>
@@ -831,7 +831,7 @@ export namespace CreateWebACLRequest {
   }
 }
 
-export interface CreateWebACLResponse extends $MetadataBearer {
+export interface CreateWebACLResponse {
   __type?: "CreateWebACLResponse";
   /**
    * <p>High-level information about a <a>WebACL</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>WebACL</code>, and the ARN, that you provide to operations like <a>AssociateWebACL</a>.</p>
@@ -909,7 +909,7 @@ export namespace DeleteIPSetRequest {
   }
 }
 
-export interface DeleteIPSetResponse extends $MetadataBearer {
+export interface DeleteIPSetResponse {
   __type?: "DeleteIPSetResponse";
 }
 
@@ -933,7 +933,7 @@ export namespace DeleteLoggingConfigurationRequest {
   }
 }
 
-export interface DeleteLoggingConfigurationResponse extends $MetadataBearer {
+export interface DeleteLoggingConfigurationResponse {
   __type?: "DeleteLoggingConfigurationResponse";
 }
 
@@ -981,7 +981,7 @@ export namespace DeleteRegexPatternSetRequest {
   }
 }
 
-export interface DeleteRegexPatternSetResponse extends $MetadataBearer {
+export interface DeleteRegexPatternSetResponse {
   __type?: "DeleteRegexPatternSetResponse";
 }
 
@@ -1029,7 +1029,7 @@ export namespace DeleteRuleGroupRequest {
   }
 }
 
-export interface DeleteRuleGroupResponse extends $MetadataBearer {
+export interface DeleteRuleGroupResponse {
   __type?: "DeleteRuleGroupResponse";
 }
 
@@ -1077,7 +1077,7 @@ export namespace DeleteWebACLRequest {
   }
 }
 
-export interface DeleteWebACLResponse extends $MetadataBearer {
+export interface DeleteWebACLResponse {
   __type?: "DeleteWebACLResponse";
 }
 
@@ -1120,7 +1120,7 @@ export namespace DescribeManagedRuleGroupRequest {
   }
 }
 
-export interface DescribeManagedRuleGroupResponse extends $MetadataBearer {
+export interface DescribeManagedRuleGroupResponse {
   __type?: "DescribeManagedRuleGroupResponse";
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.
@@ -1178,7 +1178,7 @@ export namespace DisassociateWebACLRequest {
   }
 }
 
-export interface DisassociateWebACLResponse extends $MetadataBearer {
+export interface DisassociateWebACLResponse {
   __type?: "DisassociateWebACLResponse";
 }
 
@@ -1315,7 +1315,7 @@ export namespace GetIPSetRequest {
   }
 }
 
-export interface GetIPSetResponse extends $MetadataBearer {
+export interface GetIPSetResponse {
   __type?: "GetIPSetResponse";
   /**
    * <p></p>
@@ -1348,7 +1348,7 @@ export namespace GetLoggingConfigurationRequest {
   }
 }
 
-export interface GetLoggingConfigurationResponse extends $MetadataBearer {
+export interface GetLoggingConfigurationResponse {
   __type?: "GetLoggingConfigurationResponse";
   /**
    * <p>The <a>LoggingConfiguration</a> for the specified web ACL.</p>
@@ -1400,8 +1400,7 @@ export namespace GetRateBasedStatementManagedKeysRequest {
   }
 }
 
-export interface GetRateBasedStatementManagedKeysResponse
-  extends $MetadataBearer {
+export interface GetRateBasedStatementManagedKeysResponse {
   __type?: "GetRateBasedStatementManagedKeysResponse";
   /**
    * <p>The keys that are of Internet Protocol version 4 (IPv4). </p>
@@ -1453,7 +1452,7 @@ export namespace GetRegexPatternSetRequest {
   }
 }
 
-export interface GetRegexPatternSetResponse extends $MetadataBearer {
+export interface GetRegexPatternSetResponse {
   __type?: "GetRegexPatternSetResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
@@ -1505,7 +1504,7 @@ export namespace GetRuleGroupRequest {
   }
 }
 
-export interface GetRuleGroupResponse extends $MetadataBearer {
+export interface GetRuleGroupResponse {
   __type?: "GetRuleGroupResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
@@ -1571,7 +1570,7 @@ export namespace GetSampledRequestsRequest {
   }
 }
 
-export interface GetSampledRequestsResponse extends $MetadataBearer {
+export interface GetSampledRequestsResponse {
   __type?: "GetSampledRequestsResponse";
   /**
    * <p>The total number of requests from which <code>GetSampledRequests</code> got a sample of <code>MaxItems</code> requests.
@@ -1613,7 +1612,7 @@ export namespace GetWebACLForResourceRequest {
   }
 }
 
-export interface GetWebACLForResourceResponse extends $MetadataBearer {
+export interface GetWebACLForResourceResponse {
   __type?: "GetWebACLForResourceResponse";
   /**
    * <p>The Web ACL that is associated with the resource. If there is no associated resource, AWS WAF returns a null Web ACL.</p>
@@ -1660,7 +1659,7 @@ export namespace GetWebACLRequest {
   }
 }
 
-export interface GetWebACLResponse extends $MetadataBearer {
+export interface GetWebACLResponse {
   __type?: "GetWebACLResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
@@ -1933,8 +1932,7 @@ export namespace ListAvailableManagedRuleGroupsRequest {
   }
 }
 
-export interface ListAvailableManagedRuleGroupsResponse
-  extends $MetadataBearer {
+export interface ListAvailableManagedRuleGroupsResponse {
   __type?: "ListAvailableManagedRuleGroupsResponse";
   /**
    * <p></p>
@@ -1992,7 +1990,7 @@ export namespace ListIPSetsRequest {
   }
 }
 
-export interface ListIPSetsResponse extends $MetadataBearer {
+export interface ListIPSetsResponse {
   __type?: "ListIPSetsResponse";
   /**
    * <p>Array of IPSets. This may not be the full list of IPSets that you have defined. See the <code>Limit</code> specification for this request.</p>
@@ -2050,7 +2048,7 @@ export namespace ListLoggingConfigurationsRequest {
   }
 }
 
-export interface ListLoggingConfigurationsResponse extends $MetadataBearer {
+export interface ListLoggingConfigurationsResponse {
   __type?: "ListLoggingConfigurationsResponse";
   /**
    * <p></p>
@@ -2108,7 +2106,7 @@ export namespace ListRegexPatternSetsRequest {
   }
 }
 
-export interface ListRegexPatternSetsResponse extends $MetadataBearer {
+export interface ListRegexPatternSetsResponse {
   __type?: "ListRegexPatternSetsResponse";
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -2148,7 +2146,7 @@ export namespace ListResourcesForWebACLRequest {
   }
 }
 
-export interface ListResourcesForWebACLResponse extends $MetadataBearer {
+export interface ListResourcesForWebACLResponse {
   __type?: "ListResourcesForWebACLResponse";
   /**
    * <p>The array of Amazon Resource Names (ARNs) of the associated resources.</p>
@@ -2199,7 +2197,7 @@ export namespace ListRuleGroupsRequest {
   }
 }
 
-export interface ListRuleGroupsResponse extends $MetadataBearer {
+export interface ListRuleGroupsResponse {
   __type?: "ListRuleGroupsResponse";
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -2248,7 +2246,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -2306,7 +2304,7 @@ export namespace ListWebACLsRequest {
   }
 }
 
-export interface ListWebACLsResponse extends $MetadataBearer {
+export interface ListWebACLsResponse {
   __type?: "ListWebACLsResponse";
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -2582,7 +2580,7 @@ export namespace PutLoggingConfigurationRequest {
   }
 }
 
-export interface PutLoggingConfigurationResponse extends $MetadataBearer {
+export interface PutLoggingConfigurationResponse {
   __type?: "PutLoggingConfigurationResponse";
   /**
    * <p></p>
@@ -3387,7 +3385,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -3575,7 +3573,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -3651,7 +3649,7 @@ export namespace UpdateIPSetRequest {
   }
 }
 
-export interface UpdateIPSetResponse extends $MetadataBearer {
+export interface UpdateIPSetResponse {
   __type?: "UpdateIPSetResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns this token to your update requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
@@ -3713,7 +3711,7 @@ export namespace UpdateRegexPatternSetRequest {
   }
 }
 
-export interface UpdateRegexPatternSetResponse extends $MetadataBearer {
+export interface UpdateRegexPatternSetResponse {
   __type?: "UpdateRegexPatternSetResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns this token to your update requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
@@ -3783,7 +3781,7 @@ export namespace UpdateRuleGroupRequest {
   }
 }
 
-export interface UpdateRuleGroupResponse extends $MetadataBearer {
+export interface UpdateRuleGroupResponse {
   __type?: "UpdateRuleGroupResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns this token to your update requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
@@ -3858,7 +3856,7 @@ export namespace UpdateWebACLRequest {
   }
 }
 
-export interface UpdateWebACLResponse extends $MetadataBearer {
+export interface UpdateWebACLResponse {
   __type?: "UpdateWebACLResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns this token to your update requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>

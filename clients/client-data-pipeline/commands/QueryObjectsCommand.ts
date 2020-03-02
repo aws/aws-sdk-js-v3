@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type QueryObjectsCommandInput = QueryObjectsInput;
-export type QueryObjectsCommandOutput = QueryObjectsOutput;
+export type QueryObjectsCommandOutput = QueryObjectsOutput & __MetadataBearer;
 
 export class QueryObjectsCommand extends $Command<
   QueryObjectsCommandInput,

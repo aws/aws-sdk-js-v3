@@ -1552,17 +1552,23 @@ async function deserializeAws_json1_1ActivateGatewayCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1615,17 +1621,23 @@ async function deserializeAws_json1_1AddCacheCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1678,17 +1690,23 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1741,17 +1759,23 @@ async function deserializeAws_json1_1AddUploadBufferCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1804,17 +1828,23 @@ async function deserializeAws_json1_1AddWorkingStorageCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1867,17 +1897,23 @@ async function deserializeAws_json1_1AssignTapePoolCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1930,17 +1966,23 @@ async function deserializeAws_json1_1AttachVolumeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1993,17 +2035,23 @@ async function deserializeAws_json1_1CancelArchivalCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2056,17 +2104,23 @@ async function deserializeAws_json1_1CancelRetrievalCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2122,17 +2176,23 @@ async function deserializeAws_json1_1CreateCachediSCSIVolumeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2188,17 +2248,23 @@ async function deserializeAws_json1_1CreateNFSFileShareCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2254,17 +2320,23 @@ async function deserializeAws_json1_1CreateSMBFileShareCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2317,24 +2389,33 @@ async function deserializeAws_json1_1CreateSnapshotCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableError":
     case "com.amazonaws.awsappliancecontrolplaneapi#ServiceUnavailableError":
-      response = await deserializeAws_json1_1ServiceUnavailableErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2393,24 +2474,33 @@ async function deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointComman
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableError":
     case "com.amazonaws.awsappliancecontrolplaneapi#ServiceUnavailableError":
-      response = await deserializeAws_json1_1ServiceUnavailableErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2466,17 +2556,23 @@ async function deserializeAws_json1_1CreateStorediSCSIVolumeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2532,17 +2628,23 @@ async function deserializeAws_json1_1CreateTapeWithBarcodeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2595,17 +2697,23 @@ async function deserializeAws_json1_1CreateTapesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2664,17 +2772,23 @@ async function deserializeAws_json1_1DeleteBandwidthRateLimitCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2730,17 +2844,23 @@ async function deserializeAws_json1_1DeleteChapCredentialsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2793,17 +2913,23 @@ async function deserializeAws_json1_1DeleteFileShareCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2856,17 +2982,23 @@ async function deserializeAws_json1_1DeleteGatewayCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2922,17 +3054,23 @@ async function deserializeAws_json1_1DeleteSnapshotScheduleCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2985,17 +3123,23 @@ async function deserializeAws_json1_1DeleteTapeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3048,17 +3192,23 @@ async function deserializeAws_json1_1DeleteTapeArchiveCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3111,17 +3261,23 @@ async function deserializeAws_json1_1DeleteVolumeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3180,17 +3336,23 @@ async function deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3249,17 +3411,23 @@ async function deserializeAws_json1_1DescribeBandwidthRateLimitCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3312,17 +3480,23 @@ async function deserializeAws_json1_1DescribeCacheCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3381,17 +3555,23 @@ async function deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3447,17 +3627,23 @@ async function deserializeAws_json1_1DescribeChapCredentialsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3516,17 +3702,23 @@ async function deserializeAws_json1_1DescribeGatewayInformationCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3585,17 +3777,23 @@ async function deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3651,17 +3849,23 @@ async function deserializeAws_json1_1DescribeNFSFileSharesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3717,17 +3921,23 @@ async function deserializeAws_json1_1DescribeSMBFileSharesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3783,17 +3993,23 @@ async function deserializeAws_json1_1DescribeSMBSettingsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3852,17 +4068,23 @@ async function deserializeAws_json1_1DescribeSnapshotScheduleCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3921,17 +4143,23 @@ async function deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3987,17 +4215,23 @@ async function deserializeAws_json1_1DescribeTapeArchivesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4056,17 +4290,23 @@ async function deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4119,17 +4359,23 @@ async function deserializeAws_json1_1DescribeTapesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4185,17 +4431,23 @@ async function deserializeAws_json1_1DescribeUploadBufferCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4251,17 +4503,23 @@ async function deserializeAws_json1_1DescribeVTLDevicesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4317,17 +4575,23 @@ async function deserializeAws_json1_1DescribeWorkingStorageCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4380,17 +4644,23 @@ async function deserializeAws_json1_1DetachVolumeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4443,17 +4713,23 @@ async function deserializeAws_json1_1DisableGatewayCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4506,17 +4782,23 @@ async function deserializeAws_json1_1JoinDomainCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4569,17 +4851,23 @@ async function deserializeAws_json1_1ListFileSharesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4632,17 +4920,23 @@ async function deserializeAws_json1_1ListGatewaysCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4695,17 +4989,23 @@ async function deserializeAws_json1_1ListLocalDisksCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4761,17 +5061,23 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4824,17 +5130,23 @@ async function deserializeAws_json1_1ListTapesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4890,17 +5202,23 @@ async function deserializeAws_json1_1ListVolumeInitiatorsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4959,17 +5277,23 @@ async function deserializeAws_json1_1ListVolumeRecoveryPointsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5022,17 +5346,23 @@ async function deserializeAws_json1_1ListVolumesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5088,17 +5418,23 @@ async function deserializeAws_json1_1NotifyWhenUploadedCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5151,17 +5487,23 @@ async function deserializeAws_json1_1RefreshCacheCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5217,17 +5559,23 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5280,17 +5628,23 @@ async function deserializeAws_json1_1ResetCacheCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5346,17 +5700,23 @@ async function deserializeAws_json1_1RetrieveTapeArchiveCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5415,17 +5775,23 @@ async function deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5481,17 +5847,23 @@ async function deserializeAws_json1_1SetLocalConsolePasswordCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5547,17 +5919,23 @@ async function deserializeAws_json1_1SetSMBGuestPasswordCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5610,17 +5988,23 @@ async function deserializeAws_json1_1ShutdownGatewayCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5679,17 +6063,23 @@ async function deserializeAws_json1_1StartAvailabilityMonitorTestCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5742,17 +6132,23 @@ async function deserializeAws_json1_1StartGatewayCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5811,17 +6207,23 @@ async function deserializeAws_json1_1UpdateBandwidthRateLimitCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5877,17 +6279,23 @@ async function deserializeAws_json1_1UpdateChapCredentialsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5946,17 +6354,23 @@ async function deserializeAws_json1_1UpdateGatewayInformationCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6015,17 +6429,23 @@ async function deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6084,17 +6504,23 @@ async function deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6150,17 +6576,23 @@ async function deserializeAws_json1_1UpdateNFSFileShareCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6216,17 +6648,23 @@ async function deserializeAws_json1_1UpdateSMBFileShareCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6285,17 +6723,23 @@ async function deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6351,17 +6795,23 @@ async function deserializeAws_json1_1UpdateSnapshotScheduleCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6417,17 +6867,23 @@ async function deserializeAws_json1_1UpdateVTLDeviceTypeCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGatewayRequestException":
     case "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException":
-      response = await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -28,7 +28,7 @@ export namespace AssociateDelegateToResourceRequest {
   }
 }
 
-export interface AssociateDelegateToResourceResponse extends $MetadataBearer {
+export interface AssociateDelegateToResourceResponse {
   __type?: "AssociateDelegateToResourceResponse";
 }
 
@@ -62,7 +62,7 @@ export namespace AssociateMemberToGroupRequest {
   }
 }
 
-export interface AssociateMemberToGroupResponse extends $MetadataBearer {
+export interface AssociateMemberToGroupResponse {
   __type?: "AssociateMemberToGroupResponse";
 }
 
@@ -124,7 +124,7 @@ export namespace CreateAliasRequest {
   }
 }
 
-export interface CreateAliasResponse extends $MetadataBearer {
+export interface CreateAliasResponse {
   __type?: "CreateAliasResponse";
 }
 
@@ -153,7 +153,7 @@ export namespace CreateGroupRequest {
   }
 }
 
-export interface CreateGroupResponse extends $MetadataBearer {
+export interface CreateGroupResponse {
   __type?: "CreateGroupResponse";
   /**
    * <p>The identifier of the group.</p>
@@ -193,7 +193,7 @@ export namespace CreateResourceRequest {
   }
 }
 
-export interface CreateResourceResponse extends $MetadataBearer {
+export interface CreateResourceResponse {
   __type?: "CreateResourceResponse";
   /**
    * <p>The identifier of the new resource.</p>
@@ -236,7 +236,7 @@ export namespace CreateUserRequest {
   }
 }
 
-export interface CreateUserResponse extends $MetadataBearer {
+export interface CreateUserResponse {
   __type?: "CreateUserResponse";
   /**
    * <p>The identifier for the new user.</p>
@@ -299,7 +299,7 @@ export namespace DeleteAliasRequest {
   }
 }
 
-export interface DeleteAliasResponse extends $MetadataBearer {
+export interface DeleteAliasResponse {
   __type?: "DeleteAliasResponse";
 }
 
@@ -328,7 +328,7 @@ export namespace DeleteGroupRequest {
   }
 }
 
-export interface DeleteGroupResponse extends $MetadataBearer {
+export interface DeleteGroupResponse {
   __type?: "DeleteGroupResponse";
 }
 
@@ -364,7 +364,7 @@ export namespace DeleteMailboxPermissionsRequest {
   }
 }
 
-export interface DeleteMailboxPermissionsResponse extends $MetadataBearer {
+export interface DeleteMailboxPermissionsResponse {
   __type?: "DeleteMailboxPermissionsResponse";
 }
 
@@ -394,7 +394,7 @@ export namespace DeleteResourceRequest {
   }
 }
 
-export interface DeleteResourceResponse extends $MetadataBearer {
+export interface DeleteResourceResponse {
   __type?: "DeleteResourceResponse";
 }
 
@@ -423,7 +423,7 @@ export namespace DeleteUserRequest {
   }
 }
 
-export interface DeleteUserResponse extends $MetadataBearer {
+export interface DeleteUserResponse {
   __type?: "DeleteUserResponse";
 }
 
@@ -453,7 +453,7 @@ export namespace DeregisterFromWorkMailRequest {
   }
 }
 
-export interface DeregisterFromWorkMailResponse extends $MetadataBearer {
+export interface DeregisterFromWorkMailResponse {
   __type?: "DeregisterFromWorkMailResponse";
 }
 
@@ -482,7 +482,7 @@ export namespace DescribeGroupRequest {
   }
 }
 
-export interface DescribeGroupResponse extends $MetadataBearer {
+export interface DescribeGroupResponse {
   __type?: "DescribeGroupResponse";
   /**
    * <p>The date and time when a user was deregistered from WorkMail, in UNIX epoch time
@@ -538,7 +538,7 @@ export namespace DescribeOrganizationRequest {
   }
 }
 
-export interface DescribeOrganizationResponse extends $MetadataBearer {
+export interface DescribeOrganizationResponse {
   __type?: "DescribeOrganizationResponse";
   /**
    * <p>The alias for an organization.</p>
@@ -610,7 +610,7 @@ export namespace DescribeResourceRequest {
   }
 }
 
-export interface DescribeResourceResponse extends $MetadataBearer {
+export interface DescribeResourceResponse {
   __type?: "DescribeResourceResponse";
   /**
    * <p>The booking options for the described resource.</p>
@@ -681,7 +681,7 @@ export namespace DescribeUserRequest {
   }
 }
 
-export interface DescribeUserResponse extends $MetadataBearer {
+export interface DescribeUserResponse {
   __type?: "DescribeUserResponse";
   /**
    * <p>The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.</p>
@@ -797,8 +797,7 @@ export namespace DisassociateDelegateFromResourceRequest {
   }
 }
 
-export interface DisassociateDelegateFromResourceResponse
-  extends $MetadataBearer {
+export interface DisassociateDelegateFromResourceResponse {
   __type?: "DisassociateDelegateFromResourceResponse";
 }
 
@@ -832,7 +831,7 @@ export namespace DisassociateMemberFromGroupRequest {
   }
 }
 
-export interface DisassociateMemberFromGroupResponse extends $MetadataBearer {
+export interface DisassociateMemberFromGroupResponse {
   __type?: "DisassociateMemberFromGroupResponse";
 }
 
@@ -939,7 +938,7 @@ export namespace GetMailboxDetailsRequest {
   }
 }
 
-export interface GetMailboxDetailsResponse extends $MetadataBearer {
+export interface GetMailboxDetailsResponse {
   __type?: "GetMailboxDetailsResponse";
   /**
    * <p>The maximum allowed mailbox size, in MB, for the specified user.</p>
@@ -1084,7 +1083,7 @@ export namespace ListAliasesRequest {
   }
 }
 
-export interface ListAliasesResponse extends $MetadataBearer {
+export interface ListAliasesResponse {
   __type?: "ListAliasesResponse";
   /**
    * <p>The entity's paginated aliases.</p>
@@ -1134,7 +1133,7 @@ export namespace ListGroupMembersRequest {
   }
 }
 
-export interface ListGroupMembersResponse extends $MetadataBearer {
+export interface ListGroupMembersResponse {
   __type?: "ListGroupMembersResponse";
   /**
    * <p>The members associated to the group.</p>
@@ -1179,7 +1178,7 @@ export namespace ListGroupsRequest {
   }
 }
 
-export interface ListGroupsResponse extends $MetadataBearer {
+export interface ListGroupsResponse {
   __type?: "ListGroupsResponse";
   /**
    * <p>The overview of groups for an organization.</p>
@@ -1230,7 +1229,7 @@ export namespace ListMailboxPermissionsRequest {
   }
 }
 
-export interface ListMailboxPermissionsResponse extends $MetadataBearer {
+export interface ListMailboxPermissionsResponse {
   __type?: "ListMailboxPermissionsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.</p>
@@ -1269,7 +1268,7 @@ export namespace ListOrganizationsRequest {
   }
 }
 
-export interface ListOrganizationsResponse extends $MetadataBearer {
+export interface ListOrganizationsResponse {
   __type?: "ListOrganizationsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. The value is "null" when there
@@ -1319,7 +1318,7 @@ export namespace ListResourceDelegatesRequest {
   }
 }
 
-export interface ListResourceDelegatesResponse extends $MetadataBearer {
+export interface ListResourceDelegatesResponse {
   __type?: "ListResourceDelegatesResponse";
   /**
    * <p>One page of the resource's delegates.</p>
@@ -1365,7 +1364,7 @@ export namespace ListResourcesRequest {
   }
 }
 
-export interface ListResourcesResponse extends $MetadataBearer {
+export interface ListResourcesResponse {
   __type?: "ListResourcesResponse";
   /**
    * <p> The token used to paginate through all the organization's resources. While results
@@ -1410,7 +1409,7 @@ export namespace ListUsersRequest {
   }
 }
 
-export interface ListUsersResponse extends $MetadataBearer {
+export interface ListUsersResponse {
   __type?: "ListUsersResponse";
   /**
    * <p> The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.</p>
@@ -1668,7 +1667,7 @@ export namespace PutMailboxPermissionsRequest {
   }
 }
 
-export interface PutMailboxPermissionsResponse extends $MetadataBearer {
+export interface PutMailboxPermissionsResponse {
   __type?: "PutMailboxPermissionsResponse";
 }
 
@@ -1703,7 +1702,7 @@ export namespace RegisterToWorkMailRequest {
   }
 }
 
-export interface RegisterToWorkMailResponse extends $MetadataBearer {
+export interface RegisterToWorkMailResponse {
   __type?: "RegisterToWorkMailResponse";
 }
 
@@ -1755,7 +1754,7 @@ export namespace ResetPasswordRequest {
   }
 }
 
-export interface ResetPasswordResponse extends $MetadataBearer {
+export interface ResetPasswordResponse {
   __type?: "ResetPasswordResponse";
 }
 
@@ -1859,7 +1858,7 @@ export namespace UpdateMailboxQuotaRequest {
   }
 }
 
-export interface UpdateMailboxQuotaResponse extends $MetadataBearer {
+export interface UpdateMailboxQuotaResponse {
   __type?: "UpdateMailboxQuotaResponse";
 }
 
@@ -1893,7 +1892,7 @@ export namespace UpdatePrimaryEmailAddressRequest {
   }
 }
 
-export interface UpdatePrimaryEmailAddressResponse extends $MetadataBearer {
+export interface UpdatePrimaryEmailAddressResponse {
   __type?: "UpdatePrimaryEmailAddressResponse";
 }
 
@@ -1933,7 +1932,7 @@ export namespace UpdateResourceRequest {
   }
 }
 
-export interface UpdateResourceResponse extends $MetadataBearer {
+export interface UpdateResourceResponse {
   __type?: "UpdateResourceResponse";
 }
 

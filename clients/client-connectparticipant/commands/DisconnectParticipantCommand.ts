@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisconnectParticipantCommandInput = DisconnectParticipantRequest;
-export type DisconnectParticipantCommandOutput = DisconnectParticipantResponse;
+export type DisconnectParticipantCommandOutput = DisconnectParticipantResponse &
+  __MetadataBearer;
 
 export class DisconnectParticipantCommand extends $Command<
   DisconnectParticipantCommandInput,

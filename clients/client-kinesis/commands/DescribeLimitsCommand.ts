@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLimitsCommandInput = DescribeLimitsInput;
-export type DescribeLimitsCommandOutput = DescribeLimitsOutput;
+export type DescribeLimitsCommandOutput = DescribeLimitsOutput &
+  __MetadataBearer;
 
 export class DescribeLimitsCommand extends $Command<
   DescribeLimitsCommandInput,

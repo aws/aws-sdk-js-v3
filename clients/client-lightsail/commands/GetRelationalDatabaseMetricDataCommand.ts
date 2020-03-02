@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRelationalDatabaseMetricDataCommandInput = GetRelationalDatabaseMetricDataRequest;
-export type GetRelationalDatabaseMetricDataCommandOutput = GetRelationalDatabaseMetricDataResult;
+export type GetRelationalDatabaseMetricDataCommandOutput = GetRelationalDatabaseMetricDataResult &
+  __MetadataBearer;
 
 export class GetRelationalDatabaseMetricDataCommand extends $Command<
   GetRelationalDatabaseMetricDataCommandInput,

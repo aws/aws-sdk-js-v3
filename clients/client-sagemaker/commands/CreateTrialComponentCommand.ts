@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTrialComponentCommandInput = CreateTrialComponentRequest;
-export type CreateTrialComponentCommandOutput = CreateTrialComponentResponse;
+export type CreateTrialComponentCommandOutput = CreateTrialComponentResponse &
+  __MetadataBearer;
 
 export class CreateTrialComponentCommand extends $Command<
   CreateTrialComponentCommandInput,

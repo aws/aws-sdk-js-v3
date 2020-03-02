@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDimensionValuesCommandInput = GetDimensionValuesRequest;
-export type GetDimensionValuesCommandOutput = GetDimensionValuesResponse;
+export type GetDimensionValuesCommandOutput = GetDimensionValuesResponse &
+  __MetadataBearer;
 
 export class GetDimensionValuesCommand extends $Command<
   GetDimensionValuesCommandInput,

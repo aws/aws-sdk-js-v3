@@ -156,7 +156,7 @@ export namespace AssociatePhoneNumberWithUserRequest {
   }
 }
 
-export interface AssociatePhoneNumberWithUserResponse extends $MetadataBearer {
+export interface AssociatePhoneNumberWithUserResponse {
   __type?: "AssociatePhoneNumberWithUserResponse";
 }
 
@@ -192,8 +192,7 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   }
 }
 
-export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse
-  extends $MetadataBearer {
+export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   __type?: "AssociatePhoneNumbersWithVoiceConnectorGroupResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -235,8 +234,7 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorRequest {
   }
 }
 
-export interface AssociatePhoneNumbersWithVoiceConnectorResponse
-  extends $MetadataBearer {
+export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
   __type?: "AssociatePhoneNumbersWithVoiceConnectorResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -273,8 +271,7 @@ export namespace AssociateSigninDelegateGroupsWithAccountRequest {
   }
 }
 
-export interface AssociateSigninDelegateGroupsWithAccountResponse
-  extends $MetadataBearer {
+export interface AssociateSigninDelegateGroupsWithAccountResponse {
   __type?: "AssociateSigninDelegateGroupsWithAccountResponse";
 }
 
@@ -353,7 +350,7 @@ export namespace BatchCreateAttendeeRequest {
   }
 }
 
-export interface BatchCreateAttendeeResponse extends $MetadataBearer {
+export interface BatchCreateAttendeeResponse {
   __type?: "BatchCreateAttendeeResponse";
   /**
    * <p>The attendee information, including attendees IDs and join tokens.</p>
@@ -396,7 +393,7 @@ export namespace BatchCreateRoomMembershipRequest {
   }
 }
 
-export interface BatchCreateRoomMembershipResponse extends $MetadataBearer {
+export interface BatchCreateRoomMembershipResponse {
   __type?: "BatchCreateRoomMembershipResponse";
   /**
    * <p>If the action fails for one or more of the member IDs in the request, a list of the member IDs is returned, along with error codes and error messages.</p>
@@ -424,7 +421,7 @@ export namespace BatchDeletePhoneNumberRequest {
   }
 }
 
-export interface BatchDeletePhoneNumberResponse extends $MetadataBearer {
+export interface BatchDeletePhoneNumberResponse {
   __type?: "BatchDeletePhoneNumberResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -457,7 +454,7 @@ export namespace BatchSuspendUserRequest {
   }
 }
 
-export interface BatchSuspendUserResponse extends $MetadataBearer {
+export interface BatchSuspendUserResponse {
   __type?: "BatchSuspendUserResponse";
   /**
    * <p>If the <a>BatchSuspendUser</a> action fails for one
@@ -492,7 +489,7 @@ export namespace BatchUnsuspendUserRequest {
   }
 }
 
-export interface BatchUnsuspendUserResponse extends $MetadataBearer {
+export interface BatchUnsuspendUserResponse {
   __type?: "BatchUnsuspendUserResponse";
   /**
    * <p>If the <a>BatchUnsuspendUser</a> action fails for one
@@ -524,7 +521,7 @@ export namespace BatchUpdatePhoneNumberRequest {
   }
 }
 
-export interface BatchUpdatePhoneNumberResponse extends $MetadataBearer {
+export interface BatchUpdatePhoneNumberResponse {
   __type?: "BatchUpdatePhoneNumberResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -557,7 +554,7 @@ export namespace BatchUpdateUserRequest {
   }
 }
 
-export interface BatchUpdateUserResponse extends $MetadataBearer {
+export interface BatchUpdateUserResponse {
   __type?: "BatchUpdateUserResponse";
   /**
    * <p>If the <a>BatchUpdateUser</a> action fails for one
@@ -690,7 +687,7 @@ export namespace CreateAccountRequest {
   }
 }
 
-export interface CreateAccountResponse extends $MetadataBearer {
+export interface CreateAccountResponse {
   __type?: "CreateAccountResponse";
   /**
    * <p>The Amazon Chime account details.</p>
@@ -767,7 +764,7 @@ export namespace CreateAttendeeRequestItem {
   }
 }
 
-export interface CreateAttendeeResponse extends $MetadataBearer {
+export interface CreateAttendeeResponse {
   __type?: "CreateAttendeeResponse";
   /**
    * <p>The attendee information, including attendee ID and join token.</p>
@@ -805,7 +802,7 @@ export namespace CreateBotRequest {
   }
 }
 
-export interface CreateBotResponse extends $MetadataBearer {
+export interface CreateBotResponse {
   __type?: "CreateBotResponse";
   /**
    * <p>The bot details.</p>
@@ -848,7 +845,7 @@ export namespace CreateMeetingRequest {
   }
 }
 
-export interface CreateMeetingResponse extends $MetadataBearer {
+export interface CreateMeetingResponse {
   __type?: "CreateMeetingResponse";
   /**
    * <p>The meeting information, including the meeting ID and <code>MediaPlacement</code>.</p>
@@ -881,7 +878,7 @@ export namespace CreatePhoneNumberOrderRequest {
   }
 }
 
-export interface CreatePhoneNumberOrderResponse extends $MetadataBearer {
+export interface CreatePhoneNumberOrderResponse {
   __type?: "CreatePhoneNumberOrderResponse";
   /**
    * <p>The phone number order details.</p>
@@ -924,7 +921,7 @@ export namespace CreateRoomMembershipRequest {
   }
 }
 
-export interface CreateRoomMembershipResponse extends $MetadataBearer {
+export interface CreateRoomMembershipResponse {
   __type?: "CreateRoomMembershipResponse";
   /**
    * <p>The room membership details.</p>
@@ -962,7 +959,7 @@ export namespace CreateRoomRequest {
   }
 }
 
-export interface CreateRoomResponse extends $MetadataBearer {
+export interface CreateRoomResponse {
   __type?: "CreateRoomResponse";
   /**
    * <p>The room details.</p>
@@ -1005,7 +1002,7 @@ export namespace CreateUserRequest {
   }
 }
 
-export interface CreateUserResponse extends $MetadataBearer {
+export interface CreateUserResponse {
   __type?: "CreateUserResponse";
   /**
    * <p>The user on the Amazon Chime account.</p>
@@ -1038,7 +1035,7 @@ export namespace CreateVoiceConnectorGroupRequest {
   }
 }
 
-export interface CreateVoiceConnectorGroupResponse extends $MetadataBearer {
+export interface CreateVoiceConnectorGroupResponse {
   __type?: "CreateVoiceConnectorGroupResponse";
   /**
    * <p>The Amazon Chime Voice Connector group details.</p>
@@ -1076,7 +1073,7 @@ export namespace CreateVoiceConnectorRequest {
   }
 }
 
-export interface CreateVoiceConnectorResponse extends $MetadataBearer {
+export interface CreateVoiceConnectorResponse {
   __type?: "CreateVoiceConnectorResponse";
   /**
    * <p>The Amazon Chime Voice Connector details.</p>
@@ -1127,7 +1124,7 @@ export namespace DeleteAccountRequest {
   }
 }
 
-export interface DeleteAccountResponse extends $MetadataBearer {
+export interface DeleteAccountResponse {
   __type?: "DeleteAccountResponse";
 }
 
@@ -1358,8 +1355,7 @@ export namespace DisassociatePhoneNumberFromUserRequest {
   }
 }
 
-export interface DisassociatePhoneNumberFromUserResponse
-  extends $MetadataBearer {
+export interface DisassociatePhoneNumberFromUserResponse {
   __type?: "DisassociatePhoneNumberFromUserResponse";
 }
 
@@ -1390,8 +1386,7 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   }
 }
 
-export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
-  extends $MetadataBearer {
+export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   __type?: "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -1428,8 +1423,7 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorRequest {
   }
 }
 
-export interface DisassociatePhoneNumbersFromVoiceConnectorResponse
-  extends $MetadataBearer {
+export interface DisassociatePhoneNumbersFromVoiceConnectorResponse {
   __type?: "DisassociatePhoneNumbersFromVoiceConnectorResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -1466,8 +1460,7 @@ export namespace DisassociateSigninDelegateGroupsFromAccountRequest {
   }
 }
 
-export interface DisassociateSigninDelegateGroupsFromAccountResponse
-  extends $MetadataBearer {
+export interface DisassociateSigninDelegateGroupsFromAccountResponse {
   __type?: "DisassociateSigninDelegateGroupsFromAccountResponse";
 }
 
@@ -1560,7 +1553,7 @@ export namespace GetAccountRequest {
   }
 }
 
-export interface GetAccountResponse extends $MetadataBearer {
+export interface GetAccountResponse {
   __type?: "GetAccountResponse";
   /**
    * <p>The Amazon Chime account details.</p>
@@ -1588,7 +1581,7 @@ export namespace GetAccountSettingsRequest {
   }
 }
 
-export interface GetAccountSettingsResponse extends $MetadataBearer {
+export interface GetAccountSettingsResponse {
   __type?: "GetAccountSettingsResponse";
   /**
    * <p>The Amazon Chime account settings.</p>
@@ -1621,7 +1614,7 @@ export namespace GetAttendeeRequest {
   }
 }
 
-export interface GetAttendeeResponse extends $MetadataBearer {
+export interface GetAttendeeResponse {
   __type?: "GetAttendeeResponse";
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
@@ -1654,7 +1647,7 @@ export namespace GetBotRequest {
   }
 }
 
-export interface GetBotResponse extends $MetadataBearer {
+export interface GetBotResponse {
   __type?: "GetBotResponse";
   /**
    * <p>The chat bot details.</p>
@@ -1687,7 +1680,7 @@ export namespace GetEventsConfigurationRequest {
   }
 }
 
-export interface GetEventsConfigurationResponse extends $MetadataBearer {
+export interface GetEventsConfigurationResponse {
   __type?: "GetEventsConfigurationResponse";
   /**
    * <p>The events configuration details.</p>
@@ -1701,7 +1694,7 @@ export namespace GetEventsConfigurationResponse {
   }
 }
 
-export interface GetGlobalSettingsResponse extends $MetadataBearer {
+export interface GetGlobalSettingsResponse {
   __type?: "GetGlobalSettingsResponse";
   /**
    * <p>The Amazon Chime Business Calling settings.</p>
@@ -1734,7 +1727,7 @@ export namespace GetMeetingRequest {
   }
 }
 
-export interface GetMeetingResponse extends $MetadataBearer {
+export interface GetMeetingResponse {
   __type?: "GetMeetingResponse";
   /**
    * <p>The Amazon Chime SDK meeting information.</p>
@@ -1762,7 +1755,7 @@ export namespace GetPhoneNumberOrderRequest {
   }
 }
 
-export interface GetPhoneNumberOrderResponse extends $MetadataBearer {
+export interface GetPhoneNumberOrderResponse {
   __type?: "GetPhoneNumberOrderResponse";
   /**
    * <p>The phone number order details.</p>
@@ -1790,7 +1783,7 @@ export namespace GetPhoneNumberRequest {
   }
 }
 
-export interface GetPhoneNumberResponse extends $MetadataBearer {
+export interface GetPhoneNumberResponse {
   __type?: "GetPhoneNumberResponse";
   /**
    * <p>The phone number details.</p>
@@ -1804,7 +1797,7 @@ export namespace GetPhoneNumberResponse {
   }
 }
 
-export interface GetPhoneNumberSettingsResponse extends $MetadataBearer {
+export interface GetPhoneNumberSettingsResponse {
   __type?: "GetPhoneNumberSettingsResponse";
   /**
    * <p>The default outbound calling name for the account.</p>
@@ -1842,7 +1835,7 @@ export namespace GetRoomRequest {
   }
 }
 
-export interface GetRoomResponse extends $MetadataBearer {
+export interface GetRoomResponse {
   __type?: "GetRoomResponse";
   /**
    * <p>The room details.</p>
@@ -1875,7 +1868,7 @@ export namespace GetUserRequest {
   }
 }
 
-export interface GetUserResponse extends $MetadataBearer {
+export interface GetUserResponse {
   __type?: "GetUserResponse";
   /**
    * <p>The user details.</p>
@@ -1908,7 +1901,7 @@ export namespace GetUserSettingsRequest {
   }
 }
 
-export interface GetUserSettingsResponse extends $MetadataBearer {
+export interface GetUserSettingsResponse {
   __type?: "GetUserSettingsResponse";
   /**
    * <p>The user settings.</p>
@@ -1936,7 +1929,7 @@ export namespace GetVoiceConnectorGroupRequest {
   }
 }
 
-export interface GetVoiceConnectorGroupResponse extends $MetadataBearer {
+export interface GetVoiceConnectorGroupResponse {
   __type?: "GetVoiceConnectorGroupResponse";
   /**
    * <p>The Amazon Chime Voice Connector group details.</p>
@@ -1966,8 +1959,7 @@ export namespace GetVoiceConnectorLoggingConfigurationRequest {
   }
 }
 
-export interface GetVoiceConnectorLoggingConfigurationResponse
-  extends $MetadataBearer {
+export interface GetVoiceConnectorLoggingConfigurationResponse {
   __type?: "GetVoiceConnectorLoggingConfigurationResponse";
   /**
    * <p>The logging configuration details.</p>
@@ -1997,7 +1989,7 @@ export namespace GetVoiceConnectorOriginationRequest {
   }
 }
 
-export interface GetVoiceConnectorOriginationResponse extends $MetadataBearer {
+export interface GetVoiceConnectorOriginationResponse {
   __type?: "GetVoiceConnectorOriginationResponse";
   /**
    * <p>The origination setting details.</p>
@@ -2025,7 +2017,7 @@ export namespace GetVoiceConnectorRequest {
   }
 }
 
-export interface GetVoiceConnectorResponse extends $MetadataBearer {
+export interface GetVoiceConnectorResponse {
   __type?: "GetVoiceConnectorResponse";
   /**
    * <p>The Amazon Chime Voice Connector details.</p>
@@ -2055,8 +2047,7 @@ export namespace GetVoiceConnectorStreamingConfigurationRequest {
   }
 }
 
-export interface GetVoiceConnectorStreamingConfigurationResponse
-  extends $MetadataBearer {
+export interface GetVoiceConnectorStreamingConfigurationResponse {
   __type?: "GetVoiceConnectorStreamingConfigurationResponse";
   /**
    * <p>The streaming configuration details.</p>
@@ -2086,8 +2077,7 @@ export namespace GetVoiceConnectorTerminationHealthRequest {
   }
 }
 
-export interface GetVoiceConnectorTerminationHealthResponse
-  extends $MetadataBearer {
+export interface GetVoiceConnectorTerminationHealthResponse {
   __type?: "GetVoiceConnectorTerminationHealthResponse";
   /**
    * <p>The termination health details.</p>
@@ -2115,7 +2105,7 @@ export namespace GetVoiceConnectorTerminationRequest {
   }
 }
 
-export interface GetVoiceConnectorTerminationResponse extends $MetadataBearer {
+export interface GetVoiceConnectorTerminationResponse {
   __type?: "GetVoiceConnectorTerminationResponse";
   /**
    * <p>The termination setting details.</p>
@@ -2192,7 +2182,7 @@ export namespace InviteUsersRequest {
   }
 }
 
-export interface InviteUsersResponse extends $MetadataBearer {
+export interface InviteUsersResponse {
   __type?: "InviteUsersResponse";
   /**
    * <p>The email invitation details.</p>
@@ -2242,7 +2232,7 @@ export namespace ListAccountsRequest {
   }
 }
 
-export interface ListAccountsResponse extends $MetadataBearer {
+export interface ListAccountsResponse {
   __type?: "ListAccountsResponse";
   /**
    * <p>List of Amazon Chime accounts and account details.</p>
@@ -2285,7 +2275,7 @@ export namespace ListAttendeesRequest {
   }
 }
 
-export interface ListAttendeesResponse extends $MetadataBearer {
+export interface ListAttendeesResponse {
   __type?: "ListAttendeesResponse";
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
@@ -2328,7 +2318,7 @@ export namespace ListBotsRequest {
   }
 }
 
-export interface ListBotsResponse extends $MetadataBearer {
+export interface ListBotsResponse {
   __type?: "ListBotsResponse";
   /**
    * <p>List of bots and bot details.</p>
@@ -2366,7 +2356,7 @@ export namespace ListMeetingsRequest {
   }
 }
 
-export interface ListMeetingsResponse extends $MetadataBearer {
+export interface ListMeetingsResponse {
   __type?: "ListMeetingsResponse";
   /**
    * <p>The Amazon Chime SDK meeting information.</p>
@@ -2404,7 +2394,7 @@ export namespace ListPhoneNumberOrdersRequest {
   }
 }
 
-export interface ListPhoneNumberOrdersResponse extends $MetadataBearer {
+export interface ListPhoneNumberOrdersResponse {
   __type?: "ListPhoneNumberOrdersResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2462,7 +2452,7 @@ export namespace ListPhoneNumbersRequest {
   }
 }
 
-export interface ListPhoneNumbersResponse extends $MetadataBearer {
+export interface ListPhoneNumbersResponse {
   __type?: "ListPhoneNumbersResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2510,7 +2500,7 @@ export namespace ListRoomMembershipsRequest {
   }
 }
 
-export interface ListRoomMembershipsResponse extends $MetadataBearer {
+export interface ListRoomMembershipsResponse {
   __type?: "ListRoomMembershipsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2558,7 +2548,7 @@ export namespace ListRoomsRequest {
   }
 }
 
-export interface ListRoomsResponse extends $MetadataBearer {
+export interface ListRoomsResponse {
   __type?: "ListRoomsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2611,7 +2601,7 @@ export namespace ListUsersRequest {
   }
 }
 
-export interface ListUsersResponse extends $MetadataBearer {
+export interface ListUsersResponse {
   __type?: "ListUsersResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2649,7 +2639,7 @@ export namespace ListVoiceConnectorGroupsRequest {
   }
 }
 
-export interface ListVoiceConnectorGroupsResponse extends $MetadataBearer {
+export interface ListVoiceConnectorGroupsResponse {
   __type?: "ListVoiceConnectorGroupsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2684,8 +2674,7 @@ export namespace ListVoiceConnectorTerminationCredentialsRequest {
   }
 }
 
-export interface ListVoiceConnectorTerminationCredentialsResponse
-  extends $MetadataBearer {
+export interface ListVoiceConnectorTerminationCredentialsResponse {
   __type?: "ListVoiceConnectorTerminationCredentialsResponse";
   /**
    * <p>A list of user names.</p>
@@ -2720,7 +2709,7 @@ export namespace ListVoiceConnectorsRequest {
   }
 }
 
-export interface ListVoiceConnectorsResponse extends $MetadataBearer {
+export interface ListVoiceConnectorsResponse {
   __type?: "ListVoiceConnectorsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2775,7 +2764,7 @@ export namespace LogoutUserRequest {
   }
 }
 
-export interface LogoutUserResponse extends $MetadataBearer {
+export interface LogoutUserResponse {
   __type?: "LogoutUserResponse";
 }
 
@@ -3363,7 +3352,7 @@ export namespace PutEventsConfigurationRequest {
   }
 }
 
-export interface PutEventsConfigurationResponse extends $MetadataBearer {
+export interface PutEventsConfigurationResponse {
   __type?: "PutEventsConfigurationResponse";
   /**
    * <p>The configuration that allows a bot to receive outgoing events. Can be either an HTTPS endpoint or a Lambda function ARN.</p>
@@ -3398,8 +3387,7 @@ export namespace PutVoiceConnectorLoggingConfigurationRequest {
   }
 }
 
-export interface PutVoiceConnectorLoggingConfigurationResponse
-  extends $MetadataBearer {
+export interface PutVoiceConnectorLoggingConfigurationResponse {
   __type?: "PutVoiceConnectorLoggingConfigurationResponse";
   /**
    * <p>The updated logging configuration details.</p>
@@ -3434,7 +3422,7 @@ export namespace PutVoiceConnectorOriginationRequest {
   }
 }
 
-export interface PutVoiceConnectorOriginationResponse extends $MetadataBearer {
+export interface PutVoiceConnectorOriginationResponse {
   __type?: "PutVoiceConnectorOriginationResponse";
   /**
    * <p>The updated origination setting details.</p>
@@ -3469,8 +3457,7 @@ export namespace PutVoiceConnectorStreamingConfigurationRequest {
   }
 }
 
-export interface PutVoiceConnectorStreamingConfigurationResponse
-  extends $MetadataBearer {
+export interface PutVoiceConnectorStreamingConfigurationResponse {
   __type?: "PutVoiceConnectorStreamingConfigurationResponse";
   /**
    * <p>The updated streaming configuration details.</p>
@@ -3526,7 +3513,7 @@ export namespace PutVoiceConnectorTerminationRequest {
   }
 }
 
-export interface PutVoiceConnectorTerminationResponse extends $MetadataBearer {
+export interface PutVoiceConnectorTerminationResponse {
   __type?: "PutVoiceConnectorTerminationResponse";
   /**
    * <p>The updated termination setting details.</p>
@@ -3559,7 +3546,7 @@ export namespace RegenerateSecurityTokenRequest {
   }
 }
 
-export interface RegenerateSecurityTokenResponse extends $MetadataBearer {
+export interface RegenerateSecurityTokenResponse {
   __type?: "RegenerateSecurityTokenResponse";
   /**
    * <p>A resource that allows Enterprise account administrators to configure an interface to receive events from Amazon Chime.</p>
@@ -3598,7 +3585,7 @@ export namespace ResetPersonalPINRequest {
   }
 }
 
-export interface ResetPersonalPINResponse extends $MetadataBearer {
+export interface ResetPersonalPINResponse {
   __type?: "ResetPersonalPINResponse";
   /**
    * <p>The user details and new personal meeting PIN.</p>
@@ -3644,7 +3631,7 @@ export namespace RestorePhoneNumberRequest {
   }
 }
 
-export interface RestorePhoneNumberResponse extends $MetadataBearer {
+export interface RestorePhoneNumberResponse {
   __type?: "RestorePhoneNumberResponse";
   /**
    * <p>The phone number details.</p>
@@ -3786,7 +3773,7 @@ export namespace SearchAvailablePhoneNumbersRequest {
   }
 }
 
-export interface SearchAvailablePhoneNumbersResponse extends $MetadataBearer {
+export interface SearchAvailablePhoneNumbersResponse {
   __type?: "SearchAvailablePhoneNumbersResponse";
   /**
    * <p>List of phone numbers, in E.164 format.</p>
@@ -4038,7 +4025,7 @@ export namespace UpdateAccountRequest {
   }
 }
 
-export interface UpdateAccountResponse extends $MetadataBearer {
+export interface UpdateAccountResponse {
   __type?: "UpdateAccountResponse";
   /**
    * <p>The updated Amazon Chime account details.</p>
@@ -4071,7 +4058,7 @@ export namespace UpdateAccountSettingsRequest {
   }
 }
 
-export interface UpdateAccountSettingsResponse extends $MetadataBearer {
+export interface UpdateAccountSettingsResponse {
   __type?: "UpdateAccountSettingsResponse";
 }
 
@@ -4105,7 +4092,7 @@ export namespace UpdateBotRequest {
   }
 }
 
-export interface UpdateBotResponse extends $MetadataBearer {
+export interface UpdateBotResponse {
   __type?: "UpdateBotResponse";
   /**
    * <p>The updated bot details.</p>
@@ -4189,7 +4176,7 @@ export namespace UpdatePhoneNumberRequestItem {
   }
 }
 
-export interface UpdatePhoneNumberResponse extends $MetadataBearer {
+export interface UpdatePhoneNumberResponse {
   __type?: "UpdatePhoneNumberResponse";
   /**
    * <p>The updated phone number details.</p>
@@ -4246,7 +4233,7 @@ export namespace UpdateRoomMembershipRequest {
   }
 }
 
-export interface UpdateRoomMembershipResponse extends $MetadataBearer {
+export interface UpdateRoomMembershipResponse {
   __type?: "UpdateRoomMembershipResponse";
   /**
    * <p>The room membership details.</p>
@@ -4284,7 +4271,7 @@ export namespace UpdateRoomRequest {
   }
 }
 
-export interface UpdateRoomResponse extends $MetadataBearer {
+export interface UpdateRoomResponse {
   __type?: "UpdateRoomResponse";
   /**
    * <p>The room details.</p>
@@ -4365,7 +4352,7 @@ export namespace UpdateUserRequestItem {
   }
 }
 
-export interface UpdateUserResponse extends $MetadataBearer {
+export interface UpdateUserResponse {
   __type?: "UpdateUserResponse";
   /**
    * <p>The updated user details.</p>
@@ -4427,7 +4414,7 @@ export namespace UpdateVoiceConnectorGroupRequest {
   }
 }
 
-export interface UpdateVoiceConnectorGroupResponse extends $MetadataBearer {
+export interface UpdateVoiceConnectorGroupResponse {
   __type?: "UpdateVoiceConnectorGroupResponse";
   /**
    * <p>The updated Amazon Chime Voice Connector group details.</p>
@@ -4465,7 +4452,7 @@ export namespace UpdateVoiceConnectorRequest {
   }
 }
 
-export interface UpdateVoiceConnectorResponse extends $MetadataBearer {
+export interface UpdateVoiceConnectorResponse {
   __type?: "UpdateVoiceConnectorResponse";
   /**
    * <p>The updated Amazon Chime Voice Connector details.</p>

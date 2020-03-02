@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCSVHeaderCommandInput = GetCSVHeaderRequest;
-export type GetCSVHeaderCommandOutput = GetCSVHeaderResponse;
+export type GetCSVHeaderCommandOutput = GetCSVHeaderResponse & __MetadataBearer;
 
 export class GetCSVHeaderCommand extends $Command<
   GetCSVHeaderCommandInput,

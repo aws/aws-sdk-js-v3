@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdatePullRequestTitleCommandInput = UpdatePullRequestTitleInput;
-export type UpdatePullRequestTitleCommandOutput = UpdatePullRequestTitleOutput;
+export type UpdatePullRequestTitleCommandOutput = UpdatePullRequestTitleOutput &
+  __MetadataBearer;
 
 export class UpdatePullRequestTitleCommand extends $Command<
   UpdatePullRequestTitleCommandInput,

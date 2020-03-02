@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeInterconnectLoaCommandInput = DescribeInterconnectLoaRequest;
-export type DescribeInterconnectLoaCommandOutput = DescribeInterconnectLoaResponse;
+export type DescribeInterconnectLoaCommandOutput = DescribeInterconnectLoaResponse &
+  __MetadataBearer;
 
 export class DescribeInterconnectLoaCommand extends $Command<
   DescribeInterconnectLoaCommandInput,

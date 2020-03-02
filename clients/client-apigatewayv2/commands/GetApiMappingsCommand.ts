@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetApiMappingsCommandInput = GetApiMappingsRequest;
-export type GetApiMappingsCommandOutput = GetApiMappingsResponse;
+export type GetApiMappingsCommandOutput = GetApiMappingsResponse &
+  __MetadataBearer;
 
 export class GetApiMappingsCommand extends $Command<
   GetApiMappingsCommandInput,

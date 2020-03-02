@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMLTransformCommandInput = DeleteMLTransformRequest;
-export type DeleteMLTransformCommandOutput = DeleteMLTransformResponse;
+export type DeleteMLTransformCommandOutput = DeleteMLTransformResponse &
+  __MetadataBearer;
 
 export class DeleteMLTransformCommand extends $Command<
   DeleteMLTransformCommandInput,

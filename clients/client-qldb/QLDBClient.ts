@@ -1,34 +1,63 @@
 import {
-  CreateLedgerRequest,
-  CreateLedgerResponse,
-  DeleteLedgerRequest,
-  DescribeJournalS3ExportRequest,
-  DescribeJournalS3ExportResponse,
-  DescribeLedgerRequest,
-  DescribeLedgerResponse,
-  ExportJournalToS3Request,
-  ExportJournalToS3Response,
-  GetBlockRequest,
-  GetBlockResponse,
-  GetDigestRequest,
-  GetDigestResponse,
-  GetRevisionRequest,
-  GetRevisionResponse,
-  ListJournalS3ExportsForLedgerRequest,
-  ListJournalS3ExportsForLedgerResponse,
-  ListJournalS3ExportsRequest,
-  ListJournalS3ExportsResponse,
-  ListLedgersRequest,
-  ListLedgersResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateLedgerRequest,
-  UpdateLedgerResponse
-} from "./models/index";
+  CreateLedgerCommandInput,
+  CreateLedgerCommandOutput
+} from "./commands/CreateLedgerCommand";
+import {
+  DeleteLedgerCommandInput,
+  DeleteLedgerCommandOutput
+} from "./commands/DeleteLedgerCommand";
+import {
+  DescribeJournalS3ExportCommandInput,
+  DescribeJournalS3ExportCommandOutput
+} from "./commands/DescribeJournalS3ExportCommand";
+import {
+  DescribeLedgerCommandInput,
+  DescribeLedgerCommandOutput
+} from "./commands/DescribeLedgerCommand";
+import {
+  ExportJournalToS3CommandInput,
+  ExportJournalToS3CommandOutput
+} from "./commands/ExportJournalToS3Command";
+import {
+  GetBlockCommandInput,
+  GetBlockCommandOutput
+} from "./commands/GetBlockCommand";
+import {
+  GetDigestCommandInput,
+  GetDigestCommandOutput
+} from "./commands/GetDigestCommand";
+import {
+  GetRevisionCommandInput,
+  GetRevisionCommandOutput
+} from "./commands/GetRevisionCommand";
+import {
+  ListJournalS3ExportsCommandInput,
+  ListJournalS3ExportsCommandOutput
+} from "./commands/ListJournalS3ExportsCommand";
+import {
+  ListJournalS3ExportsForLedgerCommandInput,
+  ListJournalS3ExportsForLedgerCommandOutput
+} from "./commands/ListJournalS3ExportsForLedgerCommand";
+import {
+  ListLedgersCommandInput,
+  ListLedgersCommandOutput
+} from "./commands/ListLedgersCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateLedgerCommandInput,
+  UpdateLedgerCommandOutput
+} from "./commands/UpdateLedgerCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -76,45 +105,44 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateLedgerRequest
-  | DeleteLedgerRequest
-  | DescribeJournalS3ExportRequest
-  | DescribeLedgerRequest
-  | ExportJournalToS3Request
-  | GetBlockRequest
-  | GetDigestRequest
-  | GetRevisionRequest
-  | ListJournalS3ExportsForLedgerRequest
-  | ListJournalS3ExportsRequest
-  | ListLedgersRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateLedgerRequest;
+  | CreateLedgerCommandInput
+  | DeleteLedgerCommandInput
+  | DescribeJournalS3ExportCommandInput
+  | DescribeLedgerCommandInput
+  | ExportJournalToS3CommandInput
+  | GetBlockCommandInput
+  | GetDigestCommandInput
+  | GetRevisionCommandInput
+  | ListJournalS3ExportsCommandInput
+  | ListJournalS3ExportsForLedgerCommandInput
+  | ListLedgersCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateLedgerCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateLedgerResponse
-  | DescribeJournalS3ExportResponse
-  | DescribeLedgerResponse
-  | ExportJournalToS3Response
-  | GetBlockResponse
-  | GetDigestResponse
-  | GetRevisionResponse
-  | ListJournalS3ExportsForLedgerResponse
-  | ListJournalS3ExportsResponse
-  | ListLedgersResponse
-  | ListTagsForResourceResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateLedgerResponse;
+  | CreateLedgerCommandOutput
+  | DeleteLedgerCommandOutput
+  | DescribeJournalS3ExportCommandOutput
+  | DescribeLedgerCommandOutput
+  | ExportJournalToS3CommandOutput
+  | GetBlockCommandOutput
+  | GetDigestCommandOutput
+  | GetRevisionCommandOutput
+  | ListJournalS3ExportsCommandOutput
+  | ListJournalS3ExportsForLedgerCommandOutput
+  | ListLedgersCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateLedgerCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

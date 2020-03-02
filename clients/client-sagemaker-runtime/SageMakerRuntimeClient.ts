@@ -1,4 +1,7 @@
-import { InvokeEndpointInput, InvokeEndpointOutput } from "./models/index";
+import {
+  InvokeEndpointCommandInput,
+  InvokeEndpointCommandOutput
+} from "./commands/InvokeEndpointCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -51,9 +54,9 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = InvokeEndpointInput;
+export type ServiceInputTypes = InvokeEndpointCommandInput;
 
-export type ServiceOutputTypes = InvokeEndpointOutput;
+export type ServiceOutputTypes = InvokeEndpointCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

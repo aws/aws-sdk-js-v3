@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutAggregationAuthorizationCommandInput = PutAggregationAuthorizationRequest;
-export type PutAggregationAuthorizationCommandOutput = PutAggregationAuthorizationResponse;
+export type PutAggregationAuthorizationCommandOutput = PutAggregationAuthorizationResponse &
+  __MetadataBearer;
 
 export class PutAggregationAuthorizationCommand extends $Command<
   PutAggregationAuthorizationCommandInput,

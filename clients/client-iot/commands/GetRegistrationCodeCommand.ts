@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRegistrationCodeCommandInput = GetRegistrationCodeRequest;
-export type GetRegistrationCodeCommandOutput = GetRegistrationCodeResponse;
+export type GetRegistrationCodeCommandOutput = GetRegistrationCodeResponse &
+  __MetadataBearer;
 
 export class GetRegistrationCodeCommand extends $Command<
   GetRegistrationCodeCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAutoSnapshotCommandInput = DeleteAutoSnapshotRequest;
-export type DeleteAutoSnapshotCommandOutput = DeleteAutoSnapshotResult;
+export type DeleteAutoSnapshotCommandOutput = DeleteAutoSnapshotResult &
+  __MetadataBearer;
 
 export class DeleteAutoSnapshotCommand extends $Command<
   DeleteAutoSnapshotCommandInput,

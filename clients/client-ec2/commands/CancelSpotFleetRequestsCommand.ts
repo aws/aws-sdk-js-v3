@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelSpotFleetRequestsCommandInput = CancelSpotFleetRequestsRequest;
-export type CancelSpotFleetRequestsCommandOutput = CancelSpotFleetRequestsResponse;
+export type CancelSpotFleetRequestsCommandOutput = CancelSpotFleetRequestsResponse &
+  __MetadataBearer;
 
 export class CancelSpotFleetRequestsCommand extends $Command<
   CancelSpotFleetRequestsCommandInput,

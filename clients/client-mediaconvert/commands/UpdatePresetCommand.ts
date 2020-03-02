@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdatePresetCommandInput = UpdatePresetRequest;
-export type UpdatePresetCommandOutput = UpdatePresetResponse;
+export type UpdatePresetCommandOutput = UpdatePresetResponse & __MetadataBearer;
 
 export class UpdatePresetCommand extends $Command<
   UpdatePresetCommandInput,

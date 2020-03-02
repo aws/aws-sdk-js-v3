@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateSkillWithSkillGroupCommandInput = AssociateSkillWithSkillGroupRequest;
-export type AssociateSkillWithSkillGroupCommandOutput = AssociateSkillWithSkillGroupResponse;
+export type AssociateSkillWithSkillGroupCommandOutput = AssociateSkillWithSkillGroupResponse &
+  __MetadataBearer;
 
 export class AssociateSkillWithSkillGroupCommand extends $Command<
   AssociateSkillWithSkillGroupCommandInput,

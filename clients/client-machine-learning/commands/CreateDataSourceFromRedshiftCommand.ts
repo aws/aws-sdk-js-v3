@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDataSourceFromRedshiftCommandInput = CreateDataSourceFromRedshiftInput;
-export type CreateDataSourceFromRedshiftCommandOutput = CreateDataSourceFromRedshiftOutput;
+export type CreateDataSourceFromRedshiftCommandOutput = CreateDataSourceFromRedshiftOutput &
+  __MetadataBearer;
 
 export class CreateDataSourceFromRedshiftCommand extends $Command<
   CreateDataSourceFromRedshiftCommandInput,

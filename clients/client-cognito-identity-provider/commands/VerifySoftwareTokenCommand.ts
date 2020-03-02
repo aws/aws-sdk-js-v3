@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type VerifySoftwareTokenCommandInput = VerifySoftwareTokenRequest;
-export type VerifySoftwareTokenCommandOutput = VerifySoftwareTokenResponse;
+export type VerifySoftwareTokenCommandOutput = VerifySoftwareTokenResponse &
+  __MetadataBearer;
 
 export class VerifySoftwareTokenCommand extends $Command<
   VerifySoftwareTokenCommandInput,

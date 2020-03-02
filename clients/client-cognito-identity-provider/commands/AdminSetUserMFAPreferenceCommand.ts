@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminSetUserMFAPreferenceCommandInput = AdminSetUserMFAPreferenceRequest;
-export type AdminSetUserMFAPreferenceCommandOutput = AdminSetUserMFAPreferenceResponse;
+export type AdminSetUserMFAPreferenceCommandOutput = AdminSetUserMFAPreferenceResponse &
+  __MetadataBearer;
 
 export class AdminSetUserMFAPreferenceCommand extends $Command<
   AdminSetUserMFAPreferenceCommandInput,

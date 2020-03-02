@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateNatGatewayCommandInput = CreateNatGatewayRequest;
-export type CreateNatGatewayCommandOutput = CreateNatGatewayResult;
+export type CreateNatGatewayCommandOutput = CreateNatGatewayResult &
+  __MetadataBearer;
 
 export class CreateNatGatewayCommand extends $Command<
   CreateNatGatewayCommandInput,

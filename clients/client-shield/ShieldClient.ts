@@ -1,41 +1,75 @@
 import {
-  AssociateDRTLogBucketRequest,
-  AssociateDRTLogBucketResponse,
-  AssociateDRTRoleRequest,
-  AssociateDRTRoleResponse,
-  CreateProtectionRequest,
-  CreateProtectionResponse,
-  CreateSubscriptionRequest,
-  CreateSubscriptionResponse,
-  DeleteProtectionRequest,
-  DeleteProtectionResponse,
-  DeleteSubscriptionRequest,
-  DeleteSubscriptionResponse,
-  DescribeAttackRequest,
-  DescribeAttackResponse,
-  DescribeDRTAccessRequest,
-  DescribeDRTAccessResponse,
-  DescribeEmergencyContactSettingsRequest,
-  DescribeEmergencyContactSettingsResponse,
-  DescribeProtectionRequest,
-  DescribeProtectionResponse,
-  DescribeSubscriptionRequest,
-  DescribeSubscriptionResponse,
-  DisassociateDRTLogBucketRequest,
-  DisassociateDRTLogBucketResponse,
-  DisassociateDRTRoleRequest,
-  DisassociateDRTRoleResponse,
-  GetSubscriptionStateRequest,
-  GetSubscriptionStateResponse,
-  ListAttacksRequest,
-  ListAttacksResponse,
-  ListProtectionsRequest,
-  ListProtectionsResponse,
-  UpdateEmergencyContactSettingsRequest,
-  UpdateEmergencyContactSettingsResponse,
-  UpdateSubscriptionRequest,
-  UpdateSubscriptionResponse
-} from "./models/index";
+  AssociateDRTLogBucketCommandInput,
+  AssociateDRTLogBucketCommandOutput
+} from "./commands/AssociateDRTLogBucketCommand";
+import {
+  AssociateDRTRoleCommandInput,
+  AssociateDRTRoleCommandOutput
+} from "./commands/AssociateDRTRoleCommand";
+import {
+  CreateProtectionCommandInput,
+  CreateProtectionCommandOutput
+} from "./commands/CreateProtectionCommand";
+import {
+  CreateSubscriptionCommandInput,
+  CreateSubscriptionCommandOutput
+} from "./commands/CreateSubscriptionCommand";
+import {
+  DeleteProtectionCommandInput,
+  DeleteProtectionCommandOutput
+} from "./commands/DeleteProtectionCommand";
+import {
+  DeleteSubscriptionCommandInput,
+  DeleteSubscriptionCommandOutput
+} from "./commands/DeleteSubscriptionCommand";
+import {
+  DescribeAttackCommandInput,
+  DescribeAttackCommandOutput
+} from "./commands/DescribeAttackCommand";
+import {
+  DescribeDRTAccessCommandInput,
+  DescribeDRTAccessCommandOutput
+} from "./commands/DescribeDRTAccessCommand";
+import {
+  DescribeEmergencyContactSettingsCommandInput,
+  DescribeEmergencyContactSettingsCommandOutput
+} from "./commands/DescribeEmergencyContactSettingsCommand";
+import {
+  DescribeProtectionCommandInput,
+  DescribeProtectionCommandOutput
+} from "./commands/DescribeProtectionCommand";
+import {
+  DescribeSubscriptionCommandInput,
+  DescribeSubscriptionCommandOutput
+} from "./commands/DescribeSubscriptionCommand";
+import {
+  DisassociateDRTLogBucketCommandInput,
+  DisassociateDRTLogBucketCommandOutput
+} from "./commands/DisassociateDRTLogBucketCommand";
+import {
+  DisassociateDRTRoleCommandInput,
+  DisassociateDRTRoleCommandOutput
+} from "./commands/DisassociateDRTRoleCommand";
+import {
+  GetSubscriptionStateCommandInput,
+  GetSubscriptionStateCommandOutput
+} from "./commands/GetSubscriptionStateCommand";
+import {
+  ListAttacksCommandInput,
+  ListAttacksCommandOutput
+} from "./commands/ListAttacksCommand";
+import {
+  ListProtectionsCommandInput,
+  ListProtectionsCommandOutput
+} from "./commands/ListProtectionsCommand";
+import {
+  UpdateEmergencyContactSettingsCommandInput,
+  UpdateEmergencyContactSettingsCommandOutput
+} from "./commands/UpdateEmergencyContactSettingsCommand";
+import {
+  UpdateSubscriptionCommandInput,
+  UpdateSubscriptionCommandOutput
+} from "./commands/UpdateSubscriptionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -89,44 +123,44 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateDRTLogBucketRequest
-  | AssociateDRTRoleRequest
-  | CreateProtectionRequest
-  | CreateSubscriptionRequest
-  | DeleteProtectionRequest
-  | DeleteSubscriptionRequest
-  | DescribeAttackRequest
-  | DescribeDRTAccessRequest
-  | DescribeEmergencyContactSettingsRequest
-  | DescribeProtectionRequest
-  | DescribeSubscriptionRequest
-  | DisassociateDRTLogBucketRequest
-  | DisassociateDRTRoleRequest
-  | GetSubscriptionStateRequest
-  | ListAttacksRequest
-  | ListProtectionsRequest
-  | UpdateEmergencyContactSettingsRequest
-  | UpdateSubscriptionRequest;
+  | AssociateDRTLogBucketCommandInput
+  | AssociateDRTRoleCommandInput
+  | CreateProtectionCommandInput
+  | CreateSubscriptionCommandInput
+  | DeleteProtectionCommandInput
+  | DeleteSubscriptionCommandInput
+  | DescribeAttackCommandInput
+  | DescribeDRTAccessCommandInput
+  | DescribeEmergencyContactSettingsCommandInput
+  | DescribeProtectionCommandInput
+  | DescribeSubscriptionCommandInput
+  | DisassociateDRTLogBucketCommandInput
+  | DisassociateDRTRoleCommandInput
+  | GetSubscriptionStateCommandInput
+  | ListAttacksCommandInput
+  | ListProtectionsCommandInput
+  | UpdateEmergencyContactSettingsCommandInput
+  | UpdateSubscriptionCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateDRTLogBucketResponse
-  | AssociateDRTRoleResponse
-  | CreateProtectionResponse
-  | CreateSubscriptionResponse
-  | DeleteProtectionResponse
-  | DeleteSubscriptionResponse
-  | DescribeAttackResponse
-  | DescribeDRTAccessResponse
-  | DescribeEmergencyContactSettingsResponse
-  | DescribeProtectionResponse
-  | DescribeSubscriptionResponse
-  | DisassociateDRTLogBucketResponse
-  | DisassociateDRTRoleResponse
-  | GetSubscriptionStateResponse
-  | ListAttacksResponse
-  | ListProtectionsResponse
-  | UpdateEmergencyContactSettingsResponse
-  | UpdateSubscriptionResponse;
+  | AssociateDRTLogBucketCommandOutput
+  | AssociateDRTRoleCommandOutput
+  | CreateProtectionCommandOutput
+  | CreateSubscriptionCommandOutput
+  | DeleteProtectionCommandOutput
+  | DeleteSubscriptionCommandOutput
+  | DescribeAttackCommandOutput
+  | DescribeDRTAccessCommandOutput
+  | DescribeEmergencyContactSettingsCommandOutput
+  | DescribeProtectionCommandOutput
+  | DescribeSubscriptionCommandOutput
+  | DisassociateDRTLogBucketCommandOutput
+  | DisassociateDRTRoleCommandOutput
+  | GetSubscriptionStateCommandOutput
+  | ListAttacksCommandOutput
+  | ListProtectionsCommandOutput
+  | UpdateEmergencyContactSettingsCommandOutput
+  | UpdateSubscriptionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateUserProfileCommandInput = UpdateUserProfileRequest;
-export type UpdateUserProfileCommandOutput = UpdateUserProfileResult;
+export type UpdateUserProfileCommandOutput = UpdateUserProfileResult &
+  __MetadataBearer;
 
 export class UpdateUserProfileCommand extends $Command<
   UpdateUserProfileCommandInput,

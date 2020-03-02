@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetHostnameSuggestionCommandInput = GetHostnameSuggestionRequest;
-export type GetHostnameSuggestionCommandOutput = GetHostnameSuggestionResult;
+export type GetHostnameSuggestionCommandOutput = GetHostnameSuggestionResult &
+  __MetadataBearer;
 
 export class GetHostnameSuggestionCommand extends $Command<
   GetHostnameSuggestionCommandInput,

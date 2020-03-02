@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListGroundStationsCommandInput = ListGroundStationsRequest;
-export type ListGroundStationsCommandOutput = ListGroundStationsResponse;
+export type ListGroundStationsCommandOutput = ListGroundStationsResponse &
+  __MetadataBearer;
 
 export class ListGroundStationsCommand extends $Command<
   ListGroundStationsCommandInput,

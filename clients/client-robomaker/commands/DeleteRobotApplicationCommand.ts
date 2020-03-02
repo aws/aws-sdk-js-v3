@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRobotApplicationCommandInput = DeleteRobotApplicationRequest;
-export type DeleteRobotApplicationCommandOutput = DeleteRobotApplicationResponse;
+export type DeleteRobotApplicationCommandOutput = DeleteRobotApplicationResponse &
+  __MetadataBearer;
 
 export class DeleteRobotApplicationCommand extends $Command<
   DeleteRobotApplicationCommandInput,

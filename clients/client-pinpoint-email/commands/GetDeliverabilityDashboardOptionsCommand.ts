@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDeliverabilityDashboardOptionsCommandInput = GetDeliverabilityDashboardOptionsRequest;
-export type GetDeliverabilityDashboardOptionsCommandOutput = GetDeliverabilityDashboardOptionsResponse;
+export type GetDeliverabilityDashboardOptionsCommandOutput = GetDeliverabilityDashboardOptionsResponse &
+  __MetadataBearer;
 
 export class GetDeliverabilityDashboardOptionsCommand extends $Command<
   GetDeliverabilityDashboardOptionsCommandInput,

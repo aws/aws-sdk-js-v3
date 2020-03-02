@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListFargateProfilesCommandInput = ListFargateProfilesRequest;
-export type ListFargateProfilesCommandOutput = ListFargateProfilesResponse;
+export type ListFargateProfilesCommandOutput = ListFargateProfilesResponse &
+  __MetadataBearer;
 
 export class ListFargateProfilesCommand extends $Command<
   ListFargateProfilesCommandInput,

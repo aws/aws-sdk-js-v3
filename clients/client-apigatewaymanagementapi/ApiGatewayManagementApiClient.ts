@@ -1,9 +1,15 @@
 import {
-  DeleteConnectionRequest,
-  GetConnectionRequest,
-  GetConnectionResponse,
-  PostToConnectionRequest
-} from "./models/index";
+  DeleteConnectionCommandInput,
+  DeleteConnectionCommandOutput
+} from "./commands/DeleteConnectionCommand";
+import {
+  GetConnectionCommandInput,
+  GetConnectionCommandOutput
+} from "./commands/GetConnectionCommand";
+import {
+  PostToConnectionCommandInput,
+  PostToConnectionCommandOutput
+} from "./commands/PostToConnectionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -51,18 +57,20 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteConnectionRequest
-  | GetConnectionRequest
-  | PostToConnectionRequest;
+  | DeleteConnectionCommandInput
+  | GetConnectionCommandInput
+  | PostToConnectionCommandInput;
 
-export type ServiceOutputTypes = __MetadataBearer | GetConnectionResponse;
+export type ServiceOutputTypes =
+  | DeleteConnectionCommandOutput
+  | GetConnectionCommandOutput
+  | PostToConnectionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

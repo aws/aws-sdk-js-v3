@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type MoveAddressToVpcCommandInput = MoveAddressToVpcRequest;
-export type MoveAddressToVpcCommandOutput = MoveAddressToVpcResult;
+export type MoveAddressToVpcCommandOutput = MoveAddressToVpcResult &
+  __MetadataBearer;
 
 export class MoveAddressToVpcCommand extends $Command<
   MoveAddressToVpcCommandInput,

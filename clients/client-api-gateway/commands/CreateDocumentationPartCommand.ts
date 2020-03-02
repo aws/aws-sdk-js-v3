@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDocumentationPartCommandInput = CreateDocumentationPartRequest;
-export type CreateDocumentationPartCommandOutput = DocumentationPart;
+export type CreateDocumentationPartCommandOutput = DocumentationPart &
+  __MetadataBearer;
 
 export class CreateDocumentationPartCommand extends $Command<
   CreateDocumentationPartCommandInput,

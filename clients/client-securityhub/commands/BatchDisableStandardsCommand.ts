@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDisableStandardsCommandInput = BatchDisableStandardsRequest;
-export type BatchDisableStandardsCommandOutput = BatchDisableStandardsResponse;
+export type BatchDisableStandardsCommandOutput = BatchDisableStandardsResponse &
+  __MetadataBearer;
 
 export class BatchDisableStandardsCommand extends $Command<
   BatchDisableStandardsCommandInput,

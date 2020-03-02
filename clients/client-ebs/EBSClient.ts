@@ -1,11 +1,15 @@
 import {
-  GetSnapshotBlockRequest,
-  GetSnapshotBlockResponse,
-  ListChangedBlocksRequest,
-  ListChangedBlocksResponse,
-  ListSnapshotBlocksRequest,
-  ListSnapshotBlocksResponse
-} from "./models/index";
+  GetSnapshotBlockCommandInput,
+  GetSnapshotBlockCommandOutput
+} from "./commands/GetSnapshotBlockCommand";
+import {
+  ListChangedBlocksCommandInput,
+  ListChangedBlocksCommandOutput
+} from "./commands/ListChangedBlocksCommand";
+import {
+  ListSnapshotBlocksCommandInput,
+  ListSnapshotBlocksCommandOutput
+} from "./commands/ListSnapshotBlocksCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -59,14 +63,14 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | GetSnapshotBlockRequest
-  | ListChangedBlocksRequest
-  | ListSnapshotBlocksRequest;
+  | GetSnapshotBlockCommandInput
+  | ListChangedBlocksCommandInput
+  | ListSnapshotBlocksCommandInput;
 
 export type ServiceOutputTypes =
-  | GetSnapshotBlockResponse
-  | ListChangedBlocksResponse
-  | ListSnapshotBlocksResponse;
+  | GetSnapshotBlockCommandOutput
+  | ListChangedBlocksCommandOutput
+  | ListSnapshotBlocksCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

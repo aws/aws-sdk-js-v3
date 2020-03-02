@@ -1,39 +1,71 @@
 import {
-  CancelJobRequest,
-  CancelJobResponse,
-  CreateJobRequest,
-  CreateJobResponse,
-  CreatePipelineRequest,
-  CreatePipelineResponse,
-  CreatePresetRequest,
-  CreatePresetResponse,
-  DeletePipelineRequest,
-  DeletePipelineResponse,
-  DeletePresetRequest,
-  DeletePresetResponse,
-  ListJobsByPipelineRequest,
-  ListJobsByPipelineResponse,
-  ListJobsByStatusRequest,
-  ListJobsByStatusResponse,
-  ListPipelinesRequest,
-  ListPipelinesResponse,
-  ListPresetsRequest,
-  ListPresetsResponse,
-  ReadJobRequest,
-  ReadJobResponse,
-  ReadPipelineRequest,
-  ReadPipelineResponse,
-  ReadPresetRequest,
-  ReadPresetResponse,
-  TestRoleRequest,
-  TestRoleResponse,
-  UpdatePipelineNotificationsRequest,
-  UpdatePipelineNotificationsResponse,
-  UpdatePipelineRequest,
-  UpdatePipelineResponse,
-  UpdatePipelineStatusRequest,
-  UpdatePipelineStatusResponse
-} from "./models/index";
+  CancelJobCommandInput,
+  CancelJobCommandOutput
+} from "./commands/CancelJobCommand";
+import {
+  CreateJobCommandInput,
+  CreateJobCommandOutput
+} from "./commands/CreateJobCommand";
+import {
+  CreatePipelineCommandInput,
+  CreatePipelineCommandOutput
+} from "./commands/CreatePipelineCommand";
+import {
+  CreatePresetCommandInput,
+  CreatePresetCommandOutput
+} from "./commands/CreatePresetCommand";
+import {
+  DeletePipelineCommandInput,
+  DeletePipelineCommandOutput
+} from "./commands/DeletePipelineCommand";
+import {
+  DeletePresetCommandInput,
+  DeletePresetCommandOutput
+} from "./commands/DeletePresetCommand";
+import {
+  ListJobsByPipelineCommandInput,
+  ListJobsByPipelineCommandOutput
+} from "./commands/ListJobsByPipelineCommand";
+import {
+  ListJobsByStatusCommandInput,
+  ListJobsByStatusCommandOutput
+} from "./commands/ListJobsByStatusCommand";
+import {
+  ListPipelinesCommandInput,
+  ListPipelinesCommandOutput
+} from "./commands/ListPipelinesCommand";
+import {
+  ListPresetsCommandInput,
+  ListPresetsCommandOutput
+} from "./commands/ListPresetsCommand";
+import {
+  ReadJobCommandInput,
+  ReadJobCommandOutput
+} from "./commands/ReadJobCommand";
+import {
+  ReadPipelineCommandInput,
+  ReadPipelineCommandOutput
+} from "./commands/ReadPipelineCommand";
+import {
+  ReadPresetCommandInput,
+  ReadPresetCommandOutput
+} from "./commands/ReadPresetCommand";
+import {
+  TestRoleCommandInput,
+  TestRoleCommandOutput
+} from "./commands/TestRoleCommand";
+import {
+  UpdatePipelineCommandInput,
+  UpdatePipelineCommandOutput
+} from "./commands/UpdatePipelineCommand";
+import {
+  UpdatePipelineNotificationsCommandInput,
+  UpdatePipelineNotificationsCommandOutput
+} from "./commands/UpdatePipelineNotificationsCommand";
+import {
+  UpdatePipelineStatusCommandInput,
+  UpdatePipelineStatusCommandOutput
+} from "./commands/UpdatePipelineStatusCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -87,42 +119,42 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelJobRequest
-  | CreateJobRequest
-  | CreatePipelineRequest
-  | CreatePresetRequest
-  | DeletePipelineRequest
-  | DeletePresetRequest
-  | ListJobsByPipelineRequest
-  | ListJobsByStatusRequest
-  | ListPipelinesRequest
-  | ListPresetsRequest
-  | ReadJobRequest
-  | ReadPipelineRequest
-  | ReadPresetRequest
-  | TestRoleRequest
-  | UpdatePipelineNotificationsRequest
-  | UpdatePipelineRequest
-  | UpdatePipelineStatusRequest;
+  | CancelJobCommandInput
+  | CreateJobCommandInput
+  | CreatePipelineCommandInput
+  | CreatePresetCommandInput
+  | DeletePipelineCommandInput
+  | DeletePresetCommandInput
+  | ListJobsByPipelineCommandInput
+  | ListJobsByStatusCommandInput
+  | ListPipelinesCommandInput
+  | ListPresetsCommandInput
+  | ReadJobCommandInput
+  | ReadPipelineCommandInput
+  | ReadPresetCommandInput
+  | TestRoleCommandInput
+  | UpdatePipelineCommandInput
+  | UpdatePipelineNotificationsCommandInput
+  | UpdatePipelineStatusCommandInput;
 
 export type ServiceOutputTypes =
-  | CancelJobResponse
-  | CreateJobResponse
-  | CreatePipelineResponse
-  | CreatePresetResponse
-  | DeletePipelineResponse
-  | DeletePresetResponse
-  | ListJobsByPipelineResponse
-  | ListJobsByStatusResponse
-  | ListPipelinesResponse
-  | ListPresetsResponse
-  | ReadJobResponse
-  | ReadPipelineResponse
-  | ReadPresetResponse
-  | TestRoleResponse
-  | UpdatePipelineNotificationsResponse
-  | UpdatePipelineResponse
-  | UpdatePipelineStatusResponse;
+  | CancelJobCommandOutput
+  | CreateJobCommandOutput
+  | CreatePipelineCommandOutput
+  | CreatePresetCommandOutput
+  | DeletePipelineCommandOutput
+  | DeletePresetCommandOutput
+  | ListJobsByPipelineCommandOutput
+  | ListJobsByStatusCommandOutput
+  | ListPipelinesCommandOutput
+  | ListPresetsCommandOutput
+  | ReadJobCommandOutput
+  | ReadPipelineCommandOutput
+  | ReadPresetCommandOutput
+  | TestRoleCommandOutput
+  | UpdatePipelineCommandOutput
+  | UpdatePipelineNotificationsCommandOutput
+  | UpdatePipelineStatusCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

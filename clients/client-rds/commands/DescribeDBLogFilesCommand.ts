@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDBLogFilesCommandInput = DescribeDBLogFilesMessage;
-export type DescribeDBLogFilesCommandOutput = DescribeDBLogFilesResponse;
+export type DescribeDBLogFilesCommandOutput = DescribeDBLogFilesResponse &
+  __MetadataBearer;
 
 export class DescribeDBLogFilesCommand extends $Command<
   DescribeDBLogFilesCommandInput,

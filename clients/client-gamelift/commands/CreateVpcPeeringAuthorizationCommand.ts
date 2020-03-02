@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateVpcPeeringAuthorizationCommandInput = CreateVpcPeeringAuthorizationInput;
-export type CreateVpcPeeringAuthorizationCommandOutput = CreateVpcPeeringAuthorizationOutput;
+export type CreateVpcPeeringAuthorizationCommandOutput = CreateVpcPeeringAuthorizationOutput &
+  __MetadataBearer;
 
 export class CreateVpcPeeringAuthorizationCommand extends $Command<
   CreateVpcPeeringAuthorizationCommandInput,

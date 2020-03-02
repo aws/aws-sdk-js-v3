@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePrefixListsCommandInput = DescribePrefixListsRequest;
-export type DescribePrefixListsCommandOutput = DescribePrefixListsResult;
+export type DescribePrefixListsCommandOutput = DescribePrefixListsResult &
+  __MetadataBearer;
 
 export class DescribePrefixListsCommand extends $Command<
   DescribePrefixListsCommandInput,

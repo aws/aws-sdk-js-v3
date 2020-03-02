@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListByteMatchSetsCommandInput = ListByteMatchSetsRequest;
-export type ListByteMatchSetsCommandOutput = ListByteMatchSetsResponse;
+export type ListByteMatchSetsCommandOutput = ListByteMatchSetsResponse &
+  __MetadataBearer;
 
 export class ListByteMatchSetsCommand extends $Command<
   ListByteMatchSetsCommandInput,

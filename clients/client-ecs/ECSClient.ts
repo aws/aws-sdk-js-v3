@@ -1,101 +1,195 @@
 import {
-  CreateCapacityProviderRequest,
-  CreateCapacityProviderResponse,
-  CreateClusterRequest,
-  CreateClusterResponse,
-  CreateServiceRequest,
-  CreateServiceResponse,
-  CreateTaskSetRequest,
-  CreateTaskSetResponse,
-  DeleteAccountSettingRequest,
-  DeleteAccountSettingResponse,
-  DeleteAttributesRequest,
-  DeleteAttributesResponse,
-  DeleteClusterRequest,
-  DeleteClusterResponse,
-  DeleteServiceRequest,
-  DeleteServiceResponse,
-  DeleteTaskSetRequest,
-  DeleteTaskSetResponse,
-  DeregisterContainerInstanceRequest,
-  DeregisterContainerInstanceResponse,
-  DeregisterTaskDefinitionRequest,
-  DeregisterTaskDefinitionResponse,
-  DescribeCapacityProvidersRequest,
-  DescribeCapacityProvidersResponse,
-  DescribeClustersRequest,
-  DescribeClustersResponse,
-  DescribeContainerInstancesRequest,
-  DescribeContainerInstancesResponse,
-  DescribeServicesRequest,
-  DescribeServicesResponse,
-  DescribeTaskDefinitionRequest,
-  DescribeTaskDefinitionResponse,
-  DescribeTaskSetsRequest,
-  DescribeTaskSetsResponse,
-  DescribeTasksRequest,
-  DescribeTasksResponse,
-  DiscoverPollEndpointRequest,
-  DiscoverPollEndpointResponse,
-  ListAccountSettingsRequest,
-  ListAccountSettingsResponse,
-  ListAttributesRequest,
-  ListAttributesResponse,
-  ListClustersRequest,
-  ListClustersResponse,
-  ListContainerInstancesRequest,
-  ListContainerInstancesResponse,
-  ListServicesRequest,
-  ListServicesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTaskDefinitionFamiliesRequest,
-  ListTaskDefinitionFamiliesResponse,
-  ListTaskDefinitionsRequest,
-  ListTaskDefinitionsResponse,
-  ListTasksRequest,
-  ListTasksResponse,
-  PutAccountSettingDefaultRequest,
-  PutAccountSettingDefaultResponse,
-  PutAccountSettingRequest,
-  PutAccountSettingResponse,
-  PutAttributesRequest,
-  PutAttributesResponse,
-  PutClusterCapacityProvidersRequest,
-  PutClusterCapacityProvidersResponse,
-  RegisterContainerInstanceRequest,
-  RegisterContainerInstanceResponse,
-  RegisterTaskDefinitionRequest,
-  RegisterTaskDefinitionResponse,
-  RunTaskRequest,
-  RunTaskResponse,
-  StartTaskRequest,
-  StartTaskResponse,
-  StopTaskRequest,
-  StopTaskResponse,
-  SubmitAttachmentStateChangesRequest,
-  SubmitAttachmentStateChangesResponse,
-  SubmitContainerStateChangeRequest,
-  SubmitContainerStateChangeResponse,
-  SubmitTaskStateChangeRequest,
-  SubmitTaskStateChangeResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateClusterSettingsRequest,
-  UpdateClusterSettingsResponse,
-  UpdateContainerAgentRequest,
-  UpdateContainerAgentResponse,
-  UpdateContainerInstancesStateRequest,
-  UpdateContainerInstancesStateResponse,
-  UpdateServicePrimaryTaskSetRequest,
-  UpdateServicePrimaryTaskSetResponse,
-  UpdateServiceRequest,
-  UpdateServiceResponse,
-  UpdateTaskSetRequest,
-  UpdateTaskSetResponse
-} from "./models/index";
+  CreateCapacityProviderCommandInput,
+  CreateCapacityProviderCommandOutput
+} from "./commands/CreateCapacityProviderCommand";
+import {
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput
+} from "./commands/CreateClusterCommand";
+import {
+  CreateServiceCommandInput,
+  CreateServiceCommandOutput
+} from "./commands/CreateServiceCommand";
+import {
+  CreateTaskSetCommandInput,
+  CreateTaskSetCommandOutput
+} from "./commands/CreateTaskSetCommand";
+import {
+  DeleteAccountSettingCommandInput,
+  DeleteAccountSettingCommandOutput
+} from "./commands/DeleteAccountSettingCommand";
+import {
+  DeleteAttributesCommandInput,
+  DeleteAttributesCommandOutput
+} from "./commands/DeleteAttributesCommand";
+import {
+  DeleteClusterCommandInput,
+  DeleteClusterCommandOutput
+} from "./commands/DeleteClusterCommand";
+import {
+  DeleteServiceCommandInput,
+  DeleteServiceCommandOutput
+} from "./commands/DeleteServiceCommand";
+import {
+  DeleteTaskSetCommandInput,
+  DeleteTaskSetCommandOutput
+} from "./commands/DeleteTaskSetCommand";
+import {
+  DeregisterContainerInstanceCommandInput,
+  DeregisterContainerInstanceCommandOutput
+} from "./commands/DeregisterContainerInstanceCommand";
+import {
+  DeregisterTaskDefinitionCommandInput,
+  DeregisterTaskDefinitionCommandOutput
+} from "./commands/DeregisterTaskDefinitionCommand";
+import {
+  DescribeCapacityProvidersCommandInput,
+  DescribeCapacityProvidersCommandOutput
+} from "./commands/DescribeCapacityProvidersCommand";
+import {
+  DescribeClustersCommandInput,
+  DescribeClustersCommandOutput
+} from "./commands/DescribeClustersCommand";
+import {
+  DescribeContainerInstancesCommandInput,
+  DescribeContainerInstancesCommandOutput
+} from "./commands/DescribeContainerInstancesCommand";
+import {
+  DescribeServicesCommandInput,
+  DescribeServicesCommandOutput
+} from "./commands/DescribeServicesCommand";
+import {
+  DescribeTaskDefinitionCommandInput,
+  DescribeTaskDefinitionCommandOutput
+} from "./commands/DescribeTaskDefinitionCommand";
+import {
+  DescribeTaskSetsCommandInput,
+  DescribeTaskSetsCommandOutput
+} from "./commands/DescribeTaskSetsCommand";
+import {
+  DescribeTasksCommandInput,
+  DescribeTasksCommandOutput
+} from "./commands/DescribeTasksCommand";
+import {
+  DiscoverPollEndpointCommandInput,
+  DiscoverPollEndpointCommandOutput
+} from "./commands/DiscoverPollEndpointCommand";
+import {
+  ListAccountSettingsCommandInput,
+  ListAccountSettingsCommandOutput
+} from "./commands/ListAccountSettingsCommand";
+import {
+  ListAttributesCommandInput,
+  ListAttributesCommandOutput
+} from "./commands/ListAttributesCommand";
+import {
+  ListClustersCommandInput,
+  ListClustersCommandOutput
+} from "./commands/ListClustersCommand";
+import {
+  ListContainerInstancesCommandInput,
+  ListContainerInstancesCommandOutput
+} from "./commands/ListContainerInstancesCommand";
+import {
+  ListServicesCommandInput,
+  ListServicesCommandOutput
+} from "./commands/ListServicesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTaskDefinitionFamiliesCommandInput,
+  ListTaskDefinitionFamiliesCommandOutput
+} from "./commands/ListTaskDefinitionFamiliesCommand";
+import {
+  ListTaskDefinitionsCommandInput,
+  ListTaskDefinitionsCommandOutput
+} from "./commands/ListTaskDefinitionsCommand";
+import {
+  ListTasksCommandInput,
+  ListTasksCommandOutput
+} from "./commands/ListTasksCommand";
+import {
+  PutAccountSettingCommandInput,
+  PutAccountSettingCommandOutput
+} from "./commands/PutAccountSettingCommand";
+import {
+  PutAccountSettingDefaultCommandInput,
+  PutAccountSettingDefaultCommandOutput
+} from "./commands/PutAccountSettingDefaultCommand";
+import {
+  PutAttributesCommandInput,
+  PutAttributesCommandOutput
+} from "./commands/PutAttributesCommand";
+import {
+  PutClusterCapacityProvidersCommandInput,
+  PutClusterCapacityProvidersCommandOutput
+} from "./commands/PutClusterCapacityProvidersCommand";
+import {
+  RegisterContainerInstanceCommandInput,
+  RegisterContainerInstanceCommandOutput
+} from "./commands/RegisterContainerInstanceCommand";
+import {
+  RegisterTaskDefinitionCommandInput,
+  RegisterTaskDefinitionCommandOutput
+} from "./commands/RegisterTaskDefinitionCommand";
+import {
+  RunTaskCommandInput,
+  RunTaskCommandOutput
+} from "./commands/RunTaskCommand";
+import {
+  StartTaskCommandInput,
+  StartTaskCommandOutput
+} from "./commands/StartTaskCommand";
+import {
+  StopTaskCommandInput,
+  StopTaskCommandOutput
+} from "./commands/StopTaskCommand";
+import {
+  SubmitAttachmentStateChangesCommandInput,
+  SubmitAttachmentStateChangesCommandOutput
+} from "./commands/SubmitAttachmentStateChangesCommand";
+import {
+  SubmitContainerStateChangeCommandInput,
+  SubmitContainerStateChangeCommandOutput
+} from "./commands/SubmitContainerStateChangeCommand";
+import {
+  SubmitTaskStateChangeCommandInput,
+  SubmitTaskStateChangeCommandOutput
+} from "./commands/SubmitTaskStateChangeCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateClusterSettingsCommandInput,
+  UpdateClusterSettingsCommandOutput
+} from "./commands/UpdateClusterSettingsCommand";
+import {
+  UpdateContainerAgentCommandInput,
+  UpdateContainerAgentCommandOutput
+} from "./commands/UpdateContainerAgentCommand";
+import {
+  UpdateContainerInstancesStateCommandInput,
+  UpdateContainerInstancesStateCommandOutput
+} from "./commands/UpdateContainerInstancesStateCommand";
+import {
+  UpdateServiceCommandInput,
+  UpdateServiceCommandOutput
+} from "./commands/UpdateServiceCommand";
+import {
+  UpdateServicePrimaryTaskSetCommandInput,
+  UpdateServicePrimaryTaskSetCommandOutput
+} from "./commands/UpdateServicePrimaryTaskSetCommand";
+import {
+  UpdateTaskSetCommandInput,
+  UpdateTaskSetCommandOutput
+} from "./commands/UpdateTaskSetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -149,104 +243,104 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateCapacityProviderRequest
-  | CreateClusterRequest
-  | CreateServiceRequest
-  | CreateTaskSetRequest
-  | DeleteAccountSettingRequest
-  | DeleteAttributesRequest
-  | DeleteClusterRequest
-  | DeleteServiceRequest
-  | DeleteTaskSetRequest
-  | DeregisterContainerInstanceRequest
-  | DeregisterTaskDefinitionRequest
-  | DescribeCapacityProvidersRequest
-  | DescribeClustersRequest
-  | DescribeContainerInstancesRequest
-  | DescribeServicesRequest
-  | DescribeTaskDefinitionRequest
-  | DescribeTaskSetsRequest
-  | DescribeTasksRequest
-  | DiscoverPollEndpointRequest
-  | ListAccountSettingsRequest
-  | ListAttributesRequest
-  | ListClustersRequest
-  | ListContainerInstancesRequest
-  | ListServicesRequest
-  | ListTagsForResourceRequest
-  | ListTaskDefinitionFamiliesRequest
-  | ListTaskDefinitionsRequest
-  | ListTasksRequest
-  | PutAccountSettingDefaultRequest
-  | PutAccountSettingRequest
-  | PutAttributesRequest
-  | PutClusterCapacityProvidersRequest
-  | RegisterContainerInstanceRequest
-  | RegisterTaskDefinitionRequest
-  | RunTaskRequest
-  | StartTaskRequest
-  | StopTaskRequest
-  | SubmitAttachmentStateChangesRequest
-  | SubmitContainerStateChangeRequest
-  | SubmitTaskStateChangeRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateClusterSettingsRequest
-  | UpdateContainerAgentRequest
-  | UpdateContainerInstancesStateRequest
-  | UpdateServicePrimaryTaskSetRequest
-  | UpdateServiceRequest
-  | UpdateTaskSetRequest;
+  | CreateCapacityProviderCommandInput
+  | CreateClusterCommandInput
+  | CreateServiceCommandInput
+  | CreateTaskSetCommandInput
+  | DeleteAccountSettingCommandInput
+  | DeleteAttributesCommandInput
+  | DeleteClusterCommandInput
+  | DeleteServiceCommandInput
+  | DeleteTaskSetCommandInput
+  | DeregisterContainerInstanceCommandInput
+  | DeregisterTaskDefinitionCommandInput
+  | DescribeCapacityProvidersCommandInput
+  | DescribeClustersCommandInput
+  | DescribeContainerInstancesCommandInput
+  | DescribeServicesCommandInput
+  | DescribeTaskDefinitionCommandInput
+  | DescribeTaskSetsCommandInput
+  | DescribeTasksCommandInput
+  | DiscoverPollEndpointCommandInput
+  | ListAccountSettingsCommandInput
+  | ListAttributesCommandInput
+  | ListClustersCommandInput
+  | ListContainerInstancesCommandInput
+  | ListServicesCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTaskDefinitionFamiliesCommandInput
+  | ListTaskDefinitionsCommandInput
+  | ListTasksCommandInput
+  | PutAccountSettingCommandInput
+  | PutAccountSettingDefaultCommandInput
+  | PutAttributesCommandInput
+  | PutClusterCapacityProvidersCommandInput
+  | RegisterContainerInstanceCommandInput
+  | RegisterTaskDefinitionCommandInput
+  | RunTaskCommandInput
+  | StartTaskCommandInput
+  | StopTaskCommandInput
+  | SubmitAttachmentStateChangesCommandInput
+  | SubmitContainerStateChangeCommandInput
+  | SubmitTaskStateChangeCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateClusterSettingsCommandInput
+  | UpdateContainerAgentCommandInput
+  | UpdateContainerInstancesStateCommandInput
+  | UpdateServiceCommandInput
+  | UpdateServicePrimaryTaskSetCommandInput
+  | UpdateTaskSetCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateCapacityProviderResponse
-  | CreateClusterResponse
-  | CreateServiceResponse
-  | CreateTaskSetResponse
-  | DeleteAccountSettingResponse
-  | DeleteAttributesResponse
-  | DeleteClusterResponse
-  | DeleteServiceResponse
-  | DeleteTaskSetResponse
-  | DeregisterContainerInstanceResponse
-  | DeregisterTaskDefinitionResponse
-  | DescribeCapacityProvidersResponse
-  | DescribeClustersResponse
-  | DescribeContainerInstancesResponse
-  | DescribeServicesResponse
-  | DescribeTaskDefinitionResponse
-  | DescribeTaskSetsResponse
-  | DescribeTasksResponse
-  | DiscoverPollEndpointResponse
-  | ListAccountSettingsResponse
-  | ListAttributesResponse
-  | ListClustersResponse
-  | ListContainerInstancesResponse
-  | ListServicesResponse
-  | ListTagsForResourceResponse
-  | ListTaskDefinitionFamiliesResponse
-  | ListTaskDefinitionsResponse
-  | ListTasksResponse
-  | PutAccountSettingDefaultResponse
-  | PutAccountSettingResponse
-  | PutAttributesResponse
-  | PutClusterCapacityProvidersResponse
-  | RegisterContainerInstanceResponse
-  | RegisterTaskDefinitionResponse
-  | RunTaskResponse
-  | StartTaskResponse
-  | StopTaskResponse
-  | SubmitAttachmentStateChangesResponse
-  | SubmitContainerStateChangeResponse
-  | SubmitTaskStateChangeResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateClusterSettingsResponse
-  | UpdateContainerAgentResponse
-  | UpdateContainerInstancesStateResponse
-  | UpdateServicePrimaryTaskSetResponse
-  | UpdateServiceResponse
-  | UpdateTaskSetResponse;
+  | CreateCapacityProviderCommandOutput
+  | CreateClusterCommandOutput
+  | CreateServiceCommandOutput
+  | CreateTaskSetCommandOutput
+  | DeleteAccountSettingCommandOutput
+  | DeleteAttributesCommandOutput
+  | DeleteClusterCommandOutput
+  | DeleteServiceCommandOutput
+  | DeleteTaskSetCommandOutput
+  | DeregisterContainerInstanceCommandOutput
+  | DeregisterTaskDefinitionCommandOutput
+  | DescribeCapacityProvidersCommandOutput
+  | DescribeClustersCommandOutput
+  | DescribeContainerInstancesCommandOutput
+  | DescribeServicesCommandOutput
+  | DescribeTaskDefinitionCommandOutput
+  | DescribeTaskSetsCommandOutput
+  | DescribeTasksCommandOutput
+  | DiscoverPollEndpointCommandOutput
+  | ListAccountSettingsCommandOutput
+  | ListAttributesCommandOutput
+  | ListClustersCommandOutput
+  | ListContainerInstancesCommandOutput
+  | ListServicesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTaskDefinitionFamiliesCommandOutput
+  | ListTaskDefinitionsCommandOutput
+  | ListTasksCommandOutput
+  | PutAccountSettingCommandOutput
+  | PutAccountSettingDefaultCommandOutput
+  | PutAttributesCommandOutput
+  | PutClusterCapacityProvidersCommandOutput
+  | RegisterContainerInstanceCommandOutput
+  | RegisterTaskDefinitionCommandOutput
+  | RunTaskCommandOutput
+  | StartTaskCommandOutput
+  | StopTaskCommandOutput
+  | SubmitAttachmentStateChangesCommandOutput
+  | SubmitContainerStateChangeCommandOutput
+  | SubmitTaskStateChangeCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateClusterSettingsCommandOutput
+  | UpdateContainerAgentCommandOutput
+  | UpdateContainerInstancesStateCommandOutput
+  | UpdateServiceCommandOutput
+  | UpdateServicePrimaryTaskSetCommandOutput
+  | UpdateTaskSetCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

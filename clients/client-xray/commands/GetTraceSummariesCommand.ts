@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTraceSummariesCommandInput = GetTraceSummariesRequest;
-export type GetTraceSummariesCommandOutput = GetTraceSummariesResult;
+export type GetTraceSummariesCommandOutput = GetTraceSummariesResult &
+  __MetadataBearer;
 
 export class GetTraceSummariesCommand extends $Command<
   GetTraceSummariesCommandInput,

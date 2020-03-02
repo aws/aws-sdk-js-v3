@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDiskFromSnapshotCommandInput = CreateDiskFromSnapshotRequest;
-export type CreateDiskFromSnapshotCommandOutput = CreateDiskFromSnapshotResult;
+export type CreateDiskFromSnapshotCommandOutput = CreateDiskFromSnapshotResult &
+  __MetadataBearer;
 
 export class CreateDiskFromSnapshotCommand extends $Command<
   CreateDiskFromSnapshotCommandInput,

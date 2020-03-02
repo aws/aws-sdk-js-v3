@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReleaseStaticIpCommandInput = ReleaseStaticIpRequest;
-export type ReleaseStaticIpCommandOutput = ReleaseStaticIpResult;
+export type ReleaseStaticIpCommandOutput = ReleaseStaticIpResult &
+  __MetadataBearer;
 
 export class ReleaseStaticIpCommand extends $Command<
   ReleaseStaticIpCommandInput,

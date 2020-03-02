@@ -1,13 +1,19 @@
 import {
-  AssociateRepositoryRequest,
-  AssociateRepositoryResponse,
-  DescribeRepositoryAssociationRequest,
-  DescribeRepositoryAssociationResponse,
-  DisassociateRepositoryRequest,
-  DisassociateRepositoryResponse,
-  ListRepositoryAssociationsRequest,
-  ListRepositoryAssociationsResponse
-} from "./models/index";
+  AssociateRepositoryCommandInput,
+  AssociateRepositoryCommandOutput
+} from "./commands/AssociateRepositoryCommand";
+import {
+  DescribeRepositoryAssociationCommandInput,
+  DescribeRepositoryAssociationCommandOutput
+} from "./commands/DescribeRepositoryAssociationCommand";
+import {
+  DisassociateRepositoryCommandInput,
+  DisassociateRepositoryCommandOutput
+} from "./commands/DisassociateRepositoryCommand";
+import {
+  ListRepositoryAssociationsCommandInput,
+  ListRepositoryAssociationsCommandOutput
+} from "./commands/ListRepositoryAssociationsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,16 +67,16 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateRepositoryRequest
-  | DescribeRepositoryAssociationRequest
-  | DisassociateRepositoryRequest
-  | ListRepositoryAssociationsRequest;
+  | AssociateRepositoryCommandInput
+  | DescribeRepositoryAssociationCommandInput
+  | DisassociateRepositoryCommandInput
+  | ListRepositoryAssociationsCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateRepositoryResponse
-  | DescribeRepositoryAssociationResponse
-  | DisassociateRepositoryResponse
-  | ListRepositoryAssociationsResponse;
+  | AssociateRepositoryCommandOutput
+  | DescribeRepositoryAssociationCommandOutput
+  | DisassociateRepositoryCommandOutput
+  | ListRepositoryAssociationsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartImageBuilderCommandInput = StartImageBuilderRequest;
-export type StartImageBuilderCommandOutput = StartImageBuilderResult;
+export type StartImageBuilderCommandOutput = StartImageBuilderResult &
+  __MetadataBearer;
 
 export class StartImageBuilderCommand extends $Command<
   StartImageBuilderCommandInput,

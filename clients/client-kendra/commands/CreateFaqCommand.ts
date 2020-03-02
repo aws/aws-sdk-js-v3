@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateFaqCommandInput = CreateFaqRequest;
-export type CreateFaqCommandOutput = CreateFaqResponse;
+export type CreateFaqCommandOutput = CreateFaqResponse & __MetadataBearer;
 
 export class CreateFaqCommand extends $Command<
   CreateFaqCommandInput,

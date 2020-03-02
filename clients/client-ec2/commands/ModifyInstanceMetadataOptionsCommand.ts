@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyInstanceMetadataOptionsCommandInput = ModifyInstanceMetadataOptionsRequest;
-export type ModifyInstanceMetadataOptionsCommandOutput = ModifyInstanceMetadataOptionsResult;
+export type ModifyInstanceMetadataOptionsCommandOutput = ModifyInstanceMetadataOptionsResult &
+  __MetadataBearer;
 
 export class ModifyInstanceMetadataOptionsCommand extends $Command<
   ModifyInstanceMetadataOptionsCommandInput,

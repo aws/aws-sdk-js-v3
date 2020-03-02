@@ -1,7 +1,7 @@
 import {
-  SendSSHPublicKeyRequest,
-  SendSSHPublicKeyResponse
-} from "./models/index";
+  SendSSHPublicKeyCommandInput,
+  SendSSHPublicKeyCommandOutput
+} from "./commands/SendSSHPublicKeyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -54,9 +54,9 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = SendSSHPublicKeyRequest;
+export type ServiceInputTypes = SendSSHPublicKeyCommandInput;
 
-export type ServiceOutputTypes = SendSSHPublicKeyResponse;
+export type ServiceOutputTypes = SendSSHPublicKeyCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

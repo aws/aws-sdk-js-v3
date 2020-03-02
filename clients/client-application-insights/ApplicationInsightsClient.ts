@@ -1,59 +1,111 @@
 import {
-  CreateApplicationRequest,
-  CreateApplicationResponse,
-  CreateComponentRequest,
-  CreateComponentResponse,
-  CreateLogPatternRequest,
-  CreateLogPatternResponse,
-  DeleteApplicationRequest,
-  DeleteApplicationResponse,
-  DeleteComponentRequest,
-  DeleteComponentResponse,
-  DeleteLogPatternRequest,
-  DeleteLogPatternResponse,
-  DescribeApplicationRequest,
-  DescribeApplicationResponse,
-  DescribeComponentConfigurationRecommendationRequest,
-  DescribeComponentConfigurationRecommendationResponse,
-  DescribeComponentConfigurationRequest,
-  DescribeComponentConfigurationResponse,
-  DescribeComponentRequest,
-  DescribeComponentResponse,
-  DescribeLogPatternRequest,
-  DescribeLogPatternResponse,
-  DescribeObservationRequest,
-  DescribeObservationResponse,
-  DescribeProblemObservationsRequest,
-  DescribeProblemObservationsResponse,
-  DescribeProblemRequest,
-  DescribeProblemResponse,
-  ListApplicationsRequest,
-  ListApplicationsResponse,
-  ListComponentsRequest,
-  ListComponentsResponse,
-  ListConfigurationHistoryRequest,
-  ListConfigurationHistoryResponse,
-  ListLogPatternSetsRequest,
-  ListLogPatternSetsResponse,
-  ListLogPatternsRequest,
-  ListLogPatternsResponse,
-  ListProblemsRequest,
-  ListProblemsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateApplicationRequest,
-  UpdateApplicationResponse,
-  UpdateComponentConfigurationRequest,
-  UpdateComponentConfigurationResponse,
-  UpdateComponentRequest,
-  UpdateComponentResponse,
-  UpdateLogPatternRequest,
-  UpdateLogPatternResponse
-} from "./models/index";
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput
+} from "./commands/CreateApplicationCommand";
+import {
+  CreateComponentCommandInput,
+  CreateComponentCommandOutput
+} from "./commands/CreateComponentCommand";
+import {
+  CreateLogPatternCommandInput,
+  CreateLogPatternCommandOutput
+} from "./commands/CreateLogPatternCommand";
+import {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput
+} from "./commands/DeleteApplicationCommand";
+import {
+  DeleteComponentCommandInput,
+  DeleteComponentCommandOutput
+} from "./commands/DeleteComponentCommand";
+import {
+  DeleteLogPatternCommandInput,
+  DeleteLogPatternCommandOutput
+} from "./commands/DeleteLogPatternCommand";
+import {
+  DescribeApplicationCommandInput,
+  DescribeApplicationCommandOutput
+} from "./commands/DescribeApplicationCommand";
+import {
+  DescribeComponentCommandInput,
+  DescribeComponentCommandOutput
+} from "./commands/DescribeComponentCommand";
+import {
+  DescribeComponentConfigurationCommandInput,
+  DescribeComponentConfigurationCommandOutput
+} from "./commands/DescribeComponentConfigurationCommand";
+import {
+  DescribeComponentConfigurationRecommendationCommandInput,
+  DescribeComponentConfigurationRecommendationCommandOutput
+} from "./commands/DescribeComponentConfigurationRecommendationCommand";
+import {
+  DescribeLogPatternCommandInput,
+  DescribeLogPatternCommandOutput
+} from "./commands/DescribeLogPatternCommand";
+import {
+  DescribeObservationCommandInput,
+  DescribeObservationCommandOutput
+} from "./commands/DescribeObservationCommand";
+import {
+  DescribeProblemCommandInput,
+  DescribeProblemCommandOutput
+} from "./commands/DescribeProblemCommand";
+import {
+  DescribeProblemObservationsCommandInput,
+  DescribeProblemObservationsCommandOutput
+} from "./commands/DescribeProblemObservationsCommand";
+import {
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput
+} from "./commands/ListApplicationsCommand";
+import {
+  ListComponentsCommandInput,
+  ListComponentsCommandOutput
+} from "./commands/ListComponentsCommand";
+import {
+  ListConfigurationHistoryCommandInput,
+  ListConfigurationHistoryCommandOutput
+} from "./commands/ListConfigurationHistoryCommand";
+import {
+  ListLogPatternSetsCommandInput,
+  ListLogPatternSetsCommandOutput
+} from "./commands/ListLogPatternSetsCommand";
+import {
+  ListLogPatternsCommandInput,
+  ListLogPatternsCommandOutput
+} from "./commands/ListLogPatternsCommand";
+import {
+  ListProblemsCommandInput,
+  ListProblemsCommandOutput
+} from "./commands/ListProblemsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput
+} from "./commands/UpdateApplicationCommand";
+import {
+  UpdateComponentCommandInput,
+  UpdateComponentCommandOutput
+} from "./commands/UpdateComponentCommand";
+import {
+  UpdateComponentConfigurationCommandInput,
+  UpdateComponentConfigurationCommandOutput
+} from "./commands/UpdateComponentConfigurationCommand";
+import {
+  UpdateLogPatternCommandInput,
+  UpdateLogPatternCommandOutput
+} from "./commands/UpdateLogPatternCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -107,62 +159,62 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateApplicationRequest
-  | CreateComponentRequest
-  | CreateLogPatternRequest
-  | DeleteApplicationRequest
-  | DeleteComponentRequest
-  | DeleteLogPatternRequest
-  | DescribeApplicationRequest
-  | DescribeComponentConfigurationRecommendationRequest
-  | DescribeComponentConfigurationRequest
-  | DescribeComponentRequest
-  | DescribeLogPatternRequest
-  | DescribeObservationRequest
-  | DescribeProblemObservationsRequest
-  | DescribeProblemRequest
-  | ListApplicationsRequest
-  | ListComponentsRequest
-  | ListConfigurationHistoryRequest
-  | ListLogPatternSetsRequest
-  | ListLogPatternsRequest
-  | ListProblemsRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateApplicationRequest
-  | UpdateComponentConfigurationRequest
-  | UpdateComponentRequest
-  | UpdateLogPatternRequest;
+  | CreateApplicationCommandInput
+  | CreateComponentCommandInput
+  | CreateLogPatternCommandInput
+  | DeleteApplicationCommandInput
+  | DeleteComponentCommandInput
+  | DeleteLogPatternCommandInput
+  | DescribeApplicationCommandInput
+  | DescribeComponentCommandInput
+  | DescribeComponentConfigurationCommandInput
+  | DescribeComponentConfigurationRecommendationCommandInput
+  | DescribeLogPatternCommandInput
+  | DescribeObservationCommandInput
+  | DescribeProblemCommandInput
+  | DescribeProblemObservationsCommandInput
+  | ListApplicationsCommandInput
+  | ListComponentsCommandInput
+  | ListConfigurationHistoryCommandInput
+  | ListLogPatternSetsCommandInput
+  | ListLogPatternsCommandInput
+  | ListProblemsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateApplicationCommandInput
+  | UpdateComponentCommandInput
+  | UpdateComponentConfigurationCommandInput
+  | UpdateLogPatternCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateApplicationResponse
-  | CreateComponentResponse
-  | CreateLogPatternResponse
-  | DeleteApplicationResponse
-  | DeleteComponentResponse
-  | DeleteLogPatternResponse
-  | DescribeApplicationResponse
-  | DescribeComponentConfigurationRecommendationResponse
-  | DescribeComponentConfigurationResponse
-  | DescribeComponentResponse
-  | DescribeLogPatternResponse
-  | DescribeObservationResponse
-  | DescribeProblemObservationsResponse
-  | DescribeProblemResponse
-  | ListApplicationsResponse
-  | ListComponentsResponse
-  | ListConfigurationHistoryResponse
-  | ListLogPatternSetsResponse
-  | ListLogPatternsResponse
-  | ListProblemsResponse
-  | ListTagsForResourceResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateApplicationResponse
-  | UpdateComponentConfigurationResponse
-  | UpdateComponentResponse
-  | UpdateLogPatternResponse;
+  | CreateApplicationCommandOutput
+  | CreateComponentCommandOutput
+  | CreateLogPatternCommandOutput
+  | DeleteApplicationCommandOutput
+  | DeleteComponentCommandOutput
+  | DeleteLogPatternCommandOutput
+  | DescribeApplicationCommandOutput
+  | DescribeComponentCommandOutput
+  | DescribeComponentConfigurationCommandOutput
+  | DescribeComponentConfigurationRecommendationCommandOutput
+  | DescribeLogPatternCommandOutput
+  | DescribeObservationCommandOutput
+  | DescribeProblemCommandOutput
+  | DescribeProblemObservationsCommandOutput
+  | ListApplicationsCommandOutput
+  | ListComponentsCommandOutput
+  | ListConfigurationHistoryCommandOutput
+  | ListLogPatternSetsCommandOutput
+  | ListLogPatternsCommandOutput
+  | ListProblemsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateApplicationCommandOutput
+  | UpdateComponentCommandOutput
+  | UpdateComponentConfigurationCommandOutput
+  | UpdateLogPatternCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

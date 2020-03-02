@@ -1,15 +1,23 @@
 import {
-  CreateParticipantConnectionRequest,
-  CreateParticipantConnectionResponse,
-  DisconnectParticipantRequest,
-  DisconnectParticipantResponse,
-  GetTranscriptRequest,
-  GetTranscriptResponse,
-  SendEventRequest,
-  SendEventResponse,
-  SendMessageRequest,
-  SendMessageResponse
-} from "./models/index";
+  CreateParticipantConnectionCommandInput,
+  CreateParticipantConnectionCommandOutput
+} from "./commands/CreateParticipantConnectionCommand";
+import {
+  DisconnectParticipantCommandInput,
+  DisconnectParticipantCommandOutput
+} from "./commands/DisconnectParticipantCommand";
+import {
+  GetTranscriptCommandInput,
+  GetTranscriptCommandOutput
+} from "./commands/GetTranscriptCommand";
+import {
+  SendEventCommandInput,
+  SendEventCommandOutput
+} from "./commands/SendEventCommand";
+import {
+  SendMessageCommandInput,
+  SendMessageCommandOutput
+} from "./commands/SendMessageCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -63,18 +71,18 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateParticipantConnectionRequest
-  | DisconnectParticipantRequest
-  | GetTranscriptRequest
-  | SendEventRequest
-  | SendMessageRequest;
+  | CreateParticipantConnectionCommandInput
+  | DisconnectParticipantCommandInput
+  | GetTranscriptCommandInput
+  | SendEventCommandInput
+  | SendMessageCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateParticipantConnectionResponse
-  | DisconnectParticipantResponse
-  | GetTranscriptResponse
-  | SendEventResponse
-  | SendMessageResponse;
+  | CreateParticipantConnectionCommandOutput
+  | DisconnectParticipantCommandOutput
+  | GetTranscriptCommandOutput
+  | SendEventCommandOutput
+  | SendMessageCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

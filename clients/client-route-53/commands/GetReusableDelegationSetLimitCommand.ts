@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetReusableDelegationSetLimitCommandInput = GetReusableDelegationSetLimitRequest;
-export type GetReusableDelegationSetLimitCommandOutput = GetReusableDelegationSetLimitResponse;
+export type GetReusableDelegationSetLimitCommandOutput = GetReusableDelegationSetLimitResponse &
+  __MetadataBearer;
 
 export class GetReusableDelegationSetLimitCommand extends $Command<
   GetReusableDelegationSetLimitCommandInput,

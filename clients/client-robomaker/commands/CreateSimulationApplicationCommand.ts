@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSimulationApplicationCommandInput = CreateSimulationApplicationRequest;
-export type CreateSimulationApplicationCommandOutput = CreateSimulationApplicationResponse;
+export type CreateSimulationApplicationCommandOutput = CreateSimulationApplicationResponse &
+  __MetadataBearer;
 
 export class CreateSimulationApplicationCommand extends $Command<
   CreateSimulationApplicationCommandInput,

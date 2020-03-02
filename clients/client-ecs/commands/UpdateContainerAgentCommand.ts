@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateContainerAgentCommandInput = UpdateContainerAgentRequest;
-export type UpdateContainerAgentCommandOutput = UpdateContainerAgentResponse;
+export type UpdateContainerAgentCommandOutput = UpdateContainerAgentResponse &
+  __MetadataBearer;
 
 export class UpdateContainerAgentCommand extends $Command<
   UpdateContainerAgentCommandInput,

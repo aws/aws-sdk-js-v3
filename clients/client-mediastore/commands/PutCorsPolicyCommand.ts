@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutCorsPolicyCommandInput = PutCorsPolicyInput;
-export type PutCorsPolicyCommandOutput = PutCorsPolicyOutput;
+export type PutCorsPolicyCommandOutput = PutCorsPolicyOutput & __MetadataBearer;
 
 export class PutCorsPolicyCommand extends $Command<
   PutCorsPolicyCommandInput,

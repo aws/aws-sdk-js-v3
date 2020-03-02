@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListGitHubAccountTokenNamesCommandInput = ListGitHubAccountTokenNamesInput;
-export type ListGitHubAccountTokenNamesCommandOutput = ListGitHubAccountTokenNamesOutput;
+export type ListGitHubAccountTokenNamesCommandOutput = ListGitHubAccountTokenNamesOutput &
+  __MetadataBearer;
 
 export class ListGitHubAccountTokenNamesCommand extends $Command<
   ListGitHubAccountTokenNamesCommandInput,

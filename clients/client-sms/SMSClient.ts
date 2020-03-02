@@ -1,61 +1,115 @@
 import {
-  CreateAppRequest,
-  CreateAppResponse,
-  CreateReplicationJobRequest,
-  CreateReplicationJobResponse,
-  DeleteAppLaunchConfigurationRequest,
-  DeleteAppLaunchConfigurationResponse,
-  DeleteAppReplicationConfigurationRequest,
-  DeleteAppReplicationConfigurationResponse,
-  DeleteAppRequest,
-  DeleteAppResponse,
-  DeleteReplicationJobRequest,
-  DeleteReplicationJobResponse,
-  DeleteServerCatalogRequest,
-  DeleteServerCatalogResponse,
-  DisassociateConnectorRequest,
-  DisassociateConnectorResponse,
-  GenerateChangeSetRequest,
-  GenerateChangeSetResponse,
-  GenerateTemplateRequest,
-  GenerateTemplateResponse,
-  GetAppLaunchConfigurationRequest,
-  GetAppLaunchConfigurationResponse,
-  GetAppReplicationConfigurationRequest,
-  GetAppReplicationConfigurationResponse,
-  GetAppRequest,
-  GetAppResponse,
-  GetConnectorsRequest,
-  GetConnectorsResponse,
-  GetReplicationJobsRequest,
-  GetReplicationJobsResponse,
-  GetReplicationRunsRequest,
-  GetReplicationRunsResponse,
-  GetServersRequest,
-  GetServersResponse,
-  ImportServerCatalogRequest,
-  ImportServerCatalogResponse,
-  LaunchAppRequest,
-  LaunchAppResponse,
-  ListAppsRequest,
-  ListAppsResponse,
-  PutAppLaunchConfigurationRequest,
-  PutAppLaunchConfigurationResponse,
-  PutAppReplicationConfigurationRequest,
-  PutAppReplicationConfigurationResponse,
-  StartAppReplicationRequest,
-  StartAppReplicationResponse,
-  StartOnDemandReplicationRunRequest,
-  StartOnDemandReplicationRunResponse,
-  StopAppReplicationRequest,
-  StopAppReplicationResponse,
-  TerminateAppRequest,
-  TerminateAppResponse,
-  UpdateAppRequest,
-  UpdateAppResponse,
-  UpdateReplicationJobRequest,
-  UpdateReplicationJobResponse
-} from "./models/index";
+  CreateAppCommandInput,
+  CreateAppCommandOutput
+} from "./commands/CreateAppCommand";
+import {
+  CreateReplicationJobCommandInput,
+  CreateReplicationJobCommandOutput
+} from "./commands/CreateReplicationJobCommand";
+import {
+  DeleteAppCommandInput,
+  DeleteAppCommandOutput
+} from "./commands/DeleteAppCommand";
+import {
+  DeleteAppLaunchConfigurationCommandInput,
+  DeleteAppLaunchConfigurationCommandOutput
+} from "./commands/DeleteAppLaunchConfigurationCommand";
+import {
+  DeleteAppReplicationConfigurationCommandInput,
+  DeleteAppReplicationConfigurationCommandOutput
+} from "./commands/DeleteAppReplicationConfigurationCommand";
+import {
+  DeleteReplicationJobCommandInput,
+  DeleteReplicationJobCommandOutput
+} from "./commands/DeleteReplicationJobCommand";
+import {
+  DeleteServerCatalogCommandInput,
+  DeleteServerCatalogCommandOutput
+} from "./commands/DeleteServerCatalogCommand";
+import {
+  DisassociateConnectorCommandInput,
+  DisassociateConnectorCommandOutput
+} from "./commands/DisassociateConnectorCommand";
+import {
+  GenerateChangeSetCommandInput,
+  GenerateChangeSetCommandOutput
+} from "./commands/GenerateChangeSetCommand";
+import {
+  GenerateTemplateCommandInput,
+  GenerateTemplateCommandOutput
+} from "./commands/GenerateTemplateCommand";
+import {
+  GetAppCommandInput,
+  GetAppCommandOutput
+} from "./commands/GetAppCommand";
+import {
+  GetAppLaunchConfigurationCommandInput,
+  GetAppLaunchConfigurationCommandOutput
+} from "./commands/GetAppLaunchConfigurationCommand";
+import {
+  GetAppReplicationConfigurationCommandInput,
+  GetAppReplicationConfigurationCommandOutput
+} from "./commands/GetAppReplicationConfigurationCommand";
+import {
+  GetConnectorsCommandInput,
+  GetConnectorsCommandOutput
+} from "./commands/GetConnectorsCommand";
+import {
+  GetReplicationJobsCommandInput,
+  GetReplicationJobsCommandOutput
+} from "./commands/GetReplicationJobsCommand";
+import {
+  GetReplicationRunsCommandInput,
+  GetReplicationRunsCommandOutput
+} from "./commands/GetReplicationRunsCommand";
+import {
+  GetServersCommandInput,
+  GetServersCommandOutput
+} from "./commands/GetServersCommand";
+import {
+  ImportServerCatalogCommandInput,
+  ImportServerCatalogCommandOutput
+} from "./commands/ImportServerCatalogCommand";
+import {
+  LaunchAppCommandInput,
+  LaunchAppCommandOutput
+} from "./commands/LaunchAppCommand";
+import {
+  ListAppsCommandInput,
+  ListAppsCommandOutput
+} from "./commands/ListAppsCommand";
+import {
+  PutAppLaunchConfigurationCommandInput,
+  PutAppLaunchConfigurationCommandOutput
+} from "./commands/PutAppLaunchConfigurationCommand";
+import {
+  PutAppReplicationConfigurationCommandInput,
+  PutAppReplicationConfigurationCommandOutput
+} from "./commands/PutAppReplicationConfigurationCommand";
+import {
+  StartAppReplicationCommandInput,
+  StartAppReplicationCommandOutput
+} from "./commands/StartAppReplicationCommand";
+import {
+  StartOnDemandReplicationRunCommandInput,
+  StartOnDemandReplicationRunCommandOutput
+} from "./commands/StartOnDemandReplicationRunCommand";
+import {
+  StopAppReplicationCommandInput,
+  StopAppReplicationCommandOutput
+} from "./commands/StopAppReplicationCommand";
+import {
+  TerminateAppCommandInput,
+  TerminateAppCommandOutput
+} from "./commands/TerminateAppCommand";
+import {
+  UpdateAppCommandInput,
+  UpdateAppCommandOutput
+} from "./commands/UpdateAppCommand";
+import {
+  UpdateReplicationJobCommandInput,
+  UpdateReplicationJobCommandOutput
+} from "./commands/UpdateReplicationJobCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -109,64 +163,64 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateAppRequest
-  | CreateReplicationJobRequest
-  | DeleteAppLaunchConfigurationRequest
-  | DeleteAppReplicationConfigurationRequest
-  | DeleteAppRequest
-  | DeleteReplicationJobRequest
-  | DeleteServerCatalogRequest
-  | DisassociateConnectorRequest
-  | GenerateChangeSetRequest
-  | GenerateTemplateRequest
-  | GetAppLaunchConfigurationRequest
-  | GetAppReplicationConfigurationRequest
-  | GetAppRequest
-  | GetConnectorsRequest
-  | GetReplicationJobsRequest
-  | GetReplicationRunsRequest
-  | GetServersRequest
-  | ImportServerCatalogRequest
-  | LaunchAppRequest
-  | ListAppsRequest
-  | PutAppLaunchConfigurationRequest
-  | PutAppReplicationConfigurationRequest
-  | StartAppReplicationRequest
-  | StartOnDemandReplicationRunRequest
-  | StopAppReplicationRequest
-  | TerminateAppRequest
-  | UpdateAppRequest
-  | UpdateReplicationJobRequest;
+  | CreateAppCommandInput
+  | CreateReplicationJobCommandInput
+  | DeleteAppCommandInput
+  | DeleteAppLaunchConfigurationCommandInput
+  | DeleteAppReplicationConfigurationCommandInput
+  | DeleteReplicationJobCommandInput
+  | DeleteServerCatalogCommandInput
+  | DisassociateConnectorCommandInput
+  | GenerateChangeSetCommandInput
+  | GenerateTemplateCommandInput
+  | GetAppCommandInput
+  | GetAppLaunchConfigurationCommandInput
+  | GetAppReplicationConfigurationCommandInput
+  | GetConnectorsCommandInput
+  | GetReplicationJobsCommandInput
+  | GetReplicationRunsCommandInput
+  | GetServersCommandInput
+  | ImportServerCatalogCommandInput
+  | LaunchAppCommandInput
+  | ListAppsCommandInput
+  | PutAppLaunchConfigurationCommandInput
+  | PutAppReplicationConfigurationCommandInput
+  | StartAppReplicationCommandInput
+  | StartOnDemandReplicationRunCommandInput
+  | StopAppReplicationCommandInput
+  | TerminateAppCommandInput
+  | UpdateAppCommandInput
+  | UpdateReplicationJobCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateAppResponse
-  | CreateReplicationJobResponse
-  | DeleteAppLaunchConfigurationResponse
-  | DeleteAppReplicationConfigurationResponse
-  | DeleteAppResponse
-  | DeleteReplicationJobResponse
-  | DeleteServerCatalogResponse
-  | DisassociateConnectorResponse
-  | GenerateChangeSetResponse
-  | GenerateTemplateResponse
-  | GetAppLaunchConfigurationResponse
-  | GetAppReplicationConfigurationResponse
-  | GetAppResponse
-  | GetConnectorsResponse
-  | GetReplicationJobsResponse
-  | GetReplicationRunsResponse
-  | GetServersResponse
-  | ImportServerCatalogResponse
-  | LaunchAppResponse
-  | ListAppsResponse
-  | PutAppLaunchConfigurationResponse
-  | PutAppReplicationConfigurationResponse
-  | StartAppReplicationResponse
-  | StartOnDemandReplicationRunResponse
-  | StopAppReplicationResponse
-  | TerminateAppResponse
-  | UpdateAppResponse
-  | UpdateReplicationJobResponse;
+  | CreateAppCommandOutput
+  | CreateReplicationJobCommandOutput
+  | DeleteAppCommandOutput
+  | DeleteAppLaunchConfigurationCommandOutput
+  | DeleteAppReplicationConfigurationCommandOutput
+  | DeleteReplicationJobCommandOutput
+  | DeleteServerCatalogCommandOutput
+  | DisassociateConnectorCommandOutput
+  | GenerateChangeSetCommandOutput
+  | GenerateTemplateCommandOutput
+  | GetAppCommandOutput
+  | GetAppLaunchConfigurationCommandOutput
+  | GetAppReplicationConfigurationCommandOutput
+  | GetConnectorsCommandOutput
+  | GetReplicationJobsCommandOutput
+  | GetReplicationRunsCommandOutput
+  | GetServersCommandOutput
+  | ImportServerCatalogCommandOutput
+  | LaunchAppCommandOutput
+  | ListAppsCommandOutput
+  | PutAppLaunchConfigurationCommandOutput
+  | PutAppReplicationConfigurationCommandOutput
+  | StartAppReplicationCommandOutput
+  | StartOnDemandReplicationRunCommandOutput
+  | StopAppReplicationCommandOutput
+  | TerminateAppCommandOutput
+  | UpdateAppCommandOutput
+  | UpdateReplicationJobCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateCustomKeyStoreCommandInput = UpdateCustomKeyStoreRequest;
-export type UpdateCustomKeyStoreCommandOutput = UpdateCustomKeyStoreResponse;
+export type UpdateCustomKeyStoreCommandOutput = UpdateCustomKeyStoreResponse &
+  __MetadataBearer;
 
 export class UpdateCustomKeyStoreCommand extends $Command<
   UpdateCustomKeyStoreCommandInput,

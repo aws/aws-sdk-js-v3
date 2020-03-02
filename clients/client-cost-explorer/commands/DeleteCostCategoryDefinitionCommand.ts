@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCostCategoryDefinitionCommandInput = DeleteCostCategoryDefinitionRequest;
-export type DeleteCostCategoryDefinitionCommandOutput = DeleteCostCategoryDefinitionResponse;
+export type DeleteCostCategoryDefinitionCommandOutput = DeleteCostCategoryDefinitionResponse &
+  __MetadataBearer;
 
 export class DeleteCostCategoryDefinitionCommand extends $Command<
   DeleteCostCategoryDefinitionCommandInput,

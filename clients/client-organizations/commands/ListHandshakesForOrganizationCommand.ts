@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListHandshakesForOrganizationCommandInput = ListHandshakesForOrganizationRequest;
-export type ListHandshakesForOrganizationCommandOutput = ListHandshakesForOrganizationResponse;
+export type ListHandshakesForOrganizationCommandOutput = ListHandshakesForOrganizationResponse &
+  __MetadataBearer;
 
 export class ListHandshakesForOrganizationCommand extends $Command<
   ListHandshakesForOrganizationCommandInput,

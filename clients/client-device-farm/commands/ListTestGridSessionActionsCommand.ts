@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTestGridSessionActionsCommandInput = ListTestGridSessionActionsRequest;
-export type ListTestGridSessionActionsCommandOutput = ListTestGridSessionActionsResult;
+export type ListTestGridSessionActionsCommandOutput = ListTestGridSessionActionsResult &
+  __MetadataBearer;
 
 export class ListTestGridSessionActionsCommand extends $Command<
   ListTestGridSessionActionsCommandInput,

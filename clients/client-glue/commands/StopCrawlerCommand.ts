@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopCrawlerCommandInput = StopCrawlerRequest;
-export type StopCrawlerCommandOutput = StopCrawlerResponse;
+export type StopCrawlerCommandOutput = StopCrawlerResponse & __MetadataBearer;
 
 export class StopCrawlerCommand extends $Command<
   StopCrawlerCommandInput,

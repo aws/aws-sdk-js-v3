@@ -40,7 +40,7 @@ export namespace CreateParticipantConnectionRequest {
   }
 }
 
-export interface CreateParticipantConnectionResponse extends $MetadataBearer {
+export interface CreateParticipantConnectionResponse {
   __type?: "CreateParticipantConnectionResponse";
   /**
    * <p>Creates the participant's connection credentials. The authentication token associated
@@ -80,7 +80,7 @@ export namespace DisconnectParticipantRequest {
   }
 }
 
-export interface DisconnectParticipantResponse extends $MetadataBearer {
+export interface DisconnectParticipantResponse {
   __type?: "DisconnectParticipantResponse";
 }
 
@@ -136,7 +136,7 @@ export namespace GetTranscriptRequest {
   }
 }
 
-export interface GetTranscriptResponse extends $MetadataBearer {
+export interface GetTranscriptResponse {
   __type?: "GetTranscriptResponse";
   /**
    * <p>The initial contact ID for the contact. </p>
@@ -218,7 +218,7 @@ export namespace SendEventRequest {
   }
 }
 
-export interface SendEventResponse extends $MetadataBearer {
+export interface SendEventResponse {
   __type?: "SendEventResponse";
   /**
    * <p>The time when the event was sent.</p>
@@ -269,7 +269,7 @@ export namespace SendMessageRequest {
   }
 }
 
-export interface SendMessageResponse extends $MetadataBearer {
+export interface SendMessageResponse {
   __type?: "SendMessageResponse";
   /**
    * <p>The time when the message was sent.</p>

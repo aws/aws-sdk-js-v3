@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteProvisionedProductPlanCommandInput = DeleteProvisionedProductPlanInput;
-export type DeleteProvisionedProductPlanCommandOutput = DeleteProvisionedProductPlanOutput;
+export type DeleteProvisionedProductPlanCommandOutput = DeleteProvisionedProductPlanOutput &
+  __MetadataBearer;
 
 export class DeleteProvisionedProductPlanCommand extends $Command<
   DeleteProvisionedProductPlanCommandInput,

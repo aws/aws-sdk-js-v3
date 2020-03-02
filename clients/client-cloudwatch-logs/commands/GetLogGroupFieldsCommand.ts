@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLogGroupFieldsCommandInput = GetLogGroupFieldsRequest;
-export type GetLogGroupFieldsCommandOutput = GetLogGroupFieldsResponse;
+export type GetLogGroupFieldsCommandOutput = GetLogGroupFieldsResponse &
+  __MetadataBearer;
 
 export class GetLogGroupFieldsCommand extends $Command<
   GetLogGroupFieldsCommandInput,

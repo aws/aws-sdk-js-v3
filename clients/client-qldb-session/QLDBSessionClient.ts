@@ -1,4 +1,7 @@
-import { SendCommandRequest, SendCommandResult } from "./models/index";
+import {
+  SendCommandCommandInput,
+  SendCommandCommandOutput
+} from "./commands/SendCommandCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -51,9 +54,9 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = SendCommandRequest;
+export type ServiceInputTypes = SendCommandCommandInput;
 
-export type ServiceOutputTypes = SendCommandResult;
+export type ServiceOutputTypes = SendCommandCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

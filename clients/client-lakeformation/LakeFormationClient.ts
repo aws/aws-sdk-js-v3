@@ -1,31 +1,55 @@
 import {
-  BatchGrantPermissionsRequest,
-  BatchGrantPermissionsResponse,
-  BatchRevokePermissionsRequest,
-  BatchRevokePermissionsResponse,
-  DeregisterResourceRequest,
-  DeregisterResourceResponse,
-  DescribeResourceRequest,
-  DescribeResourceResponse,
-  GetDataLakeSettingsRequest,
-  GetDataLakeSettingsResponse,
-  GetEffectivePermissionsForPathRequest,
-  GetEffectivePermissionsForPathResponse,
-  GrantPermissionsRequest,
-  GrantPermissionsResponse,
-  ListPermissionsRequest,
-  ListPermissionsResponse,
-  ListResourcesRequest,
-  ListResourcesResponse,
-  PutDataLakeSettingsRequest,
-  PutDataLakeSettingsResponse,
-  RegisterResourceRequest,
-  RegisterResourceResponse,
-  RevokePermissionsRequest,
-  RevokePermissionsResponse,
-  UpdateResourceRequest,
-  UpdateResourceResponse
-} from "./models/index";
+  BatchGrantPermissionsCommandInput,
+  BatchGrantPermissionsCommandOutput
+} from "./commands/BatchGrantPermissionsCommand";
+import {
+  BatchRevokePermissionsCommandInput,
+  BatchRevokePermissionsCommandOutput
+} from "./commands/BatchRevokePermissionsCommand";
+import {
+  DeregisterResourceCommandInput,
+  DeregisterResourceCommandOutput
+} from "./commands/DeregisterResourceCommand";
+import {
+  DescribeResourceCommandInput,
+  DescribeResourceCommandOutput
+} from "./commands/DescribeResourceCommand";
+import {
+  GetDataLakeSettingsCommandInput,
+  GetDataLakeSettingsCommandOutput
+} from "./commands/GetDataLakeSettingsCommand";
+import {
+  GetEffectivePermissionsForPathCommandInput,
+  GetEffectivePermissionsForPathCommandOutput
+} from "./commands/GetEffectivePermissionsForPathCommand";
+import {
+  GrantPermissionsCommandInput,
+  GrantPermissionsCommandOutput
+} from "./commands/GrantPermissionsCommand";
+import {
+  ListPermissionsCommandInput,
+  ListPermissionsCommandOutput
+} from "./commands/ListPermissionsCommand";
+import {
+  ListResourcesCommandInput,
+  ListResourcesCommandOutput
+} from "./commands/ListResourcesCommand";
+import {
+  PutDataLakeSettingsCommandInput,
+  PutDataLakeSettingsCommandOutput
+} from "./commands/PutDataLakeSettingsCommand";
+import {
+  RegisterResourceCommandInput,
+  RegisterResourceCommandOutput
+} from "./commands/RegisterResourceCommand";
+import {
+  RevokePermissionsCommandInput,
+  RevokePermissionsCommandOutput
+} from "./commands/RevokePermissionsCommand";
+import {
+  UpdateResourceCommandInput,
+  UpdateResourceCommandOutput
+} from "./commands/UpdateResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -79,34 +103,34 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchGrantPermissionsRequest
-  | BatchRevokePermissionsRequest
-  | DeregisterResourceRequest
-  | DescribeResourceRequest
-  | GetDataLakeSettingsRequest
-  | GetEffectivePermissionsForPathRequest
-  | GrantPermissionsRequest
-  | ListPermissionsRequest
-  | ListResourcesRequest
-  | PutDataLakeSettingsRequest
-  | RegisterResourceRequest
-  | RevokePermissionsRequest
-  | UpdateResourceRequest;
+  | BatchGrantPermissionsCommandInput
+  | BatchRevokePermissionsCommandInput
+  | DeregisterResourceCommandInput
+  | DescribeResourceCommandInput
+  | GetDataLakeSettingsCommandInput
+  | GetEffectivePermissionsForPathCommandInput
+  | GrantPermissionsCommandInput
+  | ListPermissionsCommandInput
+  | ListResourcesCommandInput
+  | PutDataLakeSettingsCommandInput
+  | RegisterResourceCommandInput
+  | RevokePermissionsCommandInput
+  | UpdateResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchGrantPermissionsResponse
-  | BatchRevokePermissionsResponse
-  | DeregisterResourceResponse
-  | DescribeResourceResponse
-  | GetDataLakeSettingsResponse
-  | GetEffectivePermissionsForPathResponse
-  | GrantPermissionsResponse
-  | ListPermissionsResponse
-  | ListResourcesResponse
-  | PutDataLakeSettingsResponse
-  | RegisterResourceResponse
-  | RevokePermissionsResponse
-  | UpdateResourceResponse;
+  | BatchGrantPermissionsCommandOutput
+  | BatchRevokePermissionsCommandOutput
+  | DeregisterResourceCommandOutput
+  | DescribeResourceCommandOutput
+  | GetDataLakeSettingsCommandOutput
+  | GetEffectivePermissionsForPathCommandOutput
+  | GrantPermissionsCommandOutput
+  | ListPermissionsCommandOutput
+  | ListResourcesCommandOutput
+  | PutDataLakeSettingsCommandOutput
+  | RegisterResourceCommandOutput
+  | RevokePermissionsCommandOutput
+  | UpdateResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

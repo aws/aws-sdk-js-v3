@@ -52,7 +52,7 @@ export namespace AssociateDRTLogBucketRequest {
   }
 }
 
-export interface AssociateDRTLogBucketResponse extends $MetadataBearer {
+export interface AssociateDRTLogBucketResponse {
   __type?: "AssociateDRTLogBucketResponse";
 }
 
@@ -77,7 +77,7 @@ export namespace AssociateDRTRoleRequest {
   }
 }
 
-export interface AssociateDRTRoleResponse extends $MetadataBearer {
+export interface AssociateDRTRoleResponse {
   __type?: "AssociateDRTRoleResponse";
 }
 
@@ -386,7 +386,7 @@ export namespace CreateProtectionRequest {
   }
 }
 
-export interface CreateProtectionResponse extends $MetadataBearer {
+export interface CreateProtectionResponse {
   __type?: "CreateProtectionResponse";
   /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object that is
@@ -411,7 +411,7 @@ export namespace CreateSubscriptionRequest {
   }
 }
 
-export interface CreateSubscriptionResponse extends $MetadataBearer {
+export interface CreateSubscriptionResponse {
   __type?: "CreateSubscriptionResponse";
 }
 
@@ -436,7 +436,7 @@ export namespace DeleteProtectionRequest {
   }
 }
 
-export interface DeleteProtectionResponse extends $MetadataBearer {
+export interface DeleteProtectionResponse {
   __type?: "DeleteProtectionResponse";
 }
 
@@ -456,7 +456,7 @@ export namespace DeleteSubscriptionRequest {
   }
 }
 
-export interface DeleteSubscriptionResponse extends $MetadataBearer {
+export interface DeleteSubscriptionResponse {
   __type?: "DeleteSubscriptionResponse";
 }
 
@@ -480,7 +480,7 @@ export namespace DescribeAttackRequest {
   }
 }
 
-export interface DescribeAttackResponse extends $MetadataBearer {
+export interface DescribeAttackResponse {
   __type?: "DescribeAttackResponse";
   /**
    * <p>The attack that is described.</p>
@@ -504,7 +504,7 @@ export namespace DescribeDRTAccessRequest {
   }
 }
 
-export interface DescribeDRTAccessResponse extends $MetadataBearer {
+export interface DescribeDRTAccessResponse {
   __type?: "DescribeDRTAccessResponse";
   /**
    * <p>The list of Amazon S3 buckets accessed by the DRT.</p>
@@ -533,8 +533,7 @@ export namespace DescribeEmergencyContactSettingsRequest {
   }
 }
 
-export interface DescribeEmergencyContactSettingsResponse
-  extends $MetadataBearer {
+export interface DescribeEmergencyContactSettingsResponse {
   __type?: "DescribeEmergencyContactSettingsResponse";
   /**
    * <p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>
@@ -569,7 +568,7 @@ export namespace DescribeProtectionRequest {
   }
 }
 
-export interface DescribeProtectionResponse extends $MetadataBearer {
+export interface DescribeProtectionResponse {
   __type?: "DescribeProtectionResponse";
   /**
    * <p>The <a>Protection</a> object that is described.</p>
@@ -593,7 +592,7 @@ export namespace DescribeSubscriptionRequest {
   }
 }
 
-export interface DescribeSubscriptionResponse extends $MetadataBearer {
+export interface DescribeSubscriptionResponse {
   __type?: "DescribeSubscriptionResponse";
   /**
    * <p>The AWS Shield Advanced subscription details for an account.</p>
@@ -621,7 +620,7 @@ export namespace DisassociateDRTLogBucketRequest {
   }
 }
 
-export interface DisassociateDRTLogBucketResponse extends $MetadataBearer {
+export interface DisassociateDRTLogBucketResponse {
   __type?: "DisassociateDRTLogBucketResponse";
 }
 
@@ -641,7 +640,7 @@ export namespace DisassociateDRTRoleRequest {
   }
 }
 
-export interface DisassociateDRTRoleResponse extends $MetadataBearer {
+export interface DisassociateDRTRoleResponse {
   __type?: "DisassociateDRTRoleResponse";
 }
 
@@ -678,7 +677,7 @@ export namespace GetSubscriptionStateRequest {
   }
 }
 
-export interface GetSubscriptionStateResponse extends $MetadataBearer {
+export interface GetSubscriptionStateResponse {
   __type?: "GetSubscriptionStateResponse";
   /**
    * <p>The status of the subscription.</p>
@@ -859,7 +858,7 @@ export namespace ListAttacksRequest {
   }
 }
 
-export interface ListAttacksResponse extends $MetadataBearer {
+export interface ListAttacksResponse {
   __type?: "ListAttacksResponse";
   /**
    * <p>The attack information for the specified time range.</p>
@@ -903,7 +902,7 @@ export namespace ListProtectionsRequest {
   }
 }
 
-export interface ListProtectionsResponse extends $MetadataBearer {
+export interface ListProtectionsResponse {
   __type?: "ListProtectionsResponse";
   /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>
@@ -1240,8 +1239,7 @@ export namespace UpdateEmergencyContactSettingsRequest {
   }
 }
 
-export interface UpdateEmergencyContactSettingsResponse
-  extends $MetadataBearer {
+export interface UpdateEmergencyContactSettingsResponse {
   __type?: "UpdateEmergencyContactSettingsResponse";
 }
 
@@ -1265,7 +1263,7 @@ export namespace UpdateSubscriptionRequest {
   }
 }
 
-export interface UpdateSubscriptionResponse extends $MetadataBearer {
+export interface UpdateSubscriptionResponse {
   __type?: "UpdateSubscriptionResponse";
 }
 

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTestGridSessionCommandInput = GetTestGridSessionRequest;
-export type GetTestGridSessionCommandOutput = GetTestGridSessionResult;
+export type GetTestGridSessionCommandOutput = GetTestGridSessionResult &
+  __MetadataBearer;
 
 export class GetTestGridSessionCommand extends $Command<
   GetTestGridSessionCommandInput,

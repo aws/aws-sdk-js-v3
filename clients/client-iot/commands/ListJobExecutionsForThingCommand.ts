@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListJobExecutionsForThingCommandInput = ListJobExecutionsForThingRequest;
-export type ListJobExecutionsForThingCommandOutput = ListJobExecutionsForThingResponse;
+export type ListJobExecutionsForThingCommandOutput = ListJobExecutionsForThingResponse &
+  __MetadataBearer;
 
 export class ListJobExecutionsForThingCommand extends $Command<
   ListJobExecutionsForThingCommandInput,

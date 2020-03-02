@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRegistryCommandInput = DescribeRegistryRequest;
-export type DescribeRegistryCommandOutput = DescribeRegistryResponse;
+export type DescribeRegistryCommandOutput = DescribeRegistryResponse &
+  __MetadataBearer;
 
 export class DescribeRegistryCommand extends $Command<
   DescribeRegistryCommandInput,

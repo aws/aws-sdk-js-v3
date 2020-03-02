@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RecordHandlerProgressCommandInput = RecordHandlerProgressInput;
-export type RecordHandlerProgressCommandOutput = RecordHandlerProgressOutput;
+export type RecordHandlerProgressCommandOutput = RecordHandlerProgressOutput &
+  __MetadataBearer;
 
 export class RecordHandlerProgressCommand extends $Command<
   RecordHandlerProgressCommandInput,

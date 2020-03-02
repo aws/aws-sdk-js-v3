@@ -73,7 +73,7 @@ export namespace CheckIfPhoneNumberIsOptedOutInput {
 /**
  * <p>The response from the <code>CheckIfPhoneNumberIsOptedOut</code> action.</p>
  */
-export interface CheckIfPhoneNumberIsOptedOutResponse extends $MetadataBearer {
+export interface CheckIfPhoneNumberIsOptedOutResponse {
   __type?: "CheckIfPhoneNumberIsOptedOutResponse";
   /**
    * <p>Indicates whether the phone number is opted out:</p>
@@ -150,7 +150,7 @@ export namespace ConfirmSubscriptionInput {
 /**
  * <p>Response for ConfirmSubscriptions action.</p>
  */
-export interface ConfirmSubscriptionResponse extends $MetadataBearer {
+export interface ConfirmSubscriptionResponse {
   __type?: "ConfirmSubscriptionResponse";
   /**
    * <p>The ARN of the created subscription.</p>
@@ -167,7 +167,7 @@ export namespace ConfirmSubscriptionResponse {
 /**
  * <p>Response from CreateEndpoint action.</p>
  */
-export interface CreateEndpointResponse extends $MetadataBearer {
+export interface CreateEndpointResponse {
   __type?: "CreateEndpointResponse";
   /**
    * <p>EndpointArn returned from CreateEndpoint action.</p>
@@ -215,7 +215,7 @@ export namespace CreatePlatformApplicationInput {
 /**
  * <p>Response from CreatePlatformApplication action.</p>
  */
-export interface CreatePlatformApplicationResponse extends $MetadataBearer {
+export interface CreatePlatformApplicationResponse {
   __type?: "CreatePlatformApplicationResponse";
   /**
    * <p>PlatformApplicationArn is returned.</p>
@@ -334,7 +334,7 @@ export namespace CreateTopicInput {
 /**
  * <p>Response from CreateTopic action.</p>
  */
-export interface CreateTopicResponse extends $MetadataBearer {
+export interface CreateTopicResponse {
   __type?: "CreateTopicResponse";
   /**
    * <p>The Amazon Resource Name (ARN) assigned to the created topic.</p>
@@ -477,7 +477,7 @@ export namespace GetEndpointAttributesInput {
 /**
  * <p>Response from GetEndpointAttributes of the EndpointArn.</p>
  */
-export interface GetEndpointAttributesResponse extends $MetadataBearer {
+export interface GetEndpointAttributesResponse {
   __type?: "GetEndpointAttributesResponse";
   /**
    * <p>Attributes include the following:</p>
@@ -536,8 +536,7 @@ export namespace GetPlatformApplicationAttributesInput {
 /**
  * <p>Response for GetPlatformApplicationAttributes action.</p>
  */
-export interface GetPlatformApplicationAttributesResponse
-  extends $MetadataBearer {
+export interface GetPlatformApplicationAttributesResponse {
   __type?: "GetPlatformApplicationAttributesResponse";
   /**
    * <p>Attributes include the following:</p>
@@ -597,7 +596,7 @@ export namespace GetSMSAttributesInput {
 /**
  * <p>The response from the <code>GetSMSAttributes</code> request.</p>
  */
-export interface GetSMSAttributesResponse extends $MetadataBearer {
+export interface GetSMSAttributesResponse {
   __type?: "GetSMSAttributesResponse";
   /**
    * <p>The SMS attribute names and their values.</p>
@@ -631,7 +630,7 @@ export namespace GetSubscriptionAttributesInput {
 /**
  * <p>Response for GetSubscriptionAttributes action.</p>
  */
-export interface GetSubscriptionAttributesResponse extends $MetadataBearer {
+export interface GetSubscriptionAttributesResponse {
   __type?: "GetSubscriptionAttributesResponse";
   /**
    * <p>A map of the subscription's attributes. Attributes in this map include the
@@ -722,7 +721,7 @@ export namespace GetTopicAttributesInput {
 /**
  * <p>Response for GetTopicAttributes action.</p>
  */
-export interface GetTopicAttributesResponse extends $MetadataBearer {
+export interface GetTopicAttributesResponse {
   __type?: "GetTopicAttributesResponse";
   /**
    * <p>A map of the topic's attributes. Attributes in this map include the following:</p>
@@ -1001,8 +1000,7 @@ export namespace ListEndpointsByPlatformApplicationInput {
 /**
  * <p>Response for ListEndpointsByPlatformApplication action.</p>
  */
-export interface ListEndpointsByPlatformApplicationResponse
-  extends $MetadataBearer {
+export interface ListEndpointsByPlatformApplicationResponse {
   __type?: "ListEndpointsByPlatformApplicationResponse";
   /**
    * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
@@ -1044,7 +1042,7 @@ export namespace ListPhoneNumbersOptedOutInput {
 /**
  * <p>The response from the <code>ListPhoneNumbersOptedOut</code> action.</p>
  */
-export interface ListPhoneNumbersOptedOutResponse extends $MetadataBearer {
+export interface ListPhoneNumbersOptedOutResponse {
   __type?: "ListPhoneNumbersOptedOutResponse";
   /**
    * <p>A <code>NextToken</code> string is returned when you call the
@@ -1087,7 +1085,7 @@ export namespace ListPlatformApplicationsInput {
 /**
  * <p>Response for ListPlatformApplications action.</p>
  */
-export interface ListPlatformApplicationsResponse extends $MetadataBearer {
+export interface ListPlatformApplicationsResponse {
   __type?: "ListPlatformApplicationsResponse";
   /**
    * <p>NextToken string is returned when calling ListPlatformApplications action if
@@ -1132,7 +1130,7 @@ export namespace ListSubscriptionsByTopicInput {
 /**
  * <p>Response for ListSubscriptionsByTopic action.</p>
  */
-export interface ListSubscriptionsByTopicResponse extends $MetadataBearer {
+export interface ListSubscriptionsByTopicResponse {
   __type?: "ListSubscriptionsByTopicResponse";
   /**
    * <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This
@@ -1172,7 +1170,7 @@ export namespace ListSubscriptionsInput {
 /**
  * <p>Response for ListSubscriptions action</p>
  */
-export interface ListSubscriptionsResponse extends $MetadataBearer {
+export interface ListSubscriptionsResponse {
   __type?: "ListSubscriptionsResponse";
   /**
    * <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element
@@ -1206,7 +1204,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags associated with the specified topic.</p>
@@ -1237,7 +1235,7 @@ export namespace ListTopicsInput {
 /**
  * <p>Response for ListTopics action.</p>
  */
-export interface ListTopicsResponse extends $MetadataBearer {
+export interface ListTopicsResponse {
   __type?: "ListTopicsResponse";
   /**
    * <p>Token to pass along to the next <code>ListTopics</code> request. This element is
@@ -1330,7 +1328,7 @@ export namespace OptInPhoneNumberInput {
 /**
  * <p>The response for the OptInPhoneNumber action.</p>
  */
-export interface OptInPhoneNumberResponse extends $MetadataBearer {
+export interface OptInPhoneNumberResponse {
   __type?: "OptInPhoneNumberResponse";
 }
 
@@ -1521,7 +1519,7 @@ export namespace PublishInput {
 /**
  * <p>Response for Publish action.</p>
  */
-export interface PublishResponse extends $MetadataBearer {
+export interface PublishResponse {
   __type?: "PublishResponse";
   /**
    * <p>Unique identifier assigned to the published message.</p>
@@ -1799,7 +1797,7 @@ export namespace SetSMSAttributesInput {
 /**
  * <p>The response for the SetSMSAttributes action.</p>
  */
-export interface SetSMSAttributesResponse extends $MetadataBearer {
+export interface SetSMSAttributesResponse {
   __type?: "SetSMSAttributesResponse";
 }
 
@@ -2099,7 +2097,7 @@ export namespace SubscribeInput {
 /**
  * <p>Response for Subscribe action.</p>
  */
-export interface SubscribeResponse extends $MetadataBearer {
+export interface SubscribeResponse {
   __type?: "SubscribeResponse";
   /**
    * <p>The ARN of the subscription if it is confirmed, or the string "pending confirmation"
@@ -2246,7 +2244,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -2346,7 +2344,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

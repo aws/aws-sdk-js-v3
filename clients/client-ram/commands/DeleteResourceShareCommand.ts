@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteResourceShareCommandInput = DeleteResourceShareRequest;
-export type DeleteResourceShareCommandOutput = DeleteResourceShareResponse;
+export type DeleteResourceShareCommandOutput = DeleteResourceShareResponse &
+  __MetadataBearer;
 
 export class DeleteResourceShareCommand extends $Command<
   DeleteResourceShareCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutInsightSelectorsCommandInput = PutInsightSelectorsRequest;
-export type PutInsightSelectorsCommandOutput = PutInsightSelectorsResponse;
+export type PutInsightSelectorsCommandOutput = PutInsightSelectorsResponse &
+  __MetadataBearer;
 
 export class PutInsightSelectorsCommand extends $Command<
   PutInsightSelectorsCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetJobBookmarkCommandInput = GetJobBookmarkRequest;
-export type GetJobBookmarkCommandOutput = GetJobBookmarkResponse;
+export type GetJobBookmarkCommandOutput = GetJobBookmarkResponse &
+  __MetadataBearer;
 
 export class GetJobBookmarkCommand extends $Command<
   GetJobBookmarkCommandInput,

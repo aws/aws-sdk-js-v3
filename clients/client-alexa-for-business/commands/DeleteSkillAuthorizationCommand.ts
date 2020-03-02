@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSkillAuthorizationCommandInput = DeleteSkillAuthorizationRequest;
-export type DeleteSkillAuthorizationCommandOutput = DeleteSkillAuthorizationResponse;
+export type DeleteSkillAuthorizationCommandOutput = DeleteSkillAuthorizationResponse &
+  __MetadataBearer;
 
 export class DeleteSkillAuthorizationCommand extends $Command<
   DeleteSkillAuthorizationCommandInput,

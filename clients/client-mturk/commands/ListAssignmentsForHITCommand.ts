@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAssignmentsForHITCommandInput = ListAssignmentsForHITRequest;
-export type ListAssignmentsForHITCommandOutput = ListAssignmentsForHITResponse;
+export type ListAssignmentsForHITCommandOutput = ListAssignmentsForHITResponse &
+  __MetadataBearer;
 
 export class ListAssignmentsForHITCommand extends $Command<
   ListAssignmentsForHITCommandInput,

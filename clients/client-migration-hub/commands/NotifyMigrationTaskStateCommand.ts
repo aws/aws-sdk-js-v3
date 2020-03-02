@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type NotifyMigrationTaskStateCommandInput = NotifyMigrationTaskStateRequest;
-export type NotifyMigrationTaskStateCommandOutput = NotifyMigrationTaskStateResult;
+export type NotifyMigrationTaskStateCommandOutput = NotifyMigrationTaskStateResult &
+  __MetadataBearer;
 
 export class NotifyMigrationTaskStateCommand extends $Command<
   NotifyMigrationTaskStateCommandInput,

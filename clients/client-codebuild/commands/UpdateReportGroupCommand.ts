@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateReportGroupCommandInput = UpdateReportGroupInput;
-export type UpdateReportGroupCommandOutput = UpdateReportGroupOutput;
+export type UpdateReportGroupCommandOutput = UpdateReportGroupOutput &
+  __MetadataBearer;
 
 export class UpdateReportGroupCommand extends $Command<
   UpdateReportGroupCommandInput,

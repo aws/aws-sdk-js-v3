@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopMonitoringMembersCommandInput = StopMonitoringMembersRequest;
-export type StopMonitoringMembersCommandOutput = StopMonitoringMembersResponse;
+export type StopMonitoringMembersCommandOutput = StopMonitoringMembersResponse &
+  __MetadataBearer;
 
 export class StopMonitoringMembersCommand extends $Command<
   StopMonitoringMembersCommandInput,

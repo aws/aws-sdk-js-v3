@@ -1,25 +1,55 @@
 import {
-  AddTagsToCertificateRequest,
-  DeleteCertificateRequest,
-  DescribeCertificateRequest,
-  DescribeCertificateResponse,
-  ExportCertificateRequest,
-  ExportCertificateResponse,
-  GetCertificateRequest,
-  GetCertificateResponse,
-  ImportCertificateRequest,
-  ImportCertificateResponse,
-  ListCertificatesRequest,
-  ListCertificatesResponse,
-  ListTagsForCertificateRequest,
-  ListTagsForCertificateResponse,
-  RemoveTagsFromCertificateRequest,
-  RenewCertificateRequest,
-  RequestCertificateRequest,
-  RequestCertificateResponse,
-  ResendValidationEmailRequest,
-  UpdateCertificateOptionsRequest
-} from "./models/index";
+  AddTagsToCertificateCommandInput,
+  AddTagsToCertificateCommandOutput
+} from "./commands/AddTagsToCertificateCommand";
+import {
+  DeleteCertificateCommandInput,
+  DeleteCertificateCommandOutput
+} from "./commands/DeleteCertificateCommand";
+import {
+  DescribeCertificateCommandInput,
+  DescribeCertificateCommandOutput
+} from "./commands/DescribeCertificateCommand";
+import {
+  ExportCertificateCommandInput,
+  ExportCertificateCommandOutput
+} from "./commands/ExportCertificateCommand";
+import {
+  GetCertificateCommandInput,
+  GetCertificateCommandOutput
+} from "./commands/GetCertificateCommand";
+import {
+  ImportCertificateCommandInput,
+  ImportCertificateCommandOutput
+} from "./commands/ImportCertificateCommand";
+import {
+  ListCertificatesCommandInput,
+  ListCertificatesCommandOutput
+} from "./commands/ListCertificatesCommand";
+import {
+  ListTagsForCertificateCommandInput,
+  ListTagsForCertificateCommandOutput
+} from "./commands/ListTagsForCertificateCommand";
+import {
+  RemoveTagsFromCertificateCommandInput,
+  RemoveTagsFromCertificateCommandOutput
+} from "./commands/RemoveTagsFromCertificateCommand";
+import {
+  RenewCertificateCommandInput,
+  RenewCertificateCommandOutput
+} from "./commands/RenewCertificateCommand";
+import {
+  RequestCertificateCommandInput,
+  RequestCertificateCommandOutput
+} from "./commands/RequestCertificateCommand";
+import {
+  ResendValidationEmailCommandInput,
+  ResendValidationEmailCommandOutput
+} from "./commands/ResendValidationEmailCommand";
+import {
+  UpdateCertificateOptionsCommandInput,
+  UpdateCertificateOptionsCommandOutput
+} from "./commands/UpdateCertificateOptionsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -67,36 +97,40 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsToCertificateRequest
-  | DeleteCertificateRequest
-  | DescribeCertificateRequest
-  | ExportCertificateRequest
-  | GetCertificateRequest
-  | ImportCertificateRequest
-  | ListCertificatesRequest
-  | ListTagsForCertificateRequest
-  | RemoveTagsFromCertificateRequest
-  | RenewCertificateRequest
-  | RequestCertificateRequest
-  | ResendValidationEmailRequest
-  | UpdateCertificateOptionsRequest;
+  | AddTagsToCertificateCommandInput
+  | DeleteCertificateCommandInput
+  | DescribeCertificateCommandInput
+  | ExportCertificateCommandInput
+  | GetCertificateCommandInput
+  | ImportCertificateCommandInput
+  | ListCertificatesCommandInput
+  | ListTagsForCertificateCommandInput
+  | RemoveTagsFromCertificateCommandInput
+  | RenewCertificateCommandInput
+  | RequestCertificateCommandInput
+  | ResendValidationEmailCommandInput
+  | UpdateCertificateOptionsCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | DescribeCertificateResponse
-  | ExportCertificateResponse
-  | GetCertificateResponse
-  | ImportCertificateResponse
-  | ListCertificatesResponse
-  | ListTagsForCertificateResponse
-  | RequestCertificateResponse;
+  | AddTagsToCertificateCommandOutput
+  | DeleteCertificateCommandOutput
+  | DescribeCertificateCommandOutput
+  | ExportCertificateCommandOutput
+  | GetCertificateCommandOutput
+  | ImportCertificateCommandOutput
+  | ListCertificatesCommandOutput
+  | ListTagsForCertificateCommandOutput
+  | RemoveTagsFromCertificateCommandOutput
+  | RenewCertificateCommandOutput
+  | RequestCertificateCommandOutput
+  | ResendValidationEmailCommandOutput
+  | UpdateCertificateOptionsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -1,217 +1,431 @@
 import {
-  CreateAppRequest,
-  CreateAppResponse,
-  CreateCampaignRequest,
-  CreateCampaignResponse,
-  CreateEmailTemplateRequest,
-  CreateEmailTemplateResponse,
-  CreateExportJobRequest,
-  CreateExportJobResponse,
-  CreateImportJobRequest,
-  CreateImportJobResponse,
-  CreateJourneyRequest,
-  CreateJourneyResponse,
-  CreatePushTemplateRequest,
-  CreatePushTemplateResponse,
-  CreateSegmentRequest,
-  CreateSegmentResponse,
-  CreateSmsTemplateRequest,
-  CreateSmsTemplateResponse,
-  CreateVoiceTemplateRequest,
-  CreateVoiceTemplateResponse,
-  DeleteAdmChannelRequest,
-  DeleteAdmChannelResponse,
-  DeleteApnsChannelRequest,
-  DeleteApnsChannelResponse,
-  DeleteApnsSandboxChannelRequest,
-  DeleteApnsSandboxChannelResponse,
-  DeleteApnsVoipChannelRequest,
-  DeleteApnsVoipChannelResponse,
-  DeleteApnsVoipSandboxChannelRequest,
-  DeleteApnsVoipSandboxChannelResponse,
-  DeleteAppRequest,
-  DeleteAppResponse,
-  DeleteBaiduChannelRequest,
-  DeleteBaiduChannelResponse,
-  DeleteCampaignRequest,
-  DeleteCampaignResponse,
-  DeleteEmailChannelRequest,
-  DeleteEmailChannelResponse,
-  DeleteEmailTemplateRequest,
-  DeleteEmailTemplateResponse,
-  DeleteEndpointRequest,
-  DeleteEndpointResponse,
-  DeleteEventStreamRequest,
-  DeleteEventStreamResponse,
-  DeleteGcmChannelRequest,
-  DeleteGcmChannelResponse,
-  DeleteJourneyRequest,
-  DeleteJourneyResponse,
-  DeletePushTemplateRequest,
-  DeletePushTemplateResponse,
-  DeleteSegmentRequest,
-  DeleteSegmentResponse,
-  DeleteSmsChannelRequest,
-  DeleteSmsChannelResponse,
-  DeleteSmsTemplateRequest,
-  DeleteSmsTemplateResponse,
-  DeleteUserEndpointsRequest,
-  DeleteUserEndpointsResponse,
-  DeleteVoiceChannelRequest,
-  DeleteVoiceChannelResponse,
-  DeleteVoiceTemplateRequest,
-  DeleteVoiceTemplateResponse,
-  GetAdmChannelRequest,
-  GetAdmChannelResponse,
-  GetApnsChannelRequest,
-  GetApnsChannelResponse,
-  GetApnsSandboxChannelRequest,
-  GetApnsSandboxChannelResponse,
-  GetApnsVoipChannelRequest,
-  GetApnsVoipChannelResponse,
-  GetApnsVoipSandboxChannelRequest,
-  GetApnsVoipSandboxChannelResponse,
-  GetAppRequest,
-  GetAppResponse,
-  GetApplicationDateRangeKpiRequest,
-  GetApplicationDateRangeKpiResponse,
-  GetApplicationSettingsRequest,
-  GetApplicationSettingsResponse,
-  GetAppsRequest,
-  GetAppsResponse,
-  GetBaiduChannelRequest,
-  GetBaiduChannelResponse,
-  GetCampaignActivitiesRequest,
-  GetCampaignActivitiesResponse,
-  GetCampaignDateRangeKpiRequest,
-  GetCampaignDateRangeKpiResponse,
-  GetCampaignRequest,
-  GetCampaignResponse,
-  GetCampaignVersionRequest,
-  GetCampaignVersionResponse,
-  GetCampaignVersionsRequest,
-  GetCampaignVersionsResponse,
-  GetCampaignsRequest,
-  GetCampaignsResponse,
-  GetChannelsRequest,
-  GetChannelsResponse,
-  GetEmailChannelRequest,
-  GetEmailChannelResponse,
-  GetEmailTemplateRequest,
-  GetEmailTemplateResponse,
-  GetEndpointRequest,
-  GetEndpointResponse,
-  GetEventStreamRequest,
-  GetEventStreamResponse,
-  GetExportJobRequest,
-  GetExportJobResponse,
-  GetExportJobsRequest,
-  GetExportJobsResponse,
-  GetGcmChannelRequest,
-  GetGcmChannelResponse,
-  GetImportJobRequest,
-  GetImportJobResponse,
-  GetImportJobsRequest,
-  GetImportJobsResponse,
-  GetJourneyDateRangeKpiRequest,
-  GetJourneyDateRangeKpiResponse,
-  GetJourneyExecutionActivityMetricsRequest,
-  GetJourneyExecutionActivityMetricsResponse,
-  GetJourneyExecutionMetricsRequest,
-  GetJourneyExecutionMetricsResponse,
-  GetJourneyRequest,
-  GetJourneyResponse,
-  GetPushTemplateRequest,
-  GetPushTemplateResponse,
-  GetSegmentExportJobsRequest,
-  GetSegmentExportJobsResponse,
-  GetSegmentImportJobsRequest,
-  GetSegmentImportJobsResponse,
-  GetSegmentRequest,
-  GetSegmentResponse,
-  GetSegmentVersionRequest,
-  GetSegmentVersionResponse,
-  GetSegmentVersionsRequest,
-  GetSegmentVersionsResponse,
-  GetSegmentsRequest,
-  GetSegmentsResponse,
-  GetSmsChannelRequest,
-  GetSmsChannelResponse,
-  GetSmsTemplateRequest,
-  GetSmsTemplateResponse,
-  GetUserEndpointsRequest,
-  GetUserEndpointsResponse,
-  GetVoiceChannelRequest,
-  GetVoiceChannelResponse,
-  GetVoiceTemplateRequest,
-  GetVoiceTemplateResponse,
-  ListJourneysRequest,
-  ListJourneysResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTemplateVersionsRequest,
-  ListTemplateVersionsResponse,
-  ListTemplatesRequest,
-  ListTemplatesResponse,
-  PhoneNumberValidateRequest,
-  PhoneNumberValidateResponse,
-  PutEventStreamRequest,
-  PutEventStreamResponse,
-  PutEventsRequest,
-  PutEventsResponse,
-  RemoveAttributesRequest,
-  RemoveAttributesResponse,
-  SendMessagesRequest,
-  SendMessagesResponse,
-  SendUsersMessagesRequest,
-  SendUsersMessagesResponse,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateAdmChannelRequest,
-  UpdateAdmChannelResponse,
-  UpdateApnsChannelRequest,
-  UpdateApnsChannelResponse,
-  UpdateApnsSandboxChannelRequest,
-  UpdateApnsSandboxChannelResponse,
-  UpdateApnsVoipChannelRequest,
-  UpdateApnsVoipChannelResponse,
-  UpdateApnsVoipSandboxChannelRequest,
-  UpdateApnsVoipSandboxChannelResponse,
-  UpdateApplicationSettingsRequest,
-  UpdateApplicationSettingsResponse,
-  UpdateBaiduChannelRequest,
-  UpdateBaiduChannelResponse,
-  UpdateCampaignRequest,
-  UpdateCampaignResponse,
-  UpdateEmailChannelRequest,
-  UpdateEmailChannelResponse,
-  UpdateEmailTemplateRequest,
-  UpdateEmailTemplateResponse,
-  UpdateEndpointRequest,
-  UpdateEndpointResponse,
-  UpdateEndpointsBatchRequest,
-  UpdateEndpointsBatchResponse,
-  UpdateGcmChannelRequest,
-  UpdateGcmChannelResponse,
-  UpdateJourneyRequest,
-  UpdateJourneyResponse,
-  UpdateJourneyStateRequest,
-  UpdateJourneyStateResponse,
-  UpdatePushTemplateRequest,
-  UpdatePushTemplateResponse,
-  UpdateSegmentRequest,
-  UpdateSegmentResponse,
-  UpdateSmsChannelRequest,
-  UpdateSmsChannelResponse,
-  UpdateSmsTemplateRequest,
-  UpdateSmsTemplateResponse,
-  UpdateTemplateActiveVersionRequest,
-  UpdateTemplateActiveVersionResponse,
-  UpdateVoiceChannelRequest,
-  UpdateVoiceChannelResponse,
-  UpdateVoiceTemplateRequest,
-  UpdateVoiceTemplateResponse
-} from "./models/index";
+  CreateAppCommandInput,
+  CreateAppCommandOutput
+} from "./commands/CreateAppCommand";
+import {
+  CreateCampaignCommandInput,
+  CreateCampaignCommandOutput
+} from "./commands/CreateCampaignCommand";
+import {
+  CreateEmailTemplateCommandInput,
+  CreateEmailTemplateCommandOutput
+} from "./commands/CreateEmailTemplateCommand";
+import {
+  CreateExportJobCommandInput,
+  CreateExportJobCommandOutput
+} from "./commands/CreateExportJobCommand";
+import {
+  CreateImportJobCommandInput,
+  CreateImportJobCommandOutput
+} from "./commands/CreateImportJobCommand";
+import {
+  CreateJourneyCommandInput,
+  CreateJourneyCommandOutput
+} from "./commands/CreateJourneyCommand";
+import {
+  CreatePushTemplateCommandInput,
+  CreatePushTemplateCommandOutput
+} from "./commands/CreatePushTemplateCommand";
+import {
+  CreateSegmentCommandInput,
+  CreateSegmentCommandOutput
+} from "./commands/CreateSegmentCommand";
+import {
+  CreateSmsTemplateCommandInput,
+  CreateSmsTemplateCommandOutput
+} from "./commands/CreateSmsTemplateCommand";
+import {
+  CreateVoiceTemplateCommandInput,
+  CreateVoiceTemplateCommandOutput
+} from "./commands/CreateVoiceTemplateCommand";
+import {
+  DeleteAdmChannelCommandInput,
+  DeleteAdmChannelCommandOutput
+} from "./commands/DeleteAdmChannelCommand";
+import {
+  DeleteApnsChannelCommandInput,
+  DeleteApnsChannelCommandOutput
+} from "./commands/DeleteApnsChannelCommand";
+import {
+  DeleteApnsSandboxChannelCommandInput,
+  DeleteApnsSandboxChannelCommandOutput
+} from "./commands/DeleteApnsSandboxChannelCommand";
+import {
+  DeleteApnsVoipChannelCommandInput,
+  DeleteApnsVoipChannelCommandOutput
+} from "./commands/DeleteApnsVoipChannelCommand";
+import {
+  DeleteApnsVoipSandboxChannelCommandInput,
+  DeleteApnsVoipSandboxChannelCommandOutput
+} from "./commands/DeleteApnsVoipSandboxChannelCommand";
+import {
+  DeleteAppCommandInput,
+  DeleteAppCommandOutput
+} from "./commands/DeleteAppCommand";
+import {
+  DeleteBaiduChannelCommandInput,
+  DeleteBaiduChannelCommandOutput
+} from "./commands/DeleteBaiduChannelCommand";
+import {
+  DeleteCampaignCommandInput,
+  DeleteCampaignCommandOutput
+} from "./commands/DeleteCampaignCommand";
+import {
+  DeleteEmailChannelCommandInput,
+  DeleteEmailChannelCommandOutput
+} from "./commands/DeleteEmailChannelCommand";
+import {
+  DeleteEmailTemplateCommandInput,
+  DeleteEmailTemplateCommandOutput
+} from "./commands/DeleteEmailTemplateCommand";
+import {
+  DeleteEndpointCommandInput,
+  DeleteEndpointCommandOutput
+} from "./commands/DeleteEndpointCommand";
+import {
+  DeleteEventStreamCommandInput,
+  DeleteEventStreamCommandOutput
+} from "./commands/DeleteEventStreamCommand";
+import {
+  DeleteGcmChannelCommandInput,
+  DeleteGcmChannelCommandOutput
+} from "./commands/DeleteGcmChannelCommand";
+import {
+  DeleteJourneyCommandInput,
+  DeleteJourneyCommandOutput
+} from "./commands/DeleteJourneyCommand";
+import {
+  DeletePushTemplateCommandInput,
+  DeletePushTemplateCommandOutput
+} from "./commands/DeletePushTemplateCommand";
+import {
+  DeleteSegmentCommandInput,
+  DeleteSegmentCommandOutput
+} from "./commands/DeleteSegmentCommand";
+import {
+  DeleteSmsChannelCommandInput,
+  DeleteSmsChannelCommandOutput
+} from "./commands/DeleteSmsChannelCommand";
+import {
+  DeleteSmsTemplateCommandInput,
+  DeleteSmsTemplateCommandOutput
+} from "./commands/DeleteSmsTemplateCommand";
+import {
+  DeleteUserEndpointsCommandInput,
+  DeleteUserEndpointsCommandOutput
+} from "./commands/DeleteUserEndpointsCommand";
+import {
+  DeleteVoiceChannelCommandInput,
+  DeleteVoiceChannelCommandOutput
+} from "./commands/DeleteVoiceChannelCommand";
+import {
+  DeleteVoiceTemplateCommandInput,
+  DeleteVoiceTemplateCommandOutput
+} from "./commands/DeleteVoiceTemplateCommand";
+import {
+  GetAdmChannelCommandInput,
+  GetAdmChannelCommandOutput
+} from "./commands/GetAdmChannelCommand";
+import {
+  GetApnsChannelCommandInput,
+  GetApnsChannelCommandOutput
+} from "./commands/GetApnsChannelCommand";
+import {
+  GetApnsSandboxChannelCommandInput,
+  GetApnsSandboxChannelCommandOutput
+} from "./commands/GetApnsSandboxChannelCommand";
+import {
+  GetApnsVoipChannelCommandInput,
+  GetApnsVoipChannelCommandOutput
+} from "./commands/GetApnsVoipChannelCommand";
+import {
+  GetApnsVoipSandboxChannelCommandInput,
+  GetApnsVoipSandboxChannelCommandOutput
+} from "./commands/GetApnsVoipSandboxChannelCommand";
+import {
+  GetAppCommandInput,
+  GetAppCommandOutput
+} from "./commands/GetAppCommand";
+import {
+  GetApplicationDateRangeKpiCommandInput,
+  GetApplicationDateRangeKpiCommandOutput
+} from "./commands/GetApplicationDateRangeKpiCommand";
+import {
+  GetApplicationSettingsCommandInput,
+  GetApplicationSettingsCommandOutput
+} from "./commands/GetApplicationSettingsCommand";
+import {
+  GetAppsCommandInput,
+  GetAppsCommandOutput
+} from "./commands/GetAppsCommand";
+import {
+  GetBaiduChannelCommandInput,
+  GetBaiduChannelCommandOutput
+} from "./commands/GetBaiduChannelCommand";
+import {
+  GetCampaignActivitiesCommandInput,
+  GetCampaignActivitiesCommandOutput
+} from "./commands/GetCampaignActivitiesCommand";
+import {
+  GetCampaignCommandInput,
+  GetCampaignCommandOutput
+} from "./commands/GetCampaignCommand";
+import {
+  GetCampaignDateRangeKpiCommandInput,
+  GetCampaignDateRangeKpiCommandOutput
+} from "./commands/GetCampaignDateRangeKpiCommand";
+import {
+  GetCampaignVersionCommandInput,
+  GetCampaignVersionCommandOutput
+} from "./commands/GetCampaignVersionCommand";
+import {
+  GetCampaignVersionsCommandInput,
+  GetCampaignVersionsCommandOutput
+} from "./commands/GetCampaignVersionsCommand";
+import {
+  GetCampaignsCommandInput,
+  GetCampaignsCommandOutput
+} from "./commands/GetCampaignsCommand";
+import {
+  GetChannelsCommandInput,
+  GetChannelsCommandOutput
+} from "./commands/GetChannelsCommand";
+import {
+  GetEmailChannelCommandInput,
+  GetEmailChannelCommandOutput
+} from "./commands/GetEmailChannelCommand";
+import {
+  GetEmailTemplateCommandInput,
+  GetEmailTemplateCommandOutput
+} from "./commands/GetEmailTemplateCommand";
+import {
+  GetEndpointCommandInput,
+  GetEndpointCommandOutput
+} from "./commands/GetEndpointCommand";
+import {
+  GetEventStreamCommandInput,
+  GetEventStreamCommandOutput
+} from "./commands/GetEventStreamCommand";
+import {
+  GetExportJobCommandInput,
+  GetExportJobCommandOutput
+} from "./commands/GetExportJobCommand";
+import {
+  GetExportJobsCommandInput,
+  GetExportJobsCommandOutput
+} from "./commands/GetExportJobsCommand";
+import {
+  GetGcmChannelCommandInput,
+  GetGcmChannelCommandOutput
+} from "./commands/GetGcmChannelCommand";
+import {
+  GetImportJobCommandInput,
+  GetImportJobCommandOutput
+} from "./commands/GetImportJobCommand";
+import {
+  GetImportJobsCommandInput,
+  GetImportJobsCommandOutput
+} from "./commands/GetImportJobsCommand";
+import {
+  GetJourneyCommandInput,
+  GetJourneyCommandOutput
+} from "./commands/GetJourneyCommand";
+import {
+  GetJourneyDateRangeKpiCommandInput,
+  GetJourneyDateRangeKpiCommandOutput
+} from "./commands/GetJourneyDateRangeKpiCommand";
+import {
+  GetJourneyExecutionActivityMetricsCommandInput,
+  GetJourneyExecutionActivityMetricsCommandOutput
+} from "./commands/GetJourneyExecutionActivityMetricsCommand";
+import {
+  GetJourneyExecutionMetricsCommandInput,
+  GetJourneyExecutionMetricsCommandOutput
+} from "./commands/GetJourneyExecutionMetricsCommand";
+import {
+  GetPushTemplateCommandInput,
+  GetPushTemplateCommandOutput
+} from "./commands/GetPushTemplateCommand";
+import {
+  GetSegmentCommandInput,
+  GetSegmentCommandOutput
+} from "./commands/GetSegmentCommand";
+import {
+  GetSegmentExportJobsCommandInput,
+  GetSegmentExportJobsCommandOutput
+} from "./commands/GetSegmentExportJobsCommand";
+import {
+  GetSegmentImportJobsCommandInput,
+  GetSegmentImportJobsCommandOutput
+} from "./commands/GetSegmentImportJobsCommand";
+import {
+  GetSegmentVersionCommandInput,
+  GetSegmentVersionCommandOutput
+} from "./commands/GetSegmentVersionCommand";
+import {
+  GetSegmentVersionsCommandInput,
+  GetSegmentVersionsCommandOutput
+} from "./commands/GetSegmentVersionsCommand";
+import {
+  GetSegmentsCommandInput,
+  GetSegmentsCommandOutput
+} from "./commands/GetSegmentsCommand";
+import {
+  GetSmsChannelCommandInput,
+  GetSmsChannelCommandOutput
+} from "./commands/GetSmsChannelCommand";
+import {
+  GetSmsTemplateCommandInput,
+  GetSmsTemplateCommandOutput
+} from "./commands/GetSmsTemplateCommand";
+import {
+  GetUserEndpointsCommandInput,
+  GetUserEndpointsCommandOutput
+} from "./commands/GetUserEndpointsCommand";
+import {
+  GetVoiceChannelCommandInput,
+  GetVoiceChannelCommandOutput
+} from "./commands/GetVoiceChannelCommand";
+import {
+  GetVoiceTemplateCommandInput,
+  GetVoiceTemplateCommandOutput
+} from "./commands/GetVoiceTemplateCommand";
+import {
+  ListJourneysCommandInput,
+  ListJourneysCommandOutput
+} from "./commands/ListJourneysCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTemplateVersionsCommandInput,
+  ListTemplateVersionsCommandOutput
+} from "./commands/ListTemplateVersionsCommand";
+import {
+  ListTemplatesCommandInput,
+  ListTemplatesCommandOutput
+} from "./commands/ListTemplatesCommand";
+import {
+  PhoneNumberValidateCommandInput,
+  PhoneNumberValidateCommandOutput
+} from "./commands/PhoneNumberValidateCommand";
+import {
+  PutEventStreamCommandInput,
+  PutEventStreamCommandOutput
+} from "./commands/PutEventStreamCommand";
+import {
+  PutEventsCommandInput,
+  PutEventsCommandOutput
+} from "./commands/PutEventsCommand";
+import {
+  RemoveAttributesCommandInput,
+  RemoveAttributesCommandOutput
+} from "./commands/RemoveAttributesCommand";
+import {
+  SendMessagesCommandInput,
+  SendMessagesCommandOutput
+} from "./commands/SendMessagesCommand";
+import {
+  SendUsersMessagesCommandInput,
+  SendUsersMessagesCommandOutput
+} from "./commands/SendUsersMessagesCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAdmChannelCommandInput,
+  UpdateAdmChannelCommandOutput
+} from "./commands/UpdateAdmChannelCommand";
+import {
+  UpdateApnsChannelCommandInput,
+  UpdateApnsChannelCommandOutput
+} from "./commands/UpdateApnsChannelCommand";
+import {
+  UpdateApnsSandboxChannelCommandInput,
+  UpdateApnsSandboxChannelCommandOutput
+} from "./commands/UpdateApnsSandboxChannelCommand";
+import {
+  UpdateApnsVoipChannelCommandInput,
+  UpdateApnsVoipChannelCommandOutput
+} from "./commands/UpdateApnsVoipChannelCommand";
+import {
+  UpdateApnsVoipSandboxChannelCommandInput,
+  UpdateApnsVoipSandboxChannelCommandOutput
+} from "./commands/UpdateApnsVoipSandboxChannelCommand";
+import {
+  UpdateApplicationSettingsCommandInput,
+  UpdateApplicationSettingsCommandOutput
+} from "./commands/UpdateApplicationSettingsCommand";
+import {
+  UpdateBaiduChannelCommandInput,
+  UpdateBaiduChannelCommandOutput
+} from "./commands/UpdateBaiduChannelCommand";
+import {
+  UpdateCampaignCommandInput,
+  UpdateCampaignCommandOutput
+} from "./commands/UpdateCampaignCommand";
+import {
+  UpdateEmailChannelCommandInput,
+  UpdateEmailChannelCommandOutput
+} from "./commands/UpdateEmailChannelCommand";
+import {
+  UpdateEmailTemplateCommandInput,
+  UpdateEmailTemplateCommandOutput
+} from "./commands/UpdateEmailTemplateCommand";
+import {
+  UpdateEndpointCommandInput,
+  UpdateEndpointCommandOutput
+} from "./commands/UpdateEndpointCommand";
+import {
+  UpdateEndpointsBatchCommandInput,
+  UpdateEndpointsBatchCommandOutput
+} from "./commands/UpdateEndpointsBatchCommand";
+import {
+  UpdateGcmChannelCommandInput,
+  UpdateGcmChannelCommandOutput
+} from "./commands/UpdateGcmChannelCommand";
+import {
+  UpdateJourneyCommandInput,
+  UpdateJourneyCommandOutput
+} from "./commands/UpdateJourneyCommand";
+import {
+  UpdateJourneyStateCommandInput,
+  UpdateJourneyStateCommandOutput
+} from "./commands/UpdateJourneyStateCommand";
+import {
+  UpdatePushTemplateCommandInput,
+  UpdatePushTemplateCommandOutput
+} from "./commands/UpdatePushTemplateCommand";
+import {
+  UpdateSegmentCommandInput,
+  UpdateSegmentCommandOutput
+} from "./commands/UpdateSegmentCommand";
+import {
+  UpdateSmsChannelCommandInput,
+  UpdateSmsChannelCommandOutput
+} from "./commands/UpdateSmsChannelCommand";
+import {
+  UpdateSmsTemplateCommandInput,
+  UpdateSmsTemplateCommandOutput
+} from "./commands/UpdateSmsTemplateCommand";
+import {
+  UpdateTemplateActiveVersionCommandInput,
+  UpdateTemplateActiveVersionCommandOutput
+} from "./commands/UpdateTemplateActiveVersionCommand";
+import {
+  UpdateVoiceChannelCommandInput,
+  UpdateVoiceChannelCommandOutput
+} from "./commands/UpdateVoiceChannelCommand";
+import {
+  UpdateVoiceTemplateCommandInput,
+  UpdateVoiceTemplateCommandOutput
+} from "./commands/UpdateVoiceTemplateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -259,228 +473,228 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateAppRequest
-  | CreateCampaignRequest
-  | CreateEmailTemplateRequest
-  | CreateExportJobRequest
-  | CreateImportJobRequest
-  | CreateJourneyRequest
-  | CreatePushTemplateRequest
-  | CreateSegmentRequest
-  | CreateSmsTemplateRequest
-  | CreateVoiceTemplateRequest
-  | DeleteAdmChannelRequest
-  | DeleteApnsChannelRequest
-  | DeleteApnsSandboxChannelRequest
-  | DeleteApnsVoipChannelRequest
-  | DeleteApnsVoipSandboxChannelRequest
-  | DeleteAppRequest
-  | DeleteBaiduChannelRequest
-  | DeleteCampaignRequest
-  | DeleteEmailChannelRequest
-  | DeleteEmailTemplateRequest
-  | DeleteEndpointRequest
-  | DeleteEventStreamRequest
-  | DeleteGcmChannelRequest
-  | DeleteJourneyRequest
-  | DeletePushTemplateRequest
-  | DeleteSegmentRequest
-  | DeleteSmsChannelRequest
-  | DeleteSmsTemplateRequest
-  | DeleteUserEndpointsRequest
-  | DeleteVoiceChannelRequest
-  | DeleteVoiceTemplateRequest
-  | GetAdmChannelRequest
-  | GetApnsChannelRequest
-  | GetApnsSandboxChannelRequest
-  | GetApnsVoipChannelRequest
-  | GetApnsVoipSandboxChannelRequest
-  | GetAppRequest
-  | GetApplicationDateRangeKpiRequest
-  | GetApplicationSettingsRequest
-  | GetAppsRequest
-  | GetBaiduChannelRequest
-  | GetCampaignActivitiesRequest
-  | GetCampaignDateRangeKpiRequest
-  | GetCampaignRequest
-  | GetCampaignVersionRequest
-  | GetCampaignVersionsRequest
-  | GetCampaignsRequest
-  | GetChannelsRequest
-  | GetEmailChannelRequest
-  | GetEmailTemplateRequest
-  | GetEndpointRequest
-  | GetEventStreamRequest
-  | GetExportJobRequest
-  | GetExportJobsRequest
-  | GetGcmChannelRequest
-  | GetImportJobRequest
-  | GetImportJobsRequest
-  | GetJourneyDateRangeKpiRequest
-  | GetJourneyExecutionActivityMetricsRequest
-  | GetJourneyExecutionMetricsRequest
-  | GetJourneyRequest
-  | GetPushTemplateRequest
-  | GetSegmentExportJobsRequest
-  | GetSegmentImportJobsRequest
-  | GetSegmentRequest
-  | GetSegmentVersionRequest
-  | GetSegmentVersionsRequest
-  | GetSegmentsRequest
-  | GetSmsChannelRequest
-  | GetSmsTemplateRequest
-  | GetUserEndpointsRequest
-  | GetVoiceChannelRequest
-  | GetVoiceTemplateRequest
-  | ListJourneysRequest
-  | ListTagsForResourceRequest
-  | ListTemplateVersionsRequest
-  | ListTemplatesRequest
-  | PhoneNumberValidateRequest
-  | PutEventStreamRequest
-  | PutEventsRequest
-  | RemoveAttributesRequest
-  | SendMessagesRequest
-  | SendUsersMessagesRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateAdmChannelRequest
-  | UpdateApnsChannelRequest
-  | UpdateApnsSandboxChannelRequest
-  | UpdateApnsVoipChannelRequest
-  | UpdateApnsVoipSandboxChannelRequest
-  | UpdateApplicationSettingsRequest
-  | UpdateBaiduChannelRequest
-  | UpdateCampaignRequest
-  | UpdateEmailChannelRequest
-  | UpdateEmailTemplateRequest
-  | UpdateEndpointRequest
-  | UpdateEndpointsBatchRequest
-  | UpdateGcmChannelRequest
-  | UpdateJourneyRequest
-  | UpdateJourneyStateRequest
-  | UpdatePushTemplateRequest
-  | UpdateSegmentRequest
-  | UpdateSmsChannelRequest
-  | UpdateSmsTemplateRequest
-  | UpdateTemplateActiveVersionRequest
-  | UpdateVoiceChannelRequest
-  | UpdateVoiceTemplateRequest;
+  | CreateAppCommandInput
+  | CreateCampaignCommandInput
+  | CreateEmailTemplateCommandInput
+  | CreateExportJobCommandInput
+  | CreateImportJobCommandInput
+  | CreateJourneyCommandInput
+  | CreatePushTemplateCommandInput
+  | CreateSegmentCommandInput
+  | CreateSmsTemplateCommandInput
+  | CreateVoiceTemplateCommandInput
+  | DeleteAdmChannelCommandInput
+  | DeleteApnsChannelCommandInput
+  | DeleteApnsSandboxChannelCommandInput
+  | DeleteApnsVoipChannelCommandInput
+  | DeleteApnsVoipSandboxChannelCommandInput
+  | DeleteAppCommandInput
+  | DeleteBaiduChannelCommandInput
+  | DeleteCampaignCommandInput
+  | DeleteEmailChannelCommandInput
+  | DeleteEmailTemplateCommandInput
+  | DeleteEndpointCommandInput
+  | DeleteEventStreamCommandInput
+  | DeleteGcmChannelCommandInput
+  | DeleteJourneyCommandInput
+  | DeletePushTemplateCommandInput
+  | DeleteSegmentCommandInput
+  | DeleteSmsChannelCommandInput
+  | DeleteSmsTemplateCommandInput
+  | DeleteUserEndpointsCommandInput
+  | DeleteVoiceChannelCommandInput
+  | DeleteVoiceTemplateCommandInput
+  | GetAdmChannelCommandInput
+  | GetApnsChannelCommandInput
+  | GetApnsSandboxChannelCommandInput
+  | GetApnsVoipChannelCommandInput
+  | GetApnsVoipSandboxChannelCommandInput
+  | GetAppCommandInput
+  | GetApplicationDateRangeKpiCommandInput
+  | GetApplicationSettingsCommandInput
+  | GetAppsCommandInput
+  | GetBaiduChannelCommandInput
+  | GetCampaignActivitiesCommandInput
+  | GetCampaignCommandInput
+  | GetCampaignDateRangeKpiCommandInput
+  | GetCampaignVersionCommandInput
+  | GetCampaignVersionsCommandInput
+  | GetCampaignsCommandInput
+  | GetChannelsCommandInput
+  | GetEmailChannelCommandInput
+  | GetEmailTemplateCommandInput
+  | GetEndpointCommandInput
+  | GetEventStreamCommandInput
+  | GetExportJobCommandInput
+  | GetExportJobsCommandInput
+  | GetGcmChannelCommandInput
+  | GetImportJobCommandInput
+  | GetImportJobsCommandInput
+  | GetJourneyCommandInput
+  | GetJourneyDateRangeKpiCommandInput
+  | GetJourneyExecutionActivityMetricsCommandInput
+  | GetJourneyExecutionMetricsCommandInput
+  | GetPushTemplateCommandInput
+  | GetSegmentCommandInput
+  | GetSegmentExportJobsCommandInput
+  | GetSegmentImportJobsCommandInput
+  | GetSegmentVersionCommandInput
+  | GetSegmentVersionsCommandInput
+  | GetSegmentsCommandInput
+  | GetSmsChannelCommandInput
+  | GetSmsTemplateCommandInput
+  | GetUserEndpointsCommandInput
+  | GetVoiceChannelCommandInput
+  | GetVoiceTemplateCommandInput
+  | ListJourneysCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTemplateVersionsCommandInput
+  | ListTemplatesCommandInput
+  | PhoneNumberValidateCommandInput
+  | PutEventStreamCommandInput
+  | PutEventsCommandInput
+  | RemoveAttributesCommandInput
+  | SendMessagesCommandInput
+  | SendUsersMessagesCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAdmChannelCommandInput
+  | UpdateApnsChannelCommandInput
+  | UpdateApnsSandboxChannelCommandInput
+  | UpdateApnsVoipChannelCommandInput
+  | UpdateApnsVoipSandboxChannelCommandInput
+  | UpdateApplicationSettingsCommandInput
+  | UpdateBaiduChannelCommandInput
+  | UpdateCampaignCommandInput
+  | UpdateEmailChannelCommandInput
+  | UpdateEmailTemplateCommandInput
+  | UpdateEndpointCommandInput
+  | UpdateEndpointsBatchCommandInput
+  | UpdateGcmChannelCommandInput
+  | UpdateJourneyCommandInput
+  | UpdateJourneyStateCommandInput
+  | UpdatePushTemplateCommandInput
+  | UpdateSegmentCommandInput
+  | UpdateSmsChannelCommandInput
+  | UpdateSmsTemplateCommandInput
+  | UpdateTemplateActiveVersionCommandInput
+  | UpdateVoiceChannelCommandInput
+  | UpdateVoiceTemplateCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateAppResponse
-  | CreateCampaignResponse
-  | CreateEmailTemplateResponse
-  | CreateExportJobResponse
-  | CreateImportJobResponse
-  | CreateJourneyResponse
-  | CreatePushTemplateResponse
-  | CreateSegmentResponse
-  | CreateSmsTemplateResponse
-  | CreateVoiceTemplateResponse
-  | DeleteAdmChannelResponse
-  | DeleteApnsChannelResponse
-  | DeleteApnsSandboxChannelResponse
-  | DeleteApnsVoipChannelResponse
-  | DeleteApnsVoipSandboxChannelResponse
-  | DeleteAppResponse
-  | DeleteBaiduChannelResponse
-  | DeleteCampaignResponse
-  | DeleteEmailChannelResponse
-  | DeleteEmailTemplateResponse
-  | DeleteEndpointResponse
-  | DeleteEventStreamResponse
-  | DeleteGcmChannelResponse
-  | DeleteJourneyResponse
-  | DeletePushTemplateResponse
-  | DeleteSegmentResponse
-  | DeleteSmsChannelResponse
-  | DeleteSmsTemplateResponse
-  | DeleteUserEndpointsResponse
-  | DeleteVoiceChannelResponse
-  | DeleteVoiceTemplateResponse
-  | GetAdmChannelResponse
-  | GetApnsChannelResponse
-  | GetApnsSandboxChannelResponse
-  | GetApnsVoipChannelResponse
-  | GetApnsVoipSandboxChannelResponse
-  | GetAppResponse
-  | GetApplicationDateRangeKpiResponse
-  | GetApplicationSettingsResponse
-  | GetAppsResponse
-  | GetBaiduChannelResponse
-  | GetCampaignActivitiesResponse
-  | GetCampaignDateRangeKpiResponse
-  | GetCampaignResponse
-  | GetCampaignVersionResponse
-  | GetCampaignVersionsResponse
-  | GetCampaignsResponse
-  | GetChannelsResponse
-  | GetEmailChannelResponse
-  | GetEmailTemplateResponse
-  | GetEndpointResponse
-  | GetEventStreamResponse
-  | GetExportJobResponse
-  | GetExportJobsResponse
-  | GetGcmChannelResponse
-  | GetImportJobResponse
-  | GetImportJobsResponse
-  | GetJourneyDateRangeKpiResponse
-  | GetJourneyExecutionActivityMetricsResponse
-  | GetJourneyExecutionMetricsResponse
-  | GetJourneyResponse
-  | GetPushTemplateResponse
-  | GetSegmentExportJobsResponse
-  | GetSegmentImportJobsResponse
-  | GetSegmentResponse
-  | GetSegmentVersionResponse
-  | GetSegmentVersionsResponse
-  | GetSegmentsResponse
-  | GetSmsChannelResponse
-  | GetSmsTemplateResponse
-  | GetUserEndpointsResponse
-  | GetVoiceChannelResponse
-  | GetVoiceTemplateResponse
-  | ListJourneysResponse
-  | ListTagsForResourceResponse
-  | ListTemplateVersionsResponse
-  | ListTemplatesResponse
-  | PhoneNumberValidateResponse
-  | PutEventStreamResponse
-  | PutEventsResponse
-  | RemoveAttributesResponse
-  | SendMessagesResponse
-  | SendUsersMessagesResponse
-  | UpdateAdmChannelResponse
-  | UpdateApnsChannelResponse
-  | UpdateApnsSandboxChannelResponse
-  | UpdateApnsVoipChannelResponse
-  | UpdateApnsVoipSandboxChannelResponse
-  | UpdateApplicationSettingsResponse
-  | UpdateBaiduChannelResponse
-  | UpdateCampaignResponse
-  | UpdateEmailChannelResponse
-  | UpdateEmailTemplateResponse
-  | UpdateEndpointResponse
-  | UpdateEndpointsBatchResponse
-  | UpdateGcmChannelResponse
-  | UpdateJourneyResponse
-  | UpdateJourneyStateResponse
-  | UpdatePushTemplateResponse
-  | UpdateSegmentResponse
-  | UpdateSmsChannelResponse
-  | UpdateSmsTemplateResponse
-  | UpdateTemplateActiveVersionResponse
-  | UpdateVoiceChannelResponse
-  | UpdateVoiceTemplateResponse;
+  | CreateAppCommandOutput
+  | CreateCampaignCommandOutput
+  | CreateEmailTemplateCommandOutput
+  | CreateExportJobCommandOutput
+  | CreateImportJobCommandOutput
+  | CreateJourneyCommandOutput
+  | CreatePushTemplateCommandOutput
+  | CreateSegmentCommandOutput
+  | CreateSmsTemplateCommandOutput
+  | CreateVoiceTemplateCommandOutput
+  | DeleteAdmChannelCommandOutput
+  | DeleteApnsChannelCommandOutput
+  | DeleteApnsSandboxChannelCommandOutput
+  | DeleteApnsVoipChannelCommandOutput
+  | DeleteApnsVoipSandboxChannelCommandOutput
+  | DeleteAppCommandOutput
+  | DeleteBaiduChannelCommandOutput
+  | DeleteCampaignCommandOutput
+  | DeleteEmailChannelCommandOutput
+  | DeleteEmailTemplateCommandOutput
+  | DeleteEndpointCommandOutput
+  | DeleteEventStreamCommandOutput
+  | DeleteGcmChannelCommandOutput
+  | DeleteJourneyCommandOutput
+  | DeletePushTemplateCommandOutput
+  | DeleteSegmentCommandOutput
+  | DeleteSmsChannelCommandOutput
+  | DeleteSmsTemplateCommandOutput
+  | DeleteUserEndpointsCommandOutput
+  | DeleteVoiceChannelCommandOutput
+  | DeleteVoiceTemplateCommandOutput
+  | GetAdmChannelCommandOutput
+  | GetApnsChannelCommandOutput
+  | GetApnsSandboxChannelCommandOutput
+  | GetApnsVoipChannelCommandOutput
+  | GetApnsVoipSandboxChannelCommandOutput
+  | GetAppCommandOutput
+  | GetApplicationDateRangeKpiCommandOutput
+  | GetApplicationSettingsCommandOutput
+  | GetAppsCommandOutput
+  | GetBaiduChannelCommandOutput
+  | GetCampaignActivitiesCommandOutput
+  | GetCampaignCommandOutput
+  | GetCampaignDateRangeKpiCommandOutput
+  | GetCampaignVersionCommandOutput
+  | GetCampaignVersionsCommandOutput
+  | GetCampaignsCommandOutput
+  | GetChannelsCommandOutput
+  | GetEmailChannelCommandOutput
+  | GetEmailTemplateCommandOutput
+  | GetEndpointCommandOutput
+  | GetEventStreamCommandOutput
+  | GetExportJobCommandOutput
+  | GetExportJobsCommandOutput
+  | GetGcmChannelCommandOutput
+  | GetImportJobCommandOutput
+  | GetImportJobsCommandOutput
+  | GetJourneyCommandOutput
+  | GetJourneyDateRangeKpiCommandOutput
+  | GetJourneyExecutionActivityMetricsCommandOutput
+  | GetJourneyExecutionMetricsCommandOutput
+  | GetPushTemplateCommandOutput
+  | GetSegmentCommandOutput
+  | GetSegmentExportJobsCommandOutput
+  | GetSegmentImportJobsCommandOutput
+  | GetSegmentVersionCommandOutput
+  | GetSegmentVersionsCommandOutput
+  | GetSegmentsCommandOutput
+  | GetSmsChannelCommandOutput
+  | GetSmsTemplateCommandOutput
+  | GetUserEndpointsCommandOutput
+  | GetVoiceChannelCommandOutput
+  | GetVoiceTemplateCommandOutput
+  | ListJourneysCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTemplateVersionsCommandOutput
+  | ListTemplatesCommandOutput
+  | PhoneNumberValidateCommandOutput
+  | PutEventStreamCommandOutput
+  | PutEventsCommandOutput
+  | RemoveAttributesCommandOutput
+  | SendMessagesCommandOutput
+  | SendUsersMessagesCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAdmChannelCommandOutput
+  | UpdateApnsChannelCommandOutput
+  | UpdateApnsSandboxChannelCommandOutput
+  | UpdateApnsVoipChannelCommandOutput
+  | UpdateApnsVoipSandboxChannelCommandOutput
+  | UpdateApplicationSettingsCommandOutput
+  | UpdateBaiduChannelCommandOutput
+  | UpdateCampaignCommandOutput
+  | UpdateEmailChannelCommandOutput
+  | UpdateEmailTemplateCommandOutput
+  | UpdateEndpointCommandOutput
+  | UpdateEndpointsBatchCommandOutput
+  | UpdateGcmChannelCommandOutput
+  | UpdateJourneyCommandOutput
+  | UpdateJourneyStateCommandOutput
+  | UpdatePushTemplateCommandOutput
+  | UpdateSegmentCommandOutput
+  | UpdateSmsChannelCommandOutput
+  | UpdateSmsTemplateCommandOutput
+  | UpdateTemplateActiveVersionCommandOutput
+  | UpdateVoiceChannelCommandOutput
+  | UpdateVoiceTemplateCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

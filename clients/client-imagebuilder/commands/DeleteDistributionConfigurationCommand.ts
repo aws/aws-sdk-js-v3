@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDistributionConfigurationCommandInput = DeleteDistributionConfigurationRequest;
-export type DeleteDistributionConfigurationCommandOutput = DeleteDistributionConfigurationResponse;
+export type DeleteDistributionConfigurationCommandOutput = DeleteDistributionConfigurationResponse &
+  __MetadataBearer;
 
 export class DeleteDistributionConfigurationCommand extends $Command<
   DeleteDistributionConfigurationCommandInput,

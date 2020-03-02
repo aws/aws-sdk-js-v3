@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableVpcClassicLinkCommandInput = DisableVpcClassicLinkRequest;
-export type DisableVpcClassicLinkCommandOutput = DisableVpcClassicLinkResult;
+export type DisableVpcClassicLinkCommandOutput = DisableVpcClassicLinkResult &
+  __MetadataBearer;
 
 export class DisableVpcClassicLinkCommand extends $Command<
   DisableVpcClassicLinkCommandInput,

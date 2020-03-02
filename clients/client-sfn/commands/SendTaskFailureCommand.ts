@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendTaskFailureCommandInput = SendTaskFailureInput;
-export type SendTaskFailureCommandOutput = SendTaskFailureOutput;
+export type SendTaskFailureCommandOutput = SendTaskFailureOutput &
+  __MetadataBearer;
 
 export class SendTaskFailureCommand extends $Command<
   SendTaskFailureCommandInput,

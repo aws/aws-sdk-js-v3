@@ -335,10 +335,13 @@ async function deserializeAws_json1_1DescribeAffectedAccountsForOrganizationComm
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -397,17 +400,23 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLocaleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -466,17 +475,23 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationComm
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLocaleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -590,10 +605,13 @@ async function deserializeAws_json1_1DescribeEventAggregatesCommandError(
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -649,10 +667,13 @@ async function deserializeAws_json1_1DescribeEventDetailsCommandError(
   switch (errorCode) {
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLocaleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -711,10 +732,13 @@ async function deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandE
   switch (errorCode) {
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLocaleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -770,17 +794,23 @@ async function deserializeAws_json1_1DescribeEventTypesCommandError(
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLocaleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -833,17 +863,23 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLocaleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -902,17 +938,23 @@ async function deserializeAws_json1_1DescribeEventsForOrganizationCommandError(
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLocaleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1019,10 +1061,13 @@ async function deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCo
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1074,10 +1119,13 @@ async function deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCom
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

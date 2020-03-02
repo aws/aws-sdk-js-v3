@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachInstancesFromLoadBalancerCommandInput = DetachInstancesFromLoadBalancerRequest;
-export type DetachInstancesFromLoadBalancerCommandOutput = DetachInstancesFromLoadBalancerResult;
+export type DetachInstancesFromLoadBalancerCommandOutput = DetachInstancesFromLoadBalancerResult &
+  __MetadataBearer;
 
 export class DetachInstancesFromLoadBalancerCommand extends $Command<
   DetachInstancesFromLoadBalancerCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelAuditTaskCommandInput = CancelAuditTaskRequest;
-export type CancelAuditTaskCommandOutput = CancelAuditTaskResponse;
+export type CancelAuditTaskCommandOutput = CancelAuditTaskResponse &
+  __MetadataBearer;
 
 export class CancelAuditTaskCommand extends $Command<
   CancelAuditTaskCommandInput,

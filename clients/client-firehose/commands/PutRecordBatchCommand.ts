@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutRecordBatchCommandInput = PutRecordBatchInput;
-export type PutRecordBatchCommandOutput = PutRecordBatchOutput;
+export type PutRecordBatchCommandOutput = PutRecordBatchOutput &
+  __MetadataBearer;
 
 export class PutRecordBatchCommand extends $Command<
   PutRecordBatchCommandInput,

@@ -1,21 +1,35 @@
 import {
-  AssumeRoleRequest,
-  AssumeRoleResponse,
-  AssumeRoleWithSAMLRequest,
-  AssumeRoleWithSAMLResponse,
-  AssumeRoleWithWebIdentityRequest,
-  AssumeRoleWithWebIdentityResponse,
-  DecodeAuthorizationMessageRequest,
-  DecodeAuthorizationMessageResponse,
-  GetAccessKeyInfoRequest,
-  GetAccessKeyInfoResponse,
-  GetCallerIdentityRequest,
-  GetCallerIdentityResponse,
-  GetFederationTokenRequest,
-  GetFederationTokenResponse,
-  GetSessionTokenRequest,
-  GetSessionTokenResponse
-} from "./models/index";
+  AssumeRoleCommandInput,
+  AssumeRoleCommandOutput
+} from "./commands/AssumeRoleCommand";
+import {
+  AssumeRoleWithSAMLCommandInput,
+  AssumeRoleWithSAMLCommandOutput
+} from "./commands/AssumeRoleWithSAMLCommand";
+import {
+  AssumeRoleWithWebIdentityCommandInput,
+  AssumeRoleWithWebIdentityCommandOutput
+} from "./commands/AssumeRoleWithWebIdentityCommand";
+import {
+  DecodeAuthorizationMessageCommandInput,
+  DecodeAuthorizationMessageCommandOutput
+} from "./commands/DecodeAuthorizationMessageCommand";
+import {
+  GetAccessKeyInfoCommandInput,
+  GetAccessKeyInfoCommandOutput
+} from "./commands/GetAccessKeyInfoCommand";
+import {
+  GetCallerIdentityCommandInput,
+  GetCallerIdentityCommandOutput
+} from "./commands/GetCallerIdentityCommand";
+import {
+  GetFederationTokenCommandInput,
+  GetFederationTokenCommandOutput
+} from "./commands/GetFederationTokenCommand";
+import {
+  GetSessionTokenCommandInput,
+  GetSessionTokenCommandOutput
+} from "./commands/GetSessionTokenCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -69,24 +83,24 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssumeRoleRequest
-  | AssumeRoleWithSAMLRequest
-  | AssumeRoleWithWebIdentityRequest
-  | DecodeAuthorizationMessageRequest
-  | GetAccessKeyInfoRequest
-  | GetCallerIdentityRequest
-  | GetFederationTokenRequest
-  | GetSessionTokenRequest;
+  | AssumeRoleCommandInput
+  | AssumeRoleWithSAMLCommandInput
+  | AssumeRoleWithWebIdentityCommandInput
+  | DecodeAuthorizationMessageCommandInput
+  | GetAccessKeyInfoCommandInput
+  | GetCallerIdentityCommandInput
+  | GetFederationTokenCommandInput
+  | GetSessionTokenCommandInput;
 
 export type ServiceOutputTypes =
-  | AssumeRoleResponse
-  | AssumeRoleWithSAMLResponse
-  | AssumeRoleWithWebIdentityResponse
-  | DecodeAuthorizationMessageResponse
-  | GetAccessKeyInfoResponse
-  | GetCallerIdentityResponse
-  | GetFederationTokenResponse
-  | GetSessionTokenResponse;
+  | AssumeRoleCommandOutput
+  | AssumeRoleWithSAMLCommandOutput
+  | AssumeRoleWithWebIdentityCommandOutput
+  | DecodeAuthorizationMessageCommandOutput
+  | GetAccessKeyInfoCommandOutput
+  | GetCallerIdentityCommandOutput
+  | GetFederationTokenCommandOutput
+  | GetSessionTokenCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

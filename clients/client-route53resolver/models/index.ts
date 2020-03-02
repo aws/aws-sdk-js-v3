@@ -24,8 +24,7 @@ export namespace AssociateResolverEndpointIpAddressRequest {
   }
 }
 
-export interface AssociateResolverEndpointIpAddressResponse
-  extends $MetadataBearer {
+export interface AssociateResolverEndpointIpAddressResponse {
   __type?: "AssociateResolverEndpointIpAddressResponse";
   /**
    * <p>The response to an <code>AssociateResolverEndpointIpAddress</code> request.</p>
@@ -64,7 +63,7 @@ export namespace AssociateResolverRuleRequest {
   }
 }
 
-export interface AssociateResolverRuleResponse extends $MetadataBearer {
+export interface AssociateResolverRuleResponse {
   __type?: "AssociateResolverRuleResponse";
   /**
    * <p>Information about the <code>AssociateResolverRule</code> request, including the status of the request.</p>
@@ -130,7 +129,7 @@ export namespace CreateResolverEndpointRequest {
   }
 }
 
-export interface CreateResolverEndpointResponse extends $MetadataBearer {
+export interface CreateResolverEndpointResponse {
   __type?: "CreateResolverEndpointResponse";
   /**
    * <p>Information about the <code>CreateResolverEndpoint</code> request, including the status of the request.</p>
@@ -192,7 +191,7 @@ export namespace CreateResolverRuleRequest {
   }
 }
 
-export interface CreateResolverRuleResponse extends $MetadataBearer {
+export interface CreateResolverRuleResponse {
   __type?: "CreateResolverRuleResponse";
   /**
    * <p>Information about the <code>CreateResolverRule</code> request, including the status of the request.</p>
@@ -220,7 +219,7 @@ export namespace DeleteResolverEndpointRequest {
   }
 }
 
-export interface DeleteResolverEndpointResponse extends $MetadataBearer {
+export interface DeleteResolverEndpointResponse {
   __type?: "DeleteResolverEndpointResponse";
   /**
    * <p>Information about the <code>DeleteResolverEndpoint</code> request, including the status of the request.</p>
@@ -248,7 +247,7 @@ export namespace DeleteResolverRuleRequest {
   }
 }
 
-export interface DeleteResolverRuleResponse extends $MetadataBearer {
+export interface DeleteResolverRuleResponse {
   __type?: "DeleteResolverRuleResponse";
   /**
    * <p>Information about the <code>DeleteResolverRule</code> request, including the status of the request.</p>
@@ -283,8 +282,7 @@ export namespace DisassociateResolverEndpointIpAddressRequest {
   }
 }
 
-export interface DisassociateResolverEndpointIpAddressResponse
-  extends $MetadataBearer {
+export interface DisassociateResolverEndpointIpAddressResponse {
   __type?: "DisassociateResolverEndpointIpAddressResponse";
   /**
    * <p>The response to an <code>DisassociateResolverEndpointIpAddress</code> request.</p>
@@ -319,7 +317,7 @@ export namespace DisassociateResolverRuleRequest {
   }
 }
 
-export interface DisassociateResolverRuleResponse extends $MetadataBearer {
+export interface DisassociateResolverRuleResponse {
   __type?: "DisassociateResolverRuleResponse";
   /**
    * <p>Information about the <code>DisassociateResolverRule</code> request, including the status of the request.</p>
@@ -373,7 +371,7 @@ export namespace GetResolverEndpointRequest {
   }
 }
 
-export interface GetResolverEndpointResponse extends $MetadataBearer {
+export interface GetResolverEndpointResponse {
   __type?: "GetResolverEndpointResponse";
   /**
    * <p>Information about the resolver endpoint that you specified in a <code>GetResolverEndpoint</code> request.</p>
@@ -401,7 +399,7 @@ export namespace GetResolverRuleAssociationRequest {
   }
 }
 
-export interface GetResolverRuleAssociationResponse extends $MetadataBearer {
+export interface GetResolverRuleAssociationResponse {
   __type?: "GetResolverRuleAssociationResponse";
   /**
    * <p>Information about the resolver rule association that you specified in a <code>GetResolverRuleAssociation</code> request.</p>
@@ -429,7 +427,7 @@ export namespace GetResolverRulePolicyRequest {
   }
 }
 
-export interface GetResolverRulePolicyResponse extends $MetadataBearer {
+export interface GetResolverRulePolicyResponse {
   __type?: "GetResolverRulePolicyResponse";
   /**
    * <p>Information about the resolver rule policy that you specified in a <code>GetResolverRulePolicy</code> request.</p>
@@ -457,7 +455,7 @@ export namespace GetResolverRuleRequest {
   }
 }
 
-export interface GetResolverRuleResponse extends $MetadataBearer {
+export interface GetResolverRuleResponse {
   __type?: "GetResolverRuleResponse";
   /**
    * <p>Information about the resolver rule that you specified in a <code>GetResolverRule</code> request.</p>
@@ -739,8 +737,7 @@ export namespace ListResolverEndpointIpAddressesRequest {
   }
 }
 
-export interface ListResolverEndpointIpAddressesResponse
-  extends $MetadataBearer {
+export interface ListResolverEndpointIpAddressesResponse {
   __type?: "ListResolverEndpointIpAddressesResponse";
   /**
    * <p>The IP addresses that DNS queries pass through on their way to your network (outbound endpoint) or on the way to
@@ -798,7 +795,7 @@ export namespace ListResolverEndpointsRequest {
   }
 }
 
-export interface ListResolverEndpointsResponse extends $MetadataBearer {
+export interface ListResolverEndpointsResponse {
   __type?: "ListResolverEndpointsResponse";
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
@@ -854,7 +851,7 @@ export namespace ListResolverRuleAssociationsRequest {
   }
 }
 
-export interface ListResolverRuleAssociationsResponse extends $MetadataBearer {
+export interface ListResolverRuleAssociationsResponse {
   __type?: "ListResolverRuleAssociationsResponse";
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
@@ -912,7 +909,7 @@ export namespace ListResolverRulesRequest {
   }
 }
 
-export interface ListResolverRulesResponse extends $MetadataBearer {
+export interface ListResolverRulesResponse {
   __type?: "ListResolverRulesResponse";
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
@@ -965,7 +962,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>If more than <code>MaxResults</code> tags match the specified criteria, you can submit another
@@ -1008,7 +1005,7 @@ export namespace PutResolverRulePolicyRequest {
 /**
  * <p>The response to a <code>PutResolverRulePolicy</code> request.</p>
  */
-export interface PutResolverRulePolicyResponse extends $MetadataBearer {
+export interface PutResolverRulePolicyResponse {
   __type?: "PutResolverRulePolicyResponse";
   /**
    * <p>Whether the <code>PutResolverRulePolicy</code> request was successful.</p>
@@ -1460,7 +1457,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1578,7 +1575,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1607,7 +1604,7 @@ export namespace UpdateResolverEndpointRequest {
   }
 }
 
-export interface UpdateResolverEndpointResponse extends $MetadataBearer {
+export interface UpdateResolverEndpointResponse {
   __type?: "UpdateResolverEndpointResponse";
   /**
    * <p>The response to an <code>UpdateResolverEndpoint</code> request.</p>
@@ -1640,7 +1637,7 @@ export namespace UpdateResolverRuleRequest {
   }
 }
 
-export interface UpdateResolverRuleResponse extends $MetadataBearer {
+export interface UpdateResolverRuleResponse {
   __type?: "UpdateResolverRuleResponse";
   /**
    * <p>The response to an <code>UpdateResolverRule</code> request.</p>

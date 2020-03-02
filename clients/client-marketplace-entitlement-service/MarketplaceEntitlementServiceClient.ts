@@ -1,4 +1,7 @@
-import { GetEntitlementsRequest, GetEntitlementsResult } from "./models/index";
+import {
+  GetEntitlementsCommandInput,
+  GetEntitlementsCommandOutput
+} from "./commands/GetEntitlementsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -51,9 +54,9 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = GetEntitlementsRequest;
+export type ServiceInputTypes = GetEntitlementsCommandInput;
 
-export type ServiceOutputTypes = GetEntitlementsResult;
+export type ServiceOutputTypes = GetEntitlementsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

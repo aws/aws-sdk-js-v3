@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutFunctionConcurrencyCommandInput = PutFunctionConcurrencyRequest;
-export type PutFunctionConcurrencyCommandOutput = Concurrency;
+export type PutFunctionConcurrencyCommandOutput = Concurrency &
+  __MetadataBearer;
 
 export class PutFunctionConcurrencyCommand extends $Command<
   PutFunctionConcurrencyCommandInput,

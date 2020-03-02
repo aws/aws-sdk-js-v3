@@ -1,43 +1,79 @@
 import {
-  BatchGetNamedQueryInput,
-  BatchGetNamedQueryOutput,
-  BatchGetQueryExecutionInput,
-  BatchGetQueryExecutionOutput,
-  CreateNamedQueryInput,
-  CreateNamedQueryOutput,
-  CreateWorkGroupInput,
-  CreateWorkGroupOutput,
-  DeleteNamedQueryInput,
-  DeleteNamedQueryOutput,
-  DeleteWorkGroupInput,
-  DeleteWorkGroupOutput,
-  GetNamedQueryInput,
-  GetNamedQueryOutput,
-  GetQueryExecutionInput,
-  GetQueryExecutionOutput,
-  GetQueryResultsInput,
-  GetQueryResultsOutput,
-  GetWorkGroupInput,
-  GetWorkGroupOutput,
-  ListNamedQueriesInput,
-  ListNamedQueriesOutput,
-  ListQueryExecutionsInput,
-  ListQueryExecutionsOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  ListWorkGroupsInput,
-  ListWorkGroupsOutput,
-  StartQueryExecutionInput,
-  StartQueryExecutionOutput,
-  StopQueryExecutionInput,
-  StopQueryExecutionOutput,
-  TagResourceInput,
-  TagResourceOutput,
-  UntagResourceInput,
-  UntagResourceOutput,
-  UpdateWorkGroupInput,
-  UpdateWorkGroupOutput
-} from "./models/index";
+  BatchGetNamedQueryCommandInput,
+  BatchGetNamedQueryCommandOutput
+} from "./commands/BatchGetNamedQueryCommand";
+import {
+  BatchGetQueryExecutionCommandInput,
+  BatchGetQueryExecutionCommandOutput
+} from "./commands/BatchGetQueryExecutionCommand";
+import {
+  CreateNamedQueryCommandInput,
+  CreateNamedQueryCommandOutput
+} from "./commands/CreateNamedQueryCommand";
+import {
+  CreateWorkGroupCommandInput,
+  CreateWorkGroupCommandOutput
+} from "./commands/CreateWorkGroupCommand";
+import {
+  DeleteNamedQueryCommandInput,
+  DeleteNamedQueryCommandOutput
+} from "./commands/DeleteNamedQueryCommand";
+import {
+  DeleteWorkGroupCommandInput,
+  DeleteWorkGroupCommandOutput
+} from "./commands/DeleteWorkGroupCommand";
+import {
+  GetNamedQueryCommandInput,
+  GetNamedQueryCommandOutput
+} from "./commands/GetNamedQueryCommand";
+import {
+  GetQueryExecutionCommandInput,
+  GetQueryExecutionCommandOutput
+} from "./commands/GetQueryExecutionCommand";
+import {
+  GetQueryResultsCommandInput,
+  GetQueryResultsCommandOutput
+} from "./commands/GetQueryResultsCommand";
+import {
+  GetWorkGroupCommandInput,
+  GetWorkGroupCommandOutput
+} from "./commands/GetWorkGroupCommand";
+import {
+  ListNamedQueriesCommandInput,
+  ListNamedQueriesCommandOutput
+} from "./commands/ListNamedQueriesCommand";
+import {
+  ListQueryExecutionsCommandInput,
+  ListQueryExecutionsCommandOutput
+} from "./commands/ListQueryExecutionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListWorkGroupsCommandInput,
+  ListWorkGroupsCommandOutput
+} from "./commands/ListWorkGroupsCommand";
+import {
+  StartQueryExecutionCommandInput,
+  StartQueryExecutionCommandOutput
+} from "./commands/StartQueryExecutionCommand";
+import {
+  StopQueryExecutionCommandInput,
+  StopQueryExecutionCommandOutput
+} from "./commands/StopQueryExecutionCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateWorkGroupCommandInput,
+  UpdateWorkGroupCommandOutput
+} from "./commands/UpdateWorkGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -91,46 +127,46 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchGetNamedQueryInput
-  | BatchGetQueryExecutionInput
-  | CreateNamedQueryInput
-  | CreateWorkGroupInput
-  | DeleteNamedQueryInput
-  | DeleteWorkGroupInput
-  | GetNamedQueryInput
-  | GetQueryExecutionInput
-  | GetQueryResultsInput
-  | GetWorkGroupInput
-  | ListNamedQueriesInput
-  | ListQueryExecutionsInput
-  | ListTagsForResourceInput
-  | ListWorkGroupsInput
-  | StartQueryExecutionInput
-  | StopQueryExecutionInput
-  | TagResourceInput
-  | UntagResourceInput
-  | UpdateWorkGroupInput;
+  | BatchGetNamedQueryCommandInput
+  | BatchGetQueryExecutionCommandInput
+  | CreateNamedQueryCommandInput
+  | CreateWorkGroupCommandInput
+  | DeleteNamedQueryCommandInput
+  | DeleteWorkGroupCommandInput
+  | GetNamedQueryCommandInput
+  | GetQueryExecutionCommandInput
+  | GetQueryResultsCommandInput
+  | GetWorkGroupCommandInput
+  | ListNamedQueriesCommandInput
+  | ListQueryExecutionsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListWorkGroupsCommandInput
+  | StartQueryExecutionCommandInput
+  | StopQueryExecutionCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateWorkGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchGetNamedQueryOutput
-  | BatchGetQueryExecutionOutput
-  | CreateNamedQueryOutput
-  | CreateWorkGroupOutput
-  | DeleteNamedQueryOutput
-  | DeleteWorkGroupOutput
-  | GetNamedQueryOutput
-  | GetQueryExecutionOutput
-  | GetQueryResultsOutput
-  | GetWorkGroupOutput
-  | ListNamedQueriesOutput
-  | ListQueryExecutionsOutput
-  | ListTagsForResourceOutput
-  | ListWorkGroupsOutput
-  | StartQueryExecutionOutput
-  | StopQueryExecutionOutput
-  | TagResourceOutput
-  | UntagResourceOutput
-  | UpdateWorkGroupOutput;
+  | BatchGetNamedQueryCommandOutput
+  | BatchGetQueryExecutionCommandOutput
+  | CreateNamedQueryCommandOutput
+  | CreateWorkGroupCommandOutput
+  | DeleteNamedQueryCommandOutput
+  | DeleteWorkGroupCommandOutput
+  | GetNamedQueryCommandOutput
+  | GetQueryExecutionCommandOutput
+  | GetQueryResultsCommandOutput
+  | GetWorkGroupCommandOutput
+  | ListNamedQueriesCommandOutput
+  | ListQueryExecutionsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListWorkGroupsCommandOutput
+  | StartQueryExecutionCommandOutput
+  | StopQueryExecutionCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateWorkGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

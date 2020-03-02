@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UndeploySystemInstanceCommandInput = UndeploySystemInstanceRequest;
-export type UndeploySystemInstanceCommandOutput = UndeploySystemInstanceResponse;
+export type UndeploySystemInstanceCommandOutput = UndeploySystemInstanceResponse &
+  __MetadataBearer;
 
 export class UndeploySystemInstanceCommand extends $Command<
   UndeploySystemInstanceCommandInput,

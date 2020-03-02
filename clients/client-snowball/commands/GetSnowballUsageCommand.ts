@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSnowballUsageCommandInput = GetSnowballUsageRequest;
-export type GetSnowballUsageCommandOutput = GetSnowballUsageResult;
+export type GetSnowballUsageCommandOutput = GetSnowballUsageResult &
+  __MetadataBearer;
 
 export class GetSnowballUsageCommand extends $Command<
   GetSnowballUsageCommandInput,

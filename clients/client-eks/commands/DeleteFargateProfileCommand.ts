@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteFargateProfileCommandInput = DeleteFargateProfileRequest;
-export type DeleteFargateProfileCommandOutput = DeleteFargateProfileResponse;
+export type DeleteFargateProfileCommandOutput = DeleteFargateProfileResponse &
+  __MetadataBearer;
 
 export class DeleteFargateProfileCommand extends $Command<
   DeleteFargateProfileCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetActivityTaskCommandInput = GetActivityTaskInput;
-export type GetActivityTaskCommandOutput = GetActivityTaskOutput;
+export type GetActivityTaskCommandOutput = GetActivityTaskOutput &
+  __MetadataBearer;
 
 export class GetActivityTaskCommand extends $Command<
   GetActivityTaskCommandInput,

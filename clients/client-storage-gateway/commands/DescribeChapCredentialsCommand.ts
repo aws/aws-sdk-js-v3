@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeChapCredentialsCommandInput = DescribeChapCredentialsInput;
-export type DescribeChapCredentialsCommandOutput = DescribeChapCredentialsOutput;
+export type DescribeChapCredentialsCommandOutput = DescribeChapCredentialsOutput &
+  __MetadataBearer;
 
 export class DescribeChapCredentialsCommand extends $Command<
   DescribeChapCredentialsCommandInput,

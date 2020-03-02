@@ -1,77 +1,147 @@
 import {
-  BatchDescribeSimulationJobRequest,
-  BatchDescribeSimulationJobResponse,
-  CancelDeploymentJobRequest,
-  CancelDeploymentJobResponse,
-  CancelSimulationJobRequest,
-  CancelSimulationJobResponse,
-  CreateDeploymentJobRequest,
-  CreateDeploymentJobResponse,
-  CreateFleetRequest,
-  CreateFleetResponse,
-  CreateRobotApplicationRequest,
-  CreateRobotApplicationResponse,
-  CreateRobotApplicationVersionRequest,
-  CreateRobotApplicationVersionResponse,
-  CreateRobotRequest,
-  CreateRobotResponse,
-  CreateSimulationApplicationRequest,
-  CreateSimulationApplicationResponse,
-  CreateSimulationApplicationVersionRequest,
-  CreateSimulationApplicationVersionResponse,
-  CreateSimulationJobRequest,
-  CreateSimulationJobResponse,
-  DeleteFleetRequest,
-  DeleteFleetResponse,
-  DeleteRobotApplicationRequest,
-  DeleteRobotApplicationResponse,
-  DeleteRobotRequest,
-  DeleteRobotResponse,
-  DeleteSimulationApplicationRequest,
-  DeleteSimulationApplicationResponse,
-  DeregisterRobotRequest,
-  DeregisterRobotResponse,
-  DescribeDeploymentJobRequest,
-  DescribeDeploymentJobResponse,
-  DescribeFleetRequest,
-  DescribeFleetResponse,
-  DescribeRobotApplicationRequest,
-  DescribeRobotApplicationResponse,
-  DescribeRobotRequest,
-  DescribeRobotResponse,
-  DescribeSimulationApplicationRequest,
-  DescribeSimulationApplicationResponse,
-  DescribeSimulationJobRequest,
-  DescribeSimulationJobResponse,
-  ListDeploymentJobsRequest,
-  ListDeploymentJobsResponse,
-  ListFleetsRequest,
-  ListFleetsResponse,
-  ListRobotApplicationsRequest,
-  ListRobotApplicationsResponse,
-  ListRobotsRequest,
-  ListRobotsResponse,
-  ListSimulationApplicationsRequest,
-  ListSimulationApplicationsResponse,
-  ListSimulationJobsRequest,
-  ListSimulationJobsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  RegisterRobotRequest,
-  RegisterRobotResponse,
-  RestartSimulationJobRequest,
-  RestartSimulationJobResponse,
-  SyncDeploymentJobRequest,
-  SyncDeploymentJobResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateRobotApplicationRequest,
-  UpdateRobotApplicationResponse,
-  UpdateSimulationApplicationRequest,
-  UpdateSimulationApplicationResponse
-} from "./models/index";
+  BatchDescribeSimulationJobCommandInput,
+  BatchDescribeSimulationJobCommandOutput
+} from "./commands/BatchDescribeSimulationJobCommand";
+import {
+  CancelDeploymentJobCommandInput,
+  CancelDeploymentJobCommandOutput
+} from "./commands/CancelDeploymentJobCommand";
+import {
+  CancelSimulationJobCommandInput,
+  CancelSimulationJobCommandOutput
+} from "./commands/CancelSimulationJobCommand";
+import {
+  CreateDeploymentJobCommandInput,
+  CreateDeploymentJobCommandOutput
+} from "./commands/CreateDeploymentJobCommand";
+import {
+  CreateFleetCommandInput,
+  CreateFleetCommandOutput
+} from "./commands/CreateFleetCommand";
+import {
+  CreateRobotApplicationCommandInput,
+  CreateRobotApplicationCommandOutput
+} from "./commands/CreateRobotApplicationCommand";
+import {
+  CreateRobotApplicationVersionCommandInput,
+  CreateRobotApplicationVersionCommandOutput
+} from "./commands/CreateRobotApplicationVersionCommand";
+import {
+  CreateRobotCommandInput,
+  CreateRobotCommandOutput
+} from "./commands/CreateRobotCommand";
+import {
+  CreateSimulationApplicationCommandInput,
+  CreateSimulationApplicationCommandOutput
+} from "./commands/CreateSimulationApplicationCommand";
+import {
+  CreateSimulationApplicationVersionCommandInput,
+  CreateSimulationApplicationVersionCommandOutput
+} from "./commands/CreateSimulationApplicationVersionCommand";
+import {
+  CreateSimulationJobCommandInput,
+  CreateSimulationJobCommandOutput
+} from "./commands/CreateSimulationJobCommand";
+import {
+  DeleteFleetCommandInput,
+  DeleteFleetCommandOutput
+} from "./commands/DeleteFleetCommand";
+import {
+  DeleteRobotApplicationCommandInput,
+  DeleteRobotApplicationCommandOutput
+} from "./commands/DeleteRobotApplicationCommand";
+import {
+  DeleteRobotCommandInput,
+  DeleteRobotCommandOutput
+} from "./commands/DeleteRobotCommand";
+import {
+  DeleteSimulationApplicationCommandInput,
+  DeleteSimulationApplicationCommandOutput
+} from "./commands/DeleteSimulationApplicationCommand";
+import {
+  DeregisterRobotCommandInput,
+  DeregisterRobotCommandOutput
+} from "./commands/DeregisterRobotCommand";
+import {
+  DescribeDeploymentJobCommandInput,
+  DescribeDeploymentJobCommandOutput
+} from "./commands/DescribeDeploymentJobCommand";
+import {
+  DescribeFleetCommandInput,
+  DescribeFleetCommandOutput
+} from "./commands/DescribeFleetCommand";
+import {
+  DescribeRobotApplicationCommandInput,
+  DescribeRobotApplicationCommandOutput
+} from "./commands/DescribeRobotApplicationCommand";
+import {
+  DescribeRobotCommandInput,
+  DescribeRobotCommandOutput
+} from "./commands/DescribeRobotCommand";
+import {
+  DescribeSimulationApplicationCommandInput,
+  DescribeSimulationApplicationCommandOutput
+} from "./commands/DescribeSimulationApplicationCommand";
+import {
+  DescribeSimulationJobCommandInput,
+  DescribeSimulationJobCommandOutput
+} from "./commands/DescribeSimulationJobCommand";
+import {
+  ListDeploymentJobsCommandInput,
+  ListDeploymentJobsCommandOutput
+} from "./commands/ListDeploymentJobsCommand";
+import {
+  ListFleetsCommandInput,
+  ListFleetsCommandOutput
+} from "./commands/ListFleetsCommand";
+import {
+  ListRobotApplicationsCommandInput,
+  ListRobotApplicationsCommandOutput
+} from "./commands/ListRobotApplicationsCommand";
+import {
+  ListRobotsCommandInput,
+  ListRobotsCommandOutput
+} from "./commands/ListRobotsCommand";
+import {
+  ListSimulationApplicationsCommandInput,
+  ListSimulationApplicationsCommandOutput
+} from "./commands/ListSimulationApplicationsCommand";
+import {
+  ListSimulationJobsCommandInput,
+  ListSimulationJobsCommandOutput
+} from "./commands/ListSimulationJobsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  RegisterRobotCommandInput,
+  RegisterRobotCommandOutput
+} from "./commands/RegisterRobotCommand";
+import {
+  RestartSimulationJobCommandInput,
+  RestartSimulationJobCommandOutput
+} from "./commands/RestartSimulationJobCommand";
+import {
+  SyncDeploymentJobCommandInput,
+  SyncDeploymentJobCommandOutput
+} from "./commands/SyncDeploymentJobCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateRobotApplicationCommandInput,
+  UpdateRobotApplicationCommandOutput
+} from "./commands/UpdateRobotApplicationCommand";
+import {
+  UpdateSimulationApplicationCommandInput,
+  UpdateSimulationApplicationCommandOutput
+} from "./commands/UpdateSimulationApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -125,80 +195,80 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchDescribeSimulationJobRequest
-  | CancelDeploymentJobRequest
-  | CancelSimulationJobRequest
-  | CreateDeploymentJobRequest
-  | CreateFleetRequest
-  | CreateRobotApplicationRequest
-  | CreateRobotApplicationVersionRequest
-  | CreateRobotRequest
-  | CreateSimulationApplicationRequest
-  | CreateSimulationApplicationVersionRequest
-  | CreateSimulationJobRequest
-  | DeleteFleetRequest
-  | DeleteRobotApplicationRequest
-  | DeleteRobotRequest
-  | DeleteSimulationApplicationRequest
-  | DeregisterRobotRequest
-  | DescribeDeploymentJobRequest
-  | DescribeFleetRequest
-  | DescribeRobotApplicationRequest
-  | DescribeRobotRequest
-  | DescribeSimulationApplicationRequest
-  | DescribeSimulationJobRequest
-  | ListDeploymentJobsRequest
-  | ListFleetsRequest
-  | ListRobotApplicationsRequest
-  | ListRobotsRequest
-  | ListSimulationApplicationsRequest
-  | ListSimulationJobsRequest
-  | ListTagsForResourceRequest
-  | RegisterRobotRequest
-  | RestartSimulationJobRequest
-  | SyncDeploymentJobRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateRobotApplicationRequest
-  | UpdateSimulationApplicationRequest;
+  | BatchDescribeSimulationJobCommandInput
+  | CancelDeploymentJobCommandInput
+  | CancelSimulationJobCommandInput
+  | CreateDeploymentJobCommandInput
+  | CreateFleetCommandInput
+  | CreateRobotApplicationCommandInput
+  | CreateRobotApplicationVersionCommandInput
+  | CreateRobotCommandInput
+  | CreateSimulationApplicationCommandInput
+  | CreateSimulationApplicationVersionCommandInput
+  | CreateSimulationJobCommandInput
+  | DeleteFleetCommandInput
+  | DeleteRobotApplicationCommandInput
+  | DeleteRobotCommandInput
+  | DeleteSimulationApplicationCommandInput
+  | DeregisterRobotCommandInput
+  | DescribeDeploymentJobCommandInput
+  | DescribeFleetCommandInput
+  | DescribeRobotApplicationCommandInput
+  | DescribeRobotCommandInput
+  | DescribeSimulationApplicationCommandInput
+  | DescribeSimulationJobCommandInput
+  | ListDeploymentJobsCommandInput
+  | ListFleetsCommandInput
+  | ListRobotApplicationsCommandInput
+  | ListRobotsCommandInput
+  | ListSimulationApplicationsCommandInput
+  | ListSimulationJobsCommandInput
+  | ListTagsForResourceCommandInput
+  | RegisterRobotCommandInput
+  | RestartSimulationJobCommandInput
+  | SyncDeploymentJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateRobotApplicationCommandInput
+  | UpdateSimulationApplicationCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchDescribeSimulationJobResponse
-  | CancelDeploymentJobResponse
-  | CancelSimulationJobResponse
-  | CreateDeploymentJobResponse
-  | CreateFleetResponse
-  | CreateRobotApplicationResponse
-  | CreateRobotApplicationVersionResponse
-  | CreateRobotResponse
-  | CreateSimulationApplicationResponse
-  | CreateSimulationApplicationVersionResponse
-  | CreateSimulationJobResponse
-  | DeleteFleetResponse
-  | DeleteRobotApplicationResponse
-  | DeleteRobotResponse
-  | DeleteSimulationApplicationResponse
-  | DeregisterRobotResponse
-  | DescribeDeploymentJobResponse
-  | DescribeFleetResponse
-  | DescribeRobotApplicationResponse
-  | DescribeRobotResponse
-  | DescribeSimulationApplicationResponse
-  | DescribeSimulationJobResponse
-  | ListDeploymentJobsResponse
-  | ListFleetsResponse
-  | ListRobotApplicationsResponse
-  | ListRobotsResponse
-  | ListSimulationApplicationsResponse
-  | ListSimulationJobsResponse
-  | ListTagsForResourceResponse
-  | RegisterRobotResponse
-  | RestartSimulationJobResponse
-  | SyncDeploymentJobResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateRobotApplicationResponse
-  | UpdateSimulationApplicationResponse;
+  | BatchDescribeSimulationJobCommandOutput
+  | CancelDeploymentJobCommandOutput
+  | CancelSimulationJobCommandOutput
+  | CreateDeploymentJobCommandOutput
+  | CreateFleetCommandOutput
+  | CreateRobotApplicationCommandOutput
+  | CreateRobotApplicationVersionCommandOutput
+  | CreateRobotCommandOutput
+  | CreateSimulationApplicationCommandOutput
+  | CreateSimulationApplicationVersionCommandOutput
+  | CreateSimulationJobCommandOutput
+  | DeleteFleetCommandOutput
+  | DeleteRobotApplicationCommandOutput
+  | DeleteRobotCommandOutput
+  | DeleteSimulationApplicationCommandOutput
+  | DeregisterRobotCommandOutput
+  | DescribeDeploymentJobCommandOutput
+  | DescribeFleetCommandOutput
+  | DescribeRobotApplicationCommandOutput
+  | DescribeRobotCommandOutput
+  | DescribeSimulationApplicationCommandOutput
+  | DescribeSimulationJobCommandOutput
+  | ListDeploymentJobsCommandOutput
+  | ListFleetsCommandOutput
+  | ListRobotApplicationsCommandOutput
+  | ListRobotsCommandOutput
+  | ListSimulationApplicationsCommandOutput
+  | ListSimulationJobsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | RegisterRobotCommandOutput
+  | RestartSimulationJobCommandOutput
+  | SyncDeploymentJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateRobotApplicationCommandOutput
+  | UpdateSimulationApplicationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

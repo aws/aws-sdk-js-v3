@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableDirectoryCommandInput = DisableDirectoryRequest;
-export type DisableDirectoryCommandOutput = DisableDirectoryResponse;
+export type DisableDirectoryCommandOutput = DisableDirectoryResponse &
+  __MetadataBearer;
 
 export class DisableDirectoryCommand extends $Command<
   DisableDirectoryCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateInternetGatewayCommandInput = CreateInternetGatewayRequest;
-export type CreateInternetGatewayCommandOutput = CreateInternetGatewayResult;
+export type CreateInternetGatewayCommandOutput = CreateInternetGatewayResult &
+  __MetadataBearer;
 
 export class CreateInternetGatewayCommand extends $Command<
   CreateInternetGatewayCommandInput,

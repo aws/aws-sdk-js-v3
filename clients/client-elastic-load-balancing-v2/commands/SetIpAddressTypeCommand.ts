@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetIpAddressTypeCommandInput = SetIpAddressTypeInput;
-export type SetIpAddressTypeCommandOutput = SetIpAddressTypeOutput;
+export type SetIpAddressTypeCommandOutput = SetIpAddressTypeOutput &
+  __MetadataBearer;
 
 export class SetIpAddressTypeCommand extends $Command<
   SetIpAddressTypeCommandInput,

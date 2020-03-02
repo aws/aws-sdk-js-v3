@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAvailabilityOptionsCommandInput = UpdateAvailabilityOptionsRequest;
-export type UpdateAvailabilityOptionsCommandOutput = UpdateAvailabilityOptionsResponse;
+export type UpdateAvailabilityOptionsCommandOutput = UpdateAvailabilityOptionsResponse &
+  __MetadataBearer;
 
 export class UpdateAvailabilityOptionsCommand extends $Command<
   UpdateAvailabilityOptionsCommandInput,

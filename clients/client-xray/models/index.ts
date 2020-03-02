@@ -137,7 +137,7 @@ export namespace BatchGetTracesRequest {
   }
 }
 
-export interface BatchGetTracesResult extends $MetadataBearer {
+export interface BatchGetTracesResult {
   __type?: "BatchGetTracesResult";
   /**
    * <p>Pagination token.</p>
@@ -181,7 +181,7 @@ export namespace CreateGroupRequest {
   }
 }
 
-export interface CreateGroupResult extends $MetadataBearer {
+export interface CreateGroupResult {
   __type?: "CreateGroupResult";
   /**
    * <p>The group that was created. Contains the name of the group that was created, the
@@ -211,7 +211,7 @@ export namespace CreateSamplingRuleRequest {
   }
 }
 
-export interface CreateSamplingRuleResult extends $MetadataBearer {
+export interface CreateSamplingRuleResult {
   __type?: "CreateSamplingRuleResult";
   /**
    * <p>The saved rule definition and metadata.</p>
@@ -244,7 +244,7 @@ export namespace DeleteGroupRequest {
   }
 }
 
-export interface DeleteGroupResult extends $MetadataBearer {
+export interface DeleteGroupResult {
   __type?: "DeleteGroupResult";
 }
 
@@ -273,7 +273,7 @@ export namespace DeleteSamplingRuleRequest {
   }
 }
 
-export interface DeleteSamplingRuleResult extends $MetadataBearer {
+export interface DeleteSamplingRuleResult {
   __type?: "DeleteSamplingRuleResult";
   /**
    * <p>The deleted rule definition and metadata.</p>
@@ -641,7 +641,7 @@ export namespace GetEncryptionConfigRequest {
   }
 }
 
-export interface GetEncryptionConfigResult extends $MetadataBearer {
+export interface GetEncryptionConfigResult {
   __type?: "GetEncryptionConfigResult";
   /**
    * <p>The encryption configuration document.</p>
@@ -674,7 +674,7 @@ export namespace GetGroupRequest {
   }
 }
 
-export interface GetGroupResult extends $MetadataBearer {
+export interface GetGroupResult {
   __type?: "GetGroupResult";
   /**
    * <p>The group that was requested. Contains the name of the group, the ARN of the group,
@@ -703,7 +703,7 @@ export namespace GetGroupsRequest {
   }
 }
 
-export interface GetGroupsResult extends $MetadataBearer {
+export interface GetGroupsResult {
   __type?: "GetGroupsResult";
   /**
    * <p>The collection of all active groups.</p>
@@ -736,7 +736,7 @@ export namespace GetSamplingRulesRequest {
   }
 }
 
-export interface GetSamplingRulesResult extends $MetadataBearer {
+export interface GetSamplingRulesResult {
   __type?: "GetSamplingRulesResult";
   /**
    * <p>Pagination token.</p>
@@ -769,7 +769,7 @@ export namespace GetSamplingStatisticSummariesRequest {
   }
 }
 
-export interface GetSamplingStatisticSummariesResult extends $MetadataBearer {
+export interface GetSamplingStatisticSummariesResult {
   __type?: "GetSamplingStatisticSummariesResult";
   /**
    * <p>Pagination token.</p>
@@ -803,7 +803,7 @@ export namespace GetSamplingTargetsRequest {
   }
 }
 
-export interface GetSamplingTargetsResult extends $MetadataBearer {
+export interface GetSamplingTargetsResult {
   __type?: "GetSamplingTargetsResult";
   /**
    * <p>The last time a user changed the sampling rule configuration. If
@@ -864,7 +864,7 @@ export namespace GetServiceGraphRequest {
   }
 }
 
-export interface GetServiceGraphResult extends $MetadataBearer {
+export interface GetServiceGraphResult {
   __type?: "GetServiceGraphResult";
   /**
    * <p>A flag indicating whether the group's filter expression has been consistent, or
@@ -947,7 +947,7 @@ export namespace GetTimeSeriesServiceStatisticsRequest {
   }
 }
 
-export interface GetTimeSeriesServiceStatisticsResult extends $MetadataBearer {
+export interface GetTimeSeriesServiceStatisticsResult {
   __type?: "GetTimeSeriesServiceStatisticsResult";
   /**
    * <p>A flag indicating whether or not a group's filter expression has been consistent,
@@ -992,7 +992,7 @@ export namespace GetTraceGraphRequest {
   }
 }
 
-export interface GetTraceGraphResult extends $MetadataBearer {
+export interface GetTraceGraphResult {
   __type?: "GetTraceGraphResult";
   /**
    * <p>Pagination token.</p>
@@ -1059,7 +1059,7 @@ export namespace GetTraceSummariesRequest {
   }
 }
 
-export interface GetTraceSummariesResult extends $MetadataBearer {
+export interface GetTraceSummariesResult {
   __type?: "GetTraceSummariesResult";
   /**
    * <p>The start time of this page of results.</p>
@@ -1280,7 +1280,7 @@ export namespace PutEncryptionConfigRequest {
   }
 }
 
-export interface PutEncryptionConfigResult extends $MetadataBearer {
+export interface PutEncryptionConfigResult {
   __type?: "PutEncryptionConfigResult";
   /**
    * <p>The new encryption configuration.</p>
@@ -1323,7 +1323,7 @@ export namespace PutTelemetryRecordsRequest {
   }
 }
 
-export interface PutTelemetryRecordsResult extends $MetadataBearer {
+export interface PutTelemetryRecordsResult {
   __type?: "PutTelemetryRecordsResult";
 }
 
@@ -1348,7 +1348,7 @@ export namespace PutTraceSegmentsRequest {
   }
 }
 
-export interface PutTraceSegmentsResult extends $MetadataBearer {
+export interface PutTraceSegmentsResult {
   __type?: "PutTraceSegmentsResult";
   /**
    * <p>Segments that failed processing.</p>
@@ -2379,7 +2379,7 @@ export namespace UpdateGroupRequest {
   }
 }
 
-export interface UpdateGroupResult extends $MetadataBearer {
+export interface UpdateGroupResult {
   __type?: "UpdateGroupResult";
   /**
    * <p>The group that was updated. Contains the name of the group that was updated, the
@@ -2409,7 +2409,7 @@ export namespace UpdateSamplingRuleRequest {
   }
 }
 
-export interface UpdateSamplingRuleResult extends $MetadataBearer {
+export interface UpdateSamplingRuleResult {
   __type?: "UpdateSamplingRuleResult";
   /**
    * <p>The updated rule definition and metadata.</p>

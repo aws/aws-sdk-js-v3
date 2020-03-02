@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateSigninDelegateGroupsFromAccountCommandInput = DisassociateSigninDelegateGroupsFromAccountRequest;
-export type DisassociateSigninDelegateGroupsFromAccountCommandOutput = DisassociateSigninDelegateGroupsFromAccountResponse;
+export type DisassociateSigninDelegateGroupsFromAccountCommandOutput = DisassociateSigninDelegateGroupsFromAccountResponse &
+  __MetadataBearer;
 
 export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command<
   DisassociateSigninDelegateGroupsFromAccountCommandInput,

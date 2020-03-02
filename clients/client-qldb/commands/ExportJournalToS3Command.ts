@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExportJournalToS3CommandInput = ExportJournalToS3Request;
-export type ExportJournalToS3CommandOutput = ExportJournalToS3Response;
+export type ExportJournalToS3CommandOutput = ExportJournalToS3Response &
+  __MetadataBearer;
 
 export class ExportJournalToS3Command extends $Command<
   ExportJournalToS3CommandInput,

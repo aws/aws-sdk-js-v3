@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnsubscribeFromDatasetCommandInput = UnsubscribeFromDatasetRequest;
-export type UnsubscribeFromDatasetCommandOutput = UnsubscribeFromDatasetResponse;
+export type UnsubscribeFromDatasetCommandOutput = UnsubscribeFromDatasetResponse &
+  __MetadataBearer;
 
 export class UnsubscribeFromDatasetCommand extends $Command<
   UnsubscribeFromDatasetCommandInput,

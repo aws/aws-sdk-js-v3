@@ -1863,38 +1863,53 @@ async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand
   switch (errorCode) {
     case "CloudFrontOriginAccessIdentityAlreadyExists":
     case "com.amazon.edge.error#CloudFrontOriginAccessIdentityAlreadyExists":
-      response = await deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingBody":
     case "com.amazon.edge.error#MissingBody":
-      response = await deserializeAws_restXmlMissingBodyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlMissingBodyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCloudFrontOriginAccessIdentities":
     case "com.amazon.edge.error#TooManyCloudFrontOriginAccessIdentities":
-      response = await deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1956,311 +1971,443 @@ async function deserializeAws_restXmlCreateDistributionCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CNAMEAlreadyExists":
     case "com.amazon.edge.error#CNAMEAlreadyExists":
-      response = await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DistributionAlreadyExists":
     case "com.amazon.edge.error#DistributionAlreadyExists":
-      response = await deserializeAws_restXmlDistributionAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlDistributionAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
     case "com.amazon.edge.error#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
-      response = await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDefaultRootObject":
     case "com.amazon.edge.error#InvalidDefaultRootObject":
-      response = await deserializeAws_restXmlInvalidDefaultRootObjectResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidDefaultRootObjectResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidErrorCode":
     case "com.amazon.edge.error#InvalidErrorCode":
-      response = await deserializeAws_restXmlInvalidErrorCodeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidErrorCodeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidForwardCookies":
     case "com.amazon.edge.error#InvalidForwardCookies":
-      response = await deserializeAws_restXmlInvalidForwardCookiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidForwardCookiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGeoRestrictionParameter":
     case "com.amazon.edge.error#InvalidGeoRestrictionParameter":
-      response = await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidHeadersForS3Origin":
     case "com.amazon.edge.error#InvalidHeadersForS3Origin":
-      response = await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaFunctionAssociation":
     case "com.amazon.edge.error#InvalidLambdaFunctionAssociation":
-      response = await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLocationCode":
     case "com.amazon.edge.error#InvalidLocationCode":
-      response = await deserializeAws_restXmlInvalidLocationCodeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidLocationCodeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMinimumProtocolVersion":
     case "com.amazon.edge.error#InvalidMinimumProtocolVersion":
-      response = await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOrigin":
     case "com.amazon.edge.error#InvalidOrigin":
-      response = await deserializeAws_restXmlInvalidOriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginAccessIdentity":
     case "com.amazon.edge.error#InvalidOriginAccessIdentity":
-      response = await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginKeepaliveTimeout":
     case "com.amazon.edge.error#InvalidOriginKeepaliveTimeout":
-      response = await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginReadTimeout":
     case "com.amazon.edge.error#InvalidOriginReadTimeout":
-      response = await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidProtocolSettings":
     case "com.amazon.edge.error#InvalidProtocolSettings":
-      response = await deserializeAws_restXmlInvalidProtocolSettingsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidProtocolSettingsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidQueryStringParameters":
     case "com.amazon.edge.error#InvalidQueryStringParameters":
-      response = await deserializeAws_restXmlInvalidQueryStringParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidQueryStringParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRelativePath":
     case "com.amazon.edge.error#InvalidRelativePath":
-      response = await deserializeAws_restXmlInvalidRelativePathResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidRelativePathResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequiredProtocol":
     case "com.amazon.edge.error#InvalidRequiredProtocol":
-      response = await deserializeAws_restXmlInvalidRequiredProtocolResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidRequiredProtocolResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResponseCode":
     case "com.amazon.edge.error#InvalidResponseCode":
-      response = await deserializeAws_restXmlInvalidResponseCodeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidResponseCodeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTTLOrder":
     case "com.amazon.edge.error#InvalidTTLOrder":
-      response = await deserializeAws_restXmlInvalidTTLOrderResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidTTLOrderResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidViewerCertificate":
     case "com.amazon.edge.error#InvalidViewerCertificate":
-      response = await deserializeAws_restXmlInvalidViewerCertificateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidViewerCertificateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidWebACLId":
     case "com.amazon.edge.error#InvalidWebACLId":
-      response = await deserializeAws_restXmlInvalidWebACLIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidWebACLIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingBody":
     case "com.amazon.edge.error#MissingBody":
-      response = await deserializeAws_restXmlMissingBodyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlMissingBodyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchOrigin":
     case "com.amazon.edge.error#NoSuchOrigin":
-      response = await deserializeAws_restXmlNoSuchOriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchOriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCacheBehaviors":
     case "com.amazon.edge.error#TooManyCacheBehaviors":
-      response = await deserializeAws_restXmlTooManyCacheBehaviorsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCacheBehaviorsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCertificates":
     case "com.amazon.edge.error#TooManyCertificates":
-      response = await deserializeAws_restXmlTooManyCertificatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCertificatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCookieNamesInWhiteList":
     case "com.amazon.edge.error#TooManyCookieNamesInWhiteList":
-      response = await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributionCNAMEs":
     case "com.amazon.edge.error#TooManyDistributionCNAMEs":
-      response = await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributions":
     case "com.amazon.edge.error#TooManyDistributions":
-      response = await deserializeAws_restXmlTooManyDistributionsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributionsWithLambdaAssociations":
     case "com.amazon.edge.error#TooManyDistributionsWithLambdaAssociations":
-      response = await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyHeadersInForwardedValues":
     case "com.amazon.edge.error#TooManyHeadersInForwardedValues":
-      response = await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyLambdaFunctionAssociations":
     case "com.amazon.edge.error#TooManyLambdaFunctionAssociations":
-      response = await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyOriginCustomHeaders":
     case "com.amazon.edge.error#TooManyOriginCustomHeaders":
-      response = await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyOriginGroupsPerDistribution":
     case "com.amazon.edge.error#TooManyOriginGroupsPerDistribution":
-      response = await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyOrigins":
     case "com.amazon.edge.error#TooManyOrigins":
-      response = await deserializeAws_restXmlTooManyOriginsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyOriginsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyQueryStringParameters":
     case "com.amazon.edge.error#TooManyQueryStringParameters":
-      response = await deserializeAws_restXmlTooManyQueryStringParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyQueryStringParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTrustedSigners":
     case "com.amazon.edge.error#TooManyTrustedSigners":
-      response = await deserializeAws_restXmlTooManyTrustedSignersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TrustedSignerDoesNotExist":
     case "com.amazon.edge.error#TrustedSignerDoesNotExist":
-      response = await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2322,318 +2469,453 @@ async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CNAMEAlreadyExists":
     case "com.amazon.edge.error#CNAMEAlreadyExists":
-      response = await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DistributionAlreadyExists":
     case "com.amazon.edge.error#DistributionAlreadyExists":
-      response = await deserializeAws_restXmlDistributionAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlDistributionAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
     case "com.amazon.edge.error#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
-      response = await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDefaultRootObject":
     case "com.amazon.edge.error#InvalidDefaultRootObject":
-      response = await deserializeAws_restXmlInvalidDefaultRootObjectResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidDefaultRootObjectResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidErrorCode":
     case "com.amazon.edge.error#InvalidErrorCode":
-      response = await deserializeAws_restXmlInvalidErrorCodeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidErrorCodeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidForwardCookies":
     case "com.amazon.edge.error#InvalidForwardCookies":
-      response = await deserializeAws_restXmlInvalidForwardCookiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidForwardCookiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGeoRestrictionParameter":
     case "com.amazon.edge.error#InvalidGeoRestrictionParameter":
-      response = await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidHeadersForS3Origin":
     case "com.amazon.edge.error#InvalidHeadersForS3Origin":
-      response = await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaFunctionAssociation":
     case "com.amazon.edge.error#InvalidLambdaFunctionAssociation":
-      response = await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLocationCode":
     case "com.amazon.edge.error#InvalidLocationCode":
-      response = await deserializeAws_restXmlInvalidLocationCodeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidLocationCodeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMinimumProtocolVersion":
     case "com.amazon.edge.error#InvalidMinimumProtocolVersion":
-      response = await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOrigin":
     case "com.amazon.edge.error#InvalidOrigin":
-      response = await deserializeAws_restXmlInvalidOriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginAccessIdentity":
     case "com.amazon.edge.error#InvalidOriginAccessIdentity":
-      response = await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginKeepaliveTimeout":
     case "com.amazon.edge.error#InvalidOriginKeepaliveTimeout":
-      response = await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginReadTimeout":
     case "com.amazon.edge.error#InvalidOriginReadTimeout":
-      response = await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidProtocolSettings":
     case "com.amazon.edge.error#InvalidProtocolSettings":
-      response = await deserializeAws_restXmlInvalidProtocolSettingsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidProtocolSettingsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidQueryStringParameters":
     case "com.amazon.edge.error#InvalidQueryStringParameters":
-      response = await deserializeAws_restXmlInvalidQueryStringParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidQueryStringParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRelativePath":
     case "com.amazon.edge.error#InvalidRelativePath":
-      response = await deserializeAws_restXmlInvalidRelativePathResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidRelativePathResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequiredProtocol":
     case "com.amazon.edge.error#InvalidRequiredProtocol":
-      response = await deserializeAws_restXmlInvalidRequiredProtocolResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidRequiredProtocolResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResponseCode":
     case "com.amazon.edge.error#InvalidResponseCode":
-      response = await deserializeAws_restXmlInvalidResponseCodeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidResponseCodeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTTLOrder":
     case "com.amazon.edge.error#InvalidTTLOrder":
-      response = await deserializeAws_restXmlInvalidTTLOrderResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidTTLOrderResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagging":
     case "com.amazon.edge.error#InvalidTagging":
-      response = await deserializeAws_restXmlInvalidTaggingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidTaggingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidViewerCertificate":
     case "com.amazon.edge.error#InvalidViewerCertificate":
-      response = await deserializeAws_restXmlInvalidViewerCertificateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidViewerCertificateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidWebACLId":
     case "com.amazon.edge.error#InvalidWebACLId":
-      response = await deserializeAws_restXmlInvalidWebACLIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidWebACLIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingBody":
     case "com.amazon.edge.error#MissingBody":
-      response = await deserializeAws_restXmlMissingBodyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlMissingBodyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchOrigin":
     case "com.amazon.edge.error#NoSuchOrigin":
-      response = await deserializeAws_restXmlNoSuchOriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchOriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCacheBehaviors":
     case "com.amazon.edge.error#TooManyCacheBehaviors":
-      response = await deserializeAws_restXmlTooManyCacheBehaviorsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCacheBehaviorsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCertificates":
     case "com.amazon.edge.error#TooManyCertificates":
-      response = await deserializeAws_restXmlTooManyCertificatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCertificatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCookieNamesInWhiteList":
     case "com.amazon.edge.error#TooManyCookieNamesInWhiteList":
-      response = await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributionCNAMEs":
     case "com.amazon.edge.error#TooManyDistributionCNAMEs":
-      response = await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributions":
     case "com.amazon.edge.error#TooManyDistributions":
-      response = await deserializeAws_restXmlTooManyDistributionsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributionsWithLambdaAssociations":
     case "com.amazon.edge.error#TooManyDistributionsWithLambdaAssociations":
-      response = await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyHeadersInForwardedValues":
     case "com.amazon.edge.error#TooManyHeadersInForwardedValues":
-      response = await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyLambdaFunctionAssociations":
     case "com.amazon.edge.error#TooManyLambdaFunctionAssociations":
-      response = await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyOriginCustomHeaders":
     case "com.amazon.edge.error#TooManyOriginCustomHeaders":
-      response = await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyOriginGroupsPerDistribution":
     case "com.amazon.edge.error#TooManyOriginGroupsPerDistribution":
-      response = await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyOrigins":
     case "com.amazon.edge.error#TooManyOrigins":
-      response = await deserializeAws_restXmlTooManyOriginsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyOriginsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyQueryStringParameters":
     case "com.amazon.edge.error#TooManyQueryStringParameters":
-      response = await deserializeAws_restXmlTooManyQueryStringParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyQueryStringParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTrustedSigners":
     case "com.amazon.edge.error#TooManyTrustedSigners":
-      response = await deserializeAws_restXmlTooManyTrustedSignersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TrustedSignerDoesNotExist":
     case "com.amazon.edge.error#TrustedSignerDoesNotExist":
-      response = await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2698,59 +2980,83 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandErro
   switch (errorCode) {
     case "FieldLevelEncryptionConfigAlreadyExists":
     case "com.amazon.edge.error#FieldLevelEncryptionConfigAlreadyExists":
-      response = await deserializeAws_restXmlFieldLevelEncryptionConfigAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlFieldLevelEncryptionConfigAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "QueryArgProfileEmpty":
     case "com.amazon.edge.error#QueryArgProfileEmpty":
-      response = await deserializeAws_restXmlQueryArgProfileEmptyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlQueryArgProfileEmptyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionConfigs":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionConfigs":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionConfigsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionConfigsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionContentTypeProfiles":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionContentTypeProfiles":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionQueryArgProfiles":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionQueryArgProfiles":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2815,59 +3121,83 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandErr
   switch (errorCode) {
     case "FieldLevelEncryptionProfileAlreadyExists":
     case "com.amazon.edge.error#FieldLevelEncryptionProfileAlreadyExists":
-      response = await deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FieldLevelEncryptionProfileSizeExceeded":
     case "com.amazon.edge.error#FieldLevelEncryptionProfileSizeExceeded":
-      response = await deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchPublicKey":
     case "com.amazon.edge.error#NoSuchPublicKey":
-      response = await deserializeAws_restXmlNoSuchPublicKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionEncryptionEntities":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionEncryptionEntities":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionFieldPatterns":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionFieldPatterns":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionProfiles":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionProfiles":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2925,52 +3255,73 @@ async function deserializeAws_restXmlCreateInvalidationCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BatchTooLarge":
     case "com.amazon.edge.error#BatchTooLarge":
-      response = await deserializeAws_restXmlBatchTooLargeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlBatchTooLargeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingBody":
     case "com.amazon.edge.error#MissingBody":
-      response = await deserializeAws_restXmlMissingBodyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlMissingBodyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchDistribution":
     case "com.amazon.edge.error#NoSuchDistribution":
-      response = await deserializeAws_restXmlNoSuchDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyInvalidationsInProgress":
     case "com.amazon.edge.error#TooManyInvalidationsInProgress":
-      response = await deserializeAws_restXmlTooManyInvalidationsInProgressResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyInvalidationsInProgressResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3029,24 +3380,33 @@ async function deserializeAws_restXmlCreatePublicKeyCommandError(
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PublicKeyAlreadyExists":
     case "com.amazon.edge.error#PublicKeyAlreadyExists":
-      response = await deserializeAws_restXmlPublicKeyAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPublicKeyAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyPublicKeys":
     case "com.amazon.edge.error#TooManyPublicKeys":
-      response = await deserializeAws_restXmlTooManyPublicKeysResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyPublicKeysResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3111,87 +3471,123 @@ async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CNAMEAlreadyExists":
     case "com.amazon.edge.error#CNAMEAlreadyExists":
-      response = await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOrigin":
     case "com.amazon.edge.error#InvalidOrigin":
-      response = await deserializeAws_restXmlInvalidOriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginAccessIdentity":
     case "com.amazon.edge.error#InvalidOriginAccessIdentity":
-      response = await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingBody":
     case "com.amazon.edge.error#MissingBody":
-      response = await deserializeAws_restXmlMissingBodyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlMissingBodyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StreamingDistributionAlreadyExists":
     case "com.amazon.edge.error#StreamingDistributionAlreadyExists":
-      response = await deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyStreamingDistributionCNAMEs":
     case "com.amazon.edge.error#TooManyStreamingDistributionCNAMEs":
-      response = await deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyStreamingDistributions":
     case "com.amazon.edge.error#TooManyStreamingDistributions":
-      response = await deserializeAws_restXmlTooManyStreamingDistributionsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyStreamingDistributionsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTrustedSigners":
     case "com.amazon.edge.error#TooManyTrustedSigners":
-      response = await deserializeAws_restXmlTooManyTrustedSignersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TrustedSignerDoesNotExist":
     case "com.amazon.edge.error#TrustedSignerDoesNotExist":
-      response = await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3256,94 +3652,133 @@ async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandE
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CNAMEAlreadyExists":
     case "com.amazon.edge.error#CNAMEAlreadyExists":
-      response = await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOrigin":
     case "com.amazon.edge.error#InvalidOrigin":
-      response = await deserializeAws_restXmlInvalidOriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginAccessIdentity":
     case "com.amazon.edge.error#InvalidOriginAccessIdentity":
-      response = await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagging":
     case "com.amazon.edge.error#InvalidTagging":
-      response = await deserializeAws_restXmlInvalidTaggingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidTaggingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingBody":
     case "com.amazon.edge.error#MissingBody":
-      response = await deserializeAws_restXmlMissingBodyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlMissingBodyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StreamingDistributionAlreadyExists":
     case "com.amazon.edge.error#StreamingDistributionAlreadyExists":
-      response = await deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyStreamingDistributionCNAMEs":
     case "com.amazon.edge.error#TooManyStreamingDistributionCNAMEs":
-      response = await deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyStreamingDistributions":
     case "com.amazon.edge.error#TooManyStreamingDistributions":
-      response = await deserializeAws_restXmlTooManyStreamingDistributionsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyStreamingDistributionsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTrustedSigners":
     case "com.amazon.edge.error#TooManyTrustedSigners":
-      response = await deserializeAws_restXmlTooManyTrustedSignersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TrustedSignerDoesNotExist":
     case "com.amazon.edge.error#TrustedSignerDoesNotExist":
-      response = await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3394,38 +3829,53 @@ async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudFrontOriginAccessIdentityInUse":
     case "com.amazon.edge.error#CloudFrontOriginAccessIdentityInUse":
-      response = await deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchCloudFrontOriginAccessIdentity":
     case "com.amazon.edge.error#NoSuchCloudFrontOriginAccessIdentity":
-      response = await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3476,38 +3926,53 @@ async function deserializeAws_restXmlDeleteDistributionCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DistributionNotDisabled":
     case "com.amazon.edge.error#DistributionNotDisabled":
-      response = await deserializeAws_restXmlDistributionNotDisabledResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlDistributionNotDisabledResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchDistribution":
     case "com.amazon.edge.error#NoSuchDistribution":
-      response = await deserializeAws_restXmlNoSuchDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3558,38 +4023,53 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandErro
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FieldLevelEncryptionConfigInUse":
     case "com.amazon.edge.error#FieldLevelEncryptionConfigInUse":
-      response = await deserializeAws_restXmlFieldLevelEncryptionConfigInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlFieldLevelEncryptionConfigInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3640,38 +4120,53 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandErr
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FieldLevelEncryptionProfileInUse":
     case "com.amazon.edge.error#FieldLevelEncryptionProfileInUse":
-      response = await deserializeAws_restXmlFieldLevelEncryptionProfileInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlFieldLevelEncryptionProfileInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3719,38 +4214,53 @@ async function deserializeAws_restXmlDeletePublicKeyCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchPublicKey":
     case "com.amazon.edge.error#NoSuchPublicKey":
-      response = await deserializeAws_restXmlNoSuchPublicKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PublicKeyInUse":
     case "com.amazon.edge.error#PublicKeyInUse":
-      response = await deserializeAws_restXmlPublicKeyInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPublicKeyInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3801,38 +4311,53 @@ async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchStreamingDistribution":
     case "com.amazon.edge.error#NoSuchStreamingDistribution":
-      response = await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StreamingDistributionNotDisabled":
     case "com.amazon.edge.error#StreamingDistributionNotDisabled":
-      response = await deserializeAws_restXmlStreamingDistributionNotDisabledResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlStreamingDistributionNotDisabledResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3893,17 +4418,23 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandErr
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchCloudFrontOriginAccessIdentity":
     case "com.amazon.edge.error#NoSuchCloudFrontOriginAccessIdentity":
-      response = await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3964,17 +4495,23 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComm
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchCloudFrontOriginAccessIdentity":
     case "com.amazon.edge.error#NoSuchCloudFrontOriginAccessIdentity":
-      response = await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4029,17 +4566,23 @@ async function deserializeAws_restXmlGetDistributionCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchDistribution":
     case "com.amazon.edge.error#NoSuchDistribution":
-      response = await deserializeAws_restXmlNoSuchDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4100,17 +4643,23 @@ async function deserializeAws_restXmlGetDistributionConfigCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchDistribution":
     case "com.amazon.edge.error#NoSuchDistribution":
-      response = await deserializeAws_restXmlNoSuchDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4171,17 +4720,23 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4242,17 +4797,23 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4313,17 +4874,23 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4384,17 +4951,23 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4445,24 +5018,33 @@ async function deserializeAws_restXmlGetInvalidationCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchDistribution":
     case "com.amazon.edge.error#NoSuchDistribution":
-      response = await deserializeAws_restXmlNoSuchDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchInvalidation":
     case "com.amazon.edge.error#NoSuchInvalidation":
-      response = await deserializeAws_restXmlNoSuchInvalidationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchInvalidationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4517,17 +5099,23 @@ async function deserializeAws_restXmlGetPublicKeyCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchPublicKey":
     case "com.amazon.edge.error#NoSuchPublicKey":
-      response = await deserializeAws_restXmlNoSuchPublicKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4588,17 +5176,23 @@ async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchPublicKey":
     case "com.amazon.edge.error#NoSuchPublicKey":
-      response = await deserializeAws_restXmlNoSuchPublicKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4659,17 +5253,23 @@ async function deserializeAws_restXmlGetStreamingDistributionCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchStreamingDistribution":
     case "com.amazon.edge.error#NoSuchStreamingDistribution":
-      response = await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4730,17 +5330,23 @@ async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchStreamingDistribution":
     case "com.amazon.edge.error#NoSuchStreamingDistribution":
-      response = await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4797,10 +5403,13 @@ async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4854,10 +5463,13 @@ async function deserializeAws_restXmlListDistributionsCommandError(
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4914,17 +5526,23 @@ async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidWebACLId":
     case "com.amazon.edge.error#InvalidWebACLId":
-      response = await deserializeAws_restXmlInvalidWebACLIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidWebACLIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4981,10 +5599,13 @@ async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5041,10 +5662,13 @@ async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandErro
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5098,24 +5722,33 @@ async function deserializeAws_restXmlListInvalidationsCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchDistribution":
     case "com.amazon.edge.error#NoSuchDistribution":
-      response = await deserializeAws_restXmlNoSuchDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5166,10 +5799,13 @@ async function deserializeAws_restXmlListPublicKeysCommandError(
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5226,10 +5862,13 @@ async function deserializeAws_restXmlListStreamingDistributionsCommandError(
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5283,31 +5922,43 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagging":
     case "com.amazon.edge.error#InvalidTagging":
-      response = await deserializeAws_restXmlInvalidTaggingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidTaggingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchResource":
     case "com.amazon.edge.error#NoSuchResource":
-      response = await deserializeAws_restXmlNoSuchResourceResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResourceResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5355,31 +6006,43 @@ async function deserializeAws_restXmlTagResourceCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagging":
     case "com.amazon.edge.error#InvalidTagging":
-      response = await deserializeAws_restXmlInvalidTaggingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidTaggingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchResource":
     case "com.amazon.edge.error#NoSuchResource":
-      response = await deserializeAws_restXmlNoSuchResourceResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResourceResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5427,31 +6090,43 @@ async function deserializeAws_restXmlUntagResourceCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagging":
     case "com.amazon.edge.error#InvalidTagging":
-      response = await deserializeAws_restXmlInvalidTaggingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidTaggingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchResource":
     case "com.amazon.edge.error#NoSuchResource":
-      response = await deserializeAws_restXmlNoSuchResourceResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResourceResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5512,59 +6187,83 @@ async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalUpdate":
     case "com.amazon.edge.error#IllegalUpdate":
-      response = await deserializeAws_restXmlIllegalUpdateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIllegalUpdateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingBody":
     case "com.amazon.edge.error#MissingBody":
-      response = await deserializeAws_restXmlMissingBodyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlMissingBodyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchCloudFrontOriginAccessIdentity":
     case "com.amazon.edge.error#NoSuchCloudFrontOriginAccessIdentity":
-      response = await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5622,311 +6321,443 @@ async function deserializeAws_restXmlUpdateDistributionCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CNAMEAlreadyExists":
     case "com.amazon.edge.error#CNAMEAlreadyExists":
-      response = await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
     case "com.amazon.edge.error#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
-      response = await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalUpdate":
     case "com.amazon.edge.error#IllegalUpdate":
-      response = await deserializeAws_restXmlIllegalUpdateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIllegalUpdateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDefaultRootObject":
     case "com.amazon.edge.error#InvalidDefaultRootObject":
-      response = await deserializeAws_restXmlInvalidDefaultRootObjectResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidDefaultRootObjectResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidErrorCode":
     case "com.amazon.edge.error#InvalidErrorCode":
-      response = await deserializeAws_restXmlInvalidErrorCodeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidErrorCodeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidForwardCookies":
     case "com.amazon.edge.error#InvalidForwardCookies":
-      response = await deserializeAws_restXmlInvalidForwardCookiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidForwardCookiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGeoRestrictionParameter":
     case "com.amazon.edge.error#InvalidGeoRestrictionParameter":
-      response = await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidHeadersForS3Origin":
     case "com.amazon.edge.error#InvalidHeadersForS3Origin":
-      response = await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaFunctionAssociation":
     case "com.amazon.edge.error#InvalidLambdaFunctionAssociation":
-      response = await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLocationCode":
     case "com.amazon.edge.error#InvalidLocationCode":
-      response = await deserializeAws_restXmlInvalidLocationCodeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidLocationCodeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMinimumProtocolVersion":
     case "com.amazon.edge.error#InvalidMinimumProtocolVersion":
-      response = await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginAccessIdentity":
     case "com.amazon.edge.error#InvalidOriginAccessIdentity":
-      response = await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginKeepaliveTimeout":
     case "com.amazon.edge.error#InvalidOriginKeepaliveTimeout":
-      response = await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginReadTimeout":
     case "com.amazon.edge.error#InvalidOriginReadTimeout":
-      response = await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidQueryStringParameters":
     case "com.amazon.edge.error#InvalidQueryStringParameters":
-      response = await deserializeAws_restXmlInvalidQueryStringParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidQueryStringParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRelativePath":
     case "com.amazon.edge.error#InvalidRelativePath":
-      response = await deserializeAws_restXmlInvalidRelativePathResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidRelativePathResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequiredProtocol":
     case "com.amazon.edge.error#InvalidRequiredProtocol":
-      response = await deserializeAws_restXmlInvalidRequiredProtocolResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidRequiredProtocolResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResponseCode":
     case "com.amazon.edge.error#InvalidResponseCode":
-      response = await deserializeAws_restXmlInvalidResponseCodeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidResponseCodeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTTLOrder":
     case "com.amazon.edge.error#InvalidTTLOrder":
-      response = await deserializeAws_restXmlInvalidTTLOrderResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidTTLOrderResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidViewerCertificate":
     case "com.amazon.edge.error#InvalidViewerCertificate":
-      response = await deserializeAws_restXmlInvalidViewerCertificateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidViewerCertificateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidWebACLId":
     case "com.amazon.edge.error#InvalidWebACLId":
-      response = await deserializeAws_restXmlInvalidWebACLIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidWebACLIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingBody":
     case "com.amazon.edge.error#MissingBody":
-      response = await deserializeAws_restXmlMissingBodyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlMissingBodyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchDistribution":
     case "com.amazon.edge.error#NoSuchDistribution":
-      response = await deserializeAws_restXmlNoSuchDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchOrigin":
     case "com.amazon.edge.error#NoSuchOrigin":
-      response = await deserializeAws_restXmlNoSuchOriginResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchOriginResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCacheBehaviors":
     case "com.amazon.edge.error#TooManyCacheBehaviors":
-      response = await deserializeAws_restXmlTooManyCacheBehaviorsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCacheBehaviorsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCertificates":
     case "com.amazon.edge.error#TooManyCertificates":
-      response = await deserializeAws_restXmlTooManyCertificatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCertificatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCookieNamesInWhiteList":
     case "com.amazon.edge.error#TooManyCookieNamesInWhiteList":
-      response = await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributionCNAMEs":
     case "com.amazon.edge.error#TooManyDistributionCNAMEs":
-      response = await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyDistributionsWithLambdaAssociations":
     case "com.amazon.edge.error#TooManyDistributionsWithLambdaAssociations":
-      response = await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyHeadersInForwardedValues":
     case "com.amazon.edge.error#TooManyHeadersInForwardedValues":
-      response = await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyLambdaFunctionAssociations":
     case "com.amazon.edge.error#TooManyLambdaFunctionAssociations":
-      response = await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyOriginCustomHeaders":
     case "com.amazon.edge.error#TooManyOriginCustomHeaders":
-      response = await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyOriginGroupsPerDistribution":
     case "com.amazon.edge.error#TooManyOriginGroupsPerDistribution":
-      response = await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyOrigins":
     case "com.amazon.edge.error#TooManyOrigins":
-      response = await deserializeAws_restXmlTooManyOriginsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyOriginsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyQueryStringParameters":
     case "com.amazon.edge.error#TooManyQueryStringParameters":
-      response = await deserializeAws_restXmlTooManyQueryStringParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyQueryStringParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTrustedSigners":
     case "com.amazon.edge.error#TooManyTrustedSigners":
-      response = await deserializeAws_restXmlTooManyTrustedSignersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TrustedSignerDoesNotExist":
     case "com.amazon.edge.error#TrustedSignerDoesNotExist":
-      response = await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5987,80 +6818,113 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandErro
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalUpdate":
     case "com.amazon.edge.error#IllegalUpdate":
-      response = await deserializeAws_restXmlIllegalUpdateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIllegalUpdateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "QueryArgProfileEmpty":
     case "com.amazon.edge.error#QueryArgProfileEmpty":
-      response = await deserializeAws_restXmlQueryArgProfileEmptyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlQueryArgProfileEmptyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionContentTypeProfiles":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionContentTypeProfiles":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionQueryArgProfiles":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionQueryArgProfiles":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6121,87 +6985,123 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandErr
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FieldLevelEncryptionProfileAlreadyExists":
     case "com.amazon.edge.error#FieldLevelEncryptionProfileAlreadyExists":
-      response = await deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FieldLevelEncryptionProfileSizeExceeded":
     case "com.amazon.edge.error#FieldLevelEncryptionProfileSizeExceeded":
-      response = await deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalUpdate":
     case "com.amazon.edge.error#IllegalUpdate":
-      response = await deserializeAws_restXmlIllegalUpdateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIllegalUpdateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
     case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
-      response = await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchPublicKey":
     case "com.amazon.edge.error#NoSuchPublicKey":
-      response = await deserializeAws_restXmlNoSuchPublicKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionEncryptionEntities":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionEncryptionEntities":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFieldLevelEncryptionFieldPatterns":
     case "com.amazon.edge.error#TooManyFieldLevelEncryptionFieldPatterns":
-      response = await deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6256,52 +7156,73 @@ async function deserializeAws_restXmlUpdatePublicKeyCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CannotChangeImmutablePublicKeyFields":
     case "com.amazon.edge.error#CannotChangeImmutablePublicKeyFields":
-      response = await deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalUpdate":
     case "com.amazon.edge.error#IllegalUpdate":
-      response = await deserializeAws_restXmlIllegalUpdateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIllegalUpdateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchPublicKey":
     case "com.amazon.edge.error#NoSuchPublicKey":
-      response = await deserializeAws_restXmlNoSuchPublicKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6362,94 +7283,133 @@ async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazon.edge.error#AccessDenied":
-      response = await deserializeAws_restXmlAccessDeniedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CNAMEAlreadyExists":
     case "com.amazon.edge.error#CNAMEAlreadyExists":
-      response = await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalUpdate":
     case "com.amazon.edge.error#IllegalUpdate":
-      response = await deserializeAws_restXmlIllegalUpdateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIllegalUpdateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InconsistentQuantities":
     case "com.amazon.edge.error#InconsistentQuantities":
-      response = await deserializeAws_restXmlInconsistentQuantitiesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgument":
     case "com.amazon.edge.error#InvalidArgument":
-      response = await deserializeAws_restXmlInvalidArgumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIfMatchVersion":
     case "com.amazon.edge.error#InvalidIfMatchVersion":
-      response = await deserializeAws_restXmlInvalidIfMatchVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOriginAccessIdentity":
     case "com.amazon.edge.error#InvalidOriginAccessIdentity":
-      response = await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingBody":
     case "com.amazon.edge.error#MissingBody":
-      response = await deserializeAws_restXmlMissingBodyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlMissingBodyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchStreamingDistribution":
     case "com.amazon.edge.error#NoSuchStreamingDistribution":
-      response = await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionFailed":
     case "com.amazon.edge.error#PreconditionFailed":
-      response = await deserializeAws_restXmlPreconditionFailedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyStreamingDistributionCNAMEs":
     case "com.amazon.edge.error#TooManyStreamingDistributionCNAMEs":
-      response = await deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTrustedSigners":
     case "com.amazon.edge.error#TooManyTrustedSigners":
-      response = await deserializeAws_restXmlTooManyTrustedSignersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TrustedSignerDoesNotExist":
     case "com.amazon.edge.error#TrustedSignerDoesNotExist":
-      response = await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

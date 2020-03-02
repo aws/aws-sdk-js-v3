@@ -182,7 +182,7 @@ export namespace GenerateDataSetRequest {
 /**
  * Container for the result of the GenerateDataSet operation.
  */
-export interface GenerateDataSetResult extends $MetadataBearer {
+export interface GenerateDataSetResult {
   __type?: "GenerateDataSetResult";
   /**
    * A unique identifier representing a specific request to the GenerateDataSet operation. This identifier can be
@@ -285,7 +285,7 @@ export namespace StartSupportDataExportRequest {
 /**
  * Container for the result of the StartSupportDataExport operation.
  */
-export interface StartSupportDataExportResult extends $MetadataBearer {
+export interface StartSupportDataExportResult {
   __type?: "StartSupportDataExportResult";
   /**
    * A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLBCookieStickinessPolicyCommandInput = CreateLBCookieStickinessPolicyInput;
-export type CreateLBCookieStickinessPolicyCommandOutput = CreateLBCookieStickinessPolicyOutput;
+export type CreateLBCookieStickinessPolicyCommandOutput = CreateLBCookieStickinessPolicyOutput &
+  __MetadataBearer;
 
 export class CreateLBCookieStickinessPolicyCommand extends $Command<
   CreateLBCookieStickinessPolicyCommandInput,

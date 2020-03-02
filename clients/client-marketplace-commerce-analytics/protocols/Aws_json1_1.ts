@@ -90,10 +90,13 @@ async function deserializeAws_json1_1GenerateDataSetCommandError(
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException":
-      response = await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -149,10 +152,13 @@ async function deserializeAws_json1_1StartSupportDataExportCommandError(
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException":
-      response = await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

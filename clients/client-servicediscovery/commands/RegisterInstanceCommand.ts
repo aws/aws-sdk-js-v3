@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterInstanceCommandInput = RegisterInstanceRequest;
-export type RegisterInstanceCommandOutput = RegisterInstanceResponse;
+export type RegisterInstanceCommandOutput = RegisterInstanceResponse &
+  __MetadataBearer;
 
 export class RegisterInstanceCommand extends $Command<
   RegisterInstanceCommandInput,

@@ -1,49 +1,91 @@
 import {
-  CreateActivityInput,
-  CreateActivityOutput,
-  CreateStateMachineInput,
-  CreateStateMachineOutput,
-  DeleteActivityInput,
-  DeleteActivityOutput,
-  DeleteStateMachineInput,
-  DeleteStateMachineOutput,
-  DescribeActivityInput,
-  DescribeActivityOutput,
-  DescribeExecutionInput,
-  DescribeExecutionOutput,
-  DescribeStateMachineForExecutionInput,
-  DescribeStateMachineForExecutionOutput,
-  DescribeStateMachineInput,
-  DescribeStateMachineOutput,
-  GetActivityTaskInput,
-  GetActivityTaskOutput,
-  GetExecutionHistoryInput,
-  GetExecutionHistoryOutput,
-  ListActivitiesInput,
-  ListActivitiesOutput,
-  ListExecutionsInput,
-  ListExecutionsOutput,
-  ListStateMachinesInput,
-  ListStateMachinesOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  SendTaskFailureInput,
-  SendTaskFailureOutput,
-  SendTaskHeartbeatInput,
-  SendTaskHeartbeatOutput,
-  SendTaskSuccessInput,
-  SendTaskSuccessOutput,
-  StartExecutionInput,
-  StartExecutionOutput,
-  StopExecutionInput,
-  StopExecutionOutput,
-  TagResourceInput,
-  TagResourceOutput,
-  UntagResourceInput,
-  UntagResourceOutput,
-  UpdateStateMachineInput,
-  UpdateStateMachineOutput
-} from "./models/index";
+  CreateActivityCommandInput,
+  CreateActivityCommandOutput
+} from "./commands/CreateActivityCommand";
+import {
+  CreateStateMachineCommandInput,
+  CreateStateMachineCommandOutput
+} from "./commands/CreateStateMachineCommand";
+import {
+  DeleteActivityCommandInput,
+  DeleteActivityCommandOutput
+} from "./commands/DeleteActivityCommand";
+import {
+  DeleteStateMachineCommandInput,
+  DeleteStateMachineCommandOutput
+} from "./commands/DeleteStateMachineCommand";
+import {
+  DescribeActivityCommandInput,
+  DescribeActivityCommandOutput
+} from "./commands/DescribeActivityCommand";
+import {
+  DescribeExecutionCommandInput,
+  DescribeExecutionCommandOutput
+} from "./commands/DescribeExecutionCommand";
+import {
+  DescribeStateMachineCommandInput,
+  DescribeStateMachineCommandOutput
+} from "./commands/DescribeStateMachineCommand";
+import {
+  DescribeStateMachineForExecutionCommandInput,
+  DescribeStateMachineForExecutionCommandOutput
+} from "./commands/DescribeStateMachineForExecutionCommand";
+import {
+  GetActivityTaskCommandInput,
+  GetActivityTaskCommandOutput
+} from "./commands/GetActivityTaskCommand";
+import {
+  GetExecutionHistoryCommandInput,
+  GetExecutionHistoryCommandOutput
+} from "./commands/GetExecutionHistoryCommand";
+import {
+  ListActivitiesCommandInput,
+  ListActivitiesCommandOutput
+} from "./commands/ListActivitiesCommand";
+import {
+  ListExecutionsCommandInput,
+  ListExecutionsCommandOutput
+} from "./commands/ListExecutionsCommand";
+import {
+  ListStateMachinesCommandInput,
+  ListStateMachinesCommandOutput
+} from "./commands/ListStateMachinesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  SendTaskFailureCommandInput,
+  SendTaskFailureCommandOutput
+} from "./commands/SendTaskFailureCommand";
+import {
+  SendTaskHeartbeatCommandInput,
+  SendTaskHeartbeatCommandOutput
+} from "./commands/SendTaskHeartbeatCommand";
+import {
+  SendTaskSuccessCommandInput,
+  SendTaskSuccessCommandOutput
+} from "./commands/SendTaskSuccessCommand";
+import {
+  StartExecutionCommandInput,
+  StartExecutionCommandOutput
+} from "./commands/StartExecutionCommand";
+import {
+  StopExecutionCommandInput,
+  StopExecutionCommandOutput
+} from "./commands/StopExecutionCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateStateMachineCommandInput,
+  UpdateStateMachineCommandOutput
+} from "./commands/UpdateStateMachineCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -97,52 +139,52 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateActivityInput
-  | CreateStateMachineInput
-  | DeleteActivityInput
-  | DeleteStateMachineInput
-  | DescribeActivityInput
-  | DescribeExecutionInput
-  | DescribeStateMachineForExecutionInput
-  | DescribeStateMachineInput
-  | GetActivityTaskInput
-  | GetExecutionHistoryInput
-  | ListActivitiesInput
-  | ListExecutionsInput
-  | ListStateMachinesInput
-  | ListTagsForResourceInput
-  | SendTaskFailureInput
-  | SendTaskHeartbeatInput
-  | SendTaskSuccessInput
-  | StartExecutionInput
-  | StopExecutionInput
-  | TagResourceInput
-  | UntagResourceInput
-  | UpdateStateMachineInput;
+  | CreateActivityCommandInput
+  | CreateStateMachineCommandInput
+  | DeleteActivityCommandInput
+  | DeleteStateMachineCommandInput
+  | DescribeActivityCommandInput
+  | DescribeExecutionCommandInput
+  | DescribeStateMachineCommandInput
+  | DescribeStateMachineForExecutionCommandInput
+  | GetActivityTaskCommandInput
+  | GetExecutionHistoryCommandInput
+  | ListActivitiesCommandInput
+  | ListExecutionsCommandInput
+  | ListStateMachinesCommandInput
+  | ListTagsForResourceCommandInput
+  | SendTaskFailureCommandInput
+  | SendTaskHeartbeatCommandInput
+  | SendTaskSuccessCommandInput
+  | StartExecutionCommandInput
+  | StopExecutionCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateStateMachineCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateActivityOutput
-  | CreateStateMachineOutput
-  | DeleteActivityOutput
-  | DeleteStateMachineOutput
-  | DescribeActivityOutput
-  | DescribeExecutionOutput
-  | DescribeStateMachineForExecutionOutput
-  | DescribeStateMachineOutput
-  | GetActivityTaskOutput
-  | GetExecutionHistoryOutput
-  | ListActivitiesOutput
-  | ListExecutionsOutput
-  | ListStateMachinesOutput
-  | ListTagsForResourceOutput
-  | SendTaskFailureOutput
-  | SendTaskHeartbeatOutput
-  | SendTaskSuccessOutput
-  | StartExecutionOutput
-  | StopExecutionOutput
-  | TagResourceOutput
-  | UntagResourceOutput
-  | UpdateStateMachineOutput;
+  | CreateActivityCommandOutput
+  | CreateStateMachineCommandOutput
+  | DeleteActivityCommandOutput
+  | DeleteStateMachineCommandOutput
+  | DescribeActivityCommandOutput
+  | DescribeExecutionCommandOutput
+  | DescribeStateMachineCommandOutput
+  | DescribeStateMachineForExecutionCommandOutput
+  | GetActivityTaskCommandOutput
+  | GetExecutionHistoryCommandOutput
+  | ListActivitiesCommandOutput
+  | ListExecutionsCommandOutput
+  | ListStateMachinesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | SendTaskFailureCommandOutput
+  | SendTaskHeartbeatCommandOutput
+  | SendTaskSuccessCommandOutput
+  | StartExecutionCommandOutput
+  | StopExecutionCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateStateMachineCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

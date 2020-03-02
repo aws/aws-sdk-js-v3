@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateScheduledActionCommandInput = CreateScheduledActionMessage;
-export type CreateScheduledActionCommandOutput = ScheduledAction;
+export type CreateScheduledActionCommandOutput = ScheduledAction &
+  __MetadataBearer;
 
 export class CreateScheduledActionCommand extends $Command<
   CreateScheduledActionCommandInput,

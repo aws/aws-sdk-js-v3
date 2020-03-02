@@ -30,7 +30,7 @@ export namespace AddInstanceFleetInput {
   }
 }
 
-export interface AddInstanceFleetOutput extends $MetadataBearer {
+export interface AddInstanceFleetOutput {
   __type?: "AddInstanceFleetOutput";
   /**
    * <p>The Amazon Resource Name of the cluster.</p>
@@ -79,7 +79,7 @@ export namespace AddInstanceGroupsInput {
 /**
  * <p>Output from an AddInstanceGroups call.</p>
  */
-export interface AddInstanceGroupsOutput extends $MetadataBearer {
+export interface AddInstanceGroupsOutput {
   __type?: "AddInstanceGroupsOutput";
   /**
    * <p>The Amazon Resource Name of the cluster.</p>
@@ -129,7 +129,7 @@ export namespace AddJobFlowStepsInput {
 /**
  * <p> The output for the <a>AddJobFlowSteps</a> operation. </p>
  */
-export interface AddJobFlowStepsOutput extends $MetadataBearer {
+export interface AddJobFlowStepsOutput {
   __type?: "AddJobFlowStepsOutput";
   /**
    * <p>The identifiers of the list of steps added to the job flow.</p>
@@ -168,7 +168,7 @@ export namespace AddTagsInput {
 /**
  * <p>This output indicates the result of adding tags to a resource.</p>
  */
-export interface AddTagsOutput extends $MetadataBearer {
+export interface AddTagsOutput {
   __type?: "AddTagsOutput";
 }
 
@@ -481,7 +481,7 @@ export namespace CancelStepsInput {
 /**
  * <p> The output for the <a>CancelSteps</a> operation. </p>
  */
-export interface CancelStepsOutput extends $MetadataBearer {
+export interface CancelStepsOutput {
   __type?: "CancelStepsOutput";
   /**
    * <p>A list of <a>CancelStepsInfo</a>, which shows the status of specified cancel requests for each <code>StepID</code> specified.</p>
@@ -938,7 +938,7 @@ export namespace CreateSecurityConfigurationInput {
   }
 }
 
-export interface CreateSecurityConfigurationOutput extends $MetadataBearer {
+export interface CreateSecurityConfigurationOutput {
   __type?: "CreateSecurityConfigurationOutput";
   /**
    * <p>The date and time the security configuration was created.</p>
@@ -971,7 +971,7 @@ export namespace DeleteSecurityConfigurationInput {
   }
 }
 
-export interface DeleteSecurityConfigurationOutput extends $MetadataBearer {
+export interface DeleteSecurityConfigurationOutput {
   __type?: "DeleteSecurityConfigurationOutput";
 }
 
@@ -1001,7 +1001,7 @@ export namespace DescribeClusterInput {
 /**
  * <p>This output contains the description of the cluster.</p>
  */
-export interface DescribeClusterOutput extends $MetadataBearer {
+export interface DescribeClusterOutput {
   __type?: "DescribeClusterOutput";
   /**
    * <p>This output contains the details for the requested cluster.</p>
@@ -1050,7 +1050,7 @@ export namespace DescribeJobFlowsInput {
 /**
  * <p> The output for the <a>DescribeJobFlows</a> operation. </p>
  */
-export interface DescribeJobFlowsOutput extends $MetadataBearer {
+export interface DescribeJobFlowsOutput {
   __type?: "DescribeJobFlowsOutput";
   /**
    * <p>A list of job flows matching the parameters supplied.</p>
@@ -1078,7 +1078,7 @@ export namespace DescribeSecurityConfigurationInput {
   }
 }
 
-export interface DescribeSecurityConfigurationOutput extends $MetadataBearer {
+export interface DescribeSecurityConfigurationOutput {
   __type?: "DescribeSecurityConfigurationOutput";
   /**
    * <p>The date and time the security configuration was created</p>
@@ -1127,7 +1127,7 @@ export namespace DescribeStepInput {
 /**
  * <p>This output contains the description of the cluster step.</p>
  */
-export interface DescribeStepOutput extends $MetadataBearer {
+export interface DescribeStepOutput {
   __type?: "DescribeStepOutput";
   /**
    * <p>The step details for the requested step identifier.</p>
@@ -1333,8 +1333,7 @@ export namespace GetBlockPublicAccessConfigurationInput {
   }
 }
 
-export interface GetBlockPublicAccessConfigurationOutput
-  extends $MetadataBearer {
+export interface GetBlockPublicAccessConfigurationOutput {
   __type?: "GetBlockPublicAccessConfigurationOutput";
   /**
    * <p>A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using <code>PermittedPublicSecurityGroupRuleRanges</code> in the <code>BlockPublicAccessConfiguration</code>. By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating the block public access configuration to remove the exception.</p>
@@ -2877,7 +2876,7 @@ export namespace ListBootstrapActionsInput {
 /**
  * <p>This output contains the bootstrap actions detail.</p>
  */
-export interface ListBootstrapActionsOutput extends $MetadataBearer {
+export interface ListBootstrapActionsOutput {
   __type?: "ListBootstrapActionsOutput";
   /**
    * <p>The bootstrap actions associated with the cluster.</p>
@@ -2931,7 +2930,7 @@ export namespace ListClustersInput {
 /**
  * <p>This contains a ClusterSummaryList with the cluster details; for example, the cluster IDs, names, and status.</p>
  */
-export interface ListClustersOutput extends $MetadataBearer {
+export interface ListClustersOutput {
   __type?: "ListClustersOutput";
   /**
    * <p>The list of clusters for the account based on the given filters.</p>
@@ -2969,7 +2968,7 @@ export namespace ListInstanceFleetsInput {
   }
 }
 
-export interface ListInstanceFleetsOutput extends $MetadataBearer {
+export interface ListInstanceFleetsOutput {
   __type?: "ListInstanceFleetsOutput";
   /**
    * <p>The list of instance fleets for the cluster and given filters.</p>
@@ -3013,7 +3012,7 @@ export namespace ListInstanceGroupsInput {
 /**
  * <p>This input determines which instance groups to retrieve.</p>
  */
-export interface ListInstanceGroupsOutput extends $MetadataBearer {
+export interface ListInstanceGroupsOutput {
   __type?: "ListInstanceGroupsOutput";
   /**
    * <p>The list of instance groups for the cluster and given filters.</p>
@@ -3082,7 +3081,7 @@ export namespace ListInstancesInput {
 /**
  * <p>This output contains the list of instances.</p>
  */
-export interface ListInstancesOutput extends $MetadataBearer {
+export interface ListInstancesOutput {
   __type?: "ListInstancesOutput";
   /**
    * <p>The list of instances for the cluster and given filters.</p>
@@ -3115,7 +3114,7 @@ export namespace ListSecurityConfigurationsInput {
   }
 }
 
-export interface ListSecurityConfigurationsOutput extends $MetadataBearer {
+export interface ListSecurityConfigurationsOutput {
   __type?: "ListSecurityConfigurationsOutput";
   /**
    * <p>A pagination token that indicates the next set of results to retrieve. Include the marker in the next ListSecurityConfiguration call to retrieve the next page of results, if required.</p>
@@ -3169,7 +3168,7 @@ export namespace ListStepsInput {
 /**
  * <p>This output contains the list of steps returned in reverse order. This means that the last step is the first element in the list.</p>
  */
-export interface ListStepsOutput extends $MetadataBearer {
+export interface ListStepsOutput {
   __type?: "ListStepsOutput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -3234,7 +3233,7 @@ export namespace ModifyClusterInput {
   }
 }
 
-export interface ModifyClusterOutput extends $MetadataBearer {
+export interface ModifyClusterOutput {
   __type?: "ModifyClusterOutput";
   /**
    * <p>The number of steps that can be executed concurrently.</p>
@@ -3360,7 +3359,7 @@ export namespace PutAutoScalingPolicyInput {
   }
 }
 
-export interface PutAutoScalingPolicyOutput extends $MetadataBearer {
+export interface PutAutoScalingPolicyOutput {
   __type?: "PutAutoScalingPolicyOutput";
   /**
    * <p>The automatic scaling policy definition.</p>
@@ -3403,8 +3402,7 @@ export namespace PutBlockPublicAccessConfigurationInput {
   }
 }
 
-export interface PutBlockPublicAccessConfigurationOutput
-  extends $MetadataBearer {
+export interface PutBlockPublicAccessConfigurationOutput {
   __type?: "PutBlockPublicAccessConfigurationOutput";
 }
 
@@ -3433,7 +3431,7 @@ export namespace RemoveAutoScalingPolicyInput {
   }
 }
 
-export interface RemoveAutoScalingPolicyOutput extends $MetadataBearer {
+export interface RemoveAutoScalingPolicyOutput {
   __type?: "RemoveAutoScalingPolicyOutput";
 }
 
@@ -3468,7 +3466,7 @@ export namespace RemoveTagsInput {
 /**
  * <p>This output indicates the result of removing tags from a resource.</p>
  */
-export interface RemoveTagsOutput extends $MetadataBearer {
+export interface RemoveTagsOutput {
   __type?: "RemoveTagsOutput";
 }
 
@@ -3659,7 +3657,7 @@ export namespace RunJobFlowInput {
 /**
  * <p> The result of the <a>RunJobFlow</a> operation. </p>
  */
-export interface RunJobFlowOutput extends $MetadataBearer {
+export interface RunJobFlowOutput {
   __type?: "RunJobFlowOutput";
   /**
    * <p>The Amazon Resource Name of the cluster.</p>

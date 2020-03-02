@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateLinkAttributesCommandInput = UpdateLinkAttributesRequest;
-export type UpdateLinkAttributesCommandOutput = UpdateLinkAttributesResponse;
+export type UpdateLinkAttributesCommandOutput = UpdateLinkAttributesResponse &
+  __MetadataBearer;
 
 export class UpdateLinkAttributesCommand extends $Command<
   UpdateLinkAttributesCommandInput,

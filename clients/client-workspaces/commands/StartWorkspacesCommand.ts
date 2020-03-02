@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartWorkspacesCommandInput = StartWorkspacesRequest;
-export type StartWorkspacesCommandOutput = StartWorkspacesResult;
+export type StartWorkspacesCommandOutput = StartWorkspacesResult &
+  __MetadataBearer;
 
 export class StartWorkspacesCommand extends $Command<
   StartWorkspacesCommandInput,

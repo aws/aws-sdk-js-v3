@@ -1,87 +1,183 @@
 import {
-  CreateCloudFrontOriginAccessIdentityRequest,
-  CreateCloudFrontOriginAccessIdentityResult,
-  CreateDistributionRequest,
-  CreateDistributionResult,
-  CreateDistributionWithTagsRequest,
-  CreateDistributionWithTagsResult,
-  CreateFieldLevelEncryptionConfigRequest,
-  CreateFieldLevelEncryptionConfigResult,
-  CreateFieldLevelEncryptionProfileRequest,
-  CreateFieldLevelEncryptionProfileResult,
-  CreateInvalidationRequest,
-  CreateInvalidationResult,
-  CreatePublicKeyRequest,
-  CreatePublicKeyResult,
-  CreateStreamingDistributionRequest,
-  CreateStreamingDistributionResult,
-  CreateStreamingDistributionWithTagsRequest,
-  CreateStreamingDistributionWithTagsResult,
-  DeleteCloudFrontOriginAccessIdentityRequest,
-  DeleteDistributionRequest,
-  DeleteFieldLevelEncryptionConfigRequest,
-  DeleteFieldLevelEncryptionProfileRequest,
-  DeletePublicKeyRequest,
-  DeleteStreamingDistributionRequest,
-  GetCloudFrontOriginAccessIdentityConfigRequest,
-  GetCloudFrontOriginAccessIdentityConfigResult,
-  GetCloudFrontOriginAccessIdentityRequest,
-  GetCloudFrontOriginAccessIdentityResult,
-  GetDistributionConfigRequest,
-  GetDistributionConfigResult,
-  GetDistributionRequest,
-  GetDistributionResult,
-  GetFieldLevelEncryptionConfigRequest,
-  GetFieldLevelEncryptionConfigResult,
-  GetFieldLevelEncryptionProfileConfigRequest,
-  GetFieldLevelEncryptionProfileConfigResult,
-  GetFieldLevelEncryptionProfileRequest,
-  GetFieldLevelEncryptionProfileResult,
-  GetFieldLevelEncryptionRequest,
-  GetFieldLevelEncryptionResult,
-  GetInvalidationRequest,
-  GetInvalidationResult,
-  GetPublicKeyConfigRequest,
-  GetPublicKeyConfigResult,
-  GetPublicKeyRequest,
-  GetPublicKeyResult,
-  GetStreamingDistributionConfigRequest,
-  GetStreamingDistributionConfigResult,
-  GetStreamingDistributionRequest,
-  GetStreamingDistributionResult,
-  ListCloudFrontOriginAccessIdentitiesRequest,
-  ListCloudFrontOriginAccessIdentitiesResult,
-  ListDistributionsByWebACLIdRequest,
-  ListDistributionsByWebACLIdResult,
-  ListDistributionsRequest,
-  ListDistributionsResult,
-  ListFieldLevelEncryptionConfigsRequest,
-  ListFieldLevelEncryptionConfigsResult,
-  ListFieldLevelEncryptionProfilesRequest,
-  ListFieldLevelEncryptionProfilesResult,
-  ListInvalidationsRequest,
-  ListInvalidationsResult,
-  ListPublicKeysRequest,
-  ListPublicKeysResult,
-  ListStreamingDistributionsRequest,
-  ListStreamingDistributionsResult,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResult,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateCloudFrontOriginAccessIdentityRequest,
-  UpdateCloudFrontOriginAccessIdentityResult,
-  UpdateDistributionRequest,
-  UpdateDistributionResult,
-  UpdateFieldLevelEncryptionConfigRequest,
-  UpdateFieldLevelEncryptionConfigResult,
-  UpdateFieldLevelEncryptionProfileRequest,
-  UpdateFieldLevelEncryptionProfileResult,
-  UpdatePublicKeyRequest,
-  UpdatePublicKeyResult,
-  UpdateStreamingDistributionRequest,
-  UpdateStreamingDistributionResult
-} from "./models/index";
+  CreateCloudFrontOriginAccessIdentityCommandInput,
+  CreateCloudFrontOriginAccessIdentityCommandOutput
+} from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
+import {
+  CreateDistributionCommandInput,
+  CreateDistributionCommandOutput
+} from "./commands/CreateDistributionCommand";
+import {
+  CreateDistributionWithTagsCommandInput,
+  CreateDistributionWithTagsCommandOutput
+} from "./commands/CreateDistributionWithTagsCommand";
+import {
+  CreateFieldLevelEncryptionConfigCommandInput,
+  CreateFieldLevelEncryptionConfigCommandOutput
+} from "./commands/CreateFieldLevelEncryptionConfigCommand";
+import {
+  CreateFieldLevelEncryptionProfileCommandInput,
+  CreateFieldLevelEncryptionProfileCommandOutput
+} from "./commands/CreateFieldLevelEncryptionProfileCommand";
+import {
+  CreateInvalidationCommandInput,
+  CreateInvalidationCommandOutput
+} from "./commands/CreateInvalidationCommand";
+import {
+  CreatePublicKeyCommandInput,
+  CreatePublicKeyCommandOutput
+} from "./commands/CreatePublicKeyCommand";
+import {
+  CreateStreamingDistributionCommandInput,
+  CreateStreamingDistributionCommandOutput
+} from "./commands/CreateStreamingDistributionCommand";
+import {
+  CreateStreamingDistributionWithTagsCommandInput,
+  CreateStreamingDistributionWithTagsCommandOutput
+} from "./commands/CreateStreamingDistributionWithTagsCommand";
+import {
+  DeleteCloudFrontOriginAccessIdentityCommandInput,
+  DeleteCloudFrontOriginAccessIdentityCommandOutput
+} from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
+import {
+  DeleteDistributionCommandInput,
+  DeleteDistributionCommandOutput
+} from "./commands/DeleteDistributionCommand";
+import {
+  DeleteFieldLevelEncryptionConfigCommandInput,
+  DeleteFieldLevelEncryptionConfigCommandOutput
+} from "./commands/DeleteFieldLevelEncryptionConfigCommand";
+import {
+  DeleteFieldLevelEncryptionProfileCommandInput,
+  DeleteFieldLevelEncryptionProfileCommandOutput
+} from "./commands/DeleteFieldLevelEncryptionProfileCommand";
+import {
+  DeletePublicKeyCommandInput,
+  DeletePublicKeyCommandOutput
+} from "./commands/DeletePublicKeyCommand";
+import {
+  DeleteStreamingDistributionCommandInput,
+  DeleteStreamingDistributionCommandOutput
+} from "./commands/DeleteStreamingDistributionCommand";
+import {
+  GetCloudFrontOriginAccessIdentityCommandInput,
+  GetCloudFrontOriginAccessIdentityCommandOutput
+} from "./commands/GetCloudFrontOriginAccessIdentityCommand";
+import {
+  GetCloudFrontOriginAccessIdentityConfigCommandInput,
+  GetCloudFrontOriginAccessIdentityConfigCommandOutput
+} from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
+import {
+  GetDistributionCommandInput,
+  GetDistributionCommandOutput
+} from "./commands/GetDistributionCommand";
+import {
+  GetDistributionConfigCommandInput,
+  GetDistributionConfigCommandOutput
+} from "./commands/GetDistributionConfigCommand";
+import {
+  GetFieldLevelEncryptionCommandInput,
+  GetFieldLevelEncryptionCommandOutput
+} from "./commands/GetFieldLevelEncryptionCommand";
+import {
+  GetFieldLevelEncryptionConfigCommandInput,
+  GetFieldLevelEncryptionConfigCommandOutput
+} from "./commands/GetFieldLevelEncryptionConfigCommand";
+import {
+  GetFieldLevelEncryptionProfileCommandInput,
+  GetFieldLevelEncryptionProfileCommandOutput
+} from "./commands/GetFieldLevelEncryptionProfileCommand";
+import {
+  GetFieldLevelEncryptionProfileConfigCommandInput,
+  GetFieldLevelEncryptionProfileConfigCommandOutput
+} from "./commands/GetFieldLevelEncryptionProfileConfigCommand";
+import {
+  GetInvalidationCommandInput,
+  GetInvalidationCommandOutput
+} from "./commands/GetInvalidationCommand";
+import {
+  GetPublicKeyCommandInput,
+  GetPublicKeyCommandOutput
+} from "./commands/GetPublicKeyCommand";
+import {
+  GetPublicKeyConfigCommandInput,
+  GetPublicKeyConfigCommandOutput
+} from "./commands/GetPublicKeyConfigCommand";
+import {
+  GetStreamingDistributionCommandInput,
+  GetStreamingDistributionCommandOutput
+} from "./commands/GetStreamingDistributionCommand";
+import {
+  GetStreamingDistributionConfigCommandInput,
+  GetStreamingDistributionConfigCommandOutput
+} from "./commands/GetStreamingDistributionConfigCommand";
+import {
+  ListCloudFrontOriginAccessIdentitiesCommandInput,
+  ListCloudFrontOriginAccessIdentitiesCommandOutput
+} from "./commands/ListCloudFrontOriginAccessIdentitiesCommand";
+import {
+  ListDistributionsByWebACLIdCommandInput,
+  ListDistributionsByWebACLIdCommandOutput
+} from "./commands/ListDistributionsByWebACLIdCommand";
+import {
+  ListDistributionsCommandInput,
+  ListDistributionsCommandOutput
+} from "./commands/ListDistributionsCommand";
+import {
+  ListFieldLevelEncryptionConfigsCommandInput,
+  ListFieldLevelEncryptionConfigsCommandOutput
+} from "./commands/ListFieldLevelEncryptionConfigsCommand";
+import {
+  ListFieldLevelEncryptionProfilesCommandInput,
+  ListFieldLevelEncryptionProfilesCommandOutput
+} from "./commands/ListFieldLevelEncryptionProfilesCommand";
+import {
+  ListInvalidationsCommandInput,
+  ListInvalidationsCommandOutput
+} from "./commands/ListInvalidationsCommand";
+import {
+  ListPublicKeysCommandInput,
+  ListPublicKeysCommandOutput
+} from "./commands/ListPublicKeysCommand";
+import {
+  ListStreamingDistributionsCommandInput,
+  ListStreamingDistributionsCommandOutput
+} from "./commands/ListStreamingDistributionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateCloudFrontOriginAccessIdentityCommandInput,
+  UpdateCloudFrontOriginAccessIdentityCommandOutput
+} from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
+import {
+  UpdateDistributionCommandInput,
+  UpdateDistributionCommandOutput
+} from "./commands/UpdateDistributionCommand";
+import {
+  UpdateFieldLevelEncryptionConfigCommandInput,
+  UpdateFieldLevelEncryptionConfigCommandOutput
+} from "./commands/UpdateFieldLevelEncryptionConfigCommand";
+import {
+  UpdateFieldLevelEncryptionProfileCommandInput,
+  UpdateFieldLevelEncryptionProfileCommandOutput
+} from "./commands/UpdateFieldLevelEncryptionProfileCommand";
+import {
+  UpdatePublicKeyCommandInput,
+  UpdatePublicKeyCommandOutput
+} from "./commands/UpdatePublicKeyCommand";
+import {
+  UpdateStreamingDistributionCommandInput,
+  UpdateStreamingDistributionCommandOutput
+} from "./commands/UpdateStreamingDistributionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -129,98 +225,104 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateCloudFrontOriginAccessIdentityRequest
-  | CreateDistributionRequest
-  | CreateDistributionWithTagsRequest
-  | CreateFieldLevelEncryptionConfigRequest
-  | CreateFieldLevelEncryptionProfileRequest
-  | CreateInvalidationRequest
-  | CreatePublicKeyRequest
-  | CreateStreamingDistributionRequest
-  | CreateStreamingDistributionWithTagsRequest
-  | DeleteCloudFrontOriginAccessIdentityRequest
-  | DeleteDistributionRequest
-  | DeleteFieldLevelEncryptionConfigRequest
-  | DeleteFieldLevelEncryptionProfileRequest
-  | DeletePublicKeyRequest
-  | DeleteStreamingDistributionRequest
-  | GetCloudFrontOriginAccessIdentityConfigRequest
-  | GetCloudFrontOriginAccessIdentityRequest
-  | GetDistributionConfigRequest
-  | GetDistributionRequest
-  | GetFieldLevelEncryptionConfigRequest
-  | GetFieldLevelEncryptionProfileConfigRequest
-  | GetFieldLevelEncryptionProfileRequest
-  | GetFieldLevelEncryptionRequest
-  | GetInvalidationRequest
-  | GetPublicKeyConfigRequest
-  | GetPublicKeyRequest
-  | GetStreamingDistributionConfigRequest
-  | GetStreamingDistributionRequest
-  | ListCloudFrontOriginAccessIdentitiesRequest
-  | ListDistributionsByWebACLIdRequest
-  | ListDistributionsRequest
-  | ListFieldLevelEncryptionConfigsRequest
-  | ListFieldLevelEncryptionProfilesRequest
-  | ListInvalidationsRequest
-  | ListPublicKeysRequest
-  | ListStreamingDistributionsRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateCloudFrontOriginAccessIdentityRequest
-  | UpdateDistributionRequest
-  | UpdateFieldLevelEncryptionConfigRequest
-  | UpdateFieldLevelEncryptionProfileRequest
-  | UpdatePublicKeyRequest
-  | UpdateStreamingDistributionRequest;
+  | CreateCloudFrontOriginAccessIdentityCommandInput
+  | CreateDistributionCommandInput
+  | CreateDistributionWithTagsCommandInput
+  | CreateFieldLevelEncryptionConfigCommandInput
+  | CreateFieldLevelEncryptionProfileCommandInput
+  | CreateInvalidationCommandInput
+  | CreatePublicKeyCommandInput
+  | CreateStreamingDistributionCommandInput
+  | CreateStreamingDistributionWithTagsCommandInput
+  | DeleteCloudFrontOriginAccessIdentityCommandInput
+  | DeleteDistributionCommandInput
+  | DeleteFieldLevelEncryptionConfigCommandInput
+  | DeleteFieldLevelEncryptionProfileCommandInput
+  | DeletePublicKeyCommandInput
+  | DeleteStreamingDistributionCommandInput
+  | GetCloudFrontOriginAccessIdentityCommandInput
+  | GetCloudFrontOriginAccessIdentityConfigCommandInput
+  | GetDistributionCommandInput
+  | GetDistributionConfigCommandInput
+  | GetFieldLevelEncryptionCommandInput
+  | GetFieldLevelEncryptionConfigCommandInput
+  | GetFieldLevelEncryptionProfileCommandInput
+  | GetFieldLevelEncryptionProfileConfigCommandInput
+  | GetInvalidationCommandInput
+  | GetPublicKeyCommandInput
+  | GetPublicKeyConfigCommandInput
+  | GetStreamingDistributionCommandInput
+  | GetStreamingDistributionConfigCommandInput
+  | ListCloudFrontOriginAccessIdentitiesCommandInput
+  | ListDistributionsByWebACLIdCommandInput
+  | ListDistributionsCommandInput
+  | ListFieldLevelEncryptionConfigsCommandInput
+  | ListFieldLevelEncryptionProfilesCommandInput
+  | ListInvalidationsCommandInput
+  | ListPublicKeysCommandInput
+  | ListStreamingDistributionsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateCloudFrontOriginAccessIdentityCommandInput
+  | UpdateDistributionCommandInput
+  | UpdateFieldLevelEncryptionConfigCommandInput
+  | UpdateFieldLevelEncryptionProfileCommandInput
+  | UpdatePublicKeyCommandInput
+  | UpdateStreamingDistributionCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateCloudFrontOriginAccessIdentityResult
-  | CreateDistributionResult
-  | CreateDistributionWithTagsResult
-  | CreateFieldLevelEncryptionConfigResult
-  | CreateFieldLevelEncryptionProfileResult
-  | CreateInvalidationResult
-  | CreatePublicKeyResult
-  | CreateStreamingDistributionResult
-  | CreateStreamingDistributionWithTagsResult
-  | GetCloudFrontOriginAccessIdentityConfigResult
-  | GetCloudFrontOriginAccessIdentityResult
-  | GetDistributionConfigResult
-  | GetDistributionResult
-  | GetFieldLevelEncryptionConfigResult
-  | GetFieldLevelEncryptionProfileConfigResult
-  | GetFieldLevelEncryptionProfileResult
-  | GetFieldLevelEncryptionResult
-  | GetInvalidationResult
-  | GetPublicKeyConfigResult
-  | GetPublicKeyResult
-  | GetStreamingDistributionConfigResult
-  | GetStreamingDistributionResult
-  | ListCloudFrontOriginAccessIdentitiesResult
-  | ListDistributionsByWebACLIdResult
-  | ListDistributionsResult
-  | ListFieldLevelEncryptionConfigsResult
-  | ListFieldLevelEncryptionProfilesResult
-  | ListInvalidationsResult
-  | ListPublicKeysResult
-  | ListStreamingDistributionsResult
-  | ListTagsForResourceResult
-  | UpdateCloudFrontOriginAccessIdentityResult
-  | UpdateDistributionResult
-  | UpdateFieldLevelEncryptionConfigResult
-  | UpdateFieldLevelEncryptionProfileResult
-  | UpdatePublicKeyResult
-  | UpdateStreamingDistributionResult;
+  | CreateCloudFrontOriginAccessIdentityCommandOutput
+  | CreateDistributionCommandOutput
+  | CreateDistributionWithTagsCommandOutput
+  | CreateFieldLevelEncryptionConfigCommandOutput
+  | CreateFieldLevelEncryptionProfileCommandOutput
+  | CreateInvalidationCommandOutput
+  | CreatePublicKeyCommandOutput
+  | CreateStreamingDistributionCommandOutput
+  | CreateStreamingDistributionWithTagsCommandOutput
+  | DeleteCloudFrontOriginAccessIdentityCommandOutput
+  | DeleteDistributionCommandOutput
+  | DeleteFieldLevelEncryptionConfigCommandOutput
+  | DeleteFieldLevelEncryptionProfileCommandOutput
+  | DeletePublicKeyCommandOutput
+  | DeleteStreamingDistributionCommandOutput
+  | GetCloudFrontOriginAccessIdentityCommandOutput
+  | GetCloudFrontOriginAccessIdentityConfigCommandOutput
+  | GetDistributionCommandOutput
+  | GetDistributionConfigCommandOutput
+  | GetFieldLevelEncryptionCommandOutput
+  | GetFieldLevelEncryptionConfigCommandOutput
+  | GetFieldLevelEncryptionProfileCommandOutput
+  | GetFieldLevelEncryptionProfileConfigCommandOutput
+  | GetInvalidationCommandOutput
+  | GetPublicKeyCommandOutput
+  | GetPublicKeyConfigCommandOutput
+  | GetStreamingDistributionCommandOutput
+  | GetStreamingDistributionConfigCommandOutput
+  | ListCloudFrontOriginAccessIdentitiesCommandOutput
+  | ListDistributionsByWebACLIdCommandOutput
+  | ListDistributionsCommandOutput
+  | ListFieldLevelEncryptionConfigsCommandOutput
+  | ListFieldLevelEncryptionProfilesCommandOutput
+  | ListInvalidationsCommandOutput
+  | ListPublicKeysCommandOutput
+  | ListStreamingDistributionsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateCloudFrontOriginAccessIdentityCommandOutput
+  | UpdateDistributionCommandOutput
+  | UpdateFieldLevelEncryptionConfigCommandOutput
+  | UpdateFieldLevelEncryptionProfileCommandOutput
+  | UpdatePublicKeyCommandOutput
+  | UpdateStreamingDistributionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartHumanLoopCommandInput = StartHumanLoopRequest;
-export type StartHumanLoopCommandOutput = StartHumanLoopResponse;
+export type StartHumanLoopCommandOutput = StartHumanLoopResponse &
+  __MetadataBearer;
 
 export class StartHumanLoopCommand extends $Command<
   StartHumanLoopCommandInput,

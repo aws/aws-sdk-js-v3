@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRequestValidatorCommandInput = GetRequestValidatorRequest;
-export type GetRequestValidatorCommandOutput = RequestValidator;
+export type GetRequestValidatorCommandOutput = RequestValidator &
+  __MetadataBearer;
 
 export class GetRequestValidatorCommand extends $Command<
   GetRequestValidatorCommandInput,

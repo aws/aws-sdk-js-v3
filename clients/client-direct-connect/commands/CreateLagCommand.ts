@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLagCommandInput = CreateLagRequest;
-export type CreateLagCommandOutput = Lag;
+export type CreateLagCommandOutput = Lag & __MetadataBearer;
 
 export class CreateLagCommand extends $Command<
   CreateLagCommandInput,

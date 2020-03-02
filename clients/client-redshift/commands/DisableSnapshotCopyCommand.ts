@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableSnapshotCopyCommandInput = DisableSnapshotCopyMessage;
-export type DisableSnapshotCopyCommandOutput = DisableSnapshotCopyResult;
+export type DisableSnapshotCopyCommandOutput = DisableSnapshotCopyResult &
+  __MetadataBearer;
 
 export class DisableSnapshotCopyCommand extends $Command<
   DisableSnapshotCopyCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyCapacityReservationCommandInput = ModifyCapacityReservationRequest;
-export type ModifyCapacityReservationCommandOutput = ModifyCapacityReservationResult;
+export type ModifyCapacityReservationCommandOutput = ModifyCapacityReservationResult &
+  __MetadataBearer;
 
 export class ModifyCapacityReservationCommand extends $Command<
   ModifyCapacityReservationCommandInput,

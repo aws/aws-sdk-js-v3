@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AttachClassicLinkVpcCommandInput = AttachClassicLinkVpcRequest;
-export type AttachClassicLinkVpcCommandOutput = AttachClassicLinkVpcResult;
+export type AttachClassicLinkVpcCommandOutput = AttachClassicLinkVpcResult &
+  __MetadataBearer;
 
 export class AttachClassicLinkVpcCommand extends $Command<
   AttachClassicLinkVpcCommandInput,

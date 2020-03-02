@@ -51,7 +51,7 @@ export namespace AddFacetToObjectRequest {
   }
 }
 
-export interface AddFacetToObjectResponse extends $MetadataBearer {
+export interface AddFacetToObjectResponse {
   __type?: "AddFacetToObjectResponse";
 }
 
@@ -82,7 +82,7 @@ export namespace ApplySchemaRequest {
   }
 }
 
-export interface ApplySchemaResponse extends $MetadataBearer {
+export interface ApplySchemaResponse {
   __type?: "ApplySchemaResponse";
   /**
    * <p>The applied schema ARN that is associated with the copied schema in the <a>Directory</a>. You can use this ARN to describe the schema information applied on
@@ -133,7 +133,7 @@ export namespace AttachObjectRequest {
   }
 }
 
-export interface AttachObjectResponse extends $MetadataBearer {
+export interface AttachObjectResponse {
   __type?: "AttachObjectResponse";
   /**
    * <p>The attached <code>ObjectIdentifier</code>, which is the child
@@ -174,7 +174,7 @@ export namespace AttachPolicyRequest {
   }
 }
 
-export interface AttachPolicyResponse extends $MetadataBearer {
+export interface AttachPolicyResponse {
   __type?: "AttachPolicyResponse";
 }
 
@@ -209,7 +209,7 @@ export namespace AttachToIndexRequest {
   }
 }
 
-export interface AttachToIndexResponse extends $MetadataBearer {
+export interface AttachToIndexResponse {
   __type?: "AttachToIndexResponse";
   /**
    * <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
@@ -258,7 +258,7 @@ export namespace AttachTypedLinkRequest {
   }
 }
 
-export interface AttachTypedLinkResponse extends $MetadataBearer {
+export interface AttachTypedLinkResponse {
   __type?: "AttachTypedLinkResponse";
   /**
    * <p>Returns a typed link specifier as output.</p>
@@ -1705,7 +1705,7 @@ export namespace BatchReadRequest {
   }
 }
 
-export interface BatchReadResponse extends $MetadataBearer {
+export interface BatchReadResponse {
   __type?: "BatchReadResponse";
   /**
    * <p>A list of all the responses for each batch read.</p>
@@ -2153,7 +2153,7 @@ export namespace BatchWriteRequest {
   }
 }
 
-export interface BatchWriteResponse extends $MetadataBearer {
+export interface BatchWriteResponse {
   __type?: "BatchWriteResponse";
   /**
    * <p>A list of all the responses for each batch write.</p>
@@ -2210,7 +2210,7 @@ export namespace CreateDirectoryRequest {
   }
 }
 
-export interface CreateDirectoryResponse extends $MetadataBearer {
+export interface CreateDirectoryResponse {
   __type?: "CreateDirectoryResponse";
   /**
    * <p>The ARN of the published schema in the <a>Directory</a>. Once a published
@@ -2299,7 +2299,7 @@ export namespace CreateFacetRequest {
   }
 }
 
-export interface CreateFacetResponse extends $MetadataBearer {
+export interface CreateFacetResponse {
   __type?: "CreateFacetResponse";
 }
 
@@ -2345,7 +2345,7 @@ export namespace CreateIndexRequest {
   }
 }
 
-export interface CreateIndexResponse extends $MetadataBearer {
+export interface CreateIndexResponse {
   __type?: "CreateIndexResponse";
   /**
    * <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
@@ -2395,7 +2395,7 @@ export namespace CreateObjectRequest {
   }
 }
 
-export interface CreateObjectResponse extends $MetadataBearer {
+export interface CreateObjectResponse {
   __type?: "CreateObjectResponse";
   /**
    * <p>The identifier that is associated with the object.</p>
@@ -2424,7 +2424,7 @@ export namespace CreateSchemaRequest {
   }
 }
 
-export interface CreateSchemaResponse extends $MetadataBearer {
+export interface CreateSchemaResponse {
   __type?: "CreateSchemaResponse";
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
@@ -2461,7 +2461,7 @@ export namespace CreateTypedLinkFacetRequest {
   }
 }
 
-export interface CreateTypedLinkFacetResponse extends $MetadataBearer {
+export interface CreateTypedLinkFacetResponse {
   __type?: "CreateTypedLinkFacetResponse";
 }
 
@@ -2485,7 +2485,7 @@ export namespace DeleteDirectoryRequest {
   }
 }
 
-export interface DeleteDirectoryResponse extends $MetadataBearer {
+export interface DeleteDirectoryResponse {
   __type?: "DeleteDirectoryResponse";
   /**
    * <p>The ARN of the deleted directory.</p>
@@ -2519,7 +2519,7 @@ export namespace DeleteFacetRequest {
   }
 }
 
-export interface DeleteFacetResponse extends $MetadataBearer {
+export interface DeleteFacetResponse {
   __type?: "DeleteFacetResponse";
 }
 
@@ -2549,7 +2549,7 @@ export namespace DeleteObjectRequest {
   }
 }
 
-export interface DeleteObjectResponse extends $MetadataBearer {
+export interface DeleteObjectResponse {
   __type?: "DeleteObjectResponse";
 }
 
@@ -2574,7 +2574,7 @@ export namespace DeleteSchemaRequest {
   }
 }
 
-export interface DeleteSchemaResponse extends $MetadataBearer {
+export interface DeleteSchemaResponse {
   __type?: "DeleteSchemaResponse";
   /**
    * <p>The input ARN that is returned as part of the response. For more information, see
@@ -2609,7 +2609,7 @@ export namespace DeleteTypedLinkFacetRequest {
   }
 }
 
-export interface DeleteTypedLinkFacetResponse extends $MetadataBearer {
+export interface DeleteTypedLinkFacetResponse {
   __type?: "DeleteTypedLinkFacetResponse";
 }
 
@@ -2644,7 +2644,7 @@ export namespace DetachFromIndexRequest {
   }
 }
 
-export interface DetachFromIndexResponse extends $MetadataBearer {
+export interface DetachFromIndexResponse {
   __type?: "DetachFromIndexResponse";
   /**
    * <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
@@ -2684,7 +2684,7 @@ export namespace DetachObjectRequest {
   }
 }
 
-export interface DetachObjectResponse extends $MetadataBearer {
+export interface DetachObjectResponse {
   __type?: "DetachObjectResponse";
   /**
    * <p>The <code>ObjectIdentifier</code> that was detached from the object.</p>
@@ -2723,7 +2723,7 @@ export namespace DetachPolicyRequest {
   }
 }
 
-export interface DetachPolicyResponse extends $MetadataBearer {
+export interface DetachPolicyResponse {
   __type?: "DetachPolicyResponse";
 }
 
@@ -2876,7 +2876,7 @@ export namespace DisableDirectoryRequest {
   }
 }
 
-export interface DisableDirectoryResponse extends $MetadataBearer {
+export interface DisableDirectoryResponse {
   __type?: "DisableDirectoryResponse";
   /**
    * <p>The ARN of the directory that has been disabled.</p>
@@ -2904,7 +2904,7 @@ export namespace EnableDirectoryRequest {
   }
 }
 
-export interface EnableDirectoryResponse extends $MetadataBearer {
+export interface EnableDirectoryResponse {
   __type?: "EnableDirectoryResponse";
   /**
    * <p>The ARN of the enabled directory.</p>
@@ -3155,7 +3155,7 @@ export namespace GetAppliedSchemaVersionRequest {
   }
 }
 
-export interface GetAppliedSchemaVersionResponse extends $MetadataBearer {
+export interface GetAppliedSchemaVersionResponse {
   __type?: "GetAppliedSchemaVersionResponse";
   /**
    * <p>Current applied schema ARN, including the minor version in use if one was provided.</p>
@@ -3183,7 +3183,7 @@ export namespace GetDirectoryRequest {
   }
 }
 
-export interface GetDirectoryResponse extends $MetadataBearer {
+export interface GetDirectoryResponse {
   __type?: "GetDirectoryResponse";
   /**
    * <p>Metadata about the directory.</p>
@@ -3217,7 +3217,7 @@ export namespace GetFacetRequest {
   }
 }
 
-export interface GetFacetResponse extends $MetadataBearer {
+export interface GetFacetResponse {
   __type?: "GetFacetResponse";
   /**
    * <p>The <a>Facet</a> structure that is associated with the facet.</p>
@@ -3260,7 +3260,7 @@ export namespace GetLinkAttributesRequest {
   }
 }
 
-export interface GetLinkAttributesResponse extends $MetadataBearer {
+export interface GetLinkAttributesResponse {
   __type?: "GetLinkAttributesResponse";
   /**
    * <p>The attributes that are associated with the typed link.</p>
@@ -3308,7 +3308,7 @@ export namespace GetObjectAttributesRequest {
   }
 }
 
-export interface GetObjectAttributesResponse extends $MetadataBearer {
+export interface GetObjectAttributesResponse {
   __type?: "GetObjectAttributesResponse";
   /**
    * <p>The attributes that are associated with the object.</p>
@@ -3346,7 +3346,7 @@ export namespace GetObjectInformationRequest {
   }
 }
 
-export interface GetObjectInformationResponse extends $MetadataBearer {
+export interface GetObjectInformationResponse {
   __type?: "GetObjectInformationResponse";
   /**
    * <p>The <code>ObjectIdentifier</code> of the specified object.</p>
@@ -3379,7 +3379,7 @@ export namespace GetSchemaAsJsonRequest {
   }
 }
 
-export interface GetSchemaAsJsonResponse extends $MetadataBearer {
+export interface GetSchemaAsJsonResponse {
   __type?: "GetSchemaAsJsonResponse";
   /**
    * <p>The JSON representation of the schema document.</p>
@@ -3418,7 +3418,7 @@ export namespace GetTypedLinkFacetInformationRequest {
   }
 }
 
-export interface GetTypedLinkFacetInformationResponse extends $MetadataBearer {
+export interface GetTypedLinkFacetInformationResponse {
   __type?: "GetTypedLinkFacetInformationResponse";
   /**
    * <p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed
@@ -3739,7 +3739,7 @@ export namespace ListAppliedSchemaArnsRequest {
   }
 }
 
-export interface ListAppliedSchemaArnsResponse extends $MetadataBearer {
+export interface ListAppliedSchemaArnsResponse {
   __type?: "ListAppliedSchemaArnsResponse";
   /**
    * <p>The pagination token.</p>
@@ -3792,7 +3792,7 @@ export namespace ListAttachedIndicesRequest {
   }
 }
 
-export interface ListAttachedIndicesResponse extends $MetadataBearer {
+export interface ListAttachedIndicesResponse {
   __type?: "ListAttachedIndicesResponse";
   /**
    * <p>The indices attached to the specified object.</p>
@@ -3830,7 +3830,7 @@ export namespace ListDevelopmentSchemaArnsRequest {
   }
 }
 
-export interface ListDevelopmentSchemaArnsResponse extends $MetadataBearer {
+export interface ListDevelopmentSchemaArnsResponse {
   __type?: "ListDevelopmentSchemaArnsResponse";
   /**
    * <p>The pagination token.</p>
@@ -3874,7 +3874,7 @@ export namespace ListDirectoriesRequest {
   }
 }
 
-export interface ListDirectoriesResponse extends $MetadataBearer {
+export interface ListDirectoriesResponse {
   __type?: "ListDirectoriesResponse";
   /**
    * <p>Lists all directories that are associated with your account in pagination
@@ -3923,7 +3923,7 @@ export namespace ListFacetAttributesRequest {
   }
 }
 
-export interface ListFacetAttributesResponse extends $MetadataBearer {
+export interface ListFacetAttributesResponse {
   __type?: "ListFacetAttributesResponse";
   /**
    * <p>The attributes attached to the facet.</p>
@@ -3966,7 +3966,7 @@ export namespace ListFacetNamesRequest {
   }
 }
 
-export interface ListFacetNamesResponse extends $MetadataBearer {
+export interface ListFacetNamesResponse {
   __type?: "ListFacetNamesResponse";
   /**
    * <p>The names of facets that exist within the schema.</p>
@@ -4033,7 +4033,7 @@ export namespace ListIncomingTypedLinksRequest {
   }
 }
 
-export interface ListIncomingTypedLinksResponse extends $MetadataBearer {
+export interface ListIncomingTypedLinksResponse {
   __type?: "ListIncomingTypedLinksResponse";
   /**
    * <p>Returns one or more typed link specifiers as output.</p>
@@ -4091,7 +4091,7 @@ export namespace ListIndexRequest {
   }
 }
 
-export interface ListIndexResponse extends $MetadataBearer {
+export interface ListIndexResponse {
   __type?: "ListIndexResponse";
   /**
    * <p>The objects and indexed values attached to the index.</p>
@@ -4134,7 +4134,7 @@ export namespace ListManagedSchemaArnsRequest {
   }
 }
 
-export interface ListManagedSchemaArnsResponse extends $MetadataBearer {
+export interface ListManagedSchemaArnsResponse {
   __type?: "ListManagedSchemaArnsResponse";
   /**
    * <p>The pagination token.</p>
@@ -4196,7 +4196,7 @@ export namespace ListObjectAttributesRequest {
   }
 }
 
-export interface ListObjectAttributesResponse extends $MetadataBearer {
+export interface ListObjectAttributesResponse {
   __type?: "ListObjectAttributesResponse";
   /**
    * <p>Attributes map that is associated with the object. <code>AttributeArn</code> is the
@@ -4254,7 +4254,7 @@ export namespace ListObjectChildrenRequest {
   }
 }
 
-export interface ListObjectChildrenResponse extends $MetadataBearer {
+export interface ListObjectChildrenResponse {
   __type?: "ListObjectChildrenResponse";
   /**
    * <p>Children structure, which is a map with key as the <code>LinkName</code> and
@@ -4304,7 +4304,7 @@ export namespace ListObjectParentPathsRequest {
   }
 }
 
-export interface ListObjectParentPathsResponse extends $MetadataBearer {
+export interface ListObjectParentPathsResponse {
   __type?: "ListObjectParentPathsResponse";
   /**
    * <p>The pagination token.</p>
@@ -4367,7 +4367,7 @@ export namespace ListObjectParentsRequest {
   }
 }
 
-export interface ListObjectParentsResponse extends $MetadataBearer {
+export interface ListObjectParentsResponse {
   __type?: "ListObjectParentsResponse";
   /**
    * <p>The pagination token.</p>
@@ -4429,7 +4429,7 @@ export namespace ListObjectPoliciesRequest {
   }
 }
 
-export interface ListObjectPoliciesResponse extends $MetadataBearer {
+export interface ListObjectPoliciesResponse {
   __type?: "ListObjectPoliciesResponse";
   /**
    * <p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the
@@ -4497,7 +4497,7 @@ export namespace ListOutgoingTypedLinksRequest {
   }
 }
 
-export interface ListOutgoingTypedLinksResponse extends $MetadataBearer {
+export interface ListOutgoingTypedLinksResponse {
   __type?: "ListOutgoingTypedLinksResponse";
   /**
    * <p>The pagination token.</p>
@@ -4553,7 +4553,7 @@ export namespace ListPolicyAttachmentsRequest {
   }
 }
 
-export interface ListPolicyAttachmentsResponse extends $MetadataBearer {
+export interface ListPolicyAttachmentsResponse {
   __type?: "ListPolicyAttachmentsResponse";
   /**
    * <p>The pagination token.</p>
@@ -4596,7 +4596,7 @@ export namespace ListPublishedSchemaArnsRequest {
   }
 }
 
-export interface ListPublishedSchemaArnsResponse extends $MetadataBearer {
+export interface ListPublishedSchemaArnsResponse {
   __type?: "ListPublishedSchemaArnsResponse";
   /**
    * <p>The pagination token.</p>
@@ -4642,7 +4642,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
@@ -4691,7 +4691,7 @@ export namespace ListTypedLinkFacetAttributesRequest {
   }
 }
 
-export interface ListTypedLinkFacetAttributesResponse extends $MetadataBearer {
+export interface ListTypedLinkFacetAttributesResponse {
   __type?: "ListTypedLinkFacetAttributesResponse";
   /**
    * <p>An ordered set of attributes associate with the typed link.</p>
@@ -4735,7 +4735,7 @@ export namespace ListTypedLinkFacetNamesRequest {
   }
 }
 
-export interface ListTypedLinkFacetNamesResponse extends $MetadataBearer {
+export interface ListTypedLinkFacetNamesResponse {
   __type?: "ListTypedLinkFacetNamesResponse";
   /**
    * <p>The names of typed link facets that exist within the schema.</p>
@@ -4785,7 +4785,7 @@ export namespace LookupPolicyRequest {
   }
 }
 
-export interface LookupPolicyResponse extends $MetadataBearer {
+export interface LookupPolicyResponse {
   __type?: "LookupPolicyResponse";
   /**
    * <p>The pagination token.</p>
@@ -5122,7 +5122,7 @@ export namespace PublishSchemaRequest {
   }
 }
 
-export interface PublishSchemaResponse extends $MetadataBearer {
+export interface PublishSchemaResponse {
   __type?: "PublishSchemaResponse";
   /**
    * <p>The ARN that is associated with the published schema. For more information, see <a>arns</a>.</p>
@@ -5155,7 +5155,7 @@ export namespace PutSchemaFromJsonRequest {
   }
 }
 
-export interface PutSchemaFromJsonResponse extends $MetadataBearer {
+export interface PutSchemaFromJsonResponse {
   __type?: "PutSchemaFromJsonResponse";
   /**
    * <p>The ARN of the schema to update.</p>
@@ -5201,7 +5201,7 @@ export namespace RemoveFacetFromObjectRequest {
   }
 }
 
-export interface RemoveFacetFromObjectResponse extends $MetadataBearer {
+export interface RemoveFacetFromObjectResponse {
   __type?: "RemoveFacetFromObjectResponse";
 }
 
@@ -5397,7 +5397,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -5689,7 +5689,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -5736,7 +5736,7 @@ export namespace UpdateFacetRequest {
   }
 }
 
-export interface UpdateFacetResponse extends $MetadataBearer {
+export interface UpdateFacetResponse {
   __type?: "UpdateFacetResponse";
 }
 
@@ -5770,7 +5770,7 @@ export namespace UpdateLinkAttributesRequest {
   }
 }
 
-export interface UpdateLinkAttributesResponse extends $MetadataBearer {
+export interface UpdateLinkAttributesResponse {
   __type?: "UpdateLinkAttributesResponse";
 }
 
@@ -5805,7 +5805,7 @@ export namespace UpdateObjectAttributesRequest {
   }
 }
 
-export interface UpdateObjectAttributesResponse extends $MetadataBearer {
+export interface UpdateObjectAttributesResponse {
   __type?: "UpdateObjectAttributesResponse";
   /**
    * <p>The <code>ObjectIdentifier</code> of the updated object.</p>
@@ -5839,7 +5839,7 @@ export namespace UpdateSchemaRequest {
   }
 }
 
-export interface UpdateSchemaResponse extends $MetadataBearer {
+export interface UpdateSchemaResponse {
   __type?: "UpdateSchemaResponse";
   /**
    * <p>The ARN that is associated with the updated schema. For more information, see <a>arns</a>.</p>
@@ -5888,7 +5888,7 @@ export namespace UpdateTypedLinkFacetRequest {
   }
 }
 
-export interface UpdateTypedLinkFacetResponse extends $MetadataBearer {
+export interface UpdateTypedLinkFacetResponse {
   __type?: "UpdateTypedLinkFacetResponse";
 }
 
@@ -5922,7 +5922,7 @@ export namespace UpgradeAppliedSchemaRequest {
   }
 }
 
-export interface UpgradeAppliedSchemaResponse extends $MetadataBearer {
+export interface UpgradeAppliedSchemaResponse {
   __type?: "UpgradeAppliedSchemaResponse";
   /**
    * <p>The ARN of the directory that is returned as part of the response.</p>
@@ -5970,7 +5970,7 @@ export namespace UpgradePublishedSchemaRequest {
   }
 }
 
-export interface UpgradePublishedSchemaResponse extends $MetadataBearer {
+export interface UpgradePublishedSchemaResponse {
   __type?: "UpgradePublishedSchemaResponse";
   /**
    * <p>The ARN of the upgraded schema that is returned as part of the response.</p>

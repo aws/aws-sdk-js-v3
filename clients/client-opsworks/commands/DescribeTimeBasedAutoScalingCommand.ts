@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTimeBasedAutoScalingCommandInput = DescribeTimeBasedAutoScalingRequest;
-export type DescribeTimeBasedAutoScalingCommandOutput = DescribeTimeBasedAutoScalingResult;
+export type DescribeTimeBasedAutoScalingCommandOutput = DescribeTimeBasedAutoScalingResult &
+  __MetadataBearer;
 
 export class DescribeTimeBasedAutoScalingCommand extends $Command<
   DescribeTimeBasedAutoScalingCommandInput,

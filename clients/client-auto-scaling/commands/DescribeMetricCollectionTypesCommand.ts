@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMetricCollectionTypesCommandInput = {};
-export type DescribeMetricCollectionTypesCommandOutput = DescribeMetricCollectionTypesAnswer;
+export type DescribeMetricCollectionTypesCommandOutput = DescribeMetricCollectionTypesAnswer &
+  __MetadataBearer;
 
 export class DescribeMetricCollectionTypesCommand extends $Command<
   DescribeMetricCollectionTypesCommandInput,

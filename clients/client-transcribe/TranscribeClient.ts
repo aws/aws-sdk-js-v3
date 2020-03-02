@@ -1,30 +1,59 @@
 import {
-  CreateVocabularyFilterRequest,
-  CreateVocabularyFilterResponse,
-  CreateVocabularyRequest,
-  CreateVocabularyResponse,
-  DeleteTranscriptionJobRequest,
-  DeleteVocabularyFilterRequest,
-  DeleteVocabularyRequest,
-  GetTranscriptionJobRequest,
-  GetTranscriptionJobResponse,
-  GetVocabularyFilterRequest,
-  GetVocabularyFilterResponse,
-  GetVocabularyRequest,
-  GetVocabularyResponse,
-  ListTranscriptionJobsRequest,
-  ListTranscriptionJobsResponse,
-  ListVocabulariesRequest,
-  ListVocabulariesResponse,
-  ListVocabularyFiltersRequest,
-  ListVocabularyFiltersResponse,
-  StartTranscriptionJobRequest,
-  StartTranscriptionJobResponse,
-  UpdateVocabularyFilterRequest,
-  UpdateVocabularyFilterResponse,
-  UpdateVocabularyRequest,
-  UpdateVocabularyResponse
-} from "./models/index";
+  CreateVocabularyCommandInput,
+  CreateVocabularyCommandOutput
+} from "./commands/CreateVocabularyCommand";
+import {
+  CreateVocabularyFilterCommandInput,
+  CreateVocabularyFilterCommandOutput
+} from "./commands/CreateVocabularyFilterCommand";
+import {
+  DeleteTranscriptionJobCommandInput,
+  DeleteTranscriptionJobCommandOutput
+} from "./commands/DeleteTranscriptionJobCommand";
+import {
+  DeleteVocabularyCommandInput,
+  DeleteVocabularyCommandOutput
+} from "./commands/DeleteVocabularyCommand";
+import {
+  DeleteVocabularyFilterCommandInput,
+  DeleteVocabularyFilterCommandOutput
+} from "./commands/DeleteVocabularyFilterCommand";
+import {
+  GetTranscriptionJobCommandInput,
+  GetTranscriptionJobCommandOutput
+} from "./commands/GetTranscriptionJobCommand";
+import {
+  GetVocabularyCommandInput,
+  GetVocabularyCommandOutput
+} from "./commands/GetVocabularyCommand";
+import {
+  GetVocabularyFilterCommandInput,
+  GetVocabularyFilterCommandOutput
+} from "./commands/GetVocabularyFilterCommand";
+import {
+  ListTranscriptionJobsCommandInput,
+  ListTranscriptionJobsCommandOutput
+} from "./commands/ListTranscriptionJobsCommand";
+import {
+  ListVocabulariesCommandInput,
+  ListVocabulariesCommandOutput
+} from "./commands/ListVocabulariesCommand";
+import {
+  ListVocabularyFiltersCommandInput,
+  ListVocabularyFiltersCommandOutput
+} from "./commands/ListVocabularyFiltersCommand";
+import {
+  StartTranscriptionJobCommandInput,
+  StartTranscriptionJobCommandOutput
+} from "./commands/StartTranscriptionJobCommand";
+import {
+  UpdateVocabularyCommandInput,
+  UpdateVocabularyCommandOutput
+} from "./commands/UpdateVocabularyCommand";
+import {
+  UpdateVocabularyFilterCommandInput,
+  UpdateVocabularyFilterCommandOutput
+} from "./commands/UpdateVocabularyFilterCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -72,41 +101,42 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateVocabularyFilterRequest
-  | CreateVocabularyRequest
-  | DeleteTranscriptionJobRequest
-  | DeleteVocabularyFilterRequest
-  | DeleteVocabularyRequest
-  | GetTranscriptionJobRequest
-  | GetVocabularyFilterRequest
-  | GetVocabularyRequest
-  | ListTranscriptionJobsRequest
-  | ListVocabulariesRequest
-  | ListVocabularyFiltersRequest
-  | StartTranscriptionJobRequest
-  | UpdateVocabularyFilterRequest
-  | UpdateVocabularyRequest;
+  | CreateVocabularyCommandInput
+  | CreateVocabularyFilterCommandInput
+  | DeleteTranscriptionJobCommandInput
+  | DeleteVocabularyCommandInput
+  | DeleteVocabularyFilterCommandInput
+  | GetTranscriptionJobCommandInput
+  | GetVocabularyCommandInput
+  | GetVocabularyFilterCommandInput
+  | ListTranscriptionJobsCommandInput
+  | ListVocabulariesCommandInput
+  | ListVocabularyFiltersCommandInput
+  | StartTranscriptionJobCommandInput
+  | UpdateVocabularyCommandInput
+  | UpdateVocabularyFilterCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateVocabularyFilterResponse
-  | CreateVocabularyResponse
-  | GetTranscriptionJobResponse
-  | GetVocabularyFilterResponse
-  | GetVocabularyResponse
-  | ListTranscriptionJobsResponse
-  | ListVocabulariesResponse
-  | ListVocabularyFiltersResponse
-  | StartTranscriptionJobResponse
-  | UpdateVocabularyFilterResponse
-  | UpdateVocabularyResponse;
+  | CreateVocabularyCommandOutput
+  | CreateVocabularyFilterCommandOutput
+  | DeleteTranscriptionJobCommandOutput
+  | DeleteVocabularyCommandOutput
+  | DeleteVocabularyFilterCommandOutput
+  | GetTranscriptionJobCommandOutput
+  | GetVocabularyCommandOutput
+  | GetVocabularyFilterCommandOutput
+  | ListTranscriptionJobsCommandOutput
+  | ListVocabulariesCommandOutput
+  | ListVocabularyFiltersCommandOutput
+  | StartTranscriptionJobCommandOutput
+  | UpdateVocabularyCommandOutput
+  | UpdateVocabularyFilterCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

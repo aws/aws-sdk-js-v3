@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDocumentClassifierCommandInput = DeleteDocumentClassifierRequest;
-export type DeleteDocumentClassifierCommandOutput = DeleteDocumentClassifierResponse;
+export type DeleteDocumentClassifierCommandOutput = DeleteDocumentClassifierResponse &
+  __MetadataBearer;
 
 export class DeleteDocumentClassifierCommand extends $Command<
   DeleteDocumentClassifierCommandInput,

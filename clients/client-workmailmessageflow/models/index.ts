@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 export interface GetRawMessageContentRequest {
   __type?: "GetRawMessageContentRequest";
@@ -18,12 +19,12 @@ export namespace GetRawMessageContentRequest {
   }
 }
 
-export interface GetRawMessageContentResponse extends $MetadataBearer {
+export interface GetRawMessageContentResponse {
   __type?: "GetRawMessageContentResponse";
   /**
    * <p>The raw content of the email message, in MIME format.</p>
    */
-  messageContent: Uint8Array | undefined;
+  messageContent: Readable | ReadableStream | Blob | undefined;
 }
 
 export namespace GetRawMessageContentResponse {

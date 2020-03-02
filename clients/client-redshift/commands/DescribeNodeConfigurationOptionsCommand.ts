@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeNodeConfigurationOptionsCommandInput = DescribeNodeConfigurationOptionsMessage;
-export type DescribeNodeConfigurationOptionsCommandOutput = NodeConfigurationOptionsMessage;
+export type DescribeNodeConfigurationOptionsCommandOutput = NodeConfigurationOptionsMessage &
+  __MetadataBearer;
 
 export class DescribeNodeConfigurationOptionsCommand extends $Command<
   DescribeNodeConfigurationOptionsCommandInput,

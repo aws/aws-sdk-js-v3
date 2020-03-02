@@ -1,113 +1,299 @@
 import {
-  AssignInstanceRequest,
-  AssignVolumeRequest,
-  AssociateElasticIpRequest,
-  AttachElasticLoadBalancerRequest,
-  CloneStackRequest,
-  CloneStackResult,
-  CreateAppRequest,
-  CreateAppResult,
-  CreateDeploymentRequest,
-  CreateDeploymentResult,
-  CreateInstanceRequest,
-  CreateInstanceResult,
-  CreateLayerRequest,
-  CreateLayerResult,
-  CreateStackRequest,
-  CreateStackResult,
-  CreateUserProfileRequest,
-  CreateUserProfileResult,
-  DeleteAppRequest,
-  DeleteInstanceRequest,
-  DeleteLayerRequest,
-  DeleteStackRequest,
-  DeleteUserProfileRequest,
-  DeregisterEcsClusterRequest,
-  DeregisterElasticIpRequest,
-  DeregisterInstanceRequest,
-  DeregisterRdsDbInstanceRequest,
-  DeregisterVolumeRequest,
-  DescribeAgentVersionsRequest,
-  DescribeAgentVersionsResult,
-  DescribeAppsRequest,
-  DescribeAppsResult,
-  DescribeCommandsRequest,
-  DescribeCommandsResult,
-  DescribeDeploymentsRequest,
-  DescribeDeploymentsResult,
-  DescribeEcsClustersRequest,
-  DescribeEcsClustersResult,
-  DescribeElasticIpsRequest,
-  DescribeElasticIpsResult,
-  DescribeElasticLoadBalancersRequest,
-  DescribeElasticLoadBalancersResult,
-  DescribeInstancesRequest,
-  DescribeInstancesResult,
-  DescribeLayersRequest,
-  DescribeLayersResult,
-  DescribeLoadBasedAutoScalingRequest,
-  DescribeLoadBasedAutoScalingResult,
-  DescribeMyUserProfileResult,
-  DescribeOperatingSystemsResponse,
-  DescribePermissionsRequest,
-  DescribePermissionsResult,
-  DescribeRaidArraysRequest,
-  DescribeRaidArraysResult,
-  DescribeRdsDbInstancesRequest,
-  DescribeRdsDbInstancesResult,
-  DescribeServiceErrorsRequest,
-  DescribeServiceErrorsResult,
-  DescribeStackProvisioningParametersRequest,
-  DescribeStackProvisioningParametersResult,
-  DescribeStackSummaryRequest,
-  DescribeStackSummaryResult,
-  DescribeStacksRequest,
-  DescribeStacksResult,
-  DescribeTimeBasedAutoScalingRequest,
-  DescribeTimeBasedAutoScalingResult,
-  DescribeUserProfilesRequest,
-  DescribeUserProfilesResult,
-  DescribeVolumesRequest,
-  DescribeVolumesResult,
-  DetachElasticLoadBalancerRequest,
-  DisassociateElasticIpRequest,
-  GetHostnameSuggestionRequest,
-  GetHostnameSuggestionResult,
-  GrantAccessRequest,
-  GrantAccessResult,
-  ListTagsRequest,
-  ListTagsResult,
-  RebootInstanceRequest,
-  RegisterEcsClusterRequest,
-  RegisterEcsClusterResult,
-  RegisterElasticIpRequest,
-  RegisterElasticIpResult,
-  RegisterInstanceRequest,
-  RegisterInstanceResult,
-  RegisterRdsDbInstanceRequest,
-  RegisterVolumeRequest,
-  RegisterVolumeResult,
-  SetLoadBasedAutoScalingRequest,
-  SetPermissionRequest,
-  SetTimeBasedAutoScalingRequest,
-  StartInstanceRequest,
-  StartStackRequest,
-  StopInstanceRequest,
-  StopStackRequest,
-  TagResourceRequest,
-  UnassignInstanceRequest,
-  UnassignVolumeRequest,
-  UntagResourceRequest,
-  UpdateAppRequest,
-  UpdateElasticIpRequest,
-  UpdateInstanceRequest,
-  UpdateLayerRequest,
-  UpdateMyUserProfileRequest,
-  UpdateRdsDbInstanceRequest,
-  UpdateStackRequest,
-  UpdateUserProfileRequest,
-  UpdateVolumeRequest
-} from "./models/index";
+  AssignInstanceCommandInput,
+  AssignInstanceCommandOutput
+} from "./commands/AssignInstanceCommand";
+import {
+  AssignVolumeCommandInput,
+  AssignVolumeCommandOutput
+} from "./commands/AssignVolumeCommand";
+import {
+  AssociateElasticIpCommandInput,
+  AssociateElasticIpCommandOutput
+} from "./commands/AssociateElasticIpCommand";
+import {
+  AttachElasticLoadBalancerCommandInput,
+  AttachElasticLoadBalancerCommandOutput
+} from "./commands/AttachElasticLoadBalancerCommand";
+import {
+  CloneStackCommandInput,
+  CloneStackCommandOutput
+} from "./commands/CloneStackCommand";
+import {
+  CreateAppCommandInput,
+  CreateAppCommandOutput
+} from "./commands/CreateAppCommand";
+import {
+  CreateDeploymentCommandInput,
+  CreateDeploymentCommandOutput
+} from "./commands/CreateDeploymentCommand";
+import {
+  CreateInstanceCommandInput,
+  CreateInstanceCommandOutput
+} from "./commands/CreateInstanceCommand";
+import {
+  CreateLayerCommandInput,
+  CreateLayerCommandOutput
+} from "./commands/CreateLayerCommand";
+import {
+  CreateStackCommandInput,
+  CreateStackCommandOutput
+} from "./commands/CreateStackCommand";
+import {
+  CreateUserProfileCommandInput,
+  CreateUserProfileCommandOutput
+} from "./commands/CreateUserProfileCommand";
+import {
+  DeleteAppCommandInput,
+  DeleteAppCommandOutput
+} from "./commands/DeleteAppCommand";
+import {
+  DeleteInstanceCommandInput,
+  DeleteInstanceCommandOutput
+} from "./commands/DeleteInstanceCommand";
+import {
+  DeleteLayerCommandInput,
+  DeleteLayerCommandOutput
+} from "./commands/DeleteLayerCommand";
+import {
+  DeleteStackCommandInput,
+  DeleteStackCommandOutput
+} from "./commands/DeleteStackCommand";
+import {
+  DeleteUserProfileCommandInput,
+  DeleteUserProfileCommandOutput
+} from "./commands/DeleteUserProfileCommand";
+import {
+  DeregisterEcsClusterCommandInput,
+  DeregisterEcsClusterCommandOutput
+} from "./commands/DeregisterEcsClusterCommand";
+import {
+  DeregisterElasticIpCommandInput,
+  DeregisterElasticIpCommandOutput
+} from "./commands/DeregisterElasticIpCommand";
+import {
+  DeregisterInstanceCommandInput,
+  DeregisterInstanceCommandOutput
+} from "./commands/DeregisterInstanceCommand";
+import {
+  DeregisterRdsDbInstanceCommandInput,
+  DeregisterRdsDbInstanceCommandOutput
+} from "./commands/DeregisterRdsDbInstanceCommand";
+import {
+  DeregisterVolumeCommandInput,
+  DeregisterVolumeCommandOutput
+} from "./commands/DeregisterVolumeCommand";
+import {
+  DescribeAgentVersionsCommandInput,
+  DescribeAgentVersionsCommandOutput
+} from "./commands/DescribeAgentVersionsCommand";
+import {
+  DescribeAppsCommandInput,
+  DescribeAppsCommandOutput
+} from "./commands/DescribeAppsCommand";
+import {
+  DescribeCommandsCommandInput,
+  DescribeCommandsCommandOutput
+} from "./commands/DescribeCommandsCommand";
+import {
+  DescribeDeploymentsCommandInput,
+  DescribeDeploymentsCommandOutput
+} from "./commands/DescribeDeploymentsCommand";
+import {
+  DescribeEcsClustersCommandInput,
+  DescribeEcsClustersCommandOutput
+} from "./commands/DescribeEcsClustersCommand";
+import {
+  DescribeElasticIpsCommandInput,
+  DescribeElasticIpsCommandOutput
+} from "./commands/DescribeElasticIpsCommand";
+import {
+  DescribeElasticLoadBalancersCommandInput,
+  DescribeElasticLoadBalancersCommandOutput
+} from "./commands/DescribeElasticLoadBalancersCommand";
+import {
+  DescribeInstancesCommandInput,
+  DescribeInstancesCommandOutput
+} from "./commands/DescribeInstancesCommand";
+import {
+  DescribeLayersCommandInput,
+  DescribeLayersCommandOutput
+} from "./commands/DescribeLayersCommand";
+import {
+  DescribeLoadBasedAutoScalingCommandInput,
+  DescribeLoadBasedAutoScalingCommandOutput
+} from "./commands/DescribeLoadBasedAutoScalingCommand";
+import {
+  DescribeMyUserProfileCommandInput,
+  DescribeMyUserProfileCommandOutput
+} from "./commands/DescribeMyUserProfileCommand";
+import {
+  DescribeOperatingSystemsCommandInput,
+  DescribeOperatingSystemsCommandOutput
+} from "./commands/DescribeOperatingSystemsCommand";
+import {
+  DescribePermissionsCommandInput,
+  DescribePermissionsCommandOutput
+} from "./commands/DescribePermissionsCommand";
+import {
+  DescribeRaidArraysCommandInput,
+  DescribeRaidArraysCommandOutput
+} from "./commands/DescribeRaidArraysCommand";
+import {
+  DescribeRdsDbInstancesCommandInput,
+  DescribeRdsDbInstancesCommandOutput
+} from "./commands/DescribeRdsDbInstancesCommand";
+import {
+  DescribeServiceErrorsCommandInput,
+  DescribeServiceErrorsCommandOutput
+} from "./commands/DescribeServiceErrorsCommand";
+import {
+  DescribeStackProvisioningParametersCommandInput,
+  DescribeStackProvisioningParametersCommandOutput
+} from "./commands/DescribeStackProvisioningParametersCommand";
+import {
+  DescribeStackSummaryCommandInput,
+  DescribeStackSummaryCommandOutput
+} from "./commands/DescribeStackSummaryCommand";
+import {
+  DescribeStacksCommandInput,
+  DescribeStacksCommandOutput
+} from "./commands/DescribeStacksCommand";
+import {
+  DescribeTimeBasedAutoScalingCommandInput,
+  DescribeTimeBasedAutoScalingCommandOutput
+} from "./commands/DescribeTimeBasedAutoScalingCommand";
+import {
+  DescribeUserProfilesCommandInput,
+  DescribeUserProfilesCommandOutput
+} from "./commands/DescribeUserProfilesCommand";
+import {
+  DescribeVolumesCommandInput,
+  DescribeVolumesCommandOutput
+} from "./commands/DescribeVolumesCommand";
+import {
+  DetachElasticLoadBalancerCommandInput,
+  DetachElasticLoadBalancerCommandOutput
+} from "./commands/DetachElasticLoadBalancerCommand";
+import {
+  DisassociateElasticIpCommandInput,
+  DisassociateElasticIpCommandOutput
+} from "./commands/DisassociateElasticIpCommand";
+import {
+  GetHostnameSuggestionCommandInput,
+  GetHostnameSuggestionCommandOutput
+} from "./commands/GetHostnameSuggestionCommand";
+import {
+  GrantAccessCommandInput,
+  GrantAccessCommandOutput
+} from "./commands/GrantAccessCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  RebootInstanceCommandInput,
+  RebootInstanceCommandOutput
+} from "./commands/RebootInstanceCommand";
+import {
+  RegisterEcsClusterCommandInput,
+  RegisterEcsClusterCommandOutput
+} from "./commands/RegisterEcsClusterCommand";
+import {
+  RegisterElasticIpCommandInput,
+  RegisterElasticIpCommandOutput
+} from "./commands/RegisterElasticIpCommand";
+import {
+  RegisterInstanceCommandInput,
+  RegisterInstanceCommandOutput
+} from "./commands/RegisterInstanceCommand";
+import {
+  RegisterRdsDbInstanceCommandInput,
+  RegisterRdsDbInstanceCommandOutput
+} from "./commands/RegisterRdsDbInstanceCommand";
+import {
+  RegisterVolumeCommandInput,
+  RegisterVolumeCommandOutput
+} from "./commands/RegisterVolumeCommand";
+import {
+  SetLoadBasedAutoScalingCommandInput,
+  SetLoadBasedAutoScalingCommandOutput
+} from "./commands/SetLoadBasedAutoScalingCommand";
+import {
+  SetPermissionCommandInput,
+  SetPermissionCommandOutput
+} from "./commands/SetPermissionCommand";
+import {
+  SetTimeBasedAutoScalingCommandInput,
+  SetTimeBasedAutoScalingCommandOutput
+} from "./commands/SetTimeBasedAutoScalingCommand";
+import {
+  StartInstanceCommandInput,
+  StartInstanceCommandOutput
+} from "./commands/StartInstanceCommand";
+import {
+  StartStackCommandInput,
+  StartStackCommandOutput
+} from "./commands/StartStackCommand";
+import {
+  StopInstanceCommandInput,
+  StopInstanceCommandOutput
+} from "./commands/StopInstanceCommand";
+import {
+  StopStackCommandInput,
+  StopStackCommandOutput
+} from "./commands/StopStackCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UnassignInstanceCommandInput,
+  UnassignInstanceCommandOutput
+} from "./commands/UnassignInstanceCommand";
+import {
+  UnassignVolumeCommandInput,
+  UnassignVolumeCommandOutput
+} from "./commands/UnassignVolumeCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAppCommandInput,
+  UpdateAppCommandOutput
+} from "./commands/UpdateAppCommand";
+import {
+  UpdateElasticIpCommandInput,
+  UpdateElasticIpCommandOutput
+} from "./commands/UpdateElasticIpCommand";
+import {
+  UpdateInstanceCommandInput,
+  UpdateInstanceCommandOutput
+} from "./commands/UpdateInstanceCommand";
+import {
+  UpdateLayerCommandInput,
+  UpdateLayerCommandOutput
+} from "./commands/UpdateLayerCommand";
+import {
+  UpdateMyUserProfileCommandInput,
+  UpdateMyUserProfileCommandOutput
+} from "./commands/UpdateMyUserProfileCommand";
+import {
+  UpdateRdsDbInstanceCommandInput,
+  UpdateRdsDbInstanceCommandOutput
+} from "./commands/UpdateRdsDbInstanceCommand";
+import {
+  UpdateStackCommandInput,
+  UpdateStackCommandOutput
+} from "./commands/UpdateStackCommand";
+import {
+  UpdateUserProfileCommandInput,
+  UpdateUserProfileCommandOutput
+} from "./commands/UpdateUserProfileCommand";
+import {
+  UpdateVolumeCommandInput,
+  UpdateVolumeCommandOutput
+} from "./commands/UpdateVolumeCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -155,125 +341,162 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AssignInstanceRequest
-  | AssignVolumeRequest
-  | AssociateElasticIpRequest
-  | AttachElasticLoadBalancerRequest
-  | CloneStackRequest
-  | CreateAppRequest
-  | CreateDeploymentRequest
-  | CreateInstanceRequest
-  | CreateLayerRequest
-  | CreateStackRequest
-  | CreateUserProfileRequest
-  | DeleteAppRequest
-  | DeleteInstanceRequest
-  | DeleteLayerRequest
-  | DeleteStackRequest
-  | DeleteUserProfileRequest
-  | DeregisterEcsClusterRequest
-  | DeregisterElasticIpRequest
-  | DeregisterInstanceRequest
-  | DeregisterRdsDbInstanceRequest
-  | DeregisterVolumeRequest
-  | DescribeAgentVersionsRequest
-  | DescribeAppsRequest
-  | DescribeCommandsRequest
-  | DescribeDeploymentsRequest
-  | DescribeEcsClustersRequest
-  | DescribeElasticIpsRequest
-  | DescribeElasticLoadBalancersRequest
-  | DescribeInstancesRequest
-  | DescribeLayersRequest
-  | DescribeLoadBasedAutoScalingRequest
-  | DescribePermissionsRequest
-  | DescribeRaidArraysRequest
-  | DescribeRdsDbInstancesRequest
-  | DescribeServiceErrorsRequest
-  | DescribeStackProvisioningParametersRequest
-  | DescribeStackSummaryRequest
-  | DescribeStacksRequest
-  | DescribeTimeBasedAutoScalingRequest
-  | DescribeUserProfilesRequest
-  | DescribeVolumesRequest
-  | DetachElasticLoadBalancerRequest
-  | DisassociateElasticIpRequest
-  | GetHostnameSuggestionRequest
-  | GrantAccessRequest
-  | ListTagsRequest
-  | RebootInstanceRequest
-  | RegisterEcsClusterRequest
-  | RegisterElasticIpRequest
-  | RegisterInstanceRequest
-  | RegisterRdsDbInstanceRequest
-  | RegisterVolumeRequest
-  | SetLoadBasedAutoScalingRequest
-  | SetPermissionRequest
-  | SetTimeBasedAutoScalingRequest
-  | StartInstanceRequest
-  | StartStackRequest
-  | StopInstanceRequest
-  | StopStackRequest
-  | TagResourceRequest
-  | UnassignInstanceRequest
-  | UnassignVolumeRequest
-  | UntagResourceRequest
-  | UpdateAppRequest
-  | UpdateElasticIpRequest
-  | UpdateInstanceRequest
-  | UpdateLayerRequest
-  | UpdateMyUserProfileRequest
-  | UpdateRdsDbInstanceRequest
-  | UpdateStackRequest
-  | UpdateUserProfileRequest
-  | UpdateVolumeRequest;
+  | AssignInstanceCommandInput
+  | AssignVolumeCommandInput
+  | AssociateElasticIpCommandInput
+  | AttachElasticLoadBalancerCommandInput
+  | CloneStackCommandInput
+  | CreateAppCommandInput
+  | CreateDeploymentCommandInput
+  | CreateInstanceCommandInput
+  | CreateLayerCommandInput
+  | CreateStackCommandInput
+  | CreateUserProfileCommandInput
+  | DeleteAppCommandInput
+  | DeleteInstanceCommandInput
+  | DeleteLayerCommandInput
+  | DeleteStackCommandInput
+  | DeleteUserProfileCommandInput
+  | DeregisterEcsClusterCommandInput
+  | DeregisterElasticIpCommandInput
+  | DeregisterInstanceCommandInput
+  | DeregisterRdsDbInstanceCommandInput
+  | DeregisterVolumeCommandInput
+  | DescribeAgentVersionsCommandInput
+  | DescribeAppsCommandInput
+  | DescribeCommandsCommandInput
+  | DescribeDeploymentsCommandInput
+  | DescribeEcsClustersCommandInput
+  | DescribeElasticIpsCommandInput
+  | DescribeElasticLoadBalancersCommandInput
+  | DescribeInstancesCommandInput
+  | DescribeLayersCommandInput
+  | DescribeLoadBasedAutoScalingCommandInput
+  | DescribeMyUserProfileCommandInput
+  | DescribeOperatingSystemsCommandInput
+  | DescribePermissionsCommandInput
+  | DescribeRaidArraysCommandInput
+  | DescribeRdsDbInstancesCommandInput
+  | DescribeServiceErrorsCommandInput
+  | DescribeStackProvisioningParametersCommandInput
+  | DescribeStackSummaryCommandInput
+  | DescribeStacksCommandInput
+  | DescribeTimeBasedAutoScalingCommandInput
+  | DescribeUserProfilesCommandInput
+  | DescribeVolumesCommandInput
+  | DetachElasticLoadBalancerCommandInput
+  | DisassociateElasticIpCommandInput
+  | GetHostnameSuggestionCommandInput
+  | GrantAccessCommandInput
+  | ListTagsCommandInput
+  | RebootInstanceCommandInput
+  | RegisterEcsClusterCommandInput
+  | RegisterElasticIpCommandInput
+  | RegisterInstanceCommandInput
+  | RegisterRdsDbInstanceCommandInput
+  | RegisterVolumeCommandInput
+  | SetLoadBasedAutoScalingCommandInput
+  | SetPermissionCommandInput
+  | SetTimeBasedAutoScalingCommandInput
+  | StartInstanceCommandInput
+  | StartStackCommandInput
+  | StopInstanceCommandInput
+  | StopStackCommandInput
+  | TagResourceCommandInput
+  | UnassignInstanceCommandInput
+  | UnassignVolumeCommandInput
+  | UntagResourceCommandInput
+  | UpdateAppCommandInput
+  | UpdateElasticIpCommandInput
+  | UpdateInstanceCommandInput
+  | UpdateLayerCommandInput
+  | UpdateMyUserProfileCommandInput
+  | UpdateRdsDbInstanceCommandInput
+  | UpdateStackCommandInput
+  | UpdateUserProfileCommandInput
+  | UpdateVolumeCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CloneStackResult
-  | CreateAppResult
-  | CreateDeploymentResult
-  | CreateInstanceResult
-  | CreateLayerResult
-  | CreateStackResult
-  | CreateUserProfileResult
-  | DescribeAgentVersionsResult
-  | DescribeAppsResult
-  | DescribeCommandsResult
-  | DescribeDeploymentsResult
-  | DescribeEcsClustersResult
-  | DescribeElasticIpsResult
-  | DescribeElasticLoadBalancersResult
-  | DescribeInstancesResult
-  | DescribeLayersResult
-  | DescribeLoadBasedAutoScalingResult
-  | DescribeMyUserProfileResult
-  | DescribeOperatingSystemsResponse
-  | DescribePermissionsResult
-  | DescribeRaidArraysResult
-  | DescribeRdsDbInstancesResult
-  | DescribeServiceErrorsResult
-  | DescribeStackProvisioningParametersResult
-  | DescribeStackSummaryResult
-  | DescribeStacksResult
-  | DescribeTimeBasedAutoScalingResult
-  | DescribeUserProfilesResult
-  | DescribeVolumesResult
-  | GetHostnameSuggestionResult
-  | GrantAccessResult
-  | ListTagsResult
-  | RegisterEcsClusterResult
-  | RegisterElasticIpResult
-  | RegisterInstanceResult
-  | RegisterVolumeResult;
+  | AssignInstanceCommandOutput
+  | AssignVolumeCommandOutput
+  | AssociateElasticIpCommandOutput
+  | AttachElasticLoadBalancerCommandOutput
+  | CloneStackCommandOutput
+  | CreateAppCommandOutput
+  | CreateDeploymentCommandOutput
+  | CreateInstanceCommandOutput
+  | CreateLayerCommandOutput
+  | CreateStackCommandOutput
+  | CreateUserProfileCommandOutput
+  | DeleteAppCommandOutput
+  | DeleteInstanceCommandOutput
+  | DeleteLayerCommandOutput
+  | DeleteStackCommandOutput
+  | DeleteUserProfileCommandOutput
+  | DeregisterEcsClusterCommandOutput
+  | DeregisterElasticIpCommandOutput
+  | DeregisterInstanceCommandOutput
+  | DeregisterRdsDbInstanceCommandOutput
+  | DeregisterVolumeCommandOutput
+  | DescribeAgentVersionsCommandOutput
+  | DescribeAppsCommandOutput
+  | DescribeCommandsCommandOutput
+  | DescribeDeploymentsCommandOutput
+  | DescribeEcsClustersCommandOutput
+  | DescribeElasticIpsCommandOutput
+  | DescribeElasticLoadBalancersCommandOutput
+  | DescribeInstancesCommandOutput
+  | DescribeLayersCommandOutput
+  | DescribeLoadBasedAutoScalingCommandOutput
+  | DescribeMyUserProfileCommandOutput
+  | DescribeOperatingSystemsCommandOutput
+  | DescribePermissionsCommandOutput
+  | DescribeRaidArraysCommandOutput
+  | DescribeRdsDbInstancesCommandOutput
+  | DescribeServiceErrorsCommandOutput
+  | DescribeStackProvisioningParametersCommandOutput
+  | DescribeStackSummaryCommandOutput
+  | DescribeStacksCommandOutput
+  | DescribeTimeBasedAutoScalingCommandOutput
+  | DescribeUserProfilesCommandOutput
+  | DescribeVolumesCommandOutput
+  | DetachElasticLoadBalancerCommandOutput
+  | DisassociateElasticIpCommandOutput
+  | GetHostnameSuggestionCommandOutput
+  | GrantAccessCommandOutput
+  | ListTagsCommandOutput
+  | RebootInstanceCommandOutput
+  | RegisterEcsClusterCommandOutput
+  | RegisterElasticIpCommandOutput
+  | RegisterInstanceCommandOutput
+  | RegisterRdsDbInstanceCommandOutput
+  | RegisterVolumeCommandOutput
+  | SetLoadBasedAutoScalingCommandOutput
+  | SetPermissionCommandOutput
+  | SetTimeBasedAutoScalingCommandOutput
+  | StartInstanceCommandOutput
+  | StartStackCommandOutput
+  | StopInstanceCommandOutput
+  | StopStackCommandOutput
+  | TagResourceCommandOutput
+  | UnassignInstanceCommandOutput
+  | UnassignVolumeCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAppCommandOutput
+  | UpdateElasticIpCommandOutput
+  | UpdateInstanceCommandOutput
+  | UpdateLayerCommandOutput
+  | UpdateMyUserProfileCommandOutput
+  | UpdateRdsDbInstanceCommandOutput
+  | UpdateStackCommandOutput
+  | UpdateUserProfileCommandOutput
+  | UpdateVolumeCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GenerateAccessLogsCommandInput = GenerateAccessLogsRequest;
-export type GenerateAccessLogsCommandOutput = GenerateAccessLogsResult;
+export type GenerateAccessLogsCommandOutput = GenerateAccessLogsResult &
+  __MetadataBearer;
 
 export class GenerateAccessLogsCommand extends $Command<
   GenerateAccessLogsCommandInput,

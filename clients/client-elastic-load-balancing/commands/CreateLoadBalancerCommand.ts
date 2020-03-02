@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLoadBalancerCommandInput = CreateAccessPointInput;
-export type CreateLoadBalancerCommandOutput = CreateAccessPointOutput;
+export type CreateLoadBalancerCommandOutput = CreateAccessPointOutput &
+  __MetadataBearer;
 
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,

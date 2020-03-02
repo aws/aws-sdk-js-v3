@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateApiMappingCommandInput = UpdateApiMappingRequest;
-export type UpdateApiMappingCommandOutput = UpdateApiMappingResponse;
+export type UpdateApiMappingCommandOutput = UpdateApiMappingResponse &
+  __MetadataBearer;
 
 export class UpdateApiMappingCommand extends $Command<
   UpdateApiMappingCommandInput,

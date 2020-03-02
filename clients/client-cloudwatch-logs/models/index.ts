@@ -88,7 +88,7 @@ export namespace CreateExportTaskRequest {
   }
 }
 
-export interface CreateExportTaskResponse extends $MetadataBearer {
+export interface CreateExportTaskResponse {
   __type?: "CreateExportTaskResponse";
   /**
    * <p>The ID of the export task.</p>
@@ -301,7 +301,7 @@ export namespace DescribeDestinationsRequest {
   }
 }
 
-export interface DescribeDestinationsResponse extends $MetadataBearer {
+export interface DescribeDestinationsResponse {
   __type?: "DescribeDestinationsResponse";
   /**
    * <p>The destinations.</p>
@@ -349,7 +349,7 @@ export namespace DescribeExportTasksRequest {
   }
 }
 
-export interface DescribeExportTasksResponse extends $MetadataBearer {
+export interface DescribeExportTasksResponse {
   __type?: "DescribeExportTasksResponse";
   /**
    * <p>The export tasks.</p>
@@ -392,7 +392,7 @@ export namespace DescribeLogGroupsRequest {
   }
 }
 
-export interface DescribeLogGroupsResponse extends $MetadataBearer {
+export interface DescribeLogGroupsResponse {
   __type?: "DescribeLogGroupsResponse";
   /**
    * <p>The log groups.</p>
@@ -462,7 +462,7 @@ export namespace DescribeLogStreamsRequest {
   }
 }
 
-export interface DescribeLogStreamsResponse extends $MetadataBearer {
+export interface DescribeLogStreamsResponse {
   __type?: "DescribeLogStreamsResponse";
   /**
    * <p>The log streams.</p>
@@ -522,7 +522,7 @@ export namespace DescribeMetricFiltersRequest {
   }
 }
 
-export interface DescribeMetricFiltersResponse extends $MetadataBearer {
+export interface DescribeMetricFiltersResponse {
   __type?: "DescribeMetricFiltersResponse";
   /**
    * <p>The metric filters.</p>
@@ -571,7 +571,7 @@ export namespace DescribeQueriesRequest {
   }
 }
 
-export interface DescribeQueriesResponse extends $MetadataBearer {
+export interface DescribeQueriesResponse {
   __type?: "DescribeQueriesResponse";
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -609,7 +609,7 @@ export namespace DescribeResourcePoliciesRequest {
   }
 }
 
-export interface DescribeResourcePoliciesResponse extends $MetadataBearer {
+export interface DescribeResourcePoliciesResponse {
   __type?: "DescribeResourcePoliciesResponse";
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -657,7 +657,7 @@ export namespace DescribeSubscriptionFiltersRequest {
   }
 }
 
-export interface DescribeSubscriptionFiltersResponse extends $MetadataBearer {
+export interface DescribeSubscriptionFiltersResponse {
   __type?: "DescribeSubscriptionFiltersResponse";
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -923,7 +923,7 @@ export namespace FilterLogEventsRequest {
   }
 }
 
-export interface FilterLogEventsResponse extends $MetadataBearer {
+export interface FilterLogEventsResponse {
   __type?: "FilterLogEventsResponse";
   /**
    * <p>The matched events.</p>
@@ -1039,7 +1039,7 @@ export namespace GetLogEventsRequest {
   }
 }
 
-export interface GetLogEventsResponse extends $MetadataBearer {
+export interface GetLogEventsResponse {
   __type?: "GetLogEventsResponse";
   /**
    * <p>The events.</p>
@@ -1088,7 +1088,7 @@ export namespace GetLogGroupFieldsRequest {
   }
 }
 
-export interface GetLogGroupFieldsResponse extends $MetadataBearer {
+export interface GetLogGroupFieldsResponse {
   __type?: "GetLogGroupFieldsResponse";
   /**
    * <p>The array of fields found in the query. Each object in the array contains the name of the field, along with the
@@ -1120,7 +1120,7 @@ export namespace GetLogRecordRequest {
   }
 }
 
-export interface GetLogRecordResponse extends $MetadataBearer {
+export interface GetLogRecordResponse {
   __type?: "GetLogRecordResponse";
   /**
    * <p>The requested log event, as a JSON string.</p>
@@ -1148,7 +1148,7 @@ export namespace GetQueryResultsRequest {
   }
 }
 
-export interface GetQueryResultsResponse extends $MetadataBearer {
+export interface GetQueryResultsResponse {
   __type?: "GetQueryResultsResponse";
   /**
    * <p>The log events that matched the query criteria during the most recent time it ran.</p>
@@ -1290,7 +1290,7 @@ export namespace ListTagsLogGroupRequest {
   }
 }
 
-export interface ListTagsLogGroupResponse extends $MetadataBearer {
+export interface ListTagsLogGroupResponse {
   __type?: "ListTagsLogGroupResponse";
   /**
    * <p>The tags for the log group.</p>
@@ -1663,7 +1663,7 @@ export namespace PutDestinationRequest {
   }
 }
 
-export interface PutDestinationResponse extends $MetadataBearer {
+export interface PutDestinationResponse {
   __type?: "PutDestinationResponse";
   /**
    * <p>The destination.</p>
@@ -1710,7 +1710,7 @@ export namespace PutLogEventsRequest {
   }
 }
 
-export interface PutLogEventsResponse extends $MetadataBearer {
+export interface PutLogEventsResponse {
   __type?: "PutLogEventsResponse";
   /**
    * <p>The next sequence token.</p>
@@ -1799,7 +1799,7 @@ export namespace PutResourcePolicyRequest {
   }
 }
 
-export interface PutResourcePolicyResponse extends $MetadataBearer {
+export interface PutResourcePolicyResponse {
   __type?: "PutResourcePolicyResponse";
   /**
    * <p>The new policy.</p>
@@ -2216,7 +2216,7 @@ export namespace StartQueryRequest {
   }
 }
 
-export interface StartQueryResponse extends $MetadataBearer {
+export interface StartQueryResponse {
   __type?: "StartQueryResponse";
   /**
    * <p>The unique ID of the query. </p>
@@ -2245,7 +2245,7 @@ export namespace StopQueryRequest {
   }
 }
 
-export interface StopQueryResponse extends $MetadataBearer {
+export interface StopQueryResponse {
   __type?: "StopQueryResponse";
   /**
    * <p>This is true if the query was stopped by the <code>StopQuery</code> operation.</p>
@@ -2350,7 +2350,7 @@ export namespace TestMetricFilterRequest {
   }
 }
 
-export interface TestMetricFilterResponse extends $MetadataBearer {
+export interface TestMetricFilterResponse {
   __type?: "TestMetricFilterResponse";
   /**
    * <p>The matched events.</p>

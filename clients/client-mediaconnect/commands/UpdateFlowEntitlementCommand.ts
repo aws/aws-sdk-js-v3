@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateFlowEntitlementCommandInput = UpdateFlowEntitlementRequest;
-export type UpdateFlowEntitlementCommandOutput = UpdateFlowEntitlementResponse;
+export type UpdateFlowEntitlementCommandOutput = UpdateFlowEntitlementResponse &
+  __MetadataBearer;
 
 export class UpdateFlowEntitlementCommand extends $Command<
   UpdateFlowEntitlementCommandInput,

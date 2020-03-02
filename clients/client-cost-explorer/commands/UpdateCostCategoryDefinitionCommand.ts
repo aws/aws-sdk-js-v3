@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateCostCategoryDefinitionCommandInput = UpdateCostCategoryDefinitionRequest;
-export type UpdateCostCategoryDefinitionCommandOutput = UpdateCostCategoryDefinitionResponse;
+export type UpdateCostCategoryDefinitionCommandOutput = UpdateCostCategoryDefinitionResponse &
+  __MetadataBearer;
 
 export class UpdateCostCategoryDefinitionCommand extends $Command<
   UpdateCostCategoryDefinitionCommandInput,

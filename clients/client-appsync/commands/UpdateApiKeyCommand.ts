@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateApiKeyCommandInput = UpdateApiKeyRequest;
-export type UpdateApiKeyCommandOutput = UpdateApiKeyResponse;
+export type UpdateApiKeyCommandOutput = UpdateApiKeyResponse & __MetadataBearer;
 
 export class UpdateApiKeyCommand extends $Command<
   UpdateApiKeyCommandInput,

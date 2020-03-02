@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResolveAliasCommandInput = ResolveAliasInput;
-export type ResolveAliasCommandOutput = ResolveAliasOutput;
+export type ResolveAliasCommandOutput = ResolveAliasOutput & __MetadataBearer;
 
 export class ResolveAliasCommand extends $Command<
   ResolveAliasCommandInput,

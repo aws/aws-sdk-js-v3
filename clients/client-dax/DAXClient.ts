@@ -1,47 +1,87 @@
 import {
-  CreateClusterRequest,
-  CreateClusterResponse,
-  CreateParameterGroupRequest,
-  CreateParameterGroupResponse,
-  CreateSubnetGroupRequest,
-  CreateSubnetGroupResponse,
-  DecreaseReplicationFactorRequest,
-  DecreaseReplicationFactorResponse,
-  DeleteClusterRequest,
-  DeleteClusterResponse,
-  DeleteParameterGroupRequest,
-  DeleteParameterGroupResponse,
-  DeleteSubnetGroupRequest,
-  DeleteSubnetGroupResponse,
-  DescribeClustersRequest,
-  DescribeClustersResponse,
-  DescribeDefaultParametersRequest,
-  DescribeDefaultParametersResponse,
-  DescribeEventsRequest,
-  DescribeEventsResponse,
-  DescribeParameterGroupsRequest,
-  DescribeParameterGroupsResponse,
-  DescribeParametersRequest,
-  DescribeParametersResponse,
-  DescribeSubnetGroupsRequest,
-  DescribeSubnetGroupsResponse,
-  IncreaseReplicationFactorRequest,
-  IncreaseReplicationFactorResponse,
-  ListTagsRequest,
-  ListTagsResponse,
-  RebootNodeRequest,
-  RebootNodeResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateClusterRequest,
-  UpdateClusterResponse,
-  UpdateParameterGroupRequest,
-  UpdateParameterGroupResponse,
-  UpdateSubnetGroupRequest,
-  UpdateSubnetGroupResponse
-} from "./models/index";
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput
+} from "./commands/CreateClusterCommand";
+import {
+  CreateParameterGroupCommandInput,
+  CreateParameterGroupCommandOutput
+} from "./commands/CreateParameterGroupCommand";
+import {
+  CreateSubnetGroupCommandInput,
+  CreateSubnetGroupCommandOutput
+} from "./commands/CreateSubnetGroupCommand";
+import {
+  DecreaseReplicationFactorCommandInput,
+  DecreaseReplicationFactorCommandOutput
+} from "./commands/DecreaseReplicationFactorCommand";
+import {
+  DeleteClusterCommandInput,
+  DeleteClusterCommandOutput
+} from "./commands/DeleteClusterCommand";
+import {
+  DeleteParameterGroupCommandInput,
+  DeleteParameterGroupCommandOutput
+} from "./commands/DeleteParameterGroupCommand";
+import {
+  DeleteSubnetGroupCommandInput,
+  DeleteSubnetGroupCommandOutput
+} from "./commands/DeleteSubnetGroupCommand";
+import {
+  DescribeClustersCommandInput,
+  DescribeClustersCommandOutput
+} from "./commands/DescribeClustersCommand";
+import {
+  DescribeDefaultParametersCommandInput,
+  DescribeDefaultParametersCommandOutput
+} from "./commands/DescribeDefaultParametersCommand";
+import {
+  DescribeEventsCommandInput,
+  DescribeEventsCommandOutput
+} from "./commands/DescribeEventsCommand";
+import {
+  DescribeParameterGroupsCommandInput,
+  DescribeParameterGroupsCommandOutput
+} from "./commands/DescribeParameterGroupsCommand";
+import {
+  DescribeParametersCommandInput,
+  DescribeParametersCommandOutput
+} from "./commands/DescribeParametersCommand";
+import {
+  DescribeSubnetGroupsCommandInput,
+  DescribeSubnetGroupsCommandOutput
+} from "./commands/DescribeSubnetGroupsCommand";
+import {
+  IncreaseReplicationFactorCommandInput,
+  IncreaseReplicationFactorCommandOutput
+} from "./commands/IncreaseReplicationFactorCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  RebootNodeCommandInput,
+  RebootNodeCommandOutput
+} from "./commands/RebootNodeCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateClusterCommandInput,
+  UpdateClusterCommandOutput
+} from "./commands/UpdateClusterCommand";
+import {
+  UpdateParameterGroupCommandInput,
+  UpdateParameterGroupCommandOutput
+} from "./commands/UpdateParameterGroupCommand";
+import {
+  UpdateSubnetGroupCommandInput,
+  UpdateSubnetGroupCommandOutput
+} from "./commands/UpdateSubnetGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -95,50 +135,50 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateClusterRequest
-  | CreateParameterGroupRequest
-  | CreateSubnetGroupRequest
-  | DecreaseReplicationFactorRequest
-  | DeleteClusterRequest
-  | DeleteParameterGroupRequest
-  | DeleteSubnetGroupRequest
-  | DescribeClustersRequest
-  | DescribeDefaultParametersRequest
-  | DescribeEventsRequest
-  | DescribeParameterGroupsRequest
-  | DescribeParametersRequest
-  | DescribeSubnetGroupsRequest
-  | IncreaseReplicationFactorRequest
-  | ListTagsRequest
-  | RebootNodeRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateClusterRequest
-  | UpdateParameterGroupRequest
-  | UpdateSubnetGroupRequest;
+  | CreateClusterCommandInput
+  | CreateParameterGroupCommandInput
+  | CreateSubnetGroupCommandInput
+  | DecreaseReplicationFactorCommandInput
+  | DeleteClusterCommandInput
+  | DeleteParameterGroupCommandInput
+  | DeleteSubnetGroupCommandInput
+  | DescribeClustersCommandInput
+  | DescribeDefaultParametersCommandInput
+  | DescribeEventsCommandInput
+  | DescribeParameterGroupsCommandInput
+  | DescribeParametersCommandInput
+  | DescribeSubnetGroupsCommandInput
+  | IncreaseReplicationFactorCommandInput
+  | ListTagsCommandInput
+  | RebootNodeCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateClusterCommandInput
+  | UpdateParameterGroupCommandInput
+  | UpdateSubnetGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateClusterResponse
-  | CreateParameterGroupResponse
-  | CreateSubnetGroupResponse
-  | DecreaseReplicationFactorResponse
-  | DeleteClusterResponse
-  | DeleteParameterGroupResponse
-  | DeleteSubnetGroupResponse
-  | DescribeClustersResponse
-  | DescribeDefaultParametersResponse
-  | DescribeEventsResponse
-  | DescribeParameterGroupsResponse
-  | DescribeParametersResponse
-  | DescribeSubnetGroupsResponse
-  | IncreaseReplicationFactorResponse
-  | ListTagsResponse
-  | RebootNodeResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateClusterResponse
-  | UpdateParameterGroupResponse
-  | UpdateSubnetGroupResponse;
+  | CreateClusterCommandOutput
+  | CreateParameterGroupCommandOutput
+  | CreateSubnetGroupCommandOutput
+  | DecreaseReplicationFactorCommandOutput
+  | DeleteClusterCommandOutput
+  | DeleteParameterGroupCommandOutput
+  | DeleteSubnetGroupCommandOutput
+  | DescribeClustersCommandOutput
+  | DescribeDefaultParametersCommandOutput
+  | DescribeEventsCommandOutput
+  | DescribeParameterGroupsCommandOutput
+  | DescribeParametersCommandOutput
+  | DescribeSubnetGroupsCommandOutput
+  | IncreaseReplicationFactorCommandOutput
+  | ListTagsCommandOutput
+  | RebootNodeCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateClusterCommandOutput
+  | UpdateParameterGroupCommandOutput
+  | UpdateSubnetGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

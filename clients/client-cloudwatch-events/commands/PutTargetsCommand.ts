@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutTargetsCommandInput = PutTargetsRequest;
-export type PutTargetsCommandOutput = PutTargetsResponse;
+export type PutTargetsCommandOutput = PutTargetsResponse & __MetadataBearer;
 
 export class PutTargetsCommand extends $Command<
   PutTargetsCommandInput,

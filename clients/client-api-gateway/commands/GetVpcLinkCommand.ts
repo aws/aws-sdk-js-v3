@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetVpcLinkCommandInput = GetVpcLinkRequest;
-export type GetVpcLinkCommandOutput = VpcLink;
+export type GetVpcLinkCommandOutput = VpcLink & __MetadataBearer;
 
 export class GetVpcLinkCommand extends $Command<
   GetVpcLinkCommandInput,

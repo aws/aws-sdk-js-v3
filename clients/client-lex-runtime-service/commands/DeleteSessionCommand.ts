@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSessionCommandInput = DeleteSessionRequest;
-export type DeleteSessionCommandOutput = DeleteSessionResponse;
+export type DeleteSessionCommandOutput = DeleteSessionResponse &
+  __MetadataBearer;
 
 export class DeleteSessionCommand extends $Command<
   DeleteSessionCommandInput,

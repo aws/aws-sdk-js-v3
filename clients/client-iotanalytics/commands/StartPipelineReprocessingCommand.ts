@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartPipelineReprocessingCommandInput = StartPipelineReprocessingRequest;
-export type StartPipelineReprocessingCommandOutput = StartPipelineReprocessingResponse;
+export type StartPipelineReprocessingCommandOutput = StartPipelineReprocessingResponse &
+  __MetadataBearer;
 
 export class StartPipelineReprocessingCommand extends $Command<
   StartPipelineReprocessingCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReplaceNetworkAclAssociationCommandInput = ReplaceNetworkAclAssociationRequest;
-export type ReplaceNetworkAclAssociationCommandOutput = ReplaceNetworkAclAssociationResult;
+export type ReplaceNetworkAclAssociationCommandOutput = ReplaceNetworkAclAssociationResult &
+  __MetadataBearer;
 
 export class ReplaceNetworkAclAssociationCommand extends $Command<
   ReplaceNetworkAclAssociationCommandInput,

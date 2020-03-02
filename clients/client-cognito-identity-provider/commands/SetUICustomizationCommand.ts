@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetUICustomizationCommandInput = SetUICustomizationRequest;
-export type SetUICustomizationCommandOutput = SetUICustomizationResponse;
+export type SetUICustomizationCommandOutput = SetUICustomizationResponse &
+  __MetadataBearer;
 
 export class SetUICustomizationCommand extends $Command<
   SetUICustomizationCommandInput,

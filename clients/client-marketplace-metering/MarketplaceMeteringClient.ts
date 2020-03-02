@@ -1,13 +1,19 @@
 import {
-  BatchMeterUsageRequest,
-  BatchMeterUsageResult,
-  MeterUsageRequest,
-  MeterUsageResult,
-  RegisterUsageRequest,
-  RegisterUsageResult,
-  ResolveCustomerRequest,
-  ResolveCustomerResult
-} from "./models/index";
+  BatchMeterUsageCommandInput,
+  BatchMeterUsageCommandOutput
+} from "./commands/BatchMeterUsageCommand";
+import {
+  MeterUsageCommandInput,
+  MeterUsageCommandOutput
+} from "./commands/MeterUsageCommand";
+import {
+  RegisterUsageCommandInput,
+  RegisterUsageCommandOutput
+} from "./commands/RegisterUsageCommand";
+import {
+  ResolveCustomerCommandInput,
+  ResolveCustomerCommandOutput
+} from "./commands/ResolveCustomerCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,16 +67,16 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchMeterUsageRequest
-  | MeterUsageRequest
-  | RegisterUsageRequest
-  | ResolveCustomerRequest;
+  | BatchMeterUsageCommandInput
+  | MeterUsageCommandInput
+  | RegisterUsageCommandInput
+  | ResolveCustomerCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchMeterUsageResult
-  | MeterUsageResult
-  | RegisterUsageResult
-  | ResolveCustomerResult;
+  | BatchMeterUsageCommandOutput
+  | MeterUsageCommandOutput
+  | RegisterUsageCommandOutput
+  | ResolveCustomerCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

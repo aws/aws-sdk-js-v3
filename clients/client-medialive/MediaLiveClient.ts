@@ -1,89 +1,175 @@
 import {
-  BatchUpdateScheduleRequest,
-  BatchUpdateScheduleResponse,
-  CreateChannelRequest,
-  CreateChannelResponse,
-  CreateInputRequest,
-  CreateInputResponse,
-  CreateInputSecurityGroupRequest,
-  CreateInputSecurityGroupResponse,
-  CreateMultiplexProgramRequest,
-  CreateMultiplexProgramResponse,
-  CreateMultiplexRequest,
-  CreateMultiplexResponse,
-  CreateTagsRequest,
-  DeleteChannelRequest,
-  DeleteChannelResponse,
-  DeleteInputRequest,
-  DeleteInputResponse,
-  DeleteInputSecurityGroupRequest,
-  DeleteInputSecurityGroupResponse,
-  DeleteMultiplexProgramRequest,
-  DeleteMultiplexProgramResponse,
-  DeleteMultiplexRequest,
-  DeleteMultiplexResponse,
-  DeleteReservationRequest,
-  DeleteReservationResponse,
-  DeleteScheduleRequest,
-  DeleteScheduleResponse,
-  DeleteTagsRequest,
-  DescribeChannelRequest,
-  DescribeChannelResponse,
-  DescribeInputRequest,
-  DescribeInputResponse,
-  DescribeInputSecurityGroupRequest,
-  DescribeInputSecurityGroupResponse,
-  DescribeMultiplexProgramRequest,
-  DescribeMultiplexProgramResponse,
-  DescribeMultiplexRequest,
-  DescribeMultiplexResponse,
-  DescribeOfferingRequest,
-  DescribeOfferingResponse,
-  DescribeReservationRequest,
-  DescribeReservationResponse,
-  DescribeScheduleRequest,
-  DescribeScheduleResponse,
-  ListChannelsRequest,
-  ListChannelsResponse,
-  ListInputSecurityGroupsRequest,
-  ListInputSecurityGroupsResponse,
-  ListInputsRequest,
-  ListInputsResponse,
-  ListMultiplexProgramsRequest,
-  ListMultiplexProgramsResponse,
-  ListMultiplexesRequest,
-  ListMultiplexesResponse,
-  ListOfferingsRequest,
-  ListOfferingsResponse,
-  ListReservationsRequest,
-  ListReservationsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PurchaseOfferingRequest,
-  PurchaseOfferingResponse,
-  StartChannelRequest,
-  StartChannelResponse,
-  StartMultiplexRequest,
-  StartMultiplexResponse,
-  StopChannelRequest,
-  StopChannelResponse,
-  StopMultiplexRequest,
-  StopMultiplexResponse,
-  UpdateChannelClassRequest,
-  UpdateChannelClassResponse,
-  UpdateChannelRequest,
-  UpdateChannelResponse,
-  UpdateInputRequest,
-  UpdateInputResponse,
-  UpdateInputSecurityGroupRequest,
-  UpdateInputSecurityGroupResponse,
-  UpdateMultiplexProgramRequest,
-  UpdateMultiplexProgramResponse,
-  UpdateMultiplexRequest,
-  UpdateMultiplexResponse,
-  UpdateReservationRequest,
-  UpdateReservationResponse
-} from "./models/index";
+  BatchUpdateScheduleCommandInput,
+  BatchUpdateScheduleCommandOutput
+} from "./commands/BatchUpdateScheduleCommand";
+import {
+  CreateChannelCommandInput,
+  CreateChannelCommandOutput
+} from "./commands/CreateChannelCommand";
+import {
+  CreateInputCommandInput,
+  CreateInputCommandOutput
+} from "./commands/CreateInputCommand";
+import {
+  CreateInputSecurityGroupCommandInput,
+  CreateInputSecurityGroupCommandOutput
+} from "./commands/CreateInputSecurityGroupCommand";
+import {
+  CreateMultiplexCommandInput,
+  CreateMultiplexCommandOutput
+} from "./commands/CreateMultiplexCommand";
+import {
+  CreateMultiplexProgramCommandInput,
+  CreateMultiplexProgramCommandOutput
+} from "./commands/CreateMultiplexProgramCommand";
+import {
+  CreateTagsCommandInput,
+  CreateTagsCommandOutput
+} from "./commands/CreateTagsCommand";
+import {
+  DeleteChannelCommandInput,
+  DeleteChannelCommandOutput
+} from "./commands/DeleteChannelCommand";
+import {
+  DeleteInputCommandInput,
+  DeleteInputCommandOutput
+} from "./commands/DeleteInputCommand";
+import {
+  DeleteInputSecurityGroupCommandInput,
+  DeleteInputSecurityGroupCommandOutput
+} from "./commands/DeleteInputSecurityGroupCommand";
+import {
+  DeleteMultiplexCommandInput,
+  DeleteMultiplexCommandOutput
+} from "./commands/DeleteMultiplexCommand";
+import {
+  DeleteMultiplexProgramCommandInput,
+  DeleteMultiplexProgramCommandOutput
+} from "./commands/DeleteMultiplexProgramCommand";
+import {
+  DeleteReservationCommandInput,
+  DeleteReservationCommandOutput
+} from "./commands/DeleteReservationCommand";
+import {
+  DeleteScheduleCommandInput,
+  DeleteScheduleCommandOutput
+} from "./commands/DeleteScheduleCommand";
+import {
+  DeleteTagsCommandInput,
+  DeleteTagsCommandOutput
+} from "./commands/DeleteTagsCommand";
+import {
+  DescribeChannelCommandInput,
+  DescribeChannelCommandOutput
+} from "./commands/DescribeChannelCommand";
+import {
+  DescribeInputCommandInput,
+  DescribeInputCommandOutput
+} from "./commands/DescribeInputCommand";
+import {
+  DescribeInputSecurityGroupCommandInput,
+  DescribeInputSecurityGroupCommandOutput
+} from "./commands/DescribeInputSecurityGroupCommand";
+import {
+  DescribeMultiplexCommandInput,
+  DescribeMultiplexCommandOutput
+} from "./commands/DescribeMultiplexCommand";
+import {
+  DescribeMultiplexProgramCommandInput,
+  DescribeMultiplexProgramCommandOutput
+} from "./commands/DescribeMultiplexProgramCommand";
+import {
+  DescribeOfferingCommandInput,
+  DescribeOfferingCommandOutput
+} from "./commands/DescribeOfferingCommand";
+import {
+  DescribeReservationCommandInput,
+  DescribeReservationCommandOutput
+} from "./commands/DescribeReservationCommand";
+import {
+  DescribeScheduleCommandInput,
+  DescribeScheduleCommandOutput
+} from "./commands/DescribeScheduleCommand";
+import {
+  ListChannelsCommandInput,
+  ListChannelsCommandOutput
+} from "./commands/ListChannelsCommand";
+import {
+  ListInputSecurityGroupsCommandInput,
+  ListInputSecurityGroupsCommandOutput
+} from "./commands/ListInputSecurityGroupsCommand";
+import {
+  ListInputsCommandInput,
+  ListInputsCommandOutput
+} from "./commands/ListInputsCommand";
+import {
+  ListMultiplexProgramsCommandInput,
+  ListMultiplexProgramsCommandOutput
+} from "./commands/ListMultiplexProgramsCommand";
+import {
+  ListMultiplexesCommandInput,
+  ListMultiplexesCommandOutput
+} from "./commands/ListMultiplexesCommand";
+import {
+  ListOfferingsCommandInput,
+  ListOfferingsCommandOutput
+} from "./commands/ListOfferingsCommand";
+import {
+  ListReservationsCommandInput,
+  ListReservationsCommandOutput
+} from "./commands/ListReservationsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PurchaseOfferingCommandInput,
+  PurchaseOfferingCommandOutput
+} from "./commands/PurchaseOfferingCommand";
+import {
+  StartChannelCommandInput,
+  StartChannelCommandOutput
+} from "./commands/StartChannelCommand";
+import {
+  StartMultiplexCommandInput,
+  StartMultiplexCommandOutput
+} from "./commands/StartMultiplexCommand";
+import {
+  StopChannelCommandInput,
+  StopChannelCommandOutput
+} from "./commands/StopChannelCommand";
+import {
+  StopMultiplexCommandInput,
+  StopMultiplexCommandOutput
+} from "./commands/StopMultiplexCommand";
+import {
+  UpdateChannelClassCommandInput,
+  UpdateChannelClassCommandOutput
+} from "./commands/UpdateChannelClassCommand";
+import {
+  UpdateChannelCommandInput,
+  UpdateChannelCommandOutput
+} from "./commands/UpdateChannelCommand";
+import {
+  UpdateInputCommandInput,
+  UpdateInputCommandOutput
+} from "./commands/UpdateInputCommand";
+import {
+  UpdateInputSecurityGroupCommandInput,
+  UpdateInputSecurityGroupCommandOutput
+} from "./commands/UpdateInputSecurityGroupCommand";
+import {
+  UpdateMultiplexCommandInput,
+  UpdateMultiplexCommandOutput
+} from "./commands/UpdateMultiplexCommand";
+import {
+  UpdateMultiplexProgramCommandInput,
+  UpdateMultiplexProgramCommandOutput
+} from "./commands/UpdateMultiplexProgramCommand";
+import {
+  UpdateReservationCommandInput,
+  UpdateReservationCommandOutput
+} from "./commands/UpdateReservationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -131,100 +217,100 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchUpdateScheduleRequest
-  | CreateChannelRequest
-  | CreateInputRequest
-  | CreateInputSecurityGroupRequest
-  | CreateMultiplexProgramRequest
-  | CreateMultiplexRequest
-  | CreateTagsRequest
-  | DeleteChannelRequest
-  | DeleteInputRequest
-  | DeleteInputSecurityGroupRequest
-  | DeleteMultiplexProgramRequest
-  | DeleteMultiplexRequest
-  | DeleteReservationRequest
-  | DeleteScheduleRequest
-  | DeleteTagsRequest
-  | DescribeChannelRequest
-  | DescribeInputRequest
-  | DescribeInputSecurityGroupRequest
-  | DescribeMultiplexProgramRequest
-  | DescribeMultiplexRequest
-  | DescribeOfferingRequest
-  | DescribeReservationRequest
-  | DescribeScheduleRequest
-  | ListChannelsRequest
-  | ListInputSecurityGroupsRequest
-  | ListInputsRequest
-  | ListMultiplexProgramsRequest
-  | ListMultiplexesRequest
-  | ListOfferingsRequest
-  | ListReservationsRequest
-  | ListTagsForResourceRequest
-  | PurchaseOfferingRequest
-  | StartChannelRequest
-  | StartMultiplexRequest
-  | StopChannelRequest
-  | StopMultiplexRequest
-  | UpdateChannelClassRequest
-  | UpdateChannelRequest
-  | UpdateInputRequest
-  | UpdateInputSecurityGroupRequest
-  | UpdateMultiplexProgramRequest
-  | UpdateMultiplexRequest
-  | UpdateReservationRequest;
+  | BatchUpdateScheduleCommandInput
+  | CreateChannelCommandInput
+  | CreateInputCommandInput
+  | CreateInputSecurityGroupCommandInput
+  | CreateMultiplexCommandInput
+  | CreateMultiplexProgramCommandInput
+  | CreateTagsCommandInput
+  | DeleteChannelCommandInput
+  | DeleteInputCommandInput
+  | DeleteInputSecurityGroupCommandInput
+  | DeleteMultiplexCommandInput
+  | DeleteMultiplexProgramCommandInput
+  | DeleteReservationCommandInput
+  | DeleteScheduleCommandInput
+  | DeleteTagsCommandInput
+  | DescribeChannelCommandInput
+  | DescribeInputCommandInput
+  | DescribeInputSecurityGroupCommandInput
+  | DescribeMultiplexCommandInput
+  | DescribeMultiplexProgramCommandInput
+  | DescribeOfferingCommandInput
+  | DescribeReservationCommandInput
+  | DescribeScheduleCommandInput
+  | ListChannelsCommandInput
+  | ListInputSecurityGroupsCommandInput
+  | ListInputsCommandInput
+  | ListMultiplexProgramsCommandInput
+  | ListMultiplexesCommandInput
+  | ListOfferingsCommandInput
+  | ListReservationsCommandInput
+  | ListTagsForResourceCommandInput
+  | PurchaseOfferingCommandInput
+  | StartChannelCommandInput
+  | StartMultiplexCommandInput
+  | StopChannelCommandInput
+  | StopMultiplexCommandInput
+  | UpdateChannelClassCommandInput
+  | UpdateChannelCommandInput
+  | UpdateInputCommandInput
+  | UpdateInputSecurityGroupCommandInput
+  | UpdateMultiplexCommandInput
+  | UpdateMultiplexProgramCommandInput
+  | UpdateReservationCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | BatchUpdateScheduleResponse
-  | CreateChannelResponse
-  | CreateInputResponse
-  | CreateInputSecurityGroupResponse
-  | CreateMultiplexProgramResponse
-  | CreateMultiplexResponse
-  | DeleteChannelResponse
-  | DeleteInputResponse
-  | DeleteInputSecurityGroupResponse
-  | DeleteMultiplexProgramResponse
-  | DeleteMultiplexResponse
-  | DeleteReservationResponse
-  | DeleteScheduleResponse
-  | DescribeChannelResponse
-  | DescribeInputResponse
-  | DescribeInputSecurityGroupResponse
-  | DescribeMultiplexProgramResponse
-  | DescribeMultiplexResponse
-  | DescribeOfferingResponse
-  | DescribeReservationResponse
-  | DescribeScheduleResponse
-  | ListChannelsResponse
-  | ListInputSecurityGroupsResponse
-  | ListInputsResponse
-  | ListMultiplexProgramsResponse
-  | ListMultiplexesResponse
-  | ListOfferingsResponse
-  | ListReservationsResponse
-  | ListTagsForResourceResponse
-  | PurchaseOfferingResponse
-  | StartChannelResponse
-  | StartMultiplexResponse
-  | StopChannelResponse
-  | StopMultiplexResponse
-  | UpdateChannelClassResponse
-  | UpdateChannelResponse
-  | UpdateInputResponse
-  | UpdateInputSecurityGroupResponse
-  | UpdateMultiplexProgramResponse
-  | UpdateMultiplexResponse
-  | UpdateReservationResponse;
+  | BatchUpdateScheduleCommandOutput
+  | CreateChannelCommandOutput
+  | CreateInputCommandOutput
+  | CreateInputSecurityGroupCommandOutput
+  | CreateMultiplexCommandOutput
+  | CreateMultiplexProgramCommandOutput
+  | CreateTagsCommandOutput
+  | DeleteChannelCommandOutput
+  | DeleteInputCommandOutput
+  | DeleteInputSecurityGroupCommandOutput
+  | DeleteMultiplexCommandOutput
+  | DeleteMultiplexProgramCommandOutput
+  | DeleteReservationCommandOutput
+  | DeleteScheduleCommandOutput
+  | DeleteTagsCommandOutput
+  | DescribeChannelCommandOutput
+  | DescribeInputCommandOutput
+  | DescribeInputSecurityGroupCommandOutput
+  | DescribeMultiplexCommandOutput
+  | DescribeMultiplexProgramCommandOutput
+  | DescribeOfferingCommandOutput
+  | DescribeReservationCommandOutput
+  | DescribeScheduleCommandOutput
+  | ListChannelsCommandOutput
+  | ListInputSecurityGroupsCommandOutput
+  | ListInputsCommandOutput
+  | ListMultiplexProgramsCommandOutput
+  | ListMultiplexesCommandOutput
+  | ListOfferingsCommandOutput
+  | ListReservationsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PurchaseOfferingCommandOutput
+  | StartChannelCommandOutput
+  | StartMultiplexCommandOutput
+  | StopChannelCommandOutput
+  | StopMultiplexCommandOutput
+  | UpdateChannelClassCommandOutput
+  | UpdateChannelCommandOutput
+  | UpdateInputCommandOutput
+  | UpdateInputSecurityGroupCommandOutput
+  | UpdateMultiplexCommandOutput
+  | UpdateMultiplexProgramCommandOutput
+  | UpdateReservationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

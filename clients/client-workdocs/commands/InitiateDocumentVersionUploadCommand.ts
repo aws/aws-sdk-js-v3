@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InitiateDocumentVersionUploadCommandInput = InitiateDocumentVersionUploadRequest;
-export type InitiateDocumentVersionUploadCommandOutput = InitiateDocumentVersionUploadResponse;
+export type InitiateDocumentVersionUploadCommandOutput = InitiateDocumentVersionUploadResponse &
+  __MetadataBearer;
 
 export class InitiateDocumentVersionUploadCommand extends $Command<
   InitiateDocumentVersionUploadCommandInput,

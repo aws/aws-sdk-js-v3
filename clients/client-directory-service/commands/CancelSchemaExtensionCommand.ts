@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelSchemaExtensionCommandInput = CancelSchemaExtensionRequest;
-export type CancelSchemaExtensionCommandOutput = CancelSchemaExtensionResult;
+export type CancelSchemaExtensionCommandOutput = CancelSchemaExtensionResult &
+  __MetadataBearer;
 
 export class CancelSchemaExtensionCommand extends $Command<
   CancelSchemaExtensionCommandInput,

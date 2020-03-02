@@ -1,87 +1,167 @@
 import {
-  CreateApiCacheRequest,
-  CreateApiCacheResponse,
-  CreateApiKeyRequest,
-  CreateApiKeyResponse,
-  CreateDataSourceRequest,
-  CreateDataSourceResponse,
-  CreateFunctionRequest,
-  CreateFunctionResponse,
-  CreateGraphqlApiRequest,
-  CreateGraphqlApiResponse,
-  CreateResolverRequest,
-  CreateResolverResponse,
-  CreateTypeRequest,
-  CreateTypeResponse,
-  DeleteApiCacheRequest,
-  DeleteApiCacheResponse,
-  DeleteApiKeyRequest,
-  DeleteApiKeyResponse,
-  DeleteDataSourceRequest,
-  DeleteDataSourceResponse,
-  DeleteFunctionRequest,
-  DeleteFunctionResponse,
-  DeleteGraphqlApiRequest,
-  DeleteGraphqlApiResponse,
-  DeleteResolverRequest,
-  DeleteResolverResponse,
-  DeleteTypeRequest,
-  DeleteTypeResponse,
-  FlushApiCacheRequest,
-  FlushApiCacheResponse,
-  GetApiCacheRequest,
-  GetApiCacheResponse,
-  GetDataSourceRequest,
-  GetDataSourceResponse,
-  GetFunctionRequest,
-  GetFunctionResponse,
-  GetGraphqlApiRequest,
-  GetGraphqlApiResponse,
-  GetIntrospectionSchemaRequest,
-  GetIntrospectionSchemaResponse,
-  GetResolverRequest,
-  GetResolverResponse,
-  GetSchemaCreationStatusRequest,
-  GetSchemaCreationStatusResponse,
-  GetTypeRequest,
-  GetTypeResponse,
-  ListApiKeysRequest,
-  ListApiKeysResponse,
-  ListDataSourcesRequest,
-  ListDataSourcesResponse,
-  ListFunctionsRequest,
-  ListFunctionsResponse,
-  ListGraphqlApisRequest,
-  ListGraphqlApisResponse,
-  ListResolversByFunctionRequest,
-  ListResolversByFunctionResponse,
-  ListResolversRequest,
-  ListResolversResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTypesRequest,
-  ListTypesResponse,
-  StartSchemaCreationRequest,
-  StartSchemaCreationResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateApiCacheRequest,
-  UpdateApiCacheResponse,
-  UpdateApiKeyRequest,
-  UpdateApiKeyResponse,
-  UpdateDataSourceRequest,
-  UpdateDataSourceResponse,
-  UpdateFunctionRequest,
-  UpdateFunctionResponse,
-  UpdateGraphqlApiRequest,
-  UpdateGraphqlApiResponse,
-  UpdateResolverRequest,
-  UpdateResolverResponse,
-  UpdateTypeRequest,
-  UpdateTypeResponse
-} from "./models/index";
+  CreateApiCacheCommandInput,
+  CreateApiCacheCommandOutput
+} from "./commands/CreateApiCacheCommand";
+import {
+  CreateApiKeyCommandInput,
+  CreateApiKeyCommandOutput
+} from "./commands/CreateApiKeyCommand";
+import {
+  CreateDataSourceCommandInput,
+  CreateDataSourceCommandOutput
+} from "./commands/CreateDataSourceCommand";
+import {
+  CreateFunctionCommandInput,
+  CreateFunctionCommandOutput
+} from "./commands/CreateFunctionCommand";
+import {
+  CreateGraphqlApiCommandInput,
+  CreateGraphqlApiCommandOutput
+} from "./commands/CreateGraphqlApiCommand";
+import {
+  CreateResolverCommandInput,
+  CreateResolverCommandOutput
+} from "./commands/CreateResolverCommand";
+import {
+  CreateTypeCommandInput,
+  CreateTypeCommandOutput
+} from "./commands/CreateTypeCommand";
+import {
+  DeleteApiCacheCommandInput,
+  DeleteApiCacheCommandOutput
+} from "./commands/DeleteApiCacheCommand";
+import {
+  DeleteApiKeyCommandInput,
+  DeleteApiKeyCommandOutput
+} from "./commands/DeleteApiKeyCommand";
+import {
+  DeleteDataSourceCommandInput,
+  DeleteDataSourceCommandOutput
+} from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteFunctionCommandInput,
+  DeleteFunctionCommandOutput
+} from "./commands/DeleteFunctionCommand";
+import {
+  DeleteGraphqlApiCommandInput,
+  DeleteGraphqlApiCommandOutput
+} from "./commands/DeleteGraphqlApiCommand";
+import {
+  DeleteResolverCommandInput,
+  DeleteResolverCommandOutput
+} from "./commands/DeleteResolverCommand";
+import {
+  DeleteTypeCommandInput,
+  DeleteTypeCommandOutput
+} from "./commands/DeleteTypeCommand";
+import {
+  FlushApiCacheCommandInput,
+  FlushApiCacheCommandOutput
+} from "./commands/FlushApiCacheCommand";
+import {
+  GetApiCacheCommandInput,
+  GetApiCacheCommandOutput
+} from "./commands/GetApiCacheCommand";
+import {
+  GetDataSourceCommandInput,
+  GetDataSourceCommandOutput
+} from "./commands/GetDataSourceCommand";
+import {
+  GetFunctionCommandInput,
+  GetFunctionCommandOutput
+} from "./commands/GetFunctionCommand";
+import {
+  GetGraphqlApiCommandInput,
+  GetGraphqlApiCommandOutput
+} from "./commands/GetGraphqlApiCommand";
+import {
+  GetIntrospectionSchemaCommandInput,
+  GetIntrospectionSchemaCommandOutput
+} from "./commands/GetIntrospectionSchemaCommand";
+import {
+  GetResolverCommandInput,
+  GetResolverCommandOutput
+} from "./commands/GetResolverCommand";
+import {
+  GetSchemaCreationStatusCommandInput,
+  GetSchemaCreationStatusCommandOutput
+} from "./commands/GetSchemaCreationStatusCommand";
+import {
+  GetTypeCommandInput,
+  GetTypeCommandOutput
+} from "./commands/GetTypeCommand";
+import {
+  ListApiKeysCommandInput,
+  ListApiKeysCommandOutput
+} from "./commands/ListApiKeysCommand";
+import {
+  ListDataSourcesCommandInput,
+  ListDataSourcesCommandOutput
+} from "./commands/ListDataSourcesCommand";
+import {
+  ListFunctionsCommandInput,
+  ListFunctionsCommandOutput
+} from "./commands/ListFunctionsCommand";
+import {
+  ListGraphqlApisCommandInput,
+  ListGraphqlApisCommandOutput
+} from "./commands/ListGraphqlApisCommand";
+import {
+  ListResolversByFunctionCommandInput,
+  ListResolversByFunctionCommandOutput
+} from "./commands/ListResolversByFunctionCommand";
+import {
+  ListResolversCommandInput,
+  ListResolversCommandOutput
+} from "./commands/ListResolversCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTypesCommandInput,
+  ListTypesCommandOutput
+} from "./commands/ListTypesCommand";
+import {
+  StartSchemaCreationCommandInput,
+  StartSchemaCreationCommandOutput
+} from "./commands/StartSchemaCreationCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateApiCacheCommandInput,
+  UpdateApiCacheCommandOutput
+} from "./commands/UpdateApiCacheCommand";
+import {
+  UpdateApiKeyCommandInput,
+  UpdateApiKeyCommandOutput
+} from "./commands/UpdateApiKeyCommand";
+import {
+  UpdateDataSourceCommandInput,
+  UpdateDataSourceCommandOutput
+} from "./commands/UpdateDataSourceCommand";
+import {
+  UpdateFunctionCommandInput,
+  UpdateFunctionCommandOutput
+} from "./commands/UpdateFunctionCommand";
+import {
+  UpdateGraphqlApiCommandInput,
+  UpdateGraphqlApiCommandOutput
+} from "./commands/UpdateGraphqlApiCommand";
+import {
+  UpdateResolverCommandInput,
+  UpdateResolverCommandOutput
+} from "./commands/UpdateResolverCommand";
+import {
+  UpdateTypeCommandInput,
+  UpdateTypeCommandOutput
+} from "./commands/UpdateTypeCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -135,90 +215,90 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateApiCacheRequest
-  | CreateApiKeyRequest
-  | CreateDataSourceRequest
-  | CreateFunctionRequest
-  | CreateGraphqlApiRequest
-  | CreateResolverRequest
-  | CreateTypeRequest
-  | DeleteApiCacheRequest
-  | DeleteApiKeyRequest
-  | DeleteDataSourceRequest
-  | DeleteFunctionRequest
-  | DeleteGraphqlApiRequest
-  | DeleteResolverRequest
-  | DeleteTypeRequest
-  | FlushApiCacheRequest
-  | GetApiCacheRequest
-  | GetDataSourceRequest
-  | GetFunctionRequest
-  | GetGraphqlApiRequest
-  | GetIntrospectionSchemaRequest
-  | GetResolverRequest
-  | GetSchemaCreationStatusRequest
-  | GetTypeRequest
-  | ListApiKeysRequest
-  | ListDataSourcesRequest
-  | ListFunctionsRequest
-  | ListGraphqlApisRequest
-  | ListResolversByFunctionRequest
-  | ListResolversRequest
-  | ListTagsForResourceRequest
-  | ListTypesRequest
-  | StartSchemaCreationRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateApiCacheRequest
-  | UpdateApiKeyRequest
-  | UpdateDataSourceRequest
-  | UpdateFunctionRequest
-  | UpdateGraphqlApiRequest
-  | UpdateResolverRequest
-  | UpdateTypeRequest;
+  | CreateApiCacheCommandInput
+  | CreateApiKeyCommandInput
+  | CreateDataSourceCommandInput
+  | CreateFunctionCommandInput
+  | CreateGraphqlApiCommandInput
+  | CreateResolverCommandInput
+  | CreateTypeCommandInput
+  | DeleteApiCacheCommandInput
+  | DeleteApiKeyCommandInput
+  | DeleteDataSourceCommandInput
+  | DeleteFunctionCommandInput
+  | DeleteGraphqlApiCommandInput
+  | DeleteResolverCommandInput
+  | DeleteTypeCommandInput
+  | FlushApiCacheCommandInput
+  | GetApiCacheCommandInput
+  | GetDataSourceCommandInput
+  | GetFunctionCommandInput
+  | GetGraphqlApiCommandInput
+  | GetIntrospectionSchemaCommandInput
+  | GetResolverCommandInput
+  | GetSchemaCreationStatusCommandInput
+  | GetTypeCommandInput
+  | ListApiKeysCommandInput
+  | ListDataSourcesCommandInput
+  | ListFunctionsCommandInput
+  | ListGraphqlApisCommandInput
+  | ListResolversByFunctionCommandInput
+  | ListResolversCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTypesCommandInput
+  | StartSchemaCreationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateApiCacheCommandInput
+  | UpdateApiKeyCommandInput
+  | UpdateDataSourceCommandInput
+  | UpdateFunctionCommandInput
+  | UpdateGraphqlApiCommandInput
+  | UpdateResolverCommandInput
+  | UpdateTypeCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateApiCacheResponse
-  | CreateApiKeyResponse
-  | CreateDataSourceResponse
-  | CreateFunctionResponse
-  | CreateGraphqlApiResponse
-  | CreateResolverResponse
-  | CreateTypeResponse
-  | DeleteApiCacheResponse
-  | DeleteApiKeyResponse
-  | DeleteDataSourceResponse
-  | DeleteFunctionResponse
-  | DeleteGraphqlApiResponse
-  | DeleteResolverResponse
-  | DeleteTypeResponse
-  | FlushApiCacheResponse
-  | GetApiCacheResponse
-  | GetDataSourceResponse
-  | GetFunctionResponse
-  | GetGraphqlApiResponse
-  | GetIntrospectionSchemaResponse
-  | GetResolverResponse
-  | GetSchemaCreationStatusResponse
-  | GetTypeResponse
-  | ListApiKeysResponse
-  | ListDataSourcesResponse
-  | ListFunctionsResponse
-  | ListGraphqlApisResponse
-  | ListResolversByFunctionResponse
-  | ListResolversResponse
-  | ListTagsForResourceResponse
-  | ListTypesResponse
-  | StartSchemaCreationResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateApiCacheResponse
-  | UpdateApiKeyResponse
-  | UpdateDataSourceResponse
-  | UpdateFunctionResponse
-  | UpdateGraphqlApiResponse
-  | UpdateResolverResponse
-  | UpdateTypeResponse;
+  | CreateApiCacheCommandOutput
+  | CreateApiKeyCommandOutput
+  | CreateDataSourceCommandOutput
+  | CreateFunctionCommandOutput
+  | CreateGraphqlApiCommandOutput
+  | CreateResolverCommandOutput
+  | CreateTypeCommandOutput
+  | DeleteApiCacheCommandOutput
+  | DeleteApiKeyCommandOutput
+  | DeleteDataSourceCommandOutput
+  | DeleteFunctionCommandOutput
+  | DeleteGraphqlApiCommandOutput
+  | DeleteResolverCommandOutput
+  | DeleteTypeCommandOutput
+  | FlushApiCacheCommandOutput
+  | GetApiCacheCommandOutput
+  | GetDataSourceCommandOutput
+  | GetFunctionCommandOutput
+  | GetGraphqlApiCommandOutput
+  | GetIntrospectionSchemaCommandOutput
+  | GetResolverCommandOutput
+  | GetSchemaCreationStatusCommandOutput
+  | GetTypeCommandOutput
+  | ListApiKeysCommandOutput
+  | ListDataSourcesCommandOutput
+  | ListFunctionsCommandOutput
+  | ListGraphqlApisCommandOutput
+  | ListResolversByFunctionCommandOutput
+  | ListResolversCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTypesCommandOutput
+  | StartSchemaCreationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateApiCacheCommandOutput
+  | UpdateApiKeyCommandOutput
+  | UpdateDataSourceCommandOutput
+  | UpdateFunctionCommandOutput
+  | UpdateGraphqlApiCommandOutput
+  | UpdateResolverCommandOutput
+  | UpdateTypeCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

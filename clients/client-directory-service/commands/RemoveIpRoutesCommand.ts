@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveIpRoutesCommandInput = RemoveIpRoutesRequest;
-export type RemoveIpRoutesCommandOutput = RemoveIpRoutesResult;
+export type RemoveIpRoutesCommandOutput = RemoveIpRoutesResult &
+  __MetadataBearer;
 
 export class RemoveIpRoutesCommand extends $Command<
   RemoveIpRoutesCommandInput,

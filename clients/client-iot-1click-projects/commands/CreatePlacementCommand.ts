@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePlacementCommandInput = CreatePlacementRequest;
-export type CreatePlacementCommandOutput = CreatePlacementResponse;
+export type CreatePlacementCommandOutput = CreatePlacementResponse &
+  __MetadataBearer;
 
 export class CreatePlacementCommand extends $Command<
   CreatePlacementCommandInput,

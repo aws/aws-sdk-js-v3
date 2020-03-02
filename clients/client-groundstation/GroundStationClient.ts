@@ -1,49 +1,103 @@
 import {
-  CancelContactRequest,
-  ConfigIdResponse,
-  ContactIdResponse,
-  CreateConfigRequest,
-  CreateDataflowEndpointGroupRequest,
-  CreateMissionProfileRequest,
-  DataflowEndpointGroupIdResponse,
-  DeleteConfigRequest,
-  DeleteDataflowEndpointGroupRequest,
-  DeleteMissionProfileRequest,
-  DescribeContactRequest,
-  DescribeContactResponse,
-  GetConfigRequest,
-  GetConfigResponse,
-  GetDataflowEndpointGroupRequest,
-  GetDataflowEndpointGroupResponse,
-  GetMinuteUsageRequest,
-  GetMinuteUsageResponse,
-  GetMissionProfileRequest,
-  GetMissionProfileResponse,
-  GetSatelliteRequest,
-  GetSatelliteResponse,
-  ListConfigsRequest,
-  ListConfigsResponse,
-  ListContactsRequest,
-  ListContactsResponse,
-  ListDataflowEndpointGroupsRequest,
-  ListDataflowEndpointGroupsResponse,
-  ListGroundStationsRequest,
-  ListGroundStationsResponse,
-  ListMissionProfilesRequest,
-  ListMissionProfilesResponse,
-  ListSatellitesRequest,
-  ListSatellitesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  MissionProfileIdResponse,
-  ReserveContactRequest,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateConfigRequest,
-  UpdateMissionProfileRequest
-} from "./models/index";
+  CancelContactCommandInput,
+  CancelContactCommandOutput
+} from "./commands/CancelContactCommand";
+import {
+  CreateConfigCommandInput,
+  CreateConfigCommandOutput
+} from "./commands/CreateConfigCommand";
+import {
+  CreateDataflowEndpointGroupCommandInput,
+  CreateDataflowEndpointGroupCommandOutput
+} from "./commands/CreateDataflowEndpointGroupCommand";
+import {
+  CreateMissionProfileCommandInput,
+  CreateMissionProfileCommandOutput
+} from "./commands/CreateMissionProfileCommand";
+import {
+  DeleteConfigCommandInput,
+  DeleteConfigCommandOutput
+} from "./commands/DeleteConfigCommand";
+import {
+  DeleteDataflowEndpointGroupCommandInput,
+  DeleteDataflowEndpointGroupCommandOutput
+} from "./commands/DeleteDataflowEndpointGroupCommand";
+import {
+  DeleteMissionProfileCommandInput,
+  DeleteMissionProfileCommandOutput
+} from "./commands/DeleteMissionProfileCommand";
+import {
+  DescribeContactCommandInput,
+  DescribeContactCommandOutput
+} from "./commands/DescribeContactCommand";
+import {
+  GetConfigCommandInput,
+  GetConfigCommandOutput
+} from "./commands/GetConfigCommand";
+import {
+  GetDataflowEndpointGroupCommandInput,
+  GetDataflowEndpointGroupCommandOutput
+} from "./commands/GetDataflowEndpointGroupCommand";
+import {
+  GetMinuteUsageCommandInput,
+  GetMinuteUsageCommandOutput
+} from "./commands/GetMinuteUsageCommand";
+import {
+  GetMissionProfileCommandInput,
+  GetMissionProfileCommandOutput
+} from "./commands/GetMissionProfileCommand";
+import {
+  GetSatelliteCommandInput,
+  GetSatelliteCommandOutput
+} from "./commands/GetSatelliteCommand";
+import {
+  ListConfigsCommandInput,
+  ListConfigsCommandOutput
+} from "./commands/ListConfigsCommand";
+import {
+  ListContactsCommandInput,
+  ListContactsCommandOutput
+} from "./commands/ListContactsCommand";
+import {
+  ListDataflowEndpointGroupsCommandInput,
+  ListDataflowEndpointGroupsCommandOutput
+} from "./commands/ListDataflowEndpointGroupsCommand";
+import {
+  ListGroundStationsCommandInput,
+  ListGroundStationsCommandOutput
+} from "./commands/ListGroundStationsCommand";
+import {
+  ListMissionProfilesCommandInput,
+  ListMissionProfilesCommandOutput
+} from "./commands/ListMissionProfilesCommand";
+import {
+  ListSatellitesCommandInput,
+  ListSatellitesCommandOutput
+} from "./commands/ListSatellitesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ReserveContactCommandInput,
+  ReserveContactCommandOutput
+} from "./commands/ReserveContactCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateConfigCommandInput,
+  UpdateConfigCommandOutput
+} from "./commands/UpdateConfigCommand";
+import {
+  UpdateMissionProfileCommandInput,
+  UpdateMissionProfileCommandOutput
+} from "./commands/UpdateMissionProfileCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -97,58 +151,58 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelContactRequest
-  | CreateConfigRequest
-  | CreateDataflowEndpointGroupRequest
-  | CreateMissionProfileRequest
-  | DeleteConfigRequest
-  | DeleteDataflowEndpointGroupRequest
-  | DeleteMissionProfileRequest
-  | DescribeContactRequest
-  | GetConfigRequest
-  | GetDataflowEndpointGroupRequest
-  | GetMinuteUsageRequest
-  | GetMissionProfileRequest
-  | GetSatelliteRequest
-  | ListConfigsRequest
-  | ListContactsRequest
-  | ListDataflowEndpointGroupsRequest
-  | ListGroundStationsRequest
-  | ListMissionProfilesRequest
-  | ListSatellitesRequest
-  | ListTagsForResourceRequest
-  | ReserveContactRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateConfigRequest
-  | UpdateMissionProfileRequest;
+  | CancelContactCommandInput
+  | CreateConfigCommandInput
+  | CreateDataflowEndpointGroupCommandInput
+  | CreateMissionProfileCommandInput
+  | DeleteConfigCommandInput
+  | DeleteDataflowEndpointGroupCommandInput
+  | DeleteMissionProfileCommandInput
+  | DescribeContactCommandInput
+  | GetConfigCommandInput
+  | GetDataflowEndpointGroupCommandInput
+  | GetMinuteUsageCommandInput
+  | GetMissionProfileCommandInput
+  | GetSatelliteCommandInput
+  | ListConfigsCommandInput
+  | ListContactsCommandInput
+  | ListDataflowEndpointGroupsCommandInput
+  | ListGroundStationsCommandInput
+  | ListMissionProfilesCommandInput
+  | ListSatellitesCommandInput
+  | ListTagsForResourceCommandInput
+  | ReserveContactCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateConfigCommandInput
+  | UpdateMissionProfileCommandInput;
 
 export type ServiceOutputTypes =
-  | ConfigIdResponse
-  | ConfigIdResponse
-  | ConfigIdResponse
-  | ContactIdResponse
-  | ContactIdResponse
-  | DataflowEndpointGroupIdResponse
-  | DataflowEndpointGroupIdResponse
-  | DescribeContactResponse
-  | GetConfigResponse
-  | GetDataflowEndpointGroupResponse
-  | GetMinuteUsageResponse
-  | GetMissionProfileResponse
-  | GetSatelliteResponse
-  | ListConfigsResponse
-  | ListContactsResponse
-  | ListDataflowEndpointGroupsResponse
-  | ListGroundStationsResponse
-  | ListMissionProfilesResponse
-  | ListSatellitesResponse
-  | ListTagsForResourceResponse
-  | MissionProfileIdResponse
-  | MissionProfileIdResponse
-  | MissionProfileIdResponse
-  | TagResourceResponse
-  | UntagResourceResponse;
+  | CancelContactCommandOutput
+  | CreateConfigCommandOutput
+  | CreateDataflowEndpointGroupCommandOutput
+  | CreateMissionProfileCommandOutput
+  | DeleteConfigCommandOutput
+  | DeleteDataflowEndpointGroupCommandOutput
+  | DeleteMissionProfileCommandOutput
+  | DescribeContactCommandOutput
+  | GetConfigCommandOutput
+  | GetDataflowEndpointGroupCommandOutput
+  | GetMinuteUsageCommandOutput
+  | GetMissionProfileCommandOutput
+  | GetSatelliteCommandOutput
+  | ListConfigsCommandOutput
+  | ListContactsCommandOutput
+  | ListDataflowEndpointGroupsCommandOutput
+  | ListGroundStationsCommandOutput
+  | ListMissionProfilesCommandOutput
+  | ListSatellitesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ReserveContactCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateConfigCommandOutput
+  | UpdateMissionProfileCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

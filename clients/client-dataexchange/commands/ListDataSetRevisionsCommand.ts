@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDataSetRevisionsCommandInput = ListDataSetRevisionsRequest;
-export type ListDataSetRevisionsCommandOutput = ListDataSetRevisionsResponse;
+export type ListDataSetRevisionsCommandOutput = ListDataSetRevisionsResponse &
+  __MetadataBearer;
 
 export class ListDataSetRevisionsCommand extends $Command<
   ListDataSetRevisionsCommandInput,

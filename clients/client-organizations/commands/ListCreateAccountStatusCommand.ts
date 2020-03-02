@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListCreateAccountStatusCommandInput = ListCreateAccountStatusRequest;
-export type ListCreateAccountStatusCommandOutput = ListCreateAccountStatusResponse;
+export type ListCreateAccountStatusCommandOutput = ListCreateAccountStatusResponse &
+  __MetadataBearer;
 
 export class ListCreateAccountStatusCommand extends $Command<
   ListCreateAccountStatusCommandInput,

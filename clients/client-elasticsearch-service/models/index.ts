@@ -158,8 +158,7 @@ export namespace CancelElasticsearchServiceSoftwareUpdateRequest {
 /**
  * <p>The result of a <code>CancelElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
-export interface CancelElasticsearchServiceSoftwareUpdateResponse
-  extends $MetadataBearer {
+export interface CancelElasticsearchServiceSoftwareUpdateResponse {
   __type?: "CancelElasticsearchServiceSoftwareUpdateResponse";
   /**
    * <p>The current status of the Elasticsearch service software update.</p>
@@ -341,7 +340,7 @@ export namespace CreateElasticsearchDomainRequest {
 /**
  * <p>The result of a <code>CreateElasticsearchDomain</code> operation. Contains the status of the newly created Elasticsearch domain.</p>
  */
-export interface CreateElasticsearchDomainResponse extends $MetadataBearer {
+export interface CreateElasticsearchDomainResponse {
   __type?: "CreateElasticsearchDomainResponse";
   /**
    * <p>The status of the newly created Elasticsearch domain. </p>
@@ -375,7 +374,7 @@ export namespace DeleteElasticsearchDomainRequest {
 /**
  * <p>The result of a <code>DeleteElasticsearchDomain</code> request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.</p>
  */
-export interface DeleteElasticsearchDomainResponse extends $MetadataBearer {
+export interface DeleteElasticsearchDomainResponse {
   __type?: "DeleteElasticsearchDomainResponse";
   /**
    * <p>The status of the Elasticsearch domain being deleted.</p>
@@ -416,8 +415,7 @@ export namespace DescribeElasticsearchDomainConfigRequest {
 /**
  * <p>The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.</p>
  */
-export interface DescribeElasticsearchDomainConfigResponse
-  extends $MetadataBearer {
+export interface DescribeElasticsearchDomainConfigResponse {
   __type?: "DescribeElasticsearchDomainConfigResponse";
   /**
    * <p>The configuration information of the domain requested in the <code>DescribeElasticsearchDomainConfig</code> request.</p>
@@ -451,7 +449,7 @@ export namespace DescribeElasticsearchDomainRequest {
 /**
  * <p>The result of a <code>DescribeElasticsearchDomain</code> request. Contains the status of the domain specified in the request.</p>
  */
-export interface DescribeElasticsearchDomainResponse extends $MetadataBearer {
+export interface DescribeElasticsearchDomainResponse {
   __type?: "DescribeElasticsearchDomainResponse";
   /**
    * <p>The current status of the Elasticsearch domain.</p>
@@ -485,7 +483,7 @@ export namespace DescribeElasticsearchDomainsRequest {
 /**
  * <p>The result of a <code>DescribeElasticsearchDomains</code> request. Contains the status of the specified domains or all domains owned by the account.</p>
  */
-export interface DescribeElasticsearchDomainsResponse extends $MetadataBearer {
+export interface DescribeElasticsearchDomainsResponse {
   __type?: "DescribeElasticsearchDomainsResponse";
   /**
    * <p>The status of the domains requested in the <code>DescribeElasticsearchDomains</code> request.</p>
@@ -563,8 +561,7 @@ export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
  *       operation.
  *     </p>
  */
-export interface DescribeElasticsearchInstanceTypeLimitsResponse
-  extends $MetadataBearer {
+export interface DescribeElasticsearchInstanceTypeLimitsResponse {
   __type?: "DescribeElasticsearchInstanceTypeLimitsResponse";
   /**
    * <p>
@@ -622,8 +619,7 @@ export namespace DescribeReservedElasticsearchInstanceOfferingsRequest {
 /**
  * <p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  */
-export interface DescribeReservedElasticsearchInstanceOfferingsResponse
-  extends $MetadataBearer {
+export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
   __type?: "DescribeReservedElasticsearchInstanceOfferingsResponse";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -679,8 +675,7 @@ export namespace DescribeReservedElasticsearchInstancesRequest {
 /**
  * <p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>
  */
-export interface DescribeReservedElasticsearchInstancesResponse
-  extends $MetadataBearer {
+export interface DescribeReservedElasticsearchInstancesResponse {
   __type?: "DescribeReservedElasticsearchInstancesResponse";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1255,8 +1250,7 @@ export namespace GetCompatibleElasticsearchVersionsRequest {
  *       operation.
  *     </p>
  */
-export interface GetCompatibleElasticsearchVersionsResponse
-  extends $MetadataBearer {
+export interface GetCompatibleElasticsearchVersionsResponse {
   __type?: "GetCompatibleElasticsearchVersionsResponse";
   /**
    * <p>
@@ -1323,7 +1317,7 @@ export namespace GetUpgradeHistoryRequest {
  *       operation.
  *     </p>
  */
-export interface GetUpgradeHistoryResponse extends $MetadataBearer {
+export interface GetUpgradeHistoryResponse {
   __type?: "GetUpgradeHistoryResponse";
   /**
    * <p>Pagination token that needs to be supplied to the next call to get the next page of results</p>
@@ -1384,7 +1378,7 @@ export namespace GetUpgradeStatusRequest {
  *       operation.
  *     </p>
  */
-export interface GetUpgradeStatusResponse extends $MetadataBearer {
+export interface GetUpgradeStatusResponse {
   __type?: "GetUpgradeStatusResponse";
   /**
    * <p>
@@ -1530,7 +1524,7 @@ export namespace Limits {
 /**
  * <p>The result of a <code>ListDomainNames</code> operation. Contains the names of all Elasticsearch domains owned by this account.</p>
  */
-export interface ListDomainNamesResponse extends $MetadataBearer {
+export interface ListDomainNamesResponse {
   __type?: "ListDomainNamesResponse";
   /**
    * <p>List of Elasticsearch domain names.</p>
@@ -1600,8 +1594,7 @@ export namespace ListElasticsearchInstanceTypesRequest {
  *       operation.
  *     </p>
  */
-export interface ListElasticsearchInstanceTypesResponse
-  extends $MetadataBearer {
+export interface ListElasticsearchInstanceTypesResponse {
   __type?: "ListElasticsearchInstanceTypesResponse";
   /**
    * <p>
@@ -1688,7 +1681,7 @@ export namespace ListElasticsearchVersionsRequest {
  *       operation.
  *     </p>
  */
-export interface ListElasticsearchVersionsResponse extends $MetadataBearer {
+export interface ListElasticsearchVersionsResponse {
   __type?: "ListElasticsearchVersionsResponse";
   /**
    * <p>List of supported elastic search versions.
@@ -1731,7 +1724,7 @@ export namespace ListTagsRequest {
 /**
  * <p>The result of a <code>ListTags</code> operation. Contains tags for all requested Elasticsearch domains.</p>
  */
-export interface ListTagsResponse extends $MetadataBearer {
+export interface ListTagsResponse {
   __type?: "ListTagsResponse";
   /**
    * <p> List of <code>Tag</code> for the requested Elasticsearch domain.</p>
@@ -1910,8 +1903,7 @@ export namespace PurchaseReservedElasticsearchInstanceOfferingRequest {
 /**
  * <p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>
  */
-export interface PurchaseReservedElasticsearchInstanceOfferingResponse
-  extends $MetadataBearer {
+export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
   __type?: "PurchaseReservedElasticsearchInstanceOfferingResponse";
   /**
    * <p>The customer-specified identifier used to track this reservation.</p>
@@ -2218,8 +2210,7 @@ export namespace StartElasticsearchServiceSoftwareUpdateRequest {
 /**
  * <p>The result of a <code>StartElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
-export interface StartElasticsearchServiceSoftwareUpdateResponse
-  extends $MetadataBearer {
+export interface StartElasticsearchServiceSoftwareUpdateResponse {
   __type?: "StartElasticsearchServiceSoftwareUpdateResponse";
   /**
    * <p>The current status of the Elasticsearch service software update.</p>
@@ -2423,8 +2414,7 @@ export namespace UpdateElasticsearchDomainConfigRequest {
 /**
  * <p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>
  */
-export interface UpdateElasticsearchDomainConfigResponse
-  extends $MetadataBearer {
+export interface UpdateElasticsearchDomainConfigResponse {
   __type?: "UpdateElasticsearchDomainConfigResponse";
   /**
    * <p>The status of the updated Elasticsearch domain. </p>
@@ -2483,7 +2473,7 @@ export namespace UpgradeElasticsearchDomainRequest {
  *       operation.
  *     </p>
  */
-export interface UpgradeElasticsearchDomainResponse extends $MetadataBearer {
+export interface UpgradeElasticsearchDomainResponse {
   __type?: "UpgradeElasticsearchDomainResponse";
   /**
    * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>

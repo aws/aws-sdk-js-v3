@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelDeploymentJobCommandInput = CancelDeploymentJobRequest;
-export type CancelDeploymentJobCommandOutput = CancelDeploymentJobResponse;
+export type CancelDeploymentJobCommandOutput = CancelDeploymentJobResponse &
+  __MetadataBearer;
 
 export class CancelDeploymentJobCommand extends $Command<
   CancelDeploymentJobCommandInput,

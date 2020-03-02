@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListOnPremisesInstancesCommandInput = ListOnPremisesInstancesInput;
-export type ListOnPremisesInstancesCommandOutput = ListOnPremisesInstancesOutput;
+export type ListOnPremisesInstancesCommandOutput = ListOnPremisesInstancesOutput &
+  __MetadataBearer;
 
 export class ListOnPremisesInstancesCommand extends $Command<
   ListOnPremisesInstancesCommandInput,

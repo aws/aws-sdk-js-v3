@@ -154,8 +154,7 @@ export namespace AssociateConfigurationItemsToApplicationRequest {
   }
 }
 
-export interface AssociateConfigurationItemsToApplicationResponse
-  extends $MetadataBearer {
+export interface AssociateConfigurationItemsToApplicationResponse {
   __type?: "AssociateConfigurationItemsToApplicationResponse";
 }
 
@@ -233,7 +232,7 @@ export namespace BatchDeleteImportDataRequest {
   }
 }
 
-export interface BatchDeleteImportDataResponse extends $MetadataBearer {
+export interface BatchDeleteImportDataResponse {
   __type?: "BatchDeleteImportDataResponse";
   /**
    * <p>Error messages returned for each import task that you deleted as a response for this
@@ -472,7 +471,7 @@ export namespace CreateApplicationRequest {
   }
 }
 
-export interface CreateApplicationResponse extends $MetadataBearer {
+export interface CreateApplicationResponse {
   __type?: "CreateApplicationResponse";
   /**
    * <p>Configuration ID of an application to be created.</p>
@@ -510,7 +509,7 @@ export namespace CreateTagsRequest {
   }
 }
 
-export interface CreateTagsResponse extends $MetadataBearer {
+export interface CreateTagsResponse {
   __type?: "CreateTagsResponse";
 }
 
@@ -632,7 +631,7 @@ export namespace DeleteApplicationsRequest {
   }
 }
 
-export interface DeleteApplicationsResponse extends $MetadataBearer {
+export interface DeleteApplicationsResponse {
   __type?: "DeleteApplicationsResponse";
 }
 
@@ -666,7 +665,7 @@ export namespace DeleteTagsRequest {
   }
 }
 
-export interface DeleteTagsResponse extends $MetadataBearer {
+export interface DeleteTagsResponse {
   __type?: "DeleteTagsResponse";
 }
 
@@ -715,7 +714,7 @@ export namespace DescribeAgentsRequest {
   }
 }
 
-export interface DescribeAgentsResponse extends $MetadataBearer {
+export interface DescribeAgentsResponse {
   __type?: "DescribeAgentsResponse";
   /**
    * <p>Lists agents or the Connector by ID or lists all agents/Connectors associated with your
@@ -754,7 +753,7 @@ export namespace DescribeConfigurationsRequest {
   }
 }
 
-export interface DescribeConfigurationsResponse extends $MetadataBearer {
+export interface DescribeConfigurationsResponse {
   __type?: "DescribeConfigurationsResponse";
   /**
    * <p>A key in the response map. The value is an array of data.</p>
@@ -793,7 +792,7 @@ export namespace DescribeContinuousExportsRequest {
   }
 }
 
-export interface DescribeContinuousExportsResponse extends $MetadataBearer {
+export interface DescribeContinuousExportsResponse {
   __type?: "DescribeContinuousExportsResponse";
   /**
    * <p>A list of continuous export descriptions.</p>
@@ -837,7 +836,7 @@ export namespace DescribeExportConfigurationsRequest {
   }
 }
 
-export interface DescribeExportConfigurationsResponse extends $MetadataBearer {
+export interface DescribeExportConfigurationsResponse {
   __type?: "DescribeExportConfigurationsResponse";
   /**
    * <p></p>
@@ -899,7 +898,7 @@ export namespace DescribeExportTasksRequest {
   }
 }
 
-export interface DescribeExportTasksResponse extends $MetadataBearer {
+export interface DescribeExportTasksResponse {
   __type?: "DescribeExportTasksResponse";
   /**
    * <p>Contains one or more sets of export request details. When the status of a request is
@@ -950,7 +949,7 @@ export namespace DescribeImportTasksRequest {
   }
 }
 
-export interface DescribeImportTasksResponse extends $MetadataBearer {
+export interface DescribeImportTasksResponse {
   __type?: "DescribeImportTasksResponse";
   /**
    * <p>The token to request the next page of results.</p>
@@ -997,7 +996,7 @@ export namespace DescribeTagsRequest {
   }
 }
 
-export interface DescribeTagsResponse extends $MetadataBearer {
+export interface DescribeTagsResponse {
   __type?: "DescribeTagsResponse";
   /**
    * <p>The call returns a token. Use this token to get the next set of results.</p>
@@ -1038,8 +1037,7 @@ export namespace DisassociateConfigurationItemsFromApplicationRequest {
   }
 }
 
-export interface DisassociateConfigurationItemsFromApplicationResponse
-  extends $MetadataBearer {
+export interface DisassociateConfigurationItemsFromApplicationResponse {
   __type?: "DisassociateConfigurationItemsFromApplicationResponse";
 }
 
@@ -1051,7 +1049,7 @@ export namespace DisassociateConfigurationItemsFromApplicationResponse {
   }
 }
 
-export interface ExportConfigurationsResponse extends $MetadataBearer {
+export interface ExportConfigurationsResponse {
   __type?: "ExportConfigurationsResponse";
   /**
    * <p>A unique identifier that you can use to query the export status.</p>
@@ -1216,7 +1214,7 @@ export namespace GetDiscoverySummaryRequest {
   }
 }
 
-export interface GetDiscoverySummaryResponse extends $MetadataBearer {
+export interface GetDiscoverySummaryResponse {
   __type?: "GetDiscoverySummaryResponse";
   /**
    * <p>Details about discovered agents, including agent status and health.</p>
@@ -1504,7 +1502,7 @@ export namespace ListConfigurationsRequest {
   }
 }
 
-export interface ListConfigurationsResponse extends $MetadataBearer {
+export interface ListConfigurationsResponse {
   __type?: "ListConfigurationsResponse";
   /**
    * <p>Returns configuration details, including the configuration ID, attribute names, and
@@ -1566,7 +1564,7 @@ export namespace ListServerNeighborsRequest {
   }
 }
 
-export interface ListServerNeighborsResponse extends $MetadataBearer {
+export interface ListServerNeighborsResponse {
   __type?: "ListServerNeighborsResponse";
   /**
    * <p>Count of distinct servers that are one hop away from the given server.</p>
@@ -1736,7 +1734,7 @@ export namespace StartContinuousExportRequest {
   }
 }
 
-export interface StartContinuousExportResponse extends $MetadataBearer {
+export interface StartContinuousExportResponse {
   __type?: "StartContinuousExportResponse";
   /**
    * <p>The type of data collector used to gather this data (currently only offered for
@@ -1798,7 +1796,7 @@ export namespace StartDataCollectionByAgentIdsRequest {
   }
 }
 
-export interface StartDataCollectionByAgentIdsResponse extends $MetadataBearer {
+export interface StartDataCollectionByAgentIdsResponse {
   __type?: "StartDataCollectionByAgentIdsResponse";
   /**
    * <p>Information about agents or the connector that were instructed to start collecting
@@ -1857,7 +1855,7 @@ export namespace StartExportTaskRequest {
   }
 }
 
-export interface StartExportTaskResponse extends $MetadataBearer {
+export interface StartExportTaskResponse {
   __type?: "StartExportTaskResponse";
   /**
    * <p>A unique identifier used to query the status of an export request.</p>
@@ -1909,7 +1907,7 @@ export namespace StartImportTaskRequest {
   }
 }
 
-export interface StartImportTaskResponse extends $MetadataBearer {
+export interface StartImportTaskResponse {
   __type?: "StartImportTaskResponse";
   /**
    * <p>An array of information related to the import task request including status information,
@@ -1938,7 +1936,7 @@ export namespace StopContinuousExportRequest {
   }
 }
 
-export interface StopContinuousExportResponse extends $MetadataBearer {
+export interface StopContinuousExportResponse {
   __type?: "StopContinuousExportResponse";
   /**
    * <p>Timestamp that represents when this continuous export started collecting
@@ -1972,7 +1970,7 @@ export namespace StopDataCollectionByAgentIdsRequest {
   }
 }
 
-export interface StopDataCollectionByAgentIdsResponse extends $MetadataBearer {
+export interface StopDataCollectionByAgentIdsResponse {
   __type?: "StopDataCollectionByAgentIdsResponse";
   /**
    * <p>Information about the agents or connector that were instructed to stop collecting data.
@@ -2057,7 +2055,7 @@ export namespace UpdateApplicationRequest {
   }
 }
 
-export interface UpdateApplicationResponse extends $MetadataBearer {
+export interface UpdateApplicationResponse {
   __type?: "UpdateApplicationResponse";
 }
 

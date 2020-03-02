@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteScalingPolicyCommandInput = DeleteScalingPolicyRequest;
-export type DeleteScalingPolicyCommandOutput = DeleteScalingPolicyResponse;
+export type DeleteScalingPolicyCommandOutput = DeleteScalingPolicyResponse &
+  __MetadataBearer;
 
 export class DeleteScalingPolicyCommand extends $Command<
   DeleteScalingPolicyCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListInvalidationsCommandInput = ListInvalidationsRequest;
-export type ListInvalidationsCommandOutput = ListInvalidationsResult;
+export type ListInvalidationsCommandOutput = ListInvalidationsResult &
+  __MetadataBearer;
 
 export class ListInvalidationsCommand extends $Command<
   ListInvalidationsCommandInput,

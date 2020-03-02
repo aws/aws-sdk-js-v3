@@ -1,85 +1,163 @@
 import {
-  AcceptInvitationRequest,
-  AcceptInvitationResponse,
-  BatchDisableStandardsRequest,
-  BatchDisableStandardsResponse,
-  BatchEnableStandardsRequest,
-  BatchEnableStandardsResponse,
-  BatchImportFindingsRequest,
-  BatchImportFindingsResponse,
-  CreateActionTargetRequest,
-  CreateActionTargetResponse,
-  CreateInsightRequest,
-  CreateInsightResponse,
-  CreateMembersRequest,
-  CreateMembersResponse,
-  DeclineInvitationsRequest,
-  DeclineInvitationsResponse,
-  DeleteActionTargetRequest,
-  DeleteActionTargetResponse,
-  DeleteInsightRequest,
-  DeleteInsightResponse,
-  DeleteInvitationsRequest,
-  DeleteInvitationsResponse,
-  DeleteMembersRequest,
-  DeleteMembersResponse,
-  DescribeActionTargetsRequest,
-  DescribeActionTargetsResponse,
-  DescribeHubRequest,
-  DescribeHubResponse,
-  DescribeProductsRequest,
-  DescribeProductsResponse,
-  DescribeStandardsControlsRequest,
-  DescribeStandardsControlsResponse,
-  DisableImportFindingsForProductRequest,
-  DisableImportFindingsForProductResponse,
-  DisableSecurityHubRequest,
-  DisableSecurityHubResponse,
-  DisassociateFromMasterAccountRequest,
-  DisassociateFromMasterAccountResponse,
-  DisassociateMembersRequest,
-  DisassociateMembersResponse,
-  EnableImportFindingsForProductRequest,
-  EnableImportFindingsForProductResponse,
-  EnableSecurityHubRequest,
-  EnableSecurityHubResponse,
-  GetEnabledStandardsRequest,
-  GetEnabledStandardsResponse,
-  GetFindingsRequest,
-  GetFindingsResponse,
-  GetInsightResultsRequest,
-  GetInsightResultsResponse,
-  GetInsightsRequest,
-  GetInsightsResponse,
-  GetInvitationsCountRequest,
-  GetInvitationsCountResponse,
-  GetMasterAccountRequest,
-  GetMasterAccountResponse,
-  GetMembersRequest,
-  GetMembersResponse,
-  InviteMembersRequest,
-  InviteMembersResponse,
-  ListEnabledProductsForImportRequest,
-  ListEnabledProductsForImportResponse,
-  ListInvitationsRequest,
-  ListInvitationsResponse,
-  ListMembersRequest,
-  ListMembersResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateActionTargetRequest,
-  UpdateActionTargetResponse,
-  UpdateFindingsRequest,
-  UpdateFindingsResponse,
-  UpdateInsightRequest,
-  UpdateInsightResponse,
-  UpdateStandardsControlRequest,
-  UpdateStandardsControlResponse
-} from "./models/index";
+  AcceptInvitationCommandInput,
+  AcceptInvitationCommandOutput
+} from "./commands/AcceptInvitationCommand";
+import {
+  BatchDisableStandardsCommandInput,
+  BatchDisableStandardsCommandOutput
+} from "./commands/BatchDisableStandardsCommand";
+import {
+  BatchEnableStandardsCommandInput,
+  BatchEnableStandardsCommandOutput
+} from "./commands/BatchEnableStandardsCommand";
+import {
+  BatchImportFindingsCommandInput,
+  BatchImportFindingsCommandOutput
+} from "./commands/BatchImportFindingsCommand";
+import {
+  CreateActionTargetCommandInput,
+  CreateActionTargetCommandOutput
+} from "./commands/CreateActionTargetCommand";
+import {
+  CreateInsightCommandInput,
+  CreateInsightCommandOutput
+} from "./commands/CreateInsightCommand";
+import {
+  CreateMembersCommandInput,
+  CreateMembersCommandOutput
+} from "./commands/CreateMembersCommand";
+import {
+  DeclineInvitationsCommandInput,
+  DeclineInvitationsCommandOutput
+} from "./commands/DeclineInvitationsCommand";
+import {
+  DeleteActionTargetCommandInput,
+  DeleteActionTargetCommandOutput
+} from "./commands/DeleteActionTargetCommand";
+import {
+  DeleteInsightCommandInput,
+  DeleteInsightCommandOutput
+} from "./commands/DeleteInsightCommand";
+import {
+  DeleteInvitationsCommandInput,
+  DeleteInvitationsCommandOutput
+} from "./commands/DeleteInvitationsCommand";
+import {
+  DeleteMembersCommandInput,
+  DeleteMembersCommandOutput
+} from "./commands/DeleteMembersCommand";
+import {
+  DescribeActionTargetsCommandInput,
+  DescribeActionTargetsCommandOutput
+} from "./commands/DescribeActionTargetsCommand";
+import {
+  DescribeHubCommandInput,
+  DescribeHubCommandOutput
+} from "./commands/DescribeHubCommand";
+import {
+  DescribeProductsCommandInput,
+  DescribeProductsCommandOutput
+} from "./commands/DescribeProductsCommand";
+import {
+  DescribeStandardsControlsCommandInput,
+  DescribeStandardsControlsCommandOutput
+} from "./commands/DescribeStandardsControlsCommand";
+import {
+  DisableImportFindingsForProductCommandInput,
+  DisableImportFindingsForProductCommandOutput
+} from "./commands/DisableImportFindingsForProductCommand";
+import {
+  DisableSecurityHubCommandInput,
+  DisableSecurityHubCommandOutput
+} from "./commands/DisableSecurityHubCommand";
+import {
+  DisassociateFromMasterAccountCommandInput,
+  DisassociateFromMasterAccountCommandOutput
+} from "./commands/DisassociateFromMasterAccountCommand";
+import {
+  DisassociateMembersCommandInput,
+  DisassociateMembersCommandOutput
+} from "./commands/DisassociateMembersCommand";
+import {
+  EnableImportFindingsForProductCommandInput,
+  EnableImportFindingsForProductCommandOutput
+} from "./commands/EnableImportFindingsForProductCommand";
+import {
+  EnableSecurityHubCommandInput,
+  EnableSecurityHubCommandOutput
+} from "./commands/EnableSecurityHubCommand";
+import {
+  GetEnabledStandardsCommandInput,
+  GetEnabledStandardsCommandOutput
+} from "./commands/GetEnabledStandardsCommand";
+import {
+  GetFindingsCommandInput,
+  GetFindingsCommandOutput
+} from "./commands/GetFindingsCommand";
+import {
+  GetInsightResultsCommandInput,
+  GetInsightResultsCommandOutput
+} from "./commands/GetInsightResultsCommand";
+import {
+  GetInsightsCommandInput,
+  GetInsightsCommandOutput
+} from "./commands/GetInsightsCommand";
+import {
+  GetInvitationsCountCommandInput,
+  GetInvitationsCountCommandOutput
+} from "./commands/GetInvitationsCountCommand";
+import {
+  GetMasterAccountCommandInput,
+  GetMasterAccountCommandOutput
+} from "./commands/GetMasterAccountCommand";
+import {
+  GetMembersCommandInput,
+  GetMembersCommandOutput
+} from "./commands/GetMembersCommand";
+import {
+  InviteMembersCommandInput,
+  InviteMembersCommandOutput
+} from "./commands/InviteMembersCommand";
+import {
+  ListEnabledProductsForImportCommandInput,
+  ListEnabledProductsForImportCommandOutput
+} from "./commands/ListEnabledProductsForImportCommand";
+import {
+  ListInvitationsCommandInput,
+  ListInvitationsCommandOutput
+} from "./commands/ListInvitationsCommand";
+import {
+  ListMembersCommandInput,
+  ListMembersCommandOutput
+} from "./commands/ListMembersCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateActionTargetCommandInput,
+  UpdateActionTargetCommandOutput
+} from "./commands/UpdateActionTargetCommand";
+import {
+  UpdateFindingsCommandInput,
+  UpdateFindingsCommandOutput
+} from "./commands/UpdateFindingsCommand";
+import {
+  UpdateInsightCommandInput,
+  UpdateInsightCommandOutput
+} from "./commands/UpdateInsightCommand";
+import {
+  UpdateStandardsControlCommandInput,
+  UpdateStandardsControlCommandOutput
+} from "./commands/UpdateStandardsControlCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -133,88 +211,88 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AcceptInvitationRequest
-  | BatchDisableStandardsRequest
-  | BatchEnableStandardsRequest
-  | BatchImportFindingsRequest
-  | CreateActionTargetRequest
-  | CreateInsightRequest
-  | CreateMembersRequest
-  | DeclineInvitationsRequest
-  | DeleteActionTargetRequest
-  | DeleteInsightRequest
-  | DeleteInvitationsRequest
-  | DeleteMembersRequest
-  | DescribeActionTargetsRequest
-  | DescribeHubRequest
-  | DescribeProductsRequest
-  | DescribeStandardsControlsRequest
-  | DisableImportFindingsForProductRequest
-  | DisableSecurityHubRequest
-  | DisassociateFromMasterAccountRequest
-  | DisassociateMembersRequest
-  | EnableImportFindingsForProductRequest
-  | EnableSecurityHubRequest
-  | GetEnabledStandardsRequest
-  | GetFindingsRequest
-  | GetInsightResultsRequest
-  | GetInsightsRequest
-  | GetInvitationsCountRequest
-  | GetMasterAccountRequest
-  | GetMembersRequest
-  | InviteMembersRequest
-  | ListEnabledProductsForImportRequest
-  | ListInvitationsRequest
-  | ListMembersRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateActionTargetRequest
-  | UpdateFindingsRequest
-  | UpdateInsightRequest
-  | UpdateStandardsControlRequest;
+  | AcceptInvitationCommandInput
+  | BatchDisableStandardsCommandInput
+  | BatchEnableStandardsCommandInput
+  | BatchImportFindingsCommandInput
+  | CreateActionTargetCommandInput
+  | CreateInsightCommandInput
+  | CreateMembersCommandInput
+  | DeclineInvitationsCommandInput
+  | DeleteActionTargetCommandInput
+  | DeleteInsightCommandInput
+  | DeleteInvitationsCommandInput
+  | DeleteMembersCommandInput
+  | DescribeActionTargetsCommandInput
+  | DescribeHubCommandInput
+  | DescribeProductsCommandInput
+  | DescribeStandardsControlsCommandInput
+  | DisableImportFindingsForProductCommandInput
+  | DisableSecurityHubCommandInput
+  | DisassociateFromMasterAccountCommandInput
+  | DisassociateMembersCommandInput
+  | EnableImportFindingsForProductCommandInput
+  | EnableSecurityHubCommandInput
+  | GetEnabledStandardsCommandInput
+  | GetFindingsCommandInput
+  | GetInsightResultsCommandInput
+  | GetInsightsCommandInput
+  | GetInvitationsCountCommandInput
+  | GetMasterAccountCommandInput
+  | GetMembersCommandInput
+  | InviteMembersCommandInput
+  | ListEnabledProductsForImportCommandInput
+  | ListInvitationsCommandInput
+  | ListMembersCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateActionTargetCommandInput
+  | UpdateFindingsCommandInput
+  | UpdateInsightCommandInput
+  | UpdateStandardsControlCommandInput;
 
 export type ServiceOutputTypes =
-  | AcceptInvitationResponse
-  | BatchDisableStandardsResponse
-  | BatchEnableStandardsResponse
-  | BatchImportFindingsResponse
-  | CreateActionTargetResponse
-  | CreateInsightResponse
-  | CreateMembersResponse
-  | DeclineInvitationsResponse
-  | DeleteActionTargetResponse
-  | DeleteInsightResponse
-  | DeleteInvitationsResponse
-  | DeleteMembersResponse
-  | DescribeActionTargetsResponse
-  | DescribeHubResponse
-  | DescribeProductsResponse
-  | DescribeStandardsControlsResponse
-  | DisableImportFindingsForProductResponse
-  | DisableSecurityHubResponse
-  | DisassociateFromMasterAccountResponse
-  | DisassociateMembersResponse
-  | EnableImportFindingsForProductResponse
-  | EnableSecurityHubResponse
-  | GetEnabledStandardsResponse
-  | GetFindingsResponse
-  | GetInsightResultsResponse
-  | GetInsightsResponse
-  | GetInvitationsCountResponse
-  | GetMasterAccountResponse
-  | GetMembersResponse
-  | InviteMembersResponse
-  | ListEnabledProductsForImportResponse
-  | ListInvitationsResponse
-  | ListMembersResponse
-  | ListTagsForResourceResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateActionTargetResponse
-  | UpdateFindingsResponse
-  | UpdateInsightResponse
-  | UpdateStandardsControlResponse;
+  | AcceptInvitationCommandOutput
+  | BatchDisableStandardsCommandOutput
+  | BatchEnableStandardsCommandOutput
+  | BatchImportFindingsCommandOutput
+  | CreateActionTargetCommandOutput
+  | CreateInsightCommandOutput
+  | CreateMembersCommandOutput
+  | DeclineInvitationsCommandOutput
+  | DeleteActionTargetCommandOutput
+  | DeleteInsightCommandOutput
+  | DeleteInvitationsCommandOutput
+  | DeleteMembersCommandOutput
+  | DescribeActionTargetsCommandOutput
+  | DescribeHubCommandOutput
+  | DescribeProductsCommandOutput
+  | DescribeStandardsControlsCommandOutput
+  | DisableImportFindingsForProductCommandOutput
+  | DisableSecurityHubCommandOutput
+  | DisassociateFromMasterAccountCommandOutput
+  | DisassociateMembersCommandOutput
+  | EnableImportFindingsForProductCommandOutput
+  | EnableSecurityHubCommandOutput
+  | GetEnabledStandardsCommandOutput
+  | GetFindingsCommandOutput
+  | GetInsightResultsCommandOutput
+  | GetInsightsCommandOutput
+  | GetInvitationsCountCommandOutput
+  | GetMasterAccountCommandOutput
+  | GetMembersCommandOutput
+  | InviteMembersCommandOutput
+  | ListEnabledProductsForImportCommandOutput
+  | ListInvitationsCommandOutput
+  | ListMembersCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateActionTargetCommandOutput
+  | UpdateFindingsCommandOutput
+  | UpdateInsightCommandOutput
+  | UpdateStandardsControlCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

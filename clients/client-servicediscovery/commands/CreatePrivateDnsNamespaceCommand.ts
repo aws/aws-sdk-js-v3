@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePrivateDnsNamespaceCommandInput = CreatePrivateDnsNamespaceRequest;
-export type CreatePrivateDnsNamespaceCommandOutput = CreatePrivateDnsNamespaceResponse;
+export type CreatePrivateDnsNamespaceCommandOutput = CreatePrivateDnsNamespaceResponse &
+  __MetadataBearer;
 
 export class CreatePrivateDnsNamespaceCommand extends $Command<
   CreatePrivateDnsNamespaceCommandInput,

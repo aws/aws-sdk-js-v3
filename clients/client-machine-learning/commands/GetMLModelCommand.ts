@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMLModelCommandInput = GetMLModelInput;
-export type GetMLModelCommandOutput = GetMLModelOutput;
+export type GetMLModelCommandOutput = GetMLModelOutput & __MetadataBearer;
 
 export class GetMLModelCommand extends $Command<
   GetMLModelCommandInput,

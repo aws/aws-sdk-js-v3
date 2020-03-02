@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCommentCommandInput = CreateCommentRequest;
-export type CreateCommentCommandOutput = CreateCommentResponse;
+export type CreateCommentCommandOutput = CreateCommentResponse &
+  __MetadataBearer;
 
 export class CreateCommentCommand extends $Command<
   CreateCommentCommandInput,

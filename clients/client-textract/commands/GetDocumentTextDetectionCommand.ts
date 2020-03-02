@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDocumentTextDetectionCommandInput = GetDocumentTextDetectionRequest;
-export type GetDocumentTextDetectionCommandOutput = GetDocumentTextDetectionResponse;
+export type GetDocumentTextDetectionCommandOutput = GetDocumentTextDetectionResponse &
+  __MetadataBearer;
 
 export class GetDocumentTextDetectionCommand extends $Command<
   GetDocumentTextDetectionCommandInput,

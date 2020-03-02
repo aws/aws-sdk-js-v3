@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateFolderCommandInput = CreateFolderRequest;
-export type CreateFolderCommandOutput = CreateFolderResponse;
+export type CreateFolderCommandOutput = CreateFolderResponse & __MetadataBearer;
 
 export class CreateFolderCommand extends $Command<
   CreateFolderCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PublishVersionCommandInput = PublishVersionRequest;
-export type PublishVersionCommandOutput = FunctionConfiguration;
+export type PublishVersionCommandOutput = FunctionConfiguration &
+  __MetadataBearer;
 
 export class PublishVersionCommand extends $Command<
   PublishVersionCommandInput,

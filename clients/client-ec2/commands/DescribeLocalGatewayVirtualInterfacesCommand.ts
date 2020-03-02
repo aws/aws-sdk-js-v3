@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLocalGatewayVirtualInterfacesCommandInput = DescribeLocalGatewayVirtualInterfacesRequest;
-export type DescribeLocalGatewayVirtualInterfacesCommandOutput = DescribeLocalGatewayVirtualInterfacesResult;
+export type DescribeLocalGatewayVirtualInterfacesCommandOutput = DescribeLocalGatewayVirtualInterfacesResult &
+  __MetadataBearer;
 
 export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
   DescribeLocalGatewayVirtualInterfacesCommandInput,

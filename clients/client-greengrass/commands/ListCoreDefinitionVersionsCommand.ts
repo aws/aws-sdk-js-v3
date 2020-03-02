@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListCoreDefinitionVersionsCommandInput = ListCoreDefinitionVersionsRequest;
-export type ListCoreDefinitionVersionsCommandOutput = ListCoreDefinitionVersionsResponse;
+export type ListCoreDefinitionVersionsCommandOutput = ListCoreDefinitionVersionsResponse &
+  __MetadataBearer;
 
 export class ListCoreDefinitionVersionsCommand extends $Command<
   ListCoreDefinitionVersionsCommandInput,

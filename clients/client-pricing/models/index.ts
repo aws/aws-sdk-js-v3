@@ -58,7 +58,7 @@ export namespace DescribeServicesRequest {
   }
 }
 
-export interface DescribeServicesResponse extends $MetadataBearer {
+export interface DescribeServicesResponse {
   __type?: "DescribeServicesResponse";
   /**
    * <p>The format version of the response. For example, <code>aws_v1</code>.</p>
@@ -172,7 +172,7 @@ export namespace GetAttributeValuesRequest {
   }
 }
 
-export interface GetAttributeValuesResponse extends $MetadataBearer {
+export interface GetAttributeValuesResponse {
   __type?: "GetAttributeValuesResponse";
   /**
    * <p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and
@@ -230,7 +230,7 @@ export namespace GetProductsRequest {
   }
 }
 
-export interface GetProductsResponse extends $MetadataBearer {
+export interface GetProductsResponse {
   __type?: "GetProductsResponse";
   /**
    * <p>The format version of the response. For example, aws_v1.</p>

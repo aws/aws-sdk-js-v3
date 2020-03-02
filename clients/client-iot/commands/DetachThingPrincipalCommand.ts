@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachThingPrincipalCommandInput = DetachThingPrincipalRequest;
-export type DetachThingPrincipalCommandOutput = DetachThingPrincipalResponse;
+export type DetachThingPrincipalCommandOutput = DetachThingPrincipalResponse &
+  __MetadataBearer;
 
 export class DetachThingPrincipalCommand extends $Command<
   DetachThingPrincipalCommandInput,

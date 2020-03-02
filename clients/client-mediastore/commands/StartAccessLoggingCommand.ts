@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartAccessLoggingCommandInput = StartAccessLoggingInput;
-export type StartAccessLoggingCommandOutput = StartAccessLoggingOutput;
+export type StartAccessLoggingCommandOutput = StartAccessLoggingOutput &
+  __MetadataBearer;
 
 export class StartAccessLoggingCommand extends $Command<
   StartAccessLoggingCommandInput,

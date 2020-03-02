@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCloudFormationChangeSetCommandInput = CreateCloudFormationChangeSetRequest;
-export type CreateCloudFormationChangeSetCommandOutput = CreateCloudFormationChangeSetResponse;
+export type CreateCloudFormationChangeSetCommandOutput = CreateCloudFormationChangeSetResponse &
+  __MetadataBearer;
 
 export class CreateCloudFormationChangeSetCommand extends $Command<
   CreateCloudFormationChangeSetCommandInput,

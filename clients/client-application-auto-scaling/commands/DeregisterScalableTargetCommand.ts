@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterScalableTargetCommandInput = DeregisterScalableTargetRequest;
-export type DeregisterScalableTargetCommandOutput = DeregisterScalableTargetResponse;
+export type DeregisterScalableTargetCommandOutput = DeregisterScalableTargetResponse &
+  __MetadataBearer;
 
 export class DeregisterScalableTargetCommand extends $Command<
   DeregisterScalableTargetCommandInput,

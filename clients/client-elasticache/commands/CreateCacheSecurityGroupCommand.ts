@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCacheSecurityGroupCommandInput = CreateCacheSecurityGroupMessage;
-export type CreateCacheSecurityGroupCommandOutput = CreateCacheSecurityGroupResult;
+export type CreateCacheSecurityGroupCommandOutput = CreateCacheSecurityGroupResult &
+  __MetadataBearer;
 
 export class CreateCacheSecurityGroupCommand extends $Command<
   CreateCacheSecurityGroupCommandInput,

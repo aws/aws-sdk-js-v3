@@ -23,7 +23,7 @@ export namespace AddTagsToResourceRequest {
   }
 }
 
-export interface AddTagsToResourceResponse extends $MetadataBearer {
+export interface AddTagsToResourceResponse {
   __type?: "AddTagsToResourceResponse";
   /**
    * <p>The status of the operation.</p>
@@ -118,7 +118,7 @@ export namespace CreateHapgRequest {
 /**
  * <p>Contains the output of the <a>CreateHAPartitionGroup</a> action.</p>
  */
-export interface CreateHapgResponse extends $MetadataBearer {
+export interface CreateHapgResponse {
   __type?: "CreateHapgResponse";
   /**
    * <p>The ARN of the high-availability partition group.</p>
@@ -204,7 +204,7 @@ export namespace CreateHsmRequest {
 /**
  * <p>Contains the output of the <code>CreateHsm</code> operation.</p>
  */
-export interface CreateHsmResponse extends $MetadataBearer {
+export interface CreateHsmResponse {
   __type?: "CreateHsmResponse";
   /**
    * <p>The ARN of the HSM.</p>
@@ -244,7 +244,7 @@ export namespace CreateLunaClientRequest {
 /**
  * <p>Contains the output of the <a>CreateLunaClient</a> action.</p>
  */
-export interface CreateLunaClientResponse extends $MetadataBearer {
+export interface CreateLunaClientResponse {
   __type?: "CreateLunaClientResponse";
   /**
    * <p>The ARN of the client.</p>
@@ -278,7 +278,7 @@ export namespace DeleteHapgRequest {
 /**
  * <p>Contains the output of the <a>DeleteHapg</a> action.</p>
  */
-export interface DeleteHapgResponse extends $MetadataBearer {
+export interface DeleteHapgResponse {
   __type?: "DeleteHapgResponse";
   /**
    * <p>The status of the action.</p>
@@ -312,7 +312,7 @@ export namespace DeleteHsmRequest {
 /**
  * <p>Contains the output of the <a>DeleteHsm</a> operation.</p>
  */
-export interface DeleteHsmResponse extends $MetadataBearer {
+export interface DeleteHsmResponse {
   __type?: "DeleteHsmResponse";
   /**
    * <p>The status of the operation.</p>
@@ -340,7 +340,7 @@ export namespace DeleteLunaClientRequest {
   }
 }
 
-export interface DeleteLunaClientResponse extends $MetadataBearer {
+export interface DeleteLunaClientResponse {
   __type?: "DeleteLunaClientResponse";
   /**
    * <p>The status of the action.</p>
@@ -374,7 +374,7 @@ export namespace DescribeHapgRequest {
 /**
  * <p>Contains the output of the <a>DescribeHapg</a> action.</p>
  */
-export interface DescribeHapgResponse extends $MetadataBearer {
+export interface DescribeHapgResponse {
   __type?: "DescribeHapgResponse";
   /**
    * <p>The ARN of the high-availability partition group.</p>
@@ -456,7 +456,7 @@ export namespace DescribeHsmRequest {
 /**
  * <p>Contains the output of the <a>DescribeHsm</a> operation.</p>
  */
-export interface DescribeHsmResponse extends $MetadataBearer {
+export interface DescribeHsmResponse {
   __type?: "DescribeHsmResponse";
   /**
    * <p>The Availability Zone that the HSM is in.</p>
@@ -601,7 +601,7 @@ export namespace DescribeLunaClientRequest {
   }
 }
 
-export interface DescribeLunaClientResponse extends $MetadataBearer {
+export interface DescribeLunaClientResponse {
   __type?: "DescribeLunaClientResponse";
   /**
    * <p>The certificate installed on the HSMs used by this client.</p>
@@ -660,7 +660,7 @@ export namespace GetConfigRequest {
   }
 }
 
-export interface GetConfigResponse extends $MetadataBearer {
+export interface GetConfigResponse {
   __type?: "GetConfigResponse";
   /**
    * <p>The certificate file containing the server.pem files of the HSMs.</p>
@@ -732,7 +732,7 @@ export namespace ListAvailableZonesRequest {
   }
 }
 
-export interface ListAvailableZonesResponse extends $MetadataBearer {
+export interface ListAvailableZonesResponse {
   __type?: "ListAvailableZonesResponse";
   /**
    * <p>The list of Availability Zones that have available AWS CloudHSM capacity.</p>
@@ -761,7 +761,7 @@ export namespace ListHapgsRequest {
   }
 }
 
-export interface ListHapgsResponse extends $MetadataBearer {
+export interface ListHapgsResponse {
   __type?: "ListHapgsResponse";
   /**
    * <p>The list of high-availability partition groups.</p>
@@ -799,7 +799,7 @@ export namespace ListHsmsRequest {
 /**
  * <p>Contains the output of the <code>ListHsms</code> operation.</p>
  */
-export interface ListHsmsResponse extends $MetadataBearer {
+export interface ListHsmsResponse {
   __type?: "ListHsmsResponse";
   /**
    * <p>The list of ARNs that identify the HSMs.</p>
@@ -834,7 +834,7 @@ export namespace ListLunaClientsRequest {
   }
 }
 
-export interface ListLunaClientsResponse extends $MetadataBearer {
+export interface ListLunaClientsResponse {
   __type?: "ListLunaClientsResponse";
   /**
    * <p>The list of clients.</p>
@@ -868,7 +868,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>One or more tags.</p>
@@ -907,7 +907,7 @@ export namespace ModifyHapgRequest {
   }
 }
 
-export interface ModifyHapgResponse extends $MetadataBearer {
+export interface ModifyHapgResponse {
   __type?: "ModifyHapgResponse";
   /**
    * <p>The ARN of the high-availability partition group.</p>
@@ -971,7 +971,7 @@ export namespace ModifyHsmRequest {
 /**
  * <p>Contains the output of the <a>ModifyHsm</a> operation.</p>
  */
-export interface ModifyHsmResponse extends $MetadataBearer {
+export interface ModifyHsmResponse {
   __type?: "ModifyHsmResponse";
   /**
    * <p>The ARN of the HSM.</p>
@@ -1004,7 +1004,7 @@ export namespace ModifyLunaClientRequest {
   }
 }
 
-export interface ModifyLunaClientResponse extends $MetadataBearer {
+export interface ModifyLunaClientResponse {
   __type?: "ModifyLunaClientResponse";
   /**
    * <p>The ARN of the client.</p>
@@ -1039,7 +1039,7 @@ export namespace RemoveTagsFromResourceRequest {
   }
 }
 
-export interface RemoveTagsFromResourceResponse extends $MetadataBearer {
+export interface RemoveTagsFromResourceResponse {
   __type?: "RemoveTagsFromResourceResponse";
   /**
    * <p>The status of the operation.</p>

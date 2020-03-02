@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPhoneNumberCommandInput = GetPhoneNumberRequest;
-export type GetPhoneNumberCommandOutput = GetPhoneNumberResponse;
+export type GetPhoneNumberCommandOutput = GetPhoneNumberResponse &
+  __MetadataBearer;
 
 export class GetPhoneNumberCommand extends $Command<
   GetPhoneNumberCommandInput,

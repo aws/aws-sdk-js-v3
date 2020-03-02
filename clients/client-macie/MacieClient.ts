@@ -1,17 +1,31 @@
 import {
-  AssociateMemberAccountRequest,
-  AssociateS3ResourcesRequest,
-  AssociateS3ResourcesResult,
-  DisassociateMemberAccountRequest,
-  DisassociateS3ResourcesRequest,
-  DisassociateS3ResourcesResult,
-  ListMemberAccountsRequest,
-  ListMemberAccountsResult,
-  ListS3ResourcesRequest,
-  ListS3ResourcesResult,
-  UpdateS3ResourcesRequest,
-  UpdateS3ResourcesResult
-} from "./models/index";
+  AssociateMemberAccountCommandInput,
+  AssociateMemberAccountCommandOutput
+} from "./commands/AssociateMemberAccountCommand";
+import {
+  AssociateS3ResourcesCommandInput,
+  AssociateS3ResourcesCommandOutput
+} from "./commands/AssociateS3ResourcesCommand";
+import {
+  DisassociateMemberAccountCommandInput,
+  DisassociateMemberAccountCommandOutput
+} from "./commands/DisassociateMemberAccountCommand";
+import {
+  DisassociateS3ResourcesCommandInput,
+  DisassociateS3ResourcesCommandOutput
+} from "./commands/DisassociateS3ResourcesCommand";
+import {
+  ListMemberAccountsCommandInput,
+  ListMemberAccountsCommandOutput
+} from "./commands/ListMemberAccountsCommand";
+import {
+  ListS3ResourcesCommandInput,
+  ListS3ResourcesCommandOutput
+} from "./commands/ListS3ResourcesCommand";
+import {
+  UpdateS3ResourcesCommandInput,
+  UpdateS3ResourcesCommandOutput
+} from "./commands/UpdateS3ResourcesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -59,28 +73,28 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateMemberAccountRequest
-  | AssociateS3ResourcesRequest
-  | DisassociateMemberAccountRequest
-  | DisassociateS3ResourcesRequest
-  | ListMemberAccountsRequest
-  | ListS3ResourcesRequest
-  | UpdateS3ResourcesRequest;
+  | AssociateMemberAccountCommandInput
+  | AssociateS3ResourcesCommandInput
+  | DisassociateMemberAccountCommandInput
+  | DisassociateS3ResourcesCommandInput
+  | ListMemberAccountsCommandInput
+  | ListS3ResourcesCommandInput
+  | UpdateS3ResourcesCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AssociateS3ResourcesResult
-  | DisassociateS3ResourcesResult
-  | ListMemberAccountsResult
-  | ListS3ResourcesResult
-  | UpdateS3ResourcesResult;
+  | AssociateMemberAccountCommandOutput
+  | AssociateS3ResourcesCommandOutput
+  | DisassociateMemberAccountCommandOutput
+  | DisassociateS3ResourcesCommandOutput
+  | ListMemberAccountsCommandOutput
+  | ListS3ResourcesCommandOutput
+  | UpdateS3ResourcesCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

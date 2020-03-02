@@ -866,17 +866,23 @@ async function deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -932,17 +938,23 @@ async function deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -998,17 +1010,23 @@ async function deserializeAws_json1_0CountPendingActivityTasksCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1064,17 +1082,23 @@ async function deserializeAws_json1_0CountPendingDecisionTasksCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1126,24 +1150,33 @@ async function deserializeAws_json1_0DeprecateActivityTypeCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeDeprecatedFault":
     case "com.amazonaws.swf.base.model#TypeDeprecatedFault":
-      response = await deserializeAws_json1_0TypeDeprecatedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TypeDeprecatedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1192,24 +1225,33 @@ async function deserializeAws_json1_0DeprecateDomainCommandError(
   switch (errorCode) {
     case "DomainDeprecatedFault":
     case "com.amazonaws.swf.base.model#DomainDeprecatedFault":
-      response = await deserializeAws_json1_0DomainDeprecatedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0DomainDeprecatedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1261,24 +1303,33 @@ async function deserializeAws_json1_0DeprecateWorkflowTypeCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeDeprecatedFault":
     case "com.amazonaws.swf.base.model#TypeDeprecatedFault":
-      response = await deserializeAws_json1_0TypeDeprecatedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TypeDeprecatedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1334,17 +1385,23 @@ async function deserializeAws_json1_0DescribeActivityTypeCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1397,17 +1454,23 @@ async function deserializeAws_json1_0DescribeDomainCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1463,17 +1526,23 @@ async function deserializeAws_json1_0DescribeWorkflowExecutionCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1529,17 +1598,23 @@ async function deserializeAws_json1_0DescribeWorkflowTypeCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1595,17 +1670,23 @@ async function deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1658,17 +1739,23 @@ async function deserializeAws_json1_0ListActivityTypesCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1724,17 +1811,23 @@ async function deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1787,10 +1880,13 @@ async function deserializeAws_json1_0ListDomainsCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1846,17 +1942,23 @@ async function deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1912,24 +2014,33 @@ async function deserializeAws_json1_0ListTagsForResourceCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf.base.model#LimitExceededFault":
-      response = await deserializeAws_json1_0LimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1982,17 +2093,23 @@ async function deserializeAws_json1_0ListWorkflowTypesCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2048,24 +2165,33 @@ async function deserializeAws_json1_0PollForActivityTaskCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf.base.model#LimitExceededFault":
-      response = await deserializeAws_json1_0LimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2121,24 +2247,33 @@ async function deserializeAws_json1_0PollForDecisionTaskCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf.base.model#LimitExceededFault":
-      response = await deserializeAws_json1_0LimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2194,17 +2329,23 @@ async function deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2256,31 +2397,43 @@ async function deserializeAws_json1_0RegisterActivityTypeCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf.base.model#LimitExceededFault":
-      response = await deserializeAws_json1_0LimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeAlreadyExistsFault":
     case "com.amazonaws.swf.base.model#TypeAlreadyExistsFault":
-      response = await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2329,31 +2482,43 @@ async function deserializeAws_json1_0RegisterDomainCommandError(
   switch (errorCode) {
     case "DomainAlreadyExistsFault":
     case "com.amazonaws.swf.base.model#DomainAlreadyExistsFault":
-      response = await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "com.amazonaws.swf.base.model#LimitExceededFault":
-      response = await deserializeAws_json1_0LimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsFault":
     case "com.amazonaws.swf.base.model#TooManyTagsFault":
-      response = await deserializeAws_json1_0TooManyTagsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TooManyTagsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2405,31 +2570,43 @@ async function deserializeAws_json1_0RegisterWorkflowTypeCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf.base.model#LimitExceededFault":
-      response = await deserializeAws_json1_0LimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeAlreadyExistsFault":
     case "com.amazonaws.swf.base.model#TypeAlreadyExistsFault":
-      response = await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2481,17 +2658,23 @@ async function deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2543,17 +2726,23 @@ async function deserializeAws_json1_0RespondActivityTaskCanceledCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2605,17 +2794,23 @@ async function deserializeAws_json1_0RespondActivityTaskCompletedCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2667,17 +2862,23 @@ async function deserializeAws_json1_0RespondActivityTaskFailedCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2729,17 +2930,23 @@ async function deserializeAws_json1_0RespondDecisionTaskCompletedCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2791,17 +2998,23 @@ async function deserializeAws_json1_0SignalWorkflowExecutionCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2857,45 +3070,63 @@ async function deserializeAws_json1_0StartWorkflowExecutionCommandError(
   switch (errorCode) {
     case "DefaultUndefinedFault":
     case "com.amazonaws.swf.base.model#DefaultUndefinedFault":
-      response = await deserializeAws_json1_0DefaultUndefinedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0DefaultUndefinedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "com.amazonaws.swf.base.model#LimitExceededFault":
-      response = await deserializeAws_json1_0LimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeDeprecatedFault":
     case "com.amazonaws.swf.base.model#TypeDeprecatedFault":
-      response = await deserializeAws_json1_0TypeDeprecatedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TypeDeprecatedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WorkflowExecutionAlreadyStartedFault":
     case "com.amazonaws.swf.base.model#WorkflowExecutionAlreadyStartedFault":
-      response = await deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2944,31 +3175,43 @@ async function deserializeAws_json1_0TagResourceCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf.base.model#LimitExceededFault":
-      response = await deserializeAws_json1_0LimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsFault":
     case "com.amazonaws.swf.base.model#TooManyTagsFault":
-      response = await deserializeAws_json1_0TooManyTagsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TooManyTagsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3020,17 +3263,23 @@ async function deserializeAws_json1_0TerminateWorkflowExecutionCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3082,24 +3331,33 @@ async function deserializeAws_json1_0UndeprecateActivityTypeCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeAlreadyExistsFault":
     case "com.amazonaws.swf.base.model#TypeAlreadyExistsFault":
-      response = await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3148,24 +3406,33 @@ async function deserializeAws_json1_0UndeprecateDomainCommandError(
   switch (errorCode) {
     case "DomainAlreadyExistsFault":
     case "com.amazonaws.swf.base.model#DomainAlreadyExistsFault":
-      response = await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3217,24 +3484,33 @@ async function deserializeAws_json1_0UndeprecateWorkflowTypeCommandError(
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TypeAlreadyExistsFault":
     case "com.amazonaws.swf.base.model#TypeAlreadyExistsFault":
-      response = await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3283,24 +3559,33 @@ async function deserializeAws_json1_0UntagResourceCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf.base.model#LimitExceededFault":
-      response = await deserializeAws_json1_0LimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
-      response = await deserializeAws_json1_0OperationNotPermittedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceFault":
     case "com.amazonaws.swf.base.model#UnknownResourceFault":
-      response = await deserializeAws_json1_0UnknownResourceFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutRetentionConfigurationCommandInput = PutRetentionConfigurationRequest;
-export type PutRetentionConfigurationCommandOutput = PutRetentionConfigurationResponse;
+export type PutRetentionConfigurationCommandOutput = PutRetentionConfigurationResponse &
+  __MetadataBearer;
 
 export class PutRetentionConfigurationCommand extends $Command<
   PutRetentionConfigurationCommandInput,

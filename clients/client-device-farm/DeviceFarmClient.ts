@@ -1,159 +1,311 @@
 import {
-  CreateDevicePoolRequest,
-  CreateDevicePoolResult,
-  CreateInstanceProfileRequest,
-  CreateInstanceProfileResult,
-  CreateNetworkProfileRequest,
-  CreateNetworkProfileResult,
-  CreateProjectRequest,
-  CreateProjectResult,
-  CreateRemoteAccessSessionRequest,
-  CreateRemoteAccessSessionResult,
-  CreateTestGridProjectRequest,
-  CreateTestGridProjectResult,
-  CreateTestGridUrlRequest,
-  CreateTestGridUrlResult,
-  CreateUploadRequest,
-  CreateUploadResult,
-  CreateVPCEConfigurationRequest,
-  CreateVPCEConfigurationResult,
-  DeleteDevicePoolRequest,
-  DeleteDevicePoolResult,
-  DeleteInstanceProfileRequest,
-  DeleteInstanceProfileResult,
-  DeleteNetworkProfileRequest,
-  DeleteNetworkProfileResult,
-  DeleteProjectRequest,
-  DeleteProjectResult,
-  DeleteRemoteAccessSessionRequest,
-  DeleteRemoteAccessSessionResult,
-  DeleteRunRequest,
-  DeleteRunResult,
-  DeleteTestGridProjectRequest,
-  DeleteTestGridProjectResult,
-  DeleteUploadRequest,
-  DeleteUploadResult,
-  DeleteVPCEConfigurationRequest,
-  DeleteVPCEConfigurationResult,
-  GetAccountSettingsRequest,
-  GetAccountSettingsResult,
-  GetDeviceInstanceRequest,
-  GetDeviceInstanceResult,
-  GetDevicePoolCompatibilityRequest,
-  GetDevicePoolCompatibilityResult,
-  GetDevicePoolRequest,
-  GetDevicePoolResult,
-  GetDeviceRequest,
-  GetDeviceResult,
-  GetInstanceProfileRequest,
-  GetInstanceProfileResult,
-  GetJobRequest,
-  GetJobResult,
-  GetNetworkProfileRequest,
-  GetNetworkProfileResult,
-  GetOfferingStatusRequest,
-  GetOfferingStatusResult,
-  GetProjectRequest,
-  GetProjectResult,
-  GetRemoteAccessSessionRequest,
-  GetRemoteAccessSessionResult,
-  GetRunRequest,
-  GetRunResult,
-  GetSuiteRequest,
-  GetSuiteResult,
-  GetTestGridProjectRequest,
-  GetTestGridProjectResult,
-  GetTestGridSessionRequest,
-  GetTestGridSessionResult,
-  GetTestRequest,
-  GetTestResult,
-  GetUploadRequest,
-  GetUploadResult,
-  GetVPCEConfigurationRequest,
-  GetVPCEConfigurationResult,
-  InstallToRemoteAccessSessionRequest,
-  InstallToRemoteAccessSessionResult,
-  ListArtifactsRequest,
-  ListArtifactsResult,
-  ListDeviceInstancesRequest,
-  ListDeviceInstancesResult,
-  ListDevicePoolsRequest,
-  ListDevicePoolsResult,
-  ListDevicesRequest,
-  ListDevicesResult,
-  ListInstanceProfilesRequest,
-  ListInstanceProfilesResult,
-  ListJobsRequest,
-  ListJobsResult,
-  ListNetworkProfilesRequest,
-  ListNetworkProfilesResult,
-  ListOfferingPromotionsRequest,
-  ListOfferingPromotionsResult,
-  ListOfferingTransactionsRequest,
-  ListOfferingTransactionsResult,
-  ListOfferingsRequest,
-  ListOfferingsResult,
-  ListProjectsRequest,
-  ListProjectsResult,
-  ListRemoteAccessSessionsRequest,
-  ListRemoteAccessSessionsResult,
-  ListRunsRequest,
-  ListRunsResult,
-  ListSamplesRequest,
-  ListSamplesResult,
-  ListSuitesRequest,
-  ListSuitesResult,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTestGridProjectsRequest,
-  ListTestGridProjectsResult,
-  ListTestGridSessionActionsRequest,
-  ListTestGridSessionActionsResult,
-  ListTestGridSessionArtifactsRequest,
-  ListTestGridSessionArtifactsResult,
-  ListTestGridSessionsRequest,
-  ListTestGridSessionsResult,
-  ListTestsRequest,
-  ListTestsResult,
-  ListUniqueProblemsRequest,
-  ListUniqueProblemsResult,
-  ListUploadsRequest,
-  ListUploadsResult,
-  ListVPCEConfigurationsRequest,
-  ListVPCEConfigurationsResult,
-  PurchaseOfferingRequest,
-  PurchaseOfferingResult,
-  RenewOfferingRequest,
-  RenewOfferingResult,
-  ScheduleRunRequest,
-  ScheduleRunResult,
-  StopJobRequest,
-  StopJobResult,
-  StopRemoteAccessSessionRequest,
-  StopRemoteAccessSessionResult,
-  StopRunRequest,
-  StopRunResult,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateDeviceInstanceRequest,
-  UpdateDeviceInstanceResult,
-  UpdateDevicePoolRequest,
-  UpdateDevicePoolResult,
-  UpdateInstanceProfileRequest,
-  UpdateInstanceProfileResult,
-  UpdateNetworkProfileRequest,
-  UpdateNetworkProfileResult,
-  UpdateProjectRequest,
-  UpdateProjectResult,
-  UpdateTestGridProjectRequest,
-  UpdateTestGridProjectResult,
-  UpdateUploadRequest,
-  UpdateUploadResult,
-  UpdateVPCEConfigurationRequest,
-  UpdateVPCEConfigurationResult
-} from "./models/index";
+  CreateDevicePoolCommandInput,
+  CreateDevicePoolCommandOutput
+} from "./commands/CreateDevicePoolCommand";
+import {
+  CreateInstanceProfileCommandInput,
+  CreateInstanceProfileCommandOutput
+} from "./commands/CreateInstanceProfileCommand";
+import {
+  CreateNetworkProfileCommandInput,
+  CreateNetworkProfileCommandOutput
+} from "./commands/CreateNetworkProfileCommand";
+import {
+  CreateProjectCommandInput,
+  CreateProjectCommandOutput
+} from "./commands/CreateProjectCommand";
+import {
+  CreateRemoteAccessSessionCommandInput,
+  CreateRemoteAccessSessionCommandOutput
+} from "./commands/CreateRemoteAccessSessionCommand";
+import {
+  CreateTestGridProjectCommandInput,
+  CreateTestGridProjectCommandOutput
+} from "./commands/CreateTestGridProjectCommand";
+import {
+  CreateTestGridUrlCommandInput,
+  CreateTestGridUrlCommandOutput
+} from "./commands/CreateTestGridUrlCommand";
+import {
+  CreateUploadCommandInput,
+  CreateUploadCommandOutput
+} from "./commands/CreateUploadCommand";
+import {
+  CreateVPCEConfigurationCommandInput,
+  CreateVPCEConfigurationCommandOutput
+} from "./commands/CreateVPCEConfigurationCommand";
+import {
+  DeleteDevicePoolCommandInput,
+  DeleteDevicePoolCommandOutput
+} from "./commands/DeleteDevicePoolCommand";
+import {
+  DeleteInstanceProfileCommandInput,
+  DeleteInstanceProfileCommandOutput
+} from "./commands/DeleteInstanceProfileCommand";
+import {
+  DeleteNetworkProfileCommandInput,
+  DeleteNetworkProfileCommandOutput
+} from "./commands/DeleteNetworkProfileCommand";
+import {
+  DeleteProjectCommandInput,
+  DeleteProjectCommandOutput
+} from "./commands/DeleteProjectCommand";
+import {
+  DeleteRemoteAccessSessionCommandInput,
+  DeleteRemoteAccessSessionCommandOutput
+} from "./commands/DeleteRemoteAccessSessionCommand";
+import {
+  DeleteRunCommandInput,
+  DeleteRunCommandOutput
+} from "./commands/DeleteRunCommand";
+import {
+  DeleteTestGridProjectCommandInput,
+  DeleteTestGridProjectCommandOutput
+} from "./commands/DeleteTestGridProjectCommand";
+import {
+  DeleteUploadCommandInput,
+  DeleteUploadCommandOutput
+} from "./commands/DeleteUploadCommand";
+import {
+  DeleteVPCEConfigurationCommandInput,
+  DeleteVPCEConfigurationCommandOutput
+} from "./commands/DeleteVPCEConfigurationCommand";
+import {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput
+} from "./commands/GetAccountSettingsCommand";
+import {
+  GetDeviceCommandInput,
+  GetDeviceCommandOutput
+} from "./commands/GetDeviceCommand";
+import {
+  GetDeviceInstanceCommandInput,
+  GetDeviceInstanceCommandOutput
+} from "./commands/GetDeviceInstanceCommand";
+import {
+  GetDevicePoolCommandInput,
+  GetDevicePoolCommandOutput
+} from "./commands/GetDevicePoolCommand";
+import {
+  GetDevicePoolCompatibilityCommandInput,
+  GetDevicePoolCompatibilityCommandOutput
+} from "./commands/GetDevicePoolCompatibilityCommand";
+import {
+  GetInstanceProfileCommandInput,
+  GetInstanceProfileCommandOutput
+} from "./commands/GetInstanceProfileCommand";
+import {
+  GetJobCommandInput,
+  GetJobCommandOutput
+} from "./commands/GetJobCommand";
+import {
+  GetNetworkProfileCommandInput,
+  GetNetworkProfileCommandOutput
+} from "./commands/GetNetworkProfileCommand";
+import {
+  GetOfferingStatusCommandInput,
+  GetOfferingStatusCommandOutput
+} from "./commands/GetOfferingStatusCommand";
+import {
+  GetProjectCommandInput,
+  GetProjectCommandOutput
+} from "./commands/GetProjectCommand";
+import {
+  GetRemoteAccessSessionCommandInput,
+  GetRemoteAccessSessionCommandOutput
+} from "./commands/GetRemoteAccessSessionCommand";
+import {
+  GetRunCommandInput,
+  GetRunCommandOutput
+} from "./commands/GetRunCommand";
+import {
+  GetSuiteCommandInput,
+  GetSuiteCommandOutput
+} from "./commands/GetSuiteCommand";
+import {
+  GetTestCommandInput,
+  GetTestCommandOutput
+} from "./commands/GetTestCommand";
+import {
+  GetTestGridProjectCommandInput,
+  GetTestGridProjectCommandOutput
+} from "./commands/GetTestGridProjectCommand";
+import {
+  GetTestGridSessionCommandInput,
+  GetTestGridSessionCommandOutput
+} from "./commands/GetTestGridSessionCommand";
+import {
+  GetUploadCommandInput,
+  GetUploadCommandOutput
+} from "./commands/GetUploadCommand";
+import {
+  GetVPCEConfigurationCommandInput,
+  GetVPCEConfigurationCommandOutput
+} from "./commands/GetVPCEConfigurationCommand";
+import {
+  InstallToRemoteAccessSessionCommandInput,
+  InstallToRemoteAccessSessionCommandOutput
+} from "./commands/InstallToRemoteAccessSessionCommand";
+import {
+  ListArtifactsCommandInput,
+  ListArtifactsCommandOutput
+} from "./commands/ListArtifactsCommand";
+import {
+  ListDeviceInstancesCommandInput,
+  ListDeviceInstancesCommandOutput
+} from "./commands/ListDeviceInstancesCommand";
+import {
+  ListDevicePoolsCommandInput,
+  ListDevicePoolsCommandOutput
+} from "./commands/ListDevicePoolsCommand";
+import {
+  ListDevicesCommandInput,
+  ListDevicesCommandOutput
+} from "./commands/ListDevicesCommand";
+import {
+  ListInstanceProfilesCommandInput,
+  ListInstanceProfilesCommandOutput
+} from "./commands/ListInstanceProfilesCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  ListNetworkProfilesCommandInput,
+  ListNetworkProfilesCommandOutput
+} from "./commands/ListNetworkProfilesCommand";
+import {
+  ListOfferingPromotionsCommandInput,
+  ListOfferingPromotionsCommandOutput
+} from "./commands/ListOfferingPromotionsCommand";
+import {
+  ListOfferingTransactionsCommandInput,
+  ListOfferingTransactionsCommandOutput
+} from "./commands/ListOfferingTransactionsCommand";
+import {
+  ListOfferingsCommandInput,
+  ListOfferingsCommandOutput
+} from "./commands/ListOfferingsCommand";
+import {
+  ListProjectsCommandInput,
+  ListProjectsCommandOutput
+} from "./commands/ListProjectsCommand";
+import {
+  ListRemoteAccessSessionsCommandInput,
+  ListRemoteAccessSessionsCommandOutput
+} from "./commands/ListRemoteAccessSessionsCommand";
+import {
+  ListRunsCommandInput,
+  ListRunsCommandOutput
+} from "./commands/ListRunsCommand";
+import {
+  ListSamplesCommandInput,
+  ListSamplesCommandOutput
+} from "./commands/ListSamplesCommand";
+import {
+  ListSuitesCommandInput,
+  ListSuitesCommandOutput
+} from "./commands/ListSuitesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTestGridProjectsCommandInput,
+  ListTestGridProjectsCommandOutput
+} from "./commands/ListTestGridProjectsCommand";
+import {
+  ListTestGridSessionActionsCommandInput,
+  ListTestGridSessionActionsCommandOutput
+} from "./commands/ListTestGridSessionActionsCommand";
+import {
+  ListTestGridSessionArtifactsCommandInput,
+  ListTestGridSessionArtifactsCommandOutput
+} from "./commands/ListTestGridSessionArtifactsCommand";
+import {
+  ListTestGridSessionsCommandInput,
+  ListTestGridSessionsCommandOutput
+} from "./commands/ListTestGridSessionsCommand";
+import {
+  ListTestsCommandInput,
+  ListTestsCommandOutput
+} from "./commands/ListTestsCommand";
+import {
+  ListUniqueProblemsCommandInput,
+  ListUniqueProblemsCommandOutput
+} from "./commands/ListUniqueProblemsCommand";
+import {
+  ListUploadsCommandInput,
+  ListUploadsCommandOutput
+} from "./commands/ListUploadsCommand";
+import {
+  ListVPCEConfigurationsCommandInput,
+  ListVPCEConfigurationsCommandOutput
+} from "./commands/ListVPCEConfigurationsCommand";
+import {
+  PurchaseOfferingCommandInput,
+  PurchaseOfferingCommandOutput
+} from "./commands/PurchaseOfferingCommand";
+import {
+  RenewOfferingCommandInput,
+  RenewOfferingCommandOutput
+} from "./commands/RenewOfferingCommand";
+import {
+  ScheduleRunCommandInput,
+  ScheduleRunCommandOutput
+} from "./commands/ScheduleRunCommand";
+import {
+  StopJobCommandInput,
+  StopJobCommandOutput
+} from "./commands/StopJobCommand";
+import {
+  StopRemoteAccessSessionCommandInput,
+  StopRemoteAccessSessionCommandOutput
+} from "./commands/StopRemoteAccessSessionCommand";
+import {
+  StopRunCommandInput,
+  StopRunCommandOutput
+} from "./commands/StopRunCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDeviceInstanceCommandInput,
+  UpdateDeviceInstanceCommandOutput
+} from "./commands/UpdateDeviceInstanceCommand";
+import {
+  UpdateDevicePoolCommandInput,
+  UpdateDevicePoolCommandOutput
+} from "./commands/UpdateDevicePoolCommand";
+import {
+  UpdateInstanceProfileCommandInput,
+  UpdateInstanceProfileCommandOutput
+} from "./commands/UpdateInstanceProfileCommand";
+import {
+  UpdateNetworkProfileCommandInput,
+  UpdateNetworkProfileCommandOutput
+} from "./commands/UpdateNetworkProfileCommand";
+import {
+  UpdateProjectCommandInput,
+  UpdateProjectCommandOutput
+} from "./commands/UpdateProjectCommand";
+import {
+  UpdateTestGridProjectCommandInput,
+  UpdateTestGridProjectCommandOutput
+} from "./commands/UpdateTestGridProjectCommand";
+import {
+  UpdateUploadCommandInput,
+  UpdateUploadCommandOutput
+} from "./commands/UpdateUploadCommand";
+import {
+  UpdateVPCEConfigurationCommandInput,
+  UpdateVPCEConfigurationCommandOutput
+} from "./commands/UpdateVPCEConfigurationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -207,162 +359,162 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateDevicePoolRequest
-  | CreateInstanceProfileRequest
-  | CreateNetworkProfileRequest
-  | CreateProjectRequest
-  | CreateRemoteAccessSessionRequest
-  | CreateTestGridProjectRequest
-  | CreateTestGridUrlRequest
-  | CreateUploadRequest
-  | CreateVPCEConfigurationRequest
-  | DeleteDevicePoolRequest
-  | DeleteInstanceProfileRequest
-  | DeleteNetworkProfileRequest
-  | DeleteProjectRequest
-  | DeleteRemoteAccessSessionRequest
-  | DeleteRunRequest
-  | DeleteTestGridProjectRequest
-  | DeleteUploadRequest
-  | DeleteVPCEConfigurationRequest
-  | GetAccountSettingsRequest
-  | GetDeviceInstanceRequest
-  | GetDevicePoolCompatibilityRequest
-  | GetDevicePoolRequest
-  | GetDeviceRequest
-  | GetInstanceProfileRequest
-  | GetJobRequest
-  | GetNetworkProfileRequest
-  | GetOfferingStatusRequest
-  | GetProjectRequest
-  | GetRemoteAccessSessionRequest
-  | GetRunRequest
-  | GetSuiteRequest
-  | GetTestGridProjectRequest
-  | GetTestGridSessionRequest
-  | GetTestRequest
-  | GetUploadRequest
-  | GetVPCEConfigurationRequest
-  | InstallToRemoteAccessSessionRequest
-  | ListArtifactsRequest
-  | ListDeviceInstancesRequest
-  | ListDevicePoolsRequest
-  | ListDevicesRequest
-  | ListInstanceProfilesRequest
-  | ListJobsRequest
-  | ListNetworkProfilesRequest
-  | ListOfferingPromotionsRequest
-  | ListOfferingTransactionsRequest
-  | ListOfferingsRequest
-  | ListProjectsRequest
-  | ListRemoteAccessSessionsRequest
-  | ListRunsRequest
-  | ListSamplesRequest
-  | ListSuitesRequest
-  | ListTagsForResourceRequest
-  | ListTestGridProjectsRequest
-  | ListTestGridSessionActionsRequest
-  | ListTestGridSessionArtifactsRequest
-  | ListTestGridSessionsRequest
-  | ListTestsRequest
-  | ListUniqueProblemsRequest
-  | ListUploadsRequest
-  | ListVPCEConfigurationsRequest
-  | PurchaseOfferingRequest
-  | RenewOfferingRequest
-  | ScheduleRunRequest
-  | StopJobRequest
-  | StopRemoteAccessSessionRequest
-  | StopRunRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateDeviceInstanceRequest
-  | UpdateDevicePoolRequest
-  | UpdateInstanceProfileRequest
-  | UpdateNetworkProfileRequest
-  | UpdateProjectRequest
-  | UpdateTestGridProjectRequest
-  | UpdateUploadRequest
-  | UpdateVPCEConfigurationRequest;
+  | CreateDevicePoolCommandInput
+  | CreateInstanceProfileCommandInput
+  | CreateNetworkProfileCommandInput
+  | CreateProjectCommandInput
+  | CreateRemoteAccessSessionCommandInput
+  | CreateTestGridProjectCommandInput
+  | CreateTestGridUrlCommandInput
+  | CreateUploadCommandInput
+  | CreateVPCEConfigurationCommandInput
+  | DeleteDevicePoolCommandInput
+  | DeleteInstanceProfileCommandInput
+  | DeleteNetworkProfileCommandInput
+  | DeleteProjectCommandInput
+  | DeleteRemoteAccessSessionCommandInput
+  | DeleteRunCommandInput
+  | DeleteTestGridProjectCommandInput
+  | DeleteUploadCommandInput
+  | DeleteVPCEConfigurationCommandInput
+  | GetAccountSettingsCommandInput
+  | GetDeviceCommandInput
+  | GetDeviceInstanceCommandInput
+  | GetDevicePoolCommandInput
+  | GetDevicePoolCompatibilityCommandInput
+  | GetInstanceProfileCommandInput
+  | GetJobCommandInput
+  | GetNetworkProfileCommandInput
+  | GetOfferingStatusCommandInput
+  | GetProjectCommandInput
+  | GetRemoteAccessSessionCommandInput
+  | GetRunCommandInput
+  | GetSuiteCommandInput
+  | GetTestCommandInput
+  | GetTestGridProjectCommandInput
+  | GetTestGridSessionCommandInput
+  | GetUploadCommandInput
+  | GetVPCEConfigurationCommandInput
+  | InstallToRemoteAccessSessionCommandInput
+  | ListArtifactsCommandInput
+  | ListDeviceInstancesCommandInput
+  | ListDevicePoolsCommandInput
+  | ListDevicesCommandInput
+  | ListInstanceProfilesCommandInput
+  | ListJobsCommandInput
+  | ListNetworkProfilesCommandInput
+  | ListOfferingPromotionsCommandInput
+  | ListOfferingTransactionsCommandInput
+  | ListOfferingsCommandInput
+  | ListProjectsCommandInput
+  | ListRemoteAccessSessionsCommandInput
+  | ListRunsCommandInput
+  | ListSamplesCommandInput
+  | ListSuitesCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTestGridProjectsCommandInput
+  | ListTestGridSessionActionsCommandInput
+  | ListTestGridSessionArtifactsCommandInput
+  | ListTestGridSessionsCommandInput
+  | ListTestsCommandInput
+  | ListUniqueProblemsCommandInput
+  | ListUploadsCommandInput
+  | ListVPCEConfigurationsCommandInput
+  | PurchaseOfferingCommandInput
+  | RenewOfferingCommandInput
+  | ScheduleRunCommandInput
+  | StopJobCommandInput
+  | StopRemoteAccessSessionCommandInput
+  | StopRunCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateDeviceInstanceCommandInput
+  | UpdateDevicePoolCommandInput
+  | UpdateInstanceProfileCommandInput
+  | UpdateNetworkProfileCommandInput
+  | UpdateProjectCommandInput
+  | UpdateTestGridProjectCommandInput
+  | UpdateUploadCommandInput
+  | UpdateVPCEConfigurationCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateDevicePoolResult
-  | CreateInstanceProfileResult
-  | CreateNetworkProfileResult
-  | CreateProjectResult
-  | CreateRemoteAccessSessionResult
-  | CreateTestGridProjectResult
-  | CreateTestGridUrlResult
-  | CreateUploadResult
-  | CreateVPCEConfigurationResult
-  | DeleteDevicePoolResult
-  | DeleteInstanceProfileResult
-  | DeleteNetworkProfileResult
-  | DeleteProjectResult
-  | DeleteRemoteAccessSessionResult
-  | DeleteRunResult
-  | DeleteTestGridProjectResult
-  | DeleteUploadResult
-  | DeleteVPCEConfigurationResult
-  | GetAccountSettingsResult
-  | GetDeviceInstanceResult
-  | GetDevicePoolCompatibilityResult
-  | GetDevicePoolResult
-  | GetDeviceResult
-  | GetInstanceProfileResult
-  | GetJobResult
-  | GetNetworkProfileResult
-  | GetOfferingStatusResult
-  | GetProjectResult
-  | GetRemoteAccessSessionResult
-  | GetRunResult
-  | GetSuiteResult
-  | GetTestGridProjectResult
-  | GetTestGridSessionResult
-  | GetTestResult
-  | GetUploadResult
-  | GetVPCEConfigurationResult
-  | InstallToRemoteAccessSessionResult
-  | ListArtifactsResult
-  | ListDeviceInstancesResult
-  | ListDevicePoolsResult
-  | ListDevicesResult
-  | ListInstanceProfilesResult
-  | ListJobsResult
-  | ListNetworkProfilesResult
-  | ListOfferingPromotionsResult
-  | ListOfferingTransactionsResult
-  | ListOfferingsResult
-  | ListProjectsResult
-  | ListRemoteAccessSessionsResult
-  | ListRunsResult
-  | ListSamplesResult
-  | ListSuitesResult
-  | ListTagsForResourceResponse
-  | ListTestGridProjectsResult
-  | ListTestGridSessionActionsResult
-  | ListTestGridSessionArtifactsResult
-  | ListTestGridSessionsResult
-  | ListTestsResult
-  | ListUniqueProblemsResult
-  | ListUploadsResult
-  | ListVPCEConfigurationsResult
-  | PurchaseOfferingResult
-  | RenewOfferingResult
-  | ScheduleRunResult
-  | StopJobResult
-  | StopRemoteAccessSessionResult
-  | StopRunResult
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateDeviceInstanceResult
-  | UpdateDevicePoolResult
-  | UpdateInstanceProfileResult
-  | UpdateNetworkProfileResult
-  | UpdateProjectResult
-  | UpdateTestGridProjectResult
-  | UpdateUploadResult
-  | UpdateVPCEConfigurationResult;
+  | CreateDevicePoolCommandOutput
+  | CreateInstanceProfileCommandOutput
+  | CreateNetworkProfileCommandOutput
+  | CreateProjectCommandOutput
+  | CreateRemoteAccessSessionCommandOutput
+  | CreateTestGridProjectCommandOutput
+  | CreateTestGridUrlCommandOutput
+  | CreateUploadCommandOutput
+  | CreateVPCEConfigurationCommandOutput
+  | DeleteDevicePoolCommandOutput
+  | DeleteInstanceProfileCommandOutput
+  | DeleteNetworkProfileCommandOutput
+  | DeleteProjectCommandOutput
+  | DeleteRemoteAccessSessionCommandOutput
+  | DeleteRunCommandOutput
+  | DeleteTestGridProjectCommandOutput
+  | DeleteUploadCommandOutput
+  | DeleteVPCEConfigurationCommandOutput
+  | GetAccountSettingsCommandOutput
+  | GetDeviceCommandOutput
+  | GetDeviceInstanceCommandOutput
+  | GetDevicePoolCommandOutput
+  | GetDevicePoolCompatibilityCommandOutput
+  | GetInstanceProfileCommandOutput
+  | GetJobCommandOutput
+  | GetNetworkProfileCommandOutput
+  | GetOfferingStatusCommandOutput
+  | GetProjectCommandOutput
+  | GetRemoteAccessSessionCommandOutput
+  | GetRunCommandOutput
+  | GetSuiteCommandOutput
+  | GetTestCommandOutput
+  | GetTestGridProjectCommandOutput
+  | GetTestGridSessionCommandOutput
+  | GetUploadCommandOutput
+  | GetVPCEConfigurationCommandOutput
+  | InstallToRemoteAccessSessionCommandOutput
+  | ListArtifactsCommandOutput
+  | ListDeviceInstancesCommandOutput
+  | ListDevicePoolsCommandOutput
+  | ListDevicesCommandOutput
+  | ListInstanceProfilesCommandOutput
+  | ListJobsCommandOutput
+  | ListNetworkProfilesCommandOutput
+  | ListOfferingPromotionsCommandOutput
+  | ListOfferingTransactionsCommandOutput
+  | ListOfferingsCommandOutput
+  | ListProjectsCommandOutput
+  | ListRemoteAccessSessionsCommandOutput
+  | ListRunsCommandOutput
+  | ListSamplesCommandOutput
+  | ListSuitesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTestGridProjectsCommandOutput
+  | ListTestGridSessionActionsCommandOutput
+  | ListTestGridSessionArtifactsCommandOutput
+  | ListTestGridSessionsCommandOutput
+  | ListTestsCommandOutput
+  | ListUniqueProblemsCommandOutput
+  | ListUploadsCommandOutput
+  | ListVPCEConfigurationsCommandOutput
+  | PurchaseOfferingCommandOutput
+  | RenewOfferingCommandOutput
+  | ScheduleRunCommandOutput
+  | StopJobCommandOutput
+  | StopRemoteAccessSessionCommandOutput
+  | StopRunCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDeviceInstanceCommandOutput
+  | UpdateDevicePoolCommandOutput
+  | UpdateInstanceProfileCommandOutput
+  | UpdateNetworkProfileCommandOutput
+  | UpdateProjectCommandOutput
+  | UpdateTestGridProjectCommandOutput
+  | UpdateUploadCommandOutput
+  | UpdateVPCEConfigurationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

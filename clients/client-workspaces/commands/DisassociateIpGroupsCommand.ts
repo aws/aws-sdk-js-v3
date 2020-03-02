@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateIpGroupsCommandInput = DisassociateIpGroupsRequest;
-export type DisassociateIpGroupsCommandOutput = DisassociateIpGroupsResult;
+export type DisassociateIpGroupsCommandOutput = DisassociateIpGroupsResult &
+  __MetadataBearer;
 
 export class DisassociateIpGroupsCommand extends $Command<
   DisassociateIpGroupsCommandInput,

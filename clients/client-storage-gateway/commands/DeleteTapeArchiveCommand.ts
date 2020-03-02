@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTapeArchiveCommandInput = DeleteTapeArchiveInput;
-export type DeleteTapeArchiveCommandOutput = DeleteTapeArchiveOutput;
+export type DeleteTapeArchiveCommandOutput = DeleteTapeArchiveOutput &
+  __MetadataBearer;
 
 export class DeleteTapeArchiveCommand extends $Command<
   DeleteTapeArchiveCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDatasetImportJobCommandInput = DescribeDatasetImportJobRequest;
-export type DescribeDatasetImportJobCommandOutput = DescribeDatasetImportJobResponse;
+export type DescribeDatasetImportJobCommandOutput = DescribeDatasetImportJobResponse &
+  __MetadataBearer;
 
 export class DescribeDatasetImportJobCommand extends $Command<
   DescribeDatasetImportJobCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type LogoutUserCommandInput = LogoutUserRequest;
-export type LogoutUserCommandOutput = LogoutUserResponse;
+export type LogoutUserCommandOutput = LogoutUserResponse & __MetadataBearer;
 
 export class LogoutUserCommand extends $Command<
   LogoutUserCommandInput,

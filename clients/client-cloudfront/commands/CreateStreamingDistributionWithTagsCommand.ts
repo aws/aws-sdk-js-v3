@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateStreamingDistributionWithTagsCommandInput = CreateStreamingDistributionWithTagsRequest;
-export type CreateStreamingDistributionWithTagsCommandOutput = CreateStreamingDistributionWithTagsResult;
+export type CreateStreamingDistributionWithTagsCommandOutput = CreateStreamingDistributionWithTagsResult &
+  __MetadataBearer;
 
 export class CreateStreamingDistributionWithTagsCommand extends $Command<
   CreateStreamingDistributionWithTagsCommandInput,

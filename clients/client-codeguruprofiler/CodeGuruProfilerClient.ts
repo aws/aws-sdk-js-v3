@@ -1,23 +1,39 @@
 import {
-  ConfigureAgentRequest,
-  ConfigureAgentResponse,
-  CreateProfilingGroupRequest,
-  CreateProfilingGroupResponse,
-  DeleteProfilingGroupRequest,
-  DeleteProfilingGroupResponse,
-  DescribeProfilingGroupRequest,
-  DescribeProfilingGroupResponse,
-  GetProfileRequest,
-  GetProfileResponse,
-  ListProfileTimesRequest,
-  ListProfileTimesResponse,
-  ListProfilingGroupsRequest,
-  ListProfilingGroupsResponse,
-  PostAgentProfileRequest,
-  PostAgentProfileResponse,
-  UpdateProfilingGroupRequest,
-  UpdateProfilingGroupResponse
-} from "./models/index";
+  ConfigureAgentCommandInput,
+  ConfigureAgentCommandOutput
+} from "./commands/ConfigureAgentCommand";
+import {
+  CreateProfilingGroupCommandInput,
+  CreateProfilingGroupCommandOutput
+} from "./commands/CreateProfilingGroupCommand";
+import {
+  DeleteProfilingGroupCommandInput,
+  DeleteProfilingGroupCommandOutput
+} from "./commands/DeleteProfilingGroupCommand";
+import {
+  DescribeProfilingGroupCommandInput,
+  DescribeProfilingGroupCommandOutput
+} from "./commands/DescribeProfilingGroupCommand";
+import {
+  GetProfileCommandInput,
+  GetProfileCommandOutput
+} from "./commands/GetProfileCommand";
+import {
+  ListProfileTimesCommandInput,
+  ListProfileTimesCommandOutput
+} from "./commands/ListProfileTimesCommand";
+import {
+  ListProfilingGroupsCommandInput,
+  ListProfilingGroupsCommandOutput
+} from "./commands/ListProfilingGroupsCommand";
+import {
+  PostAgentProfileCommandInput,
+  PostAgentProfileCommandOutput
+} from "./commands/PostAgentProfileCommand";
+import {
+  UpdateProfilingGroupCommandInput,
+  UpdateProfilingGroupCommandOutput
+} from "./commands/UpdateProfilingGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -71,26 +87,26 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | ConfigureAgentRequest
-  | CreateProfilingGroupRequest
-  | DeleteProfilingGroupRequest
-  | DescribeProfilingGroupRequest
-  | GetProfileRequest
-  | ListProfileTimesRequest
-  | ListProfilingGroupsRequest
-  | PostAgentProfileRequest
-  | UpdateProfilingGroupRequest;
+  | ConfigureAgentCommandInput
+  | CreateProfilingGroupCommandInput
+  | DeleteProfilingGroupCommandInput
+  | DescribeProfilingGroupCommandInput
+  | GetProfileCommandInput
+  | ListProfileTimesCommandInput
+  | ListProfilingGroupsCommandInput
+  | PostAgentProfileCommandInput
+  | UpdateProfilingGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | ConfigureAgentResponse
-  | CreateProfilingGroupResponse
-  | DeleteProfilingGroupResponse
-  | DescribeProfilingGroupResponse
-  | GetProfileResponse
-  | ListProfileTimesResponse
-  | ListProfilingGroupsResponse
-  | PostAgentProfileResponse
-  | UpdateProfilingGroupResponse;
+  | ConfigureAgentCommandOutput
+  | CreateProfilingGroupCommandOutput
+  | DeleteProfilingGroupCommandOutput
+  | DescribeProfilingGroupCommandOutput
+  | GetProfileCommandOutput
+  | ListProfileTimesCommandOutput
+  | ListProfilingGroupsCommandOutput
+  | PostAgentProfileCommandOutput
+  | UpdateProfilingGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

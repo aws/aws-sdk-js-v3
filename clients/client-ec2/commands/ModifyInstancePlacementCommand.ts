@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyInstancePlacementCommandInput = ModifyInstancePlacementRequest;
-export type ModifyInstancePlacementCommandOutput = ModifyInstancePlacementResult;
+export type ModifyInstancePlacementCommandOutput = ModifyInstancePlacementResult &
+  __MetadataBearer;
 
 export class ModifyInstancePlacementCommand extends $Command<
   ModifyInstancePlacementCommandInput,

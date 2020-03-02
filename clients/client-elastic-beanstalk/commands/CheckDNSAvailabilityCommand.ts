@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CheckDNSAvailabilityCommandInput = CheckDNSAvailabilityMessage;
-export type CheckDNSAvailabilityCommandOutput = CheckDNSAvailabilityResultMessage;
+export type CheckDNSAvailabilityCommandOutput = CheckDNSAvailabilityResultMessage &
+  __MetadataBearer;
 
 export class CheckDNSAvailabilityCommand extends $Command<
   CheckDNSAvailabilityCommandInput,

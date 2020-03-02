@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutRemediationConfigurationsCommandInput = PutRemediationConfigurationsRequest;
-export type PutRemediationConfigurationsCommandOutput = PutRemediationConfigurationsResponse;
+export type PutRemediationConfigurationsCommandOutput = PutRemediationConfigurationsResponse &
+  __MetadataBearer;
 
 export class PutRemediationConfigurationsCommand extends $Command<
   PutRemediationConfigurationsCommandInput,

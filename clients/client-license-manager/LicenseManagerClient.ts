@@ -1,37 +1,67 @@
 import {
-  CreateLicenseConfigurationRequest,
-  CreateLicenseConfigurationResponse,
-  DeleteLicenseConfigurationRequest,
-  DeleteLicenseConfigurationResponse,
-  GetLicenseConfigurationRequest,
-  GetLicenseConfigurationResponse,
-  GetServiceSettingsRequest,
-  GetServiceSettingsResponse,
-  ListAssociationsForLicenseConfigurationRequest,
-  ListAssociationsForLicenseConfigurationResponse,
-  ListFailuresForLicenseConfigurationOperationsRequest,
-  ListFailuresForLicenseConfigurationOperationsResponse,
-  ListLicenseConfigurationsRequest,
-  ListLicenseConfigurationsResponse,
-  ListLicenseSpecificationsForResourceRequest,
-  ListLicenseSpecificationsForResourceResponse,
-  ListResourceInventoryRequest,
-  ListResourceInventoryResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListUsageForLicenseConfigurationRequest,
-  ListUsageForLicenseConfigurationResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateLicenseConfigurationRequest,
-  UpdateLicenseConfigurationResponse,
-  UpdateLicenseSpecificationsForResourceRequest,
-  UpdateLicenseSpecificationsForResourceResponse,
-  UpdateServiceSettingsRequest,
-  UpdateServiceSettingsResponse
-} from "./models/index";
+  CreateLicenseConfigurationCommandInput,
+  CreateLicenseConfigurationCommandOutput
+} from "./commands/CreateLicenseConfigurationCommand";
+import {
+  DeleteLicenseConfigurationCommandInput,
+  DeleteLicenseConfigurationCommandOutput
+} from "./commands/DeleteLicenseConfigurationCommand";
+import {
+  GetLicenseConfigurationCommandInput,
+  GetLicenseConfigurationCommandOutput
+} from "./commands/GetLicenseConfigurationCommand";
+import {
+  GetServiceSettingsCommandInput,
+  GetServiceSettingsCommandOutput
+} from "./commands/GetServiceSettingsCommand";
+import {
+  ListAssociationsForLicenseConfigurationCommandInput,
+  ListAssociationsForLicenseConfigurationCommandOutput
+} from "./commands/ListAssociationsForLicenseConfigurationCommand";
+import {
+  ListFailuresForLicenseConfigurationOperationsCommandInput,
+  ListFailuresForLicenseConfigurationOperationsCommandOutput
+} from "./commands/ListFailuresForLicenseConfigurationOperationsCommand";
+import {
+  ListLicenseConfigurationsCommandInput,
+  ListLicenseConfigurationsCommandOutput
+} from "./commands/ListLicenseConfigurationsCommand";
+import {
+  ListLicenseSpecificationsForResourceCommandInput,
+  ListLicenseSpecificationsForResourceCommandOutput
+} from "./commands/ListLicenseSpecificationsForResourceCommand";
+import {
+  ListResourceInventoryCommandInput,
+  ListResourceInventoryCommandOutput
+} from "./commands/ListResourceInventoryCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListUsageForLicenseConfigurationCommandInput,
+  ListUsageForLicenseConfigurationCommandOutput
+} from "./commands/ListUsageForLicenseConfigurationCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateLicenseConfigurationCommandInput,
+  UpdateLicenseConfigurationCommandOutput
+} from "./commands/UpdateLicenseConfigurationCommand";
+import {
+  UpdateLicenseSpecificationsForResourceCommandInput,
+  UpdateLicenseSpecificationsForResourceCommandOutput
+} from "./commands/UpdateLicenseSpecificationsForResourceCommand";
+import {
+  UpdateServiceSettingsCommandInput,
+  UpdateServiceSettingsCommandOutput
+} from "./commands/UpdateServiceSettingsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -85,40 +115,40 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateLicenseConfigurationRequest
-  | DeleteLicenseConfigurationRequest
-  | GetLicenseConfigurationRequest
-  | GetServiceSettingsRequest
-  | ListAssociationsForLicenseConfigurationRequest
-  | ListFailuresForLicenseConfigurationOperationsRequest
-  | ListLicenseConfigurationsRequest
-  | ListLicenseSpecificationsForResourceRequest
-  | ListResourceInventoryRequest
-  | ListTagsForResourceRequest
-  | ListUsageForLicenseConfigurationRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateLicenseConfigurationRequest
-  | UpdateLicenseSpecificationsForResourceRequest
-  | UpdateServiceSettingsRequest;
+  | CreateLicenseConfigurationCommandInput
+  | DeleteLicenseConfigurationCommandInput
+  | GetLicenseConfigurationCommandInput
+  | GetServiceSettingsCommandInput
+  | ListAssociationsForLicenseConfigurationCommandInput
+  | ListFailuresForLicenseConfigurationOperationsCommandInput
+  | ListLicenseConfigurationsCommandInput
+  | ListLicenseSpecificationsForResourceCommandInput
+  | ListResourceInventoryCommandInput
+  | ListTagsForResourceCommandInput
+  | ListUsageForLicenseConfigurationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateLicenseConfigurationCommandInput
+  | UpdateLicenseSpecificationsForResourceCommandInput
+  | UpdateServiceSettingsCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateLicenseConfigurationResponse
-  | DeleteLicenseConfigurationResponse
-  | GetLicenseConfigurationResponse
-  | GetServiceSettingsResponse
-  | ListAssociationsForLicenseConfigurationResponse
-  | ListFailuresForLicenseConfigurationOperationsResponse
-  | ListLicenseConfigurationsResponse
-  | ListLicenseSpecificationsForResourceResponse
-  | ListResourceInventoryResponse
-  | ListTagsForResourceResponse
-  | ListUsageForLicenseConfigurationResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateLicenseConfigurationResponse
-  | UpdateLicenseSpecificationsForResourceResponse
-  | UpdateServiceSettingsResponse;
+  | CreateLicenseConfigurationCommandOutput
+  | DeleteLicenseConfigurationCommandOutput
+  | GetLicenseConfigurationCommandOutput
+  | GetServiceSettingsCommandOutput
+  | ListAssociationsForLicenseConfigurationCommandOutput
+  | ListFailuresForLicenseConfigurationOperationsCommandOutput
+  | ListLicenseConfigurationsCommandOutput
+  | ListLicenseSpecificationsForResourceCommandOutput
+  | ListResourceInventoryCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListUsageForLicenseConfigurationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateLicenseConfigurationCommandOutput
+  | UpdateLicenseSpecificationsForResourceCommandOutput
+  | UpdateServiceSettingsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

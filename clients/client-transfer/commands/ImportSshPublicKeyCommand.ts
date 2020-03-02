@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportSshPublicKeyCommandInput = ImportSshPublicKeyRequest;
-export type ImportSshPublicKeyCommandOutput = ImportSshPublicKeyResponse;
+export type ImportSshPublicKeyCommandOutput = ImportSshPublicKeyResponse &
+  __MetadataBearer;
 
 export class ImportSshPublicKeyCommand extends $Command<
   ImportSshPublicKeyCommandInput,

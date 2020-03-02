@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListViolationEventsCommandInput = ListViolationEventsRequest;
-export type ListViolationEventsCommandOutput = ListViolationEventsResponse;
+export type ListViolationEventsCommandOutput = ListViolationEventsResponse &
+  __MetadataBearer;
 
 export class ListViolationEventsCommand extends $Command<
   ListViolationEventsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAssessmentRunAgentsCommandInput = ListAssessmentRunAgentsRequest;
-export type ListAssessmentRunAgentsCommandOutput = ListAssessmentRunAgentsResponse;
+export type ListAssessmentRunAgentsCommandOutput = ListAssessmentRunAgentsResponse &
+  __MetadataBearer;
 
 export class ListAssessmentRunAgentsCommand extends $Command<
   ListAssessmentRunAgentsCommandInput,

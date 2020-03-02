@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeConfigurationAggregatorsCommandInput = DescribeConfigurationAggregatorsRequest;
-export type DescribeConfigurationAggregatorsCommandOutput = DescribeConfigurationAggregatorsResponse;
+export type DescribeConfigurationAggregatorsCommandOutput = DescribeConfigurationAggregatorsResponse &
+  __MetadataBearer;
 
 export class DescribeConfigurationAggregatorsCommand extends $Command<
   DescribeConfigurationAggregatorsCommandInput,

@@ -73,7 +73,7 @@ export namespace CheckDomainAvailabilityRequest {
 /**
  * <p>The CheckDomainAvailability response includes the following elements.</p>
  */
-export interface CheckDomainAvailabilityResponse extends $MetadataBearer {
+export interface CheckDomainAvailabilityResponse {
   __type?: "CheckDomainAvailabilityResponse";
   /**
    * <p>Whether the domain name is available for registering.</p>
@@ -160,7 +160,7 @@ export namespace CheckDomainTransferabilityRequest {
 /**
  * <p>The CheckDomainTransferability response includes the following elements.</p>
  */
-export interface CheckDomainTransferabilityResponse extends $MetadataBearer {
+export interface CheckDomainTransferabilityResponse {
   __type?: "CheckDomainTransferabilityResponse";
   /**
    * <p>A complex type that contains information about whether the specified domain can be transferred to Amazon Route 53.</p>
@@ -522,7 +522,7 @@ export namespace DeleteTagsForDomainRequest {
   }
 }
 
-export interface DeleteTagsForDomainResponse extends $MetadataBearer {
+export interface DeleteTagsForDomainResponse {
   __type?: "DeleteTagsForDomainResponse";
 }
 
@@ -546,7 +546,7 @@ export namespace DisableDomainAutoRenewRequest {
   }
 }
 
-export interface DisableDomainAutoRenewResponse extends $MetadataBearer {
+export interface DisableDomainAutoRenewResponse {
   __type?: "DisableDomainAutoRenewResponse";
 }
 
@@ -576,7 +576,7 @@ export namespace DisableDomainTransferLockRequest {
 /**
  * <p>The DisableDomainTransferLock response includes the following element.</p>
  */
-export interface DisableDomainTransferLockResponse extends $MetadataBearer {
+export interface DisableDomainTransferLockResponse {
   __type?: "DisableDomainTransferLockResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
@@ -788,7 +788,7 @@ export namespace EnableDomainAutoRenewRequest {
   }
 }
 
-export interface EnableDomainAutoRenewResponse extends $MetadataBearer {
+export interface EnableDomainAutoRenewResponse {
   __type?: "EnableDomainAutoRenewResponse";
 }
 
@@ -818,7 +818,7 @@ export namespace EnableDomainTransferLockRequest {
 /**
  * <p>The EnableDomainTransferLock response includes the following elements.</p>
  */
-export interface EnableDomainTransferLockResponse extends $MetadataBearer {
+export interface EnableDomainTransferLockResponse {
   __type?: "EnableDomainTransferLockResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>
@@ -968,7 +968,7 @@ export namespace GetContactReachabilityStatusRequest {
   }
 }
 
-export interface GetContactReachabilityStatusResponse extends $MetadataBearer {
+export interface GetContactReachabilityStatusResponse {
   __type?: "GetContactReachabilityStatusResponse";
   /**
    * <p>The domain name for which you requested the reachability status.</p>
@@ -1021,7 +1021,7 @@ export namespace GetDomainDetailRequest {
 /**
  * <p>The GetDomainDetail response includes the following elements.</p>
  */
-export interface GetDomainDetailResponse extends $MetadataBearer {
+export interface GetDomainDetailResponse {
   __type?: "GetDomainDetailResponse";
   /**
    * <p>Email address to contact to report incorrect contact information for a domain, to report that the domain
@@ -1187,7 +1187,7 @@ export namespace GetDomainSuggestionsRequest {
   }
 }
 
-export interface GetDomainSuggestionsResponse extends $MetadataBearer {
+export interface GetDomainSuggestionsResponse {
   __type?: "GetDomainSuggestionsResponse";
   /**
    * <p>A list of possible domain names. If you specified <code>true</code> for <code>OnlyAvailable</code> in the request,
@@ -1223,7 +1223,7 @@ export namespace GetOperationDetailRequest {
 /**
  * <p>The GetOperationDetail response includes the following elements.</p>
  */
-export interface GetOperationDetailResponse extends $MetadataBearer {
+export interface GetOperationDetailResponse {
   __type?: "GetOperationDetailResponse";
   /**
    * <p>The name of a domain.</p>
@@ -1313,7 +1313,7 @@ export namespace ListDomainsRequest {
 /**
  * <p>The ListDomains response includes the following elements.</p>
  */
-export interface ListDomainsResponse extends $MetadataBearer {
+export interface ListDomainsResponse {
   __type?: "ListDomainsResponse";
   /**
    * <p>A summary of domains.</p>
@@ -1368,7 +1368,7 @@ export namespace ListOperationsRequest {
 /**
  * <p>The ListOperations response includes the following elements.</p>
  */
-export interface ListOperationsResponse extends $MetadataBearer {
+export interface ListOperationsResponse {
   __type?: "ListOperationsResponse";
   /**
    * <p>If there are more operations than you specified for <code>MaxItems</code> in the request, submit another
@@ -1408,7 +1408,7 @@ export namespace ListTagsForDomainRequest {
 /**
  * <p>The ListTagsForDomain response includes the following elements.</p>
  */
-export interface ListTagsForDomainResponse extends $MetadataBearer {
+export interface ListTagsForDomainResponse {
   __type?: "ListTagsForDomainResponse";
   /**
    * <p>A list of the tags that are associated with the specified domain.</p>
@@ -1619,7 +1619,7 @@ export namespace RegisterDomainRequest {
 /**
  * <p>The RegisterDomain response includes the following element.</p>
  */
-export interface RegisterDomainResponse extends $MetadataBearer {
+export interface RegisterDomainResponse {
   __type?: "RegisterDomainResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
@@ -1665,7 +1665,7 @@ export namespace RenewDomainRequest {
   }
 }
 
-export interface RenewDomainResponse extends $MetadataBearer {
+export interface RenewDomainResponse {
   __type?: "RenewDomainResponse";
   /**
    * <p>The identifier for tracking the progress of the request. To use this ID to query the operation status,
@@ -1694,8 +1694,7 @@ export namespace ResendContactReachabilityEmailRequest {
   }
 }
 
-export interface ResendContactReachabilityEmailResponse
-  extends $MetadataBearer {
+export interface ResendContactReachabilityEmailResponse {
   __type?: "ResendContactReachabilityEmailResponse";
   /**
    * <p>The domain name for which you requested a confirmation email.</p>
@@ -1742,7 +1741,7 @@ export namespace RetrieveDomainAuthCodeRequest {
 /**
  * <p>The RetrieveDomainAuthCode response includes the following element.</p>
  */
-export interface RetrieveDomainAuthCodeResponse extends $MetadataBearer {
+export interface RetrieveDomainAuthCodeResponse {
   __type?: "RetrieveDomainAuthCodeResponse";
   /**
    * <p>The authorization code for the domain.</p>
@@ -1896,7 +1895,7 @@ export namespace TransferDomainRequest {
 /**
  * <p>The TranserDomain response includes the following element.</p>
  */
-export interface TransferDomainResponse extends $MetadataBearer {
+export interface TransferDomainResponse {
   __type?: "TransferDomainResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
@@ -1979,7 +1978,7 @@ export namespace UpdateDomainContactPrivacyRequest {
 /**
  * <p>The UpdateDomainContactPrivacy response includes the following element.</p>
  */
-export interface UpdateDomainContactPrivacyResponse extends $MetadataBearer {
+export interface UpdateDomainContactPrivacyResponse {
   __type?: "UpdateDomainContactPrivacyResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>
@@ -2028,7 +2027,7 @@ export namespace UpdateDomainContactRequest {
 /**
  * <p>The UpdateDomainContact response includes the following element.</p>
  */
-export interface UpdateDomainContactResponse extends $MetadataBearer {
+export interface UpdateDomainContactResponse {
   __type?: "UpdateDomainContactResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
@@ -2076,7 +2075,7 @@ export namespace UpdateDomainNameserversRequest {
 /**
  * <p>The UpdateDomainNameservers response includes the following element.</p>
  */
-export interface UpdateDomainNameserversResponse extends $MetadataBearer {
+export interface UpdateDomainNameserversResponse {
   __type?: "UpdateDomainNameserversResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
@@ -2114,7 +2113,7 @@ export namespace UpdateTagsForDomainRequest {
   }
 }
 
-export interface UpdateTagsForDomainResponse extends $MetadataBearer {
+export interface UpdateTagsForDomainResponse {
   __type?: "UpdateTagsForDomainResponse";
 }
 
@@ -2168,7 +2167,7 @@ export namespace ViewBillingRequest {
 /**
  * <p>The ViewBilling response includes the following elements.</p>
  */
-export interface ViewBillingResponse extends $MetadataBearer {
+export interface ViewBillingResponse {
   __type?: "ViewBillingResponse";
   /**
    * <p>A summary of billing records.</p>

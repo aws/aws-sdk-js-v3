@@ -1036,38 +1036,53 @@ async function deserializeAws_restJson1_1CreateAccessPointCommandError(
   switch (errorCode) {
     case "AccessPointAlreadyExists":
     case "com.amazon.magnolio.api#AccessPointAlreadyExists":
-      response = await deserializeAws_restJson1_1AccessPointAlreadyExistsResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessPointAlreadyExistsResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccessPointLimitExceeded":
     case "com.amazon.magnolio.api#AccessPointLimitExceeded":
-      response = await deserializeAws_restJson1_1AccessPointLimitExceededResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessPointLimitExceededResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1181,45 +1196,63 @@ async function deserializeAws_restJson1_1CreateFileSystemCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemAlreadyExists":
     case "com.amazon.magnolio.api#FileSystemAlreadyExists":
-      response = await deserializeAws_restJson1_1FileSystemAlreadyExistsResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemAlreadyExistsResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemLimitExceeded":
     case "com.amazon.magnolio.api#FileSystemLimitExceeded":
-      response = await deserializeAws_restJson1_1FileSystemLimitExceededResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemLimitExceededResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientThroughputCapacity":
     case "com.amazon.magnolio.api#InsufficientThroughputCapacity":
-      response = await deserializeAws_restJson1_1InsufficientThroughputCapacityResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InsufficientThroughputCapacityResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThroughputLimitExceeded":
     case "com.amazon.magnolio.api#ThroughputLimitExceeded":
-      response = await deserializeAws_restJson1_1ThroughputLimitExceededResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThroughputLimitExceededResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1313,87 +1346,123 @@ async function deserializeAws_restJson1_1CreateMountTargetCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazon.magnolio.api#IncorrectFileSystemLifeCycleState":
-      response = await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IpAddressInUse":
     case "com.amazon.magnolio.api#IpAddressInUse":
-      response = await deserializeAws_restJson1_1IpAddressInUseResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IpAddressInUseResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MountTargetConflict":
     case "com.amazon.magnolio.api#MountTargetConflict":
-      response = await deserializeAws_restJson1_1MountTargetConflictResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MountTargetConflictResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NetworkInterfaceLimitExceeded":
     case "com.amazon.magnolio.api#NetworkInterfaceLimitExceeded":
-      response = await deserializeAws_restJson1_1NetworkInterfaceLimitExceededResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NetworkInterfaceLimitExceededResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoFreeAddressesInSubnet":
     case "com.amazon.magnolio.api#NoFreeAddressesInSubnet":
-      response = await deserializeAws_restJson1_1NoFreeAddressesInSubnetResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NoFreeAddressesInSubnetResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SecurityGroupLimitExceeded":
     case "com.amazon.magnolio.api#SecurityGroupLimitExceeded":
-      response = await deserializeAws_restJson1_1SecurityGroupLimitExceededResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SecurityGroupLimitExceededResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SecurityGroupNotFound":
     case "com.amazon.magnolio.api#SecurityGroupNotFound":
-      response = await deserializeAws_restJson1_1SecurityGroupNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SecurityGroupNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubnetNotFound":
     case "com.amazon.magnolio.api#SubnetNotFound":
-      response = await deserializeAws_restJson1_1SubnetNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SubnetNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedAvailabilityZone":
     case "com.amazon.magnolio.api#UnsupportedAvailabilityZone":
-      response = await deserializeAws_restJson1_1UnsupportedAvailabilityZoneResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnsupportedAvailabilityZoneResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1438,24 +1507,33 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1503,24 +1581,33 @@ async function deserializeAws_restJson1_1DeleteAccessPointCommandError(
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
-      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1568,31 +1655,43 @@ async function deserializeAws_restJson1_1DeleteFileSystemCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemInUse":
     case "com.amazon.magnolio.api#FileSystemInUse":
-      response = await deserializeAws_restJson1_1FileSystemInUseResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemInUseResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1640,24 +1739,33 @@ async function deserializeAws_restJson1_1DeleteFileSystemPolicyCommandError(
   switch (errorCode) {
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazon.magnolio.api#IncorrectFileSystemLifeCycleState":
-      response = await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1705,31 +1813,43 @@ async function deserializeAws_restJson1_1DeleteMountTargetCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependencyTimeout":
     case "com.amazon.magnolio.api#DependencyTimeout":
-      response = await deserializeAws_restJson1_1DependencyTimeoutResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependencyTimeoutResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MountTargetNotFound":
     case "com.amazon.magnolio.api#MountTargetNotFound":
-      response = await deserializeAws_restJson1_1MountTargetNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1774,24 +1894,33 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1851,31 +1980,43 @@ async function deserializeAws_restJson1_1DescribeAccessPointsCommandError(
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
-      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1932,24 +2073,33 @@ async function deserializeAws_restJson1_1DescribeFileSystemPolicyCommandError(
   switch (errorCode) {
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyNotFound":
     case "com.amazon.magnolio.api#PolicyNotFound":
-      response = await deserializeAws_restJson1_1PolicyNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1PolicyNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2013,24 +2163,33 @@ async function deserializeAws_restJson1_1DescribeFileSystemsCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2086,24 +2245,33 @@ async function deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandEr
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2159,31 +2327,43 @@ async function deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsComman
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncorrectMountTargetState":
     case "com.amazon.magnolio.api#IncorrectMountTargetState":
-      response = await deserializeAws_restJson1_1IncorrectMountTargetStateResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncorrectMountTargetStateResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MountTargetNotFound":
     case "com.amazon.magnolio.api#MountTargetNotFound":
-      response = await deserializeAws_restJson1_1MountTargetNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2247,38 +2427,53 @@ async function deserializeAws_restJson1_1DescribeMountTargetsCommandError(
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
-      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MountTargetNotFound":
     case "com.amazon.magnolio.api#MountTargetNotFound":
-      response = await deserializeAws_restJson1_1MountTargetNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2336,24 +2531,33 @@ async function deserializeAws_restJson1_1DescribeTagsCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2410,31 +2614,43 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
-      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2482,45 +2698,63 @@ async function deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandE
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncorrectMountTargetState":
     case "com.amazon.magnolio.api#IncorrectMountTargetState":
-      response = await deserializeAws_restJson1_1IncorrectMountTargetStateResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncorrectMountTargetStateResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MountTargetNotFound":
     case "com.amazon.magnolio.api#MountTargetNotFound":
-      response = await deserializeAws_restJson1_1MountTargetNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SecurityGroupLimitExceeded":
     case "com.amazon.magnolio.api#SecurityGroupLimitExceeded":
-      response = await deserializeAws_restJson1_1SecurityGroupLimitExceededResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SecurityGroupLimitExceededResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SecurityGroupNotFound":
     case "com.amazon.magnolio.api#SecurityGroupNotFound":
-      response = await deserializeAws_restJson1_1SecurityGroupNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SecurityGroupNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2577,31 +2811,43 @@ async function deserializeAws_restJson1_1PutFileSystemPolicyCommandError(
   switch (errorCode) {
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazon.magnolio.api#IncorrectFileSystemLifeCycleState":
-      response = await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPolicyException":
     case "com.amazon.magnolio.api#InvalidPolicyException":
-      response = await deserializeAws_restJson1_1InvalidPolicyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidPolicyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2657,31 +2903,43 @@ async function deserializeAws_restJson1_1PutLifecycleConfigurationCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazon.magnolio.api#IncorrectFileSystemLifeCycleState":
-      response = await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2726,31 +2984,43 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
-      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2795,31 +3065,43 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
-      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2933,52 +3215,73 @@ async function deserializeAws_restJson1_1UpdateFileSystemCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
-      response = await deserializeAws_restJson1_1BadRequestResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
-      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazon.magnolio.api#IncorrectFileSystemLifeCycleState":
-      response = await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientThroughputCapacity":
     case "com.amazon.magnolio.api#InsufficientThroughputCapacity":
-      response = await deserializeAws_restJson1_1InsufficientThroughputCapacityResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InsufficientThroughputCapacityResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThroughputLimitExceeded":
     case "com.amazon.magnolio.api#ThroughputLimitExceeded":
-      response = await deserializeAws_restJson1_1ThroughputLimitExceededResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThroughputLimitExceededResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequests":
     case "com.amazon.magnolio.api#TooManyRequests":
-      response = await deserializeAws_restJson1_1TooManyRequestsResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

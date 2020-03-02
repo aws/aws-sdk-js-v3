@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterEventTopicCommandInput = RegisterEventTopicRequest;
-export type RegisterEventTopicCommandOutput = RegisterEventTopicResult;
+export type RegisterEventTopicCommandOutput = RegisterEventTopicResult &
+  __MetadataBearer;
 
 export class RegisterEventTopicCommand extends $Command<
   RegisterEventTopicCommandInput,

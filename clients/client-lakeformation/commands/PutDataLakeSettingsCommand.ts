@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutDataLakeSettingsCommandInput = PutDataLakeSettingsRequest;
-export type PutDataLakeSettingsCommandOutput = PutDataLakeSettingsResponse;
+export type PutDataLakeSettingsCommandOutput = PutDataLakeSettingsResponse &
+  __MetadataBearer;
 
 export class PutDataLakeSettingsCommand extends $Command<
   PutDataLakeSettingsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTelemetryMetadataCommandInput = GetTelemetryMetadataRequest;
-export type GetTelemetryMetadataCommandOutput = GetTelemetryMetadataResponse;
+export type GetTelemetryMetadataCommandOutput = GetTelemetryMetadataResponse &
+  __MetadataBearer;
 
 export class GetTelemetryMetadataCommand extends $Command<
   GetTelemetryMetadataCommandInput,

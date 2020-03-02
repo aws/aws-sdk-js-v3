@@ -1,21 +1,35 @@
 import {
-  DescribeReportCreationInput,
-  DescribeReportCreationOutput,
-  GetComplianceSummaryInput,
-  GetComplianceSummaryOutput,
-  GetResourcesInput,
-  GetResourcesOutput,
-  GetTagKeysInput,
-  GetTagKeysOutput,
-  GetTagValuesInput,
-  GetTagValuesOutput,
-  StartReportCreationInput,
-  StartReportCreationOutput,
-  TagResourcesInput,
-  TagResourcesOutput,
-  UntagResourcesInput,
-  UntagResourcesOutput
-} from "./models/index";
+  DescribeReportCreationCommandInput,
+  DescribeReportCreationCommandOutput
+} from "./commands/DescribeReportCreationCommand";
+import {
+  GetComplianceSummaryCommandInput,
+  GetComplianceSummaryCommandOutput
+} from "./commands/GetComplianceSummaryCommand";
+import {
+  GetResourcesCommandInput,
+  GetResourcesCommandOutput
+} from "./commands/GetResourcesCommand";
+import {
+  GetTagKeysCommandInput,
+  GetTagKeysCommandOutput
+} from "./commands/GetTagKeysCommand";
+import {
+  GetTagValuesCommandInput,
+  GetTagValuesCommandOutput
+} from "./commands/GetTagValuesCommand";
+import {
+  StartReportCreationCommandInput,
+  StartReportCreationCommandOutput
+} from "./commands/StartReportCreationCommand";
+import {
+  TagResourcesCommandInput,
+  TagResourcesCommandOutput
+} from "./commands/TagResourcesCommand";
+import {
+  UntagResourcesCommandInput,
+  UntagResourcesCommandOutput
+} from "./commands/UntagResourcesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -69,24 +83,24 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DescribeReportCreationInput
-  | GetComplianceSummaryInput
-  | GetResourcesInput
-  | GetTagKeysInput
-  | GetTagValuesInput
-  | StartReportCreationInput
-  | TagResourcesInput
-  | UntagResourcesInput;
+  | DescribeReportCreationCommandInput
+  | GetComplianceSummaryCommandInput
+  | GetResourcesCommandInput
+  | GetTagKeysCommandInput
+  | GetTagValuesCommandInput
+  | StartReportCreationCommandInput
+  | TagResourcesCommandInput
+  | UntagResourcesCommandInput;
 
 export type ServiceOutputTypes =
-  | DescribeReportCreationOutput
-  | GetComplianceSummaryOutput
-  | GetResourcesOutput
-  | GetTagKeysOutput
-  | GetTagValuesOutput
-  | StartReportCreationOutput
-  | TagResourcesOutput
-  | UntagResourcesOutput;
+  | DescribeReportCreationCommandOutput
+  | GetComplianceSummaryCommandOutput
+  | GetResourcesCommandOutput
+  | GetTagKeysCommandOutput
+  | GetTagValuesCommandOutput
+  | StartReportCreationCommandOutput
+  | TagResourcesCommandOutput
+  | UntagResourcesCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

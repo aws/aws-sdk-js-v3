@@ -2941,17 +2941,23 @@ async function deserializeAws_json1_1AssociateTrialComponentCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3053,17 +3059,23 @@ async function deserializeAws_json1_1CreateAppCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3116,17 +3128,23 @@ async function deserializeAws_json1_1CreateAutoMLJobCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3234,17 +3252,23 @@ async function deserializeAws_json1_1CreateCompilationJobCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3297,17 +3321,23 @@ async function deserializeAws_json1_1CreateDomainCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3360,10 +3390,13 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3419,10 +3452,13 @@ async function deserializeAws_json1_1CreateEndpointConfigCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3475,10 +3511,13 @@ async function deserializeAws_json1_1CreateExperimentCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3534,17 +3573,23 @@ async function deserializeAws_json1_1CreateFlowDefinitionCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3597,17 +3642,23 @@ async function deserializeAws_json1_1CreateHumanTaskUiCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3666,17 +3717,23 @@ async function deserializeAws_json1_1CreateHyperParameterTuningJobCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3729,17 +3786,23 @@ async function deserializeAws_json1_1CreateLabelingJobCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3792,10 +3855,13 @@ async function deserializeAws_json1_1CreateModelCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3906,17 +3972,23 @@ async function deserializeAws_json1_1CreateMonitoringScheduleCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3972,10 +4044,13 @@ async function deserializeAws_json1_1CreateNotebookInstanceCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4034,10 +4109,13 @@ async function deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigComman
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4096,10 +4174,13 @@ async function deserializeAws_json1_1CreatePresignedDomainUrlCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4210,24 +4291,33 @@ async function deserializeAws_json1_1CreateProcessingJobCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4280,24 +4370,33 @@ async function deserializeAws_json1_1CreateTrainingJobCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4353,24 +4452,33 @@ async function deserializeAws_json1_1CreateTransformJobCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4423,17 +4531,23 @@ async function deserializeAws_json1_1CreateTrialCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4489,10 +4603,13 @@ async function deserializeAws_json1_1CreateTrialComponentCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4545,17 +4662,23 @@ async function deserializeAws_json1_1CreateUserProfileCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4608,17 +4731,23 @@ async function deserializeAws_json1_1CreateWorkteamCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4712,17 +4841,23 @@ async function deserializeAws_json1_1DeleteAppCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4819,17 +4954,23 @@ async function deserializeAws_json1_1DeleteDomainCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4975,10 +5116,13 @@ async function deserializeAws_json1_1DeleteExperimentCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5034,10 +5178,13 @@ async function deserializeAws_json1_1DeleteFlowDefinitionCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5182,10 +5329,13 @@ async function deserializeAws_json1_1DeleteMonitoringScheduleCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5383,10 +5533,13 @@ async function deserializeAws_json1_1DeleteTrialCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5442,10 +5595,13 @@ async function deserializeAws_json1_1DeleteTrialComponentCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5494,17 +5650,23 @@ async function deserializeAws_json1_1DeleteUserProfileCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5557,10 +5719,13 @@ async function deserializeAws_json1_1DeleteWorkteamCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5662,10 +5827,13 @@ async function deserializeAws_json1_1DescribeAppCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5718,10 +5886,13 @@ async function deserializeAws_json1_1DescribeAutoMLJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5832,10 +6003,13 @@ async function deserializeAws_json1_1DescribeCompilationJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5888,10 +6062,13 @@ async function deserializeAws_json1_1DescribeDomainCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6048,10 +6225,13 @@ async function deserializeAws_json1_1DescribeExperimentCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6110,10 +6290,13 @@ async function deserializeAws_json1_1DescribeFlowDefinitionCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6169,10 +6352,13 @@ async function deserializeAws_json1_1DescribeHumanTaskUiCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6231,10 +6417,13 @@ async function deserializeAws_json1_1DescribeHyperParameterTuningJobCommandError
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6290,10 +6479,13 @@ async function deserializeAws_json1_1DescribeLabelingJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6453,10 +6645,13 @@ async function deserializeAws_json1_1DescribeMonitoringScheduleCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6622,10 +6817,13 @@ async function deserializeAws_json1_1DescribeProcessingJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6736,10 +6934,13 @@ async function deserializeAws_json1_1DescribeTrainingJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6795,10 +6996,13 @@ async function deserializeAws_json1_1DescribeTransformJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6851,10 +7055,13 @@ async function deserializeAws_json1_1DescribeTrialCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6913,10 +7120,13 @@ async function deserializeAws_json1_1DescribeTrialComponentCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6972,10 +7182,13 @@ async function deserializeAws_json1_1DescribeUserProfileCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7132,10 +7345,13 @@ async function deserializeAws_json1_1DisassociateTrialComponentCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7393,10 +7609,13 @@ async function deserializeAws_json1_1ListCandidatesForAutoMLJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7963,10 +8182,13 @@ async function deserializeAws_json1_1ListLabelingJobsForWorkteamCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8545,10 +8767,13 @@ async function deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobC
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8653,10 +8878,13 @@ async function deserializeAws_json1_1ListTrialComponentsCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8709,10 +8937,13 @@ async function deserializeAws_json1_1ListTrialsCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8960,10 +9191,13 @@ async function deserializeAws_json1_1StartMonitoringScheduleCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9015,10 +9249,13 @@ async function deserializeAws_json1_1StartNotebookInstanceCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9067,10 +9304,13 @@ async function deserializeAws_json1_1StopAutoMLJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9122,10 +9362,13 @@ async function deserializeAws_json1_1StopCompilationJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9177,10 +9420,13 @@ async function deserializeAws_json1_1StopHyperParameterTuningJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9229,10 +9475,13 @@ async function deserializeAws_json1_1StopLabelingJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9284,10 +9533,13 @@ async function deserializeAws_json1_1StopMonitoringScheduleCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9384,10 +9636,13 @@ async function deserializeAws_json1_1StopProcessingJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9436,10 +9691,13 @@ async function deserializeAws_json1_1StopTrainingJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9488,10 +9746,13 @@ async function deserializeAws_json1_1StopTransformJobCommandError(
   switch (errorCode) {
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9596,24 +9857,33 @@ async function deserializeAws_json1_1UpdateDomainCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9666,10 +9936,13 @@ async function deserializeAws_json1_1UpdateEndpointCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9728,10 +10001,13 @@ async function deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommandEr
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9784,17 +10060,23 @@ async function deserializeAws_json1_1UpdateExperimentCommandError(
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.sagemaker.api#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9853,17 +10135,23 @@ async function deserializeAws_json1_1UpdateMonitoringScheduleCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9919,10 +10207,13 @@ async function deserializeAws_json1_1UpdateNotebookInstanceCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9981,10 +10272,13 @@ async function deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigComman
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10037,17 +10331,23 @@ async function deserializeAws_json1_1UpdateTrialCommandError(
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.sagemaker.api#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10103,17 +10403,23 @@ async function deserializeAws_json1_1UpdateTrialComponentCommandError(
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.sagemaker.api#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10166,24 +10472,33 @@ async function deserializeAws_json1_1UpdateUserProfileCommandError(
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker.api#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker.api#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10285,10 +10600,13 @@ async function deserializeAws_json1_1UpdateWorkteamCommandError(
   switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

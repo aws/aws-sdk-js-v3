@@ -1,249 +1,491 @@
 import {
-  AddTagsToResourceRequest,
-  AddTagsToResourceResult,
-  CancelCommandRequest,
-  CancelCommandResult,
-  CancelMaintenanceWindowExecutionRequest,
-  CancelMaintenanceWindowExecutionResult,
-  CreateActivationRequest,
-  CreateActivationResult,
-  CreateAssociationBatchRequest,
-  CreateAssociationBatchResult,
-  CreateAssociationRequest,
-  CreateAssociationResult,
-  CreateDocumentRequest,
-  CreateDocumentResult,
-  CreateMaintenanceWindowRequest,
-  CreateMaintenanceWindowResult,
-  CreateOpsItemRequest,
-  CreateOpsItemResponse,
-  CreatePatchBaselineRequest,
-  CreatePatchBaselineResult,
-  CreateResourceDataSyncRequest,
-  CreateResourceDataSyncResult,
-  DeleteActivationRequest,
-  DeleteActivationResult,
-  DeleteAssociationRequest,
-  DeleteAssociationResult,
-  DeleteDocumentRequest,
-  DeleteDocumentResult,
-  DeleteInventoryRequest,
-  DeleteInventoryResult,
-  DeleteMaintenanceWindowRequest,
-  DeleteMaintenanceWindowResult,
-  DeleteParameterRequest,
-  DeleteParameterResult,
-  DeleteParametersRequest,
-  DeleteParametersResult,
-  DeletePatchBaselineRequest,
-  DeletePatchBaselineResult,
-  DeleteResourceDataSyncRequest,
-  DeleteResourceDataSyncResult,
-  DeregisterManagedInstanceRequest,
-  DeregisterManagedInstanceResult,
-  DeregisterPatchBaselineForPatchGroupRequest,
-  DeregisterPatchBaselineForPatchGroupResult,
-  DeregisterTargetFromMaintenanceWindowRequest,
-  DeregisterTargetFromMaintenanceWindowResult,
-  DeregisterTaskFromMaintenanceWindowRequest,
-  DeregisterTaskFromMaintenanceWindowResult,
-  DescribeActivationsRequest,
-  DescribeActivationsResult,
-  DescribeAssociationExecutionTargetsRequest,
-  DescribeAssociationExecutionTargetsResult,
-  DescribeAssociationExecutionsRequest,
-  DescribeAssociationExecutionsResult,
-  DescribeAssociationRequest,
-  DescribeAssociationResult,
-  DescribeAutomationExecutionsRequest,
-  DescribeAutomationExecutionsResult,
-  DescribeAutomationStepExecutionsRequest,
-  DescribeAutomationStepExecutionsResult,
-  DescribeAvailablePatchesRequest,
-  DescribeAvailablePatchesResult,
-  DescribeDocumentPermissionRequest,
-  DescribeDocumentPermissionResponse,
-  DescribeDocumentRequest,
-  DescribeDocumentResult,
-  DescribeEffectiveInstanceAssociationsRequest,
-  DescribeEffectiveInstanceAssociationsResult,
-  DescribeEffectivePatchesForPatchBaselineRequest,
-  DescribeEffectivePatchesForPatchBaselineResult,
-  DescribeInstanceAssociationsStatusRequest,
-  DescribeInstanceAssociationsStatusResult,
-  DescribeInstanceInformationRequest,
-  DescribeInstanceInformationResult,
-  DescribeInstancePatchStatesForPatchGroupRequest,
-  DescribeInstancePatchStatesForPatchGroupResult,
-  DescribeInstancePatchStatesRequest,
-  DescribeInstancePatchStatesResult,
-  DescribeInstancePatchesRequest,
-  DescribeInstancePatchesResult,
-  DescribeInventoryDeletionsRequest,
-  DescribeInventoryDeletionsResult,
-  DescribeMaintenanceWindowExecutionTaskInvocationsRequest,
-  DescribeMaintenanceWindowExecutionTaskInvocationsResult,
-  DescribeMaintenanceWindowExecutionTasksRequest,
-  DescribeMaintenanceWindowExecutionTasksResult,
-  DescribeMaintenanceWindowExecutionsRequest,
-  DescribeMaintenanceWindowExecutionsResult,
-  DescribeMaintenanceWindowScheduleRequest,
-  DescribeMaintenanceWindowScheduleResult,
-  DescribeMaintenanceWindowTargetsRequest,
-  DescribeMaintenanceWindowTargetsResult,
-  DescribeMaintenanceWindowTasksRequest,
-  DescribeMaintenanceWindowTasksResult,
-  DescribeMaintenanceWindowsForTargetRequest,
-  DescribeMaintenanceWindowsForTargetResult,
-  DescribeMaintenanceWindowsRequest,
-  DescribeMaintenanceWindowsResult,
-  DescribeOpsItemsRequest,
-  DescribeOpsItemsResponse,
-  DescribeParametersRequest,
-  DescribeParametersResult,
-  DescribePatchBaselinesRequest,
-  DescribePatchBaselinesResult,
-  DescribePatchGroupStateRequest,
-  DescribePatchGroupStateResult,
-  DescribePatchGroupsRequest,
-  DescribePatchGroupsResult,
-  DescribePatchPropertiesRequest,
-  DescribePatchPropertiesResult,
-  DescribeSessionsRequest,
-  DescribeSessionsResponse,
-  GetAutomationExecutionRequest,
-  GetAutomationExecutionResult,
-  GetCalendarStateRequest,
-  GetCalendarStateResponse,
-  GetCommandInvocationRequest,
-  GetCommandInvocationResult,
-  GetConnectionStatusRequest,
-  GetConnectionStatusResponse,
-  GetDefaultPatchBaselineRequest,
-  GetDefaultPatchBaselineResult,
-  GetDeployablePatchSnapshotForInstanceRequest,
-  GetDeployablePatchSnapshotForInstanceResult,
-  GetDocumentRequest,
-  GetDocumentResult,
-  GetInventoryRequest,
-  GetInventoryResult,
-  GetInventorySchemaRequest,
-  GetInventorySchemaResult,
-  GetMaintenanceWindowExecutionRequest,
-  GetMaintenanceWindowExecutionResult,
-  GetMaintenanceWindowExecutionTaskInvocationRequest,
-  GetMaintenanceWindowExecutionTaskInvocationResult,
-  GetMaintenanceWindowExecutionTaskRequest,
-  GetMaintenanceWindowExecutionTaskResult,
-  GetMaintenanceWindowRequest,
-  GetMaintenanceWindowResult,
-  GetMaintenanceWindowTaskRequest,
-  GetMaintenanceWindowTaskResult,
-  GetOpsItemRequest,
-  GetOpsItemResponse,
-  GetOpsSummaryRequest,
-  GetOpsSummaryResult,
-  GetParameterHistoryRequest,
-  GetParameterHistoryResult,
-  GetParameterRequest,
-  GetParameterResult,
-  GetParametersByPathRequest,
-  GetParametersByPathResult,
-  GetParametersRequest,
-  GetParametersResult,
-  GetPatchBaselineForPatchGroupRequest,
-  GetPatchBaselineForPatchGroupResult,
-  GetPatchBaselineRequest,
-  GetPatchBaselineResult,
-  GetServiceSettingRequest,
-  GetServiceSettingResult,
-  LabelParameterVersionRequest,
-  LabelParameterVersionResult,
-  ListAssociationVersionsRequest,
-  ListAssociationVersionsResult,
-  ListAssociationsRequest,
-  ListAssociationsResult,
-  ListCommandInvocationsRequest,
-  ListCommandInvocationsResult,
-  ListCommandsRequest,
-  ListCommandsResult,
-  ListComplianceItemsRequest,
-  ListComplianceItemsResult,
-  ListComplianceSummariesRequest,
-  ListComplianceSummariesResult,
-  ListDocumentVersionsRequest,
-  ListDocumentVersionsResult,
-  ListDocumentsRequest,
-  ListDocumentsResult,
-  ListInventoryEntriesRequest,
-  ListInventoryEntriesResult,
-  ListResourceComplianceSummariesRequest,
-  ListResourceComplianceSummariesResult,
-  ListResourceDataSyncRequest,
-  ListResourceDataSyncResult,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResult,
-  ModifyDocumentPermissionRequest,
-  ModifyDocumentPermissionResponse,
-  PutComplianceItemsRequest,
-  PutComplianceItemsResult,
-  PutInventoryRequest,
-  PutInventoryResult,
-  PutParameterRequest,
-  PutParameterResult,
-  RegisterDefaultPatchBaselineRequest,
-  RegisterDefaultPatchBaselineResult,
-  RegisterPatchBaselineForPatchGroupRequest,
-  RegisterPatchBaselineForPatchGroupResult,
-  RegisterTargetWithMaintenanceWindowRequest,
-  RegisterTargetWithMaintenanceWindowResult,
-  RegisterTaskWithMaintenanceWindowRequest,
-  RegisterTaskWithMaintenanceWindowResult,
-  RemoveTagsFromResourceRequest,
-  RemoveTagsFromResourceResult,
-  ResetServiceSettingRequest,
-  ResetServiceSettingResult,
-  ResumeSessionRequest,
-  ResumeSessionResponse,
-  SendAutomationSignalRequest,
-  SendAutomationSignalResult,
-  SendCommandRequest,
-  SendCommandResult,
-  StartAssociationsOnceRequest,
-  StartAssociationsOnceResult,
-  StartAutomationExecutionRequest,
-  StartAutomationExecutionResult,
-  StartSessionRequest,
-  StartSessionResponse,
-  StopAutomationExecutionRequest,
-  StopAutomationExecutionResult,
-  TerminateSessionRequest,
-  TerminateSessionResponse,
-  UpdateAssociationRequest,
-  UpdateAssociationResult,
-  UpdateAssociationStatusRequest,
-  UpdateAssociationStatusResult,
-  UpdateDocumentDefaultVersionRequest,
-  UpdateDocumentDefaultVersionResult,
-  UpdateDocumentRequest,
-  UpdateDocumentResult,
-  UpdateMaintenanceWindowRequest,
-  UpdateMaintenanceWindowResult,
-  UpdateMaintenanceWindowTargetRequest,
-  UpdateMaintenanceWindowTargetResult,
-  UpdateMaintenanceWindowTaskRequest,
-  UpdateMaintenanceWindowTaskResult,
-  UpdateManagedInstanceRoleRequest,
-  UpdateManagedInstanceRoleResult,
-  UpdateOpsItemRequest,
-  UpdateOpsItemResponse,
-  UpdatePatchBaselineRequest,
-  UpdatePatchBaselineResult,
-  UpdateResourceDataSyncRequest,
-  UpdateResourceDataSyncResult,
-  UpdateServiceSettingRequest,
-  UpdateServiceSettingResult
-} from "./models/index";
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput
+} from "./commands/AddTagsToResourceCommand";
+import {
+  CancelCommandCommandInput,
+  CancelCommandCommandOutput
+} from "./commands/CancelCommandCommand";
+import {
+  CancelMaintenanceWindowExecutionCommandInput,
+  CancelMaintenanceWindowExecutionCommandOutput
+} from "./commands/CancelMaintenanceWindowExecutionCommand";
+import {
+  CreateActivationCommandInput,
+  CreateActivationCommandOutput
+} from "./commands/CreateActivationCommand";
+import {
+  CreateAssociationBatchCommandInput,
+  CreateAssociationBatchCommandOutput
+} from "./commands/CreateAssociationBatchCommand";
+import {
+  CreateAssociationCommandInput,
+  CreateAssociationCommandOutput
+} from "./commands/CreateAssociationCommand";
+import {
+  CreateDocumentCommandInput,
+  CreateDocumentCommandOutput
+} from "./commands/CreateDocumentCommand";
+import {
+  CreateMaintenanceWindowCommandInput,
+  CreateMaintenanceWindowCommandOutput
+} from "./commands/CreateMaintenanceWindowCommand";
+import {
+  CreateOpsItemCommandInput,
+  CreateOpsItemCommandOutput
+} from "./commands/CreateOpsItemCommand";
+import {
+  CreatePatchBaselineCommandInput,
+  CreatePatchBaselineCommandOutput
+} from "./commands/CreatePatchBaselineCommand";
+import {
+  CreateResourceDataSyncCommandInput,
+  CreateResourceDataSyncCommandOutput
+} from "./commands/CreateResourceDataSyncCommand";
+import {
+  DeleteActivationCommandInput,
+  DeleteActivationCommandOutput
+} from "./commands/DeleteActivationCommand";
+import {
+  DeleteAssociationCommandInput,
+  DeleteAssociationCommandOutput
+} from "./commands/DeleteAssociationCommand";
+import {
+  DeleteDocumentCommandInput,
+  DeleteDocumentCommandOutput
+} from "./commands/DeleteDocumentCommand";
+import {
+  DeleteInventoryCommandInput,
+  DeleteInventoryCommandOutput
+} from "./commands/DeleteInventoryCommand";
+import {
+  DeleteMaintenanceWindowCommandInput,
+  DeleteMaintenanceWindowCommandOutput
+} from "./commands/DeleteMaintenanceWindowCommand";
+import {
+  DeleteParameterCommandInput,
+  DeleteParameterCommandOutput
+} from "./commands/DeleteParameterCommand";
+import {
+  DeleteParametersCommandInput,
+  DeleteParametersCommandOutput
+} from "./commands/DeleteParametersCommand";
+import {
+  DeletePatchBaselineCommandInput,
+  DeletePatchBaselineCommandOutput
+} from "./commands/DeletePatchBaselineCommand";
+import {
+  DeleteResourceDataSyncCommandInput,
+  DeleteResourceDataSyncCommandOutput
+} from "./commands/DeleteResourceDataSyncCommand";
+import {
+  DeregisterManagedInstanceCommandInput,
+  DeregisterManagedInstanceCommandOutput
+} from "./commands/DeregisterManagedInstanceCommand";
+import {
+  DeregisterPatchBaselineForPatchGroupCommandInput,
+  DeregisterPatchBaselineForPatchGroupCommandOutput
+} from "./commands/DeregisterPatchBaselineForPatchGroupCommand";
+import {
+  DeregisterTargetFromMaintenanceWindowCommandInput,
+  DeregisterTargetFromMaintenanceWindowCommandOutput
+} from "./commands/DeregisterTargetFromMaintenanceWindowCommand";
+import {
+  DeregisterTaskFromMaintenanceWindowCommandInput,
+  DeregisterTaskFromMaintenanceWindowCommandOutput
+} from "./commands/DeregisterTaskFromMaintenanceWindowCommand";
+import {
+  DescribeActivationsCommandInput,
+  DescribeActivationsCommandOutput
+} from "./commands/DescribeActivationsCommand";
+import {
+  DescribeAssociationCommandInput,
+  DescribeAssociationCommandOutput
+} from "./commands/DescribeAssociationCommand";
+import {
+  DescribeAssociationExecutionTargetsCommandInput,
+  DescribeAssociationExecutionTargetsCommandOutput
+} from "./commands/DescribeAssociationExecutionTargetsCommand";
+import {
+  DescribeAssociationExecutionsCommandInput,
+  DescribeAssociationExecutionsCommandOutput
+} from "./commands/DescribeAssociationExecutionsCommand";
+import {
+  DescribeAutomationExecutionsCommandInput,
+  DescribeAutomationExecutionsCommandOutput
+} from "./commands/DescribeAutomationExecutionsCommand";
+import {
+  DescribeAutomationStepExecutionsCommandInput,
+  DescribeAutomationStepExecutionsCommandOutput
+} from "./commands/DescribeAutomationStepExecutionsCommand";
+import {
+  DescribeAvailablePatchesCommandInput,
+  DescribeAvailablePatchesCommandOutput
+} from "./commands/DescribeAvailablePatchesCommand";
+import {
+  DescribeDocumentCommandInput,
+  DescribeDocumentCommandOutput
+} from "./commands/DescribeDocumentCommand";
+import {
+  DescribeDocumentPermissionCommandInput,
+  DescribeDocumentPermissionCommandOutput
+} from "./commands/DescribeDocumentPermissionCommand";
+import {
+  DescribeEffectiveInstanceAssociationsCommandInput,
+  DescribeEffectiveInstanceAssociationsCommandOutput
+} from "./commands/DescribeEffectiveInstanceAssociationsCommand";
+import {
+  DescribeEffectivePatchesForPatchBaselineCommandInput,
+  DescribeEffectivePatchesForPatchBaselineCommandOutput
+} from "./commands/DescribeEffectivePatchesForPatchBaselineCommand";
+import {
+  DescribeInstanceAssociationsStatusCommandInput,
+  DescribeInstanceAssociationsStatusCommandOutput
+} from "./commands/DescribeInstanceAssociationsStatusCommand";
+import {
+  DescribeInstanceInformationCommandInput,
+  DescribeInstanceInformationCommandOutput
+} from "./commands/DescribeInstanceInformationCommand";
+import {
+  DescribeInstancePatchStatesCommandInput,
+  DescribeInstancePatchStatesCommandOutput
+} from "./commands/DescribeInstancePatchStatesCommand";
+import {
+  DescribeInstancePatchStatesForPatchGroupCommandInput,
+  DescribeInstancePatchStatesForPatchGroupCommandOutput
+} from "./commands/DescribeInstancePatchStatesForPatchGroupCommand";
+import {
+  DescribeInstancePatchesCommandInput,
+  DescribeInstancePatchesCommandOutput
+} from "./commands/DescribeInstancePatchesCommand";
+import {
+  DescribeInventoryDeletionsCommandInput,
+  DescribeInventoryDeletionsCommandOutput
+} from "./commands/DescribeInventoryDeletionsCommand";
+import {
+  DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
+  DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
+} from "./commands/DescribeMaintenanceWindowExecutionTaskInvocationsCommand";
+import {
+  DescribeMaintenanceWindowExecutionTasksCommandInput,
+  DescribeMaintenanceWindowExecutionTasksCommandOutput
+} from "./commands/DescribeMaintenanceWindowExecutionTasksCommand";
+import {
+  DescribeMaintenanceWindowExecutionsCommandInput,
+  DescribeMaintenanceWindowExecutionsCommandOutput
+} from "./commands/DescribeMaintenanceWindowExecutionsCommand";
+import {
+  DescribeMaintenanceWindowScheduleCommandInput,
+  DescribeMaintenanceWindowScheduleCommandOutput
+} from "./commands/DescribeMaintenanceWindowScheduleCommand";
+import {
+  DescribeMaintenanceWindowTargetsCommandInput,
+  DescribeMaintenanceWindowTargetsCommandOutput
+} from "./commands/DescribeMaintenanceWindowTargetsCommand";
+import {
+  DescribeMaintenanceWindowTasksCommandInput,
+  DescribeMaintenanceWindowTasksCommandOutput
+} from "./commands/DescribeMaintenanceWindowTasksCommand";
+import {
+  DescribeMaintenanceWindowsCommandInput,
+  DescribeMaintenanceWindowsCommandOutput
+} from "./commands/DescribeMaintenanceWindowsCommand";
+import {
+  DescribeMaintenanceWindowsForTargetCommandInput,
+  DescribeMaintenanceWindowsForTargetCommandOutput
+} from "./commands/DescribeMaintenanceWindowsForTargetCommand";
+import {
+  DescribeOpsItemsCommandInput,
+  DescribeOpsItemsCommandOutput
+} from "./commands/DescribeOpsItemsCommand";
+import {
+  DescribeParametersCommandInput,
+  DescribeParametersCommandOutput
+} from "./commands/DescribeParametersCommand";
+import {
+  DescribePatchBaselinesCommandInput,
+  DescribePatchBaselinesCommandOutput
+} from "./commands/DescribePatchBaselinesCommand";
+import {
+  DescribePatchGroupStateCommandInput,
+  DescribePatchGroupStateCommandOutput
+} from "./commands/DescribePatchGroupStateCommand";
+import {
+  DescribePatchGroupsCommandInput,
+  DescribePatchGroupsCommandOutput
+} from "./commands/DescribePatchGroupsCommand";
+import {
+  DescribePatchPropertiesCommandInput,
+  DescribePatchPropertiesCommandOutput
+} from "./commands/DescribePatchPropertiesCommand";
+import {
+  DescribeSessionsCommandInput,
+  DescribeSessionsCommandOutput
+} from "./commands/DescribeSessionsCommand";
+import {
+  GetAutomationExecutionCommandInput,
+  GetAutomationExecutionCommandOutput
+} from "./commands/GetAutomationExecutionCommand";
+import {
+  GetCalendarStateCommandInput,
+  GetCalendarStateCommandOutput
+} from "./commands/GetCalendarStateCommand";
+import {
+  GetCommandInvocationCommandInput,
+  GetCommandInvocationCommandOutput
+} from "./commands/GetCommandInvocationCommand";
+import {
+  GetConnectionStatusCommandInput,
+  GetConnectionStatusCommandOutput
+} from "./commands/GetConnectionStatusCommand";
+import {
+  GetDefaultPatchBaselineCommandInput,
+  GetDefaultPatchBaselineCommandOutput
+} from "./commands/GetDefaultPatchBaselineCommand";
+import {
+  GetDeployablePatchSnapshotForInstanceCommandInput,
+  GetDeployablePatchSnapshotForInstanceCommandOutput
+} from "./commands/GetDeployablePatchSnapshotForInstanceCommand";
+import {
+  GetDocumentCommandInput,
+  GetDocumentCommandOutput
+} from "./commands/GetDocumentCommand";
+import {
+  GetInventoryCommandInput,
+  GetInventoryCommandOutput
+} from "./commands/GetInventoryCommand";
+import {
+  GetInventorySchemaCommandInput,
+  GetInventorySchemaCommandOutput
+} from "./commands/GetInventorySchemaCommand";
+import {
+  GetMaintenanceWindowCommandInput,
+  GetMaintenanceWindowCommandOutput
+} from "./commands/GetMaintenanceWindowCommand";
+import {
+  GetMaintenanceWindowExecutionCommandInput,
+  GetMaintenanceWindowExecutionCommandOutput
+} from "./commands/GetMaintenanceWindowExecutionCommand";
+import {
+  GetMaintenanceWindowExecutionTaskCommandInput,
+  GetMaintenanceWindowExecutionTaskCommandOutput
+} from "./commands/GetMaintenanceWindowExecutionTaskCommand";
+import {
+  GetMaintenanceWindowExecutionTaskInvocationCommandInput,
+  GetMaintenanceWindowExecutionTaskInvocationCommandOutput
+} from "./commands/GetMaintenanceWindowExecutionTaskInvocationCommand";
+import {
+  GetMaintenanceWindowTaskCommandInput,
+  GetMaintenanceWindowTaskCommandOutput
+} from "./commands/GetMaintenanceWindowTaskCommand";
+import {
+  GetOpsItemCommandInput,
+  GetOpsItemCommandOutput
+} from "./commands/GetOpsItemCommand";
+import {
+  GetOpsSummaryCommandInput,
+  GetOpsSummaryCommandOutput
+} from "./commands/GetOpsSummaryCommand";
+import {
+  GetParameterCommandInput,
+  GetParameterCommandOutput
+} from "./commands/GetParameterCommand";
+import {
+  GetParameterHistoryCommandInput,
+  GetParameterHistoryCommandOutput
+} from "./commands/GetParameterHistoryCommand";
+import {
+  GetParametersByPathCommandInput,
+  GetParametersByPathCommandOutput
+} from "./commands/GetParametersByPathCommand";
+import {
+  GetParametersCommandInput,
+  GetParametersCommandOutput
+} from "./commands/GetParametersCommand";
+import {
+  GetPatchBaselineCommandInput,
+  GetPatchBaselineCommandOutput
+} from "./commands/GetPatchBaselineCommand";
+import {
+  GetPatchBaselineForPatchGroupCommandInput,
+  GetPatchBaselineForPatchGroupCommandOutput
+} from "./commands/GetPatchBaselineForPatchGroupCommand";
+import {
+  GetServiceSettingCommandInput,
+  GetServiceSettingCommandOutput
+} from "./commands/GetServiceSettingCommand";
+import {
+  LabelParameterVersionCommandInput,
+  LabelParameterVersionCommandOutput
+} from "./commands/LabelParameterVersionCommand";
+import {
+  ListAssociationVersionsCommandInput,
+  ListAssociationVersionsCommandOutput
+} from "./commands/ListAssociationVersionsCommand";
+import {
+  ListAssociationsCommandInput,
+  ListAssociationsCommandOutput
+} from "./commands/ListAssociationsCommand";
+import {
+  ListCommandInvocationsCommandInput,
+  ListCommandInvocationsCommandOutput
+} from "./commands/ListCommandInvocationsCommand";
+import {
+  ListCommandsCommandInput,
+  ListCommandsCommandOutput
+} from "./commands/ListCommandsCommand";
+import {
+  ListComplianceItemsCommandInput,
+  ListComplianceItemsCommandOutput
+} from "./commands/ListComplianceItemsCommand";
+import {
+  ListComplianceSummariesCommandInput,
+  ListComplianceSummariesCommandOutput
+} from "./commands/ListComplianceSummariesCommand";
+import {
+  ListDocumentVersionsCommandInput,
+  ListDocumentVersionsCommandOutput
+} from "./commands/ListDocumentVersionsCommand";
+import {
+  ListDocumentsCommandInput,
+  ListDocumentsCommandOutput
+} from "./commands/ListDocumentsCommand";
+import {
+  ListInventoryEntriesCommandInput,
+  ListInventoryEntriesCommandOutput
+} from "./commands/ListInventoryEntriesCommand";
+import {
+  ListResourceComplianceSummariesCommandInput,
+  ListResourceComplianceSummariesCommandOutput
+} from "./commands/ListResourceComplianceSummariesCommand";
+import {
+  ListResourceDataSyncCommandInput,
+  ListResourceDataSyncCommandOutput
+} from "./commands/ListResourceDataSyncCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ModifyDocumentPermissionCommandInput,
+  ModifyDocumentPermissionCommandOutput
+} from "./commands/ModifyDocumentPermissionCommand";
+import {
+  PutComplianceItemsCommandInput,
+  PutComplianceItemsCommandOutput
+} from "./commands/PutComplianceItemsCommand";
+import {
+  PutInventoryCommandInput,
+  PutInventoryCommandOutput
+} from "./commands/PutInventoryCommand";
+import {
+  PutParameterCommandInput,
+  PutParameterCommandOutput
+} from "./commands/PutParameterCommand";
+import {
+  RegisterDefaultPatchBaselineCommandInput,
+  RegisterDefaultPatchBaselineCommandOutput
+} from "./commands/RegisterDefaultPatchBaselineCommand";
+import {
+  RegisterPatchBaselineForPatchGroupCommandInput,
+  RegisterPatchBaselineForPatchGroupCommandOutput
+} from "./commands/RegisterPatchBaselineForPatchGroupCommand";
+import {
+  RegisterTargetWithMaintenanceWindowCommandInput,
+  RegisterTargetWithMaintenanceWindowCommandOutput
+} from "./commands/RegisterTargetWithMaintenanceWindowCommand";
+import {
+  RegisterTaskWithMaintenanceWindowCommandInput,
+  RegisterTaskWithMaintenanceWindowCommandOutput
+} from "./commands/RegisterTaskWithMaintenanceWindowCommand";
+import {
+  RemoveTagsFromResourceCommandInput,
+  RemoveTagsFromResourceCommandOutput
+} from "./commands/RemoveTagsFromResourceCommand";
+import {
+  ResetServiceSettingCommandInput,
+  ResetServiceSettingCommandOutput
+} from "./commands/ResetServiceSettingCommand";
+import {
+  ResumeSessionCommandInput,
+  ResumeSessionCommandOutput
+} from "./commands/ResumeSessionCommand";
+import {
+  SendAutomationSignalCommandInput,
+  SendAutomationSignalCommandOutput
+} from "./commands/SendAutomationSignalCommand";
+import {
+  SendCommandCommandInput,
+  SendCommandCommandOutput
+} from "./commands/SendCommandCommand";
+import {
+  StartAssociationsOnceCommandInput,
+  StartAssociationsOnceCommandOutput
+} from "./commands/StartAssociationsOnceCommand";
+import {
+  StartAutomationExecutionCommandInput,
+  StartAutomationExecutionCommandOutput
+} from "./commands/StartAutomationExecutionCommand";
+import {
+  StartSessionCommandInput,
+  StartSessionCommandOutput
+} from "./commands/StartSessionCommand";
+import {
+  StopAutomationExecutionCommandInput,
+  StopAutomationExecutionCommandOutput
+} from "./commands/StopAutomationExecutionCommand";
+import {
+  TerminateSessionCommandInput,
+  TerminateSessionCommandOutput
+} from "./commands/TerminateSessionCommand";
+import {
+  UpdateAssociationCommandInput,
+  UpdateAssociationCommandOutput
+} from "./commands/UpdateAssociationCommand";
+import {
+  UpdateAssociationStatusCommandInput,
+  UpdateAssociationStatusCommandOutput
+} from "./commands/UpdateAssociationStatusCommand";
+import {
+  UpdateDocumentCommandInput,
+  UpdateDocumentCommandOutput
+} from "./commands/UpdateDocumentCommand";
+import {
+  UpdateDocumentDefaultVersionCommandInput,
+  UpdateDocumentDefaultVersionCommandOutput
+} from "./commands/UpdateDocumentDefaultVersionCommand";
+import {
+  UpdateMaintenanceWindowCommandInput,
+  UpdateMaintenanceWindowCommandOutput
+} from "./commands/UpdateMaintenanceWindowCommand";
+import {
+  UpdateMaintenanceWindowTargetCommandInput,
+  UpdateMaintenanceWindowTargetCommandOutput
+} from "./commands/UpdateMaintenanceWindowTargetCommand";
+import {
+  UpdateMaintenanceWindowTaskCommandInput,
+  UpdateMaintenanceWindowTaskCommandOutput
+} from "./commands/UpdateMaintenanceWindowTaskCommand";
+import {
+  UpdateManagedInstanceRoleCommandInput,
+  UpdateManagedInstanceRoleCommandOutput
+} from "./commands/UpdateManagedInstanceRoleCommand";
+import {
+  UpdateOpsItemCommandInput,
+  UpdateOpsItemCommandOutput
+} from "./commands/UpdateOpsItemCommand";
+import {
+  UpdatePatchBaselineCommandInput,
+  UpdatePatchBaselineCommandOutput
+} from "./commands/UpdatePatchBaselineCommand";
+import {
+  UpdateResourceDataSyncCommandInput,
+  UpdateResourceDataSyncCommandOutput
+} from "./commands/UpdateResourceDataSyncCommand";
+import {
+  UpdateServiceSettingCommandInput,
+  UpdateServiceSettingCommandOutput
+} from "./commands/UpdateServiceSettingCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -297,252 +539,252 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsToResourceRequest
-  | CancelCommandRequest
-  | CancelMaintenanceWindowExecutionRequest
-  | CreateActivationRequest
-  | CreateAssociationBatchRequest
-  | CreateAssociationRequest
-  | CreateDocumentRequest
-  | CreateMaintenanceWindowRequest
-  | CreateOpsItemRequest
-  | CreatePatchBaselineRequest
-  | CreateResourceDataSyncRequest
-  | DeleteActivationRequest
-  | DeleteAssociationRequest
-  | DeleteDocumentRequest
-  | DeleteInventoryRequest
-  | DeleteMaintenanceWindowRequest
-  | DeleteParameterRequest
-  | DeleteParametersRequest
-  | DeletePatchBaselineRequest
-  | DeleteResourceDataSyncRequest
-  | DeregisterManagedInstanceRequest
-  | DeregisterPatchBaselineForPatchGroupRequest
-  | DeregisterTargetFromMaintenanceWindowRequest
-  | DeregisterTaskFromMaintenanceWindowRequest
-  | DescribeActivationsRequest
-  | DescribeAssociationExecutionTargetsRequest
-  | DescribeAssociationExecutionsRequest
-  | DescribeAssociationRequest
-  | DescribeAutomationExecutionsRequest
-  | DescribeAutomationStepExecutionsRequest
-  | DescribeAvailablePatchesRequest
-  | DescribeDocumentPermissionRequest
-  | DescribeDocumentRequest
-  | DescribeEffectiveInstanceAssociationsRequest
-  | DescribeEffectivePatchesForPatchBaselineRequest
-  | DescribeInstanceAssociationsStatusRequest
-  | DescribeInstanceInformationRequest
-  | DescribeInstancePatchStatesForPatchGroupRequest
-  | DescribeInstancePatchStatesRequest
-  | DescribeInstancePatchesRequest
-  | DescribeInventoryDeletionsRequest
-  | DescribeMaintenanceWindowExecutionTaskInvocationsRequest
-  | DescribeMaintenanceWindowExecutionTasksRequest
-  | DescribeMaintenanceWindowExecutionsRequest
-  | DescribeMaintenanceWindowScheduleRequest
-  | DescribeMaintenanceWindowTargetsRequest
-  | DescribeMaintenanceWindowTasksRequest
-  | DescribeMaintenanceWindowsForTargetRequest
-  | DescribeMaintenanceWindowsRequest
-  | DescribeOpsItemsRequest
-  | DescribeParametersRequest
-  | DescribePatchBaselinesRequest
-  | DescribePatchGroupStateRequest
-  | DescribePatchGroupsRequest
-  | DescribePatchPropertiesRequest
-  | DescribeSessionsRequest
-  | GetAutomationExecutionRequest
-  | GetCalendarStateRequest
-  | GetCommandInvocationRequest
-  | GetConnectionStatusRequest
-  | GetDefaultPatchBaselineRequest
-  | GetDeployablePatchSnapshotForInstanceRequest
-  | GetDocumentRequest
-  | GetInventoryRequest
-  | GetInventorySchemaRequest
-  | GetMaintenanceWindowExecutionRequest
-  | GetMaintenanceWindowExecutionTaskInvocationRequest
-  | GetMaintenanceWindowExecutionTaskRequest
-  | GetMaintenanceWindowRequest
-  | GetMaintenanceWindowTaskRequest
-  | GetOpsItemRequest
-  | GetOpsSummaryRequest
-  | GetParameterHistoryRequest
-  | GetParameterRequest
-  | GetParametersByPathRequest
-  | GetParametersRequest
-  | GetPatchBaselineForPatchGroupRequest
-  | GetPatchBaselineRequest
-  | GetServiceSettingRequest
-  | LabelParameterVersionRequest
-  | ListAssociationVersionsRequest
-  | ListAssociationsRequest
-  | ListCommandInvocationsRequest
-  | ListCommandsRequest
-  | ListComplianceItemsRequest
-  | ListComplianceSummariesRequest
-  | ListDocumentVersionsRequest
-  | ListDocumentsRequest
-  | ListInventoryEntriesRequest
-  | ListResourceComplianceSummariesRequest
-  | ListResourceDataSyncRequest
-  | ListTagsForResourceRequest
-  | ModifyDocumentPermissionRequest
-  | PutComplianceItemsRequest
-  | PutInventoryRequest
-  | PutParameterRequest
-  | RegisterDefaultPatchBaselineRequest
-  | RegisterPatchBaselineForPatchGroupRequest
-  | RegisterTargetWithMaintenanceWindowRequest
-  | RegisterTaskWithMaintenanceWindowRequest
-  | RemoveTagsFromResourceRequest
-  | ResetServiceSettingRequest
-  | ResumeSessionRequest
-  | SendAutomationSignalRequest
-  | SendCommandRequest
-  | StartAssociationsOnceRequest
-  | StartAutomationExecutionRequest
-  | StartSessionRequest
-  | StopAutomationExecutionRequest
-  | TerminateSessionRequest
-  | UpdateAssociationRequest
-  | UpdateAssociationStatusRequest
-  | UpdateDocumentDefaultVersionRequest
-  | UpdateDocumentRequest
-  | UpdateMaintenanceWindowRequest
-  | UpdateMaintenanceWindowTargetRequest
-  | UpdateMaintenanceWindowTaskRequest
-  | UpdateManagedInstanceRoleRequest
-  | UpdateOpsItemRequest
-  | UpdatePatchBaselineRequest
-  | UpdateResourceDataSyncRequest
-  | UpdateServiceSettingRequest;
+  | AddTagsToResourceCommandInput
+  | CancelCommandCommandInput
+  | CancelMaintenanceWindowExecutionCommandInput
+  | CreateActivationCommandInput
+  | CreateAssociationBatchCommandInput
+  | CreateAssociationCommandInput
+  | CreateDocumentCommandInput
+  | CreateMaintenanceWindowCommandInput
+  | CreateOpsItemCommandInput
+  | CreatePatchBaselineCommandInput
+  | CreateResourceDataSyncCommandInput
+  | DeleteActivationCommandInput
+  | DeleteAssociationCommandInput
+  | DeleteDocumentCommandInput
+  | DeleteInventoryCommandInput
+  | DeleteMaintenanceWindowCommandInput
+  | DeleteParameterCommandInput
+  | DeleteParametersCommandInput
+  | DeletePatchBaselineCommandInput
+  | DeleteResourceDataSyncCommandInput
+  | DeregisterManagedInstanceCommandInput
+  | DeregisterPatchBaselineForPatchGroupCommandInput
+  | DeregisterTargetFromMaintenanceWindowCommandInput
+  | DeregisterTaskFromMaintenanceWindowCommandInput
+  | DescribeActivationsCommandInput
+  | DescribeAssociationCommandInput
+  | DescribeAssociationExecutionTargetsCommandInput
+  | DescribeAssociationExecutionsCommandInput
+  | DescribeAutomationExecutionsCommandInput
+  | DescribeAutomationStepExecutionsCommandInput
+  | DescribeAvailablePatchesCommandInput
+  | DescribeDocumentCommandInput
+  | DescribeDocumentPermissionCommandInput
+  | DescribeEffectiveInstanceAssociationsCommandInput
+  | DescribeEffectivePatchesForPatchBaselineCommandInput
+  | DescribeInstanceAssociationsStatusCommandInput
+  | DescribeInstanceInformationCommandInput
+  | DescribeInstancePatchStatesCommandInput
+  | DescribeInstancePatchStatesForPatchGroupCommandInput
+  | DescribeInstancePatchesCommandInput
+  | DescribeInventoryDeletionsCommandInput
+  | DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput
+  | DescribeMaintenanceWindowExecutionTasksCommandInput
+  | DescribeMaintenanceWindowExecutionsCommandInput
+  | DescribeMaintenanceWindowScheduleCommandInput
+  | DescribeMaintenanceWindowTargetsCommandInput
+  | DescribeMaintenanceWindowTasksCommandInput
+  | DescribeMaintenanceWindowsCommandInput
+  | DescribeMaintenanceWindowsForTargetCommandInput
+  | DescribeOpsItemsCommandInput
+  | DescribeParametersCommandInput
+  | DescribePatchBaselinesCommandInput
+  | DescribePatchGroupStateCommandInput
+  | DescribePatchGroupsCommandInput
+  | DescribePatchPropertiesCommandInput
+  | DescribeSessionsCommandInput
+  | GetAutomationExecutionCommandInput
+  | GetCalendarStateCommandInput
+  | GetCommandInvocationCommandInput
+  | GetConnectionStatusCommandInput
+  | GetDefaultPatchBaselineCommandInput
+  | GetDeployablePatchSnapshotForInstanceCommandInput
+  | GetDocumentCommandInput
+  | GetInventoryCommandInput
+  | GetInventorySchemaCommandInput
+  | GetMaintenanceWindowCommandInput
+  | GetMaintenanceWindowExecutionCommandInput
+  | GetMaintenanceWindowExecutionTaskCommandInput
+  | GetMaintenanceWindowExecutionTaskInvocationCommandInput
+  | GetMaintenanceWindowTaskCommandInput
+  | GetOpsItemCommandInput
+  | GetOpsSummaryCommandInput
+  | GetParameterCommandInput
+  | GetParameterHistoryCommandInput
+  | GetParametersByPathCommandInput
+  | GetParametersCommandInput
+  | GetPatchBaselineCommandInput
+  | GetPatchBaselineForPatchGroupCommandInput
+  | GetServiceSettingCommandInput
+  | LabelParameterVersionCommandInput
+  | ListAssociationVersionsCommandInput
+  | ListAssociationsCommandInput
+  | ListCommandInvocationsCommandInput
+  | ListCommandsCommandInput
+  | ListComplianceItemsCommandInput
+  | ListComplianceSummariesCommandInput
+  | ListDocumentVersionsCommandInput
+  | ListDocumentsCommandInput
+  | ListInventoryEntriesCommandInput
+  | ListResourceComplianceSummariesCommandInput
+  | ListResourceDataSyncCommandInput
+  | ListTagsForResourceCommandInput
+  | ModifyDocumentPermissionCommandInput
+  | PutComplianceItemsCommandInput
+  | PutInventoryCommandInput
+  | PutParameterCommandInput
+  | RegisterDefaultPatchBaselineCommandInput
+  | RegisterPatchBaselineForPatchGroupCommandInput
+  | RegisterTargetWithMaintenanceWindowCommandInput
+  | RegisterTaskWithMaintenanceWindowCommandInput
+  | RemoveTagsFromResourceCommandInput
+  | ResetServiceSettingCommandInput
+  | ResumeSessionCommandInput
+  | SendAutomationSignalCommandInput
+  | SendCommandCommandInput
+  | StartAssociationsOnceCommandInput
+  | StartAutomationExecutionCommandInput
+  | StartSessionCommandInput
+  | StopAutomationExecutionCommandInput
+  | TerminateSessionCommandInput
+  | UpdateAssociationCommandInput
+  | UpdateAssociationStatusCommandInput
+  | UpdateDocumentCommandInput
+  | UpdateDocumentDefaultVersionCommandInput
+  | UpdateMaintenanceWindowCommandInput
+  | UpdateMaintenanceWindowTargetCommandInput
+  | UpdateMaintenanceWindowTaskCommandInput
+  | UpdateManagedInstanceRoleCommandInput
+  | UpdateOpsItemCommandInput
+  | UpdatePatchBaselineCommandInput
+  | UpdateResourceDataSyncCommandInput
+  | UpdateServiceSettingCommandInput;
 
 export type ServiceOutputTypes =
-  | AddTagsToResourceResult
-  | CancelCommandResult
-  | CancelMaintenanceWindowExecutionResult
-  | CreateActivationResult
-  | CreateAssociationBatchResult
-  | CreateAssociationResult
-  | CreateDocumentResult
-  | CreateMaintenanceWindowResult
-  | CreateOpsItemResponse
-  | CreatePatchBaselineResult
-  | CreateResourceDataSyncResult
-  | DeleteActivationResult
-  | DeleteAssociationResult
-  | DeleteDocumentResult
-  | DeleteInventoryResult
-  | DeleteMaintenanceWindowResult
-  | DeleteParameterResult
-  | DeleteParametersResult
-  | DeletePatchBaselineResult
-  | DeleteResourceDataSyncResult
-  | DeregisterManagedInstanceResult
-  | DeregisterPatchBaselineForPatchGroupResult
-  | DeregisterTargetFromMaintenanceWindowResult
-  | DeregisterTaskFromMaintenanceWindowResult
-  | DescribeActivationsResult
-  | DescribeAssociationExecutionTargetsResult
-  | DescribeAssociationExecutionsResult
-  | DescribeAssociationResult
-  | DescribeAutomationExecutionsResult
-  | DescribeAutomationStepExecutionsResult
-  | DescribeAvailablePatchesResult
-  | DescribeDocumentPermissionResponse
-  | DescribeDocumentResult
-  | DescribeEffectiveInstanceAssociationsResult
-  | DescribeEffectivePatchesForPatchBaselineResult
-  | DescribeInstanceAssociationsStatusResult
-  | DescribeInstanceInformationResult
-  | DescribeInstancePatchStatesForPatchGroupResult
-  | DescribeInstancePatchStatesResult
-  | DescribeInstancePatchesResult
-  | DescribeInventoryDeletionsResult
-  | DescribeMaintenanceWindowExecutionTaskInvocationsResult
-  | DescribeMaintenanceWindowExecutionTasksResult
-  | DescribeMaintenanceWindowExecutionsResult
-  | DescribeMaintenanceWindowScheduleResult
-  | DescribeMaintenanceWindowTargetsResult
-  | DescribeMaintenanceWindowTasksResult
-  | DescribeMaintenanceWindowsForTargetResult
-  | DescribeMaintenanceWindowsResult
-  | DescribeOpsItemsResponse
-  | DescribeParametersResult
-  | DescribePatchBaselinesResult
-  | DescribePatchGroupStateResult
-  | DescribePatchGroupsResult
-  | DescribePatchPropertiesResult
-  | DescribeSessionsResponse
-  | GetAutomationExecutionResult
-  | GetCalendarStateResponse
-  | GetCommandInvocationResult
-  | GetConnectionStatusResponse
-  | GetDefaultPatchBaselineResult
-  | GetDeployablePatchSnapshotForInstanceResult
-  | GetDocumentResult
-  | GetInventoryResult
-  | GetInventorySchemaResult
-  | GetMaintenanceWindowExecutionResult
-  | GetMaintenanceWindowExecutionTaskInvocationResult
-  | GetMaintenanceWindowExecutionTaskResult
-  | GetMaintenanceWindowResult
-  | GetMaintenanceWindowTaskResult
-  | GetOpsItemResponse
-  | GetOpsSummaryResult
-  | GetParameterHistoryResult
-  | GetParameterResult
-  | GetParametersByPathResult
-  | GetParametersResult
-  | GetPatchBaselineForPatchGroupResult
-  | GetPatchBaselineResult
-  | GetServiceSettingResult
-  | LabelParameterVersionResult
-  | ListAssociationVersionsResult
-  | ListAssociationsResult
-  | ListCommandInvocationsResult
-  | ListCommandsResult
-  | ListComplianceItemsResult
-  | ListComplianceSummariesResult
-  | ListDocumentVersionsResult
-  | ListDocumentsResult
-  | ListInventoryEntriesResult
-  | ListResourceComplianceSummariesResult
-  | ListResourceDataSyncResult
-  | ListTagsForResourceResult
-  | ModifyDocumentPermissionResponse
-  | PutComplianceItemsResult
-  | PutInventoryResult
-  | PutParameterResult
-  | RegisterDefaultPatchBaselineResult
-  | RegisterPatchBaselineForPatchGroupResult
-  | RegisterTargetWithMaintenanceWindowResult
-  | RegisterTaskWithMaintenanceWindowResult
-  | RemoveTagsFromResourceResult
-  | ResetServiceSettingResult
-  | ResumeSessionResponse
-  | SendAutomationSignalResult
-  | SendCommandResult
-  | StartAssociationsOnceResult
-  | StartAutomationExecutionResult
-  | StartSessionResponse
-  | StopAutomationExecutionResult
-  | TerminateSessionResponse
-  | UpdateAssociationResult
-  | UpdateAssociationStatusResult
-  | UpdateDocumentDefaultVersionResult
-  | UpdateDocumentResult
-  | UpdateMaintenanceWindowResult
-  | UpdateMaintenanceWindowTargetResult
-  | UpdateMaintenanceWindowTaskResult
-  | UpdateManagedInstanceRoleResult
-  | UpdateOpsItemResponse
-  | UpdatePatchBaselineResult
-  | UpdateResourceDataSyncResult
-  | UpdateServiceSettingResult;
+  | AddTagsToResourceCommandOutput
+  | CancelCommandCommandOutput
+  | CancelMaintenanceWindowExecutionCommandOutput
+  | CreateActivationCommandOutput
+  | CreateAssociationBatchCommandOutput
+  | CreateAssociationCommandOutput
+  | CreateDocumentCommandOutput
+  | CreateMaintenanceWindowCommandOutput
+  | CreateOpsItemCommandOutput
+  | CreatePatchBaselineCommandOutput
+  | CreateResourceDataSyncCommandOutput
+  | DeleteActivationCommandOutput
+  | DeleteAssociationCommandOutput
+  | DeleteDocumentCommandOutput
+  | DeleteInventoryCommandOutput
+  | DeleteMaintenanceWindowCommandOutput
+  | DeleteParameterCommandOutput
+  | DeleteParametersCommandOutput
+  | DeletePatchBaselineCommandOutput
+  | DeleteResourceDataSyncCommandOutput
+  | DeregisterManagedInstanceCommandOutput
+  | DeregisterPatchBaselineForPatchGroupCommandOutput
+  | DeregisterTargetFromMaintenanceWindowCommandOutput
+  | DeregisterTaskFromMaintenanceWindowCommandOutput
+  | DescribeActivationsCommandOutput
+  | DescribeAssociationCommandOutput
+  | DescribeAssociationExecutionTargetsCommandOutput
+  | DescribeAssociationExecutionsCommandOutput
+  | DescribeAutomationExecutionsCommandOutput
+  | DescribeAutomationStepExecutionsCommandOutput
+  | DescribeAvailablePatchesCommandOutput
+  | DescribeDocumentCommandOutput
+  | DescribeDocumentPermissionCommandOutput
+  | DescribeEffectiveInstanceAssociationsCommandOutput
+  | DescribeEffectivePatchesForPatchBaselineCommandOutput
+  | DescribeInstanceAssociationsStatusCommandOutput
+  | DescribeInstanceInformationCommandOutput
+  | DescribeInstancePatchStatesCommandOutput
+  | DescribeInstancePatchStatesForPatchGroupCommandOutput
+  | DescribeInstancePatchesCommandOutput
+  | DescribeInventoryDeletionsCommandOutput
+  | DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
+  | DescribeMaintenanceWindowExecutionTasksCommandOutput
+  | DescribeMaintenanceWindowExecutionsCommandOutput
+  | DescribeMaintenanceWindowScheduleCommandOutput
+  | DescribeMaintenanceWindowTargetsCommandOutput
+  | DescribeMaintenanceWindowTasksCommandOutput
+  | DescribeMaintenanceWindowsCommandOutput
+  | DescribeMaintenanceWindowsForTargetCommandOutput
+  | DescribeOpsItemsCommandOutput
+  | DescribeParametersCommandOutput
+  | DescribePatchBaselinesCommandOutput
+  | DescribePatchGroupStateCommandOutput
+  | DescribePatchGroupsCommandOutput
+  | DescribePatchPropertiesCommandOutput
+  | DescribeSessionsCommandOutput
+  | GetAutomationExecutionCommandOutput
+  | GetCalendarStateCommandOutput
+  | GetCommandInvocationCommandOutput
+  | GetConnectionStatusCommandOutput
+  | GetDefaultPatchBaselineCommandOutput
+  | GetDeployablePatchSnapshotForInstanceCommandOutput
+  | GetDocumentCommandOutput
+  | GetInventoryCommandOutput
+  | GetInventorySchemaCommandOutput
+  | GetMaintenanceWindowCommandOutput
+  | GetMaintenanceWindowExecutionCommandOutput
+  | GetMaintenanceWindowExecutionTaskCommandOutput
+  | GetMaintenanceWindowExecutionTaskInvocationCommandOutput
+  | GetMaintenanceWindowTaskCommandOutput
+  | GetOpsItemCommandOutput
+  | GetOpsSummaryCommandOutput
+  | GetParameterCommandOutput
+  | GetParameterHistoryCommandOutput
+  | GetParametersByPathCommandOutput
+  | GetParametersCommandOutput
+  | GetPatchBaselineCommandOutput
+  | GetPatchBaselineForPatchGroupCommandOutput
+  | GetServiceSettingCommandOutput
+  | LabelParameterVersionCommandOutput
+  | ListAssociationVersionsCommandOutput
+  | ListAssociationsCommandOutput
+  | ListCommandInvocationsCommandOutput
+  | ListCommandsCommandOutput
+  | ListComplianceItemsCommandOutput
+  | ListComplianceSummariesCommandOutput
+  | ListDocumentVersionsCommandOutput
+  | ListDocumentsCommandOutput
+  | ListInventoryEntriesCommandOutput
+  | ListResourceComplianceSummariesCommandOutput
+  | ListResourceDataSyncCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ModifyDocumentPermissionCommandOutput
+  | PutComplianceItemsCommandOutput
+  | PutInventoryCommandOutput
+  | PutParameterCommandOutput
+  | RegisterDefaultPatchBaselineCommandOutput
+  | RegisterPatchBaselineForPatchGroupCommandOutput
+  | RegisterTargetWithMaintenanceWindowCommandOutput
+  | RegisterTaskWithMaintenanceWindowCommandOutput
+  | RemoveTagsFromResourceCommandOutput
+  | ResetServiceSettingCommandOutput
+  | ResumeSessionCommandOutput
+  | SendAutomationSignalCommandOutput
+  | SendCommandCommandOutput
+  | StartAssociationsOnceCommandOutput
+  | StartAutomationExecutionCommandOutput
+  | StartSessionCommandOutput
+  | StopAutomationExecutionCommandOutput
+  | TerminateSessionCommandOutput
+  | UpdateAssociationCommandOutput
+  | UpdateAssociationStatusCommandOutput
+  | UpdateDocumentCommandOutput
+  | UpdateDocumentDefaultVersionCommandOutput
+  | UpdateMaintenanceWindowCommandOutput
+  | UpdateMaintenanceWindowTargetCommandOutput
+  | UpdateMaintenanceWindowTaskCommandOutput
+  | UpdateManagedInstanceRoleCommandOutput
+  | UpdateOpsItemCommandOutput
+  | UpdatePatchBaselineCommandOutput
+  | UpdateResourceDataSyncCommandOutput
+  | UpdateServiceSettingCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

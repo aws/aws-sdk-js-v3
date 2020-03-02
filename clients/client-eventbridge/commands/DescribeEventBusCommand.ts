@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEventBusCommandInput = DescribeEventBusRequest;
-export type DescribeEventBusCommandOutput = DescribeEventBusResponse;
+export type DescribeEventBusCommandOutput = DescribeEventBusResponse &
+  __MetadataBearer;
 
 export class DescribeEventBusCommand extends $Command<
   DescribeEventBusCommandInput,

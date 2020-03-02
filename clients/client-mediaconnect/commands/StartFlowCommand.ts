@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartFlowCommandInput = StartFlowRequest;
-export type StartFlowCommandOutput = StartFlowResponse;
+export type StartFlowCommandOutput = StartFlowResponse & __MetadataBearer;
 
 export class StartFlowCommand extends $Command<
   StartFlowCommandInput,

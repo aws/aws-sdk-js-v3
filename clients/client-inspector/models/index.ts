@@ -64,7 +64,7 @@ export namespace AddAttributesToFindingsRequest {
   }
 }
 
-export interface AddAttributesToFindingsResponse extends $MetadataBearer {
+export interface AddAttributesToFindingsResponse {
   __type?: "AddAttributesToFindingsResponse";
   /**
    * <p>Attribute details that cannot be described. An error code is provided for each failed
@@ -830,7 +830,7 @@ export namespace CreateAssessmentTargetRequest {
   }
 }
 
-export interface CreateAssessmentTargetResponse extends $MetadataBearer {
+export interface CreateAssessmentTargetResponse {
   __type?: "CreateAssessmentTargetResponse";
   /**
    * <p>The ARN that specifies the assessment target that is created.</p>
@@ -886,7 +886,7 @@ export namespace CreateAssessmentTemplateRequest {
   }
 }
 
-export interface CreateAssessmentTemplateResponse extends $MetadataBearer {
+export interface CreateAssessmentTemplateResponse {
   __type?: "CreateAssessmentTemplateResponse";
   /**
    * <p>The ARN that specifies the assessment template that is created.</p>
@@ -915,7 +915,7 @@ export namespace CreateExclusionsPreviewRequest {
   }
 }
 
-export interface CreateExclusionsPreviewResponse extends $MetadataBearer {
+export interface CreateExclusionsPreviewResponse {
   __type?: "CreateExclusionsPreviewResponse";
   /**
    * <p>Specifies the unique identifier of the requested exclusions preview. You can use the
@@ -947,7 +947,7 @@ export namespace CreateResourceGroupRequest {
   }
 }
 
-export interface CreateResourceGroupResponse extends $MetadataBearer {
+export interface CreateResourceGroupResponse {
   __type?: "CreateResourceGroupResponse";
   /**
    * <p>The ARN that specifies the resource group that is created.</p>
@@ -1017,7 +1017,7 @@ export namespace DescribeAssessmentRunsRequest {
   }
 }
 
-export interface DescribeAssessmentRunsResponse extends $MetadataBearer {
+export interface DescribeAssessmentRunsResponse {
   __type?: "DescribeAssessmentRunsResponse";
   /**
    * <p>Information about the assessment run.</p>
@@ -1051,7 +1051,7 @@ export namespace DescribeAssessmentTargetsRequest {
   }
 }
 
-export interface DescribeAssessmentTargetsResponse extends $MetadataBearer {
+export interface DescribeAssessmentTargetsResponse {
   __type?: "DescribeAssessmentTargetsResponse";
   /**
    * <p>Information about the assessment targets.</p>
@@ -1082,7 +1082,7 @@ export namespace DescribeAssessmentTemplatesRequest {
   }
 }
 
-export interface DescribeAssessmentTemplatesResponse extends $MetadataBearer {
+export interface DescribeAssessmentTemplatesResponse {
   __type?: "DescribeAssessmentTemplatesResponse";
   /**
    * <p>Information about the assessment templates.</p>
@@ -1102,8 +1102,7 @@ export namespace DescribeAssessmentTemplatesResponse {
   }
 }
 
-export interface DescribeCrossAccountAccessRoleResponse
-  extends $MetadataBearer {
+export interface DescribeCrossAccountAccessRoleResponse {
   __type?: "DescribeCrossAccountAccessRoleResponse";
   /**
    * <p>The date when the cross-account access role was registered.</p>
@@ -1149,7 +1148,7 @@ export namespace DescribeExclusionsRequest {
   }
 }
 
-export interface DescribeExclusionsResponse extends $MetadataBearer {
+export interface DescribeExclusionsResponse {
   __type?: "DescribeExclusionsResponse";
   /**
    * <p>Information about the exclusions.</p>
@@ -1189,7 +1188,7 @@ export namespace DescribeFindingsRequest {
   }
 }
 
-export interface DescribeFindingsResponse extends $MetadataBearer {
+export interface DescribeFindingsResponse {
   __type?: "DescribeFindingsResponse";
   /**
    * <p>Finding details that cannot be described. An error code is provided for each failed
@@ -1223,7 +1222,7 @@ export namespace DescribeResourceGroupsRequest {
   }
 }
 
-export interface DescribeResourceGroupsResponse extends $MetadataBearer {
+export interface DescribeResourceGroupsResponse {
   __type?: "DescribeResourceGroupsResponse";
   /**
    * <p>Resource group details that cannot be described. An error code is provided for each
@@ -1262,7 +1261,7 @@ export namespace DescribeRulesPackagesRequest {
   }
 }
 
-export interface DescribeRulesPackagesResponse extends $MetadataBearer {
+export interface DescribeRulesPackagesResponse {
   __type?: "DescribeRulesPackagesResponse";
   /**
    * <p>Rules package details that cannot be described. An error code is provided for each
@@ -1636,7 +1635,7 @@ export namespace GetAssessmentReportRequest {
   }
 }
 
-export interface GetAssessmentReportResponse extends $MetadataBearer {
+export interface GetAssessmentReportResponse {
   __type?: "GetAssessmentReportResponse";
   /**
    * <p>Specifies the status of the request to generate an assessment report. </p>
@@ -1696,7 +1695,7 @@ export namespace GetExclusionsPreviewRequest {
   }
 }
 
-export interface GetExclusionsPreviewResponse extends $MetadataBearer {
+export interface GetExclusionsPreviewResponse {
   __type?: "GetExclusionsPreviewResponse";
   /**
    * <p>Information about the exclusions included in the preview.</p>
@@ -1738,7 +1737,7 @@ export namespace GetTelemetryMetadataRequest {
   }
 }
 
-export interface GetTelemetryMetadataResponse extends $MetadataBearer {
+export interface GetTelemetryMetadataResponse {
   __type?: "GetTelemetryMetadataResponse";
   /**
    * <p>Telemetry details.</p>
@@ -2011,7 +2010,7 @@ export namespace ListAssessmentRunAgentsRequest {
   }
 }
 
-export interface ListAssessmentRunAgentsResponse extends $MetadataBearer {
+export interface ListAssessmentRunAgentsResponse {
   __type?: "ListAssessmentRunAgentsResponse";
   /**
    * <p>A list of ARNs that specifies the agents returned by the action.</p>
@@ -2071,7 +2070,7 @@ export namespace ListAssessmentRunsRequest {
   }
 }
 
-export interface ListAssessmentRunsResponse extends $MetadataBearer {
+export interface ListAssessmentRunsResponse {
   __type?: "ListAssessmentRunsResponse";
   /**
    * <p>A list of ARNs that specifies the assessment runs that are returned by the
@@ -2126,7 +2125,7 @@ export namespace ListAssessmentTargetsRequest {
   }
 }
 
-export interface ListAssessmentTargetsResponse extends $MetadataBearer {
+export interface ListAssessmentTargetsResponse {
   __type?: "ListAssessmentTargetsResponse";
   /**
    * <p>A list of ARNs that specifies the assessment targets that are returned by the
@@ -2187,7 +2186,7 @@ export namespace ListAssessmentTemplatesRequest {
   }
 }
 
-export interface ListAssessmentTemplatesResponse extends $MetadataBearer {
+export interface ListAssessmentTemplatesResponse {
   __type?: "ListAssessmentTemplatesResponse";
   /**
    * <p>A list of ARNs that specifies the assessment templates returned by the
@@ -2239,7 +2238,7 @@ export namespace ListEventSubscriptionsRequest {
   }
 }
 
-export interface ListEventSubscriptionsResponse extends $MetadataBearer {
+export interface ListEventSubscriptionsResponse {
   __type?: "ListEventSubscriptionsResponse";
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
@@ -2289,7 +2288,7 @@ export namespace ListExclusionsRequest {
   }
 }
 
-export interface ListExclusionsResponse extends $MetadataBearer {
+export interface ListExclusionsResponse {
   __type?: "ListExclusionsResponse";
   /**
    * <p>A list of exclusions' ARNs returned by the action.</p>
@@ -2350,7 +2349,7 @@ export namespace ListFindingsRequest {
   }
 }
 
-export interface ListFindingsResponse extends $MetadataBearer {
+export interface ListFindingsResponse {
   __type?: "ListFindingsResponse";
   /**
    * <p>A list of ARNs that specifies the findings returned by the action.</p>
@@ -2395,7 +2394,7 @@ export namespace ListRulesPackagesRequest {
   }
 }
 
-export interface ListRulesPackagesResponse extends $MetadataBearer {
+export interface ListRulesPackagesResponse {
   __type?: "ListRulesPackagesResponse";
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
@@ -2430,7 +2429,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>A collection of key and value pairs.</p>
@@ -2585,7 +2584,7 @@ export namespace PreviewAgentsRequest {
   }
 }
 
-export interface PreviewAgentsResponse extends $MetadataBearer {
+export interface PreviewAgentsResponse {
   __type?: "PreviewAgentsResponse";
   /**
    * <p>The resulting list of agents.</p>
@@ -2688,7 +2687,7 @@ export namespace RemoveAttributesFromFindingsRequest {
   }
 }
 
-export interface RemoveAttributesFromFindingsResponse extends $MetadataBearer {
+export interface RemoveAttributesFromFindingsResponse {
   __type?: "RemoveAttributesFromFindingsResponse";
   /**
    * <p>Attributes details that cannot be described. An error code is provided for each
@@ -2937,7 +2936,7 @@ export namespace StartAssessmentRunRequest {
   }
 }
 
-export interface StartAssessmentRunResponse extends $MetadataBearer {
+export interface StartAssessmentRunResponse {
   __type?: "StartAssessmentRunResponse";
   /**
    * <p>The ARN of the assessment run that has been started.</p>

@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateVPCFromHostedZoneCommandInput = DisassociateVPCFromHostedZoneRequest;
-export type DisassociateVPCFromHostedZoneCommandOutput = DisassociateVPCFromHostedZoneResponse;
+export type DisassociateVPCFromHostedZoneCommandOutput = DisassociateVPCFromHostedZoneResponse &
+  __MetadataBearer;
 
 export class DisassociateVPCFromHostedZoneCommand extends $Command<
   DisassociateVPCFromHostedZoneCommandInput,

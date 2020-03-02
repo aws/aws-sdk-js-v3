@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 /**
  * <p>The specified container was not found for the specified account.</p>
@@ -36,7 +37,7 @@ export namespace DeleteObjectRequest {
   }
 }
 
-export interface DeleteObjectResponse extends $MetadataBearer {
+export interface DeleteObjectResponse {
   __type?: "DeleteObjectResponse";
 }
 
@@ -61,7 +62,7 @@ export namespace DescribeObjectRequest {
   }
 }
 
-export interface DescribeObjectResponse extends $MetadataBearer {
+export interface DescribeObjectResponse {
   __type?: "DescribeObjectResponse";
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -134,12 +135,12 @@ export namespace GetObjectRequest {
   }
 }
 
-export interface GetObjectResponse extends $MetadataBearer {
+export interface GetObjectResponse {
   __type?: "GetObjectResponse";
   /**
    * <p>The bytes of the object. </p>
    */
-  Body?: Uint8Array;
+  Body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -281,7 +282,7 @@ export namespace ListItemsRequest {
   }
 }
 
-export interface ListItemsResponse extends $MetadataBearer {
+export interface ListItemsResponse {
   __type?: "ListItemsResponse";
   /**
    * <p>The metadata entries for the folders and objects at the requested path.</p>
@@ -326,7 +327,7 @@ export interface PutObjectRequest {
   /**
    * <p>The bytes to be stored. </p>
    */
-  Body: Uint8Array | undefined;
+  Body: Readable | ReadableStream | Blob | undefined;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -376,7 +377,7 @@ export namespace PutObjectRequest {
   }
 }
 
-export interface PutObjectResponse extends $MetadataBearer {
+export interface PutObjectResponse {
   __type?: "PutObjectResponse";
   /**
    * <p>The SHA256 digest of the object that is persisted.</p>

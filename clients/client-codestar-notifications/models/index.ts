@@ -120,7 +120,7 @@ export namespace CreateNotificationRuleRequest {
   }
 }
 
-export interface CreateNotificationRuleResult extends $MetadataBearer {
+export interface CreateNotificationRuleResult {
   __type?: "CreateNotificationRuleResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
@@ -148,7 +148,7 @@ export namespace DeleteNotificationRuleRequest {
   }
 }
 
-export interface DeleteNotificationRuleResult extends $MetadataBearer {
+export interface DeleteNotificationRuleResult {
   __type?: "DeleteNotificationRuleResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted notification rule.</p>
@@ -183,7 +183,7 @@ export namespace DeleteTargetRequest {
   }
 }
 
-export interface DeleteTargetResult extends $MetadataBearer {
+export interface DeleteTargetResult {
   __type?: "DeleteTargetResult";
 }
 
@@ -207,7 +207,7 @@ export namespace DescribeNotificationRuleRequest {
   }
 }
 
-export interface DescribeNotificationRuleResult extends $MetadataBearer {
+export interface DescribeNotificationRuleResult {
   __type?: "DescribeNotificationRuleResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
@@ -404,7 +404,7 @@ export namespace ListEventTypesRequest {
   }
 }
 
-export interface ListEventTypesResult extends $MetadataBearer {
+export interface ListEventTypesResult {
   __type?: "ListEventTypesResult";
   /**
    * <p>Information about each event, including service name, resource type, event ID, and event
@@ -485,7 +485,7 @@ export namespace ListNotificationRulesRequest {
   }
 }
 
-export interface ListNotificationRulesResult extends $MetadataBearer {
+export interface ListNotificationRulesResult {
   __type?: "ListNotificationRulesResult";
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -518,7 +518,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResult extends $MetadataBearer {
+export interface ListTagsForResourceResult {
   __type?: "ListTagsForResourceResult";
   /**
    * <p>The tags associated with the notification rule.</p>
@@ -596,7 +596,7 @@ export namespace ListTargetsRequest {
   }
 }
 
-export interface ListTargetsResult extends $MetadataBearer {
+export interface ListTargetsResult {
   __type?: "ListTargetsResult";
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of
@@ -703,7 +703,7 @@ export namespace SubscribeRequest {
   }
 }
 
-export interface SubscribeResult extends $MetadataBearer {
+export interface SubscribeResult {
   __type?: "SubscribeResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule for which you have created assocations.</p>
@@ -736,7 +736,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResult extends $MetadataBearer {
+export interface TagResourceResult {
   __type?: "TagResourceResult";
   /**
    * <p>The list of tags associated with the resource.</p>
@@ -826,7 +826,7 @@ export namespace UnsubscribeRequest {
   }
 }
 
-export interface UnsubscribeResult extends $MetadataBearer {
+export interface UnsubscribeResult {
   __type?: "UnsubscribeResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the the notification rule from which you have removed a subscription.</p>
@@ -860,7 +860,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResult extends $MetadataBearer {
+export interface UntagResourceResult {
   __type?: "UntagResourceResult";
 }
 
@@ -913,7 +913,7 @@ export namespace UpdateNotificationRuleRequest {
   }
 }
 
-export interface UpdateNotificationRuleResult extends $MetadataBearer {
+export interface UpdateNotificationRuleResult {
   __type?: "UpdateNotificationRuleResult";
 }
 

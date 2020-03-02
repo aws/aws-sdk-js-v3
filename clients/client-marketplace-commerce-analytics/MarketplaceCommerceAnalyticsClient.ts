@@ -1,9 +1,11 @@
 import {
-  GenerateDataSetRequest,
-  GenerateDataSetResult,
-  StartSupportDataExportRequest,
-  StartSupportDataExportResult
-} from "./models/index";
+  GenerateDataSetCommandInput,
+  GenerateDataSetCommandOutput
+} from "./commands/GenerateDataSetCommand";
+import {
+  StartSupportDataExportCommandInput,
+  StartSupportDataExportCommandOutput
+} from "./commands/StartSupportDataExportCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -57,12 +59,12 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | GenerateDataSetRequest
-  | StartSupportDataExportRequest;
+  | GenerateDataSetCommandInput
+  | StartSupportDataExportCommandInput;
 
 export type ServiceOutputTypes =
-  | GenerateDataSetResult
-  | StartSupportDataExportResult;
+  | GenerateDataSetCommandOutput
+  | StartSupportDataExportCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

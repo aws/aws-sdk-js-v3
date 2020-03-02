@@ -512,10 +512,10 @@ async function deserializeAws_queryAddPermissionCommandError(
   switch (errorCode) {
     case "OverLimit":
     case "com.amazonaws.sqs#OverLimit":
-      response = await deserializeAws_queryOverLimitResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOverLimitResponse(parsedOutput, context)),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -566,17 +566,23 @@ async function deserializeAws_queryChangeMessageVisibilityCommandError(
   switch (errorCode) {
     case "MessageNotInflight":
     case "com.amazonaws.sqs#MessageNotInflight":
-      response = await deserializeAws_queryMessageNotInflightResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMessageNotInflightResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReceiptHandleIsInvalid":
     case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
-      response = await deserializeAws_queryReceiptHandleIsInvalidResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReceiptHandleIsInvalidResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -634,31 +640,43 @@ async function deserializeAws_queryChangeMessageVisibilityBatchCommandError(
   switch (errorCode) {
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
-      response = await deserializeAws_queryBatchEntryIdsNotDistinctResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
-      response = await deserializeAws_queryEmptyBatchRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEmptyBatchRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
-      response = await deserializeAws_queryInvalidBatchEntryIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
-      response = await deserializeAws_queryTooManyEntriesInBatchRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -713,17 +731,23 @@ async function deserializeAws_queryCreateQueueCommandError(
   switch (errorCode) {
     case "QueueDeletedRecently":
     case "com.amazonaws.sqs#QueueDeletedRecently":
-      response = await deserializeAws_queryQueueDeletedRecentlyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryQueueDeletedRecentlyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "QueueNameExists":
     case "com.amazonaws.sqs#QueueNameExists":
-      response = await deserializeAws_queryQueueNameExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryQueueNameExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -771,17 +795,23 @@ async function deserializeAws_queryDeleteMessageCommandError(
   switch (errorCode) {
     case "InvalidIdFormat":
     case "com.amazonaws.sqs#InvalidIdFormat":
-      response = await deserializeAws_queryInvalidIdFormatResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidIdFormatResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReceiptHandleIsInvalid":
     case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
-      response = await deserializeAws_queryReceiptHandleIsInvalidResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReceiptHandleIsInvalidResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -836,31 +866,43 @@ async function deserializeAws_queryDeleteMessageBatchCommandError(
   switch (errorCode) {
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
-      response = await deserializeAws_queryBatchEntryIdsNotDistinctResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
-      response = await deserializeAws_queryEmptyBatchRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEmptyBatchRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
-      response = await deserializeAws_queryInvalidBatchEntryIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
-      response = await deserializeAws_queryTooManyEntriesInBatchRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -959,10 +1001,13 @@ async function deserializeAws_queryGetQueueAttributesCommandError(
   switch (errorCode) {
     case "InvalidAttributeName":
     case "com.amazonaws.sqs#InvalidAttributeName":
-      response = await deserializeAws_queryInvalidAttributeNameResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidAttributeNameResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1017,10 +1062,13 @@ async function deserializeAws_queryGetQueueUrlCommandError(
   switch (errorCode) {
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
-      response = await deserializeAws_queryQueueDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryQueueDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1078,10 +1126,13 @@ async function deserializeAws_queryListDeadLetterSourceQueuesCommandError(
   switch (errorCode) {
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
-      response = await deserializeAws_queryQueueDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryQueueDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1231,17 +1282,23 @@ async function deserializeAws_queryPurgeQueueCommandError(
   switch (errorCode) {
     case "PurgeQueueInProgress":
     case "com.amazonaws.sqs#PurgeQueueInProgress":
-      response = await deserializeAws_queryPurgeQueueInProgressResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPurgeQueueInProgressResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
-      response = await deserializeAws_queryQueueDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryQueueDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1296,10 +1353,10 @@ async function deserializeAws_queryReceiveMessageCommandError(
   switch (errorCode) {
     case "OverLimit":
     case "com.amazonaws.sqs#OverLimit":
-      response = await deserializeAws_queryOverLimitResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOverLimitResponse(parsedOutput, context)),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1398,17 +1455,23 @@ async function deserializeAws_querySendMessageCommandError(
   switch (errorCode) {
     case "InvalidMessageContents":
     case "com.amazonaws.sqs#InvalidMessageContents":
-      response = await deserializeAws_queryInvalidMessageContentsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidMessageContentsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperation":
     case "com.amazonaws.sqs#UnsupportedOperation":
-      response = await deserializeAws_queryUnsupportedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1463,45 +1526,63 @@ async function deserializeAws_querySendMessageBatchCommandError(
   switch (errorCode) {
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
-      response = await deserializeAws_queryBatchEntryIdsNotDistinctResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BatchRequestTooLong":
     case "com.amazonaws.sqs#BatchRequestTooLong":
-      response = await deserializeAws_queryBatchRequestTooLongResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBatchRequestTooLongResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
-      response = await deserializeAws_queryEmptyBatchRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEmptyBatchRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
-      response = await deserializeAws_queryInvalidBatchEntryIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
-      response = await deserializeAws_queryTooManyEntriesInBatchRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperation":
     case "com.amazonaws.sqs#UnsupportedOperation":
-      response = await deserializeAws_queryUnsupportedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1549,10 +1630,13 @@ async function deserializeAws_querySetQueueAttributesCommandError(
   switch (errorCode) {
     case "InvalidAttributeName":
     case "com.amazonaws.sqs#InvalidAttributeName":
-      response = await deserializeAws_queryInvalidAttributeNameResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidAttributeNameResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

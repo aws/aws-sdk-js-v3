@@ -1,25 +1,43 @@
 import {
-  CreateEnvironmentEC2Request,
-  CreateEnvironmentEC2Result,
-  CreateEnvironmentMembershipRequest,
-  CreateEnvironmentMembershipResult,
-  DeleteEnvironmentMembershipRequest,
-  DeleteEnvironmentMembershipResult,
-  DeleteEnvironmentRequest,
-  DeleteEnvironmentResult,
-  DescribeEnvironmentMembershipsRequest,
-  DescribeEnvironmentMembershipsResult,
-  DescribeEnvironmentStatusRequest,
-  DescribeEnvironmentStatusResult,
-  DescribeEnvironmentsRequest,
-  DescribeEnvironmentsResult,
-  ListEnvironmentsRequest,
-  ListEnvironmentsResult,
-  UpdateEnvironmentMembershipRequest,
-  UpdateEnvironmentMembershipResult,
-  UpdateEnvironmentRequest,
-  UpdateEnvironmentResult
-} from "./models/index";
+  CreateEnvironmentEC2CommandInput,
+  CreateEnvironmentEC2CommandOutput
+} from "./commands/CreateEnvironmentEC2Command";
+import {
+  CreateEnvironmentMembershipCommandInput,
+  CreateEnvironmentMembershipCommandOutput
+} from "./commands/CreateEnvironmentMembershipCommand";
+import {
+  DeleteEnvironmentCommandInput,
+  DeleteEnvironmentCommandOutput
+} from "./commands/DeleteEnvironmentCommand";
+import {
+  DeleteEnvironmentMembershipCommandInput,
+  DeleteEnvironmentMembershipCommandOutput
+} from "./commands/DeleteEnvironmentMembershipCommand";
+import {
+  DescribeEnvironmentMembershipsCommandInput,
+  DescribeEnvironmentMembershipsCommandOutput
+} from "./commands/DescribeEnvironmentMembershipsCommand";
+import {
+  DescribeEnvironmentStatusCommandInput,
+  DescribeEnvironmentStatusCommandOutput
+} from "./commands/DescribeEnvironmentStatusCommand";
+import {
+  DescribeEnvironmentsCommandInput,
+  DescribeEnvironmentsCommandOutput
+} from "./commands/DescribeEnvironmentsCommand";
+import {
+  ListEnvironmentsCommandInput,
+  ListEnvironmentsCommandOutput
+} from "./commands/ListEnvironmentsCommand";
+import {
+  UpdateEnvironmentCommandInput,
+  UpdateEnvironmentCommandOutput
+} from "./commands/UpdateEnvironmentCommand";
+import {
+  UpdateEnvironmentMembershipCommandInput,
+  UpdateEnvironmentMembershipCommandOutput
+} from "./commands/UpdateEnvironmentMembershipCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -73,28 +91,28 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateEnvironmentEC2Request
-  | CreateEnvironmentMembershipRequest
-  | DeleteEnvironmentMembershipRequest
-  | DeleteEnvironmentRequest
-  | DescribeEnvironmentMembershipsRequest
-  | DescribeEnvironmentStatusRequest
-  | DescribeEnvironmentsRequest
-  | ListEnvironmentsRequest
-  | UpdateEnvironmentMembershipRequest
-  | UpdateEnvironmentRequest;
+  | CreateEnvironmentEC2CommandInput
+  | CreateEnvironmentMembershipCommandInput
+  | DeleteEnvironmentCommandInput
+  | DeleteEnvironmentMembershipCommandInput
+  | DescribeEnvironmentMembershipsCommandInput
+  | DescribeEnvironmentStatusCommandInput
+  | DescribeEnvironmentsCommandInput
+  | ListEnvironmentsCommandInput
+  | UpdateEnvironmentCommandInput
+  | UpdateEnvironmentMembershipCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateEnvironmentEC2Result
-  | CreateEnvironmentMembershipResult
-  | DeleteEnvironmentMembershipResult
-  | DeleteEnvironmentResult
-  | DescribeEnvironmentMembershipsResult
-  | DescribeEnvironmentStatusResult
-  | DescribeEnvironmentsResult
-  | ListEnvironmentsResult
-  | UpdateEnvironmentMembershipResult
-  | UpdateEnvironmentResult;
+  | CreateEnvironmentEC2CommandOutput
+  | CreateEnvironmentMembershipCommandOutput
+  | DeleteEnvironmentCommandOutput
+  | DeleteEnvironmentMembershipCommandOutput
+  | DescribeEnvironmentMembershipsCommandOutput
+  | DescribeEnvironmentStatusCommandOutput
+  | DescribeEnvironmentsCommandOutput
+  | ListEnvironmentsCommandOutput
+  | UpdateEnvironmentCommandOutput
+  | UpdateEnvironmentMembershipCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

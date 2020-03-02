@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetOrganizationsAccessReportCommandInput = GetOrganizationsAccessReportRequest;
-export type GetOrganizationsAccessReportCommandOutput = GetOrganizationsAccessReportResponse;
+export type GetOrganizationsAccessReportCommandOutput = GetOrganizationsAccessReportResponse &
+  __MetadataBearer;
 
 export class GetOrganizationsAccessReportCommand extends $Command<
   GetOrganizationsAccessReportCommandInput,

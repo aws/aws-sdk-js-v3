@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSourceCredentialsCommandInput = DeleteSourceCredentialsInput;
-export type DeleteSourceCredentialsCommandOutput = DeleteSourceCredentialsOutput;
+export type DeleteSourceCredentialsCommandOutput = DeleteSourceCredentialsOutput &
+  __MetadataBearer;
 
 export class DeleteSourceCredentialsCommand extends $Command<
   DeleteSourceCredentialsCommandInput,

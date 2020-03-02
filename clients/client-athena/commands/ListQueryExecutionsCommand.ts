@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListQueryExecutionsCommandInput = ListQueryExecutionsInput;
-export type ListQueryExecutionsCommandOutput = ListQueryExecutionsOutput;
+export type ListQueryExecutionsCommandOutput = ListQueryExecutionsOutput &
+  __MetadataBearer;
 
 export class ListQueryExecutionsCommand extends $Command<
   ListQueryExecutionsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListServerNeighborsCommandInput = ListServerNeighborsRequest;
-export type ListServerNeighborsCommandOutput = ListServerNeighborsResponse;
+export type ListServerNeighborsCommandOutput = ListServerNeighborsResponse &
+  __MetadataBearer;
 
 export class ListServerNeighborsCommand extends $Command<
   ListServerNeighborsCommandInput,

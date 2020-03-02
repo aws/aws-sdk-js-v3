@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnlockServiceLinkedRoleCommandInput = UnlockServiceLinkedRoleRequest;
-export type UnlockServiceLinkedRoleCommandOutput = UnlockServiceLinkedRoleResponse;
+export type UnlockServiceLinkedRoleCommandOutput = UnlockServiceLinkedRoleResponse &
+  __MetadataBearer;
 
 export class UnlockServiceLinkedRoleCommand extends $Command<
   UnlockServiceLinkedRoleCommandInput,

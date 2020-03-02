@@ -1,13 +1,19 @@
 import {
-  BatchPutMessageRequest,
-  BatchPutMessageResponse,
-  BatchUpdateDetectorRequest,
-  BatchUpdateDetectorResponse,
-  DescribeDetectorRequest,
-  DescribeDetectorResponse,
-  ListDetectorsRequest,
-  ListDetectorsResponse
-} from "./models/index";
+  BatchPutMessageCommandInput,
+  BatchPutMessageCommandOutput
+} from "./commands/BatchPutMessageCommand";
+import {
+  BatchUpdateDetectorCommandInput,
+  BatchUpdateDetectorCommandOutput
+} from "./commands/BatchUpdateDetectorCommand";
+import {
+  DescribeDetectorCommandInput,
+  DescribeDetectorCommandOutput
+} from "./commands/DescribeDetectorCommand";
+import {
+  ListDetectorsCommandInput,
+  ListDetectorsCommandOutput
+} from "./commands/ListDetectorsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,16 +67,16 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchPutMessageRequest
-  | BatchUpdateDetectorRequest
-  | DescribeDetectorRequest
-  | ListDetectorsRequest;
+  | BatchPutMessageCommandInput
+  | BatchUpdateDetectorCommandInput
+  | DescribeDetectorCommandInput
+  | ListDetectorsCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchPutMessageResponse
-  | BatchUpdateDetectorResponse
-  | DescribeDetectorResponse
-  | ListDetectorsResponse;
+  | BatchPutMessageCommandOutput
+  | BatchUpdateDetectorCommandOutput
+  | DescribeDetectorCommandOutput
+  | ListDetectorsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

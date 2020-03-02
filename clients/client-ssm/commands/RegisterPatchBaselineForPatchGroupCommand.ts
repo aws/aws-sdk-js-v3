@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterPatchBaselineForPatchGroupCommandInput = RegisterPatchBaselineForPatchGroupRequest;
-export type RegisterPatchBaselineForPatchGroupCommandOutput = RegisterPatchBaselineForPatchGroupResult;
+export type RegisterPatchBaselineForPatchGroupCommandOutput = RegisterPatchBaselineForPatchGroupResult &
+  __MetadataBearer;
 
 export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
   RegisterPatchBaselineForPatchGroupCommandInput,

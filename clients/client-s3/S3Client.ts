@@ -1,142 +1,339 @@
 import {
-  AbortMultipartUploadOutput,
-  AbortMultipartUploadRequest,
-  CompleteMultipartUploadOutput,
-  CompleteMultipartUploadRequest,
-  CopyObjectOutput,
-  CopyObjectRequest,
-  CreateBucketOutput,
-  CreateBucketRequest,
-  CreateMultipartUploadOutput,
-  CreateMultipartUploadRequest,
-  DeleteBucketAnalyticsConfigurationRequest,
-  DeleteBucketCorsRequest,
-  DeleteBucketEncryptionRequest,
-  DeleteBucketInventoryConfigurationRequest,
-  DeleteBucketLifecycleRequest,
-  DeleteBucketMetricsConfigurationRequest,
-  DeleteBucketPolicyRequest,
-  DeleteBucketReplicationRequest,
-  DeleteBucketRequest,
-  DeleteBucketTaggingRequest,
-  DeleteBucketWebsiteRequest,
-  DeleteObjectOutput,
-  DeleteObjectRequest,
-  DeleteObjectTaggingOutput,
-  DeleteObjectTaggingRequest,
-  DeleteObjectsOutput,
-  DeleteObjectsRequest,
-  DeletePublicAccessBlockRequest,
-  GetBucketAccelerateConfigurationOutput,
-  GetBucketAccelerateConfigurationRequest,
-  GetBucketAclOutput,
-  GetBucketAclRequest,
-  GetBucketAnalyticsConfigurationOutput,
-  GetBucketAnalyticsConfigurationRequest,
-  GetBucketCorsOutput,
-  GetBucketCorsRequest,
-  GetBucketEncryptionOutput,
-  GetBucketEncryptionRequest,
-  GetBucketInventoryConfigurationOutput,
-  GetBucketInventoryConfigurationRequest,
-  GetBucketLifecycleConfigurationOutput,
-  GetBucketLifecycleConfigurationRequest,
-  GetBucketLocationOutput,
-  GetBucketLocationRequest,
-  GetBucketLoggingOutput,
-  GetBucketLoggingRequest,
-  GetBucketMetricsConfigurationOutput,
-  GetBucketMetricsConfigurationRequest,
-  GetBucketNotificationConfigurationRequest,
-  GetBucketPolicyOutput,
-  GetBucketPolicyRequest,
-  GetBucketPolicyStatusOutput,
-  GetBucketPolicyStatusRequest,
-  GetBucketReplicationOutput,
-  GetBucketReplicationRequest,
-  GetBucketRequestPaymentOutput,
-  GetBucketRequestPaymentRequest,
-  GetBucketTaggingOutput,
-  GetBucketTaggingRequest,
-  GetBucketVersioningOutput,
-  GetBucketVersioningRequest,
-  GetBucketWebsiteOutput,
-  GetBucketWebsiteRequest,
-  GetObjectAclOutput,
-  GetObjectAclRequest,
-  GetObjectLegalHoldOutput,
-  GetObjectLegalHoldRequest,
-  GetObjectLockConfigurationOutput,
-  GetObjectLockConfigurationRequest,
-  GetObjectOutput,
-  GetObjectRequest,
-  GetObjectRetentionOutput,
-  GetObjectRetentionRequest,
-  GetObjectTaggingOutput,
-  GetObjectTaggingRequest,
-  GetObjectTorrentOutput,
-  GetObjectTorrentRequest,
-  GetPublicAccessBlockOutput,
-  GetPublicAccessBlockRequest,
-  HeadBucketRequest,
-  HeadObjectOutput,
-  HeadObjectRequest,
-  ListBucketAnalyticsConfigurationsOutput,
-  ListBucketAnalyticsConfigurationsRequest,
-  ListBucketInventoryConfigurationsOutput,
-  ListBucketInventoryConfigurationsRequest,
-  ListBucketMetricsConfigurationsOutput,
-  ListBucketMetricsConfigurationsRequest,
-  ListBucketsOutput,
-  ListMultipartUploadsOutput,
-  ListMultipartUploadsRequest,
-  ListObjectVersionsOutput,
-  ListObjectVersionsRequest,
-  ListObjectsOutput,
-  ListObjectsRequest,
-  ListObjectsV2Output,
-  ListObjectsV2Request,
-  ListPartsOutput,
-  ListPartsRequest,
-  NotificationConfiguration,
-  PutBucketAccelerateConfigurationRequest,
-  PutBucketAclRequest,
-  PutBucketAnalyticsConfigurationRequest,
-  PutBucketCorsRequest,
-  PutBucketEncryptionRequest,
-  PutBucketInventoryConfigurationRequest,
-  PutBucketLifecycleConfigurationRequest,
-  PutBucketLoggingRequest,
-  PutBucketMetricsConfigurationRequest,
-  PutBucketNotificationConfigurationRequest,
-  PutBucketPolicyRequest,
-  PutBucketReplicationRequest,
-  PutBucketRequestPaymentRequest,
-  PutBucketTaggingRequest,
-  PutBucketVersioningRequest,
-  PutBucketWebsiteRequest,
-  PutObjectAclOutput,
-  PutObjectAclRequest,
-  PutObjectLegalHoldOutput,
-  PutObjectLegalHoldRequest,
-  PutObjectLockConfigurationOutput,
-  PutObjectLockConfigurationRequest,
-  PutObjectOutput,
-  PutObjectRequest,
-  PutObjectRetentionOutput,
-  PutObjectRetentionRequest,
-  PutObjectTaggingOutput,
-  PutObjectTaggingRequest,
-  PutPublicAccessBlockRequest,
-  RestoreObjectOutput,
-  RestoreObjectRequest,
-  SelectObjectContentOutput,
-  SelectObjectContentRequest,
-  UploadPartCopyOutput,
-  UploadPartCopyRequest,
-  UploadPartOutput,
-  UploadPartRequest
-} from "./models/index";
+  AbortMultipartUploadCommandInput,
+  AbortMultipartUploadCommandOutput
+} from "./commands/AbortMultipartUploadCommand";
+import {
+  CompleteMultipartUploadCommandInput,
+  CompleteMultipartUploadCommandOutput
+} from "./commands/CompleteMultipartUploadCommand";
+import {
+  CopyObjectCommandInput,
+  CopyObjectCommandOutput
+} from "./commands/CopyObjectCommand";
+import {
+  CreateBucketCommandInput,
+  CreateBucketCommandOutput
+} from "./commands/CreateBucketCommand";
+import {
+  CreateMultipartUploadCommandInput,
+  CreateMultipartUploadCommandOutput
+} from "./commands/CreateMultipartUploadCommand";
+import {
+  DeleteBucketAnalyticsConfigurationCommandInput,
+  DeleteBucketAnalyticsConfigurationCommandOutput
+} from "./commands/DeleteBucketAnalyticsConfigurationCommand";
+import {
+  DeleteBucketCommandInput,
+  DeleteBucketCommandOutput
+} from "./commands/DeleteBucketCommand";
+import {
+  DeleteBucketCorsCommandInput,
+  DeleteBucketCorsCommandOutput
+} from "./commands/DeleteBucketCorsCommand";
+import {
+  DeleteBucketEncryptionCommandInput,
+  DeleteBucketEncryptionCommandOutput
+} from "./commands/DeleteBucketEncryptionCommand";
+import {
+  DeleteBucketInventoryConfigurationCommandInput,
+  DeleteBucketInventoryConfigurationCommandOutput
+} from "./commands/DeleteBucketInventoryConfigurationCommand";
+import {
+  DeleteBucketLifecycleCommandInput,
+  DeleteBucketLifecycleCommandOutput
+} from "./commands/DeleteBucketLifecycleCommand";
+import {
+  DeleteBucketMetricsConfigurationCommandInput,
+  DeleteBucketMetricsConfigurationCommandOutput
+} from "./commands/DeleteBucketMetricsConfigurationCommand";
+import {
+  DeleteBucketPolicyCommandInput,
+  DeleteBucketPolicyCommandOutput
+} from "./commands/DeleteBucketPolicyCommand";
+import {
+  DeleteBucketReplicationCommandInput,
+  DeleteBucketReplicationCommandOutput
+} from "./commands/DeleteBucketReplicationCommand";
+import {
+  DeleteBucketTaggingCommandInput,
+  DeleteBucketTaggingCommandOutput
+} from "./commands/DeleteBucketTaggingCommand";
+import {
+  DeleteBucketWebsiteCommandInput,
+  DeleteBucketWebsiteCommandOutput
+} from "./commands/DeleteBucketWebsiteCommand";
+import {
+  DeleteObjectCommandInput,
+  DeleteObjectCommandOutput
+} from "./commands/DeleteObjectCommand";
+import {
+  DeleteObjectTaggingCommandInput,
+  DeleteObjectTaggingCommandOutput
+} from "./commands/DeleteObjectTaggingCommand";
+import {
+  DeleteObjectsCommandInput,
+  DeleteObjectsCommandOutput
+} from "./commands/DeleteObjectsCommand";
+import {
+  DeletePublicAccessBlockCommandInput,
+  DeletePublicAccessBlockCommandOutput
+} from "./commands/DeletePublicAccessBlockCommand";
+import {
+  GetBucketAccelerateConfigurationCommandInput,
+  GetBucketAccelerateConfigurationCommandOutput
+} from "./commands/GetBucketAccelerateConfigurationCommand";
+import {
+  GetBucketAclCommandInput,
+  GetBucketAclCommandOutput
+} from "./commands/GetBucketAclCommand";
+import {
+  GetBucketAnalyticsConfigurationCommandInput,
+  GetBucketAnalyticsConfigurationCommandOutput
+} from "./commands/GetBucketAnalyticsConfigurationCommand";
+import {
+  GetBucketCorsCommandInput,
+  GetBucketCorsCommandOutput
+} from "./commands/GetBucketCorsCommand";
+import {
+  GetBucketEncryptionCommandInput,
+  GetBucketEncryptionCommandOutput
+} from "./commands/GetBucketEncryptionCommand";
+import {
+  GetBucketInventoryConfigurationCommandInput,
+  GetBucketInventoryConfigurationCommandOutput
+} from "./commands/GetBucketInventoryConfigurationCommand";
+import {
+  GetBucketLifecycleConfigurationCommandInput,
+  GetBucketLifecycleConfigurationCommandOutput
+} from "./commands/GetBucketLifecycleConfigurationCommand";
+import {
+  GetBucketLocationCommandInput,
+  GetBucketLocationCommandOutput
+} from "./commands/GetBucketLocationCommand";
+import {
+  GetBucketLoggingCommandInput,
+  GetBucketLoggingCommandOutput
+} from "./commands/GetBucketLoggingCommand";
+import {
+  GetBucketMetricsConfigurationCommandInput,
+  GetBucketMetricsConfigurationCommandOutput
+} from "./commands/GetBucketMetricsConfigurationCommand";
+import {
+  GetBucketNotificationConfigurationCommandInput,
+  GetBucketNotificationConfigurationCommandOutput
+} from "./commands/GetBucketNotificationConfigurationCommand";
+import {
+  GetBucketPolicyCommandInput,
+  GetBucketPolicyCommandOutput
+} from "./commands/GetBucketPolicyCommand";
+import {
+  GetBucketPolicyStatusCommandInput,
+  GetBucketPolicyStatusCommandOutput
+} from "./commands/GetBucketPolicyStatusCommand";
+import {
+  GetBucketReplicationCommandInput,
+  GetBucketReplicationCommandOutput
+} from "./commands/GetBucketReplicationCommand";
+import {
+  GetBucketRequestPaymentCommandInput,
+  GetBucketRequestPaymentCommandOutput
+} from "./commands/GetBucketRequestPaymentCommand";
+import {
+  GetBucketTaggingCommandInput,
+  GetBucketTaggingCommandOutput
+} from "./commands/GetBucketTaggingCommand";
+import {
+  GetBucketVersioningCommandInput,
+  GetBucketVersioningCommandOutput
+} from "./commands/GetBucketVersioningCommand";
+import {
+  GetBucketWebsiteCommandInput,
+  GetBucketWebsiteCommandOutput
+} from "./commands/GetBucketWebsiteCommand";
+import {
+  GetObjectAclCommandInput,
+  GetObjectAclCommandOutput
+} from "./commands/GetObjectAclCommand";
+import {
+  GetObjectCommandInput,
+  GetObjectCommandOutput
+} from "./commands/GetObjectCommand";
+import {
+  GetObjectLegalHoldCommandInput,
+  GetObjectLegalHoldCommandOutput
+} from "./commands/GetObjectLegalHoldCommand";
+import {
+  GetObjectLockConfigurationCommandInput,
+  GetObjectLockConfigurationCommandOutput
+} from "./commands/GetObjectLockConfigurationCommand";
+import {
+  GetObjectRetentionCommandInput,
+  GetObjectRetentionCommandOutput
+} from "./commands/GetObjectRetentionCommand";
+import {
+  GetObjectTaggingCommandInput,
+  GetObjectTaggingCommandOutput
+} from "./commands/GetObjectTaggingCommand";
+import {
+  GetObjectTorrentCommandInput,
+  GetObjectTorrentCommandOutput
+} from "./commands/GetObjectTorrentCommand";
+import {
+  GetPublicAccessBlockCommandInput,
+  GetPublicAccessBlockCommandOutput
+} from "./commands/GetPublicAccessBlockCommand";
+import {
+  HeadBucketCommandInput,
+  HeadBucketCommandOutput
+} from "./commands/HeadBucketCommand";
+import {
+  HeadObjectCommandInput,
+  HeadObjectCommandOutput
+} from "./commands/HeadObjectCommand";
+import {
+  ListBucketAnalyticsConfigurationsCommandInput,
+  ListBucketAnalyticsConfigurationsCommandOutput
+} from "./commands/ListBucketAnalyticsConfigurationsCommand";
+import {
+  ListBucketInventoryConfigurationsCommandInput,
+  ListBucketInventoryConfigurationsCommandOutput
+} from "./commands/ListBucketInventoryConfigurationsCommand";
+import {
+  ListBucketMetricsConfigurationsCommandInput,
+  ListBucketMetricsConfigurationsCommandOutput
+} from "./commands/ListBucketMetricsConfigurationsCommand";
+import {
+  ListBucketsCommandInput,
+  ListBucketsCommandOutput
+} from "./commands/ListBucketsCommand";
+import {
+  ListMultipartUploadsCommandInput,
+  ListMultipartUploadsCommandOutput
+} from "./commands/ListMultipartUploadsCommand";
+import {
+  ListObjectVersionsCommandInput,
+  ListObjectVersionsCommandOutput
+} from "./commands/ListObjectVersionsCommand";
+import {
+  ListObjectsCommandInput,
+  ListObjectsCommandOutput
+} from "./commands/ListObjectsCommand";
+import {
+  ListObjectsV2CommandInput,
+  ListObjectsV2CommandOutput
+} from "./commands/ListObjectsV2Command";
+import {
+  ListPartsCommandInput,
+  ListPartsCommandOutput
+} from "./commands/ListPartsCommand";
+import {
+  PutBucketAccelerateConfigurationCommandInput,
+  PutBucketAccelerateConfigurationCommandOutput
+} from "./commands/PutBucketAccelerateConfigurationCommand";
+import {
+  PutBucketAclCommandInput,
+  PutBucketAclCommandOutput
+} from "./commands/PutBucketAclCommand";
+import {
+  PutBucketAnalyticsConfigurationCommandInput,
+  PutBucketAnalyticsConfigurationCommandOutput
+} from "./commands/PutBucketAnalyticsConfigurationCommand";
+import {
+  PutBucketCorsCommandInput,
+  PutBucketCorsCommandOutput
+} from "./commands/PutBucketCorsCommand";
+import {
+  PutBucketEncryptionCommandInput,
+  PutBucketEncryptionCommandOutput
+} from "./commands/PutBucketEncryptionCommand";
+import {
+  PutBucketInventoryConfigurationCommandInput,
+  PutBucketInventoryConfigurationCommandOutput
+} from "./commands/PutBucketInventoryConfigurationCommand";
+import {
+  PutBucketLifecycleConfigurationCommandInput,
+  PutBucketLifecycleConfigurationCommandOutput
+} from "./commands/PutBucketLifecycleConfigurationCommand";
+import {
+  PutBucketLoggingCommandInput,
+  PutBucketLoggingCommandOutput
+} from "./commands/PutBucketLoggingCommand";
+import {
+  PutBucketMetricsConfigurationCommandInput,
+  PutBucketMetricsConfigurationCommandOutput
+} from "./commands/PutBucketMetricsConfigurationCommand";
+import {
+  PutBucketNotificationConfigurationCommandInput,
+  PutBucketNotificationConfigurationCommandOutput
+} from "./commands/PutBucketNotificationConfigurationCommand";
+import {
+  PutBucketPolicyCommandInput,
+  PutBucketPolicyCommandOutput
+} from "./commands/PutBucketPolicyCommand";
+import {
+  PutBucketReplicationCommandInput,
+  PutBucketReplicationCommandOutput
+} from "./commands/PutBucketReplicationCommand";
+import {
+  PutBucketRequestPaymentCommandInput,
+  PutBucketRequestPaymentCommandOutput
+} from "./commands/PutBucketRequestPaymentCommand";
+import {
+  PutBucketTaggingCommandInput,
+  PutBucketTaggingCommandOutput
+} from "./commands/PutBucketTaggingCommand";
+import {
+  PutBucketVersioningCommandInput,
+  PutBucketVersioningCommandOutput
+} from "./commands/PutBucketVersioningCommand";
+import {
+  PutBucketWebsiteCommandInput,
+  PutBucketWebsiteCommandOutput
+} from "./commands/PutBucketWebsiteCommand";
+import {
+  PutObjectAclCommandInput,
+  PutObjectAclCommandOutput
+} from "./commands/PutObjectAclCommand";
+import {
+  PutObjectCommandInput,
+  PutObjectCommandOutput
+} from "./commands/PutObjectCommand";
+import {
+  PutObjectLegalHoldCommandInput,
+  PutObjectLegalHoldCommandOutput
+} from "./commands/PutObjectLegalHoldCommand";
+import {
+  PutObjectLockConfigurationCommandInput,
+  PutObjectLockConfigurationCommandOutput
+} from "./commands/PutObjectLockConfigurationCommand";
+import {
+  PutObjectRetentionCommandInput,
+  PutObjectRetentionCommandOutput
+} from "./commands/PutObjectRetentionCommand";
+import {
+  PutObjectTaggingCommandInput,
+  PutObjectTaggingCommandOutput
+} from "./commands/PutObjectTaggingCommand";
+import {
+  PutPublicAccessBlockCommandInput,
+  PutPublicAccessBlockCommandOutput
+} from "./commands/PutPublicAccessBlockCommand";
+import {
+  RestoreObjectCommandInput,
+  RestoreObjectCommandOutput
+} from "./commands/RestoreObjectCommand";
+import {
+  SelectObjectContentCommandInput,
+  SelectObjectContentCommandOutput
+} from "./commands/SelectObjectContentCommand";
+import {
+  UploadPartCommandInput,
+  UploadPartCommandOutput
+} from "./commands/UploadPartCommand";
+import {
+  UploadPartCopyCommandInput,
+  UploadPartCopyCommandOutput
+} from "./commands/UploadPartCopyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -197,7 +394,6 @@ import {
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   StreamHasher as __StreamHasher,
@@ -206,147 +402,176 @@ import {
 import { Readable } from "stream";
 
 export type ServiceInputTypes =
-  | {}
-  | AbortMultipartUploadRequest
-  | CompleteMultipartUploadRequest
-  | CopyObjectRequest
-  | CreateBucketRequest
-  | CreateMultipartUploadRequest
-  | DeleteBucketAnalyticsConfigurationRequest
-  | DeleteBucketCorsRequest
-  | DeleteBucketEncryptionRequest
-  | DeleteBucketInventoryConfigurationRequest
-  | DeleteBucketLifecycleRequest
-  | DeleteBucketMetricsConfigurationRequest
-  | DeleteBucketPolicyRequest
-  | DeleteBucketReplicationRequest
-  | DeleteBucketRequest
-  | DeleteBucketTaggingRequest
-  | DeleteBucketWebsiteRequest
-  | DeleteObjectRequest
-  | DeleteObjectTaggingRequest
-  | DeleteObjectsRequest
-  | DeletePublicAccessBlockRequest
-  | GetBucketAccelerateConfigurationRequest
-  | GetBucketAclRequest
-  | GetBucketAnalyticsConfigurationRequest
-  | GetBucketCorsRequest
-  | GetBucketEncryptionRequest
-  | GetBucketInventoryConfigurationRequest
-  | GetBucketLifecycleConfigurationRequest
-  | GetBucketLocationRequest
-  | GetBucketLoggingRequest
-  | GetBucketMetricsConfigurationRequest
-  | GetBucketNotificationConfigurationRequest
-  | GetBucketPolicyRequest
-  | GetBucketPolicyStatusRequest
-  | GetBucketReplicationRequest
-  | GetBucketRequestPaymentRequest
-  | GetBucketTaggingRequest
-  | GetBucketVersioningRequest
-  | GetBucketWebsiteRequest
-  | GetObjectAclRequest
-  | GetObjectLegalHoldRequest
-  | GetObjectLockConfigurationRequest
-  | GetObjectRequest
-  | GetObjectRetentionRequest
-  | GetObjectTaggingRequest
-  | GetObjectTorrentRequest
-  | GetPublicAccessBlockRequest
-  | HeadBucketRequest
-  | HeadObjectRequest
-  | ListBucketAnalyticsConfigurationsRequest
-  | ListBucketInventoryConfigurationsRequest
-  | ListBucketMetricsConfigurationsRequest
-  | ListMultipartUploadsRequest
-  | ListObjectVersionsRequest
-  | ListObjectsRequest
-  | ListObjectsV2Request
-  | ListPartsRequest
-  | PutBucketAccelerateConfigurationRequest
-  | PutBucketAclRequest
-  | PutBucketAnalyticsConfigurationRequest
-  | PutBucketCorsRequest
-  | PutBucketEncryptionRequest
-  | PutBucketInventoryConfigurationRequest
-  | PutBucketLifecycleConfigurationRequest
-  | PutBucketLoggingRequest
-  | PutBucketMetricsConfigurationRequest
-  | PutBucketNotificationConfigurationRequest
-  | PutBucketPolicyRequest
-  | PutBucketReplicationRequest
-  | PutBucketRequestPaymentRequest
-  | PutBucketTaggingRequest
-  | PutBucketVersioningRequest
-  | PutBucketWebsiteRequest
-  | PutObjectAclRequest
-  | PutObjectLegalHoldRequest
-  | PutObjectLockConfigurationRequest
-  | PutObjectRequest
-  | PutObjectRetentionRequest
-  | PutObjectTaggingRequest
-  | PutPublicAccessBlockRequest
-  | RestoreObjectRequest
-  | SelectObjectContentRequest
-  | UploadPartCopyRequest
-  | UploadPartRequest;
+  | AbortMultipartUploadCommandInput
+  | CompleteMultipartUploadCommandInput
+  | CopyObjectCommandInput
+  | CreateBucketCommandInput
+  | CreateMultipartUploadCommandInput
+  | DeleteBucketAnalyticsConfigurationCommandInput
+  | DeleteBucketCommandInput
+  | DeleteBucketCorsCommandInput
+  | DeleteBucketEncryptionCommandInput
+  | DeleteBucketInventoryConfigurationCommandInput
+  | DeleteBucketLifecycleCommandInput
+  | DeleteBucketMetricsConfigurationCommandInput
+  | DeleteBucketPolicyCommandInput
+  | DeleteBucketReplicationCommandInput
+  | DeleteBucketTaggingCommandInput
+  | DeleteBucketWebsiteCommandInput
+  | DeleteObjectCommandInput
+  | DeleteObjectTaggingCommandInput
+  | DeleteObjectsCommandInput
+  | DeletePublicAccessBlockCommandInput
+  | GetBucketAccelerateConfigurationCommandInput
+  | GetBucketAclCommandInput
+  | GetBucketAnalyticsConfigurationCommandInput
+  | GetBucketCorsCommandInput
+  | GetBucketEncryptionCommandInput
+  | GetBucketInventoryConfigurationCommandInput
+  | GetBucketLifecycleConfigurationCommandInput
+  | GetBucketLocationCommandInput
+  | GetBucketLoggingCommandInput
+  | GetBucketMetricsConfigurationCommandInput
+  | GetBucketNotificationConfigurationCommandInput
+  | GetBucketPolicyCommandInput
+  | GetBucketPolicyStatusCommandInput
+  | GetBucketReplicationCommandInput
+  | GetBucketRequestPaymentCommandInput
+  | GetBucketTaggingCommandInput
+  | GetBucketVersioningCommandInput
+  | GetBucketWebsiteCommandInput
+  | GetObjectAclCommandInput
+  | GetObjectCommandInput
+  | GetObjectLegalHoldCommandInput
+  | GetObjectLockConfigurationCommandInput
+  | GetObjectRetentionCommandInput
+  | GetObjectTaggingCommandInput
+  | GetObjectTorrentCommandInput
+  | GetPublicAccessBlockCommandInput
+  | HeadBucketCommandInput
+  | HeadObjectCommandInput
+  | ListBucketAnalyticsConfigurationsCommandInput
+  | ListBucketInventoryConfigurationsCommandInput
+  | ListBucketMetricsConfigurationsCommandInput
+  | ListBucketsCommandInput
+  | ListMultipartUploadsCommandInput
+  | ListObjectVersionsCommandInput
+  | ListObjectsCommandInput
+  | ListObjectsV2CommandInput
+  | ListPartsCommandInput
+  | PutBucketAccelerateConfigurationCommandInput
+  | PutBucketAclCommandInput
+  | PutBucketAnalyticsConfigurationCommandInput
+  | PutBucketCorsCommandInput
+  | PutBucketEncryptionCommandInput
+  | PutBucketInventoryConfigurationCommandInput
+  | PutBucketLifecycleConfigurationCommandInput
+  | PutBucketLoggingCommandInput
+  | PutBucketMetricsConfigurationCommandInput
+  | PutBucketNotificationConfigurationCommandInput
+  | PutBucketPolicyCommandInput
+  | PutBucketReplicationCommandInput
+  | PutBucketRequestPaymentCommandInput
+  | PutBucketTaggingCommandInput
+  | PutBucketVersioningCommandInput
+  | PutBucketWebsiteCommandInput
+  | PutObjectAclCommandInput
+  | PutObjectCommandInput
+  | PutObjectLegalHoldCommandInput
+  | PutObjectLockConfigurationCommandInput
+  | PutObjectRetentionCommandInput
+  | PutObjectTaggingCommandInput
+  | PutPublicAccessBlockCommandInput
+  | RestoreObjectCommandInput
+  | SelectObjectContentCommandInput
+  | UploadPartCommandInput
+  | UploadPartCopyCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AbortMultipartUploadOutput
-  | CompleteMultipartUploadOutput
-  | CopyObjectOutput
-  | CreateBucketOutput
-  | CreateMultipartUploadOutput
-  | DeleteObjectOutput
-  | DeleteObjectTaggingOutput
-  | DeleteObjectsOutput
-  | GetBucketAccelerateConfigurationOutput
-  | GetBucketAclOutput
-  | GetBucketAnalyticsConfigurationOutput
-  | GetBucketCorsOutput
-  | GetBucketEncryptionOutput
-  | GetBucketInventoryConfigurationOutput
-  | GetBucketLifecycleConfigurationOutput
-  | GetBucketLocationOutput
-  | GetBucketLoggingOutput
-  | GetBucketMetricsConfigurationOutput
-  | GetBucketPolicyOutput
-  | GetBucketPolicyStatusOutput
-  | GetBucketReplicationOutput
-  | GetBucketRequestPaymentOutput
-  | GetBucketTaggingOutput
-  | GetBucketVersioningOutput
-  | GetBucketWebsiteOutput
-  | GetObjectAclOutput
-  | GetObjectLegalHoldOutput
-  | GetObjectLockConfigurationOutput
-  | GetObjectOutput
-  | GetObjectRetentionOutput
-  | GetObjectTaggingOutput
-  | GetObjectTorrentOutput
-  | GetPublicAccessBlockOutput
-  | HeadObjectOutput
-  | ListBucketAnalyticsConfigurationsOutput
-  | ListBucketInventoryConfigurationsOutput
-  | ListBucketMetricsConfigurationsOutput
-  | ListBucketsOutput
-  | ListMultipartUploadsOutput
-  | ListObjectVersionsOutput
-  | ListObjectsOutput
-  | ListObjectsV2Output
-  | ListPartsOutput
-  | NotificationConfiguration
-  | PutObjectAclOutput
-  | PutObjectLegalHoldOutput
-  | PutObjectLockConfigurationOutput
-  | PutObjectOutput
-  | PutObjectRetentionOutput
-  | PutObjectTaggingOutput
-  | RestoreObjectOutput
-  | SelectObjectContentOutput
-  | UploadPartCopyOutput
-  | UploadPartOutput;
+  | AbortMultipartUploadCommandOutput
+  | CompleteMultipartUploadCommandOutput
+  | CopyObjectCommandOutput
+  | CreateBucketCommandOutput
+  | CreateMultipartUploadCommandOutput
+  | DeleteBucketAnalyticsConfigurationCommandOutput
+  | DeleteBucketCommandOutput
+  | DeleteBucketCorsCommandOutput
+  | DeleteBucketEncryptionCommandOutput
+  | DeleteBucketInventoryConfigurationCommandOutput
+  | DeleteBucketLifecycleCommandOutput
+  | DeleteBucketMetricsConfigurationCommandOutput
+  | DeleteBucketPolicyCommandOutput
+  | DeleteBucketReplicationCommandOutput
+  | DeleteBucketTaggingCommandOutput
+  | DeleteBucketWebsiteCommandOutput
+  | DeleteObjectCommandOutput
+  | DeleteObjectTaggingCommandOutput
+  | DeleteObjectsCommandOutput
+  | DeletePublicAccessBlockCommandOutput
+  | GetBucketAccelerateConfigurationCommandOutput
+  | GetBucketAclCommandOutput
+  | GetBucketAnalyticsConfigurationCommandOutput
+  | GetBucketCorsCommandOutput
+  | GetBucketEncryptionCommandOutput
+  | GetBucketInventoryConfigurationCommandOutput
+  | GetBucketLifecycleConfigurationCommandOutput
+  | GetBucketLocationCommandOutput
+  | GetBucketLoggingCommandOutput
+  | GetBucketMetricsConfigurationCommandOutput
+  | GetBucketNotificationConfigurationCommandOutput
+  | GetBucketPolicyCommandOutput
+  | GetBucketPolicyStatusCommandOutput
+  | GetBucketReplicationCommandOutput
+  | GetBucketRequestPaymentCommandOutput
+  | GetBucketTaggingCommandOutput
+  | GetBucketVersioningCommandOutput
+  | GetBucketWebsiteCommandOutput
+  | GetObjectAclCommandOutput
+  | GetObjectCommandOutput
+  | GetObjectLegalHoldCommandOutput
+  | GetObjectLockConfigurationCommandOutput
+  | GetObjectRetentionCommandOutput
+  | GetObjectTaggingCommandOutput
+  | GetObjectTorrentCommandOutput
+  | GetPublicAccessBlockCommandOutput
+  | HeadBucketCommandOutput
+  | HeadObjectCommandOutput
+  | ListBucketAnalyticsConfigurationsCommandOutput
+  | ListBucketInventoryConfigurationsCommandOutput
+  | ListBucketMetricsConfigurationsCommandOutput
+  | ListBucketsCommandOutput
+  | ListMultipartUploadsCommandOutput
+  | ListObjectVersionsCommandOutput
+  | ListObjectsCommandOutput
+  | ListObjectsV2CommandOutput
+  | ListPartsCommandOutput
+  | PutBucketAccelerateConfigurationCommandOutput
+  | PutBucketAclCommandOutput
+  | PutBucketAnalyticsConfigurationCommandOutput
+  | PutBucketCorsCommandOutput
+  | PutBucketEncryptionCommandOutput
+  | PutBucketInventoryConfigurationCommandOutput
+  | PutBucketLifecycleConfigurationCommandOutput
+  | PutBucketLoggingCommandOutput
+  | PutBucketMetricsConfigurationCommandOutput
+  | PutBucketNotificationConfigurationCommandOutput
+  | PutBucketPolicyCommandOutput
+  | PutBucketReplicationCommandOutput
+  | PutBucketRequestPaymentCommandOutput
+  | PutBucketTaggingCommandOutput
+  | PutBucketVersioningCommandOutput
+  | PutBucketWebsiteCommandOutput
+  | PutObjectAclCommandOutput
+  | PutObjectCommandOutput
+  | PutObjectLegalHoldCommandOutput
+  | PutObjectLockConfigurationCommandOutput
+  | PutObjectRetentionCommandOutput
+  | PutObjectTaggingCommandOutput
+  | PutPublicAccessBlockCommandOutput
+  | RestoreObjectCommandOutput
+  | SelectObjectContentCommandOutput
+  | UploadPartCommandOutput
+  | UploadPartCopyCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

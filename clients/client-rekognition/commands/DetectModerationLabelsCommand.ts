@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectModerationLabelsCommandInput = DetectModerationLabelsRequest;
-export type DetectModerationLabelsCommandOutput = DetectModerationLabelsResponse;
+export type DetectModerationLabelsCommandOutput = DetectModerationLabelsResponse &
+  __MetadataBearer;
 
 export class DetectModerationLabelsCommand extends $Command<
   DetectModerationLabelsCommandInput,

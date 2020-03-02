@@ -93,7 +93,7 @@ export namespace CreateTokenRequest {
   }
 }
 
-export interface CreateTokenResponse extends $MetadataBearer {
+export interface CreateTokenResponse {
   __type?: "CreateTokenResponse";
   /**
    * <p>An opaque token to access AWS SSO resources assigned to a user.</p>
@@ -283,7 +283,7 @@ export namespace RegisterClientRequest {
   }
 }
 
-export interface RegisterClientResponse extends $MetadataBearer {
+export interface RegisterClientResponse {
   __type?: "RegisterClientResponse";
   /**
    * <p>The endpoint where the client can request authorization.</p>
@@ -368,7 +368,7 @@ export namespace StartDeviceAuthorizationRequest {
   }
 }
 
-export interface StartDeviceAuthorizationResponse extends $MetadataBearer {
+export interface StartDeviceAuthorizationResponse {
   __type?: "StartDeviceAuthorizationResponse";
   /**
    * <p>The short-lived code that is used by the device when polling for a session token.</p>

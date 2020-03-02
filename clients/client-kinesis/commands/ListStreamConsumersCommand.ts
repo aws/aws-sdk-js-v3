@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListStreamConsumersCommandInput = ListStreamConsumersInput;
-export type ListStreamConsumersCommandOutput = ListStreamConsumersOutput;
+export type ListStreamConsumersCommandOutput = ListStreamConsumersOutput &
+  __MetadataBearer;
 
 export class ListStreamConsumersCommand extends $Command<
   ListStreamConsumersCommandInput,

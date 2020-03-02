@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableDomainAutoRenewCommandInput = DisableDomainAutoRenewRequest;
-export type DisableDomainAutoRenewCommandOutput = DisableDomainAutoRenewResponse;
+export type DisableDomainAutoRenewCommandOutput = DisableDomainAutoRenewResponse &
+  __MetadataBearer;
 
 export class DisableDomainAutoRenewCommand extends $Command<
   DisableDomainAutoRenewCommandInput,

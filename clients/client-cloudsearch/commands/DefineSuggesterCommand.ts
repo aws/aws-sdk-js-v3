@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DefineSuggesterCommandInput = DefineSuggesterRequest;
-export type DefineSuggesterCommandOutput = DefineSuggesterResponse;
+export type DefineSuggesterCommandOutput = DefineSuggesterResponse &
+  __MetadataBearer;
 
 export class DefineSuggesterCommand extends $Command<
   DefineSuggesterCommandInput,

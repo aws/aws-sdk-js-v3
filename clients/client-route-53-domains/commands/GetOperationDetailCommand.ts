@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetOperationDetailCommandInput = GetOperationDetailRequest;
-export type GetOperationDetailCommandOutput = GetOperationDetailResponse;
+export type GetOperationDetailCommandOutput = GetOperationDetailResponse &
+  __MetadataBearer;
 
 export class GetOperationDetailCommand extends $Command<
   GetOperationDetailCommandInput,

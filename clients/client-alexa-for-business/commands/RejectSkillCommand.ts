@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RejectSkillCommandInput = RejectSkillRequest;
-export type RejectSkillCommandOutput = RejectSkillResponse;
+export type RejectSkillCommandOutput = RejectSkillResponse & __MetadataBearer;
 
 export class RejectSkillCommand extends $Command<
   RejectSkillCommandInput,

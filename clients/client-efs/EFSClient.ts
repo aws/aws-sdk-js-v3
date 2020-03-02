@@ -1,39 +1,95 @@
 import {
-  AccessPointDescription,
-  CreateAccessPointRequest,
-  CreateFileSystemRequest,
-  CreateMountTargetRequest,
-  CreateTagsRequest,
-  DeleteAccessPointRequest,
-  DeleteFileSystemPolicyRequest,
-  DeleteFileSystemRequest,
-  DeleteMountTargetRequest,
-  DeleteTagsRequest,
-  DescribeAccessPointsRequest,
-  DescribeAccessPointsResponse,
-  DescribeFileSystemPolicyRequest,
-  DescribeFileSystemsRequest,
-  DescribeFileSystemsResponse,
-  DescribeLifecycleConfigurationRequest,
-  DescribeMountTargetSecurityGroupsRequest,
-  DescribeMountTargetSecurityGroupsResponse,
-  DescribeMountTargetsRequest,
-  DescribeMountTargetsResponse,
-  DescribeTagsRequest,
-  DescribeTagsResponse,
-  FileSystemDescription,
-  FileSystemPolicyDescription,
-  LifecycleConfigurationDescription,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ModifyMountTargetSecurityGroupsRequest,
-  MountTargetDescription,
-  PutFileSystemPolicyRequest,
-  PutLifecycleConfigurationRequest,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateFileSystemRequest
-} from "./models/index";
+  CreateAccessPointCommandInput,
+  CreateAccessPointCommandOutput
+} from "./commands/CreateAccessPointCommand";
+import {
+  CreateFileSystemCommandInput,
+  CreateFileSystemCommandOutput
+} from "./commands/CreateFileSystemCommand";
+import {
+  CreateMountTargetCommandInput,
+  CreateMountTargetCommandOutput
+} from "./commands/CreateMountTargetCommand";
+import {
+  CreateTagsCommandInput,
+  CreateTagsCommandOutput
+} from "./commands/CreateTagsCommand";
+import {
+  DeleteAccessPointCommandInput,
+  DeleteAccessPointCommandOutput
+} from "./commands/DeleteAccessPointCommand";
+import {
+  DeleteFileSystemCommandInput,
+  DeleteFileSystemCommandOutput
+} from "./commands/DeleteFileSystemCommand";
+import {
+  DeleteFileSystemPolicyCommandInput,
+  DeleteFileSystemPolicyCommandOutput
+} from "./commands/DeleteFileSystemPolicyCommand";
+import {
+  DeleteMountTargetCommandInput,
+  DeleteMountTargetCommandOutput
+} from "./commands/DeleteMountTargetCommand";
+import {
+  DeleteTagsCommandInput,
+  DeleteTagsCommandOutput
+} from "./commands/DeleteTagsCommand";
+import {
+  DescribeAccessPointsCommandInput,
+  DescribeAccessPointsCommandOutput
+} from "./commands/DescribeAccessPointsCommand";
+import {
+  DescribeFileSystemPolicyCommandInput,
+  DescribeFileSystemPolicyCommandOutput
+} from "./commands/DescribeFileSystemPolicyCommand";
+import {
+  DescribeFileSystemsCommandInput,
+  DescribeFileSystemsCommandOutput
+} from "./commands/DescribeFileSystemsCommand";
+import {
+  DescribeLifecycleConfigurationCommandInput,
+  DescribeLifecycleConfigurationCommandOutput
+} from "./commands/DescribeLifecycleConfigurationCommand";
+import {
+  DescribeMountTargetSecurityGroupsCommandInput,
+  DescribeMountTargetSecurityGroupsCommandOutput
+} from "./commands/DescribeMountTargetSecurityGroupsCommand";
+import {
+  DescribeMountTargetsCommandInput,
+  DescribeMountTargetsCommandOutput
+} from "./commands/DescribeMountTargetsCommand";
+import {
+  DescribeTagsCommandInput,
+  DescribeTagsCommandOutput
+} from "./commands/DescribeTagsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ModifyMountTargetSecurityGroupsCommandInput,
+  ModifyMountTargetSecurityGroupsCommandOutput
+} from "./commands/ModifyMountTargetSecurityGroupsCommand";
+import {
+  PutFileSystemPolicyCommandInput,
+  PutFileSystemPolicyCommandOutput
+} from "./commands/PutFileSystemPolicyCommand";
+import {
+  PutLifecycleConfigurationCommandInput,
+  PutLifecycleConfigurationCommandOutput
+} from "./commands/PutLifecycleConfigurationCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateFileSystemCommandInput,
+  UpdateFileSystemCommandOutput
+} from "./commands/UpdateFileSystemCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,53 +137,60 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateAccessPointRequest
-  | CreateFileSystemRequest
-  | CreateMountTargetRequest
-  | CreateTagsRequest
-  | DeleteAccessPointRequest
-  | DeleteFileSystemPolicyRequest
-  | DeleteFileSystemRequest
-  | DeleteMountTargetRequest
-  | DeleteTagsRequest
-  | DescribeAccessPointsRequest
-  | DescribeFileSystemPolicyRequest
-  | DescribeFileSystemsRequest
-  | DescribeLifecycleConfigurationRequest
-  | DescribeMountTargetSecurityGroupsRequest
-  | DescribeMountTargetsRequest
-  | DescribeTagsRequest
-  | ListTagsForResourceRequest
-  | ModifyMountTargetSecurityGroupsRequest
-  | PutFileSystemPolicyRequest
-  | PutLifecycleConfigurationRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateFileSystemRequest;
+  | CreateAccessPointCommandInput
+  | CreateFileSystemCommandInput
+  | CreateMountTargetCommandInput
+  | CreateTagsCommandInput
+  | DeleteAccessPointCommandInput
+  | DeleteFileSystemCommandInput
+  | DeleteFileSystemPolicyCommandInput
+  | DeleteMountTargetCommandInput
+  | DeleteTagsCommandInput
+  | DescribeAccessPointsCommandInput
+  | DescribeFileSystemPolicyCommandInput
+  | DescribeFileSystemsCommandInput
+  | DescribeLifecycleConfigurationCommandInput
+  | DescribeMountTargetSecurityGroupsCommandInput
+  | DescribeMountTargetsCommandInput
+  | DescribeTagsCommandInput
+  | ListTagsForResourceCommandInput
+  | ModifyMountTargetSecurityGroupsCommandInput
+  | PutFileSystemPolicyCommandInput
+  | PutLifecycleConfigurationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateFileSystemCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AccessPointDescription
-  | DescribeAccessPointsResponse
-  | DescribeFileSystemsResponse
-  | DescribeMountTargetSecurityGroupsResponse
-  | DescribeMountTargetsResponse
-  | DescribeTagsResponse
-  | FileSystemDescription
-  | FileSystemDescription
-  | FileSystemPolicyDescription
-  | FileSystemPolicyDescription
-  | LifecycleConfigurationDescription
-  | LifecycleConfigurationDescription
-  | ListTagsForResourceResponse
-  | MountTargetDescription;
+  | CreateAccessPointCommandOutput
+  | CreateFileSystemCommandOutput
+  | CreateMountTargetCommandOutput
+  | CreateTagsCommandOutput
+  | DeleteAccessPointCommandOutput
+  | DeleteFileSystemCommandOutput
+  | DeleteFileSystemPolicyCommandOutput
+  | DeleteMountTargetCommandOutput
+  | DeleteTagsCommandOutput
+  | DescribeAccessPointsCommandOutput
+  | DescribeFileSystemPolicyCommandOutput
+  | DescribeFileSystemsCommandOutput
+  | DescribeLifecycleConfigurationCommandOutput
+  | DescribeMountTargetSecurityGroupsCommandOutput
+  | DescribeMountTargetsCommandOutput
+  | DescribeTagsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ModifyMountTargetSecurityGroupsCommandOutput
+  | PutFileSystemPolicyCommandOutput
+  | PutLifecycleConfigurationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateFileSystemCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

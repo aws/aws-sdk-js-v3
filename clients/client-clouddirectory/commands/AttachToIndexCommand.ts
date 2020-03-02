@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AttachToIndexCommandInput = AttachToIndexRequest;
-export type AttachToIndexCommandOutput = AttachToIndexResponse;
+export type AttachToIndexCommandOutput = AttachToIndexResponse &
+  __MetadataBearer;
 
 export class AttachToIndexCommand extends $Command<
   AttachToIndexCommandInput,

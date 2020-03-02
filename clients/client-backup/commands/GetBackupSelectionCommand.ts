@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBackupSelectionCommandInput = GetBackupSelectionInput;
-export type GetBackupSelectionCommandOutput = GetBackupSelectionOutput;
+export type GetBackupSelectionCommandOutput = GetBackupSelectionOutput &
+  __MetadataBearer;
 
 export class GetBackupSelectionCommand extends $Command<
   GetBackupSelectionCommandInput,

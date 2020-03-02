@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSignalingChannelsCommandInput = ListSignalingChannelsInput;
-export type ListSignalingChannelsCommandOutput = ListSignalingChannelsOutput;
+export type ListSignalingChannelsCommandOutput = ListSignalingChannelsOutput &
+  __MetadataBearer;
 
 export class ListSignalingChannelsCommand extends $Command<
   ListSignalingChannelsCommandInput,

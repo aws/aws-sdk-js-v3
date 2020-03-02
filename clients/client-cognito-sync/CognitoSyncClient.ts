@@ -1,38 +1,71 @@
 import {
-  BulkPublishRequest,
-  BulkPublishResponse,
-  DeleteDatasetRequest,
-  DeleteDatasetResponse,
-  DescribeDatasetRequest,
-  DescribeDatasetResponse,
-  DescribeIdentityPoolUsageRequest,
-  DescribeIdentityPoolUsageResponse,
-  DescribeIdentityUsageRequest,
-  DescribeIdentityUsageResponse,
-  GetBulkPublishDetailsRequest,
-  GetBulkPublishDetailsResponse,
-  GetCognitoEventsRequest,
-  GetCognitoEventsResponse,
-  GetIdentityPoolConfigurationRequest,
-  GetIdentityPoolConfigurationResponse,
-  ListDatasetsRequest,
-  ListDatasetsResponse,
-  ListIdentityPoolUsageRequest,
-  ListIdentityPoolUsageResponse,
-  ListRecordsRequest,
-  ListRecordsResponse,
-  RegisterDeviceRequest,
-  RegisterDeviceResponse,
-  SetCognitoEventsRequest,
-  SetIdentityPoolConfigurationRequest,
-  SetIdentityPoolConfigurationResponse,
-  SubscribeToDatasetRequest,
-  SubscribeToDatasetResponse,
-  UnsubscribeFromDatasetRequest,
-  UnsubscribeFromDatasetResponse,
-  UpdateRecordsRequest,
-  UpdateRecordsResponse
-} from "./models/index";
+  BulkPublishCommandInput,
+  BulkPublishCommandOutput
+} from "./commands/BulkPublishCommand";
+import {
+  DeleteDatasetCommandInput,
+  DeleteDatasetCommandOutput
+} from "./commands/DeleteDatasetCommand";
+import {
+  DescribeDatasetCommandInput,
+  DescribeDatasetCommandOutput
+} from "./commands/DescribeDatasetCommand";
+import {
+  DescribeIdentityPoolUsageCommandInput,
+  DescribeIdentityPoolUsageCommandOutput
+} from "./commands/DescribeIdentityPoolUsageCommand";
+import {
+  DescribeIdentityUsageCommandInput,
+  DescribeIdentityUsageCommandOutput
+} from "./commands/DescribeIdentityUsageCommand";
+import {
+  GetBulkPublishDetailsCommandInput,
+  GetBulkPublishDetailsCommandOutput
+} from "./commands/GetBulkPublishDetailsCommand";
+import {
+  GetCognitoEventsCommandInput,
+  GetCognitoEventsCommandOutput
+} from "./commands/GetCognitoEventsCommand";
+import {
+  GetIdentityPoolConfigurationCommandInput,
+  GetIdentityPoolConfigurationCommandOutput
+} from "./commands/GetIdentityPoolConfigurationCommand";
+import {
+  ListDatasetsCommandInput,
+  ListDatasetsCommandOutput
+} from "./commands/ListDatasetsCommand";
+import {
+  ListIdentityPoolUsageCommandInput,
+  ListIdentityPoolUsageCommandOutput
+} from "./commands/ListIdentityPoolUsageCommand";
+import {
+  ListRecordsCommandInput,
+  ListRecordsCommandOutput
+} from "./commands/ListRecordsCommand";
+import {
+  RegisterDeviceCommandInput,
+  RegisterDeviceCommandOutput
+} from "./commands/RegisterDeviceCommand";
+import {
+  SetCognitoEventsCommandInput,
+  SetCognitoEventsCommandOutput
+} from "./commands/SetCognitoEventsCommand";
+import {
+  SetIdentityPoolConfigurationCommandInput,
+  SetIdentityPoolConfigurationCommandOutput
+} from "./commands/SetIdentityPoolConfigurationCommand";
+import {
+  SubscribeToDatasetCommandInput,
+  SubscribeToDatasetCommandOutput
+} from "./commands/SubscribeToDatasetCommand";
+import {
+  UnsubscribeFromDatasetCommandInput,
+  UnsubscribeFromDatasetCommandOutput
+} from "./commands/UnsubscribeFromDatasetCommand";
+import {
+  UpdateRecordsCommandInput,
+  UpdateRecordsCommandOutput
+} from "./commands/UpdateRecordsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -80,49 +113,48 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BulkPublishRequest
-  | DeleteDatasetRequest
-  | DescribeDatasetRequest
-  | DescribeIdentityPoolUsageRequest
-  | DescribeIdentityUsageRequest
-  | GetBulkPublishDetailsRequest
-  | GetCognitoEventsRequest
-  | GetIdentityPoolConfigurationRequest
-  | ListDatasetsRequest
-  | ListIdentityPoolUsageRequest
-  | ListRecordsRequest
-  | RegisterDeviceRequest
-  | SetCognitoEventsRequest
-  | SetIdentityPoolConfigurationRequest
-  | SubscribeToDatasetRequest
-  | UnsubscribeFromDatasetRequest
-  | UpdateRecordsRequest;
+  | BulkPublishCommandInput
+  | DeleteDatasetCommandInput
+  | DescribeDatasetCommandInput
+  | DescribeIdentityPoolUsageCommandInput
+  | DescribeIdentityUsageCommandInput
+  | GetBulkPublishDetailsCommandInput
+  | GetCognitoEventsCommandInput
+  | GetIdentityPoolConfigurationCommandInput
+  | ListDatasetsCommandInput
+  | ListIdentityPoolUsageCommandInput
+  | ListRecordsCommandInput
+  | RegisterDeviceCommandInput
+  | SetCognitoEventsCommandInput
+  | SetIdentityPoolConfigurationCommandInput
+  | SubscribeToDatasetCommandInput
+  | UnsubscribeFromDatasetCommandInput
+  | UpdateRecordsCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | BulkPublishResponse
-  | DeleteDatasetResponse
-  | DescribeDatasetResponse
-  | DescribeIdentityPoolUsageResponse
-  | DescribeIdentityUsageResponse
-  | GetBulkPublishDetailsResponse
-  | GetCognitoEventsResponse
-  | GetIdentityPoolConfigurationResponse
-  | ListDatasetsResponse
-  | ListIdentityPoolUsageResponse
-  | ListRecordsResponse
-  | RegisterDeviceResponse
-  | SetIdentityPoolConfigurationResponse
-  | SubscribeToDatasetResponse
-  | UnsubscribeFromDatasetResponse
-  | UpdateRecordsResponse;
+  | BulkPublishCommandOutput
+  | DeleteDatasetCommandOutput
+  | DescribeDatasetCommandOutput
+  | DescribeIdentityPoolUsageCommandOutput
+  | DescribeIdentityUsageCommandOutput
+  | GetBulkPublishDetailsCommandOutput
+  | GetCognitoEventsCommandOutput
+  | GetIdentityPoolConfigurationCommandOutput
+  | ListDatasetsCommandOutput
+  | ListIdentityPoolUsageCommandOutput
+  | ListRecordsCommandOutput
+  | RegisterDeviceCommandOutput
+  | SetCognitoEventsCommandOutput
+  | SetIdentityPoolConfigurationCommandOutput
+  | SubscribeToDatasetCommandOutput
+  | UnsubscribeFromDatasetCommandOutput
+  | UpdateRecordsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

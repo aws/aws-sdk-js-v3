@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutConfigurationAggregatorCommandInput = PutConfigurationAggregatorRequest;
-export type PutConfigurationAggregatorCommandOutput = PutConfigurationAggregatorResponse;
+export type PutConfigurationAggregatorCommandOutput = PutConfigurationAggregatorResponse &
+  __MetadataBearer;
 
 export class PutConfigurationAggregatorCommand extends $Command<
   PutConfigurationAggregatorCommandInput,

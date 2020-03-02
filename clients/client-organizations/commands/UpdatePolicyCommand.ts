@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdatePolicyCommandInput = UpdatePolicyRequest;
-export type UpdatePolicyCommandOutput = UpdatePolicyResponse;
+export type UpdatePolicyCommandOutput = UpdatePolicyResponse & __MetadataBearer;
 
 export class UpdatePolicyCommand extends $Command<
   UpdatePolicyCommandInput,

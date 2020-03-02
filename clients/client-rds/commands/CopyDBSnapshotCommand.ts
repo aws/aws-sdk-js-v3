@@ -21,11 +21,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyDBSnapshotCommandInput = CopyDBSnapshotMessage;
-export type CopyDBSnapshotCommandOutput = CopyDBSnapshotResult;
+export type CopyDBSnapshotCommandOutput = CopyDBSnapshotResult &
+  __MetadataBearer;
 
 export class CopyDBSnapshotCommand extends $Command<
   CopyDBSnapshotCommandInput,

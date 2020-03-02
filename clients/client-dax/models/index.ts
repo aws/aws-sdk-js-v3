@@ -309,7 +309,7 @@ export namespace CreateClusterRequest {
   }
 }
 
-export interface CreateClusterResponse extends $MetadataBearer {
+export interface CreateClusterResponse {
   __type?: "CreateClusterResponse";
   /**
    * <p>A description of the DAX cluster that you have created.</p>
@@ -343,7 +343,7 @@ export namespace CreateParameterGroupRequest {
   }
 }
 
-export interface CreateParameterGroupResponse extends $MetadataBearer {
+export interface CreateParameterGroupResponse {
   __type?: "CreateParameterGroupResponse";
   /**
    * <p>Represents the output of a <i>CreateParameterGroup</i>
@@ -382,7 +382,7 @@ export namespace CreateSubnetGroupRequest {
   }
 }
 
-export interface CreateSubnetGroupResponse extends $MetadataBearer {
+export interface CreateSubnetGroupResponse {
   __type?: "CreateSubnetGroupResponse";
   /**
    * <p>Represents the output of a <i>CreateSubnetGroup</i>
@@ -426,7 +426,7 @@ export namespace DecreaseReplicationFactorRequest {
   }
 }
 
-export interface DecreaseReplicationFactorResponse extends $MetadataBearer {
+export interface DecreaseReplicationFactorResponse {
   __type?: "DecreaseReplicationFactorResponse";
   /**
    * <p>A description of the DAX cluster, after you have decreased its replication
@@ -455,7 +455,7 @@ export namespace DeleteClusterRequest {
   }
 }
 
-export interface DeleteClusterResponse extends $MetadataBearer {
+export interface DeleteClusterResponse {
   __type?: "DeleteClusterResponse";
   /**
    * <p>A description of the DAX cluster that is being deleted.</p>
@@ -483,7 +483,7 @@ export namespace DeleteParameterGroupRequest {
   }
 }
 
-export interface DeleteParameterGroupResponse extends $MetadataBearer {
+export interface DeleteParameterGroupResponse {
   __type?: "DeleteParameterGroupResponse";
   /**
    * <p>A user-specified message for this action (i.e., a reason for deleting the parameter
@@ -512,7 +512,7 @@ export namespace DeleteSubnetGroupRequest {
   }
 }
 
-export interface DeleteSubnetGroupResponse extends $MetadataBearer {
+export interface DeleteSubnetGroupResponse {
   __type?: "DeleteSubnetGroupResponse";
   /**
    * <p>A user-specified message for this action (i.e., a reason for deleting the subnet
@@ -557,7 +557,7 @@ export namespace DescribeClustersRequest {
   }
 }
 
-export interface DescribeClustersResponse extends $MetadataBearer {
+export interface DescribeClustersResponse {
   __type?: "DescribeClustersResponse";
   /**
    * <p>The descriptions of your DAX clusters, in response to a
@@ -602,7 +602,7 @@ export namespace DescribeDefaultParametersRequest {
   }
 }
 
-export interface DescribeDefaultParametersResponse extends $MetadataBearer {
+export interface DescribeDefaultParametersResponse {
   __type?: "DescribeDefaultParametersResponse";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -675,7 +675,7 @@ export namespace DescribeEventsRequest {
   }
 }
 
-export interface DescribeEventsResponse extends $MetadataBearer {
+export interface DescribeEventsResponse {
   __type?: "DescribeEventsResponse";
   /**
    * <p>An array of events.  Each element in the array represents one event.</p>
@@ -724,7 +724,7 @@ export namespace DescribeParameterGroupsRequest {
   }
 }
 
-export interface DescribeParameterGroupsResponse extends $MetadataBearer {
+export interface DescribeParameterGroupsResponse {
   __type?: "DescribeParameterGroupsResponse";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -779,7 +779,7 @@ export namespace DescribeParametersRequest {
   }
 }
 
-export interface DescribeParametersResponse extends $MetadataBearer {
+export interface DescribeParametersResponse {
   __type?: "DescribeParametersResponse";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -828,7 +828,7 @@ export namespace DescribeSubnetGroupsRequest {
   }
 }
 
-export interface DescribeSubnetGroupsResponse extends $MetadataBearer {
+export interface DescribeSubnetGroupsResponse {
   __type?: "DescribeSubnetGroupsResponse";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -933,7 +933,7 @@ export namespace IncreaseReplicationFactorRequest {
   }
 }
 
-export interface IncreaseReplicationFactorResponse extends $MetadataBearer {
+export interface IncreaseReplicationFactorResponse {
   __type?: "IncreaseReplicationFactorResponse";
   /**
    * <p>A description of the DAX cluster. with its new replication factor.</p>
@@ -970,7 +970,7 @@ export namespace ListTagsRequest {
   }
 }
 
-export interface ListTagsResponse extends $MetadataBearer {
+export interface ListTagsResponse {
   __type?: "ListTagsResponse";
   /**
    * <p>If this value is present, there are additional results to be displayed.  To retrieve them, call
@@ -1243,7 +1243,7 @@ export namespace RebootNodeRequest {
   }
 }
 
-export interface RebootNodeResponse extends $MetadataBearer {
+export interface RebootNodeResponse {
   __type?: "RebootNodeResponse";
   /**
    * <p>A description of the DAX cluster after a node has been rebooted.</p>
@@ -1451,7 +1451,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
   /**
    * <p>The list of tags that are associated with the DAX resource.</p>
@@ -1484,7 +1484,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
   /**
    * <p>The tag keys that have been removed from the cluster.</p>
@@ -1545,7 +1545,7 @@ export namespace UpdateClusterRequest {
   }
 }
 
-export interface UpdateClusterResponse extends $MetadataBearer {
+export interface UpdateClusterResponse {
   __type?: "UpdateClusterResponse";
   /**
    * <p>A description of the DAX cluster, after it has been modified.</p>
@@ -1579,7 +1579,7 @@ export namespace UpdateParameterGroupRequest {
   }
 }
 
-export interface UpdateParameterGroupResponse extends $MetadataBearer {
+export interface UpdateParameterGroupResponse {
   __type?: "UpdateParameterGroupResponse";
   /**
    * <p>The parameter group that has been modified.</p>
@@ -1617,7 +1617,7 @@ export namespace UpdateSubnetGroupRequest {
   }
 }
 
-export interface UpdateSubnetGroupResponse extends $MetadataBearer {
+export interface UpdateSubnetGroupResponse {
   __type?: "UpdateSubnetGroupResponse";
   /**
    * <p>The subnet group that has been modified.</p>

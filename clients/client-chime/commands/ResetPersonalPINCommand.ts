@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetPersonalPINCommandInput = ResetPersonalPINRequest;
-export type ResetPersonalPINCommandOutput = ResetPersonalPINResponse;
+export type ResetPersonalPINCommandOutput = ResetPersonalPINResponse &
+  __MetadataBearer;
 
 export class ResetPersonalPINCommand extends $Command<
   ResetPersonalPINCommandInput,

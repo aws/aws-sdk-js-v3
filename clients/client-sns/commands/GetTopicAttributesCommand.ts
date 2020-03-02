@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTopicAttributesCommandInput = GetTopicAttributesInput;
-export type GetTopicAttributesCommandOutput = GetTopicAttributesResponse;
+export type GetTopicAttributesCommandOutput = GetTopicAttributesResponse &
+  __MetadataBearer;
 
 export class GetTopicAttributesCommand extends $Command<
   GetTopicAttributesCommandInput,

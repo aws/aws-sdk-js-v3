@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddLayerVersionPermissionCommandInput = AddLayerVersionPermissionRequest;
-export type AddLayerVersionPermissionCommandOutput = AddLayerVersionPermissionResponse;
+export type AddLayerVersionPermissionCommandOutput = AddLayerVersionPermissionResponse &
+  __MetadataBearer;
 
 export class AddLayerVersionPermissionCommand extends $Command<
   AddLayerVersionPermissionCommandInput,

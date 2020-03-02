@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetClusterCredentialsCommandInput = GetClusterCredentialsMessage;
-export type GetClusterCredentialsCommandOutput = ClusterCredentials;
+export type GetClusterCredentialsCommandOutput = ClusterCredentials &
+  __MetadataBearer;
 
 export class GetClusterCredentialsCommand extends $Command<
   GetClusterCredentialsCommandInput,

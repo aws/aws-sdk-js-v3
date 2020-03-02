@@ -548,7 +548,7 @@ export namespace AddAttachmentsToSetRequest {
 /**
  * <p>The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.</p>
  */
-export interface AddAttachmentsToSetResponse extends $MetadataBearer {
+export interface AddAttachmentsToSetResponse {
   __type?: "AddAttachmentsToSetResponse";
   /**
    * <p>The ID of the attachment set. If an <code>attachmentSetId</code> was not specified,
@@ -611,7 +611,7 @@ export namespace AddCommunicationToCaseRequest {
 /**
  * <p>The result of the <a>AddCommunicationToCase</a> operation.</p>
  */
-export interface AddCommunicationToCaseResponse extends $MetadataBearer {
+export interface AddCommunicationToCaseResponse {
   __type?: "AddCommunicationToCaseResponse";
   /**
    * <p>True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an
@@ -696,7 +696,7 @@ export namespace CreateCaseRequest {
 /**
  * <p>The AWS Support case ID returned by a successful completion of the <a>CreateCase</a> operation.</p>
  */
-export interface CreateCaseResponse extends $MetadataBearer {
+export interface CreateCaseResponse {
   __type?: "CreateCaseResponse";
   /**
    * <p>The AWS Support case ID requested or returned in the call. The case ID is an
@@ -730,7 +730,7 @@ export namespace DescribeAttachmentRequest {
 /**
  * <p>The content and file name of the attachment returned by the <a>DescribeAttachment</a> operation.</p>
  */
-export interface DescribeAttachmentResponse extends $MetadataBearer {
+export interface DescribeAttachmentResponse {
   __type?: "DescribeAttachmentResponse";
   /**
    * <p>The attachment content and file name.</p>
@@ -810,7 +810,7 @@ export namespace DescribeCasesRequest {
  *                 <code>nextToken</code> that defines a point for pagination in the result
  *             set.</p>
  */
-export interface DescribeCasesResponse extends $MetadataBearer {
+export interface DescribeCasesResponse {
   __type?: "DescribeCasesResponse";
   /**
    * <p>The details for the cases that match the request.</p>
@@ -872,7 +872,7 @@ export namespace DescribeCommunicationsRequest {
  * <p>The communications returned by the <a>DescribeCommunications</a>
  *             operation.</p>
  */
-export interface DescribeCommunicationsResponse extends $MetadataBearer {
+export interface DescribeCommunicationsResponse {
   __type?: "DescribeCommunicationsResponse";
   /**
    * <p>The communications for the case.</p>
@@ -916,7 +916,7 @@ export namespace DescribeServicesRequest {
  * <p>The list of AWS services returned by the <a>DescribeServices</a>
  *             operation.</p>
  */
-export interface DescribeServicesResponse extends $MetadataBearer {
+export interface DescribeServicesResponse {
   __type?: "DescribeServicesResponse";
   /**
    * <p>A JSON-formatted list of AWS services.</p>
@@ -949,7 +949,7 @@ export namespace DescribeSeverityLevelsRequest {
 /**
  * <p>The list of severity levels returned by the <a>DescribeSeverityLevels</a> operation.</p>
  */
-export interface DescribeSeverityLevelsResponse extends $MetadataBearer {
+export interface DescribeSeverityLevelsResponse {
   __type?: "DescribeSeverityLevelsResponse";
   /**
    * <p>The available severity levels for the support case. Available severity levels are
@@ -985,7 +985,7 @@ export namespace ResolveCaseRequest {
  * <p>The status of the case returned by the <a>ResolveCase</a>
  *             operation.</p>
  */
-export interface ResolveCaseResponse extends $MetadataBearer {
+export interface ResolveCaseResponse {
   __type?: "ResolveCaseResponse";
   /**
    * <p>The status of the case after the <a>ResolveCase</a> request was
@@ -1089,8 +1089,7 @@ export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
 /**
  * <p>The statuses of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> operation.</p>
  */
-export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse
-  extends $MetadataBearer {
+export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
   __type?: "DescribeTrustedAdvisorCheckRefreshStatusesResponse";
   /**
    * <p>The refresh status of the specified Trusted Advisor checks.</p>
@@ -1133,8 +1132,7 @@ export namespace DescribeTrustedAdvisorCheckResultRequest {
 /**
  * <p>The result of the Trusted Advisor check returned by the <a>DescribeTrustedAdvisorCheckResult</a> operation.</p>
  */
-export interface DescribeTrustedAdvisorCheckResultResponse
-  extends $MetadataBearer {
+export interface DescribeTrustedAdvisorCheckResultResponse {
   __type?: "DescribeTrustedAdvisorCheckResultResponse";
   /**
    * <p>The detailed results of the Trusted Advisor check.</p>
@@ -1167,8 +1165,7 @@ export namespace DescribeTrustedAdvisorCheckSummariesRequest {
 /**
  * <p>The summaries of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckSummaries</a> operation.</p>
  */
-export interface DescribeTrustedAdvisorCheckSummariesResponse
-  extends $MetadataBearer {
+export interface DescribeTrustedAdvisorCheckSummariesResponse {
   __type?: "DescribeTrustedAdvisorCheckSummariesResponse";
   /**
    * <p>The summary information for the requested Trusted Advisor checks.</p>
@@ -1206,7 +1203,7 @@ export namespace DescribeTrustedAdvisorChecksRequest {
 /**
  * <p>Information about the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  */
-export interface DescribeTrustedAdvisorChecksResponse extends $MetadataBearer {
+export interface DescribeTrustedAdvisorChecksResponse {
   __type?: "DescribeTrustedAdvisorChecksResponse";
   /**
    * <p>Information about all available Trusted Advisor checks.</p>
@@ -1241,7 +1238,7 @@ export namespace RefreshTrustedAdvisorCheckRequest {
 /**
  * <p>The current refresh status of a Trusted Advisor check.</p>
  */
-export interface RefreshTrustedAdvisorCheckResponse extends $MetadataBearer {
+export interface RefreshTrustedAdvisorCheckResponse {
   __type?: "RefreshTrustedAdvisorCheckResponse";
   /**
    * <p>The current refresh status for a check, including the amount of time until the

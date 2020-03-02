@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UploadLayerPartCommandInput = UploadLayerPartRequest;
-export type UploadLayerPartCommandOutput = UploadLayerPartResponse;
+export type UploadLayerPartCommandOutput = UploadLayerPartResponse &
+  __MetadataBearer;
 
 export class UploadLayerPartCommand extends $Command<
   UploadLayerPartCommandInput,

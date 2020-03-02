@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInvitationsCountCommandInput = GetInvitationsCountRequest;
-export type GetInvitationsCountCommandOutput = GetInvitationsCountResponse;
+export type GetInvitationsCountCommandOutput = GetInvitationsCountResponse &
+  __MetadataBearer;
 
 export class GetInvitationsCountCommand extends $Command<
   GetInvitationsCountCommandInput,

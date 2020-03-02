@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopDeploymentCommandInput = StopDeploymentRequest;
-export type StopDeploymentCommandOutput = Deployment;
+export type StopDeploymentCommandOutput = Deployment & __MetadataBearer;
 
 export class StopDeploymentCommand extends $Command<
   StopDeploymentCommandInput,

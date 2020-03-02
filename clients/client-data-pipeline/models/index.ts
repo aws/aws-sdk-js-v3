@@ -34,7 +34,7 @@ export namespace ActivatePipelineInput {
 /**
  * <p>Contains the output of ActivatePipeline.</p>
  */
-export interface ActivatePipelineOutput extends $MetadataBearer {
+export interface ActivatePipelineOutput {
   __type?: "ActivatePipelineOutput";
 }
 
@@ -69,7 +69,7 @@ export namespace AddTagsInput {
 /**
  * <p>Contains the output of AddTags.</p>
  */
-export interface AddTagsOutput extends $MetadataBearer {
+export interface AddTagsOutput {
   __type?: "AddTagsOutput";
 }
 
@@ -123,7 +123,7 @@ export namespace CreatePipelineInput {
 /**
  * <p>Contains the output of CreatePipeline.</p>
  */
-export interface CreatePipelineOutput extends $MetadataBearer {
+export interface CreatePipelineOutput {
   __type?: "CreatePipelineOutput";
   /**
    * <p>The ID that AWS Data Pipeline assigns the newly created pipeline. For example, <code>df-06372391ZG65EXAMPLE</code>.</p>
@@ -165,7 +165,7 @@ export namespace DeactivatePipelineInput {
 /**
  * <p>Contains the output of DeactivatePipeline.</p>
  */
-export interface DeactivatePipelineOutput extends $MetadataBearer {
+export interface DeactivatePipelineOutput {
   __type?: "DeactivatePipelineOutput";
 }
 
@@ -229,7 +229,7 @@ export namespace DescribeObjectsInput {
 /**
  * <p>Contains the output of DescribeObjects.</p>
  */
-export interface DescribeObjectsOutput extends $MetadataBearer {
+export interface DescribeObjectsOutput {
   __type?: "DescribeObjectsOutput";
   /**
    * <p>Indicates whether there are more results to return.</p>
@@ -275,7 +275,7 @@ export namespace DescribePipelinesInput {
 /**
  * <p>Contains the output of DescribePipelines.</p>
  */
-export interface DescribePipelinesOutput extends $MetadataBearer {
+export interface DescribePipelinesOutput {
   __type?: "DescribePipelinesOutput";
   /**
    * <p>An array of descriptions for the specified pipelines.</p>
@@ -319,7 +319,7 @@ export namespace EvaluateExpressionInput {
 /**
  * <p>Contains the output of EvaluateExpression.</p>
  */
-export interface EvaluateExpressionOutput extends $MetadataBearer {
+export interface EvaluateExpressionOutput {
   __type?: "EvaluateExpressionOutput";
   /**
    * <p>The evaluated expression.</p>
@@ -387,7 +387,7 @@ export namespace GetPipelineDefinitionInput {
 /**
  * <p>Contains the output of GetPipelineDefinition.</p>
  */
-export interface GetPipelineDefinitionOutput extends $MetadataBearer {
+export interface GetPipelineDefinitionOutput {
   __type?: "GetPipelineDefinitionOutput";
   /**
    * <p>The parameter objects used in the pipeline definition.</p>
@@ -497,7 +497,7 @@ export namespace ListPipelinesInput {
 /**
  * <p>Contains the output of ListPipelines.</p>
  */
-export interface ListPipelinesOutput extends $MetadataBearer {
+export interface ListPipelinesOutput {
   __type?: "ListPipelinesOutput";
   /**
    * <p>Indicates whether there are more results that can be obtained by a subsequent call.</p>
@@ -832,7 +832,7 @@ export namespace PollForTaskInput {
 /**
  * <p>Contains the output of PollForTask.</p>
  */
-export interface PollForTaskOutput extends $MetadataBearer {
+export interface PollForTaskOutput {
   __type?: "PollForTaskOutput";
   /**
    * <p>The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is <code>taskId</code>,
@@ -883,7 +883,7 @@ export namespace PutPipelineDefinitionInput {
 /**
  * <p>Contains the output of PutPipelineDefinition.</p>
  */
-export interface PutPipelineDefinitionOutput extends $MetadataBearer {
+export interface PutPipelineDefinitionOutput {
   __type?: "PutPipelineDefinitionOutput";
   /**
    * <p>Indicates whether there were validation errors, and the pipeline definition is stored but cannot be
@@ -970,7 +970,7 @@ export namespace QueryObjectsInput {
 /**
  * <p>Contains the output of QueryObjects.</p>
  */
-export interface QueryObjectsOutput extends $MetadataBearer {
+export interface QueryObjectsOutput {
   __type?: "QueryObjectsOutput";
   /**
    * <p>Indicates whether there are more results that can be obtained by a subsequent call.</p>
@@ -1020,7 +1020,7 @@ export namespace RemoveTagsInput {
 /**
  * <p>Contains the output of RemoveTags.</p>
  */
-export interface RemoveTagsOutput extends $MetadataBearer {
+export interface RemoveTagsOutput {
   __type?: "RemoveTagsOutput";
 }
 
@@ -1055,7 +1055,7 @@ export namespace ReportTaskProgressInput {
 /**
  * <p>Contains the output of ReportTaskProgress.</p>
  */
-export interface ReportTaskProgressOutput extends $MetadataBearer {
+export interface ReportTaskProgressOutput {
   __type?: "ReportTaskProgressOutput";
   /**
    * <p>If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks.</p>
@@ -1101,7 +1101,7 @@ export namespace ReportTaskRunnerHeartbeatInput {
 /**
  * <p>Contains the output of ReportTaskRunnerHeartbeat.</p>
  */
-export interface ReportTaskRunnerHeartbeatOutput extends $MetadataBearer {
+export interface ReportTaskRunnerHeartbeatOutput {
   __type?: "ReportTaskRunnerHeartbeatOutput";
   /**
    * <p>Indicates whether the calling task runner should terminate.</p>
@@ -1205,7 +1205,7 @@ export namespace SetTaskStatusInput {
 /**
  * <p>Contains the output of SetTaskStatus.</p>
  */
-export interface SetTaskStatusOutput extends $MetadataBearer {
+export interface SetTaskStatusOutput {
   __type?: "SetTaskStatusOutput";
 }
 
@@ -1333,7 +1333,7 @@ export namespace ValidatePipelineDefinitionInput {
 /**
  * <p>Contains the output of ValidatePipelineDefinition.</p>
  */
-export interface ValidatePipelineDefinitionOutput extends $MetadataBearer {
+export interface ValidatePipelineDefinitionOutput {
   __type?: "ValidatePipelineDefinitionOutput";
   /**
    * <p>Indicates whether there were validation errors.</p>

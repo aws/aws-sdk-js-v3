@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateDeviceWithNetworkProfileCommandInput = AssociateDeviceWithNetworkProfileRequest;
-export type AssociateDeviceWithNetworkProfileCommandOutput = AssociateDeviceWithNetworkProfileResponse;
+export type AssociateDeviceWithNetworkProfileCommandOutput = AssociateDeviceWithNetworkProfileResponse &
+  __MetadataBearer;
 
 export class AssociateDeviceWithNetworkProfileCommand extends $Command<
   AssociateDeviceWithNetworkProfileCommandInput,

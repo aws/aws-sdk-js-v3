@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBackupPlanCommandInput = DeleteBackupPlanInput;
-export type DeleteBackupPlanCommandOutput = DeleteBackupPlanOutput;
+export type DeleteBackupPlanCommandOutput = DeleteBackupPlanOutput &
+  __MetadataBearer;
 
 export class DeleteBackupPlanCommand extends $Command<
   DeleteBackupPlanCommandInput,

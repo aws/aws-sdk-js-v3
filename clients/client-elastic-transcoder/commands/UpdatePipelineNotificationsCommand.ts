@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdatePipelineNotificationsCommandInput = UpdatePipelineNotificationsRequest;
-export type UpdatePipelineNotificationsCommandOutput = UpdatePipelineNotificationsResponse;
+export type UpdatePipelineNotificationsCommandOutput = UpdatePipelineNotificationsResponse &
+  __MetadataBearer;
 
 export class UpdatePipelineNotificationsCommand extends $Command<
   UpdatePipelineNotificationsCommandInput,

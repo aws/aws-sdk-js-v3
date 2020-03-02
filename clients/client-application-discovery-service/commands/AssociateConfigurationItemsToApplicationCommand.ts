@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateConfigurationItemsToApplicationCommandInput = AssociateConfigurationItemsToApplicationRequest;
-export type AssociateConfigurationItemsToApplicationCommandOutput = AssociateConfigurationItemsToApplicationResponse;
+export type AssociateConfigurationItemsToApplicationCommandOutput = AssociateConfigurationItemsToApplicationResponse &
+  __MetadataBearer;
 
 export class AssociateConfigurationItemsToApplicationCommand extends $Command<
   AssociateConfigurationItemsToApplicationCommandInput,

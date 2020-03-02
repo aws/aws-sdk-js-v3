@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRouteCommandInput = DeleteRouteInput;
-export type DeleteRouteCommandOutput = DeleteRouteOutput;
+export type DeleteRouteCommandOutput = DeleteRouteOutput & __MetadataBearer;
 
 export class DeleteRouteCommand extends $Command<
   DeleteRouteCommandInput,

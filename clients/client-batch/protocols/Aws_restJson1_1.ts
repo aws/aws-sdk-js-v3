@@ -709,17 +709,23 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -782,17 +788,23 @@ async function deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -849,17 +861,23 @@ async function deserializeAws_restJson1_1CreateJobQueueCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -908,17 +926,23 @@ async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -967,17 +991,23 @@ async function deserializeAws_restJson1_1DeleteJobQueueCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1026,17 +1056,23 @@ async function deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1099,17 +1135,23 @@ async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1169,17 +1211,23 @@ async function deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1239,17 +1287,23 @@ async function deserializeAws_restJson1_1DescribeJobQueuesCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1299,17 +1353,23 @@ async function deserializeAws_restJson1_1DescribeJobsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1366,17 +1426,23 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1437,17 +1503,23 @@ async function deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1501,17 +1573,23 @@ async function deserializeAws_restJson1_1SubmitJobCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1557,17 +1635,23 @@ async function deserializeAws_restJson1_1TerminateJobCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1630,17 +1714,23 @@ async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1697,17 +1787,23 @@ async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

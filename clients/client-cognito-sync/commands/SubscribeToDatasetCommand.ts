@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SubscribeToDatasetCommandInput = SubscribeToDatasetRequest;
-export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse;
+export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse &
+  __MetadataBearer;
 
 export class SubscribeToDatasetCommand extends $Command<
   SubscribeToDatasetCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSuppressedDestinationCommandInput = DeleteSuppressedDestinationRequest;
-export type DeleteSuppressedDestinationCommandOutput = DeleteSuppressedDestinationResponse;
+export type DeleteSuppressedDestinationCommandOutput = DeleteSuppressedDestinationResponse &
+  __MetadataBearer;
 
 export class DeleteSuppressedDestinationCommand extends $Command<
   DeleteSuppressedDestinationCommandInput,

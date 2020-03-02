@@ -97,7 +97,7 @@ export namespace AddListenerCertificatesInput {
   }
 }
 
-export interface AddListenerCertificatesOutput extends $MetadataBearer {
+export interface AddListenerCertificatesOutput {
   __type?: "AddListenerCertificatesOutput";
   /**
    * <p>Information about the certificates in the certificate list.</p>
@@ -130,7 +130,7 @@ export namespace AddTagsInput {
   }
 }
 
-export interface AddTagsOutput extends $MetadataBearer {
+export interface AddTagsOutput {
   __type?: "AddTagsOutput";
 }
 
@@ -490,7 +490,7 @@ export namespace CreateListenerInput {
   }
 }
 
-export interface CreateListenerOutput extends $MetadataBearer {
+export interface CreateListenerOutput {
   __type?: "CreateListenerOutput";
   /**
    * <p>Information about the listener.</p>
@@ -579,7 +579,7 @@ export namespace CreateLoadBalancerInput {
   }
 }
 
-export interface CreateLoadBalancerOutput extends $MetadataBearer {
+export interface CreateLoadBalancerOutput {
   __type?: "CreateLoadBalancerOutput";
   /**
    * <p>Information about the load balancer.</p>
@@ -638,7 +638,7 @@ export namespace CreateRuleInput {
   }
 }
 
-export interface CreateRuleOutput extends $MetadataBearer {
+export interface CreateRuleOutput {
   __type?: "CreateRuleOutput";
   /**
    * <p>Information about the rule.</p>
@@ -781,7 +781,7 @@ export namespace CreateTargetGroupInput {
   }
 }
 
-export interface CreateTargetGroupOutput extends $MetadataBearer {
+export interface CreateTargetGroupOutput {
   __type?: "CreateTargetGroupOutput";
   /**
    * <p>Information about the target group.</p>
@@ -809,7 +809,7 @@ export namespace DeleteListenerInput {
   }
 }
 
-export interface DeleteListenerOutput extends $MetadataBearer {
+export interface DeleteListenerOutput {
   __type?: "DeleteListenerOutput";
 }
 
@@ -833,7 +833,7 @@ export namespace DeleteLoadBalancerInput {
   }
 }
 
-export interface DeleteLoadBalancerOutput extends $MetadataBearer {
+export interface DeleteLoadBalancerOutput {
   __type?: "DeleteLoadBalancerOutput";
 }
 
@@ -857,7 +857,7 @@ export namespace DeleteRuleInput {
   }
 }
 
-export interface DeleteRuleOutput extends $MetadataBearer {
+export interface DeleteRuleOutput {
   __type?: "DeleteRuleOutput";
 }
 
@@ -881,7 +881,7 @@ export namespace DeleteTargetGroupInput {
   }
 }
 
-export interface DeleteTargetGroupOutput extends $MetadataBearer {
+export interface DeleteTargetGroupOutput {
   __type?: "DeleteTargetGroupOutput";
 }
 
@@ -911,7 +911,7 @@ export namespace DeregisterTargetsInput {
   }
 }
 
-export interface DeregisterTargetsOutput extends $MetadataBearer {
+export interface DeregisterTargetsOutput {
   __type?: "DeregisterTargetsOutput";
 }
 
@@ -941,7 +941,7 @@ export namespace DescribeAccountLimitsInput {
   }
 }
 
-export interface DescribeAccountLimitsOutput extends $MetadataBearer {
+export interface DescribeAccountLimitsOutput {
   __type?: "DescribeAccountLimitsOutput";
   /**
    * <p>Information about the limits.</p>
@@ -986,7 +986,7 @@ export namespace DescribeListenerCertificatesInput {
   }
 }
 
-export interface DescribeListenerCertificatesOutput extends $MetadataBearer {
+export interface DescribeListenerCertificatesOutput {
   __type?: "DescribeListenerCertificatesOutput";
   /**
    * <p>Information about the certificates.</p>
@@ -1036,7 +1036,7 @@ export namespace DescribeListenersInput {
   }
 }
 
-export interface DescribeListenersOutput extends $MetadataBearer {
+export interface DescribeListenersOutput {
   __type?: "DescribeListenersOutput";
   /**
    * <p>Information about the listeners.</p>
@@ -1070,7 +1070,7 @@ export namespace DescribeLoadBalancerAttributesInput {
   }
 }
 
-export interface DescribeLoadBalancerAttributesOutput extends $MetadataBearer {
+export interface DescribeLoadBalancerAttributesOutput {
   __type?: "DescribeLoadBalancerAttributesOutput";
   /**
    * <p>Information about the load balancer attributes.</p>
@@ -1115,7 +1115,7 @@ export namespace DescribeLoadBalancersInput {
   }
 }
 
-export interface DescribeLoadBalancersOutput extends $MetadataBearer {
+export interface DescribeLoadBalancersOutput {
   __type?: "DescribeLoadBalancersOutput";
   /**
    * <p>Information about the load balancers.</p>
@@ -1165,7 +1165,7 @@ export namespace DescribeRulesInput {
   }
 }
 
-export interface DescribeRulesOutput extends $MetadataBearer {
+export interface DescribeRulesOutput {
   __type?: "DescribeRulesOutput";
   /**
    * <p>If there are additional results, this is the marker for the next set of results.
@@ -1210,7 +1210,7 @@ export namespace DescribeSSLPoliciesInput {
   }
 }
 
-export interface DescribeSSLPoliciesOutput extends $MetadataBearer {
+export interface DescribeSSLPoliciesOutput {
   __type?: "DescribeSSLPoliciesOutput";
   /**
    * <p>If there are additional results, this is the marker for the next set of results.
@@ -1244,7 +1244,7 @@ export namespace DescribeTagsInput {
   }
 }
 
-export interface DescribeTagsOutput extends $MetadataBearer {
+export interface DescribeTagsOutput {
   __type?: "DescribeTagsOutput";
   /**
    * <p>Information about the tags.</p>
@@ -1272,7 +1272,7 @@ export namespace DescribeTargetGroupAttributesInput {
   }
 }
 
-export interface DescribeTargetGroupAttributesOutput extends $MetadataBearer {
+export interface DescribeTargetGroupAttributesOutput {
   __type?: "DescribeTargetGroupAttributesOutput";
   /**
    * <p>Information about the target group attributes</p>
@@ -1321,7 +1321,7 @@ export namespace DescribeTargetGroupsInput {
   }
 }
 
-export interface DescribeTargetGroupsOutput extends $MetadataBearer {
+export interface DescribeTargetGroupsOutput {
   __type?: "DescribeTargetGroupsOutput";
   /**
    * <p>If there are additional results, this is the marker for the next set of results.
@@ -1360,7 +1360,7 @@ export namespace DescribeTargetHealthInput {
   }
 }
 
-export interface DescribeTargetHealthOutput extends $MetadataBearer {
+export interface DescribeTargetHealthOutput {
   __type?: "DescribeTargetHealthOutput";
   /**
    * <p>Information about the health of the targets.</p>
@@ -2155,7 +2155,7 @@ export namespace ModifyListenerInput {
   }
 }
 
-export interface ModifyListenerOutput extends $MetadataBearer {
+export interface ModifyListenerOutput {
   __type?: "ModifyListenerOutput";
   /**
    * <p>Information about the modified listener.</p>
@@ -2188,7 +2188,7 @@ export namespace ModifyLoadBalancerAttributesInput {
   }
 }
 
-export interface ModifyLoadBalancerAttributesOutput extends $MetadataBearer {
+export interface ModifyLoadBalancerAttributesOutput {
   __type?: "ModifyLoadBalancerAttributesOutput";
   /**
    * <p>Information about the load balancer attributes.</p>
@@ -2242,7 +2242,7 @@ export namespace ModifyRuleInput {
   }
 }
 
-export interface ModifyRuleOutput extends $MetadataBearer {
+export interface ModifyRuleOutput {
   __type?: "ModifyRuleOutput";
   /**
    * <p>Information about the modified rule.</p>
@@ -2275,7 +2275,7 @@ export namespace ModifyTargetGroupAttributesInput {
   }
 }
 
-export interface ModifyTargetGroupAttributesOutput extends $MetadataBearer {
+export interface ModifyTargetGroupAttributesOutput {
   __type?: "ModifyTargetGroupAttributesOutput";
   /**
    * <p>Information about the attributes.</p>
@@ -2362,7 +2362,7 @@ export namespace ModifyTargetGroupInput {
   }
 }
 
-export interface ModifyTargetGroupOutput extends $MetadataBearer {
+export interface ModifyTargetGroupOutput {
   __type?: "ModifyTargetGroupOutput";
   /**
    * <p>Information about the modified target group.</p>
@@ -2580,7 +2580,7 @@ export namespace RegisterTargetsInput {
   }
 }
 
-export interface RegisterTargetsOutput extends $MetadataBearer {
+export interface RegisterTargetsOutput {
   __type?: "RegisterTargetsOutput";
 }
 
@@ -2610,7 +2610,7 @@ export namespace RemoveListenerCertificatesInput {
   }
 }
 
-export interface RemoveListenerCertificatesOutput extends $MetadataBearer {
+export interface RemoveListenerCertificatesOutput {
   __type?: "RemoveListenerCertificatesOutput";
 }
 
@@ -2639,7 +2639,7 @@ export namespace RemoveTagsInput {
   }
 }
 
-export interface RemoveTagsOutput extends $MetadataBearer {
+export interface RemoveTagsOutput {
   __type?: "RemoveTagsOutput";
 }
 
@@ -2914,7 +2914,7 @@ export namespace SetIpAddressTypeInput {
   }
 }
 
-export interface SetIpAddressTypeOutput extends $MetadataBearer {
+export interface SetIpAddressTypeOutput {
   __type?: "SetIpAddressTypeOutput";
   /**
    * <p>The IP address type.</p>
@@ -2942,7 +2942,7 @@ export namespace SetRulePrioritiesInput {
   }
 }
 
-export interface SetRulePrioritiesOutput extends $MetadataBearer {
+export interface SetRulePrioritiesOutput {
   __type?: "SetRulePrioritiesOutput";
   /**
    * <p>Information about the rules.</p>
@@ -2975,7 +2975,7 @@ export namespace SetSecurityGroupsInput {
   }
 }
 
-export interface SetSecurityGroupsOutput extends $MetadataBearer {
+export interface SetSecurityGroupsOutput {
   __type?: "SetSecurityGroupsOutput";
   /**
    * <p>The IDs of the security groups associated with the load balancer.</p>
@@ -3022,7 +3022,7 @@ export namespace SetSubnetsInput {
   }
 }
 
-export interface SetSubnetsOutput extends $MetadataBearer {
+export interface SetSubnetsOutput {
   __type?: "SetSubnetsOutput";
   /**
    * <p>Information about the subnet and Availability Zone.</p>

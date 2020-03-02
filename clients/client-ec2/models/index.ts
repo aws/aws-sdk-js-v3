@@ -1,5 +1,4 @@
 import { isa as __isa } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Contains the parameters for accepting the quote.</p>
@@ -37,8 +36,7 @@ export namespace AcceptReservedInstancesExchangeQuoteRequest {
 /**
  * <p>The result of the exchange and whether it was <code>successful</code>.</p>
  */
-export interface AcceptReservedInstancesExchangeQuoteResult
-  extends $MetadataBearer {
+export interface AcceptReservedInstancesExchangeQuoteResult {
   __type?: "AcceptReservedInstancesExchangeQuoteResult";
   /**
    * <p>The ID of the successful exchange.</p>
@@ -75,8 +73,7 @@ export namespace AcceptTransitGatewayPeeringAttachmentRequest {
   }
 }
 
-export interface AcceptTransitGatewayPeeringAttachmentResult
-  extends $MetadataBearer {
+export interface AcceptTransitGatewayPeeringAttachmentResult {
   __type?: "AcceptTransitGatewayPeeringAttachmentResult";
   /**
    * <p>The transit gateway peering attachment.</p>
@@ -113,8 +110,7 @@ export namespace AcceptTransitGatewayVpcAttachmentRequest {
   }
 }
 
-export interface AcceptTransitGatewayVpcAttachmentResult
-  extends $MetadataBearer {
+export interface AcceptTransitGatewayVpcAttachmentResult {
   __type?: "AcceptTransitGatewayVpcAttachmentResult";
   /**
    * <p>The VPC attachment.</p>
@@ -154,7 +150,7 @@ export namespace AcceptVpcEndpointConnectionsRequest {
   }
 }
 
-export interface AcceptVpcEndpointConnectionsResult extends $MetadataBearer {
+export interface AcceptVpcEndpointConnectionsResult {
   __type?: "AcceptVpcEndpointConnectionsResult";
   /**
    * <p>Information about the interface endpoints that were not accepted, if
@@ -191,7 +187,7 @@ export namespace AcceptVpcPeeringConnectionRequest {
   }
 }
 
-export interface AcceptVpcPeeringConnectionResult extends $MetadataBearer {
+export interface AcceptVpcPeeringConnectionResult {
   __type?: "AcceptVpcPeeringConnectionResult";
   /**
    * <p>Information about the VPC peering connection.</p>
@@ -387,7 +383,7 @@ export namespace AdvertiseByoipCidrRequest {
   }
 }
 
-export interface AdvertiseByoipCidrResult extends $MetadataBearer {
+export interface AdvertiseByoipCidrResult {
   __type?: "AdvertiseByoipCidrResult";
   /**
    * <p>Information about the address range.</p>
@@ -453,7 +449,7 @@ export namespace AllocateAddressRequest {
   }
 }
 
-export interface AllocateAddressResult extends $MetadataBearer {
+export interface AllocateAddressResult {
   __type?: "AllocateAddressResult";
   /**
    * <p>[EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.</p>
@@ -577,7 +573,7 @@ export namespace AllocateHostsRequest {
 /**
  * <p>Contains the output of AllocateHosts.</p>
  */
-export interface AllocateHostsResult extends $MetadataBearer {
+export interface AllocateHostsResult {
   __type?: "AllocateHostsResult";
   /**
    * <p>The ID of the allocated Dedicated Host. This is used to launch an instance onto a
@@ -662,8 +658,7 @@ export namespace ApplySecurityGroupsToClientVpnTargetNetworkRequest {
   }
 }
 
-export interface ApplySecurityGroupsToClientVpnTargetNetworkResult
-  extends $MetadataBearer {
+export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
   __type?: "ApplySecurityGroupsToClientVpnTargetNetworkResult";
   /**
    * <p>The IDs of the applied security groups.</p>
@@ -709,7 +704,7 @@ export namespace AssignIpv6AddressesRequest {
   }
 }
 
-export interface AssignIpv6AddressesResult extends $MetadataBearer {
+export interface AssignIpv6AddressesResult {
   __type?: "AssignIpv6AddressesResult";
   /**
    * <p>The IPv6 addresses assigned to the network interface.</p>
@@ -761,7 +756,7 @@ export namespace AssignPrivateIpAddressesRequest {
   }
 }
 
-export interface AssignPrivateIpAddressesResult extends $MetadataBearer {
+export interface AssignPrivateIpAddressesResult {
   __type?: "AssignPrivateIpAddressesResult";
   /**
    * <p>The private IP addresses assigned to the network interface.</p>
@@ -844,7 +839,7 @@ export namespace AssociateAddressRequest {
   }
 }
 
-export interface AssociateAddressResult extends $MetadataBearer {
+export interface AssociateAddressResult {
   __type?: "AssociateAddressResult";
   /**
    * <p>[EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.</p>
@@ -887,7 +882,7 @@ export namespace AssociateClientVpnTargetNetworkRequest {
   }
 }
 
-export interface AssociateClientVpnTargetNetworkResult extends $MetadataBearer {
+export interface AssociateClientVpnTargetNetworkResult {
   __type?: "AssociateClientVpnTargetNetworkResult";
   /**
    * <p>The unique ID of the target network association.</p>
@@ -952,7 +947,7 @@ export namespace AssociateIamInstanceProfileRequest {
   }
 }
 
-export interface AssociateIamInstanceProfileResult extends $MetadataBearer {
+export interface AssociateIamInstanceProfileResult {
   __type?: "AssociateIamInstanceProfileResult";
   /**
    * <p>Information about the IAM instance profile association.</p>
@@ -997,7 +992,7 @@ export namespace AssociateRouteTableRequest {
   }
 }
 
-export interface AssociateRouteTableResult extends $MetadataBearer {
+export interface AssociateRouteTableResult {
   __type?: "AssociateRouteTableResult";
   /**
    * <p>The route table association ID. This ID is required for disassociating the route
@@ -1037,7 +1032,7 @@ export namespace AssociateSubnetCidrBlockRequest {
   }
 }
 
-export interface AssociateSubnetCidrBlockResult extends $MetadataBearer {
+export interface AssociateSubnetCidrBlockResult {
   __type?: "AssociateSubnetCidrBlockResult";
   /**
    * <p>Information about the IPv6 CIDR block association.</p>
@@ -1089,8 +1084,7 @@ export namespace AssociateTransitGatewayMulticastDomainRequest {
   }
 }
 
-export interface AssociateTransitGatewayMulticastDomainResult
-  extends $MetadataBearer {
+export interface AssociateTransitGatewayMulticastDomainResult {
   __type?: "AssociateTransitGatewayMulticastDomainResult";
   /**
    * <p>Information about the transit gateway multicast domain associations.</p>
@@ -1132,8 +1126,7 @@ export namespace AssociateTransitGatewayRouteTableRequest {
   }
 }
 
-export interface AssociateTransitGatewayRouteTableResult
-  extends $MetadataBearer {
+export interface AssociateTransitGatewayRouteTableResult {
   __type?: "AssociateTransitGatewayRouteTableResult";
   /**
    * <p>The ID of the association.</p>
@@ -1189,7 +1182,7 @@ export namespace AssociateVpcCidrBlockRequest {
   }
 }
 
-export interface AssociateVpcCidrBlockResult extends $MetadataBearer {
+export interface AssociateVpcCidrBlockResult {
   __type?: "AssociateVpcCidrBlockResult";
   /**
    * <p>Information about the IPv4 CIDR block association.</p>
@@ -1297,7 +1290,7 @@ export namespace AttachClassicLinkVpcRequest {
   }
 }
 
-export interface AttachClassicLinkVpcResult extends $MetadataBearer {
+export interface AttachClassicLinkVpcResult {
   __type?: "AttachClassicLinkVpcResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -1374,7 +1367,7 @@ export namespace AttachNetworkInterfaceRequest {
 /**
  * <p>Contains the output of AttachNetworkInterface.</p>
  */
-export interface AttachNetworkInterfaceResult extends $MetadataBearer {
+export interface AttachNetworkInterfaceResult {
   __type?: "AttachNetworkInterfaceResult";
   /**
    * <p>The ID of the network interface attachment.</p>
@@ -1452,7 +1445,7 @@ export namespace AttachVpnGatewayRequest {
 /**
  * <p>Contains the output of AttachVpnGateway.</p>
  */
-export interface AttachVpnGatewayResult extends $MetadataBearer {
+export interface AttachVpnGatewayResult {
   __type?: "AttachVpnGatewayResult";
   /**
    * <p>Information about the attachment.</p>
@@ -1593,7 +1586,7 @@ export namespace AuthorizeClientVpnIngressRequest {
   }
 }
 
-export interface AuthorizeClientVpnIngressResult extends $MetadataBearer {
+export interface AuthorizeClientVpnIngressResult {
   __type?: "AuthorizeClientVpnIngressResult";
   /**
    * <p>The current state of the authorization rule.</p>
@@ -1964,7 +1957,7 @@ export namespace BundleInstanceRequest {
 /**
  * <p>Contains the output of BundleInstance.</p>
  */
-export interface BundleInstanceResult extends $MetadataBearer {
+export interface BundleInstanceResult {
   __type?: "BundleInstanceResult";
   /**
    * <p>Information about the bundle task.</p>
@@ -2138,7 +2131,7 @@ export namespace CancelBundleTaskRequest {
 /**
  * <p>Contains the output of CancelBundleTask.</p>
  */
-export interface CancelBundleTaskResult extends $MetadataBearer {
+export interface CancelBundleTaskResult {
   __type?: "CancelBundleTaskResult";
   /**
    * <p>Information about the bundle task.</p>
@@ -2171,7 +2164,7 @@ export namespace CancelCapacityReservationRequest {
   }
 }
 
-export interface CancelCapacityReservationResult extends $MetadataBearer {
+export interface CancelCapacityReservationResult {
   __type?: "CancelCapacityReservationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -2251,7 +2244,7 @@ export namespace CancelImportTaskRequest {
   }
 }
 
-export interface CancelImportTaskResult extends $MetadataBearer {
+export interface CancelImportTaskResult {
   __type?: "CancelImportTaskResult";
   /**
    * <p>The ID of the task being canceled.</p>
@@ -2295,7 +2288,7 @@ export namespace CancelReservedInstancesListingRequest {
 /**
  * <p>Contains the output of CancelReservedInstancesListing.</p>
  */
-export interface CancelReservedInstancesListingResult extends $MetadataBearer {
+export interface CancelReservedInstancesListingResult {
   __type?: "CancelReservedInstancesListingResult";
   /**
    * <p>The Reserved Instance listing.</p>
@@ -2385,7 +2378,7 @@ export namespace CancelSpotFleetRequestsRequest {
 /**
  * <p>Contains the output of CancelSpotFleetRequests.</p>
  */
-export interface CancelSpotFleetRequestsResponse extends $MetadataBearer {
+export interface CancelSpotFleetRequestsResponse {
   __type?: "CancelSpotFleetRequestsResponse";
   /**
    * <p>Information about the Spot Fleet requests that are successfully canceled.</p>
@@ -2465,7 +2458,7 @@ export namespace CancelSpotInstanceRequestsRequest {
 /**
  * <p>Contains the output of CancelSpotInstanceRequests.</p>
  */
-export interface CancelSpotInstanceRequestsResult extends $MetadataBearer {
+export interface CancelSpotInstanceRequestsResult {
   __type?: "CancelSpotInstanceRequestsResult";
   /**
    * <p>One or more Spot Instance requests.</p>
@@ -3615,7 +3608,7 @@ export namespace ConfirmProductInstanceRequest {
   }
 }
 
-export interface ConfirmProductInstanceResult extends $MetadataBearer {
+export interface ConfirmProductInstanceResult {
   __type?: "ConfirmProductInstanceResult";
   /**
    * <p>The AWS account ID of the instance owner. This is only present if the product code is
@@ -3846,7 +3839,7 @@ export namespace CopyFpgaImageRequest {
   }
 }
 
-export interface CopyFpgaImageResult extends $MetadataBearer {
+export interface CopyFpgaImageResult {
   __type?: "CopyFpgaImageResult";
   /**
    * <p>The ID of the new AFI.</p>
@@ -3950,7 +3943,7 @@ export namespace CopyImageRequest {
 /**
  * <p>Contains the output of CopyImage.</p>
  */
-export interface CopyImageResult extends $MetadataBearer {
+export interface CopyImageResult {
   __type?: "CopyImageResult";
   /**
    * <p>The ID of the new AMI.</p>
@@ -4062,7 +4055,7 @@ export namespace CopySnapshotRequest {
   }
 }
 
-export interface CopySnapshotResult extends $MetadataBearer {
+export interface CopySnapshotResult {
   __type?: "CopySnapshotResult";
   /**
    * <p>The ID of the new snapshot.</p>
@@ -4268,7 +4261,7 @@ export namespace CreateCapacityReservationRequest {
   }
 }
 
-export interface CreateCapacityReservationResult extends $MetadataBearer {
+export interface CreateCapacityReservationResult {
   __type?: "CreateCapacityReservationResult";
   /**
    * <p>Information about the Capacity Reservation.</p>
@@ -4378,7 +4371,7 @@ export namespace CreateClientVpnEndpointRequest {
   }
 }
 
-export interface CreateClientVpnEndpointResult extends $MetadataBearer {
+export interface CreateClientVpnEndpointResult {
   __type?: "CreateClientVpnEndpointResult";
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -4455,7 +4448,7 @@ export namespace CreateClientVpnRouteRequest {
   }
 }
 
-export interface CreateClientVpnRouteResult extends $MetadataBearer {
+export interface CreateClientVpnRouteResult {
   __type?: "CreateClientVpnRouteResult";
   /**
    * <p>The current state of the route.</p>
@@ -4518,7 +4511,7 @@ export namespace CreateCustomerGatewayRequest {
 /**
  * <p>Contains the output of CreateCustomerGateway.</p>
  */
-export interface CreateCustomerGatewayResult extends $MetadataBearer {
+export interface CreateCustomerGatewayResult {
   __type?: "CreateCustomerGatewayResult";
   /**
    * <p>Information about the customer gateway.</p>
@@ -4553,7 +4546,7 @@ export namespace CreateDefaultSubnetRequest {
   }
 }
 
-export interface CreateDefaultSubnetResult extends $MetadataBearer {
+export interface CreateDefaultSubnetResult {
   __type?: "CreateDefaultSubnetResult";
   /**
    * <p>Information about the subnet.</p>
@@ -4583,7 +4576,7 @@ export namespace CreateDefaultVpcRequest {
   }
 }
 
-export interface CreateDefaultVpcResult extends $MetadataBearer {
+export interface CreateDefaultVpcResult {
   __type?: "CreateDefaultVpcResult";
   /**
    * <p>Information about the VPC.</p>
@@ -4618,7 +4611,7 @@ export namespace CreateDhcpOptionsRequest {
   }
 }
 
-export interface CreateDhcpOptionsResult extends $MetadataBearer {
+export interface CreateDhcpOptionsResult {
   __type?: "CreateDhcpOptionsResult";
   /**
    * <p>A set of DHCP options.</p>
@@ -4660,7 +4653,7 @@ export namespace CreateEgressOnlyInternetGatewayRequest {
   }
 }
 
-export interface CreateEgressOnlyInternetGatewayResult extends $MetadataBearer {
+export interface CreateEgressOnlyInternetGatewayResult {
   __type?: "CreateEgressOnlyInternetGatewayResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -4850,7 +4843,7 @@ export namespace CreateFleetRequest {
   }
 }
 
-export interface CreateFleetResult extends $MetadataBearer {
+export interface CreateFleetResult {
   __type?: "CreateFleetResult";
   /**
    * <p>Information about the instances that could not be launched by the fleet. Valid only when
@@ -4969,7 +4962,7 @@ export namespace CreateFlowLogsRequest {
   }
 }
 
-export interface CreateFlowLogsResult extends $MetadataBearer {
+export interface CreateFlowLogsResult {
   __type?: "CreateFlowLogsResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -5041,7 +5034,7 @@ export namespace CreateFpgaImageRequest {
   }
 }
 
-export interface CreateFpgaImageResult extends $MetadataBearer {
+export interface CreateFpgaImageResult {
   __type?: "CreateFpgaImageResult";
   /**
    * <p>The global FPGA image identifier (AGFI ID).</p>
@@ -5102,7 +5095,7 @@ export namespace CreateImageRequest {
   }
 }
 
-export interface CreateImageResult extends $MetadataBearer {
+export interface CreateImageResult {
   __type?: "CreateImageResult";
   /**
    * <p>The ID of the new AMI.</p>
@@ -5145,7 +5138,7 @@ export namespace CreateInstanceExportTaskRequest {
   }
 }
 
-export interface CreateInstanceExportTaskResult extends $MetadataBearer {
+export interface CreateInstanceExportTaskResult {
   __type?: "CreateInstanceExportTaskResult";
   /**
    * <p>Information about the instance export task.</p>
@@ -5175,7 +5168,7 @@ export namespace CreateInternetGatewayRequest {
   }
 }
 
-export interface CreateInternetGatewayResult extends $MetadataBearer {
+export interface CreateInternetGatewayResult {
   __type?: "CreateInternetGatewayResult";
   /**
    * <p>Information about the internet gateway.</p>
@@ -5256,7 +5249,7 @@ export namespace CreateLaunchTemplateRequest {
   }
 }
 
-export interface CreateLaunchTemplateResult extends $MetadataBearer {
+export interface CreateLaunchTemplateResult {
   __type?: "CreateLaunchTemplateResult";
   /**
    * <p>Information about the launch template.</p>
@@ -5326,7 +5319,7 @@ export namespace CreateLaunchTemplateVersionRequest {
   }
 }
 
-export interface CreateLaunchTemplateVersionResult extends $MetadataBearer {
+export interface CreateLaunchTemplateVersionResult {
   __type?: "CreateLaunchTemplateVersionResult";
   /**
    * <p>Information about the launch template version.</p>
@@ -5372,7 +5365,7 @@ export namespace CreateLocalGatewayRouteRequest {
   }
 }
 
-export interface CreateLocalGatewayRouteResult extends $MetadataBearer {
+export interface CreateLocalGatewayRouteResult {
   __type?: "CreateLocalGatewayRouteResult";
   /**
    * <p>Information about the route.</p>
@@ -5414,8 +5407,7 @@ export namespace CreateLocalGatewayRouteTableVpcAssociationRequest {
   }
 }
 
-export interface CreateLocalGatewayRouteTableVpcAssociationResult
-  extends $MetadataBearer {
+export interface CreateLocalGatewayRouteTableVpcAssociationResult {
   __type?: "CreateLocalGatewayRouteTableVpcAssociationResult";
   /**
    * <p>Information about the association.</p>
@@ -5458,7 +5450,7 @@ export namespace CreateNatGatewayRequest {
   }
 }
 
-export interface CreateNatGatewayResult extends $MetadataBearer {
+export interface CreateNatGatewayResult {
   __type?: "CreateNatGatewayResult";
   /**
    * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
@@ -5569,7 +5561,7 @@ export namespace CreateNetworkAclRequest {
   }
 }
 
-export interface CreateNetworkAclResult extends $MetadataBearer {
+export interface CreateNetworkAclResult {
   __type?: "CreateNetworkAclResult";
   /**
    * <p>Information about the network ACL.</p>
@@ -5625,8 +5617,7 @@ export namespace CreateNetworkInterfacePermissionRequest {
 /**
  * <p>Contains the output of CreateNetworkInterfacePermission.</p>
  */
-export interface CreateNetworkInterfacePermissionResult
-  extends $MetadataBearer {
+export interface CreateNetworkInterfacePermissionResult {
   __type?: "CreateNetworkInterfacePermissionResult";
   /**
    * <p>Information about the permission for the network interface.</p>
@@ -5723,7 +5714,7 @@ export namespace CreateNetworkInterfaceRequest {
 /**
  * <p>Contains the output of CreateNetworkInterface.</p>
  */
-export interface CreateNetworkInterfaceResult extends $MetadataBearer {
+export interface CreateNetworkInterfaceResult {
   __type?: "CreateNetworkInterfaceResult";
   /**
    * <p>Information about the network interface.</p>
@@ -5808,7 +5799,7 @@ export namespace CreateReservedInstancesListingRequest {
 /**
  * <p>Contains the output of CreateReservedInstancesListing.</p>
  */
-export interface CreateReservedInstancesListingResult extends $MetadataBearer {
+export interface CreateReservedInstancesListingResult {
   __type?: "CreateReservedInstancesListingResult";
   /**
    * <p>Information about the Standard Reserved Instance listing.</p>
@@ -5894,7 +5885,7 @@ export namespace CreateRouteRequest {
   }
 }
 
-export interface CreateRouteResult extends $MetadataBearer {
+export interface CreateRouteResult {
   __type?: "CreateRouteResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -5929,7 +5920,7 @@ export namespace CreateRouteTableRequest {
   }
 }
 
-export interface CreateRouteTableResult extends $MetadataBearer {
+export interface CreateRouteTableResult {
   __type?: "CreateRouteTableResult";
   /**
    * <p>Information about the route table.</p>
@@ -5981,7 +5972,7 @@ export namespace CreateSecurityGroupRequest {
   }
 }
 
-export interface CreateSecurityGroupResult extends $MetadataBearer {
+export interface CreateSecurityGroupResult {
   __type?: "CreateSecurityGroupResult";
   /**
    * <p>The ID of the security group.</p>
@@ -6062,7 +6053,7 @@ export namespace CreateSnapshotsRequest {
   }
 }
 
-export interface CreateSnapshotsResult extends $MetadataBearer {
+export interface CreateSnapshotsResult {
   __type?: "CreateSnapshotsResult";
   /**
    * <p>List of snapshots.</p>
@@ -6108,7 +6099,7 @@ export namespace CreateSpotDatafeedSubscriptionRequest {
 /**
  * <p>Contains the output of CreateSpotDatafeedSubscription.</p>
  */
-export interface CreateSpotDatafeedSubscriptionResult extends $MetadataBearer {
+export interface CreateSpotDatafeedSubscriptionResult {
   __type?: "CreateSpotDatafeedSubscriptionResult";
   /**
    * <p>The Spot Instance data feed subscription.</p>
@@ -6173,7 +6164,7 @@ export namespace CreateSubnetRequest {
   }
 }
 
-export interface CreateSubnetResult extends $MetadataBearer {
+export interface CreateSubnetResult {
   __type?: "CreateSubnetResult";
   /**
    * <p>Information about the subnet.</p>
@@ -6246,7 +6237,7 @@ export namespace CreateTrafficMirrorFilterRequest {
   }
 }
 
-export interface CreateTrafficMirrorFilterResult extends $MetadataBearer {
+export interface CreateTrafficMirrorFilterResult {
   __type?: "CreateTrafficMirrorFilterResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
@@ -6338,7 +6329,7 @@ export namespace CreateTrafficMirrorFilterRuleRequest {
   }
 }
 
-export interface CreateTrafficMirrorFilterRuleResult extends $MetadataBearer {
+export interface CreateTrafficMirrorFilterRuleResult {
   __type?: "CreateTrafficMirrorFilterRuleResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
@@ -6427,7 +6418,7 @@ export namespace CreateTrafficMirrorSessionRequest {
   }
 }
 
-export interface CreateTrafficMirrorSessionResult extends $MetadataBearer {
+export interface CreateTrafficMirrorSessionResult {
   __type?: "CreateTrafficMirrorSessionResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
@@ -6487,7 +6478,7 @@ export namespace CreateTrafficMirrorTargetRequest {
   }
 }
 
-export interface CreateTrafficMirrorTargetResult extends $MetadataBearer {
+export interface CreateTrafficMirrorTargetResult {
   __type?: "CreateTrafficMirrorTargetResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
@@ -6532,8 +6523,7 @@ export namespace CreateTransitGatewayMulticastDomainRequest {
   }
 }
 
-export interface CreateTransitGatewayMulticastDomainResult
-  extends $MetadataBearer {
+export interface CreateTransitGatewayMulticastDomainResult {
   __type?: "CreateTransitGatewayMulticastDomainResult";
   /**
    * <p>Information about the transit gateway multicast domain.</p>
@@ -6590,8 +6580,7 @@ export namespace CreateTransitGatewayPeeringAttachmentRequest {
   }
 }
 
-export interface CreateTransitGatewayPeeringAttachmentResult
-  extends $MetadataBearer {
+export interface CreateTransitGatewayPeeringAttachmentResult {
   __type?: "CreateTransitGatewayPeeringAttachmentResult";
   /**
    * <p>The transit gateway peering attachment.</p>
@@ -6638,7 +6627,7 @@ export namespace CreateTransitGatewayRequest {
   }
 }
 
-export interface CreateTransitGatewayResult extends $MetadataBearer {
+export interface CreateTransitGatewayResult {
   __type?: "CreateTransitGatewayResult";
   /**
    * <p>Information about the transit gateway.</p>
@@ -6689,7 +6678,7 @@ export namespace CreateTransitGatewayRouteRequest {
   }
 }
 
-export interface CreateTransitGatewayRouteResult extends $MetadataBearer {
+export interface CreateTransitGatewayRouteResult {
   __type?: "CreateTransitGatewayRouteResult";
   /**
    * <p>Information about the route.</p>
@@ -6729,7 +6718,7 @@ export namespace CreateTransitGatewayRouteTableRequest {
   }
 }
 
-export interface CreateTransitGatewayRouteTableResult extends $MetadataBearer {
+export interface CreateTransitGatewayRouteTableResult {
   __type?: "CreateTransitGatewayRouteTableResult";
   /**
    * <p>Information about the transit gateway route table.</p>
@@ -6810,8 +6799,7 @@ export namespace CreateTransitGatewayVpcAttachmentRequestOptions {
   }
 }
 
-export interface CreateTransitGatewayVpcAttachmentResult
-  extends $MetadataBearer {
+export interface CreateTransitGatewayVpcAttachmentResult {
   __type?: "CreateTransitGatewayVpcAttachmentResult";
   /**
    * <p>Information about the VPC attachment.</p>
@@ -7027,8 +7015,7 @@ export namespace CreateVpcEndpointConnectionNotificationRequest {
   }
 }
 
-export interface CreateVpcEndpointConnectionNotificationResult
-  extends $MetadataBearer {
+export interface CreateVpcEndpointConnectionNotificationResult {
   __type?: "CreateVpcEndpointConnectionNotificationResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -7137,7 +7124,7 @@ export namespace CreateVpcEndpointRequest {
 /**
  * <p>Contains the output of CreateVpcEndpoint.</p>
  */
-export interface CreateVpcEndpointResult extends $MetadataBearer {
+export interface CreateVpcEndpointResult {
   __type?: "CreateVpcEndpointResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -7199,8 +7186,7 @@ export namespace CreateVpcEndpointServiceConfigurationRequest {
   }
 }
 
-export interface CreateVpcEndpointServiceConfigurationResult
-  extends $MetadataBearer {
+export interface CreateVpcEndpointServiceConfigurationResult {
   __type?: "CreateVpcEndpointServiceConfigurationResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -7263,7 +7249,7 @@ export namespace CreateVpcPeeringConnectionRequest {
   }
 }
 
-export interface CreateVpcPeeringConnectionResult extends $MetadataBearer {
+export interface CreateVpcPeeringConnectionResult {
   __type?: "CreateVpcPeeringConnectionResult";
   /**
    * <p>Information about the VPC peering connection.</p>
@@ -7335,7 +7321,7 @@ export namespace CreateVpcRequest {
   }
 }
 
-export interface CreateVpcResult extends $MetadataBearer {
+export interface CreateVpcResult {
   __type?: "CreateVpcResult";
   /**
    * <p>Information about the VPC.</p>
@@ -7396,7 +7382,7 @@ export namespace CreateVpnConnectionRequest {
 /**
  * <p>Contains the output of CreateVpnConnection.</p>
  */
-export interface CreateVpnConnectionResult extends $MetadataBearer {
+export interface CreateVpnConnectionResult {
   __type?: "CreateVpnConnectionResult";
   /**
    * <p>Information about the VPN connection.</p>
@@ -7470,7 +7456,7 @@ export namespace CreateVpnGatewayRequest {
 /**
  * <p>Contains the output of CreateVpnGateway.</p>
  */
-export interface CreateVpnGatewayResult extends $MetadataBearer {
+export interface CreateVpnGatewayResult {
   __type?: "CreateVpnGatewayResult";
   /**
    * <p>Information about the virtual private gateway.</p>
@@ -7605,7 +7591,7 @@ export namespace DeleteClientVpnEndpointRequest {
   }
 }
 
-export interface DeleteClientVpnEndpointResult extends $MetadataBearer {
+export interface DeleteClientVpnEndpointResult {
   __type?: "DeleteClientVpnEndpointResult";
   /**
    * <p>The current state of the Client VPN endpoint.</p>
@@ -7648,7 +7634,7 @@ export namespace DeleteClientVpnRouteRequest {
   }
 }
 
-export interface DeleteClientVpnRouteResult extends $MetadataBearer {
+export interface DeleteClientVpnRouteResult {
   __type?: "DeleteClientVpnRouteResult";
   /**
    * <p>The current state of the route.</p>
@@ -7728,7 +7714,7 @@ export namespace DeleteEgressOnlyInternetGatewayRequest {
   }
 }
 
-export interface DeleteEgressOnlyInternetGatewayResult extends $MetadataBearer {
+export interface DeleteEgressOnlyInternetGatewayResult {
   __type?: "DeleteEgressOnlyInternetGatewayResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -7847,7 +7833,7 @@ export namespace DeleteFleetsRequest {
   }
 }
 
-export interface DeleteFleetsResult extends $MetadataBearer {
+export interface DeleteFleetsResult {
   __type?: "DeleteFleetsResult";
   /**
    * <p>Information about the EC2 Fleets that are successfully deleted.</p>
@@ -7888,7 +7874,7 @@ export namespace DeleteFlowLogsRequest {
   }
 }
 
-export interface DeleteFlowLogsResult extends $MetadataBearer {
+export interface DeleteFlowLogsResult {
   __type?: "DeleteFlowLogsResult";
   /**
    * <p>Information about the flow logs that could not be deleted successfully.</p>
@@ -7923,7 +7909,7 @@ export namespace DeleteFpgaImageRequest {
   }
 }
 
-export interface DeleteFpgaImageResult extends $MetadataBearer {
+export interface DeleteFpgaImageResult {
   __type?: "DeleteFpgaImageResult";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
@@ -8008,7 +7994,7 @@ export namespace DeleteLaunchTemplateRequest {
   }
 }
 
-export interface DeleteLaunchTemplateResult extends $MetadataBearer {
+export interface DeleteLaunchTemplateResult {
   __type?: "DeleteLaunchTemplateResult";
   /**
    * <p>Information about the launch template.</p>
@@ -8119,7 +8105,7 @@ export namespace DeleteLaunchTemplateVersionsResponseSuccessItem {
   }
 }
 
-export interface DeleteLaunchTemplateVersionsResult extends $MetadataBearer {
+export interface DeleteLaunchTemplateVersionsResult {
   __type?: "DeleteLaunchTemplateVersionsResult";
   /**
    * <p>Information about the launch template versions that were successfully
@@ -8169,7 +8155,7 @@ export namespace DeleteLocalGatewayRouteRequest {
   }
 }
 
-export interface DeleteLocalGatewayRouteResult extends $MetadataBearer {
+export interface DeleteLocalGatewayRouteResult {
   __type?: "DeleteLocalGatewayRouteResult";
   /**
    * <p>Information about the route.</p>
@@ -8206,8 +8192,7 @@ export namespace DeleteLocalGatewayRouteTableVpcAssociationRequest {
   }
 }
 
-export interface DeleteLocalGatewayRouteTableVpcAssociationResult
-  extends $MetadataBearer {
+export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
   __type?: "DeleteLocalGatewayRouteTableVpcAssociationResult";
   /**
    * <p>Information about the association.</p>
@@ -8237,7 +8222,7 @@ export namespace DeleteNatGatewayRequest {
   }
 }
 
-export interface DeleteNatGatewayResult extends $MetadataBearer {
+export interface DeleteNatGatewayResult {
   __type?: "DeleteNatGatewayResult";
   /**
    * <p>The ID of the NAT gateway.</p>
@@ -8336,8 +8321,7 @@ export namespace DeleteNetworkInterfacePermissionRequest {
 /**
  * <p>Contains the output for DeleteNetworkInterfacePermission.</p>
  */
-export interface DeleteNetworkInterfacePermissionResult
-  extends $MetadataBearer {
+export interface DeleteNetworkInterfacePermissionResult {
   __type?: "DeleteNetworkInterfacePermissionResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds, otherwise returns an error.</p>
@@ -8445,7 +8429,7 @@ export namespace DeleteQueuedReservedInstancesRequest {
   }
 }
 
-export interface DeleteQueuedReservedInstancesResult extends $MetadataBearer {
+export interface DeleteQueuedReservedInstancesResult {
   __type?: "DeleteQueuedReservedInstancesResult";
   /**
    * <p>Information about the queued purchases that could not be deleted.</p>
@@ -8657,7 +8641,7 @@ export namespace DeleteTrafficMirrorFilterRequest {
   }
 }
 
-export interface DeleteTrafficMirrorFilterResult extends $MetadataBearer {
+export interface DeleteTrafficMirrorFilterResult {
   __type?: "DeleteTrafficMirrorFilterResult";
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
@@ -8692,7 +8676,7 @@ export namespace DeleteTrafficMirrorFilterRuleRequest {
   }
 }
 
-export interface DeleteTrafficMirrorFilterRuleResult extends $MetadataBearer {
+export interface DeleteTrafficMirrorFilterRuleResult {
   __type?: "DeleteTrafficMirrorFilterRuleResult";
   /**
    * <p>The ID of the deleted Traffic Mirror rule.</p>
@@ -8727,7 +8711,7 @@ export namespace DeleteTrafficMirrorSessionRequest {
   }
 }
 
-export interface DeleteTrafficMirrorSessionResult extends $MetadataBearer {
+export interface DeleteTrafficMirrorSessionResult {
   __type?: "DeleteTrafficMirrorSessionResult";
   /**
    * <p>The ID of the deleted Traffic Mirror session.</p>
@@ -8762,7 +8746,7 @@ export namespace DeleteTrafficMirrorTargetRequest {
   }
 }
 
-export interface DeleteTrafficMirrorTargetResult extends $MetadataBearer {
+export interface DeleteTrafficMirrorTargetResult {
   __type?: "DeleteTrafficMirrorTargetResult";
   /**
    * <p>The ID of the deleted Traffic Mirror target.</p>
@@ -8797,8 +8781,7 @@ export namespace DeleteTransitGatewayMulticastDomainRequest {
   }
 }
 
-export interface DeleteTransitGatewayMulticastDomainResult
-  extends $MetadataBearer {
+export interface DeleteTransitGatewayMulticastDomainResult {
   __type?: "DeleteTransitGatewayMulticastDomainResult";
   /**
    * <p>Information about the deleted transit gateway multicast domain.</p>
@@ -8835,8 +8818,7 @@ export namespace DeleteTransitGatewayPeeringAttachmentRequest {
   }
 }
 
-export interface DeleteTransitGatewayPeeringAttachmentResult
-  extends $MetadataBearer {
+export interface DeleteTransitGatewayPeeringAttachmentResult {
   __type?: "DeleteTransitGatewayPeeringAttachmentResult";
   /**
    * <p>The transit gateway peering attachment.</p>
@@ -8873,7 +8855,7 @@ export namespace DeleteTransitGatewayRequest {
   }
 }
 
-export interface DeleteTransitGatewayResult extends $MetadataBearer {
+export interface DeleteTransitGatewayResult {
   __type?: "DeleteTransitGatewayResult";
   /**
    * <p>Information about the deleted transit gateway.</p>
@@ -8913,7 +8895,7 @@ export namespace DeleteTransitGatewayRouteRequest {
   }
 }
 
-export interface DeleteTransitGatewayRouteResult extends $MetadataBearer {
+export interface DeleteTransitGatewayRouteResult {
   __type?: "DeleteTransitGatewayRouteResult";
   /**
    * <p>Information about the route.</p>
@@ -8948,7 +8930,7 @@ export namespace DeleteTransitGatewayRouteTableRequest {
   }
 }
 
-export interface DeleteTransitGatewayRouteTableResult extends $MetadataBearer {
+export interface DeleteTransitGatewayRouteTableResult {
   __type?: "DeleteTransitGatewayRouteTableResult";
   /**
    * <p>Information about the deleted transit gateway route table.</p>
@@ -8983,8 +8965,7 @@ export namespace DeleteTransitGatewayVpcAttachmentRequest {
   }
 }
 
-export interface DeleteTransitGatewayVpcAttachmentResult
-  extends $MetadataBearer {
+export interface DeleteTransitGatewayVpcAttachmentResult {
   __type?: "DeleteTransitGatewayVpcAttachmentResult";
   /**
    * <p>Information about the deleted VPC attachment.</p>
@@ -9042,8 +9023,7 @@ export namespace DeleteVpcEndpointConnectionNotificationsRequest {
   }
 }
 
-export interface DeleteVpcEndpointConnectionNotificationsResult
-  extends $MetadataBearer {
+export interface DeleteVpcEndpointConnectionNotificationsResult {
   __type?: "DeleteVpcEndpointConnectionNotificationsResult";
   /**
    * <p>Information about the notifications that could not be deleted
@@ -9083,8 +9063,7 @@ export namespace DeleteVpcEndpointServiceConfigurationsRequest {
   }
 }
 
-export interface DeleteVpcEndpointServiceConfigurationsResult
-  extends $MetadataBearer {
+export interface DeleteVpcEndpointServiceConfigurationsResult {
   __type?: "DeleteVpcEndpointServiceConfigurationsResult";
   /**
    * <p>Information about the service configurations that were not deleted, if
@@ -9128,7 +9107,7 @@ export namespace DeleteVpcEndpointsRequest {
 /**
  * <p>Contains the output of DeleteVpcEndpoints.</p>
  */
-export interface DeleteVpcEndpointsResult extends $MetadataBearer {
+export interface DeleteVpcEndpointsResult {
   __type?: "DeleteVpcEndpointsResult";
   /**
    * <p>Information about the VPC endpoints that were not successfully deleted.</p>
@@ -9163,7 +9142,7 @@ export namespace DeleteVpcPeeringConnectionRequest {
   }
 }
 
-export interface DeleteVpcPeeringConnectionResult extends $MetadataBearer {
+export interface DeleteVpcPeeringConnectionResult {
   __type?: "DeleteVpcPeeringConnectionResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -9290,7 +9269,7 @@ export namespace DeprovisionByoipCidrRequest {
   }
 }
 
-export interface DeprovisionByoipCidrResult extends $MetadataBearer {
+export interface DeprovisionByoipCidrResult {
   __type?: "DeprovisionByoipCidrResult";
   /**
    * <p>Information about the address range.</p>
@@ -9361,8 +9340,7 @@ export namespace DeregisterTransitGatewayMulticastGroupMembersRequest {
   }
 }
 
-export interface DeregisterTransitGatewayMulticastGroupMembersResult
-  extends $MetadataBearer {
+export interface DeregisterTransitGatewayMulticastGroupMembersResult {
   __type?: "DeregisterTransitGatewayMulticastGroupMembersResult";
   /**
    * <p>Information about the deregistered members.</p>
@@ -9411,8 +9389,7 @@ export namespace DeregisterTransitGatewayMulticastGroupSourcesRequest {
   }
 }
 
-export interface DeregisterTransitGatewayMulticastGroupSourcesResult
-  extends $MetadataBearer {
+export interface DeregisterTransitGatewayMulticastGroupSourcesResult {
   __type?: "DeregisterTransitGatewayMulticastGroupSourcesResult";
   /**
    * <p>Information about the deregistered group sources.</p>
@@ -9449,7 +9426,7 @@ export namespace DescribeAccountAttributesRequest {
   }
 }
 
-export interface DescribeAccountAttributesResult extends $MetadataBearer {
+export interface DescribeAccountAttributesResult {
   __type?: "DescribeAccountAttributesResult";
   /**
    * <p>Information about the account attributes.</p>
@@ -9543,7 +9520,7 @@ export namespace DescribeAddressesRequest {
   }
 }
 
-export interface DescribeAddressesResult extends $MetadataBearer {
+export interface DescribeAddressesResult {
   __type?: "DescribeAddressesResult";
   /**
    * <p>Information about the Elastic IP addresses.</p>
@@ -9573,7 +9550,7 @@ export namespace DescribeAggregateIdFormatRequest {
   }
 }
 
-export interface DescribeAggregateIdFormatResult extends $MetadataBearer {
+export interface DescribeAggregateIdFormatResult {
   __type?: "DescribeAggregateIdFormatResult";
   /**
    * <p>Information about each resource's ID format.</p>
@@ -9669,7 +9646,7 @@ export namespace DescribeAvailabilityZonesRequest {
   }
 }
 
-export interface DescribeAvailabilityZonesResult extends $MetadataBearer {
+export interface DescribeAvailabilityZonesResult {
   __type?: "DescribeAvailabilityZonesResult";
   /**
    * <p>Information about the Availability Zones and Local Zones.</p>
@@ -9753,7 +9730,7 @@ export namespace DescribeBundleTasksRequest {
   }
 }
 
-export interface DescribeBundleTasksResult extends $MetadataBearer {
+export interface DescribeBundleTasksResult {
   __type?: "DescribeBundleTasksResult";
   /**
    * <p>Information about the bundle tasks.</p>
@@ -9794,7 +9771,7 @@ export namespace DescribeByoipCidrsRequest {
   }
 }
 
-export interface DescribeByoipCidrsResult extends $MetadataBearer {
+export interface DescribeByoipCidrsResult {
   __type?: "DescribeByoipCidrsResult";
   /**
    * <p>Information about your address ranges.</p>
@@ -9847,7 +9824,7 @@ export namespace DescribeCapacityReservationsRequest {
   }
 }
 
-export interface DescribeCapacityReservationsResult extends $MetadataBearer {
+export interface DescribeCapacityReservationsResult {
   __type?: "DescribeCapacityReservationsResult";
   /**
    * <p>Information about the Capacity Reservations.</p>
@@ -9933,7 +9910,7 @@ export namespace DescribeClassicLinkInstancesRequest {
   }
 }
 
-export interface DescribeClassicLinkInstancesResult extends $MetadataBearer {
+export interface DescribeClassicLinkInstancesResult {
   __type?: "DescribeClassicLinkInstancesResult";
   /**
    * <p>Information about one or more linked EC2-Classic instances.</p>
@@ -10001,8 +9978,7 @@ export namespace DescribeClientVpnAuthorizationRulesRequest {
   }
 }
 
-export interface DescribeClientVpnAuthorizationRulesResult
-  extends $MetadataBearer {
+export interface DescribeClientVpnAuthorizationRulesResult {
   __type?: "DescribeClientVpnAuthorizationRulesResult";
   /**
    * <p>Information about the authorization rules.</p>
@@ -10066,7 +10042,7 @@ export namespace DescribeClientVpnConnectionsRequest {
   }
 }
 
-export interface DescribeClientVpnConnectionsResult extends $MetadataBearer {
+export interface DescribeClientVpnConnectionsResult {
   __type?: "DescribeClientVpnConnectionsResult";
   /**
    * <p>Information about the active and terminated client connections.</p>
@@ -10130,7 +10106,7 @@ export namespace DescribeClientVpnEndpointsRequest {
   }
 }
 
-export interface DescribeClientVpnEndpointsResult extends $MetadataBearer {
+export interface DescribeClientVpnEndpointsResult {
   __type?: "DescribeClientVpnEndpointsResult";
   /**
    * <p>Information about the Client VPN endpoints.</p>
@@ -10197,7 +10173,7 @@ export namespace DescribeClientVpnRoutesRequest {
   }
 }
 
-export interface DescribeClientVpnRoutesResult extends $MetadataBearer {
+export interface DescribeClientVpnRoutesResult {
   __type?: "DescribeClientVpnRoutesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -10269,7 +10245,7 @@ export namespace DescribeClientVpnTargetNetworksRequest {
   }
 }
 
-export interface DescribeClientVpnTargetNetworksResult extends $MetadataBearer {
+export interface DescribeClientVpnTargetNetworksResult {
   __type?: "DescribeClientVpnTargetNetworksResult";
   /**
    * <p>Information about the associated target networks.</p>
@@ -10339,7 +10315,7 @@ export namespace DescribeCoipPoolsRequest {
   }
 }
 
-export interface DescribeCoipPoolsResult extends $MetadataBearer {
+export interface DescribeCoipPoolsResult {
   __type?: "DescribeCoipPoolsResult";
   /**
    * <p>Information about the address pools.</p>
@@ -10379,7 +10355,7 @@ export namespace DescribeConversionTasksRequest {
   }
 }
 
-export interface DescribeConversionTasksResult extends $MetadataBearer {
+export interface DescribeConversionTasksResult {
   __type?: "DescribeConversionTasksResult";
   /**
    * <p>Information about the conversion tasks.</p>
@@ -10457,7 +10433,7 @@ export namespace DescribeCustomerGatewaysRequest {
 /**
  * <p>Contains the output of DescribeCustomerGateways.</p>
  */
-export interface DescribeCustomerGatewaysResult extends $MetadataBearer {
+export interface DescribeCustomerGatewaysResult {
   __type?: "DescribeCustomerGatewaysResult";
   /**
    * <p>Information about one or more customer gateways.</p>
@@ -10536,7 +10512,7 @@ export namespace DescribeDhcpOptionsRequest {
   }
 }
 
-export interface DescribeDhcpOptionsResult extends $MetadataBearer {
+export interface DescribeDhcpOptionsResult {
   __type?: "DescribeDhcpOptionsResult";
   /**
    * <p>Information about one or more DHCP options sets.</p>
@@ -10603,8 +10579,7 @@ export namespace DescribeEgressOnlyInternetGatewaysRequest {
   }
 }
 
-export interface DescribeEgressOnlyInternetGatewaysResult
-  extends $MetadataBearer {
+export interface DescribeEgressOnlyInternetGatewaysResult {
   __type?: "DescribeEgressOnlyInternetGatewaysResult";
   /**
    * <p>Information about the egress-only internet gateways.</p>
@@ -10688,7 +10663,7 @@ export namespace DescribeElasticGpusRequest {
   }
 }
 
-export interface DescribeElasticGpusResult extends $MetadataBearer {
+export interface DescribeElasticGpusResult {
   __type?: "DescribeElasticGpusResult";
   /**
    * <p>Information about the Elastic Graphics accelerators.</p>
@@ -10752,7 +10727,7 @@ export namespace DescribeExportImageTasksRequest {
   }
 }
 
-export interface DescribeExportImageTasksResult extends $MetadataBearer {
+export interface DescribeExportImageTasksResult {
   __type?: "DescribeExportImageTasksResult";
   /**
    * <p>Information about the export image tasks.</p>
@@ -10791,7 +10766,7 @@ export namespace DescribeExportTasksRequest {
   }
 }
 
-export interface DescribeExportTasksResult extends $MetadataBearer {
+export interface DescribeExportTasksResult {
   __type?: "DescribeExportTasksResult";
   /**
    * <p>Information about the export tasks.</p>
@@ -10939,7 +10914,7 @@ export namespace DescribeFastSnapshotRestoresRequest {
   }
 }
 
-export interface DescribeFastSnapshotRestoresResult extends $MetadataBearer {
+export interface DescribeFastSnapshotRestoresResult {
   __type?: "DescribeFastSnapshotRestoresResult";
   /**
    * <p>Information about the state of fast snapshot restores.</p>
@@ -11037,7 +11012,7 @@ export namespace DescribeFleetHistoryRequest {
   }
 }
 
-export interface DescribeFleetHistoryResult extends $MetadataBearer {
+export interface DescribeFleetHistoryResult {
   __type?: "DescribeFleetHistoryResult";
   /**
    * <p>The ID of the EC Fleet.</p>
@@ -11120,7 +11095,7 @@ export namespace DescribeFleetInstancesRequest {
   }
 }
 
-export interface DescribeFleetInstancesResult extends $MetadataBearer {
+export interface DescribeFleetInstancesResult {
   __type?: "DescribeFleetInstancesResult";
   /**
    * <p>The running instances. This list is refreshed periodically and might be out of
@@ -11253,7 +11228,7 @@ export namespace DescribeFleetsRequest {
   }
 }
 
-export interface DescribeFleetsResult extends $MetadataBearer {
+export interface DescribeFleetsResult {
   __type?: "DescribeFleetsResult";
   /**
    * <p>Information about the EC2 Fleets.</p>
@@ -11340,7 +11315,7 @@ export namespace DescribeFlowLogsRequest {
   }
 }
 
-export interface DescribeFlowLogsResult extends $MetadataBearer {
+export interface DescribeFlowLogsResult {
   __type?: "DescribeFlowLogsResult";
   /**
    * <p>Information about the flow logs.</p>
@@ -11385,7 +11360,7 @@ export namespace DescribeFpgaImageAttributeRequest {
   }
 }
 
-export interface DescribeFpgaImageAttributeResult extends $MetadataBearer {
+export interface DescribeFpgaImageAttributeResult {
   __type?: "DescribeFpgaImageAttributeResult";
   /**
    * <p>Information about the attribute.</p>
@@ -11487,7 +11462,7 @@ export namespace DescribeFpgaImagesRequest {
   }
 }
 
-export interface DescribeFpgaImagesResult extends $MetadataBearer {
+export interface DescribeFpgaImagesResult {
   __type?: "DescribeFpgaImagesResult";
   /**
    * <p>Information about the FPGA images.</p>
@@ -11563,8 +11538,7 @@ export namespace DescribeHostReservationOfferingsRequest {
   }
 }
 
-export interface DescribeHostReservationOfferingsResult
-  extends $MetadataBearer {
+export interface DescribeHostReservationOfferingsResult {
   __type?: "DescribeHostReservationOfferingsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -11639,7 +11613,7 @@ export namespace DescribeHostReservationsRequest {
   }
 }
 
-export interface DescribeHostReservationsResult extends $MetadataBearer {
+export interface DescribeHostReservationsResult {
   __type?: "DescribeHostReservationsResult";
   /**
    * <p>Details about the reservation's configuration.</p>
@@ -11727,7 +11701,7 @@ export namespace DescribeHostsRequest {
   }
 }
 
-export interface DescribeHostsResult extends $MetadataBearer {
+export interface DescribeHostsResult {
   __type?: "DescribeHostsResult";
   /**
    * <p>Information about the Dedicated Hosts.</p>
@@ -11790,8 +11764,7 @@ export namespace DescribeIamInstanceProfileAssociationsRequest {
   }
 }
 
-export interface DescribeIamInstanceProfileAssociationsResult
-  extends $MetadataBearer {
+export interface DescribeIamInstanceProfileAssociationsResult {
   __type?: "DescribeIamInstanceProfileAssociationsResult";
   /**
    * <p>Information about the IAM instance profile associations.</p>
@@ -11839,7 +11812,7 @@ export namespace DescribeIdFormatRequest {
   }
 }
 
-export interface DescribeIdFormatResult extends $MetadataBearer {
+export interface DescribeIdFormatResult {
   __type?: "DescribeIdFormatResult";
   /**
    * <p>Information about the ID format for the resource.</p>
@@ -11885,7 +11858,7 @@ export namespace DescribeIdentityIdFormatRequest {
   }
 }
 
-export interface DescribeIdentityIdFormatResult extends $MetadataBearer {
+export interface DescribeIdentityIdFormatResult {
   __type?: "DescribeIdentityIdFormatResult";
   /**
    * <p>Information about the ID format for the resources.</p>
@@ -12121,7 +12094,7 @@ export namespace DescribeImagesRequest {
   }
 }
 
-export interface DescribeImagesResult extends $MetadataBearer {
+export interface DescribeImagesResult {
   __type?: "DescribeImagesResult";
   /**
    * <p>Information about the images.</p>
@@ -12172,7 +12145,7 @@ export namespace DescribeImportImageTasksRequest {
   }
 }
 
-export interface DescribeImportImageTasksResult extends $MetadataBearer {
+export interface DescribeImportImageTasksResult {
   __type?: "DescribeImportImageTasksResult";
   /**
    * <p>A list of zero or more import image tasks that are currently active or were completed or canceled in the
@@ -12230,7 +12203,7 @@ export namespace DescribeImportSnapshotTasksRequest {
   }
 }
 
-export interface DescribeImportSnapshotTasksResult extends $MetadataBearer {
+export interface DescribeImportSnapshotTasksResult {
   __type?: "DescribeImportSnapshotTasksResult";
   /**
    * <p>A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the
@@ -12327,8 +12300,7 @@ export namespace DescribeInstanceCreditSpecificationsRequest {
   }
 }
 
-export interface DescribeInstanceCreditSpecificationsResult
-  extends $MetadataBearer {
+export interface DescribeInstanceCreditSpecificationsResult {
   __type?: "DescribeInstanceCreditSpecificationsResult";
   /**
    * <p>Information about the credit option for CPU usage of an instance.</p>
@@ -12473,7 +12445,7 @@ export namespace DescribeInstanceStatusRequest {
   }
 }
 
-export interface DescribeInstanceStatusResult extends $MetadataBearer {
+export interface DescribeInstanceStatusResult {
   __type?: "DescribeInstanceStatusResult";
   /**
    * <p>Information about the status of the instances.</p>
@@ -12541,7 +12513,7 @@ export namespace DescribeInstanceTypeOfferingsRequest {
   }
 }
 
-export interface DescribeInstanceTypeOfferingsResult extends $MetadataBearer {
+export interface DescribeInstanceTypeOfferingsResult {
   __type?: "DescribeInstanceTypeOfferingsResult";
   /**
    * <p>The instance types offered.</p>
@@ -12714,7 +12686,7 @@ export namespace DescribeInstanceTypesRequest {
   }
 }
 
-export interface DescribeInstanceTypesResult extends $MetadataBearer {
+export interface DescribeInstanceTypesResult {
   __type?: "DescribeInstanceTypesResult";
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
@@ -13225,7 +13197,7 @@ export namespace DescribeInstancesRequest {
   }
 }
 
-export interface DescribeInstancesResult extends $MetadataBearer {
+export interface DescribeInstancesResult {
   __type?: "DescribeInstancesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
@@ -13311,7 +13283,7 @@ export namespace DescribeInternetGatewaysRequest {
   }
 }
 
-export interface DescribeInternetGatewaysResult extends $MetadataBearer {
+export interface DescribeInternetGatewaysResult {
   __type?: "DescribeInternetGatewaysResult";
   /**
    * <p>Information about one or more internet gateways.</p>
@@ -13378,7 +13350,7 @@ export namespace DescribeIpv6PoolsRequest {
   }
 }
 
-export interface DescribeIpv6PoolsResult extends $MetadataBearer {
+export interface DescribeIpv6PoolsResult {
   __type?: "DescribeIpv6PoolsResult";
   /**
    * <p>Information about the IPv6 address pools.</p>
@@ -13439,7 +13411,7 @@ export namespace DescribeKeyPairsRequest {
   }
 }
 
-export interface DescribeKeyPairsResult extends $MetadataBearer {
+export interface DescribeKeyPairsResult {
   __type?: "DescribeKeyPairsResult";
   /**
    * <p>Information about the key pairs.</p>
@@ -13551,7 +13523,7 @@ export namespace DescribeLaunchTemplateVersionsRequest {
   }
 }
 
-export interface DescribeLaunchTemplateVersionsResult extends $MetadataBearer {
+export interface DescribeLaunchTemplateVersionsResult {
   __type?: "DescribeLaunchTemplateVersionsResult";
   /**
    * <p>Information about the launch template versions.</p>
@@ -13634,7 +13606,7 @@ export namespace DescribeLaunchTemplatesRequest {
   }
 }
 
-export interface DescribeLaunchTemplatesResult extends $MetadataBearer {
+export interface DescribeLaunchTemplatesResult {
   __type?: "DescribeLaunchTemplatesResult";
   /**
    * <p>Information about the launch templates.</p>
@@ -13696,8 +13668,7 @@ export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
   }
 }
 
-export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
-  extends $MetadataBearer {
+export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
   __type?: "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult";
   /**
    * <p>Information about the associations.</p>
@@ -13762,8 +13733,7 @@ export namespace DescribeLocalGatewayRouteTableVpcAssociationsRequest {
   }
 }
 
-export interface DescribeLocalGatewayRouteTableVpcAssociationsResult
-  extends $MetadataBearer {
+export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
   __type?: "DescribeLocalGatewayRouteTableVpcAssociationsResult";
   /**
    * <p>Information about the associations.</p>
@@ -13823,7 +13793,7 @@ export namespace DescribeLocalGatewayRouteTablesRequest {
   }
 }
 
-export interface DescribeLocalGatewayRouteTablesResult extends $MetadataBearer {
+export interface DescribeLocalGatewayRouteTablesResult {
   __type?: "DescribeLocalGatewayRouteTablesResult";
   /**
    * <p>Information about the local gateway route tables.</p>
@@ -13881,8 +13851,7 @@ export namespace DescribeLocalGatewayVirtualInterfaceGroupsRequest {
   }
 }
 
-export interface DescribeLocalGatewayVirtualInterfaceGroupsResult
-  extends $MetadataBearer {
+export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
   __type?: "DescribeLocalGatewayVirtualInterfaceGroupsResult";
   /**
    * <p>The virtual interface groups.</p>
@@ -13942,8 +13911,7 @@ export namespace DescribeLocalGatewayVirtualInterfacesRequest {
   }
 }
 
-export interface DescribeLocalGatewayVirtualInterfacesResult
-  extends $MetadataBearer {
+export interface DescribeLocalGatewayVirtualInterfacesResult {
   __type?: "DescribeLocalGatewayVirtualInterfacesResult";
   /**
    * <p>Information about the virtual interfaces.</p>
@@ -14001,7 +13969,7 @@ export namespace DescribeLocalGatewaysRequest {
   }
 }
 
-export interface DescribeLocalGatewaysResult extends $MetadataBearer {
+export interface DescribeLocalGatewaysResult {
   __type?: "DescribeLocalGatewaysResult";
   /**
    * <p>Information about the local gateways.</p>
@@ -14067,7 +14035,7 @@ export namespace DescribeMovingAddressesRequest {
   }
 }
 
-export interface DescribeMovingAddressesResult extends $MetadataBearer {
+export interface DescribeMovingAddressesResult {
   __type?: "DescribeMovingAddressesResult";
   /**
    * <p>The status for each Elastic IP address.</p>
@@ -14144,7 +14112,7 @@ export namespace DescribeNatGatewaysRequest {
   }
 }
 
-export interface DescribeNatGatewaysResult extends $MetadataBearer {
+export interface DescribeNatGatewaysResult {
   __type?: "DescribeNatGatewaysResult";
   /**
    * <p>Information about the NAT gateways.</p>
@@ -14277,7 +14245,7 @@ export namespace DescribeNetworkAclsRequest {
   }
 }
 
-export interface DescribeNetworkAclsResult extends $MetadataBearer {
+export interface DescribeNetworkAclsResult {
   __type?: "DescribeNetworkAclsResult";
   /**
    * <p>Information about one or more network ACLs.</p>
@@ -14328,8 +14296,7 @@ export namespace DescribeNetworkInterfaceAttributeRequest {
 /**
  * <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
  */
-export interface DescribeNetworkInterfaceAttributeResult
-  extends $MetadataBearer {
+export interface DescribeNetworkInterfaceAttributeResult {
   __type?: "DescribeNetworkInterfaceAttributeResult";
   /**
    * <p>The attachment (if any) of the network interface.</p>
@@ -14427,8 +14394,7 @@ export namespace DescribeNetworkInterfacePermissionsRequest {
 /**
  * <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
  */
-export interface DescribeNetworkInterfacePermissionsResult
-  extends $MetadataBearer {
+export interface DescribeNetworkInterfacePermissionsResult {
   __type?: "DescribeNetworkInterfacePermissionsResult";
   /**
    * <p>The network interface permissions.</p>
@@ -14649,7 +14615,7 @@ export namespace DescribeNetworkInterfacesRequest {
 /**
  * <p>Contains the output of DescribeNetworkInterfaces.</p>
  */
-export interface DescribeNetworkInterfacesResult extends $MetadataBearer {
+export interface DescribeNetworkInterfacesResult {
   __type?: "DescribeNetworkInterfacesResult";
   /**
    * <p>Information about one or more network interfaces.</p>
@@ -14719,7 +14685,7 @@ export namespace DescribePlacementGroupsRequest {
   }
 }
 
-export interface DescribePlacementGroupsResult extends $MetadataBearer {
+export interface DescribePlacementGroupsResult {
   __type?: "DescribePlacementGroupsResult";
   /**
    * <p>Information about the placement groups.</p>
@@ -14780,7 +14746,7 @@ export namespace DescribePrefixListsRequest {
   }
 }
 
-export interface DescribePrefixListsResult extends $MetadataBearer {
+export interface DescribePrefixListsResult {
   __type?: "DescribePrefixListsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -14844,7 +14810,7 @@ export namespace DescribePrincipalIdFormatRequest {
   }
 }
 
-export interface DescribePrincipalIdFormatResult extends $MetadataBearer {
+export interface DescribePrincipalIdFormatResult {
   __type?: "DescribePrincipalIdFormatResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
@@ -14888,7 +14854,7 @@ export namespace DescribePublicIpv4PoolsRequest {
   }
 }
 
-export interface DescribePublicIpv4PoolsResult extends $MetadataBearer {
+export interface DescribePublicIpv4PoolsResult {
   __type?: "DescribePublicIpv4PoolsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -14953,7 +14919,7 @@ export namespace DescribeRegionsRequest {
   }
 }
 
-export interface DescribeRegionsResult extends $MetadataBearer {
+export interface DescribeRegionsResult {
   __type?: "DescribeRegionsResult";
   /**
    * <p>Information about the Regions.</p>
@@ -15016,8 +14982,7 @@ export namespace DescribeReservedInstancesListingsRequest {
 /**
  * <p>Contains the output of DescribeReservedInstancesListings.</p>
  */
-export interface DescribeReservedInstancesListingsResult
-  extends $MetadataBearer {
+export interface DescribeReservedInstancesListingsResult {
   __type?: "DescribeReservedInstancesListingsResult";
   /**
    * <p>Information about the Reserved Instance listing.</p>
@@ -15118,8 +15083,7 @@ export namespace DescribeReservedInstancesModificationsRequest {
 /**
  * <p>Contains the output of DescribeReservedInstancesModifications.</p>
  */
-export interface DescribeReservedInstancesModificationsResult
-  extends $MetadataBearer {
+export interface DescribeReservedInstancesModificationsResult {
   __type?: "DescribeReservedInstancesModificationsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when
@@ -15306,8 +15270,7 @@ export namespace DescribeReservedInstancesOfferingsRequest {
 /**
  * <p>Contains the output of DescribeReservedInstancesOfferings.</p>
  */
-export interface DescribeReservedInstancesOfferingsResult
-  extends $MetadataBearer {
+export interface DescribeReservedInstancesOfferingsResult {
   __type?: "DescribeReservedInstancesOfferingsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when
@@ -15437,7 +15400,7 @@ export namespace DescribeReservedInstancesRequest {
 /**
  * <p>Contains the output for DescribeReservedInstances.</p>
  */
-export interface DescribeReservedInstancesResult extends $MetadataBearer {
+export interface DescribeReservedInstancesResult {
   __type?: "DescribeReservedInstancesResult";
   /**
    * <p>A list of Reserved Instances.</p>
@@ -15597,7 +15560,7 @@ export namespace DescribeRouteTablesRequest {
 /**
  * <p>Contains the output of DescribeRouteTables.</p>
  */
-export interface DescribeRouteTablesResult extends $MetadataBearer {
+export interface DescribeRouteTablesResult {
   __type?: "DescribeRouteTablesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -15697,8 +15660,7 @@ export namespace DescribeScheduledInstanceAvailabilityRequest {
 /**
  * <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
  */
-export interface DescribeScheduledInstanceAvailabilityResult
-  extends $MetadataBearer {
+export interface DescribeScheduledInstanceAvailabilityResult {
   __type?: "DescribeScheduledInstanceAvailabilityResult";
   /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -15787,7 +15749,7 @@ export namespace DescribeScheduledInstancesRequest {
 /**
  * <p>Contains the output of DescribeScheduledInstances.</p>
  */
-export interface DescribeScheduledInstancesResult extends $MetadataBearer {
+export interface DescribeScheduledInstancesResult {
   __type?: "DescribeScheduledInstancesResult";
   /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -15827,7 +15789,7 @@ export namespace DescribeSecurityGroupReferencesRequest {
   }
 }
 
-export interface DescribeSecurityGroupReferencesResult extends $MetadataBearer {
+export interface DescribeSecurityGroupReferencesResult {
   __type?: "DescribeSecurityGroupReferencesResult";
   /**
    * <p>Information about the VPCs with the referencing security groups.</p>
@@ -16013,7 +15975,7 @@ export namespace DescribeSecurityGroupsRequest {
   }
 }
 
-export interface DescribeSecurityGroupsResult extends $MetadataBearer {
+export interface DescribeSecurityGroupsResult {
   __type?: "DescribeSecurityGroupsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -16058,7 +16020,7 @@ export namespace DescribeSnapshotAttributeRequest {
   }
 }
 
-export interface DescribeSnapshotAttributeResult extends $MetadataBearer {
+export interface DescribeSnapshotAttributeResult {
   __type?: "DescribeSnapshotAttributeResult";
   /**
    * <p>The users and groups that have the permissions for creating volumes from the
@@ -16199,7 +16161,7 @@ export namespace DescribeSnapshotsRequest {
   }
 }
 
-export interface DescribeSnapshotsResult extends $MetadataBearer {
+export interface DescribeSnapshotsResult {
   __type?: "DescribeSnapshotsResult";
   /**
    * <p>The <code>NextToken</code> value to include in a future <code>DescribeSnapshots</code>
@@ -16243,8 +16205,7 @@ export namespace DescribeSpotDatafeedSubscriptionRequest {
 /**
  * <p>Contains the output of DescribeSpotDatafeedSubscription.</p>
  */
-export interface DescribeSpotDatafeedSubscriptionResult
-  extends $MetadataBearer {
+export interface DescribeSpotDatafeedSubscriptionResult {
   __type?: "DescribeSpotDatafeedSubscriptionResult";
   /**
    * <p>The Spot Instance data feed subscription.</p>
@@ -16298,7 +16259,7 @@ export namespace DescribeSpotFleetInstancesRequest {
 /**
  * <p>Contains the output of DescribeSpotFleetInstances.</p>
  */
-export interface DescribeSpotFleetInstancesResponse extends $MetadataBearer {
+export interface DescribeSpotFleetInstancesResponse {
   __type?: "DescribeSpotFleetInstancesResponse";
   /**
    * <p>The running instances. This list is refreshed periodically and might be out of
@@ -16373,8 +16334,7 @@ export namespace DescribeSpotFleetRequestHistoryRequest {
 /**
  * <p>Contains the output of DescribeSpotFleetRequestHistory.</p>
  */
-export interface DescribeSpotFleetRequestHistoryResponse
-  extends $MetadataBearer {
+export interface DescribeSpotFleetRequestHistoryResponse {
   __type?: "DescribeSpotFleetRequestHistoryResponse";
   /**
    * <p>Information about the events in the history of the Spot Fleet request.</p>
@@ -16450,7 +16410,7 @@ export namespace DescribeSpotFleetRequestsRequest {
 /**
  * <p>Contains the output of DescribeSpotFleetRequests.</p>
  */
-export interface DescribeSpotFleetRequestsResponse extends $MetadataBearer {
+export interface DescribeSpotFleetRequestsResponse {
   __type?: "DescribeSpotFleetRequestsResponse";
   /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -16684,7 +16644,7 @@ export namespace DescribeSpotInstanceRequestsRequest {
 /**
  * <p>Contains the output of DescribeSpotInstanceRequests.</p>
  */
-export interface DescribeSpotInstanceRequestsResult extends $MetadataBearer {
+export interface DescribeSpotInstanceRequestsResult {
   __type?: "DescribeSpotInstanceRequestsResult";
   /**
    * <p>The token to use to retrieve the next set of results. This value is <code>null</code>
@@ -16798,7 +16758,7 @@ export namespace DescribeSpotPriceHistoryRequest {
 /**
  * <p>Contains the output of DescribeSpotPriceHistory.</p>
  */
-export interface DescribeSpotPriceHistoryResult extends $MetadataBearer {
+export interface DescribeSpotPriceHistoryResult {
   __type?: "DescribeSpotPriceHistoryResult";
   /**
    * <p>The token required to retrieve the next set of results. This value is null or an empty
@@ -16849,7 +16809,7 @@ export namespace DescribeStaleSecurityGroupsRequest {
   }
 }
 
-export interface DescribeStaleSecurityGroupsResult extends $MetadataBearer {
+export interface DescribeStaleSecurityGroupsResult {
   __type?: "DescribeStaleSecurityGroupsResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
@@ -16979,7 +16939,7 @@ export namespace DescribeSubnetsRequest {
   }
 }
 
-export interface DescribeSubnetsResult extends $MetadataBearer {
+export interface DescribeSubnetsResult {
   __type?: "DescribeSubnetsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -17065,7 +17025,7 @@ export namespace DescribeTagsRequest {
   }
 }
 
-export interface DescribeTagsResult extends $MetadataBearer {
+export interface DescribeTagsResult {
   __type?: "DescribeTagsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is
@@ -17132,7 +17092,7 @@ export namespace DescribeTrafficMirrorFiltersRequest {
   }
 }
 
-export interface DescribeTrafficMirrorFiltersResult extends $MetadataBearer {
+export interface DescribeTrafficMirrorFiltersResult {
   __type?: "DescribeTrafficMirrorFiltersResult";
   /**
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
@@ -17226,7 +17186,7 @@ export namespace DescribeTrafficMirrorSessionsRequest {
   }
 }
 
-export interface DescribeTrafficMirrorSessionsResult extends $MetadataBearer {
+export interface DescribeTrafficMirrorSessionsResult {
   __type?: "DescribeTrafficMirrorSessionsResult";
   /**
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
@@ -17304,7 +17264,7 @@ export namespace DescribeTrafficMirrorTargetsRequest {
   }
 }
 
-export interface DescribeTrafficMirrorTargetsResult extends $MetadataBearer {
+export interface DescribeTrafficMirrorTargetsResult {
   __type?: "DescribeTrafficMirrorTargetsResult";
   /**
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
@@ -17399,8 +17359,7 @@ export namespace DescribeTransitGatewayAttachmentsRequest {
   }
 }
 
-export interface DescribeTransitGatewayAttachmentsResult
-  extends $MetadataBearer {
+export interface DescribeTransitGatewayAttachmentsResult {
   __type?: "DescribeTransitGatewayAttachmentsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -17472,8 +17431,7 @@ export namespace DescribeTransitGatewayMulticastDomainsRequest {
   }
 }
 
-export interface DescribeTransitGatewayMulticastDomainsResult
-  extends $MetadataBearer {
+export interface DescribeTransitGatewayMulticastDomainsResult {
   __type?: "DescribeTransitGatewayMulticastDomainsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -17533,8 +17491,7 @@ export namespace DescribeTransitGatewayPeeringAttachmentsRequest {
   }
 }
 
-export interface DescribeTransitGatewayPeeringAttachmentsResult
-  extends $MetadataBearer {
+export interface DescribeTransitGatewayPeeringAttachmentsResult {
   __type?: "DescribeTransitGatewayPeeringAttachmentsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -17616,8 +17573,7 @@ export namespace DescribeTransitGatewayRouteTablesRequest {
   }
 }
 
-export interface DescribeTransitGatewayRouteTablesResult
-  extends $MetadataBearer {
+export interface DescribeTransitGatewayRouteTablesResult {
   __type?: "DescribeTransitGatewayRouteTablesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -17693,8 +17649,7 @@ export namespace DescribeTransitGatewayVpcAttachmentsRequest {
   }
 }
 
-export interface DescribeTransitGatewayVpcAttachmentsResult
-  extends $MetadataBearer {
+export interface DescribeTransitGatewayVpcAttachmentsResult {
   __type?: "DescribeTransitGatewayVpcAttachmentsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -17798,7 +17753,7 @@ export namespace DescribeTransitGatewaysRequest {
   }
 }
 
-export interface DescribeTransitGatewaysResult extends $MetadataBearer {
+export interface DescribeTransitGatewaysResult {
   __type?: "DescribeTransitGatewaysResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -17843,7 +17798,7 @@ export namespace DescribeVolumeAttributeRequest {
   }
 }
 
-export interface DescribeVolumeAttributeResult extends $MetadataBearer {
+export interface DescribeVolumeAttributeResult {
   __type?: "DescribeVolumeAttributeResult";
   /**
    * <p>The state of <code>autoEnableIO</code> attribute.</p>
@@ -17975,7 +17930,7 @@ export namespace DescribeVolumeStatusRequest {
   }
 }
 
-export interface DescribeVolumeStatusResult extends $MetadataBearer {
+export interface DescribeVolumeStatusResult {
   __type?: "DescribeVolumeStatusResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
@@ -18035,7 +17990,7 @@ export namespace DescribeVolumesModificationsRequest {
   }
 }
 
-export interface DescribeVolumesModificationsResult extends $MetadataBearer {
+export interface DescribeVolumesModificationsResult {
   __type?: "DescribeVolumesModificationsResult";
   /**
    * <p>Token for pagination, null if there are no more results </p>
@@ -18176,7 +18131,7 @@ export namespace DescribeVolumesRequest {
   }
 }
 
-export interface DescribeVolumesResult extends $MetadataBearer {
+export interface DescribeVolumesResult {
   __type?: "DescribeVolumesResult";
   /**
    * <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumes</code>
@@ -18224,7 +18179,7 @@ export namespace DescribeVpcAttributeRequest {
   }
 }
 
-export interface DescribeVpcAttributeResult extends $MetadataBearer {
+export interface DescribeVpcAttributeResult {
   __type?: "DescribeVpcAttributeResult";
   /**
    * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
@@ -18278,8 +18233,7 @@ export namespace DescribeVpcClassicLinkDnsSupportRequest {
   }
 }
 
-export interface DescribeVpcClassicLinkDnsSupportResult
-  extends $MetadataBearer {
+export interface DescribeVpcClassicLinkDnsSupportResult {
   __type?: "DescribeVpcClassicLinkDnsSupportResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -18340,7 +18294,7 @@ export namespace DescribeVpcClassicLinkRequest {
   }
 }
 
-export interface DescribeVpcClassicLinkResult extends $MetadataBearer {
+export interface DescribeVpcClassicLinkResult {
   __type?: "DescribeVpcClassicLinkResult";
   /**
    * <p>The ClassicLink status of one or more VPCs.</p>
@@ -18423,8 +18377,7 @@ export namespace DescribeVpcEndpointConnectionNotificationsRequest {
   }
 }
 
-export interface DescribeVpcEndpointConnectionNotificationsResult
-  extends $MetadataBearer {
+export interface DescribeVpcEndpointConnectionNotificationsResult {
   __type?: "DescribeVpcEndpointConnectionNotificationsResult";
   /**
    * <p>One or more notifications.</p>
@@ -18503,7 +18456,7 @@ export namespace DescribeVpcEndpointConnectionsRequest {
   }
 }
 
-export interface DescribeVpcEndpointConnectionsResult extends $MetadataBearer {
+export interface DescribeVpcEndpointConnectionsResult {
   __type?: "DescribeVpcEndpointConnectionsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -18588,8 +18541,7 @@ export namespace DescribeVpcEndpointServiceConfigurationsRequest {
   }
 }
 
-export interface DescribeVpcEndpointServiceConfigurationsResult
-  extends $MetadataBearer {
+export interface DescribeVpcEndpointServiceConfigurationsResult {
   __type?: "DescribeVpcEndpointServiceConfigurationsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -18664,8 +18616,7 @@ export namespace DescribeVpcEndpointServicePermissionsRequest {
   }
 }
 
-export interface DescribeVpcEndpointServicePermissionsResult
-  extends $MetadataBearer {
+export interface DescribeVpcEndpointServicePermissionsResult {
   __type?: "DescribeVpcEndpointServicePermissionsResult";
   /**
    * <p>Information about one or more allowed principals.</p>
@@ -18743,7 +18694,7 @@ export namespace DescribeVpcEndpointServicesRequest {
 /**
  * <p>Contains the output of DescribeVpcEndpointServices.</p>
  */
-export interface DescribeVpcEndpointServicesResult extends $MetadataBearer {
+export interface DescribeVpcEndpointServicesResult {
   __type?: "DescribeVpcEndpointServicesResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
@@ -18839,7 +18790,7 @@ export namespace DescribeVpcEndpointsRequest {
 /**
  * <p>Contains the output of DescribeVpcEndpoints.</p>
  */
-export interface DescribeVpcEndpointsResult extends $MetadataBearer {
+export interface DescribeVpcEndpointsResult {
   __type?: "DescribeVpcEndpointsResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
@@ -18957,7 +18908,7 @@ export namespace DescribeVpcPeeringConnectionsRequest {
   }
 }
 
-export interface DescribeVpcPeeringConnectionsResult extends $MetadataBearer {
+export interface DescribeVpcPeeringConnectionsResult {
   __type?: "DescribeVpcPeeringConnectionsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -19086,7 +19037,7 @@ export namespace DescribeVpcsRequest {
   }
 }
 
-export interface DescribeVpcsResult extends $MetadataBearer {
+export interface DescribeVpcsResult {
   __type?: "DescribeVpcsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -19189,7 +19140,7 @@ export namespace DescribeVpnConnectionsRequest {
 /**
  * <p>Contains the output of DescribeVpnConnections.</p>
  */
-export interface DescribeVpnConnectionsResult extends $MetadataBearer {
+export interface DescribeVpnConnectionsResult {
   __type?: "DescribeVpnConnectionsResult";
   /**
    * <p>Information about one or more VPN connections.</p>
@@ -19275,7 +19226,7 @@ export namespace DescribeVpnGatewaysRequest {
 /**
  * <p>Contains the output of DescribeVpnGateways.</p>
  */
-export interface DescribeVpnGatewaysResult extends $MetadataBearer {
+export interface DescribeVpnGatewaysResult {
   __type?: "DescribeVpnGatewaysResult";
   /**
    * <p>Information about one or more virtual private gateways.</p>
@@ -19315,7 +19266,7 @@ export namespace DetachClassicLinkVpcRequest {
   }
 }
 
-export interface DetachClassicLinkVpcResult extends $MetadataBearer {
+export interface DetachClassicLinkVpcResult {
   __type?: "DetachClassicLinkVpcResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -19577,7 +19528,7 @@ export namespace DisableEbsEncryptionByDefaultRequest {
   }
 }
 
-export interface DisableEbsEncryptionByDefaultResult extends $MetadataBearer {
+export interface DisableEbsEncryptionByDefaultResult {
   __type?: "DisableEbsEncryptionByDefaultResult";
   /**
    * <p>The updated status of encryption by default.</p>
@@ -19764,7 +19715,7 @@ export namespace DisableFastSnapshotRestoresRequest {
   }
 }
 
-export interface DisableFastSnapshotRestoresResult extends $MetadataBearer {
+export interface DisableFastSnapshotRestoresResult {
   __type?: "DisableFastSnapshotRestoresResult";
   /**
    * <p>Information about the snapshots for which fast snapshot restores were successfully disabled.</p>
@@ -19811,8 +19762,7 @@ export namespace DisableTransitGatewayRouteTablePropagationRequest {
   }
 }
 
-export interface DisableTransitGatewayRouteTablePropagationResult
-  extends $MetadataBearer {
+export interface DisableTransitGatewayRouteTablePropagationResult {
   __type?: "DisableTransitGatewayRouteTablePropagationResult";
   /**
    * <p>Information about route propagation.</p>
@@ -19864,7 +19814,7 @@ export namespace DisableVpcClassicLinkDnsSupportRequest {
   }
 }
 
-export interface DisableVpcClassicLinkDnsSupportResult extends $MetadataBearer {
+export interface DisableVpcClassicLinkDnsSupportResult {
   __type?: "DisableVpcClassicLinkDnsSupportResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -19899,7 +19849,7 @@ export namespace DisableVpcClassicLinkRequest {
   }
 }
 
-export interface DisableVpcClassicLinkResult extends $MetadataBearer {
+export interface DisableVpcClassicLinkResult {
   __type?: "DisableVpcClassicLinkResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -19963,8 +19913,7 @@ export namespace DisassociateClientVpnTargetNetworkRequest {
   }
 }
 
-export interface DisassociateClientVpnTargetNetworkResult
-  extends $MetadataBearer {
+export interface DisassociateClientVpnTargetNetworkResult {
   __type?: "DisassociateClientVpnTargetNetworkResult";
   /**
    * <p>The ID of the target network association.</p>
@@ -19997,7 +19946,7 @@ export namespace DisassociateIamInstanceProfileRequest {
   }
 }
 
-export interface DisassociateIamInstanceProfileResult extends $MetadataBearer {
+export interface DisassociateIamInstanceProfileResult {
   __type?: "DisassociateIamInstanceProfileResult";
   /**
    * <p>Information about the IAM instance profile association.</p>
@@ -20046,7 +19995,7 @@ export namespace DisassociateSubnetCidrBlockRequest {
   }
 }
 
-export interface DisassociateSubnetCidrBlockResult extends $MetadataBearer {
+export interface DisassociateSubnetCidrBlockResult {
   __type?: "DisassociateSubnetCidrBlockResult";
   /**
    * <p>Information about the IPv6 CIDR block association.</p>
@@ -20098,8 +20047,7 @@ export namespace DisassociateTransitGatewayMulticastDomainRequest {
   }
 }
 
-export interface DisassociateTransitGatewayMulticastDomainResult
-  extends $MetadataBearer {
+export interface DisassociateTransitGatewayMulticastDomainResult {
   __type?: "DisassociateTransitGatewayMulticastDomainResult";
   /**
    * <p>Information about the association.</p>
@@ -20143,8 +20091,7 @@ export namespace DisassociateTransitGatewayRouteTableRequest {
   }
 }
 
-export interface DisassociateTransitGatewayRouteTableResult
-  extends $MetadataBearer {
+export interface DisassociateTransitGatewayRouteTableResult {
   __type?: "DisassociateTransitGatewayRouteTableResult";
   /**
    * <p>Information about the association.</p>
@@ -20172,7 +20119,7 @@ export namespace DisassociateVpcCidrBlockRequest {
   }
 }
 
-export interface DisassociateVpcCidrBlockResult extends $MetadataBearer {
+export interface DisassociateVpcCidrBlockResult {
   __type?: "DisassociateVpcCidrBlockResult";
   /**
    * <p>Information about the IPv4 CIDR block association.</p>
@@ -20827,7 +20774,7 @@ export namespace EnableEbsEncryptionByDefaultRequest {
   }
 }
 
-export interface EnableEbsEncryptionByDefaultResult extends $MetadataBearer {
+export interface EnableEbsEncryptionByDefaultResult {
   __type?: "EnableEbsEncryptionByDefaultResult";
   /**
    * <p>The updated status of encryption by default.</p>
@@ -21015,7 +20962,7 @@ export namespace EnableFastSnapshotRestoresRequest {
   }
 }
 
-export interface EnableFastSnapshotRestoresResult extends $MetadataBearer {
+export interface EnableFastSnapshotRestoresResult {
   __type?: "EnableFastSnapshotRestoresResult";
   /**
    * <p>Information about the snapshots for which fast snapshot restores were successfully enabled.</p>
@@ -21062,8 +21009,7 @@ export namespace EnableTransitGatewayRouteTablePropagationRequest {
   }
 }
 
-export interface EnableTransitGatewayRouteTablePropagationResult
-  extends $MetadataBearer {
+export interface EnableTransitGatewayRouteTablePropagationResult {
   __type?: "EnableTransitGatewayRouteTablePropagationResult";
   /**
    * <p>Information about route propagation.</p>
@@ -21136,7 +21082,7 @@ export namespace EnableVpcClassicLinkDnsSupportRequest {
   }
 }
 
-export interface EnableVpcClassicLinkDnsSupportResult extends $MetadataBearer {
+export interface EnableVpcClassicLinkDnsSupportResult {
   __type?: "EnableVpcClassicLinkDnsSupportResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -21171,7 +21117,7 @@ export namespace EnableVpcClassicLinkRequest {
   }
 }
 
-export interface EnableVpcClassicLinkResult extends $MetadataBearer {
+export interface EnableVpcClassicLinkResult {
   __type?: "EnableVpcClassicLinkResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -21356,8 +21302,7 @@ export namespace ExportClientVpnClientCertificateRevocationListRequest {
   }
 }
 
-export interface ExportClientVpnClientCertificateRevocationListResult
-  extends $MetadataBearer {
+export interface ExportClientVpnClientCertificateRevocationListResult {
   __type?: "ExportClientVpnClientCertificateRevocationListResult";
   /**
    * <p>Information about the client certificate revocation list.</p>
@@ -21397,8 +21342,7 @@ export namespace ExportClientVpnClientConfigurationRequest {
   }
 }
 
-export interface ExportClientVpnClientConfigurationResult
-  extends $MetadataBearer {
+export interface ExportClientVpnClientConfigurationResult {
   __type?: "ExportClientVpnClientConfigurationResult";
   /**
    * <p>The contents of the Client VPN endpoint configuration file.</p>
@@ -21462,7 +21406,7 @@ export namespace ExportImageRequest {
   }
 }
 
-export interface ExportImageResult extends $MetadataBearer {
+export interface ExportImageResult {
   __type?: "ExportImageResult";
   /**
    * <p>A description of the image being exported.</p>
@@ -21801,7 +21745,7 @@ export namespace ExportTransitGatewayRoutesRequest {
   }
 }
 
-export interface ExportTransitGatewayRoutesResult extends $MetadataBearer {
+export interface ExportTransitGatewayRoutesResult {
   __type?: "ExportTransitGatewayRoutesResult";
   /**
    * <p>The URL of the exported file in Amazon S3. For example,
@@ -22673,7 +22617,7 @@ export namespace GetAssociatedIpv6PoolCidrsRequest {
   }
 }
 
-export interface GetAssociatedIpv6PoolCidrsResult extends $MetadataBearer {
+export interface GetAssociatedIpv6PoolCidrsResult {
   __type?: "GetAssociatedIpv6PoolCidrsResult";
   /**
    * <p>Information about the IPv6 CIDR block associations.</p>
@@ -22722,7 +22666,7 @@ export namespace GetCapacityReservationUsageRequest {
   }
 }
 
-export interface GetCapacityReservationUsageResult extends $MetadataBearer {
+export interface GetCapacityReservationUsageResult {
   __type?: "GetCapacityReservationUsageResult";
   /**
    * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
@@ -22858,7 +22802,7 @@ export namespace GetCoipPoolUsageRequest {
   }
 }
 
-export interface GetCoipPoolUsageResult extends $MetadataBearer {
+export interface GetCoipPoolUsageResult {
   __type?: "GetCoipPoolUsageResult";
   /**
    * <p>Information about the address usage.</p>
@@ -22909,7 +22853,7 @@ export namespace GetConsoleOutputRequest {
   }
 }
 
-export interface GetConsoleOutputResult extends $MetadataBearer {
+export interface GetConsoleOutputResult {
   __type?: "GetConsoleOutputResult";
   /**
    * <p>The ID of the instance.</p>
@@ -22961,7 +22905,7 @@ export namespace GetConsoleScreenshotRequest {
   }
 }
 
-export interface GetConsoleScreenshotResult extends $MetadataBearer {
+export interface GetConsoleScreenshotResult {
   __type?: "GetConsoleScreenshotResult";
   /**
    * <p>The data that comprises the image.</p>
@@ -23001,7 +22945,7 @@ export namespace GetDefaultCreditSpecificationRequest {
   }
 }
 
-export interface GetDefaultCreditSpecificationResult extends $MetadataBearer {
+export interface GetDefaultCreditSpecificationResult {
   __type?: "GetDefaultCreditSpecificationResult";
   /**
    * <p>The default credit option for CPU usage of the instance family.</p>
@@ -23031,7 +22975,7 @@ export namespace GetEbsDefaultKmsKeyIdRequest {
   }
 }
 
-export interface GetEbsDefaultKmsKeyIdResult extends $MetadataBearer {
+export interface GetEbsDefaultKmsKeyIdResult {
   __type?: "GetEbsDefaultKmsKeyIdResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the default CMK for encryption by default.</p>
@@ -23061,7 +23005,7 @@ export namespace GetEbsEncryptionByDefaultRequest {
   }
 }
 
-export interface GetEbsEncryptionByDefaultResult extends $MetadataBearer {
+export interface GetEbsEncryptionByDefaultResult {
   __type?: "GetEbsEncryptionByDefaultResult";
   /**
    * <p>Indicates whether encryption by default is enabled.</p>
@@ -23094,8 +23038,7 @@ export namespace GetHostReservationPurchasePreviewRequest {
   }
 }
 
-export interface GetHostReservationPurchasePreviewResult
-  extends $MetadataBearer {
+export interface GetHostReservationPurchasePreviewResult {
   __type?: "GetHostReservationPurchasePreviewResult";
   /**
    * <p>The currency in which the <code>totalUpfrontPrice</code> and
@@ -23149,7 +23092,7 @@ export namespace GetLaunchTemplateDataRequest {
   }
 }
 
-export interface GetLaunchTemplateDataResult extends $MetadataBearer {
+export interface GetLaunchTemplateDataResult {
   __type?: "GetLaunchTemplateDataResult";
   /**
    * <p>The instance data.</p>
@@ -23184,7 +23127,7 @@ export namespace GetPasswordDataRequest {
   }
 }
 
-export interface GetPasswordDataResult extends $MetadataBearer {
+export interface GetPasswordDataResult {
   __type?: "GetPasswordDataResult";
   /**
    * <p>The ID of the Windows instance.</p>
@@ -23242,8 +23185,7 @@ export namespace GetReservedInstancesExchangeQuoteRequest {
 /**
  * <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
  */
-export interface GetReservedInstancesExchangeQuoteResult
-  extends $MetadataBearer {
+export interface GetReservedInstancesExchangeQuoteResult {
   __type?: "GetReservedInstancesExchangeQuoteResult";
   /**
    * <p>The currency of the transaction.</p>
@@ -23342,8 +23284,7 @@ export namespace GetTransitGatewayAttachmentPropagationsRequest {
   }
 }
 
-export interface GetTransitGatewayAttachmentPropagationsResult
-  extends $MetadataBearer {
+export interface GetTransitGatewayAttachmentPropagationsResult {
   __type?: "GetTransitGatewayAttachmentPropagationsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -23431,8 +23372,7 @@ export namespace GetTransitGatewayMulticastDomainAssociationsRequest {
   }
 }
 
-export interface GetTransitGatewayMulticastDomainAssociationsResult
-  extends $MetadataBearer {
+export interface GetTransitGatewayMulticastDomainAssociationsResult {
   __type?: "GetTransitGatewayMulticastDomainAssociationsResult";
   /**
    * <p>Information about the multicast domain associations.</p>
@@ -23506,8 +23446,7 @@ export namespace GetTransitGatewayRouteTableAssociationsRequest {
   }
 }
 
-export interface GetTransitGatewayRouteTableAssociationsResult
-  extends $MetadataBearer {
+export interface GetTransitGatewayRouteTableAssociationsResult {
   __type?: "GetTransitGatewayRouteTableAssociationsResult";
   /**
    * <p>Information about the associations.</p>
@@ -23581,8 +23520,7 @@ export namespace GetTransitGatewayRouteTablePropagationsRequest {
   }
 }
 
-export interface GetTransitGatewayRouteTablePropagationsResult
-  extends $MetadataBearer {
+export interface GetTransitGatewayRouteTablePropagationsResult {
   __type?: "GetTransitGatewayRouteTablePropagationsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -24444,7 +24382,7 @@ export namespace Image {
 /**
  * <p>Describes an image attribute.</p>
  */
-export interface ImageAttribute extends $MetadataBearer {
+export interface ImageAttribute {
   __type?: "ImageAttribute";
   /**
    * <p>The block device mapping entries.</p>
@@ -24585,8 +24523,7 @@ export namespace ImportClientVpnClientCertificateRevocationListRequest {
   }
 }
 
-export interface ImportClientVpnClientCertificateRevocationListResult
-  extends $MetadataBearer {
+export interface ImportClientVpnClientCertificateRevocationListResult {
   __type?: "ImportClientVpnClientCertificateRevocationListResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -24748,7 +24685,7 @@ export namespace ImportImageRequest {
   }
 }
 
-export interface ImportImageResult extends $MetadataBearer {
+export interface ImportImageResult {
   __type?: "ImportImageResult";
   /**
    * <p>The architecture of the virtual machine.</p>
@@ -25025,7 +24962,7 @@ export namespace ImportInstanceRequest {
   }
 }
 
-export interface ImportInstanceResult extends $MetadataBearer {
+export interface ImportInstanceResult {
   __type?: "ImportInstanceResult";
   /**
    * <p>Information about the conversion task.</p>
@@ -25144,7 +25081,7 @@ export namespace ImportKeyPairRequest {
   }
 }
 
-export interface ImportKeyPairResult extends $MetadataBearer {
+export interface ImportKeyPairResult {
   __type?: "ImportKeyPairResult";
   /**
    * <p>The MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
@@ -25238,7 +25175,7 @@ export namespace ImportSnapshotRequest {
   }
 }
 
-export interface ImportSnapshotResult extends $MetadataBearer {
+export interface ImportSnapshotResult {
   __type?: "ImportSnapshotResult";
   /**
    * <p>A description of the import snapshot task.</p>
@@ -25330,7 +25267,7 @@ export namespace ImportVolumeRequest {
   }
 }
 
-export interface ImportVolumeResult extends $MetadataBearer {
+export interface ImportVolumeResult {
   __type?: "ImportVolumeResult";
   /**
    * <p>Information about the conversion task.</p>
@@ -25699,7 +25636,7 @@ export namespace Instance {
 /**
  * <p>Describes an instance attribute.</p>
  */
-export interface InstanceAttribute extends $MetadataBearer {
+export interface InstanceAttribute {
   __type?: "InstanceAttribute";
   /**
    * <p>The block device mapping of the instance.</p>
@@ -27477,7 +27414,7 @@ export type Ipv6SupportValue = "disable" | "enable";
 /**
  * <p>Describes a key pair.</p>
  */
-export interface KeyPair extends $MetadataBearer {
+export interface KeyPair {
   __type?: "KeyPair";
   /**
    * <p>The SHA-1 digest of the DER encoded private key.</p>
@@ -29455,7 +29392,7 @@ export namespace ModifyCapacityReservationRequest {
   }
 }
 
-export interface ModifyCapacityReservationResult extends $MetadataBearer {
+export interface ModifyCapacityReservationResult {
   __type?: "ModifyCapacityReservationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -29541,7 +29478,7 @@ export namespace ModifyClientVpnEndpointRequest {
   }
 }
 
-export interface ModifyClientVpnEndpointResult extends $MetadataBearer {
+export interface ModifyClientVpnEndpointResult {
   __type?: "ModifyClientVpnEndpointResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -29583,8 +29520,7 @@ export namespace ModifyDefaultCreditSpecificationRequest {
   }
 }
 
-export interface ModifyDefaultCreditSpecificationResult
-  extends $MetadataBearer {
+export interface ModifyDefaultCreditSpecificationResult {
   __type?: "ModifyDefaultCreditSpecificationResult";
   /**
    * <p>The default credit option for CPU usage of the instance family.</p>
@@ -29639,7 +29575,7 @@ export namespace ModifyEbsDefaultKmsKeyIdRequest {
   }
 }
 
-export interface ModifyEbsDefaultKmsKeyIdResult extends $MetadataBearer {
+export interface ModifyEbsDefaultKmsKeyIdResult {
   __type?: "ModifyEbsDefaultKmsKeyIdResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the default CMK for encryption by default.</p>
@@ -29687,7 +29623,7 @@ export namespace ModifyFleetRequest {
   }
 }
 
-export interface ModifyFleetResult extends $MetadataBearer {
+export interface ModifyFleetResult {
   __type?: "ModifyFleetResult";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
@@ -29763,7 +29699,7 @@ export namespace ModifyFpgaImageAttributeRequest {
   }
 }
 
-export interface ModifyFpgaImageAttributeResult extends $MetadataBearer {
+export interface ModifyFpgaImageAttributeResult {
   __type?: "ModifyFpgaImageAttributeResult";
   /**
    * <p>Information about the attribute.</p>
@@ -29826,7 +29762,7 @@ export namespace ModifyHostsRequest {
   }
 }
 
-export interface ModifyHostsResult extends $MetadataBearer {
+export interface ModifyHostsResult {
   __type?: "ModifyHostsResult";
   /**
    * <p>The IDs of the Dedicated Hosts that were successfully modified.</p>
@@ -30133,8 +30069,7 @@ export namespace ModifyInstanceCapacityReservationAttributesRequest {
   }
 }
 
-export interface ModifyInstanceCapacityReservationAttributesResult
-  extends $MetadataBearer {
+export interface ModifyInstanceCapacityReservationAttributesResult {
   __type?: "ModifyInstanceCapacityReservationAttributesResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -30180,8 +30115,7 @@ export namespace ModifyInstanceCreditSpecificationRequest {
   }
 }
 
-export interface ModifyInstanceCreditSpecificationResult
-  extends $MetadataBearer {
+export interface ModifyInstanceCreditSpecificationResult {
   __type?: "ModifyInstanceCreditSpecificationResult";
   /**
    * <p>Information about the instances whose credit option for CPU usage was successfully
@@ -30237,7 +30171,7 @@ export namespace ModifyInstanceEventStartTimeRequest {
   }
 }
 
-export interface ModifyInstanceEventStartTimeResult extends $MetadataBearer {
+export interface ModifyInstanceEventStartTimeResult {
   __type?: "ModifyInstanceEventStartTimeResult";
   /**
    * <p>Describes a scheduled event for an instance.</p>
@@ -30302,7 +30236,7 @@ export namespace ModifyInstanceMetadataOptionsRequest {
   }
 }
 
-export interface ModifyInstanceMetadataOptionsResult extends $MetadataBearer {
+export interface ModifyInstanceMetadataOptionsResult {
   __type?: "ModifyInstanceMetadataOptionsResult";
   /**
    * <p>The ID of the instance.</p>
@@ -30370,7 +30304,7 @@ export namespace ModifyInstancePlacementRequest {
   }
 }
 
-export interface ModifyInstancePlacementResult extends $MetadataBearer {
+export interface ModifyInstancePlacementResult {
   __type?: "ModifyInstancePlacementResult";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
@@ -30426,7 +30360,7 @@ export namespace ModifyLaunchTemplateRequest {
   }
 }
 
-export interface ModifyLaunchTemplateResult extends $MetadataBearer {
+export interface ModifyLaunchTemplateResult {
   __type?: "ModifyLaunchTemplateResult";
   /**
    * <p>Information about the launch template.</p>
@@ -30520,7 +30454,7 @@ export namespace ModifyReservedInstancesRequest {
 /**
  * <p>Contains the output of ModifyReservedInstances.</p>
  */
-export interface ModifyReservedInstancesResult extends $MetadataBearer {
+export interface ModifyReservedInstancesResult {
   __type?: "ModifyReservedInstancesResult";
   /**
    * <p>The ID for the modification.</p>
@@ -30615,7 +30549,7 @@ export namespace ModifySpotFleetRequestRequest {
 /**
  * <p>Contains the output of ModifySpotFleetRequest.</p>
  */
-export interface ModifySpotFleetRequestResponse extends $MetadataBearer {
+export interface ModifySpotFleetRequestResponse {
   __type?: "ModifySpotFleetRequestResponse";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
@@ -30693,8 +30627,7 @@ export namespace ModifyTrafficMirrorFilterNetworkServicesRequest {
   }
 }
 
-export interface ModifyTrafficMirrorFilterNetworkServicesResult
-  extends $MetadataBearer {
+export interface ModifyTrafficMirrorFilterNetworkServicesResult {
   __type?: "ModifyTrafficMirrorFilterNetworkServicesResult";
   /**
    * <p>The Traffic Mirror filter that the network service is associated with.</p>
@@ -30783,7 +30716,7 @@ export namespace ModifyTrafficMirrorFilterRuleRequest {
   }
 }
 
-export interface ModifyTrafficMirrorFilterRuleResult extends $MetadataBearer {
+export interface ModifyTrafficMirrorFilterRuleResult {
   __type?: "ModifyTrafficMirrorFilterRuleResult";
   /**
    * <p>Modifies a Traffic Mirror rule.</p>
@@ -30855,7 +30788,7 @@ export namespace ModifyTrafficMirrorSessionRequest {
   }
 }
 
-export interface ModifyTrafficMirrorSessionResult extends $MetadataBearer {
+export interface ModifyTrafficMirrorSessionResult {
   __type?: "ModifyTrafficMirrorSessionResult";
   /**
    * <p>Information about the Traffic Mirror session.</p>
@@ -30932,8 +30865,7 @@ export namespace ModifyTransitGatewayVpcAttachmentRequestOptions {
   }
 }
 
-export interface ModifyTransitGatewayVpcAttachmentResult
-  extends $MetadataBearer {
+export interface ModifyTransitGatewayVpcAttachmentResult {
   __type?: "ModifyTransitGatewayVpcAttachmentResult";
   /**
    * <p>Information about the modified attachment.</p>
@@ -31018,7 +30950,7 @@ export namespace ModifyVolumeRequest {
   }
 }
 
-export interface ModifyVolumeResult extends $MetadataBearer {
+export interface ModifyVolumeResult {
   __type?: "ModifyVolumeResult";
   /**
    * <p>Information about the volume modification.</p>
@@ -31096,8 +31028,7 @@ export namespace ModifyVpcEndpointConnectionNotificationRequest {
   }
 }
 
-export interface ModifyVpcEndpointConnectionNotificationResult
-  extends $MetadataBearer {
+export interface ModifyVpcEndpointConnectionNotificationResult {
   __type?: "ModifyVpcEndpointConnectionNotificationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -31185,7 +31116,7 @@ export namespace ModifyVpcEndpointRequest {
   }
 }
 
-export interface ModifyVpcEndpointResult extends $MetadataBearer {
+export interface ModifyVpcEndpointResult {
   __type?: "ModifyVpcEndpointResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -31249,8 +31180,7 @@ export namespace ModifyVpcEndpointServiceConfigurationRequest {
   }
 }
 
-export interface ModifyVpcEndpointServiceConfigurationResult
-  extends $MetadataBearer {
+export interface ModifyVpcEndpointServiceConfigurationResult {
   __type?: "ModifyVpcEndpointServiceConfigurationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -31300,8 +31230,7 @@ export namespace ModifyVpcEndpointServicePermissionsRequest {
   }
 }
 
-export interface ModifyVpcEndpointServicePermissionsResult
-  extends $MetadataBearer {
+export interface ModifyVpcEndpointServicePermissionsResult {
   __type?: "ModifyVpcEndpointServicePermissionsResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -31346,8 +31275,7 @@ export namespace ModifyVpcPeeringConnectionOptionsRequest {
   }
 }
 
-export interface ModifyVpcPeeringConnectionOptionsResult
-  extends $MetadataBearer {
+export interface ModifyVpcPeeringConnectionOptionsResult {
   __type?: "ModifyVpcPeeringConnectionOptionsResult";
   /**
    * <p>Information about the VPC peering connection options for the accepter VPC.</p>
@@ -31392,7 +31320,7 @@ export namespace ModifyVpcTenancyRequest {
   }
 }
 
-export interface ModifyVpcTenancyResult extends $MetadataBearer {
+export interface ModifyVpcTenancyResult {
   __type?: "ModifyVpcTenancyResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
@@ -31443,7 +31371,7 @@ export namespace ModifyVpnConnectionRequest {
   }
 }
 
-export interface ModifyVpnConnectionResult extends $MetadataBearer {
+export interface ModifyVpnConnectionResult {
   __type?: "ModifyVpnConnectionResult";
   /**
    * <p>Describes a VPN connection.</p>
@@ -31483,7 +31411,7 @@ export namespace ModifyVpnTunnelCertificateRequest {
   }
 }
 
-export interface ModifyVpnTunnelCertificateResult extends $MetadataBearer {
+export interface ModifyVpnTunnelCertificateResult {
   __type?: "ModifyVpnTunnelCertificateResult";
   /**
    * <p>Describes a VPN connection.</p>
@@ -31528,7 +31456,7 @@ export namespace ModifyVpnTunnelOptionsRequest {
   }
 }
 
-export interface ModifyVpnTunnelOptionsResult extends $MetadataBearer {
+export interface ModifyVpnTunnelOptionsResult {
   __type?: "ModifyVpnTunnelOptionsResult";
   /**
    * <p>Describes a VPN connection.</p>
@@ -31730,7 +31658,7 @@ export namespace MonitorInstancesRequest {
   }
 }
 
-export interface MonitorInstancesResult extends $MetadataBearer {
+export interface MonitorInstancesResult {
   __type?: "MonitorInstancesResult";
   /**
    * <p>The monitoring information.</p>
@@ -31785,7 +31713,7 @@ export namespace MoveAddressToVpcRequest {
   }
 }
 
-export interface MoveAddressToVpcResult extends $MetadataBearer {
+export interface MoveAddressToVpcResult {
   __type?: "MoveAddressToVpcResult";
   /**
    * <p>The allocation ID for the Elastic IP address.</p>
@@ -33528,7 +33456,7 @@ export namespace ProvisionByoipCidrRequest {
   }
 }
 
-export interface ProvisionByoipCidrResult extends $MetadataBearer {
+export interface ProvisionByoipCidrResult {
   __type?: "ProvisionByoipCidrResult";
   /**
    * <p>Information about the address range.</p>
@@ -33744,7 +33672,7 @@ export namespace PurchaseHostReservationRequest {
   }
 }
 
-export interface PurchaseHostReservationResult extends $MetadataBearer {
+export interface PurchaseHostReservationResult {
   __type?: "PurchaseHostReservationResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
@@ -33844,8 +33772,7 @@ export namespace PurchaseReservedInstancesOfferingRequest {
 /**
  * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
  */
-export interface PurchaseReservedInstancesOfferingResult
-  extends $MetadataBearer {
+export interface PurchaseReservedInstancesOfferingResult {
   __type?: "PurchaseReservedInstancesOfferingResult";
   /**
    * <p>The IDs of the purchased Reserved Instances.</p>
@@ -33892,7 +33819,7 @@ export namespace PurchaseScheduledInstancesRequest {
 /**
  * <p>Contains the output of PurchaseScheduledInstances.</p>
  */
-export interface PurchaseScheduledInstancesResult extends $MetadataBearer {
+export interface PurchaseScheduledInstancesResult {
   __type?: "PurchaseScheduledInstancesResult";
   /**
    * <p>Information about the Scheduled Instances.</p>
@@ -34079,7 +34006,7 @@ export namespace RegisterImageRequest {
 /**
  * <p>Contains the output of RegisterImage.</p>
  */
-export interface RegisterImageResult extends $MetadataBearer {
+export interface RegisterImageResult {
   __type?: "RegisterImageResult";
   /**
    * <p>The ID of the newly registered AMI.</p>
@@ -34126,8 +34053,7 @@ export namespace RegisterTransitGatewayMulticastGroupMembersRequest {
   }
 }
 
-export interface RegisterTransitGatewayMulticastGroupMembersResult
-  extends $MetadataBearer {
+export interface RegisterTransitGatewayMulticastGroupMembersResult {
   __type?: "RegisterTransitGatewayMulticastGroupMembersResult";
   /**
    * <p>Information about the registered  transit gateway multicast group members.</p>
@@ -34176,8 +34102,7 @@ export namespace RegisterTransitGatewayMulticastGroupSourcesRequest {
   }
 }
 
-export interface RegisterTransitGatewayMulticastGroupSourcesResult
-  extends $MetadataBearer {
+export interface RegisterTransitGatewayMulticastGroupSourcesResult {
   __type?: "RegisterTransitGatewayMulticastGroupSourcesResult";
   /**
    * <p>Information about the  transit gateway multicast group sources.</p>
@@ -34216,8 +34141,7 @@ export namespace RejectTransitGatewayPeeringAttachmentRequest {
   }
 }
 
-export interface RejectTransitGatewayPeeringAttachmentResult
-  extends $MetadataBearer {
+export interface RejectTransitGatewayPeeringAttachmentResult {
   __type?: "RejectTransitGatewayPeeringAttachmentResult";
   /**
    * <p>The transit gateway peering attachment.</p>
@@ -34254,8 +34178,7 @@ export namespace RejectTransitGatewayVpcAttachmentRequest {
   }
 }
 
-export interface RejectTransitGatewayVpcAttachmentResult
-  extends $MetadataBearer {
+export interface RejectTransitGatewayVpcAttachmentResult {
   __type?: "RejectTransitGatewayVpcAttachmentResult";
   /**
    * <p>Information about the attachment.</p>
@@ -34295,7 +34218,7 @@ export namespace RejectVpcEndpointConnectionsRequest {
   }
 }
 
-export interface RejectVpcEndpointConnectionsResult extends $MetadataBearer {
+export interface RejectVpcEndpointConnectionsResult {
   __type?: "RejectVpcEndpointConnectionsResult";
   /**
    * <p>Information about the endpoints that were not rejected, if applicable.</p>
@@ -34330,7 +34253,7 @@ export namespace RejectVpcPeeringConnectionRequest {
   }
 }
 
-export interface RejectVpcPeeringConnectionResult extends $MetadataBearer {
+export interface RejectVpcPeeringConnectionResult {
   __type?: "RejectVpcPeeringConnectionResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -34393,7 +34316,7 @@ export namespace ReleaseHostsRequest {
   }
 }
 
-export interface ReleaseHostsResult extends $MetadataBearer {
+export interface ReleaseHostsResult {
   __type?: "ReleaseHostsResult";
   /**
    * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
@@ -34434,8 +34357,7 @@ export namespace ReplaceIamInstanceProfileAssociationRequest {
   }
 }
 
-export interface ReplaceIamInstanceProfileAssociationResult
-  extends $MetadataBearer {
+export interface ReplaceIamInstanceProfileAssociationResult {
   __type?: "ReplaceIamInstanceProfileAssociationResult";
   /**
    * <p>Information about the IAM instance profile association.</p>
@@ -34475,7 +34397,7 @@ export namespace ReplaceNetworkAclAssociationRequest {
   }
 }
 
-export interface ReplaceNetworkAclAssociationResult extends $MetadataBearer {
+export interface ReplaceNetworkAclAssociationResult {
   __type?: "ReplaceNetworkAclAssociationResult";
   /**
    * <p>The ID of the new association.</p>
@@ -34664,7 +34586,7 @@ export namespace ReplaceRouteTableAssociationRequest {
   }
 }
 
-export interface ReplaceRouteTableAssociationResult extends $MetadataBearer {
+export interface ReplaceRouteTableAssociationResult {
   __type?: "ReplaceRouteTableAssociationResult";
   /**
    * <p>The state of the association.</p>
@@ -34719,7 +34641,7 @@ export namespace ReplaceTransitGatewayRouteRequest {
   }
 }
 
-export interface ReplaceTransitGatewayRouteResult extends $MetadataBearer {
+export interface ReplaceTransitGatewayRouteResult {
   __type?: "ReplaceTransitGatewayRouteResult";
   /**
    * <p>Information about the modified route.</p>
@@ -35058,7 +34980,7 @@ export namespace RequestSpotFleetRequest {
 /**
  * <p>Contains the output of RequestSpotFleet.</p>
  */
-export interface RequestSpotFleetResponse extends $MetadataBearer {
+export interface RequestSpotFleetResponse {
   __type?: "RequestSpotFleetResponse";
   /**
    * <p>The ID of the Spot Fleet request.</p>
@@ -35166,7 +35088,7 @@ export namespace RequestSpotInstancesRequest {
 /**
  * <p>Contains the output of RequestSpotInstances.</p>
  */
-export interface RequestSpotInstancesResult extends $MetadataBearer {
+export interface RequestSpotInstancesResult {
   __type?: "RequestSpotInstancesResult";
   /**
    * <p>One or more Spot Instance requests.</p>
@@ -35282,7 +35204,7 @@ export namespace RequestSpotLaunchSpecification {
 /**
  * <p>Describes a reservation.</p>
  */
-export interface Reservation extends $MetadataBearer {
+export interface Reservation {
   __type?: "Reservation";
   /**
    * <p>[EC2-Classic only] The security groups.</p>
@@ -35817,7 +35739,7 @@ export namespace ResetEbsDefaultKmsKeyIdRequest {
   }
 }
 
-export interface ResetEbsDefaultKmsKeyIdResult extends $MetadataBearer {
+export interface ResetEbsDefaultKmsKeyIdResult {
   __type?: "ResetEbsDefaultKmsKeyIdResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the default CMK for EBS encryption by default.</p>
@@ -35859,7 +35781,7 @@ export namespace ResetFpgaImageAttributeRequest {
   }
 }
 
-export interface ResetFpgaImageAttributeResult extends $MetadataBearer {
+export interface ResetFpgaImageAttributeResult {
   __type?: "ResetFpgaImageAttributeResult";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
@@ -36227,7 +36149,7 @@ export namespace RestoreAddressToClassicRequest {
   }
 }
 
-export interface RestoreAddressToClassicResult extends $MetadataBearer {
+export interface RestoreAddressToClassicResult {
   __type?: "RestoreAddressToClassicResult";
   /**
    * <p>The Elastic IP address.</p>
@@ -36280,7 +36202,7 @@ export namespace RevokeClientVpnIngressRequest {
   }
 }
 
-export interface RevokeClientVpnIngressResult extends $MetadataBearer {
+export interface RevokeClientVpnIngressResult {
   __type?: "RevokeClientVpnIngressResult";
   /**
    * <p>The current state of the authorization rule.</p>
@@ -37007,7 +36929,7 @@ export namespace RunScheduledInstancesRequest {
 /**
  * <p>Contains the output of RunScheduledInstances.</p>
  */
-export interface RunScheduledInstancesResult extends $MetadataBearer {
+export interface RunScheduledInstancesResult {
   __type?: "RunScheduledInstancesResult";
   /**
    * <p>The IDs of the newly launched instances.</p>
@@ -37695,7 +37617,7 @@ export namespace SearchLocalGatewayRoutesRequest {
   }
 }
 
-export interface SearchLocalGatewayRoutesResult extends $MetadataBearer {
+export interface SearchLocalGatewayRoutesResult {
   __type?: "SearchLocalGatewayRoutesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -37793,8 +37715,7 @@ export namespace SearchTransitGatewayMulticastGroupsRequest {
   }
 }
 
-export interface SearchTransitGatewayMulticastGroupsResult
-  extends $MetadataBearer {
+export interface SearchTransitGatewayMulticastGroupsResult {
   __type?: "SearchTransitGatewayMulticastGroupsResult";
   /**
    * <p>Information about the  transit gateway multicast group.</p>
@@ -37883,7 +37804,7 @@ export namespace SearchTransitGatewayRoutesRequest {
   }
 }
 
-export interface SearchTransitGatewayRoutesResult extends $MetadataBearer {
+export interface SearchTransitGatewayRoutesResult {
   __type?: "SearchTransitGatewayRoutesResult";
   /**
    * <p>Indicates whether there are additional routes available.</p>
@@ -38250,7 +38171,7 @@ export namespace SlotStartTimeRangeRequest {
 /**
  * <p>Describes a snapshot.</p>
  */
-export interface Snapshot extends $MetadataBearer {
+export interface Snapshot {
   __type?: "Snapshot";
   /**
    * <p>The data encryption key identifier for the snapshot. This value is a unique identifier
@@ -39528,7 +39449,7 @@ export namespace StartInstancesRequest {
   }
 }
 
-export interface StartInstancesResult extends $MetadataBearer {
+export interface StartInstancesResult {
   __type?: "StartInstancesResult";
   /**
    * <p>Information about the started instances.</p>
@@ -39565,8 +39486,7 @@ export namespace StartVpcEndpointServicePrivateDnsVerificationRequest {
   }
 }
 
-export interface StartVpcEndpointServicePrivateDnsVerificationResult
-  extends $MetadataBearer {
+export interface StartVpcEndpointServicePrivateDnsVerificationResult {
   __type?: "StartVpcEndpointServicePrivateDnsVerificationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -39737,7 +39657,7 @@ export namespace StopInstancesRequest {
   }
 }
 
-export interface StopInstancesResult extends $MetadataBearer {
+export interface StopInstancesResult {
   __type?: "StopInstancesResult";
   /**
    * <p>Information about the stopped instances.</p>
@@ -40357,7 +40277,7 @@ export namespace TerminateClientVpnConnectionsRequest {
   }
 }
 
-export interface TerminateClientVpnConnectionsResult extends $MetadataBearer {
+export interface TerminateClientVpnConnectionsResult {
   __type?: "TerminateClientVpnConnectionsResult";
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -40431,7 +40351,7 @@ export namespace TerminateInstancesRequest {
   }
 }
 
-export interface TerminateInstancesResult extends $MetadataBearer {
+export interface TerminateInstancesResult {
   __type?: "TerminateInstancesResult";
   /**
    * <p>Information about the terminated instances.</p>
@@ -41829,7 +41749,7 @@ export namespace UnassignIpv6AddressesRequest {
   }
 }
 
-export interface UnassignIpv6AddressesResult extends $MetadataBearer {
+export interface UnassignIpv6AddressesResult {
   __type?: "UnassignIpv6AddressesResult";
   /**
    * <p>The ID of the network interface.</p>
@@ -41893,7 +41813,7 @@ export namespace UnmonitorInstancesRequest {
   }
 }
 
-export interface UnmonitorInstancesResult extends $MetadataBearer {
+export interface UnmonitorInstancesResult {
   __type?: "UnmonitorInstancesResult";
   /**
    * <p>The monitoring information.</p>
@@ -42045,8 +41965,7 @@ export namespace UpdateSecurityGroupRuleDescriptionsEgressRequest {
   }
 }
 
-export interface UpdateSecurityGroupRuleDescriptionsEgressResult
-  extends $MetadataBearer {
+export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
   __type?: "UpdateSecurityGroupRuleDescriptionsEgressResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -42098,8 +42017,7 @@ export namespace UpdateSecurityGroupRuleDescriptionsIngressRequest {
   }
 }
 
-export interface UpdateSecurityGroupRuleDescriptionsIngressResult
-  extends $MetadataBearer {
+export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
   __type?: "UpdateSecurityGroupRuleDescriptionsIngressResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -42322,7 +42240,7 @@ export type VirtualizationType = "hvm" | "paravirtual";
 /**
  * <p>Describes a volume.</p>
  */
-export interface Volume extends $MetadataBearer {
+export interface Volume {
   __type?: "Volume";
   /**
    * <p>Information about the volume attachments.</p>
@@ -42419,7 +42337,7 @@ export namespace Volume {
 /**
  * <p>Describes volume attachment details.</p>
  */
-export interface VolumeAttachment extends $MetadataBearer {
+export interface VolumeAttachment {
   __type?: "VolumeAttachment";
   /**
    * <p>The time stamp when the attachment initiated.</p>
@@ -43650,7 +43568,7 @@ export namespace WithdrawByoipCidrRequest {
   }
 }
 
-export interface WithdrawByoipCidrResult extends $MetadataBearer {
+export interface WithdrawByoipCidrResult {
   __type?: "WithdrawByoipCidrResult";
   /**
    * <p>Information about the address pool.</p>

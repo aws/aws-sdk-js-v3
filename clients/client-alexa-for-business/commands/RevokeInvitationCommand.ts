@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeInvitationCommandInput = RevokeInvitationRequest;
-export type RevokeInvitationCommandOutput = RevokeInvitationResponse;
+export type RevokeInvitationCommandOutput = RevokeInvitationResponse &
+  __MetadataBearer;
 
 export class RevokeInvitationCommand extends $Command<
   RevokeInvitationCommandInput,

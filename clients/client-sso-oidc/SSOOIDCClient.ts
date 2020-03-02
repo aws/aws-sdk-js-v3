@@ -1,11 +1,15 @@
 import {
-  CreateTokenRequest,
-  CreateTokenResponse,
-  RegisterClientRequest,
-  RegisterClientResponse,
-  StartDeviceAuthorizationRequest,
-  StartDeviceAuthorizationResponse
-} from "./models/index";
+  CreateTokenCommandInput,
+  CreateTokenCommandOutput
+} from "./commands/CreateTokenCommand";
+import {
+  RegisterClientCommandInput,
+  RegisterClientCommandOutput
+} from "./commands/RegisterClientCommand";
+import {
+  StartDeviceAuthorizationCommandInput,
+  StartDeviceAuthorizationCommandOutput
+} from "./commands/StartDeviceAuthorizationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -59,14 +63,14 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateTokenRequest
-  | RegisterClientRequest
-  | StartDeviceAuthorizationRequest;
+  | CreateTokenCommandInput
+  | RegisterClientCommandInput
+  | StartDeviceAuthorizationCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateTokenResponse
-  | RegisterClientResponse
-  | StartDeviceAuthorizationResponse;
+  | CreateTokenCommandOutput
+  | RegisterClientCommandOutput
+  | StartDeviceAuthorizationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

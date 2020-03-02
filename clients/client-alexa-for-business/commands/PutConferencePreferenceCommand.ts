@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutConferencePreferenceCommandInput = PutConferencePreferenceRequest;
-export type PutConferencePreferenceCommandOutput = PutConferencePreferenceResponse;
+export type PutConferencePreferenceCommandOutput = PutConferencePreferenceResponse &
+  __MetadataBearer;
 
 export class PutConferencePreferenceCommand extends $Command<
   PutConferencePreferenceCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRandomPasswordCommandInput = GetRandomPasswordRequest;
-export type GetRandomPasswordCommandOutput = GetRandomPasswordResponse;
+export type GetRandomPasswordCommandOutput = GetRandomPasswordResponse &
+  __MetadataBearer;
 
 export class GetRandomPasswordCommand extends $Command<
   GetRandomPasswordCommandInput,

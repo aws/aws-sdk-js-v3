@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ScheduleRunCommandInput = ScheduleRunRequest;
-export type ScheduleRunCommandOutput = ScheduleRunResult;
+export type ScheduleRunCommandOutput = ScheduleRunResult & __MetadataBearer;
 
 export class ScheduleRunCommand extends $Command<
   ScheduleRunCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetTriggersCommandInput = BatchGetTriggersRequest;
-export type BatchGetTriggersCommandOutput = BatchGetTriggersResponse;
+export type BatchGetTriggersCommandOutput = BatchGetTriggersResponse &
+  __MetadataBearer;
 
 export class BatchGetTriggersCommand extends $Command<
   BatchGetTriggersCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateProvisioningClaimCommandInput = CreateProvisioningClaimRequest;
-export type CreateProvisioningClaimCommandOutput = CreateProvisioningClaimResponse;
+export type CreateProvisioningClaimCommandOutput = CreateProvisioningClaimResponse &
+  __MetadataBearer;
 
 export class CreateProvisioningClaimCommand extends $Command<
   CreateProvisioningClaimCommandInput,

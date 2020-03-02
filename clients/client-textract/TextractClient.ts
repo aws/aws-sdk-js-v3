@@ -1,17 +1,27 @@
 import {
-  AnalyzeDocumentRequest,
-  AnalyzeDocumentResponse,
-  DetectDocumentTextRequest,
-  DetectDocumentTextResponse,
-  GetDocumentAnalysisRequest,
-  GetDocumentAnalysisResponse,
-  GetDocumentTextDetectionRequest,
-  GetDocumentTextDetectionResponse,
-  StartDocumentAnalysisRequest,
-  StartDocumentAnalysisResponse,
-  StartDocumentTextDetectionRequest,
-  StartDocumentTextDetectionResponse
-} from "./models/index";
+  AnalyzeDocumentCommandInput,
+  AnalyzeDocumentCommandOutput
+} from "./commands/AnalyzeDocumentCommand";
+import {
+  DetectDocumentTextCommandInput,
+  DetectDocumentTextCommandOutput
+} from "./commands/DetectDocumentTextCommand";
+import {
+  GetDocumentAnalysisCommandInput,
+  GetDocumentAnalysisCommandOutput
+} from "./commands/GetDocumentAnalysisCommand";
+import {
+  GetDocumentTextDetectionCommandInput,
+  GetDocumentTextDetectionCommandOutput
+} from "./commands/GetDocumentTextDetectionCommand";
+import {
+  StartDocumentAnalysisCommandInput,
+  StartDocumentAnalysisCommandOutput
+} from "./commands/StartDocumentAnalysisCommand";
+import {
+  StartDocumentTextDetectionCommandInput,
+  StartDocumentTextDetectionCommandOutput
+} from "./commands/StartDocumentTextDetectionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -65,20 +75,20 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AnalyzeDocumentRequest
-  | DetectDocumentTextRequest
-  | GetDocumentAnalysisRequest
-  | GetDocumentTextDetectionRequest
-  | StartDocumentAnalysisRequest
-  | StartDocumentTextDetectionRequest;
+  | AnalyzeDocumentCommandInput
+  | DetectDocumentTextCommandInput
+  | GetDocumentAnalysisCommandInput
+  | GetDocumentTextDetectionCommandInput
+  | StartDocumentAnalysisCommandInput
+  | StartDocumentTextDetectionCommandInput;
 
 export type ServiceOutputTypes =
-  | AnalyzeDocumentResponse
-  | DetectDocumentTextResponse
-  | GetDocumentAnalysisResponse
-  | GetDocumentTextDetectionResponse
-  | StartDocumentAnalysisResponse
-  | StartDocumentTextDetectionResponse;
+  | AnalyzeDocumentCommandOutput
+  | DetectDocumentTextCommandOutput
+  | GetDocumentAnalysisCommandOutput
+  | GetDocumentTextDetectionCommandOutput
+  | StartDocumentAnalysisCommandOutput
+  | StartDocumentTextDetectionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

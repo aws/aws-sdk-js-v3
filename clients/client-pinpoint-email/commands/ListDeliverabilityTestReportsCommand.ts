@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDeliverabilityTestReportsCommandInput = ListDeliverabilityTestReportsRequest;
-export type ListDeliverabilityTestReportsCommandOutput = ListDeliverabilityTestReportsResponse;
+export type ListDeliverabilityTestReportsCommandOutput = ListDeliverabilityTestReportsResponse &
+  __MetadataBearer;
 
 export class ListDeliverabilityTestReportsCommand extends $Command<
   ListDeliverabilityTestReportsCommandInput,

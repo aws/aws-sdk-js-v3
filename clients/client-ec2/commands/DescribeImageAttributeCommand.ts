@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeImageAttributeCommandInput = DescribeImageAttributeRequest;
-export type DescribeImageAttributeCommandOutput = ImageAttribute;
+export type DescribeImageAttributeCommandOutput = ImageAttribute &
+  __MetadataBearer;
 
 export class DescribeImageAttributeCommand extends $Command<
   DescribeImageAttributeCommandInput,

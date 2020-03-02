@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetObjectTorrentCommandInput = GetObjectTorrentRequest;
-export type GetObjectTorrentCommandOutput = GetObjectTorrentOutput;
+export type GetObjectTorrentCommandOutput = GetObjectTorrentOutput &
+  __MetadataBearer;
 
 export class GetObjectTorrentCommand extends $Command<
   GetObjectTorrentCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEC2InstanceLimitsCommandInput = DescribeEC2InstanceLimitsInput;
-export type DescribeEC2InstanceLimitsCommandOutput = DescribeEC2InstanceLimitsOutput;
+export type DescribeEC2InstanceLimitsCommandOutput = DescribeEC2InstanceLimitsOutput &
+  __MetadataBearer;
 
 export class DescribeEC2InstanceLimitsCommand extends $Command<
   DescribeEC2InstanceLimitsCommandInput,

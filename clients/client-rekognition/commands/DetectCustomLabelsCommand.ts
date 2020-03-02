@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectCustomLabelsCommandInput = DetectCustomLabelsRequest;
-export type DetectCustomLabelsCommandOutput = DetectCustomLabelsResponse;
+export type DetectCustomLabelsCommandOutput = DetectCustomLabelsResponse &
+  __MetadataBearer;
 
 export class DetectCustomLabelsCommand extends $Command<
   DetectCustomLabelsCommandInput,

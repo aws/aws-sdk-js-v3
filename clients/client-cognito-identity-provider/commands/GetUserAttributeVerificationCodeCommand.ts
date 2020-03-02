@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUserAttributeVerificationCodeCommandInput = GetUserAttributeVerificationCodeRequest;
-export type GetUserAttributeVerificationCodeCommandOutput = GetUserAttributeVerificationCodeResponse;
+export type GetUserAttributeVerificationCodeCommandOutput = GetUserAttributeVerificationCodeResponse &
+  __MetadataBearer;
 
 export class GetUserAttributeVerificationCodeCommand extends $Command<
   GetUserAttributeVerificationCodeCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type LookupEventsCommandInput = LookupEventsRequest;
-export type LookupEventsCommandOutput = LookupEventsResponse;
+export type LookupEventsCommandOutput = LookupEventsResponse & __MetadataBearer;
 
 export class LookupEventsCommand extends $Command<
   LookupEventsCommandInput,

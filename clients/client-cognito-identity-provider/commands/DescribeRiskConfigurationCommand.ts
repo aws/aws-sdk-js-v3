@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRiskConfigurationCommandInput = DescribeRiskConfigurationRequest;
-export type DescribeRiskConfigurationCommandOutput = DescribeRiskConfigurationResponse;
+export type DescribeRiskConfigurationCommandOutput = DescribeRiskConfigurationResponse &
+  __MetadataBearer;
 
 export class DescribeRiskConfigurationCommand extends $Command<
   DescribeRiskConfigurationCommandInput,

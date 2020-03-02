@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcceptMatchCommandInput = AcceptMatchInput;
-export type AcceptMatchCommandOutput = AcceptMatchOutput;
+export type AcceptMatchCommandOutput = AcceptMatchOutput & __MetadataBearer;
 
 export class AcceptMatchCommand extends $Command<
   AcceptMatchCommandInput,

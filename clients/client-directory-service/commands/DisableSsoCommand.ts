@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableSsoCommandInput = DisableSsoRequest;
-export type DisableSsoCommandOutput = DisableSsoResult;
+export type DisableSsoCommandOutput = DisableSsoResult & __MetadataBearer;
 
 export class DisableSsoCommand extends $Command<
   DisableSsoCommandInput,

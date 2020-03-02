@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateDeviceFromPlacementCommandInput = DisassociateDeviceFromPlacementRequest;
-export type DisassociateDeviceFromPlacementCommandOutput = DisassociateDeviceFromPlacementResponse;
+export type DisassociateDeviceFromPlacementCommandOutput = DisassociateDeviceFromPlacementResponse &
+  __MetadataBearer;
 
 export class DisassociateDeviceFromPlacementCommand extends $Command<
   DisassociateDeviceFromPlacementCommandInput,

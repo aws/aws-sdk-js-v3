@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 export enum ActionCode {
   ArchiveRetrieval = "ArchiveRetrieval",
@@ -156,7 +157,7 @@ export enum FileHeaderInfo {
 /**
  * <p>Contains the description of an Amazon S3 Glacier job.</p>
  */
-export interface GlacierJobDescription extends $MetadataBearer {
+export interface GlacierJobDescription {
   __type?: "GlacierJobDescription";
   /**
    * <p>The job type. This value is either <code>ArchiveRetrieval</code>,
@@ -688,7 +689,7 @@ export namespace AddTagsToVaultInput {
  *          conceptual information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in
  *             Amazon S3 Glacier</a>.</p>
  */
-export interface ArchiveCreationOutput extends $MetadataBearer {
+export interface ArchiveCreationOutput {
   __type?: "ArchiveCreationOutput";
   /**
    * <p>The ID of the archive. This value is also included as part of the location.</p>
@@ -820,7 +821,7 @@ export namespace CreateVaultInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface CreateVaultOutput extends $MetadataBearer {
+export interface CreateVaultOutput {
   __type?: "CreateVaultOutput";
   /**
    * <p>The URI of the vault that was created.</p>
@@ -1049,7 +1050,7 @@ export namespace DescribeVaultInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface DescribeVaultOutput extends $MetadataBearer {
+export interface DescribeVaultOutput {
   __type?: "DescribeVaultOutput";
   /**
    * <p>The Universal Coordinated Time (UTC) date when the vault was created. This value
@@ -1121,7 +1122,7 @@ export namespace GetDataRetrievalPolicyInput {
  * <p>Contains the Amazon S3 Glacier response to the <code>GetDataRetrievalPolicy</code>
  *          request.</p>
  */
-export interface GetDataRetrievalPolicyOutput extends $MetadataBearer {
+export interface GetDataRetrievalPolicyOutput {
   __type?: "GetDataRetrievalPolicyOutput";
   /**
    * <p>Contains the returned data retrieval policy in JSON format.</p>
@@ -1209,7 +1210,7 @@ export namespace GetJobOutputInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface GetJobOutputOutput extends $MetadataBearer {
+export interface GetJobOutputOutput {
   __type?: "GetJobOutputOutput";
   /**
    * <p>Indicates the range units accepted. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFC2616</a>. </p>
@@ -1224,7 +1225,7 @@ export interface GetJobOutputOutput extends $MetadataBearer {
   /**
    * <p>The job data, either archive data or inventory data.</p>
    */
-  body?: Uint8Array;
+  body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>The checksum of the data in the response. This header is returned only when
@@ -1302,7 +1303,7 @@ export namespace GetVaultAccessPolicyInput {
 /**
  * <p>Output for GetVaultAccessPolicy.</p>
  */
-export interface GetVaultAccessPolicyOutput extends $MetadataBearer {
+export interface GetVaultAccessPolicyOutput {
   __type?: "GetVaultAccessPolicyOutput";
   /**
    * <p>Contains the returned vault access policy as a JSON string.</p>
@@ -1345,7 +1346,7 @@ export namespace GetVaultLockInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface GetVaultLockOutput extends $MetadataBearer {
+export interface GetVaultLockOutput {
   __type?: "GetVaultLockOutput";
   /**
    * <p>The UTC date and time at which the vault lock was put into the
@@ -1408,7 +1409,7 @@ export namespace GetVaultNotificationsInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface GetVaultNotificationsOutput extends $MetadataBearer {
+export interface GetVaultNotificationsOutput {
   __type?: "GetVaultNotificationsOutput";
   /**
    * <p>Returns the notification configuration set on the vault.</p>
@@ -1456,7 +1457,7 @@ export namespace InitiateJobInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface InitiateJobOutput extends $MetadataBearer {
+export interface InitiateJobOutput {
   __type?: "InitiateJobOutput";
   /**
    * <p>The ID of the job.</p>
@@ -1524,7 +1525,7 @@ export namespace InitiateMultipartUploadInput {
 /**
  * <p>The Amazon S3 Glacier response to your request.</p>
  */
-export interface InitiateMultipartUploadOutput extends $MetadataBearer {
+export interface InitiateMultipartUploadOutput {
   __type?: "InitiateMultipartUploadOutput";
   /**
    * <p>The relative URI path of the multipart upload ID Amazon S3 Glacier created.</p>
@@ -1579,7 +1580,7 @@ export namespace InitiateVaultLockInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface InitiateVaultLockOutput extends $MetadataBearer {
+export interface InitiateVaultLockOutput {
   __type?: "InitiateVaultLockOutput";
   /**
    * <p>The lock ID, which is used to complete the vault locking process.</p>
@@ -1854,7 +1855,7 @@ export namespace ListJobsInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface ListJobsOutput extends $MetadataBearer {
+export interface ListJobsOutput {
   __type?: "ListJobsOutput";
   /**
    * <p>A list of job objects. Each job object contains metadata describing the
@@ -1922,7 +1923,7 @@ export namespace ListMultipartUploadsInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface ListMultipartUploadsOutput extends $MetadataBearer {
+export interface ListMultipartUploadsOutput {
   __type?: "ListMultipartUploadsOutput";
   /**
    * <p>An opaque string that represents where to continue pagination of the results. You use
@@ -1993,7 +1994,7 @@ export namespace ListPartsInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface ListPartsOutput extends $MetadataBearer {
+export interface ListPartsOutput {
   __type?: "ListPartsOutput";
   /**
    * <p>The description of the archive that was specified in the Initiate Multipart Upload
@@ -2061,7 +2062,7 @@ export namespace ListProvisionedCapacityInput {
   }
 }
 
-export interface ListProvisionedCapacityOutput extends $MetadataBearer {
+export interface ListProvisionedCapacityOutput {
   __type?: "ListProvisionedCapacityOutput";
   /**
    * <p>The response body contains the following JSON fields.</p>
@@ -2104,7 +2105,7 @@ export namespace ListTagsForVaultInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface ListTagsForVaultOutput extends $MetadataBearer {
+export interface ListTagsForVaultOutput {
   __type?: "ListTagsForVaultOutput";
   /**
    * <p>The tags attached to the vault. Each tag is composed of a key and a value.</p>
@@ -2156,7 +2157,7 @@ export namespace ListVaultsInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface ListVaultsOutput extends $MetadataBearer {
+export interface ListVaultsOutput {
   __type?: "ListVaultsOutput";
   /**
    * <p>The vault ARN at which to continue pagination of the results. You use the marker in
@@ -2304,7 +2305,7 @@ export namespace PurchaseProvisionedCapacityInput {
   }
 }
 
-export interface PurchaseProvisionedCapacityOutput extends $MetadataBearer {
+export interface PurchaseProvisionedCapacityOutput {
   __type?: "PurchaseProvisionedCapacityOutput";
   /**
    * <p>The ID that identifies the provisioned capacity unit.</p>
@@ -2554,7 +2555,7 @@ export interface UploadArchiveInput {
   /**
    * <p>The data to upload.</p>
    */
-  body?: Uint8Array;
+  body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>The SHA256 tree hash of the data being uploaded.</p>
@@ -2631,7 +2632,7 @@ export interface UploadMultipartPartInput {
   /**
    * <p>The data to upload.</p>
    */
-  body?: Uint8Array;
+  body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>The SHA256 tree hash of the data being uploaded.</p>
@@ -2666,7 +2667,7 @@ export namespace UploadMultipartPartInput {
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
-export interface UploadMultipartPartOutput extends $MetadataBearer {
+export interface UploadMultipartPartOutput {
   __type?: "UploadMultipartPartOutput";
   /**
    * <p>The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded part.</p>

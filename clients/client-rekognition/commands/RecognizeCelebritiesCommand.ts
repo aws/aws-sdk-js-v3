@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RecognizeCelebritiesCommandInput = RecognizeCelebritiesRequest;
-export type RecognizeCelebritiesCommandOutput = RecognizeCelebritiesResponse;
+export type RecognizeCelebritiesCommandOutput = RecognizeCelebritiesResponse &
+  __MetadataBearer;
 
 export class RecognizeCelebritiesCommand extends $Command<
   RecognizeCelebritiesCommandInput,

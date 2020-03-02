@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ActivateGatewayCommandInput = ActivateGatewayInput;
-export type ActivateGatewayCommandOutput = ActivateGatewayOutput;
+export type ActivateGatewayCommandOutput = ActivateGatewayOutput &
+  __MetadataBearer;
 
 export class ActivateGatewayCommand extends $Command<
   ActivateGatewayCommandInput,

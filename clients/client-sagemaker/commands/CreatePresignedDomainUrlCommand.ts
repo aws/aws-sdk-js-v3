@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePresignedDomainUrlCommandInput = CreatePresignedDomainUrlRequest;
-export type CreatePresignedDomainUrlCommandOutput = CreatePresignedDomainUrlResponse;
+export type CreatePresignedDomainUrlCommandOutput = CreatePresignedDomainUrlResponse &
+  __MetadataBearer;
 
 export class CreatePresignedDomainUrlCommand extends $Command<
   CreatePresignedDomainUrlCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSMBFileSharesCommandInput = DescribeSMBFileSharesInput;
-export type DescribeSMBFileSharesCommandOutput = DescribeSMBFileSharesOutput;
+export type DescribeSMBFileSharesCommandOutput = DescribeSMBFileSharesOutput &
+  __MetadataBearer;
 
 export class DescribeSMBFileSharesCommand extends $Command<
   DescribeSMBFileSharesCommandInput,

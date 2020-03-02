@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDBClusterEndpointCommandInput = DeleteDBClusterEndpointMessage;
-export type DeleteDBClusterEndpointCommandOutput = DBClusterEndpoint;
+export type DeleteDBClusterEndpointCommandOutput = DBClusterEndpoint &
+  __MetadataBearer;
 
 export class DeleteDBClusterEndpointCommand extends $Command<
   DeleteDBClusterEndpointCommandInput,

@@ -1,57 +1,119 @@
 import {
-  CreateDiscovererRequest,
-  CreateDiscovererResponse,
-  CreateRegistryRequest,
-  CreateRegistryResponse,
-  CreateSchemaRequest,
-  CreateSchemaResponse,
-  DeleteDiscovererRequest,
-  DeleteRegistryRequest,
-  DeleteSchemaRequest,
-  DeleteSchemaVersionRequest,
-  DescribeCodeBindingRequest,
-  DescribeCodeBindingResponse,
-  DescribeDiscovererRequest,
-  DescribeDiscovererResponse,
-  DescribeRegistryRequest,
-  DescribeRegistryResponse,
-  DescribeSchemaRequest,
-  DescribeSchemaResponse,
-  GetCodeBindingSourceRequest,
-  GetCodeBindingSourceResponse,
-  GetDiscoveredSchemaRequest,
-  GetDiscoveredSchemaResponse,
-  ListDiscoverersRequest,
-  ListDiscoverersResponse,
-  ListRegistriesRequest,
-  ListRegistriesResponse,
-  ListSchemaVersionsRequest,
-  ListSchemaVersionsResponse,
-  ListSchemasRequest,
-  ListSchemasResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  LockServiceLinkedRoleRequest,
-  LockServiceLinkedRoleResponse,
-  PutCodeBindingRequest,
-  PutCodeBindingResponse,
-  SearchSchemasRequest,
-  SearchSchemasResponse,
-  StartDiscovererRequest,
-  StartDiscovererResponse,
-  StopDiscovererRequest,
-  StopDiscovererResponse,
-  TagResourceRequest,
-  UnlockServiceLinkedRoleRequest,
-  UnlockServiceLinkedRoleResponse,
-  UntagResourceRequest,
-  UpdateDiscovererRequest,
-  UpdateDiscovererResponse,
-  UpdateRegistryRequest,
-  UpdateRegistryResponse,
-  UpdateSchemaRequest,
-  UpdateSchemaResponse
-} from "./models/index";
+  CreateDiscovererCommandInput,
+  CreateDiscovererCommandOutput
+} from "./commands/CreateDiscovererCommand";
+import {
+  CreateRegistryCommandInput,
+  CreateRegistryCommandOutput
+} from "./commands/CreateRegistryCommand";
+import {
+  CreateSchemaCommandInput,
+  CreateSchemaCommandOutput
+} from "./commands/CreateSchemaCommand";
+import {
+  DeleteDiscovererCommandInput,
+  DeleteDiscovererCommandOutput
+} from "./commands/DeleteDiscovererCommand";
+import {
+  DeleteRegistryCommandInput,
+  DeleteRegistryCommandOutput
+} from "./commands/DeleteRegistryCommand";
+import {
+  DeleteSchemaCommandInput,
+  DeleteSchemaCommandOutput
+} from "./commands/DeleteSchemaCommand";
+import {
+  DeleteSchemaVersionCommandInput,
+  DeleteSchemaVersionCommandOutput
+} from "./commands/DeleteSchemaVersionCommand";
+import {
+  DescribeCodeBindingCommandInput,
+  DescribeCodeBindingCommandOutput
+} from "./commands/DescribeCodeBindingCommand";
+import {
+  DescribeDiscovererCommandInput,
+  DescribeDiscovererCommandOutput
+} from "./commands/DescribeDiscovererCommand";
+import {
+  DescribeRegistryCommandInput,
+  DescribeRegistryCommandOutput
+} from "./commands/DescribeRegistryCommand";
+import {
+  DescribeSchemaCommandInput,
+  DescribeSchemaCommandOutput
+} from "./commands/DescribeSchemaCommand";
+import {
+  GetCodeBindingSourceCommandInput,
+  GetCodeBindingSourceCommandOutput
+} from "./commands/GetCodeBindingSourceCommand";
+import {
+  GetDiscoveredSchemaCommandInput,
+  GetDiscoveredSchemaCommandOutput
+} from "./commands/GetDiscoveredSchemaCommand";
+import {
+  ListDiscoverersCommandInput,
+  ListDiscoverersCommandOutput
+} from "./commands/ListDiscoverersCommand";
+import {
+  ListRegistriesCommandInput,
+  ListRegistriesCommandOutput
+} from "./commands/ListRegistriesCommand";
+import {
+  ListSchemaVersionsCommandInput,
+  ListSchemaVersionsCommandOutput
+} from "./commands/ListSchemaVersionsCommand";
+import {
+  ListSchemasCommandInput,
+  ListSchemasCommandOutput
+} from "./commands/ListSchemasCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  LockServiceLinkedRoleCommandInput,
+  LockServiceLinkedRoleCommandOutput
+} from "./commands/LockServiceLinkedRoleCommand";
+import {
+  PutCodeBindingCommandInput,
+  PutCodeBindingCommandOutput
+} from "./commands/PutCodeBindingCommand";
+import {
+  SearchSchemasCommandInput,
+  SearchSchemasCommandOutput
+} from "./commands/SearchSchemasCommand";
+import {
+  StartDiscovererCommandInput,
+  StartDiscovererCommandOutput
+} from "./commands/StartDiscovererCommand";
+import {
+  StopDiscovererCommandInput,
+  StopDiscovererCommandOutput
+} from "./commands/StopDiscovererCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UnlockServiceLinkedRoleCommandInput,
+  UnlockServiceLinkedRoleCommandOutput
+} from "./commands/UnlockServiceLinkedRoleCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDiscovererCommandInput,
+  UpdateDiscovererCommandOutput
+} from "./commands/UpdateDiscovererCommand";
+import {
+  UpdateRegistryCommandInput,
+  UpdateRegistryCommandOutput
+} from "./commands/UpdateRegistryCommand";
+import {
+  UpdateSchemaCommandInput,
+  UpdateSchemaCommandOutput
+} from "./commands/UpdateSchemaCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -99,68 +161,72 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateDiscovererRequest
-  | CreateRegistryRequest
-  | CreateSchemaRequest
-  | DeleteDiscovererRequest
-  | DeleteRegistryRequest
-  | DeleteSchemaRequest
-  | DeleteSchemaVersionRequest
-  | DescribeCodeBindingRequest
-  | DescribeDiscovererRequest
-  | DescribeRegistryRequest
-  | DescribeSchemaRequest
-  | GetCodeBindingSourceRequest
-  | GetDiscoveredSchemaRequest
-  | ListDiscoverersRequest
-  | ListRegistriesRequest
-  | ListSchemaVersionsRequest
-  | ListSchemasRequest
-  | ListTagsForResourceRequest
-  | LockServiceLinkedRoleRequest
-  | PutCodeBindingRequest
-  | SearchSchemasRequest
-  | StartDiscovererRequest
-  | StopDiscovererRequest
-  | TagResourceRequest
-  | UnlockServiceLinkedRoleRequest
-  | UntagResourceRequest
-  | UpdateDiscovererRequest
-  | UpdateRegistryRequest
-  | UpdateSchemaRequest;
+  | CreateDiscovererCommandInput
+  | CreateRegistryCommandInput
+  | CreateSchemaCommandInput
+  | DeleteDiscovererCommandInput
+  | DeleteRegistryCommandInput
+  | DeleteSchemaCommandInput
+  | DeleteSchemaVersionCommandInput
+  | DescribeCodeBindingCommandInput
+  | DescribeDiscovererCommandInput
+  | DescribeRegistryCommandInput
+  | DescribeSchemaCommandInput
+  | GetCodeBindingSourceCommandInput
+  | GetDiscoveredSchemaCommandInput
+  | ListDiscoverersCommandInput
+  | ListRegistriesCommandInput
+  | ListSchemaVersionsCommandInput
+  | ListSchemasCommandInput
+  | ListTagsForResourceCommandInput
+  | LockServiceLinkedRoleCommandInput
+  | PutCodeBindingCommandInput
+  | SearchSchemasCommandInput
+  | StartDiscovererCommandInput
+  | StopDiscovererCommandInput
+  | TagResourceCommandInput
+  | UnlockServiceLinkedRoleCommandInput
+  | UntagResourceCommandInput
+  | UpdateDiscovererCommandInput
+  | UpdateRegistryCommandInput
+  | UpdateSchemaCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateDiscovererResponse
-  | CreateRegistryResponse
-  | CreateSchemaResponse
-  | DescribeCodeBindingResponse
-  | DescribeDiscovererResponse
-  | DescribeRegistryResponse
-  | DescribeSchemaResponse
-  | GetCodeBindingSourceResponse
-  | GetDiscoveredSchemaResponse
-  | ListDiscoverersResponse
-  | ListRegistriesResponse
-  | ListSchemaVersionsResponse
-  | ListSchemasResponse
-  | ListTagsForResourceResponse
-  | LockServiceLinkedRoleResponse
-  | PutCodeBindingResponse
-  | SearchSchemasResponse
-  | StartDiscovererResponse
-  | StopDiscovererResponse
-  | UnlockServiceLinkedRoleResponse
-  | UpdateDiscovererResponse
-  | UpdateRegistryResponse
-  | UpdateSchemaResponse;
+  | CreateDiscovererCommandOutput
+  | CreateRegistryCommandOutput
+  | CreateSchemaCommandOutput
+  | DeleteDiscovererCommandOutput
+  | DeleteRegistryCommandOutput
+  | DeleteSchemaCommandOutput
+  | DeleteSchemaVersionCommandOutput
+  | DescribeCodeBindingCommandOutput
+  | DescribeDiscovererCommandOutput
+  | DescribeRegistryCommandOutput
+  | DescribeSchemaCommandOutput
+  | GetCodeBindingSourceCommandOutput
+  | GetDiscoveredSchemaCommandOutput
+  | ListDiscoverersCommandOutput
+  | ListRegistriesCommandOutput
+  | ListSchemaVersionsCommandOutput
+  | ListSchemasCommandOutput
+  | ListTagsForResourceCommandOutput
+  | LockServiceLinkedRoleCommandOutput
+  | PutCodeBindingCommandOutput
+  | SearchSchemasCommandOutput
+  | StartDiscovererCommandOutput
+  | StopDiscovererCommandOutput
+  | TagResourceCommandOutput
+  | UnlockServiceLinkedRoleCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDiscovererCommandOutput
+  | UpdateRegistryCommandOutput
+  | UpdateSchemaCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

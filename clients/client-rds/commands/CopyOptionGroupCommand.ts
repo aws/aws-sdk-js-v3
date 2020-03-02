@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyOptionGroupCommandInput = CopyOptionGroupMessage;
-export type CopyOptionGroupCommandOutput = CopyOptionGroupResult;
+export type CopyOptionGroupCommandOutput = CopyOptionGroupResult &
+  __MetadataBearer;
 
 export class CopyOptionGroupCommand extends $Command<
   CopyOptionGroupCommandInput,

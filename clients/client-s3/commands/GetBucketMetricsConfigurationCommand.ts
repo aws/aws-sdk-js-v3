@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketMetricsConfigurationCommandInput = GetBucketMetricsConfigurationRequest;
-export type GetBucketMetricsConfigurationCommandOutput = GetBucketMetricsConfigurationOutput;
+export type GetBucketMetricsConfigurationCommandOutput = GetBucketMetricsConfigurationOutput &
+  __MetadataBearer;
 
 export class GetBucketMetricsConfigurationCommand extends $Command<
   GetBucketMetricsConfigurationCommandInput,

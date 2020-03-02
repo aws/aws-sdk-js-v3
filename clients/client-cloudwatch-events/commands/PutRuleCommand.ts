@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutRuleCommandInput = PutRuleRequest;
-export type PutRuleCommandOutput = PutRuleResponse;
+export type PutRuleCommandOutput = PutRuleResponse & __MetadataBearer;
 
 export class PutRuleCommand extends $Command<
   PutRuleCommandInput,

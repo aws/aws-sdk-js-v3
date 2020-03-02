@@ -26,7 +26,7 @@ export namespace AcceptQualificationRequestRequest {
   }
 }
 
-export interface AcceptQualificationRequestResponse extends $MetadataBearer {
+export interface AcceptQualificationRequestResponse {
   __type?: "AcceptQualificationRequestResponse";
 }
 
@@ -66,7 +66,7 @@ export namespace ApproveAssignmentRequest {
   }
 }
 
-export interface ApproveAssignmentResponse extends $MetadataBearer {
+export interface ApproveAssignmentResponse {
   __type?: "ApproveAssignmentResponse";
 }
 
@@ -213,8 +213,7 @@ export namespace AssociateQualificationWithWorkerRequest {
   }
 }
 
-export interface AssociateQualificationWithWorkerResponse
-  extends $MetadataBearer {
+export interface AssociateQualificationWithWorkerResponse {
   __type?: "AssociateQualificationWithWorkerResponse";
 }
 
@@ -305,8 +304,7 @@ export namespace CreateAdditionalAssignmentsForHITRequest {
   }
 }
 
-export interface CreateAdditionalAssignmentsForHITResponse
-  extends $MetadataBearer {
+export interface CreateAdditionalAssignmentsForHITResponse {
   __type?: "CreateAdditionalAssignmentsForHITResponse";
 }
 
@@ -494,7 +492,7 @@ export namespace CreateHITRequest {
   }
 }
 
-export interface CreateHITResponse extends $MetadataBearer {
+export interface CreateHITResponse {
   __type?: "CreateHITResponse";
   /**
    * <p> Contains the newly created HIT data. For a description of
@@ -586,7 +584,7 @@ export namespace CreateHITTypeRequest {
   }
 }
 
-export interface CreateHITTypeResponse extends $MetadataBearer {
+export interface CreateHITTypeResponse {
   __type?: "CreateHITTypeResponse";
   /**
    * <p> The ID of the newly registered HIT type.</p>
@@ -717,7 +715,7 @@ export namespace CreateHITWithHITTypeRequest {
   }
 }
 
-export interface CreateHITWithHITTypeResponse extends $MetadataBearer {
+export interface CreateHITWithHITTypeResponse {
   __type?: "CreateHITWithHITTypeResponse";
   /**
    * <p> Contains the newly created HIT data. For a description of
@@ -833,7 +831,7 @@ export namespace CreateQualificationTypeRequest {
   }
 }
 
-export interface CreateQualificationTypeResponse extends $MetadataBearer {
+export interface CreateQualificationTypeResponse {
   __type?: "CreateQualificationTypeResponse";
   /**
    * <p>The created Qualification type, returned as a
@@ -867,7 +865,7 @@ export namespace CreateWorkerBlockRequest {
   }
 }
 
-export interface CreateWorkerBlockResponse extends $MetadataBearer {
+export interface CreateWorkerBlockResponse {
   __type?: "CreateWorkerBlockResponse";
 }
 
@@ -891,7 +889,7 @@ export namespace DeleteHITRequest {
   }
 }
 
-export interface DeleteHITResponse extends $MetadataBearer {
+export interface DeleteHITResponse {
   __type?: "DeleteHITResponse";
 }
 
@@ -915,7 +913,7 @@ export namespace DeleteQualificationTypeRequest {
   }
 }
 
-export interface DeleteQualificationTypeResponse extends $MetadataBearer {
+export interface DeleteQualificationTypeResponse {
   __type?: "DeleteQualificationTypeResponse";
 }
 
@@ -944,7 +942,7 @@ export namespace DeleteWorkerBlockRequest {
   }
 }
 
-export interface DeleteWorkerBlockResponse extends $MetadataBearer {
+export interface DeleteWorkerBlockResponse {
   __type?: "DeleteWorkerBlockResponse";
 }
 
@@ -978,8 +976,7 @@ export namespace DisassociateQualificationFromWorkerRequest {
   }
 }
 
-export interface DisassociateQualificationFromWorkerResponse
-  extends $MetadataBearer {
+export interface DisassociateQualificationFromWorkerResponse {
   __type?: "DisassociateQualificationFromWorkerResponse";
 }
 
@@ -1016,7 +1013,7 @@ export namespace GetAccountBalanceRequest {
   }
 }
 
-export interface GetAccountBalanceResponse extends $MetadataBearer {
+export interface GetAccountBalanceResponse {
   __type?: "GetAccountBalanceResponse";
   /**
    * <p>A string representing a currency amount.</p>
@@ -1049,7 +1046,7 @@ export namespace GetAssignmentRequest {
   }
 }
 
-export interface GetAssignmentResponse extends $MetadataBearer {
+export interface GetAssignmentResponse {
   __type?: "GetAssignmentResponse";
   /**
    * <p> The assignment. The response includes one Assignment
@@ -1092,7 +1089,7 @@ export namespace GetFileUploadURLRequest {
   }
 }
 
-export interface GetFileUploadURLResponse extends $MetadataBearer {
+export interface GetFileUploadURLResponse {
   __type?: "GetFileUploadURLResponse";
   /**
    * <p> A temporary URL for the file that the Worker uploaded for
@@ -1122,7 +1119,7 @@ export namespace GetHITRequest {
   }
 }
 
-export interface GetHITResponse extends $MetadataBearer {
+export interface GetHITResponse {
   __type?: "GetHITResponse";
   /**
    * <p> Contains the requested HIT data.</p>
@@ -1155,7 +1152,7 @@ export namespace GetQualificationScoreRequest {
   }
 }
 
-export interface GetQualificationScoreResponse extends $MetadataBearer {
+export interface GetQualificationScoreResponse {
   __type?: "GetQualificationScoreResponse";
   /**
    * <p> The Qualification data structure of the Qualification
@@ -1186,7 +1183,7 @@ export namespace GetQualificationTypeRequest {
   }
 }
 
-export interface GetQualificationTypeResponse extends $MetadataBearer {
+export interface GetQualificationTypeResponse {
   __type?: "GetQualificationTypeResponse";
   /**
    * <p> The returned Qualification Type</p>
@@ -1423,7 +1420,7 @@ export namespace ListAssignmentsForHITRequest {
   }
 }
 
-export interface ListAssignmentsForHITResponse extends $MetadataBearer {
+export interface ListAssignmentsForHITResponse {
   __type?: "ListAssignmentsForHITResponse";
   /**
    * <p> The collection of Assignment data structures returned by
@@ -1484,7 +1481,7 @@ export namespace ListBonusPaymentsRequest {
   }
 }
 
-export interface ListBonusPaymentsResponse extends $MetadataBearer {
+export interface ListBonusPaymentsResponse {
   __type?: "ListBonusPaymentsResponse";
   /**
    * <p>A successful request to the ListBonusPayments operation
@@ -1544,7 +1541,7 @@ export namespace ListHITsForQualificationTypeRequest {
   }
 }
 
-export interface ListHITsForQualificationTypeResponse extends $MetadataBearer {
+export interface ListHITsForQualificationTypeResponse {
   __type?: "ListHITsForQualificationTypeResponse";
   /**
    * <p> The list of HIT elements returned by the query.</p>
@@ -1587,7 +1584,7 @@ export namespace ListHITsRequest {
   }
 }
 
-export interface ListHITsResponse extends $MetadataBearer {
+export interface ListHITsResponse {
   __type?: "ListHITsResponse";
   /**
    * <p> The list of HIT elements returned by the query.</p>
@@ -1643,7 +1640,7 @@ export namespace ListQualificationRequestsRequest {
   }
 }
 
-export interface ListQualificationRequestsResponse extends $MetadataBearer {
+export interface ListQualificationRequestsResponse {
   __type?: "ListQualificationRequestsResponse";
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1724,7 +1721,7 @@ export namespace ListQualificationTypesRequest {
   }
 }
 
-export interface ListQualificationTypesResponse extends $MetadataBearer {
+export interface ListQualificationTypesResponse {
   __type?: "ListQualificationTypesResponse";
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1804,7 +1801,7 @@ export namespace ListReviewPolicyResultsForHITRequest {
   }
 }
 
-export interface ListReviewPolicyResultsForHITResponse extends $MetadataBearer {
+export interface ListReviewPolicyResultsForHITResponse {
   __type?: "ListReviewPolicyResultsForHITResponse";
   /**
    * <p> The name of the Assignment-level Review Policy. This
@@ -1889,7 +1886,7 @@ export namespace ListReviewableHITsRequest {
   }
 }
 
-export interface ListReviewableHITsResponse extends $MetadataBearer {
+export interface ListReviewableHITsResponse {
   __type?: "ListReviewableHITsResponse";
   /**
    * <p> The list of HIT elements returned by the query.</p>
@@ -1933,7 +1930,7 @@ export namespace ListWorkerBlocksRequest {
   }
 }
 
-export interface ListWorkerBlocksResponse extends $MetadataBearer {
+export interface ListWorkerBlocksResponse {
   __type?: "ListWorkerBlocksResponse";
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1998,8 +1995,7 @@ export namespace ListWorkersWithQualificationTypeRequest {
   }
 }
 
-export interface ListWorkersWithQualificationTypeResponse
-  extends $MetadataBearer {
+export interface ListWorkersWithQualificationTypeResponse {
   __type?: "ListWorkersWithQualificationTypeResponse";
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2182,7 +2178,7 @@ export namespace NotifyWorkersRequest {
   }
 }
 
-export interface NotifyWorkersResponse extends $MetadataBearer {
+export interface NotifyWorkersResponse {
   __type?: "NotifyWorkersResponse";
   /**
    * <p> When MTurk sends notifications to the list of Workers, it
@@ -2623,7 +2619,7 @@ export namespace RejectAssignmentRequest {
   }
 }
 
-export interface RejectAssignmentResponse extends $MetadataBearer {
+export interface RejectAssignmentResponse {
   __type?: "RejectAssignmentResponse";
 }
 
@@ -2657,7 +2653,7 @@ export namespace RejectQualificationRequestRequest {
   }
 }
 
-export interface RejectQualificationRequestResponse extends $MetadataBearer {
+export interface RejectQualificationRequestResponse {
   __type?: "RejectQualificationRequestResponse";
 }
 
@@ -2902,7 +2898,7 @@ export namespace SendBonusRequest {
   }
 }
 
-export interface SendBonusResponse extends $MetadataBearer {
+export interface SendBonusResponse {
   __type?: "SendBonusResponse";
 }
 
@@ -2940,7 +2936,7 @@ export namespace SendTestEventNotificationRequest {
   }
 }
 
-export interface SendTestEventNotificationResponse extends $MetadataBearer {
+export interface SendTestEventNotificationResponse {
   __type?: "SendTestEventNotificationResponse";
 }
 
@@ -2973,7 +2969,7 @@ export namespace UpdateExpirationForHITRequest {
   }
 }
 
-export interface UpdateExpirationForHITResponse extends $MetadataBearer {
+export interface UpdateExpirationForHITResponse {
   __type?: "UpdateExpirationForHITResponse";
 }
 
@@ -3018,7 +3014,7 @@ export namespace UpdateHITReviewStatusRequest {
   }
 }
 
-export interface UpdateHITReviewStatusResponse extends $MetadataBearer {
+export interface UpdateHITReviewStatusResponse {
   __type?: "UpdateHITReviewStatusResponse";
 }
 
@@ -3047,7 +3043,7 @@ export namespace UpdateHITTypeOfHITRequest {
   }
 }
 
-export interface UpdateHITTypeOfHITResponse extends $MetadataBearer {
+export interface UpdateHITTypeOfHITResponse {
   __type?: "UpdateHITTypeOfHITResponse";
 }
 
@@ -3090,7 +3086,7 @@ export namespace UpdateNotificationSettingsRequest {
   }
 }
 
-export interface UpdateNotificationSettingsResponse extends $MetadataBearer {
+export interface UpdateNotificationSettingsResponse {
   __type?: "UpdateNotificationSettingsResponse";
 }
 
@@ -3164,7 +3160,7 @@ export namespace UpdateQualificationTypeRequest {
   }
 }
 
-export interface UpdateQualificationTypeResponse extends $MetadataBearer {
+export interface UpdateQualificationTypeResponse {
   __type?: "UpdateQualificationTypeResponse";
   /**
    * <p> Contains a QualificationType data structure.</p>

@@ -1,135 +1,287 @@
 import {
-  CloneReceiptRuleSetRequest,
-  CloneReceiptRuleSetResponse,
-  CreateConfigurationSetEventDestinationRequest,
-  CreateConfigurationSetEventDestinationResponse,
-  CreateConfigurationSetRequest,
-  CreateConfigurationSetResponse,
-  CreateConfigurationSetTrackingOptionsRequest,
-  CreateConfigurationSetTrackingOptionsResponse,
-  CreateCustomVerificationEmailTemplateRequest,
-  CreateReceiptFilterRequest,
-  CreateReceiptFilterResponse,
-  CreateReceiptRuleRequest,
-  CreateReceiptRuleResponse,
-  CreateReceiptRuleSetRequest,
-  CreateReceiptRuleSetResponse,
-  CreateTemplateRequest,
-  CreateTemplateResponse,
-  DeleteConfigurationSetEventDestinationRequest,
-  DeleteConfigurationSetEventDestinationResponse,
-  DeleteConfigurationSetRequest,
-  DeleteConfigurationSetResponse,
-  DeleteConfigurationSetTrackingOptionsRequest,
-  DeleteConfigurationSetTrackingOptionsResponse,
-  DeleteCustomVerificationEmailTemplateRequest,
-  DeleteIdentityPolicyRequest,
-  DeleteIdentityPolicyResponse,
-  DeleteIdentityRequest,
-  DeleteIdentityResponse,
-  DeleteReceiptFilterRequest,
-  DeleteReceiptFilterResponse,
-  DeleteReceiptRuleRequest,
-  DeleteReceiptRuleResponse,
-  DeleteReceiptRuleSetRequest,
-  DeleteReceiptRuleSetResponse,
-  DeleteTemplateRequest,
-  DeleteTemplateResponse,
-  DeleteVerifiedEmailAddressRequest,
-  DescribeActiveReceiptRuleSetRequest,
-  DescribeActiveReceiptRuleSetResponse,
-  DescribeConfigurationSetRequest,
-  DescribeConfigurationSetResponse,
-  DescribeReceiptRuleRequest,
-  DescribeReceiptRuleResponse,
-  DescribeReceiptRuleSetRequest,
-  DescribeReceiptRuleSetResponse,
-  GetAccountSendingEnabledResponse,
-  GetCustomVerificationEmailTemplateRequest,
-  GetCustomVerificationEmailTemplateResponse,
-  GetIdentityDkimAttributesRequest,
-  GetIdentityDkimAttributesResponse,
-  GetIdentityMailFromDomainAttributesRequest,
-  GetIdentityMailFromDomainAttributesResponse,
-  GetIdentityNotificationAttributesRequest,
-  GetIdentityNotificationAttributesResponse,
-  GetIdentityPoliciesRequest,
-  GetIdentityPoliciesResponse,
-  GetIdentityVerificationAttributesRequest,
-  GetIdentityVerificationAttributesResponse,
-  GetSendQuotaResponse,
-  GetSendStatisticsResponse,
-  GetTemplateRequest,
-  GetTemplateResponse,
-  ListConfigurationSetsRequest,
-  ListConfigurationSetsResponse,
-  ListCustomVerificationEmailTemplatesRequest,
-  ListCustomVerificationEmailTemplatesResponse,
-  ListIdentitiesRequest,
-  ListIdentitiesResponse,
-  ListIdentityPoliciesRequest,
-  ListIdentityPoliciesResponse,
-  ListReceiptFiltersRequest,
-  ListReceiptFiltersResponse,
-  ListReceiptRuleSetsRequest,
-  ListReceiptRuleSetsResponse,
-  ListTemplatesRequest,
-  ListTemplatesResponse,
-  ListVerifiedEmailAddressesResponse,
-  PutConfigurationSetDeliveryOptionsRequest,
-  PutConfigurationSetDeliveryOptionsResponse,
-  PutIdentityPolicyRequest,
-  PutIdentityPolicyResponse,
-  ReorderReceiptRuleSetRequest,
-  ReorderReceiptRuleSetResponse,
-  SendBounceRequest,
-  SendBounceResponse,
-  SendBulkTemplatedEmailRequest,
-  SendBulkTemplatedEmailResponse,
-  SendCustomVerificationEmailRequest,
-  SendCustomVerificationEmailResponse,
-  SendEmailRequest,
-  SendEmailResponse,
-  SendRawEmailRequest,
-  SendRawEmailResponse,
-  SendTemplatedEmailRequest,
-  SendTemplatedEmailResponse,
-  SetActiveReceiptRuleSetRequest,
-  SetActiveReceiptRuleSetResponse,
-  SetIdentityDkimEnabledRequest,
-  SetIdentityDkimEnabledResponse,
-  SetIdentityFeedbackForwardingEnabledRequest,
-  SetIdentityFeedbackForwardingEnabledResponse,
-  SetIdentityHeadersInNotificationsEnabledRequest,
-  SetIdentityHeadersInNotificationsEnabledResponse,
-  SetIdentityMailFromDomainRequest,
-  SetIdentityMailFromDomainResponse,
-  SetIdentityNotificationTopicRequest,
-  SetIdentityNotificationTopicResponse,
-  SetReceiptRulePositionRequest,
-  SetReceiptRulePositionResponse,
-  TestRenderTemplateRequest,
-  TestRenderTemplateResponse,
-  UpdateAccountSendingEnabledRequest,
-  UpdateConfigurationSetEventDestinationRequest,
-  UpdateConfigurationSetEventDestinationResponse,
-  UpdateConfigurationSetReputationMetricsEnabledRequest,
-  UpdateConfigurationSetSendingEnabledRequest,
-  UpdateConfigurationSetTrackingOptionsRequest,
-  UpdateConfigurationSetTrackingOptionsResponse,
-  UpdateCustomVerificationEmailTemplateRequest,
-  UpdateReceiptRuleRequest,
-  UpdateReceiptRuleResponse,
-  UpdateTemplateRequest,
-  UpdateTemplateResponse,
-  VerifyDomainDkimRequest,
-  VerifyDomainDkimResponse,
-  VerifyDomainIdentityRequest,
-  VerifyDomainIdentityResponse,
-  VerifyEmailAddressRequest,
-  VerifyEmailIdentityRequest,
-  VerifyEmailIdentityResponse
-} from "./models/index";
+  CloneReceiptRuleSetCommandInput,
+  CloneReceiptRuleSetCommandOutput
+} from "./commands/CloneReceiptRuleSetCommand";
+import {
+  CreateConfigurationSetCommandInput,
+  CreateConfigurationSetCommandOutput
+} from "./commands/CreateConfigurationSetCommand";
+import {
+  CreateConfigurationSetEventDestinationCommandInput,
+  CreateConfigurationSetEventDestinationCommandOutput
+} from "./commands/CreateConfigurationSetEventDestinationCommand";
+import {
+  CreateConfigurationSetTrackingOptionsCommandInput,
+  CreateConfigurationSetTrackingOptionsCommandOutput
+} from "./commands/CreateConfigurationSetTrackingOptionsCommand";
+import {
+  CreateCustomVerificationEmailTemplateCommandInput,
+  CreateCustomVerificationEmailTemplateCommandOutput
+} from "./commands/CreateCustomVerificationEmailTemplateCommand";
+import {
+  CreateReceiptFilterCommandInput,
+  CreateReceiptFilterCommandOutput
+} from "./commands/CreateReceiptFilterCommand";
+import {
+  CreateReceiptRuleCommandInput,
+  CreateReceiptRuleCommandOutput
+} from "./commands/CreateReceiptRuleCommand";
+import {
+  CreateReceiptRuleSetCommandInput,
+  CreateReceiptRuleSetCommandOutput
+} from "./commands/CreateReceiptRuleSetCommand";
+import {
+  CreateTemplateCommandInput,
+  CreateTemplateCommandOutput
+} from "./commands/CreateTemplateCommand";
+import {
+  DeleteConfigurationSetCommandInput,
+  DeleteConfigurationSetCommandOutput
+} from "./commands/DeleteConfigurationSetCommand";
+import {
+  DeleteConfigurationSetEventDestinationCommandInput,
+  DeleteConfigurationSetEventDestinationCommandOutput
+} from "./commands/DeleteConfigurationSetEventDestinationCommand";
+import {
+  DeleteConfigurationSetTrackingOptionsCommandInput,
+  DeleteConfigurationSetTrackingOptionsCommandOutput
+} from "./commands/DeleteConfigurationSetTrackingOptionsCommand";
+import {
+  DeleteCustomVerificationEmailTemplateCommandInput,
+  DeleteCustomVerificationEmailTemplateCommandOutput
+} from "./commands/DeleteCustomVerificationEmailTemplateCommand";
+import {
+  DeleteIdentityCommandInput,
+  DeleteIdentityCommandOutput
+} from "./commands/DeleteIdentityCommand";
+import {
+  DeleteIdentityPolicyCommandInput,
+  DeleteIdentityPolicyCommandOutput
+} from "./commands/DeleteIdentityPolicyCommand";
+import {
+  DeleteReceiptFilterCommandInput,
+  DeleteReceiptFilterCommandOutput
+} from "./commands/DeleteReceiptFilterCommand";
+import {
+  DeleteReceiptRuleCommandInput,
+  DeleteReceiptRuleCommandOutput
+} from "./commands/DeleteReceiptRuleCommand";
+import {
+  DeleteReceiptRuleSetCommandInput,
+  DeleteReceiptRuleSetCommandOutput
+} from "./commands/DeleteReceiptRuleSetCommand";
+import {
+  DeleteTemplateCommandInput,
+  DeleteTemplateCommandOutput
+} from "./commands/DeleteTemplateCommand";
+import {
+  DeleteVerifiedEmailAddressCommandInput,
+  DeleteVerifiedEmailAddressCommandOutput
+} from "./commands/DeleteVerifiedEmailAddressCommand";
+import {
+  DescribeActiveReceiptRuleSetCommandInput,
+  DescribeActiveReceiptRuleSetCommandOutput
+} from "./commands/DescribeActiveReceiptRuleSetCommand";
+import {
+  DescribeConfigurationSetCommandInput,
+  DescribeConfigurationSetCommandOutput
+} from "./commands/DescribeConfigurationSetCommand";
+import {
+  DescribeReceiptRuleCommandInput,
+  DescribeReceiptRuleCommandOutput
+} from "./commands/DescribeReceiptRuleCommand";
+import {
+  DescribeReceiptRuleSetCommandInput,
+  DescribeReceiptRuleSetCommandOutput
+} from "./commands/DescribeReceiptRuleSetCommand";
+import {
+  GetAccountSendingEnabledCommandInput,
+  GetAccountSendingEnabledCommandOutput
+} from "./commands/GetAccountSendingEnabledCommand";
+import {
+  GetCustomVerificationEmailTemplateCommandInput,
+  GetCustomVerificationEmailTemplateCommandOutput
+} from "./commands/GetCustomVerificationEmailTemplateCommand";
+import {
+  GetIdentityDkimAttributesCommandInput,
+  GetIdentityDkimAttributesCommandOutput
+} from "./commands/GetIdentityDkimAttributesCommand";
+import {
+  GetIdentityMailFromDomainAttributesCommandInput,
+  GetIdentityMailFromDomainAttributesCommandOutput
+} from "./commands/GetIdentityMailFromDomainAttributesCommand";
+import {
+  GetIdentityNotificationAttributesCommandInput,
+  GetIdentityNotificationAttributesCommandOutput
+} from "./commands/GetIdentityNotificationAttributesCommand";
+import {
+  GetIdentityPoliciesCommandInput,
+  GetIdentityPoliciesCommandOutput
+} from "./commands/GetIdentityPoliciesCommand";
+import {
+  GetIdentityVerificationAttributesCommandInput,
+  GetIdentityVerificationAttributesCommandOutput
+} from "./commands/GetIdentityVerificationAttributesCommand";
+import {
+  GetSendQuotaCommandInput,
+  GetSendQuotaCommandOutput
+} from "./commands/GetSendQuotaCommand";
+import {
+  GetSendStatisticsCommandInput,
+  GetSendStatisticsCommandOutput
+} from "./commands/GetSendStatisticsCommand";
+import {
+  GetTemplateCommandInput,
+  GetTemplateCommandOutput
+} from "./commands/GetTemplateCommand";
+import {
+  ListConfigurationSetsCommandInput,
+  ListConfigurationSetsCommandOutput
+} from "./commands/ListConfigurationSetsCommand";
+import {
+  ListCustomVerificationEmailTemplatesCommandInput,
+  ListCustomVerificationEmailTemplatesCommandOutput
+} from "./commands/ListCustomVerificationEmailTemplatesCommand";
+import {
+  ListIdentitiesCommandInput,
+  ListIdentitiesCommandOutput
+} from "./commands/ListIdentitiesCommand";
+import {
+  ListIdentityPoliciesCommandInput,
+  ListIdentityPoliciesCommandOutput
+} from "./commands/ListIdentityPoliciesCommand";
+import {
+  ListReceiptFiltersCommandInput,
+  ListReceiptFiltersCommandOutput
+} from "./commands/ListReceiptFiltersCommand";
+import {
+  ListReceiptRuleSetsCommandInput,
+  ListReceiptRuleSetsCommandOutput
+} from "./commands/ListReceiptRuleSetsCommand";
+import {
+  ListTemplatesCommandInput,
+  ListTemplatesCommandOutput
+} from "./commands/ListTemplatesCommand";
+import {
+  ListVerifiedEmailAddressesCommandInput,
+  ListVerifiedEmailAddressesCommandOutput
+} from "./commands/ListVerifiedEmailAddressesCommand";
+import {
+  PutConfigurationSetDeliveryOptionsCommandInput,
+  PutConfigurationSetDeliveryOptionsCommandOutput
+} from "./commands/PutConfigurationSetDeliveryOptionsCommand";
+import {
+  PutIdentityPolicyCommandInput,
+  PutIdentityPolicyCommandOutput
+} from "./commands/PutIdentityPolicyCommand";
+import {
+  ReorderReceiptRuleSetCommandInput,
+  ReorderReceiptRuleSetCommandOutput
+} from "./commands/ReorderReceiptRuleSetCommand";
+import {
+  SendBounceCommandInput,
+  SendBounceCommandOutput
+} from "./commands/SendBounceCommand";
+import {
+  SendBulkTemplatedEmailCommandInput,
+  SendBulkTemplatedEmailCommandOutput
+} from "./commands/SendBulkTemplatedEmailCommand";
+import {
+  SendCustomVerificationEmailCommandInput,
+  SendCustomVerificationEmailCommandOutput
+} from "./commands/SendCustomVerificationEmailCommand";
+import {
+  SendEmailCommandInput,
+  SendEmailCommandOutput
+} from "./commands/SendEmailCommand";
+import {
+  SendRawEmailCommandInput,
+  SendRawEmailCommandOutput
+} from "./commands/SendRawEmailCommand";
+import {
+  SendTemplatedEmailCommandInput,
+  SendTemplatedEmailCommandOutput
+} from "./commands/SendTemplatedEmailCommand";
+import {
+  SetActiveReceiptRuleSetCommandInput,
+  SetActiveReceiptRuleSetCommandOutput
+} from "./commands/SetActiveReceiptRuleSetCommand";
+import {
+  SetIdentityDkimEnabledCommandInput,
+  SetIdentityDkimEnabledCommandOutput
+} from "./commands/SetIdentityDkimEnabledCommand";
+import {
+  SetIdentityFeedbackForwardingEnabledCommandInput,
+  SetIdentityFeedbackForwardingEnabledCommandOutput
+} from "./commands/SetIdentityFeedbackForwardingEnabledCommand";
+import {
+  SetIdentityHeadersInNotificationsEnabledCommandInput,
+  SetIdentityHeadersInNotificationsEnabledCommandOutput
+} from "./commands/SetIdentityHeadersInNotificationsEnabledCommand";
+import {
+  SetIdentityMailFromDomainCommandInput,
+  SetIdentityMailFromDomainCommandOutput
+} from "./commands/SetIdentityMailFromDomainCommand";
+import {
+  SetIdentityNotificationTopicCommandInput,
+  SetIdentityNotificationTopicCommandOutput
+} from "./commands/SetIdentityNotificationTopicCommand";
+import {
+  SetReceiptRulePositionCommandInput,
+  SetReceiptRulePositionCommandOutput
+} from "./commands/SetReceiptRulePositionCommand";
+import {
+  TestRenderTemplateCommandInput,
+  TestRenderTemplateCommandOutput
+} from "./commands/TestRenderTemplateCommand";
+import {
+  UpdateAccountSendingEnabledCommandInput,
+  UpdateAccountSendingEnabledCommandOutput
+} from "./commands/UpdateAccountSendingEnabledCommand";
+import {
+  UpdateConfigurationSetEventDestinationCommandInput,
+  UpdateConfigurationSetEventDestinationCommandOutput
+} from "./commands/UpdateConfigurationSetEventDestinationCommand";
+import {
+  UpdateConfigurationSetReputationMetricsEnabledCommandInput,
+  UpdateConfigurationSetReputationMetricsEnabledCommandOutput
+} from "./commands/UpdateConfigurationSetReputationMetricsEnabledCommand";
+import {
+  UpdateConfigurationSetSendingEnabledCommandInput,
+  UpdateConfigurationSetSendingEnabledCommandOutput
+} from "./commands/UpdateConfigurationSetSendingEnabledCommand";
+import {
+  UpdateConfigurationSetTrackingOptionsCommandInput,
+  UpdateConfigurationSetTrackingOptionsCommandOutput
+} from "./commands/UpdateConfigurationSetTrackingOptionsCommand";
+import {
+  UpdateCustomVerificationEmailTemplateCommandInput,
+  UpdateCustomVerificationEmailTemplateCommandOutput
+} from "./commands/UpdateCustomVerificationEmailTemplateCommand";
+import {
+  UpdateReceiptRuleCommandInput,
+  UpdateReceiptRuleCommandOutput
+} from "./commands/UpdateReceiptRuleCommand";
+import {
+  UpdateTemplateCommandInput,
+  UpdateTemplateCommandOutput
+} from "./commands/UpdateTemplateCommand";
+import {
+  VerifyDomainDkimCommandInput,
+  VerifyDomainDkimCommandOutput
+} from "./commands/VerifyDomainDkimCommand";
+import {
+  VerifyDomainIdentityCommandInput,
+  VerifyDomainIdentityCommandOutput
+} from "./commands/VerifyDomainIdentityCommand";
+import {
+  VerifyEmailAddressCommandInput,
+  VerifyEmailAddressCommandOutput
+} from "./commands/VerifyEmailAddressCommand";
+import {
+  VerifyEmailIdentityCommandInput,
+  VerifyEmailIdentityCommandOutput
+} from "./commands/VerifyEmailIdentityCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -177,147 +329,156 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | CloneReceiptRuleSetRequest
-  | CreateConfigurationSetEventDestinationRequest
-  | CreateConfigurationSetRequest
-  | CreateConfigurationSetTrackingOptionsRequest
-  | CreateCustomVerificationEmailTemplateRequest
-  | CreateReceiptFilterRequest
-  | CreateReceiptRuleRequest
-  | CreateReceiptRuleSetRequest
-  | CreateTemplateRequest
-  | DeleteConfigurationSetEventDestinationRequest
-  | DeleteConfigurationSetRequest
-  | DeleteConfigurationSetTrackingOptionsRequest
-  | DeleteCustomVerificationEmailTemplateRequest
-  | DeleteIdentityPolicyRequest
-  | DeleteIdentityRequest
-  | DeleteReceiptFilterRequest
-  | DeleteReceiptRuleRequest
-  | DeleteReceiptRuleSetRequest
-  | DeleteTemplateRequest
-  | DeleteVerifiedEmailAddressRequest
-  | DescribeActiveReceiptRuleSetRequest
-  | DescribeConfigurationSetRequest
-  | DescribeReceiptRuleRequest
-  | DescribeReceiptRuleSetRequest
-  | GetCustomVerificationEmailTemplateRequest
-  | GetIdentityDkimAttributesRequest
-  | GetIdentityMailFromDomainAttributesRequest
-  | GetIdentityNotificationAttributesRequest
-  | GetIdentityPoliciesRequest
-  | GetIdentityVerificationAttributesRequest
-  | GetTemplateRequest
-  | ListConfigurationSetsRequest
-  | ListCustomVerificationEmailTemplatesRequest
-  | ListIdentitiesRequest
-  | ListIdentityPoliciesRequest
-  | ListReceiptFiltersRequest
-  | ListReceiptRuleSetsRequest
-  | ListTemplatesRequest
-  | PutConfigurationSetDeliveryOptionsRequest
-  | PutIdentityPolicyRequest
-  | ReorderReceiptRuleSetRequest
-  | SendBounceRequest
-  | SendBulkTemplatedEmailRequest
-  | SendCustomVerificationEmailRequest
-  | SendEmailRequest
-  | SendRawEmailRequest
-  | SendTemplatedEmailRequest
-  | SetActiveReceiptRuleSetRequest
-  | SetIdentityDkimEnabledRequest
-  | SetIdentityFeedbackForwardingEnabledRequest
-  | SetIdentityHeadersInNotificationsEnabledRequest
-  | SetIdentityMailFromDomainRequest
-  | SetIdentityNotificationTopicRequest
-  | SetReceiptRulePositionRequest
-  | TestRenderTemplateRequest
-  | UpdateAccountSendingEnabledRequest
-  | UpdateConfigurationSetEventDestinationRequest
-  | UpdateConfigurationSetReputationMetricsEnabledRequest
-  | UpdateConfigurationSetSendingEnabledRequest
-  | UpdateConfigurationSetTrackingOptionsRequest
-  | UpdateCustomVerificationEmailTemplateRequest
-  | UpdateReceiptRuleRequest
-  | UpdateTemplateRequest
-  | VerifyDomainDkimRequest
-  | VerifyDomainIdentityRequest
-  | VerifyEmailAddressRequest
-  | VerifyEmailIdentityRequest;
+  | CloneReceiptRuleSetCommandInput
+  | CreateConfigurationSetCommandInput
+  | CreateConfigurationSetEventDestinationCommandInput
+  | CreateConfigurationSetTrackingOptionsCommandInput
+  | CreateCustomVerificationEmailTemplateCommandInput
+  | CreateReceiptFilterCommandInput
+  | CreateReceiptRuleCommandInput
+  | CreateReceiptRuleSetCommandInput
+  | CreateTemplateCommandInput
+  | DeleteConfigurationSetCommandInput
+  | DeleteConfigurationSetEventDestinationCommandInput
+  | DeleteConfigurationSetTrackingOptionsCommandInput
+  | DeleteCustomVerificationEmailTemplateCommandInput
+  | DeleteIdentityCommandInput
+  | DeleteIdentityPolicyCommandInput
+  | DeleteReceiptFilterCommandInput
+  | DeleteReceiptRuleCommandInput
+  | DeleteReceiptRuleSetCommandInput
+  | DeleteTemplateCommandInput
+  | DeleteVerifiedEmailAddressCommandInput
+  | DescribeActiveReceiptRuleSetCommandInput
+  | DescribeConfigurationSetCommandInput
+  | DescribeReceiptRuleCommandInput
+  | DescribeReceiptRuleSetCommandInput
+  | GetAccountSendingEnabledCommandInput
+  | GetCustomVerificationEmailTemplateCommandInput
+  | GetIdentityDkimAttributesCommandInput
+  | GetIdentityMailFromDomainAttributesCommandInput
+  | GetIdentityNotificationAttributesCommandInput
+  | GetIdentityPoliciesCommandInput
+  | GetIdentityVerificationAttributesCommandInput
+  | GetSendQuotaCommandInput
+  | GetSendStatisticsCommandInput
+  | GetTemplateCommandInput
+  | ListConfigurationSetsCommandInput
+  | ListCustomVerificationEmailTemplatesCommandInput
+  | ListIdentitiesCommandInput
+  | ListIdentityPoliciesCommandInput
+  | ListReceiptFiltersCommandInput
+  | ListReceiptRuleSetsCommandInput
+  | ListTemplatesCommandInput
+  | ListVerifiedEmailAddressesCommandInput
+  | PutConfigurationSetDeliveryOptionsCommandInput
+  | PutIdentityPolicyCommandInput
+  | ReorderReceiptRuleSetCommandInput
+  | SendBounceCommandInput
+  | SendBulkTemplatedEmailCommandInput
+  | SendCustomVerificationEmailCommandInput
+  | SendEmailCommandInput
+  | SendRawEmailCommandInput
+  | SendTemplatedEmailCommandInput
+  | SetActiveReceiptRuleSetCommandInput
+  | SetIdentityDkimEnabledCommandInput
+  | SetIdentityFeedbackForwardingEnabledCommandInput
+  | SetIdentityHeadersInNotificationsEnabledCommandInput
+  | SetIdentityMailFromDomainCommandInput
+  | SetIdentityNotificationTopicCommandInput
+  | SetReceiptRulePositionCommandInput
+  | TestRenderTemplateCommandInput
+  | UpdateAccountSendingEnabledCommandInput
+  | UpdateConfigurationSetEventDestinationCommandInput
+  | UpdateConfigurationSetReputationMetricsEnabledCommandInput
+  | UpdateConfigurationSetSendingEnabledCommandInput
+  | UpdateConfigurationSetTrackingOptionsCommandInput
+  | UpdateCustomVerificationEmailTemplateCommandInput
+  | UpdateReceiptRuleCommandInput
+  | UpdateTemplateCommandInput
+  | VerifyDomainDkimCommandInput
+  | VerifyDomainIdentityCommandInput
+  | VerifyEmailAddressCommandInput
+  | VerifyEmailIdentityCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CloneReceiptRuleSetResponse
-  | CreateConfigurationSetEventDestinationResponse
-  | CreateConfigurationSetResponse
-  | CreateConfigurationSetTrackingOptionsResponse
-  | CreateReceiptFilterResponse
-  | CreateReceiptRuleResponse
-  | CreateReceiptRuleSetResponse
-  | CreateTemplateResponse
-  | DeleteConfigurationSetEventDestinationResponse
-  | DeleteConfigurationSetResponse
-  | DeleteConfigurationSetTrackingOptionsResponse
-  | DeleteIdentityPolicyResponse
-  | DeleteIdentityResponse
-  | DeleteReceiptFilterResponse
-  | DeleteReceiptRuleResponse
-  | DeleteReceiptRuleSetResponse
-  | DeleteTemplateResponse
-  | DescribeActiveReceiptRuleSetResponse
-  | DescribeConfigurationSetResponse
-  | DescribeReceiptRuleResponse
-  | DescribeReceiptRuleSetResponse
-  | GetAccountSendingEnabledResponse
-  | GetCustomVerificationEmailTemplateResponse
-  | GetIdentityDkimAttributesResponse
-  | GetIdentityMailFromDomainAttributesResponse
-  | GetIdentityNotificationAttributesResponse
-  | GetIdentityPoliciesResponse
-  | GetIdentityVerificationAttributesResponse
-  | GetSendQuotaResponse
-  | GetSendStatisticsResponse
-  | GetTemplateResponse
-  | ListConfigurationSetsResponse
-  | ListCustomVerificationEmailTemplatesResponse
-  | ListIdentitiesResponse
-  | ListIdentityPoliciesResponse
-  | ListReceiptFiltersResponse
-  | ListReceiptRuleSetsResponse
-  | ListTemplatesResponse
-  | ListVerifiedEmailAddressesResponse
-  | PutConfigurationSetDeliveryOptionsResponse
-  | PutIdentityPolicyResponse
-  | ReorderReceiptRuleSetResponse
-  | SendBounceResponse
-  | SendBulkTemplatedEmailResponse
-  | SendCustomVerificationEmailResponse
-  | SendEmailResponse
-  | SendRawEmailResponse
-  | SendTemplatedEmailResponse
-  | SetActiveReceiptRuleSetResponse
-  | SetIdentityDkimEnabledResponse
-  | SetIdentityFeedbackForwardingEnabledResponse
-  | SetIdentityHeadersInNotificationsEnabledResponse
-  | SetIdentityMailFromDomainResponse
-  | SetIdentityNotificationTopicResponse
-  | SetReceiptRulePositionResponse
-  | TestRenderTemplateResponse
-  | UpdateConfigurationSetEventDestinationResponse
-  | UpdateConfigurationSetTrackingOptionsResponse
-  | UpdateReceiptRuleResponse
-  | UpdateTemplateResponse
-  | VerifyDomainDkimResponse
-  | VerifyDomainIdentityResponse
-  | VerifyEmailIdentityResponse;
+  | CloneReceiptRuleSetCommandOutput
+  | CreateConfigurationSetCommandOutput
+  | CreateConfigurationSetEventDestinationCommandOutput
+  | CreateConfigurationSetTrackingOptionsCommandOutput
+  | CreateCustomVerificationEmailTemplateCommandOutput
+  | CreateReceiptFilterCommandOutput
+  | CreateReceiptRuleCommandOutput
+  | CreateReceiptRuleSetCommandOutput
+  | CreateTemplateCommandOutput
+  | DeleteConfigurationSetCommandOutput
+  | DeleteConfigurationSetEventDestinationCommandOutput
+  | DeleteConfigurationSetTrackingOptionsCommandOutput
+  | DeleteCustomVerificationEmailTemplateCommandOutput
+  | DeleteIdentityCommandOutput
+  | DeleteIdentityPolicyCommandOutput
+  | DeleteReceiptFilterCommandOutput
+  | DeleteReceiptRuleCommandOutput
+  | DeleteReceiptRuleSetCommandOutput
+  | DeleteTemplateCommandOutput
+  | DeleteVerifiedEmailAddressCommandOutput
+  | DescribeActiveReceiptRuleSetCommandOutput
+  | DescribeConfigurationSetCommandOutput
+  | DescribeReceiptRuleCommandOutput
+  | DescribeReceiptRuleSetCommandOutput
+  | GetAccountSendingEnabledCommandOutput
+  | GetCustomVerificationEmailTemplateCommandOutput
+  | GetIdentityDkimAttributesCommandOutput
+  | GetIdentityMailFromDomainAttributesCommandOutput
+  | GetIdentityNotificationAttributesCommandOutput
+  | GetIdentityPoliciesCommandOutput
+  | GetIdentityVerificationAttributesCommandOutput
+  | GetSendQuotaCommandOutput
+  | GetSendStatisticsCommandOutput
+  | GetTemplateCommandOutput
+  | ListConfigurationSetsCommandOutput
+  | ListCustomVerificationEmailTemplatesCommandOutput
+  | ListIdentitiesCommandOutput
+  | ListIdentityPoliciesCommandOutput
+  | ListReceiptFiltersCommandOutput
+  | ListReceiptRuleSetsCommandOutput
+  | ListTemplatesCommandOutput
+  | ListVerifiedEmailAddressesCommandOutput
+  | PutConfigurationSetDeliveryOptionsCommandOutput
+  | PutIdentityPolicyCommandOutput
+  | ReorderReceiptRuleSetCommandOutput
+  | SendBounceCommandOutput
+  | SendBulkTemplatedEmailCommandOutput
+  | SendCustomVerificationEmailCommandOutput
+  | SendEmailCommandOutput
+  | SendRawEmailCommandOutput
+  | SendTemplatedEmailCommandOutput
+  | SetActiveReceiptRuleSetCommandOutput
+  | SetIdentityDkimEnabledCommandOutput
+  | SetIdentityFeedbackForwardingEnabledCommandOutput
+  | SetIdentityHeadersInNotificationsEnabledCommandOutput
+  | SetIdentityMailFromDomainCommandOutput
+  | SetIdentityNotificationTopicCommandOutput
+  | SetReceiptRulePositionCommandOutput
+  | TestRenderTemplateCommandOutput
+  | UpdateAccountSendingEnabledCommandOutput
+  | UpdateConfigurationSetEventDestinationCommandOutput
+  | UpdateConfigurationSetReputationMetricsEnabledCommandOutput
+  | UpdateConfigurationSetSendingEnabledCommandOutput
+  | UpdateConfigurationSetTrackingOptionsCommandOutput
+  | UpdateCustomVerificationEmailTemplateCommandOutput
+  | UpdateReceiptRuleCommandOutput
+  | UpdateTemplateCommandOutput
+  | VerifyDomainDkimCommandOutput
+  | VerifyDomainIdentityCommandOutput
+  | VerifyEmailAddressCommandOutput
+  | VerifyEmailIdentityCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

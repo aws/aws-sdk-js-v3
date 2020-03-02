@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetContextKeysForCustomPolicyCommandInput = GetContextKeysForCustomPolicyRequest;
-export type GetContextKeysForCustomPolicyCommandOutput = GetContextKeysForPolicyResponse;
+export type GetContextKeysForCustomPolicyCommandOutput = GetContextKeysForPolicyResponse &
+  __MetadataBearer;
 
 export class GetContextKeysForCustomPolicyCommand extends $Command<
   GetContextKeysForCustomPolicyCommandInput,

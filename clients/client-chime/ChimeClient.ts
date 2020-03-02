@@ -1,175 +1,379 @@
 import {
-  AssociatePhoneNumberWithUserRequest,
-  AssociatePhoneNumberWithUserResponse,
-  AssociatePhoneNumbersWithVoiceConnectorGroupRequest,
-  AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
-  AssociatePhoneNumbersWithVoiceConnectorRequest,
-  AssociatePhoneNumbersWithVoiceConnectorResponse,
-  AssociateSigninDelegateGroupsWithAccountRequest,
-  AssociateSigninDelegateGroupsWithAccountResponse,
-  BatchCreateAttendeeRequest,
-  BatchCreateAttendeeResponse,
-  BatchCreateRoomMembershipRequest,
-  BatchCreateRoomMembershipResponse,
-  BatchDeletePhoneNumberRequest,
-  BatchDeletePhoneNumberResponse,
-  BatchSuspendUserRequest,
-  BatchSuspendUserResponse,
-  BatchUnsuspendUserRequest,
-  BatchUnsuspendUserResponse,
-  BatchUpdatePhoneNumberRequest,
-  BatchUpdatePhoneNumberResponse,
-  BatchUpdateUserRequest,
-  BatchUpdateUserResponse,
-  CreateAccountRequest,
-  CreateAccountResponse,
-  CreateAttendeeRequest,
-  CreateAttendeeResponse,
-  CreateBotRequest,
-  CreateBotResponse,
-  CreateMeetingRequest,
-  CreateMeetingResponse,
-  CreatePhoneNumberOrderRequest,
-  CreatePhoneNumberOrderResponse,
-  CreateRoomMembershipRequest,
-  CreateRoomMembershipResponse,
-  CreateRoomRequest,
-  CreateRoomResponse,
-  CreateUserRequest,
-  CreateUserResponse,
-  CreateVoiceConnectorGroupRequest,
-  CreateVoiceConnectorGroupResponse,
-  CreateVoiceConnectorRequest,
-  CreateVoiceConnectorResponse,
-  DeleteAccountRequest,
-  DeleteAccountResponse,
-  DeleteAttendeeRequest,
-  DeleteEventsConfigurationRequest,
-  DeleteMeetingRequest,
-  DeletePhoneNumberRequest,
-  DeleteRoomMembershipRequest,
-  DeleteRoomRequest,
-  DeleteVoiceConnectorGroupRequest,
-  DeleteVoiceConnectorOriginationRequest,
-  DeleteVoiceConnectorRequest,
-  DeleteVoiceConnectorStreamingConfigurationRequest,
-  DeleteVoiceConnectorTerminationCredentialsRequest,
-  DeleteVoiceConnectorTerminationRequest,
-  DisassociatePhoneNumberFromUserRequest,
-  DisassociatePhoneNumberFromUserResponse,
-  DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
-  DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
-  DisassociatePhoneNumbersFromVoiceConnectorRequest,
-  DisassociatePhoneNumbersFromVoiceConnectorResponse,
-  DisassociateSigninDelegateGroupsFromAccountRequest,
-  DisassociateSigninDelegateGroupsFromAccountResponse,
-  GetAccountRequest,
-  GetAccountResponse,
-  GetAccountSettingsRequest,
-  GetAccountSettingsResponse,
-  GetAttendeeRequest,
-  GetAttendeeResponse,
-  GetBotRequest,
-  GetBotResponse,
-  GetEventsConfigurationRequest,
-  GetEventsConfigurationResponse,
-  GetGlobalSettingsResponse,
-  GetMeetingRequest,
-  GetMeetingResponse,
-  GetPhoneNumberOrderRequest,
-  GetPhoneNumberOrderResponse,
-  GetPhoneNumberRequest,
-  GetPhoneNumberResponse,
-  GetPhoneNumberSettingsResponse,
-  GetRoomRequest,
-  GetRoomResponse,
-  GetUserRequest,
-  GetUserResponse,
-  GetUserSettingsRequest,
-  GetUserSettingsResponse,
-  GetVoiceConnectorGroupRequest,
-  GetVoiceConnectorGroupResponse,
-  GetVoiceConnectorLoggingConfigurationRequest,
-  GetVoiceConnectorLoggingConfigurationResponse,
-  GetVoiceConnectorOriginationRequest,
-  GetVoiceConnectorOriginationResponse,
-  GetVoiceConnectorRequest,
-  GetVoiceConnectorResponse,
-  GetVoiceConnectorStreamingConfigurationRequest,
-  GetVoiceConnectorStreamingConfigurationResponse,
-  GetVoiceConnectorTerminationHealthRequest,
-  GetVoiceConnectorTerminationHealthResponse,
-  GetVoiceConnectorTerminationRequest,
-  GetVoiceConnectorTerminationResponse,
-  InviteUsersRequest,
-  InviteUsersResponse,
-  ListAccountsRequest,
-  ListAccountsResponse,
-  ListAttendeesRequest,
-  ListAttendeesResponse,
-  ListBotsRequest,
-  ListBotsResponse,
-  ListMeetingsRequest,
-  ListMeetingsResponse,
-  ListPhoneNumberOrdersRequest,
-  ListPhoneNumberOrdersResponse,
-  ListPhoneNumbersRequest,
-  ListPhoneNumbersResponse,
-  ListRoomMembershipsRequest,
-  ListRoomMembershipsResponse,
-  ListRoomsRequest,
-  ListRoomsResponse,
-  ListUsersRequest,
-  ListUsersResponse,
-  ListVoiceConnectorGroupsRequest,
-  ListVoiceConnectorGroupsResponse,
-  ListVoiceConnectorTerminationCredentialsRequest,
-  ListVoiceConnectorTerminationCredentialsResponse,
-  ListVoiceConnectorsRequest,
-  ListVoiceConnectorsResponse,
-  LogoutUserRequest,
-  LogoutUserResponse,
-  PutEventsConfigurationRequest,
-  PutEventsConfigurationResponse,
-  PutVoiceConnectorLoggingConfigurationRequest,
-  PutVoiceConnectorLoggingConfigurationResponse,
-  PutVoiceConnectorOriginationRequest,
-  PutVoiceConnectorOriginationResponse,
-  PutVoiceConnectorStreamingConfigurationRequest,
-  PutVoiceConnectorStreamingConfigurationResponse,
-  PutVoiceConnectorTerminationCredentialsRequest,
-  PutVoiceConnectorTerminationRequest,
-  PutVoiceConnectorTerminationResponse,
-  RegenerateSecurityTokenRequest,
-  RegenerateSecurityTokenResponse,
-  ResetPersonalPINRequest,
-  ResetPersonalPINResponse,
-  RestorePhoneNumberRequest,
-  RestorePhoneNumberResponse,
-  SearchAvailablePhoneNumbersRequest,
-  SearchAvailablePhoneNumbersResponse,
-  UpdateAccountRequest,
-  UpdateAccountResponse,
-  UpdateAccountSettingsRequest,
-  UpdateAccountSettingsResponse,
-  UpdateBotRequest,
-  UpdateBotResponse,
-  UpdateGlobalSettingsRequest,
-  UpdatePhoneNumberRequest,
-  UpdatePhoneNumberResponse,
-  UpdatePhoneNumberSettingsRequest,
-  UpdateRoomMembershipRequest,
-  UpdateRoomMembershipResponse,
-  UpdateRoomRequest,
-  UpdateRoomResponse,
-  UpdateUserRequest,
-  UpdateUserResponse,
-  UpdateUserSettingsRequest,
-  UpdateVoiceConnectorGroupRequest,
-  UpdateVoiceConnectorGroupResponse,
-  UpdateVoiceConnectorRequest,
-  UpdateVoiceConnectorResponse
-} from "./models/index";
+  AssociatePhoneNumberWithUserCommandInput,
+  AssociatePhoneNumberWithUserCommandOutput
+} from "./commands/AssociatePhoneNumberWithUserCommand";
+import {
+  AssociatePhoneNumbersWithVoiceConnectorCommandInput,
+  AssociatePhoneNumbersWithVoiceConnectorCommandOutput
+} from "./commands/AssociatePhoneNumbersWithVoiceConnectorCommand";
+import {
+  AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
+  AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
+} from "./commands/AssociatePhoneNumbersWithVoiceConnectorGroupCommand";
+import {
+  AssociateSigninDelegateGroupsWithAccountCommandInput,
+  AssociateSigninDelegateGroupsWithAccountCommandOutput
+} from "./commands/AssociateSigninDelegateGroupsWithAccountCommand";
+import {
+  BatchCreateAttendeeCommandInput,
+  BatchCreateAttendeeCommandOutput
+} from "./commands/BatchCreateAttendeeCommand";
+import {
+  BatchCreateRoomMembershipCommandInput,
+  BatchCreateRoomMembershipCommandOutput
+} from "./commands/BatchCreateRoomMembershipCommand";
+import {
+  BatchDeletePhoneNumberCommandInput,
+  BatchDeletePhoneNumberCommandOutput
+} from "./commands/BatchDeletePhoneNumberCommand";
+import {
+  BatchSuspendUserCommandInput,
+  BatchSuspendUserCommandOutput
+} from "./commands/BatchSuspendUserCommand";
+import {
+  BatchUnsuspendUserCommandInput,
+  BatchUnsuspendUserCommandOutput
+} from "./commands/BatchUnsuspendUserCommand";
+import {
+  BatchUpdatePhoneNumberCommandInput,
+  BatchUpdatePhoneNumberCommandOutput
+} from "./commands/BatchUpdatePhoneNumberCommand";
+import {
+  BatchUpdateUserCommandInput,
+  BatchUpdateUserCommandOutput
+} from "./commands/BatchUpdateUserCommand";
+import {
+  CreateAccountCommandInput,
+  CreateAccountCommandOutput
+} from "./commands/CreateAccountCommand";
+import {
+  CreateAttendeeCommandInput,
+  CreateAttendeeCommandOutput
+} from "./commands/CreateAttendeeCommand";
+import {
+  CreateBotCommandInput,
+  CreateBotCommandOutput
+} from "./commands/CreateBotCommand";
+import {
+  CreateMeetingCommandInput,
+  CreateMeetingCommandOutput
+} from "./commands/CreateMeetingCommand";
+import {
+  CreatePhoneNumberOrderCommandInput,
+  CreatePhoneNumberOrderCommandOutput
+} from "./commands/CreatePhoneNumberOrderCommand";
+import {
+  CreateRoomCommandInput,
+  CreateRoomCommandOutput
+} from "./commands/CreateRoomCommand";
+import {
+  CreateRoomMembershipCommandInput,
+  CreateRoomMembershipCommandOutput
+} from "./commands/CreateRoomMembershipCommand";
+import {
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
+import {
+  CreateVoiceConnectorCommandInput,
+  CreateVoiceConnectorCommandOutput
+} from "./commands/CreateVoiceConnectorCommand";
+import {
+  CreateVoiceConnectorGroupCommandInput,
+  CreateVoiceConnectorGroupCommandOutput
+} from "./commands/CreateVoiceConnectorGroupCommand";
+import {
+  DeleteAccountCommandInput,
+  DeleteAccountCommandOutput
+} from "./commands/DeleteAccountCommand";
+import {
+  DeleteAttendeeCommandInput,
+  DeleteAttendeeCommandOutput
+} from "./commands/DeleteAttendeeCommand";
+import {
+  DeleteEventsConfigurationCommandInput,
+  DeleteEventsConfigurationCommandOutput
+} from "./commands/DeleteEventsConfigurationCommand";
+import {
+  DeleteMeetingCommandInput,
+  DeleteMeetingCommandOutput
+} from "./commands/DeleteMeetingCommand";
+import {
+  DeletePhoneNumberCommandInput,
+  DeletePhoneNumberCommandOutput
+} from "./commands/DeletePhoneNumberCommand";
+import {
+  DeleteRoomCommandInput,
+  DeleteRoomCommandOutput
+} from "./commands/DeleteRoomCommand";
+import {
+  DeleteRoomMembershipCommandInput,
+  DeleteRoomMembershipCommandOutput
+} from "./commands/DeleteRoomMembershipCommand";
+import {
+  DeleteVoiceConnectorCommandInput,
+  DeleteVoiceConnectorCommandOutput
+} from "./commands/DeleteVoiceConnectorCommand";
+import {
+  DeleteVoiceConnectorGroupCommandInput,
+  DeleteVoiceConnectorGroupCommandOutput
+} from "./commands/DeleteVoiceConnectorGroupCommand";
+import {
+  DeleteVoiceConnectorOriginationCommandInput,
+  DeleteVoiceConnectorOriginationCommandOutput
+} from "./commands/DeleteVoiceConnectorOriginationCommand";
+import {
+  DeleteVoiceConnectorStreamingConfigurationCommandInput,
+  DeleteVoiceConnectorStreamingConfigurationCommandOutput
+} from "./commands/DeleteVoiceConnectorStreamingConfigurationCommand";
+import {
+  DeleteVoiceConnectorTerminationCommandInput,
+  DeleteVoiceConnectorTerminationCommandOutput
+} from "./commands/DeleteVoiceConnectorTerminationCommand";
+import {
+  DeleteVoiceConnectorTerminationCredentialsCommandInput,
+  DeleteVoiceConnectorTerminationCredentialsCommandOutput
+} from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand";
+import {
+  DisassociatePhoneNumberFromUserCommandInput,
+  DisassociatePhoneNumberFromUserCommandOutput
+} from "./commands/DisassociatePhoneNumberFromUserCommand";
+import {
+  DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
+  DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
+} from "./commands/DisassociatePhoneNumbersFromVoiceConnectorCommand";
+import {
+  DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
+  DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
+} from "./commands/DisassociatePhoneNumbersFromVoiceConnectorGroupCommand";
+import {
+  DisassociateSigninDelegateGroupsFromAccountCommandInput,
+  DisassociateSigninDelegateGroupsFromAccountCommandOutput
+} from "./commands/DisassociateSigninDelegateGroupsFromAccountCommand";
+import {
+  GetAccountCommandInput,
+  GetAccountCommandOutput
+} from "./commands/GetAccountCommand";
+import {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput
+} from "./commands/GetAccountSettingsCommand";
+import {
+  GetAttendeeCommandInput,
+  GetAttendeeCommandOutput
+} from "./commands/GetAttendeeCommand";
+import {
+  GetBotCommandInput,
+  GetBotCommandOutput
+} from "./commands/GetBotCommand";
+import {
+  GetEventsConfigurationCommandInput,
+  GetEventsConfigurationCommandOutput
+} from "./commands/GetEventsConfigurationCommand";
+import {
+  GetGlobalSettingsCommandInput,
+  GetGlobalSettingsCommandOutput
+} from "./commands/GetGlobalSettingsCommand";
+import {
+  GetMeetingCommandInput,
+  GetMeetingCommandOutput
+} from "./commands/GetMeetingCommand";
+import {
+  GetPhoneNumberCommandInput,
+  GetPhoneNumberCommandOutput
+} from "./commands/GetPhoneNumberCommand";
+import {
+  GetPhoneNumberOrderCommandInput,
+  GetPhoneNumberOrderCommandOutput
+} from "./commands/GetPhoneNumberOrderCommand";
+import {
+  GetPhoneNumberSettingsCommandInput,
+  GetPhoneNumberSettingsCommandOutput
+} from "./commands/GetPhoneNumberSettingsCommand";
+import {
+  GetRoomCommandInput,
+  GetRoomCommandOutput
+} from "./commands/GetRoomCommand";
+import {
+  GetUserCommandInput,
+  GetUserCommandOutput
+} from "./commands/GetUserCommand";
+import {
+  GetUserSettingsCommandInput,
+  GetUserSettingsCommandOutput
+} from "./commands/GetUserSettingsCommand";
+import {
+  GetVoiceConnectorCommandInput,
+  GetVoiceConnectorCommandOutput
+} from "./commands/GetVoiceConnectorCommand";
+import {
+  GetVoiceConnectorGroupCommandInput,
+  GetVoiceConnectorGroupCommandOutput
+} from "./commands/GetVoiceConnectorGroupCommand";
+import {
+  GetVoiceConnectorLoggingConfigurationCommandInput,
+  GetVoiceConnectorLoggingConfigurationCommandOutput
+} from "./commands/GetVoiceConnectorLoggingConfigurationCommand";
+import {
+  GetVoiceConnectorOriginationCommandInput,
+  GetVoiceConnectorOriginationCommandOutput
+} from "./commands/GetVoiceConnectorOriginationCommand";
+import {
+  GetVoiceConnectorStreamingConfigurationCommandInput,
+  GetVoiceConnectorStreamingConfigurationCommandOutput
+} from "./commands/GetVoiceConnectorStreamingConfigurationCommand";
+import {
+  GetVoiceConnectorTerminationCommandInput,
+  GetVoiceConnectorTerminationCommandOutput
+} from "./commands/GetVoiceConnectorTerminationCommand";
+import {
+  GetVoiceConnectorTerminationHealthCommandInput,
+  GetVoiceConnectorTerminationHealthCommandOutput
+} from "./commands/GetVoiceConnectorTerminationHealthCommand";
+import {
+  InviteUsersCommandInput,
+  InviteUsersCommandOutput
+} from "./commands/InviteUsersCommand";
+import {
+  ListAccountsCommandInput,
+  ListAccountsCommandOutput
+} from "./commands/ListAccountsCommand";
+import {
+  ListAttendeesCommandInput,
+  ListAttendeesCommandOutput
+} from "./commands/ListAttendeesCommand";
+import {
+  ListBotsCommandInput,
+  ListBotsCommandOutput
+} from "./commands/ListBotsCommand";
+import {
+  ListMeetingsCommandInput,
+  ListMeetingsCommandOutput
+} from "./commands/ListMeetingsCommand";
+import {
+  ListPhoneNumberOrdersCommandInput,
+  ListPhoneNumberOrdersCommandOutput
+} from "./commands/ListPhoneNumberOrdersCommand";
+import {
+  ListPhoneNumbersCommandInput,
+  ListPhoneNumbersCommandOutput
+} from "./commands/ListPhoneNumbersCommand";
+import {
+  ListRoomMembershipsCommandInput,
+  ListRoomMembershipsCommandOutput
+} from "./commands/ListRoomMembershipsCommand";
+import {
+  ListRoomsCommandInput,
+  ListRoomsCommandOutput
+} from "./commands/ListRoomsCommand";
+import {
+  ListUsersCommandInput,
+  ListUsersCommandOutput
+} from "./commands/ListUsersCommand";
+import {
+  ListVoiceConnectorGroupsCommandInput,
+  ListVoiceConnectorGroupsCommandOutput
+} from "./commands/ListVoiceConnectorGroupsCommand";
+import {
+  ListVoiceConnectorTerminationCredentialsCommandInput,
+  ListVoiceConnectorTerminationCredentialsCommandOutput
+} from "./commands/ListVoiceConnectorTerminationCredentialsCommand";
+import {
+  ListVoiceConnectorsCommandInput,
+  ListVoiceConnectorsCommandOutput
+} from "./commands/ListVoiceConnectorsCommand";
+import {
+  LogoutUserCommandInput,
+  LogoutUserCommandOutput
+} from "./commands/LogoutUserCommand";
+import {
+  PutEventsConfigurationCommandInput,
+  PutEventsConfigurationCommandOutput
+} from "./commands/PutEventsConfigurationCommand";
+import {
+  PutVoiceConnectorLoggingConfigurationCommandInput,
+  PutVoiceConnectorLoggingConfigurationCommandOutput
+} from "./commands/PutVoiceConnectorLoggingConfigurationCommand";
+import {
+  PutVoiceConnectorOriginationCommandInput,
+  PutVoiceConnectorOriginationCommandOutput
+} from "./commands/PutVoiceConnectorOriginationCommand";
+import {
+  PutVoiceConnectorStreamingConfigurationCommandInput,
+  PutVoiceConnectorStreamingConfigurationCommandOutput
+} from "./commands/PutVoiceConnectorStreamingConfigurationCommand";
+import {
+  PutVoiceConnectorTerminationCommandInput,
+  PutVoiceConnectorTerminationCommandOutput
+} from "./commands/PutVoiceConnectorTerminationCommand";
+import {
+  PutVoiceConnectorTerminationCredentialsCommandInput,
+  PutVoiceConnectorTerminationCredentialsCommandOutput
+} from "./commands/PutVoiceConnectorTerminationCredentialsCommand";
+import {
+  RegenerateSecurityTokenCommandInput,
+  RegenerateSecurityTokenCommandOutput
+} from "./commands/RegenerateSecurityTokenCommand";
+import {
+  ResetPersonalPINCommandInput,
+  ResetPersonalPINCommandOutput
+} from "./commands/ResetPersonalPINCommand";
+import {
+  RestorePhoneNumberCommandInput,
+  RestorePhoneNumberCommandOutput
+} from "./commands/RestorePhoneNumberCommand";
+import {
+  SearchAvailablePhoneNumbersCommandInput,
+  SearchAvailablePhoneNumbersCommandOutput
+} from "./commands/SearchAvailablePhoneNumbersCommand";
+import {
+  UpdateAccountCommandInput,
+  UpdateAccountCommandOutput
+} from "./commands/UpdateAccountCommand";
+import {
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput
+} from "./commands/UpdateAccountSettingsCommand";
+import {
+  UpdateBotCommandInput,
+  UpdateBotCommandOutput
+} from "./commands/UpdateBotCommand";
+import {
+  UpdateGlobalSettingsCommandInput,
+  UpdateGlobalSettingsCommandOutput
+} from "./commands/UpdateGlobalSettingsCommand";
+import {
+  UpdatePhoneNumberCommandInput,
+  UpdatePhoneNumberCommandOutput
+} from "./commands/UpdatePhoneNumberCommand";
+import {
+  UpdatePhoneNumberSettingsCommandInput,
+  UpdatePhoneNumberSettingsCommandOutput
+} from "./commands/UpdatePhoneNumberSettingsCommand";
+import {
+  UpdateRoomCommandInput,
+  UpdateRoomCommandOutput
+} from "./commands/UpdateRoomCommand";
+import {
+  UpdateRoomMembershipCommandInput,
+  UpdateRoomMembershipCommandOutput
+} from "./commands/UpdateRoomMembershipCommand";
+import {
+  UpdateUserCommandInput,
+  UpdateUserCommandOutput
+} from "./commands/UpdateUserCommand";
+import {
+  UpdateUserSettingsCommandInput,
+  UpdateUserSettingsCommandOutput
+} from "./commands/UpdateUserSettingsCommand";
+import {
+  UpdateVoiceConnectorCommandInput,
+  UpdateVoiceConnectorCommandOutput
+} from "./commands/UpdateVoiceConnectorCommand";
+import {
+  UpdateVoiceConnectorGroupCommandInput,
+  UpdateVoiceConnectorGroupCommandOutput
+} from "./commands/UpdateVoiceConnectorGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -217,187 +421,202 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AssociatePhoneNumberWithUserRequest
-  | AssociatePhoneNumbersWithVoiceConnectorGroupRequest
-  | AssociatePhoneNumbersWithVoiceConnectorRequest
-  | AssociateSigninDelegateGroupsWithAccountRequest
-  | BatchCreateAttendeeRequest
-  | BatchCreateRoomMembershipRequest
-  | BatchDeletePhoneNumberRequest
-  | BatchSuspendUserRequest
-  | BatchUnsuspendUserRequest
-  | BatchUpdatePhoneNumberRequest
-  | BatchUpdateUserRequest
-  | CreateAccountRequest
-  | CreateAttendeeRequest
-  | CreateBotRequest
-  | CreateMeetingRequest
-  | CreatePhoneNumberOrderRequest
-  | CreateRoomMembershipRequest
-  | CreateRoomRequest
-  | CreateUserRequest
-  | CreateVoiceConnectorGroupRequest
-  | CreateVoiceConnectorRequest
-  | DeleteAccountRequest
-  | DeleteAttendeeRequest
-  | DeleteEventsConfigurationRequest
-  | DeleteMeetingRequest
-  | DeletePhoneNumberRequest
-  | DeleteRoomMembershipRequest
-  | DeleteRoomRequest
-  | DeleteVoiceConnectorGroupRequest
-  | DeleteVoiceConnectorOriginationRequest
-  | DeleteVoiceConnectorRequest
-  | DeleteVoiceConnectorStreamingConfigurationRequest
-  | DeleteVoiceConnectorTerminationCredentialsRequest
-  | DeleteVoiceConnectorTerminationRequest
-  | DisassociatePhoneNumberFromUserRequest
-  | DisassociatePhoneNumbersFromVoiceConnectorGroupRequest
-  | DisassociatePhoneNumbersFromVoiceConnectorRequest
-  | DisassociateSigninDelegateGroupsFromAccountRequest
-  | GetAccountRequest
-  | GetAccountSettingsRequest
-  | GetAttendeeRequest
-  | GetBotRequest
-  | GetEventsConfigurationRequest
-  | GetMeetingRequest
-  | GetPhoneNumberOrderRequest
-  | GetPhoneNumberRequest
-  | GetRoomRequest
-  | GetUserRequest
-  | GetUserSettingsRequest
-  | GetVoiceConnectorGroupRequest
-  | GetVoiceConnectorLoggingConfigurationRequest
-  | GetVoiceConnectorOriginationRequest
-  | GetVoiceConnectorRequest
-  | GetVoiceConnectorStreamingConfigurationRequest
-  | GetVoiceConnectorTerminationHealthRequest
-  | GetVoiceConnectorTerminationRequest
-  | InviteUsersRequest
-  | ListAccountsRequest
-  | ListAttendeesRequest
-  | ListBotsRequest
-  | ListMeetingsRequest
-  | ListPhoneNumberOrdersRequest
-  | ListPhoneNumbersRequest
-  | ListRoomMembershipsRequest
-  | ListRoomsRequest
-  | ListUsersRequest
-  | ListVoiceConnectorGroupsRequest
-  | ListVoiceConnectorTerminationCredentialsRequest
-  | ListVoiceConnectorsRequest
-  | LogoutUserRequest
-  | PutEventsConfigurationRequest
-  | PutVoiceConnectorLoggingConfigurationRequest
-  | PutVoiceConnectorOriginationRequest
-  | PutVoiceConnectorStreamingConfigurationRequest
-  | PutVoiceConnectorTerminationCredentialsRequest
-  | PutVoiceConnectorTerminationRequest
-  | RegenerateSecurityTokenRequest
-  | ResetPersonalPINRequest
-  | RestorePhoneNumberRequest
-  | SearchAvailablePhoneNumbersRequest
-  | UpdateAccountRequest
-  | UpdateAccountSettingsRequest
-  | UpdateBotRequest
-  | UpdateGlobalSettingsRequest
-  | UpdatePhoneNumberRequest
-  | UpdatePhoneNumberSettingsRequest
-  | UpdateRoomMembershipRequest
-  | UpdateRoomRequest
-  | UpdateUserRequest
-  | UpdateUserSettingsRequest
-  | UpdateVoiceConnectorGroupRequest
-  | UpdateVoiceConnectorRequest;
+  | AssociatePhoneNumberWithUserCommandInput
+  | AssociatePhoneNumbersWithVoiceConnectorCommandInput
+  | AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput
+  | AssociateSigninDelegateGroupsWithAccountCommandInput
+  | BatchCreateAttendeeCommandInput
+  | BatchCreateRoomMembershipCommandInput
+  | BatchDeletePhoneNumberCommandInput
+  | BatchSuspendUserCommandInput
+  | BatchUnsuspendUserCommandInput
+  | BatchUpdatePhoneNumberCommandInput
+  | BatchUpdateUserCommandInput
+  | CreateAccountCommandInput
+  | CreateAttendeeCommandInput
+  | CreateBotCommandInput
+  | CreateMeetingCommandInput
+  | CreatePhoneNumberOrderCommandInput
+  | CreateRoomCommandInput
+  | CreateRoomMembershipCommandInput
+  | CreateUserCommandInput
+  | CreateVoiceConnectorCommandInput
+  | CreateVoiceConnectorGroupCommandInput
+  | DeleteAccountCommandInput
+  | DeleteAttendeeCommandInput
+  | DeleteEventsConfigurationCommandInput
+  | DeleteMeetingCommandInput
+  | DeletePhoneNumberCommandInput
+  | DeleteRoomCommandInput
+  | DeleteRoomMembershipCommandInput
+  | DeleteVoiceConnectorCommandInput
+  | DeleteVoiceConnectorGroupCommandInput
+  | DeleteVoiceConnectorOriginationCommandInput
+  | DeleteVoiceConnectorStreamingConfigurationCommandInput
+  | DeleteVoiceConnectorTerminationCommandInput
+  | DeleteVoiceConnectorTerminationCredentialsCommandInput
+  | DisassociatePhoneNumberFromUserCommandInput
+  | DisassociatePhoneNumbersFromVoiceConnectorCommandInput
+  | DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput
+  | DisassociateSigninDelegateGroupsFromAccountCommandInput
+  | GetAccountCommandInput
+  | GetAccountSettingsCommandInput
+  | GetAttendeeCommandInput
+  | GetBotCommandInput
+  | GetEventsConfigurationCommandInput
+  | GetGlobalSettingsCommandInput
+  | GetMeetingCommandInput
+  | GetPhoneNumberCommandInput
+  | GetPhoneNumberOrderCommandInput
+  | GetPhoneNumberSettingsCommandInput
+  | GetRoomCommandInput
+  | GetUserCommandInput
+  | GetUserSettingsCommandInput
+  | GetVoiceConnectorCommandInput
+  | GetVoiceConnectorGroupCommandInput
+  | GetVoiceConnectorLoggingConfigurationCommandInput
+  | GetVoiceConnectorOriginationCommandInput
+  | GetVoiceConnectorStreamingConfigurationCommandInput
+  | GetVoiceConnectorTerminationCommandInput
+  | GetVoiceConnectorTerminationHealthCommandInput
+  | InviteUsersCommandInput
+  | ListAccountsCommandInput
+  | ListAttendeesCommandInput
+  | ListBotsCommandInput
+  | ListMeetingsCommandInput
+  | ListPhoneNumberOrdersCommandInput
+  | ListPhoneNumbersCommandInput
+  | ListRoomMembershipsCommandInput
+  | ListRoomsCommandInput
+  | ListUsersCommandInput
+  | ListVoiceConnectorGroupsCommandInput
+  | ListVoiceConnectorTerminationCredentialsCommandInput
+  | ListVoiceConnectorsCommandInput
+  | LogoutUserCommandInput
+  | PutEventsConfigurationCommandInput
+  | PutVoiceConnectorLoggingConfigurationCommandInput
+  | PutVoiceConnectorOriginationCommandInput
+  | PutVoiceConnectorStreamingConfigurationCommandInput
+  | PutVoiceConnectorTerminationCommandInput
+  | PutVoiceConnectorTerminationCredentialsCommandInput
+  | RegenerateSecurityTokenCommandInput
+  | ResetPersonalPINCommandInput
+  | RestorePhoneNumberCommandInput
+  | SearchAvailablePhoneNumbersCommandInput
+  | UpdateAccountCommandInput
+  | UpdateAccountSettingsCommandInput
+  | UpdateBotCommandInput
+  | UpdateGlobalSettingsCommandInput
+  | UpdatePhoneNumberCommandInput
+  | UpdatePhoneNumberSettingsCommandInput
+  | UpdateRoomCommandInput
+  | UpdateRoomMembershipCommandInput
+  | UpdateUserCommandInput
+  | UpdateUserSettingsCommandInput
+  | UpdateVoiceConnectorCommandInput
+  | UpdateVoiceConnectorGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AssociatePhoneNumberWithUserResponse
-  | AssociatePhoneNumbersWithVoiceConnectorGroupResponse
-  | AssociatePhoneNumbersWithVoiceConnectorResponse
-  | AssociateSigninDelegateGroupsWithAccountResponse
-  | BatchCreateAttendeeResponse
-  | BatchCreateRoomMembershipResponse
-  | BatchDeletePhoneNumberResponse
-  | BatchSuspendUserResponse
-  | BatchUnsuspendUserResponse
-  | BatchUpdatePhoneNumberResponse
-  | BatchUpdateUserResponse
-  | CreateAccountResponse
-  | CreateAttendeeResponse
-  | CreateBotResponse
-  | CreateMeetingResponse
-  | CreatePhoneNumberOrderResponse
-  | CreateRoomMembershipResponse
-  | CreateRoomResponse
-  | CreateUserResponse
-  | CreateVoiceConnectorGroupResponse
-  | CreateVoiceConnectorResponse
-  | DeleteAccountResponse
-  | DisassociatePhoneNumberFromUserResponse
-  | DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
-  | DisassociatePhoneNumbersFromVoiceConnectorResponse
-  | DisassociateSigninDelegateGroupsFromAccountResponse
-  | GetAccountResponse
-  | GetAccountSettingsResponse
-  | GetAttendeeResponse
-  | GetBotResponse
-  | GetEventsConfigurationResponse
-  | GetGlobalSettingsResponse
-  | GetMeetingResponse
-  | GetPhoneNumberOrderResponse
-  | GetPhoneNumberResponse
-  | GetPhoneNumberSettingsResponse
-  | GetRoomResponse
-  | GetUserResponse
-  | GetUserSettingsResponse
-  | GetVoiceConnectorGroupResponse
-  | GetVoiceConnectorLoggingConfigurationResponse
-  | GetVoiceConnectorOriginationResponse
-  | GetVoiceConnectorResponse
-  | GetVoiceConnectorStreamingConfigurationResponse
-  | GetVoiceConnectorTerminationHealthResponse
-  | GetVoiceConnectorTerminationResponse
-  | InviteUsersResponse
-  | ListAccountsResponse
-  | ListAttendeesResponse
-  | ListBotsResponse
-  | ListMeetingsResponse
-  | ListPhoneNumberOrdersResponse
-  | ListPhoneNumbersResponse
-  | ListRoomMembershipsResponse
-  | ListRoomsResponse
-  | ListUsersResponse
-  | ListVoiceConnectorGroupsResponse
-  | ListVoiceConnectorTerminationCredentialsResponse
-  | ListVoiceConnectorsResponse
-  | LogoutUserResponse
-  | PutEventsConfigurationResponse
-  | PutVoiceConnectorLoggingConfigurationResponse
-  | PutVoiceConnectorOriginationResponse
-  | PutVoiceConnectorStreamingConfigurationResponse
-  | PutVoiceConnectorTerminationResponse
-  | RegenerateSecurityTokenResponse
-  | ResetPersonalPINResponse
-  | RestorePhoneNumberResponse
-  | SearchAvailablePhoneNumbersResponse
-  | UpdateAccountResponse
-  | UpdateAccountSettingsResponse
-  | UpdateBotResponse
-  | UpdatePhoneNumberResponse
-  | UpdateRoomMembershipResponse
-  | UpdateRoomResponse
-  | UpdateUserResponse
-  | UpdateVoiceConnectorGroupResponse
-  | UpdateVoiceConnectorResponse;
+  | AssociatePhoneNumberWithUserCommandOutput
+  | AssociatePhoneNumbersWithVoiceConnectorCommandOutput
+  | AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
+  | AssociateSigninDelegateGroupsWithAccountCommandOutput
+  | BatchCreateAttendeeCommandOutput
+  | BatchCreateRoomMembershipCommandOutput
+  | BatchDeletePhoneNumberCommandOutput
+  | BatchSuspendUserCommandOutput
+  | BatchUnsuspendUserCommandOutput
+  | BatchUpdatePhoneNumberCommandOutput
+  | BatchUpdateUserCommandOutput
+  | CreateAccountCommandOutput
+  | CreateAttendeeCommandOutput
+  | CreateBotCommandOutput
+  | CreateMeetingCommandOutput
+  | CreatePhoneNumberOrderCommandOutput
+  | CreateRoomCommandOutput
+  | CreateRoomMembershipCommandOutput
+  | CreateUserCommandOutput
+  | CreateVoiceConnectorCommandOutput
+  | CreateVoiceConnectorGroupCommandOutput
+  | DeleteAccountCommandOutput
+  | DeleteAttendeeCommandOutput
+  | DeleteEventsConfigurationCommandOutput
+  | DeleteMeetingCommandOutput
+  | DeletePhoneNumberCommandOutput
+  | DeleteRoomCommandOutput
+  | DeleteRoomMembershipCommandOutput
+  | DeleteVoiceConnectorCommandOutput
+  | DeleteVoiceConnectorGroupCommandOutput
+  | DeleteVoiceConnectorOriginationCommandOutput
+  | DeleteVoiceConnectorStreamingConfigurationCommandOutput
+  | DeleteVoiceConnectorTerminationCommandOutput
+  | DeleteVoiceConnectorTerminationCredentialsCommandOutput
+  | DisassociatePhoneNumberFromUserCommandOutput
+  | DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
+  | DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
+  | DisassociateSigninDelegateGroupsFromAccountCommandOutput
+  | GetAccountCommandOutput
+  | GetAccountSettingsCommandOutput
+  | GetAttendeeCommandOutput
+  | GetBotCommandOutput
+  | GetEventsConfigurationCommandOutput
+  | GetGlobalSettingsCommandOutput
+  | GetMeetingCommandOutput
+  | GetPhoneNumberCommandOutput
+  | GetPhoneNumberOrderCommandOutput
+  | GetPhoneNumberSettingsCommandOutput
+  | GetRoomCommandOutput
+  | GetUserCommandOutput
+  | GetUserSettingsCommandOutput
+  | GetVoiceConnectorCommandOutput
+  | GetVoiceConnectorGroupCommandOutput
+  | GetVoiceConnectorLoggingConfigurationCommandOutput
+  | GetVoiceConnectorOriginationCommandOutput
+  | GetVoiceConnectorStreamingConfigurationCommandOutput
+  | GetVoiceConnectorTerminationCommandOutput
+  | GetVoiceConnectorTerminationHealthCommandOutput
+  | InviteUsersCommandOutput
+  | ListAccountsCommandOutput
+  | ListAttendeesCommandOutput
+  | ListBotsCommandOutput
+  | ListMeetingsCommandOutput
+  | ListPhoneNumberOrdersCommandOutput
+  | ListPhoneNumbersCommandOutput
+  | ListRoomMembershipsCommandOutput
+  | ListRoomsCommandOutput
+  | ListUsersCommandOutput
+  | ListVoiceConnectorGroupsCommandOutput
+  | ListVoiceConnectorTerminationCredentialsCommandOutput
+  | ListVoiceConnectorsCommandOutput
+  | LogoutUserCommandOutput
+  | PutEventsConfigurationCommandOutput
+  | PutVoiceConnectorLoggingConfigurationCommandOutput
+  | PutVoiceConnectorOriginationCommandOutput
+  | PutVoiceConnectorStreamingConfigurationCommandOutput
+  | PutVoiceConnectorTerminationCommandOutput
+  | PutVoiceConnectorTerminationCredentialsCommandOutput
+  | RegenerateSecurityTokenCommandOutput
+  | ResetPersonalPINCommandOutput
+  | RestorePhoneNumberCommandOutput
+  | SearchAvailablePhoneNumbersCommandOutput
+  | UpdateAccountCommandOutput
+  | UpdateAccountSettingsCommandOutput
+  | UpdateBotCommandOutput
+  | UpdateGlobalSettingsCommandOutput
+  | UpdatePhoneNumberCommandOutput
+  | UpdatePhoneNumberSettingsCommandOutput
+  | UpdateRoomCommandOutput
+  | UpdateRoomMembershipCommandOutput
+  | UpdateUserCommandOutput
+  | UpdateUserSettingsCommandOutput
+  | UpdateVoiceConnectorCommandOutput
+  | UpdateVoiceConnectorGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPendingInvitationResourcesCommandInput = ListPendingInvitationResourcesRequest;
-export type ListPendingInvitationResourcesCommandOutput = ListPendingInvitationResourcesResponse;
+export type ListPendingInvitationResourcesCommandOutput = ListPendingInvitationResourcesResponse &
+  __MetadataBearer;
 
 export class ListPendingInvitationResourcesCommand extends $Command<
   ListPendingInvitationResourcesCommandInput,

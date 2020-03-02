@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeNFSFileSharesCommandInput = DescribeNFSFileSharesInput;
-export type DescribeNFSFileSharesCommandOutput = DescribeNFSFileSharesOutput;
+export type DescribeNFSFileSharesCommandOutput = DescribeNFSFileSharesOutput &
+  __MetadataBearer;
 
 export class DescribeNFSFileSharesCommand extends $Command<
   DescribeNFSFileSharesCommandInput,

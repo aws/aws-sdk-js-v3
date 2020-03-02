@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDetectorVersionStatusCommandInput = UpdateDetectorVersionStatusRequest;
-export type UpdateDetectorVersionStatusCommandOutput = UpdateDetectorVersionStatusResult;
+export type UpdateDetectorVersionStatusCommandOutput = UpdateDetectorVersionStatusResult &
+  __MetadataBearer;
 
 export class UpdateDetectorVersionStatusCommand extends $Command<
   UpdateDetectorVersionStatusCommandInput,

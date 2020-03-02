@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateEmailIdentityCommandInput = CreateEmailIdentityRequest;
-export type CreateEmailIdentityCommandOutput = CreateEmailIdentityResponse;
+export type CreateEmailIdentityCommandOutput = CreateEmailIdentityResponse &
+  __MetadataBearer;
 
 export class CreateEmailIdentityCommand extends $Command<
   CreateEmailIdentityCommandInput,

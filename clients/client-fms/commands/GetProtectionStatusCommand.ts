@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetProtectionStatusCommandInput = GetProtectionStatusRequest;
-export type GetProtectionStatusCommandOutput = GetProtectionStatusResponse;
+export type GetProtectionStatusCommandOutput = GetProtectionStatusResponse &
+  __MetadataBearer;
 
 export class GetProtectionStatusCommand extends $Command<
   GetProtectionStatusCommandInput,

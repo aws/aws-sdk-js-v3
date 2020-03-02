@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetJourneyDateRangeKpiCommandInput = GetJourneyDateRangeKpiRequest;
-export type GetJourneyDateRangeKpiCommandOutput = GetJourneyDateRangeKpiResponse;
+export type GetJourneyDateRangeKpiCommandOutput = GetJourneyDateRangeKpiResponse &
+  __MetadataBearer;
 
 export class GetJourneyDateRangeKpiCommand extends $Command<
   GetJourneyDateRangeKpiCommandInput,

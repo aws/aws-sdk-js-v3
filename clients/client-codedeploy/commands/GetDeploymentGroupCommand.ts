@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDeploymentGroupCommandInput = GetDeploymentGroupInput;
-export type GetDeploymentGroupCommandOutput = GetDeploymentGroupOutput;
+export type GetDeploymentGroupCommandOutput = GetDeploymentGroupOutput &
+  __MetadataBearer;
 
 export class GetDeploymentGroupCommand extends $Command<
   GetDeploymentGroupCommandInput,

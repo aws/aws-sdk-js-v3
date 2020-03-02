@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterInstancesFromLoadBalancerCommandInput = DeregisterEndPointsInput;
-export type DeregisterInstancesFromLoadBalancerCommandOutput = DeregisterEndPointsOutput;
+export type DeregisterInstancesFromLoadBalancerCommandOutput = DeregisterEndPointsOutput &
+  __MetadataBearer;
 
 export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
   DeregisterInstancesFromLoadBalancerCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInterconnectCommandInput = DeleteInterconnectRequest;
-export type DeleteInterconnectCommandOutput = DeleteInterconnectResponse;
+export type DeleteInterconnectCommandOutput = DeleteInterconnectResponse &
+  __MetadataBearer;
 
 export class DeleteInterconnectCommand extends $Command<
   DeleteInterconnectCommandInput,

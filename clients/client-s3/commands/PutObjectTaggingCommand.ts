@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutObjectTaggingCommandInput = PutObjectTaggingRequest;
-export type PutObjectTaggingCommandOutput = PutObjectTaggingOutput;
+export type PutObjectTaggingCommandOutput = PutObjectTaggingOutput &
+  __MetadataBearer;
 
 export class PutObjectTaggingCommand extends $Command<
   PutObjectTaggingCommandInput,

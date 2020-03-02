@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ClearDefaultAuthorizerCommandInput = ClearDefaultAuthorizerRequest;
-export type ClearDefaultAuthorizerCommandOutput = ClearDefaultAuthorizerResponse;
+export type ClearDefaultAuthorizerCommandOutput = ClearDefaultAuthorizerResponse &
+  __MetadataBearer;
 
 export class ClearDefaultAuthorizerCommand extends $Command<
   ClearDefaultAuthorizerCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendRawEmailCommandInput = SendRawEmailRequest;
-export type SendRawEmailCommandOutput = SendRawEmailResponse;
+export type SendRawEmailCommandOutput = SendRawEmailResponse & __MetadataBearer;
 
 export class SendRawEmailCommand extends $Command<
   SendRawEmailCommandInput,

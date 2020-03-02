@@ -360,38 +360,53 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
   switch (errorCode) {
     case "AttachmentLimitExceeded":
     case "com.amazon.awssupportapi.error#AttachmentLimitExceeded":
-      response = await deserializeAws_json1_1AttachmentLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AttachmentLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AttachmentSetExpired":
     case "com.amazon.awssupportapi.error#AttachmentSetExpired":
-      response = await deserializeAws_json1_1AttachmentSetExpiredResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AttachmentSetExpiredResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AttachmentSetIdNotFound":
     case "com.amazon.awssupportapi.error#AttachmentSetIdNotFound":
-      response = await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AttachmentSetSizeLimitExceeded":
     case "com.amazon.awssupportapi.error#AttachmentSetSizeLimitExceeded":
-      response = await deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -450,31 +465,43 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
   switch (errorCode) {
     case "AttachmentSetExpired":
     case "com.amazon.awssupportapi.error#AttachmentSetExpired":
-      response = await deserializeAws_json1_1AttachmentSetExpiredResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AttachmentSetExpiredResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AttachmentSetIdNotFound":
     case "com.amazon.awssupportapi.error#AttachmentSetIdNotFound":
-      response = await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CaseIdNotFound":
     case "com.amazon.awssupportapi.error#CaseIdNotFound":
-      response = await deserializeAws_json1_1CaseIdNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -527,31 +554,43 @@ async function deserializeAws_json1_1CreateCaseCommandError(
   switch (errorCode) {
     case "AttachmentSetExpired":
     case "com.amazon.awssupportapi.error#AttachmentSetExpired":
-      response = await deserializeAws_json1_1AttachmentSetExpiredResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AttachmentSetExpiredResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AttachmentSetIdNotFound":
     case "com.amazon.awssupportapi.error#AttachmentSetIdNotFound":
-      response = await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CaseCreationLimitExceeded":
     case "com.amazon.awssupportapi.error#CaseCreationLimitExceeded":
-      response = await deserializeAws_json1_1CaseCreationLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CaseCreationLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -607,24 +646,33 @@ async function deserializeAws_json1_1DescribeAttachmentCommandError(
   switch (errorCode) {
     case "AttachmentIdNotFound":
     case "com.amazon.awssupportapi.error#AttachmentIdNotFound":
-      response = await deserializeAws_json1_1AttachmentIdNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AttachmentIdNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DescribeAttachmentLimitExceeded":
     case "com.amazon.awssupportapi.error#DescribeAttachmentLimitExceeded":
-      response = await deserializeAws_json1_1DescribeAttachmentLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DescribeAttachmentLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -677,17 +725,23 @@ async function deserializeAws_json1_1DescribeCasesCommandError(
   switch (errorCode) {
     case "CaseIdNotFound":
     case "com.amazon.awssupportapi.error#CaseIdNotFound":
-      response = await deserializeAws_json1_1CaseIdNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -746,17 +800,23 @@ async function deserializeAws_json1_1DescribeCommunicationsCommandError(
   switch (errorCode) {
     case "CaseIdNotFound":
     case "com.amazon.awssupportapi.error#CaseIdNotFound":
-      response = await deserializeAws_json1_1CaseIdNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -809,10 +869,13 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -871,10 +934,13 @@ async function deserializeAws_json1_1DescribeSeverityLevelsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -927,17 +993,23 @@ async function deserializeAws_json1_1ResolveCaseCommandError(
   switch (errorCode) {
     case "CaseIdNotFound":
     case "com.amazon.awssupportapi.error#CaseIdNotFound":
-      response = await deserializeAws_json1_1CaseIdNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -996,10 +1068,13 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesC
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1058,10 +1133,13 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandErr
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1120,10 +1198,13 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1182,10 +1263,13 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1244,10 +1328,13 @@ async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

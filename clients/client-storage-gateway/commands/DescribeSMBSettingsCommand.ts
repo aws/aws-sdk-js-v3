@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSMBSettingsCommandInput = DescribeSMBSettingsInput;
-export type DescribeSMBSettingsCommandOutput = DescribeSMBSettingsOutput;
+export type DescribeSMBSettingsCommandOutput = DescribeSMBSettingsOutput &
+  __MetadataBearer;
 
 export class DescribeSMBSettingsCommand extends $Command<
   DescribeSMBSettingsCommandInput,

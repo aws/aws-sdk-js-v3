@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutConfigurationSetReputationOptionsCommandInput = PutConfigurationSetReputationOptionsRequest;
-export type PutConfigurationSetReputationOptionsCommandOutput = PutConfigurationSetReputationOptionsResponse;
+export type PutConfigurationSetReputationOptionsCommandOutput = PutConfigurationSetReputationOptionsResponse &
+  __MetadataBearer;
 
 export class PutConfigurationSetReputationOptionsCommand extends $Command<
   PutConfigurationSetReputationOptionsCommandInput,

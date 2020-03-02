@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateAssociationBatchCommandInput = CreateAssociationBatchRequest;
-export type CreateAssociationBatchCommandOutput = CreateAssociationBatchResult;
+export type CreateAssociationBatchCommandOutput = CreateAssociationBatchResult &
+  __MetadataBearer;
 
 export class CreateAssociationBatchCommand extends $Command<
   CreateAssociationBatchCommandInput,

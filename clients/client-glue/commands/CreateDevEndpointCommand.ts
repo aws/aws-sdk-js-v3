@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDevEndpointCommandInput = CreateDevEndpointRequest;
-export type CreateDevEndpointCommandOutput = CreateDevEndpointResponse;
+export type CreateDevEndpointCommandOutput = CreateDevEndpointResponse &
+  __MetadataBearer;
 
 export class CreateDevEndpointCommand extends $Command<
   CreateDevEndpointCommandInput,

@@ -1,13 +1,19 @@
 import {
-  DescribeStreamInput,
-  DescribeStreamOutput,
-  GetRecordsInput,
-  GetRecordsOutput,
-  GetShardIteratorInput,
-  GetShardIteratorOutput,
-  ListStreamsInput,
-  ListStreamsOutput
-} from "./models/index";
+  DescribeStreamCommandInput,
+  DescribeStreamCommandOutput
+} from "./commands/DescribeStreamCommand";
+import {
+  GetRecordsCommandInput,
+  GetRecordsCommandOutput
+} from "./commands/GetRecordsCommand";
+import {
+  GetShardIteratorCommandInput,
+  GetShardIteratorCommandOutput
+} from "./commands/GetShardIteratorCommand";
+import {
+  ListStreamsCommandInput,
+  ListStreamsCommandOutput
+} from "./commands/ListStreamsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,16 +67,16 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DescribeStreamInput
-  | GetRecordsInput
-  | GetShardIteratorInput
-  | ListStreamsInput;
+  | DescribeStreamCommandInput
+  | GetRecordsCommandInput
+  | GetShardIteratorCommandInput
+  | ListStreamsCommandInput;
 
 export type ServiceOutputTypes =
-  | DescribeStreamOutput
-  | GetRecordsOutput
-  | GetShardIteratorOutput
-  | ListStreamsOutput;
+  | DescribeStreamCommandOutput
+  | GetRecordsCommandOutput
+  | GetShardIteratorCommandOutput
+  | ListStreamsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

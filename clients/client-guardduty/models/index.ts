@@ -28,7 +28,7 @@ export namespace AcceptInvitationRequest {
   }
 }
 
-export interface AcceptInvitationResponse extends $MetadataBearer {
+export interface AcceptInvitationResponse {
   __type?: "AcceptInvitationResponse";
 }
 
@@ -149,7 +149,7 @@ export namespace ArchiveFindingsRequest {
   }
 }
 
-export interface ArchiveFindingsResponse extends $MetadataBearer {
+export interface ArchiveFindingsResponse {
   __type?: "ArchiveFindingsResponse";
 }
 
@@ -373,7 +373,7 @@ export namespace CreateDetectorRequest {
   }
 }
 
-export interface CreateDetectorResponse extends $MetadataBearer {
+export interface CreateDetectorResponse {
   __type?: "CreateDetectorResponse";
   /**
    * <p>The unique ID of the created detector.</p>
@@ -438,7 +438,7 @@ export namespace CreateFilterRequest {
   }
 }
 
-export interface CreateFilterResponse extends $MetadataBearer {
+export interface CreateFilterResponse {
   __type?: "CreateFilterResponse";
   /**
    * <p>The name of the successfully created filter.</p>
@@ -500,7 +500,7 @@ export namespace CreateIPSetRequest {
   }
 }
 
-export interface CreateIPSetResponse extends $MetadataBearer {
+export interface CreateIPSetResponse {
   __type?: "CreateIPSetResponse";
   /**
    * <p>The ID of the IPSet resource.</p>
@@ -535,7 +535,7 @@ export namespace CreateMembersRequest {
   }
 }
 
-export interface CreateMembersResponse extends $MetadataBearer {
+export interface CreateMembersResponse {
   __type?: "CreateMembersResponse";
   /**
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
@@ -581,7 +581,7 @@ export namespace CreatePublishingDestinationRequest {
   }
 }
 
-export interface CreatePublishingDestinationResponse extends $MetadataBearer {
+export interface CreatePublishingDestinationResponse {
   __type?: "CreatePublishingDestinationResponse";
   /**
    * <p>The ID of the publishing destination created.</p>
@@ -614,7 +614,7 @@ export namespace CreateSampleFindingsRequest {
   }
 }
 
-export interface CreateSampleFindingsResponse extends $MetadataBearer {
+export interface CreateSampleFindingsResponse {
   __type?: "CreateSampleFindingsResponse";
 }
 
@@ -672,7 +672,7 @@ export namespace CreateThreatIntelSetRequest {
   }
 }
 
-export interface CreateThreatIntelSetResponse extends $MetadataBearer {
+export interface CreateThreatIntelSetResponse {
   __type?: "CreateThreatIntelSetResponse";
   /**
    * <p>The ID of the ThreatIntelSet resource.</p>
@@ -701,7 +701,7 @@ export namespace DeclineInvitationsRequest {
   }
 }
 
-export interface DeclineInvitationsResponse extends $MetadataBearer {
+export interface DeclineInvitationsResponse {
   __type?: "DeclineInvitationsResponse";
   /**
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
@@ -730,7 +730,7 @@ export namespace DeleteDetectorRequest {
   }
 }
 
-export interface DeleteDetectorResponse extends $MetadataBearer {
+export interface DeleteDetectorResponse {
   __type?: "DeleteDetectorResponse";
 }
 
@@ -759,7 +759,7 @@ export namespace DeleteFilterRequest {
   }
 }
 
-export interface DeleteFilterResponse extends $MetadataBearer {
+export interface DeleteFilterResponse {
   __type?: "DeleteFilterResponse";
 }
 
@@ -788,7 +788,7 @@ export namespace DeleteIPSetRequest {
   }
 }
 
-export interface DeleteIPSetResponse extends $MetadataBearer {
+export interface DeleteIPSetResponse {
   __type?: "DeleteIPSetResponse";
 }
 
@@ -813,7 +813,7 @@ export namespace DeleteInvitationsRequest {
   }
 }
 
-export interface DeleteInvitationsResponse extends $MetadataBearer {
+export interface DeleteInvitationsResponse {
   __type?: "DeleteInvitationsResponse";
   /**
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
@@ -848,7 +848,7 @@ export namespace DeleteMembersRequest {
   }
 }
 
-export interface DeleteMembersResponse extends $MetadataBearer {
+export interface DeleteMembersResponse {
   __type?: "DeleteMembersResponse";
   /**
    * <p>The accounts that could not be processed.</p>
@@ -881,7 +881,7 @@ export namespace DeletePublishingDestinationRequest {
   }
 }
 
-export interface DeletePublishingDestinationResponse extends $MetadataBearer {
+export interface DeletePublishingDestinationResponse {
   __type?: "DeletePublishingDestinationResponse";
 }
 
@@ -910,7 +910,7 @@ export namespace DeleteThreatIntelSetRequest {
   }
 }
 
-export interface DeleteThreatIntelSetResponse extends $MetadataBearer {
+export interface DeleteThreatIntelSetResponse {
   __type?: "DeleteThreatIntelSetResponse";
 }
 
@@ -940,7 +940,7 @@ export namespace DescribePublishingDestinationRequest {
   }
 }
 
-export interface DescribePublishingDestinationResponse extends $MetadataBearer {
+export interface DescribePublishingDestinationResponse {
   __type?: "DescribePublishingDestinationResponse";
   /**
    * <p>The ID of the publishing destination.</p>
@@ -1050,7 +1050,7 @@ export namespace DisassociateFromMasterAccountRequest {
   }
 }
 
-export interface DisassociateFromMasterAccountResponse extends $MetadataBearer {
+export interface DisassociateFromMasterAccountResponse {
   __type?: "DisassociateFromMasterAccountResponse";
 }
 
@@ -1081,7 +1081,7 @@ export namespace DisassociateMembersRequest {
   }
 }
 
-export interface DisassociateMembersResponse extends $MetadataBearer {
+export interface DisassociateMembersResponse {
   __type?: "DisassociateMembersResponse";
   /**
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
@@ -1327,7 +1327,7 @@ export namespace GetDetectorRequest {
   }
 }
 
-export interface GetDetectorResponse extends $MetadataBearer {
+export interface GetDetectorResponse {
   __type?: "GetDetectorResponse";
   /**
    * <p>Detector creation timestamp.</p>
@@ -1385,7 +1385,7 @@ export namespace GetFilterRequest {
   }
 }
 
-export interface GetFilterResponse extends $MetadataBearer {
+export interface GetFilterResponse {
   __type?: "GetFilterResponse";
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
@@ -1450,7 +1450,7 @@ export namespace GetFindingsRequest {
   }
 }
 
-export interface GetFindingsResponse extends $MetadataBearer {
+export interface GetFindingsResponse {
   __type?: "GetFindingsResponse";
   /**
    * <p>A list of findings.</p>
@@ -1489,7 +1489,7 @@ export namespace GetFindingsStatisticsRequest {
   }
 }
 
-export interface GetFindingsStatisticsResponse extends $MetadataBearer {
+export interface GetFindingsStatisticsResponse {
   __type?: "GetFindingsStatisticsResponse";
   /**
    * <p>Finding statistics object.</p>
@@ -1522,7 +1522,7 @@ export namespace GetIPSetRequest {
   }
 }
 
-export interface GetIPSetResponse extends $MetadataBearer {
+export interface GetIPSetResponse {
   __type?: "GetIPSetResponse";
   /**
    * <p>The format of the file that contains the IPSet.</p>
@@ -1567,7 +1567,7 @@ export namespace GetInvitationsCountRequest {
   }
 }
 
-export interface GetInvitationsCountResponse extends $MetadataBearer {
+export interface GetInvitationsCountResponse {
   __type?: "GetInvitationsCountResponse";
   /**
    * <p>The number of received invitations.</p>
@@ -1595,7 +1595,7 @@ export namespace GetMasterAccountRequest {
   }
 }
 
-export interface GetMasterAccountResponse extends $MetadataBearer {
+export interface GetMasterAccountResponse {
   __type?: "GetMasterAccountResponse";
   /**
    * <p>Master account details.</p>
@@ -1629,7 +1629,7 @@ export namespace GetMembersRequest {
   }
 }
 
-export interface GetMembersResponse extends $MetadataBearer {
+export interface GetMembersResponse {
   __type?: "GetMembersResponse";
   /**
    * <p>A list of members.</p>
@@ -1668,7 +1668,7 @@ export namespace GetThreatIntelSetRequest {
   }
 }
 
-export interface GetThreatIntelSetResponse extends $MetadataBearer {
+export interface GetThreatIntelSetResponse {
   __type?: "GetThreatIntelSetResponse";
   /**
    * <p>The format of the threatIntelSet.</p>
@@ -1889,7 +1889,7 @@ export namespace InviteMembersRequest {
   }
 }
 
-export interface InviteMembersResponse extends $MetadataBearer {
+export interface InviteMembersResponse {
   __type?: "InviteMembersResponse";
   /**
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
@@ -1946,7 +1946,7 @@ export namespace ListDetectorsRequest {
   }
 }
 
-export interface ListDetectorsResponse extends $MetadataBearer {
+export interface ListDetectorsResponse {
   __type?: "ListDetectorsResponse";
   /**
    * <p>A list of detector Ids.</p>
@@ -1993,7 +1993,7 @@ export namespace ListFiltersRequest {
   }
 }
 
-export interface ListFiltersResponse extends $MetadataBearer {
+export interface ListFiltersResponse {
   __type?: "ListFiltersResponse";
   /**
    * <p>A list of filter names</p>
@@ -2207,7 +2207,7 @@ export namespace ListFindingsRequest {
   }
 }
 
-export interface ListFindingsResponse extends $MetadataBearer {
+export interface ListFindingsResponse {
   __type?: "ListFindingsResponse";
   /**
    * <p>The IDs of the findings you are listing.</p>
@@ -2254,7 +2254,7 @@ export namespace ListIPSetsRequest {
   }
 }
 
-export interface ListIPSetsResponse extends $MetadataBearer {
+export interface ListIPSetsResponse {
   __type?: "ListIPSetsResponse";
   /**
    * <p>The IDs of the IPSet resources.</p>
@@ -2296,7 +2296,7 @@ export namespace ListInvitationsRequest {
   }
 }
 
-export interface ListInvitationsResponse extends $MetadataBearer {
+export interface ListInvitationsResponse {
   __type?: "ListInvitationsResponse";
   /**
    * <p>A list of invitation descriptions.</p>
@@ -2349,7 +2349,7 @@ export namespace ListMembersRequest {
   }
 }
 
-export interface ListMembersResponse extends $MetadataBearer {
+export interface ListMembersResponse {
   __type?: "ListMembersResponse";
   /**
    * <p>A list of members.</p>
@@ -2395,7 +2395,7 @@ export namespace ListPublishingDestinationsRequest {
   }
 }
 
-export interface ListPublishingDestinationsResponse extends $MetadataBearer {
+export interface ListPublishingDestinationsResponse {
   __type?: "ListPublishingDestinationsResponse";
   /**
    * <p>A <code>Destinations</code> obect that includes information about each publishing
@@ -2432,7 +2432,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags associated with the resource.</p>
@@ -2474,7 +2474,7 @@ export namespace ListThreatIntelSetsRequest {
   }
 }
 
-export interface ListThreatIntelSetsResponse extends $MetadataBearer {
+export interface ListThreatIntelSetsResponse {
   __type?: "ListThreatIntelSetsResponse";
   /**
    * <p>Pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -3047,7 +3047,7 @@ export namespace StartMonitoringMembersRequest {
   }
 }
 
-export interface StartMonitoringMembersResponse extends $MetadataBearer {
+export interface StartMonitoringMembersResponse {
   __type?: "StartMonitoringMembersResponse";
   /**
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
@@ -3083,7 +3083,7 @@ export namespace StopMonitoringMembersRequest {
   }
 }
 
-export interface StopMonitoringMembersResponse extends $MetadataBearer {
+export interface StopMonitoringMembersResponse {
   __type?: "StopMonitoringMembersResponse";
   /**
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
@@ -3139,7 +3139,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -3211,7 +3211,7 @@ export namespace UnarchiveFindingsRequest {
   }
 }
 
-export interface UnarchiveFindingsResponse extends $MetadataBearer {
+export interface UnarchiveFindingsResponse {
   __type?: "UnarchiveFindingsResponse";
 }
 
@@ -3262,7 +3262,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -3296,7 +3296,7 @@ export namespace UpdateDetectorRequest {
   }
 }
 
-export interface UpdateDetectorResponse extends $MetadataBearer {
+export interface UpdateDetectorResponse {
   __type?: "UpdateDetectorResponse";
 }
 
@@ -3347,7 +3347,7 @@ export namespace UpdateFilterRequest {
   }
 }
 
-export interface UpdateFilterResponse extends $MetadataBearer {
+export interface UpdateFilterResponse {
   __type?: "UpdateFilterResponse";
   /**
    * <p>The name of the filter.</p>
@@ -3390,7 +3390,7 @@ export namespace UpdateFindingsFeedbackRequest {
   }
 }
 
-export interface UpdateFindingsFeedbackResponse extends $MetadataBearer {
+export interface UpdateFindingsFeedbackResponse {
   __type?: "UpdateFindingsFeedbackResponse";
 }
 
@@ -3435,7 +3435,7 @@ export namespace UpdateIPSetRequest {
   }
 }
 
-export interface UpdateIPSetResponse extends $MetadataBearer {
+export interface UpdateIPSetResponse {
   __type?: "UpdateIPSetResponse";
 }
 
@@ -3470,7 +3470,7 @@ export namespace UpdatePublishingDestinationRequest {
   }
 }
 
-export interface UpdatePublishingDestinationResponse extends $MetadataBearer {
+export interface UpdatePublishingDestinationResponse {
   __type?: "UpdatePublishingDestinationResponse";
 }
 
@@ -3517,7 +3517,7 @@ export namespace UpdateThreatIntelSetRequest {
   }
 }
 
-export interface UpdateThreatIntelSetResponse extends $MetadataBearer {
+export interface UpdateThreatIntelSetResponse {
   __type?: "UpdateThreatIntelSetResponse";
 }
 

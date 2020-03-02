@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSavingsPlanRatesCommandInput = DescribeSavingsPlanRatesRequest;
-export type DescribeSavingsPlanRatesCommandOutput = DescribeSavingsPlanRatesResponse;
+export type DescribeSavingsPlanRatesCommandOutput = DescribeSavingsPlanRatesResponse &
+  __MetadataBearer;
 
 export class DescribeSavingsPlanRatesCommand extends $Command<
   DescribeSavingsPlanRatesCommandInput,

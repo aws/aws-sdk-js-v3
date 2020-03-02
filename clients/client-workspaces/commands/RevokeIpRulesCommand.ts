@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeIpRulesCommandInput = RevokeIpRulesRequest;
-export type RevokeIpRulesCommandOutput = RevokeIpRulesResult;
+export type RevokeIpRulesCommandOutput = RevokeIpRulesResult & __MetadataBearer;
 
 export class RevokeIpRulesCommand extends $Command<
   RevokeIpRulesCommandInput,

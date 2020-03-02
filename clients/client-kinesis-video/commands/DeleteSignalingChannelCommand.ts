@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSignalingChannelCommandInput = DeleteSignalingChannelInput;
-export type DeleteSignalingChannelCommandOutput = DeleteSignalingChannelOutput;
+export type DeleteSignalingChannelCommandOutput = DeleteSignalingChannelOutput &
+  __MetadataBearer;
 
 export class DeleteSignalingChannelCommand extends $Command<
   DeleteSignalingChannelCommandInput,

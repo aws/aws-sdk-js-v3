@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDynamicThingGroupCommandInput = DeleteDynamicThingGroupRequest;
-export type DeleteDynamicThingGroupCommandOutput = DeleteDynamicThingGroupResponse;
+export type DeleteDynamicThingGroupCommandOutput = DeleteDynamicThingGroupResponse &
+  __MetadataBearer;
 
 export class DeleteDynamicThingGroupCommand extends $Command<
   DeleteDynamicThingGroupCommandInput,

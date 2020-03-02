@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateHttpNamespaceCommandInput = CreateHttpNamespaceRequest;
-export type CreateHttpNamespaceCommandOutput = CreateHttpNamespaceResponse;
+export type CreateHttpNamespaceCommandOutput = CreateHttpNamespaceResponse &
+  __MetadataBearer;
 
 export class CreateHttpNamespaceCommand extends $Command<
   CreateHttpNamespaceCommandInput,

@@ -319,8 +319,7 @@ export namespace CreateCertificateAuthorityAuditReportRequest {
   }
 }
 
-export interface CreateCertificateAuthorityAuditReportResponse
-  extends $MetadataBearer {
+export interface CreateCertificateAuthorityAuditReportResponse {
   __type?: "CreateCertificateAuthorityAuditReportResponse";
   /**
    * <p>An alphanumeric string that contains a report identifier.</p>
@@ -389,7 +388,7 @@ export namespace CreateCertificateAuthorityRequest {
   }
 }
 
-export interface CreateCertificateAuthorityResponse extends $MetadataBearer {
+export interface CreateCertificateAuthorityResponse {
   __type?: "CreateCertificateAuthorityResponse";
   /**
    * <p>If successful, the Amazon Resource Name (ARN) of the certificate authority (CA). This
@@ -670,8 +669,7 @@ export namespace DescribeCertificateAuthorityAuditReportRequest {
   }
 }
 
-export interface DescribeCertificateAuthorityAuditReportResponse
-  extends $MetadataBearer {
+export interface DescribeCertificateAuthorityAuditReportResponse {
   __type?: "DescribeCertificateAuthorityAuditReportResponse";
   /**
    * <p>Specifies whether report creation is in progress, has succeeded, or has failed.</p>
@@ -721,7 +719,7 @@ export namespace DescribeCertificateAuthorityRequest {
   }
 }
 
-export interface DescribeCertificateAuthorityResponse extends $MetadataBearer {
+export interface DescribeCertificateAuthorityResponse {
   __type?: "DescribeCertificateAuthorityResponse";
   /**
    * <p>A <a>CertificateAuthority</a> structure that contains information about
@@ -760,8 +758,7 @@ export namespace GetCertificateAuthorityCertificateRequest {
   }
 }
 
-export interface GetCertificateAuthorityCertificateResponse
-  extends $MetadataBearer {
+export interface GetCertificateAuthorityCertificateResponse {
   __type?: "GetCertificateAuthorityCertificateResponse";
   /**
    * <p>Base64-encoded certificate authority (CA) certificate.</p>
@@ -801,7 +798,7 @@ export namespace GetCertificateAuthorityCsrRequest {
   }
 }
 
-export interface GetCertificateAuthorityCsrResponse extends $MetadataBearer {
+export interface GetCertificateAuthorityCsrResponse {
   __type?: "GetCertificateAuthorityCsrResponse";
   /**
    * <p>The base64 PEM-encoded certificate signing request (CSR) for your private CA
@@ -844,7 +841,7 @@ export namespace GetCertificateRequest {
   }
 }
 
-export interface GetCertificateResponse extends $MetadataBearer {
+export interface GetCertificateResponse {
   __type?: "GetCertificateResponse";
   /**
    * <p>The base64 PEM-encoded certificate specified by the <code>CertificateArn</code>
@@ -1112,7 +1109,7 @@ export namespace IssueCertificateRequest {
   }
 }
 
-export interface IssueCertificateResponse extends $MetadataBearer {
+export interface IssueCertificateResponse {
   __type?: "IssueCertificateResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the issued certificate and the certificate serial
@@ -1181,7 +1178,7 @@ export namespace ListCertificateAuthoritiesRequest {
   }
 }
 
-export interface ListCertificateAuthoritiesResponse extends $MetadataBearer {
+export interface ListCertificateAuthoritiesResponse {
   __type?: "ListCertificateAuthoritiesResponse";
   /**
    * <p>Summary information about each certificate authority you have created.</p>
@@ -1234,7 +1231,7 @@ export namespace ListPermissionsRequest {
   }
 }
 
-export interface ListPermissionsResponse extends $MetadataBearer {
+export interface ListPermissionsResponse {
   __type?: "ListPermissionsResponse";
   /**
    * <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.
@@ -1288,7 +1285,7 @@ export namespace ListTagsRequest {
   }
 }
 
-export interface ListTagsResponse extends $MetadataBearer {
+export interface ListTagsResponse {
   __type?: "ListTagsResponse";
   /**
    * <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.

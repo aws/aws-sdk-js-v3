@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMediaCommandInput = GetMediaInput;
-export type GetMediaCommandOutput = GetMediaOutput;
+export type GetMediaCommandOutput = GetMediaOutput & __MetadataBearer;
 
 export class GetMediaCommand extends $Command<
   GetMediaCommandInput,

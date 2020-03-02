@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMatchmakingCommandInput = DescribeMatchmakingInput;
-export type DescribeMatchmakingCommandOutput = DescribeMatchmakingOutput;
+export type DescribeMatchmakingCommandOutput = DescribeMatchmakingOutput &
+  __MetadataBearer;
 
 export class DescribeMatchmakingCommand extends $Command<
   DescribeMatchmakingCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePlaybackConfigurationCommandInput = DeletePlaybackConfigurationRequest;
-export type DeletePlaybackConfigurationCommandOutput = DeletePlaybackConfigurationResponse;
+export type DeletePlaybackConfigurationCommandOutput = DeletePlaybackConfigurationResponse &
+  __MetadataBearer;
 
 export class DeletePlaybackConfigurationCommand extends $Command<
   DeletePlaybackConfigurationCommandInput,

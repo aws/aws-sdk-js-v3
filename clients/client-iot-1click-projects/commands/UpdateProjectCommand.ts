@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateProjectCommandInput = UpdateProjectRequest;
-export type UpdateProjectCommandOutput = UpdateProjectResponse;
+export type UpdateProjectCommandOutput = UpdateProjectResponse &
+  __MetadataBearer;
 
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,

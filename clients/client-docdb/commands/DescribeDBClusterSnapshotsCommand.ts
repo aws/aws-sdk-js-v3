@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDBClusterSnapshotsCommandInput = DescribeDBClusterSnapshotsMessage;
-export type DescribeDBClusterSnapshotsCommandOutput = DBClusterSnapshotMessage;
+export type DescribeDBClusterSnapshotsCommandOutput = DBClusterSnapshotMessage &
+  __MetadataBearer;
 
 export class DescribeDBClusterSnapshotsCommand extends $Command<
   DescribeDBClusterSnapshotsCommandInput,

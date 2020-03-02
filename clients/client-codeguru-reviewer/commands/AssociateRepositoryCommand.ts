@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateRepositoryCommandInput = AssociateRepositoryRequest;
-export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse;
+export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse &
+  __MetadataBearer;
 
 export class AssociateRepositoryCommand extends $Command<
   AssociateRepositoryCommandInput,

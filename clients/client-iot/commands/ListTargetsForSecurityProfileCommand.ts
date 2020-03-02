@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTargetsForSecurityProfileCommandInput = ListTargetsForSecurityProfileRequest;
-export type ListTargetsForSecurityProfileCommandOutput = ListTargetsForSecurityProfileResponse;
+export type ListTargetsForSecurityProfileCommandOutput = ListTargetsForSecurityProfileResponse &
+  __MetadataBearer;
 
 export class ListTargetsForSecurityProfileCommand extends $Command<
   ListTargetsForSecurityProfileCommandInput,

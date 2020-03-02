@@ -1,55 +1,103 @@
 import {
-  AssociateCertificateRequest,
-  AssociateCertificateResponse,
-  CancelJobRequest,
-  CancelJobResponse,
-  CreateJobRequest,
-  CreateJobResponse,
-  CreateJobTemplateRequest,
-  CreateJobTemplateResponse,
-  CreatePresetRequest,
-  CreatePresetResponse,
-  CreateQueueRequest,
-  CreateQueueResponse,
-  DeleteJobTemplateRequest,
-  DeleteJobTemplateResponse,
-  DeletePresetRequest,
-  DeletePresetResponse,
-  DeleteQueueRequest,
-  DeleteQueueResponse,
-  DescribeEndpointsRequest,
-  DescribeEndpointsResponse,
-  DisassociateCertificateRequest,
-  DisassociateCertificateResponse,
-  GetJobRequest,
-  GetJobResponse,
-  GetJobTemplateRequest,
-  GetJobTemplateResponse,
-  GetPresetRequest,
-  GetPresetResponse,
-  GetQueueRequest,
-  GetQueueResponse,
-  ListJobTemplatesRequest,
-  ListJobTemplatesResponse,
-  ListJobsRequest,
-  ListJobsResponse,
-  ListPresetsRequest,
-  ListPresetsResponse,
-  ListQueuesRequest,
-  ListQueuesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateJobTemplateRequest,
-  UpdateJobTemplateResponse,
-  UpdatePresetRequest,
-  UpdatePresetResponse,
-  UpdateQueueRequest,
-  UpdateQueueResponse
-} from "./models/index";
+  AssociateCertificateCommandInput,
+  AssociateCertificateCommandOutput
+} from "./commands/AssociateCertificateCommand";
+import {
+  CancelJobCommandInput,
+  CancelJobCommandOutput
+} from "./commands/CancelJobCommand";
+import {
+  CreateJobCommandInput,
+  CreateJobCommandOutput
+} from "./commands/CreateJobCommand";
+import {
+  CreateJobTemplateCommandInput,
+  CreateJobTemplateCommandOutput
+} from "./commands/CreateJobTemplateCommand";
+import {
+  CreatePresetCommandInput,
+  CreatePresetCommandOutput
+} from "./commands/CreatePresetCommand";
+import {
+  CreateQueueCommandInput,
+  CreateQueueCommandOutput
+} from "./commands/CreateQueueCommand";
+import {
+  DeleteJobTemplateCommandInput,
+  DeleteJobTemplateCommandOutput
+} from "./commands/DeleteJobTemplateCommand";
+import {
+  DeletePresetCommandInput,
+  DeletePresetCommandOutput
+} from "./commands/DeletePresetCommand";
+import {
+  DeleteQueueCommandInput,
+  DeleteQueueCommandOutput
+} from "./commands/DeleteQueueCommand";
+import {
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput
+} from "./commands/DescribeEndpointsCommand";
+import {
+  DisassociateCertificateCommandInput,
+  DisassociateCertificateCommandOutput
+} from "./commands/DisassociateCertificateCommand";
+import {
+  GetJobCommandInput,
+  GetJobCommandOutput
+} from "./commands/GetJobCommand";
+import {
+  GetJobTemplateCommandInput,
+  GetJobTemplateCommandOutput
+} from "./commands/GetJobTemplateCommand";
+import {
+  GetPresetCommandInput,
+  GetPresetCommandOutput
+} from "./commands/GetPresetCommand";
+import {
+  GetQueueCommandInput,
+  GetQueueCommandOutput
+} from "./commands/GetQueueCommand";
+import {
+  ListJobTemplatesCommandInput,
+  ListJobTemplatesCommandOutput
+} from "./commands/ListJobTemplatesCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  ListPresetsCommandInput,
+  ListPresetsCommandOutput
+} from "./commands/ListPresetsCommand";
+import {
+  ListQueuesCommandInput,
+  ListQueuesCommandOutput
+} from "./commands/ListQueuesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateJobTemplateCommandInput,
+  UpdateJobTemplateCommandOutput
+} from "./commands/UpdateJobTemplateCommand";
+import {
+  UpdatePresetCommandInput,
+  UpdatePresetCommandOutput
+} from "./commands/UpdatePresetCommand";
+import {
+  UpdateQueueCommandInput,
+  UpdateQueueCommandOutput
+} from "./commands/UpdateQueueCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -103,58 +151,58 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateCertificateRequest
-  | CancelJobRequest
-  | CreateJobRequest
-  | CreateJobTemplateRequest
-  | CreatePresetRequest
-  | CreateQueueRequest
-  | DeleteJobTemplateRequest
-  | DeletePresetRequest
-  | DeleteQueueRequest
-  | DescribeEndpointsRequest
-  | DisassociateCertificateRequest
-  | GetJobRequest
-  | GetJobTemplateRequest
-  | GetPresetRequest
-  | GetQueueRequest
-  | ListJobTemplatesRequest
-  | ListJobsRequest
-  | ListPresetsRequest
-  | ListQueuesRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateJobTemplateRequest
-  | UpdatePresetRequest
-  | UpdateQueueRequest;
+  | AssociateCertificateCommandInput
+  | CancelJobCommandInput
+  | CreateJobCommandInput
+  | CreateJobTemplateCommandInput
+  | CreatePresetCommandInput
+  | CreateQueueCommandInput
+  | DeleteJobTemplateCommandInput
+  | DeletePresetCommandInput
+  | DeleteQueueCommandInput
+  | DescribeEndpointsCommandInput
+  | DisassociateCertificateCommandInput
+  | GetJobCommandInput
+  | GetJobTemplateCommandInput
+  | GetPresetCommandInput
+  | GetQueueCommandInput
+  | ListJobTemplatesCommandInput
+  | ListJobsCommandInput
+  | ListPresetsCommandInput
+  | ListQueuesCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateJobTemplateCommandInput
+  | UpdatePresetCommandInput
+  | UpdateQueueCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateCertificateResponse
-  | CancelJobResponse
-  | CreateJobResponse
-  | CreateJobTemplateResponse
-  | CreatePresetResponse
-  | CreateQueueResponse
-  | DeleteJobTemplateResponse
-  | DeletePresetResponse
-  | DeleteQueueResponse
-  | DescribeEndpointsResponse
-  | DisassociateCertificateResponse
-  | GetJobResponse
-  | GetJobTemplateResponse
-  | GetPresetResponse
-  | GetQueueResponse
-  | ListJobTemplatesResponse
-  | ListJobsResponse
-  | ListPresetsResponse
-  | ListQueuesResponse
-  | ListTagsForResourceResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateJobTemplateResponse
-  | UpdatePresetResponse
-  | UpdateQueueResponse;
+  | AssociateCertificateCommandOutput
+  | CancelJobCommandOutput
+  | CreateJobCommandOutput
+  | CreateJobTemplateCommandOutput
+  | CreatePresetCommandOutput
+  | CreateQueueCommandOutput
+  | DeleteJobTemplateCommandOutput
+  | DeletePresetCommandOutput
+  | DeleteQueueCommandOutput
+  | DescribeEndpointsCommandOutput
+  | DisassociateCertificateCommandOutput
+  | GetJobCommandOutput
+  | GetJobTemplateCommandOutput
+  | GetPresetCommandOutput
+  | GetQueueCommandOutput
+  | ListJobTemplatesCommandOutput
+  | ListJobsCommandOutput
+  | ListPresetsCommandOutput
+  | ListQueuesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateJobTemplateCommandOutput
+  | UpdatePresetCommandOutput
+  | UpdateQueueCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CountPendingActivityTasksCommandInput = CountPendingActivityTasksInput;
-export type CountPendingActivityTasksCommandOutput = PendingTaskCount;
+export type CountPendingActivityTasksCommandOutput = PendingTaskCount &
+  __MetadataBearer;
 
 export class CountPendingActivityTasksCommand extends $Command<
   CountPendingActivityTasksCommandInput,

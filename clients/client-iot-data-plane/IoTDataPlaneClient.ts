@@ -1,12 +1,19 @@
 import {
-  DeleteThingShadowRequest,
-  DeleteThingShadowResponse,
-  GetThingShadowRequest,
-  GetThingShadowResponse,
-  PublishRequest,
-  UpdateThingShadowRequest,
-  UpdateThingShadowResponse
-} from "./models/index";
+  DeleteThingShadowCommandInput,
+  DeleteThingShadowCommandOutput
+} from "./commands/DeleteThingShadowCommand";
+import {
+  GetThingShadowCommandInput,
+  GetThingShadowCommandOutput
+} from "./commands/GetThingShadowCommand";
+import {
+  PublishCommandInput,
+  PublishCommandOutput
+} from "./commands/PublishCommand";
+import {
+  UpdateThingShadowCommandInput,
+  UpdateThingShadowCommandOutput
+} from "./commands/UpdateThingShadowCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -54,23 +61,22 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteThingShadowRequest
-  | GetThingShadowRequest
-  | PublishRequest
-  | UpdateThingShadowRequest;
+  | DeleteThingShadowCommandInput
+  | GetThingShadowCommandInput
+  | PublishCommandInput
+  | UpdateThingShadowCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | DeleteThingShadowResponse
-  | GetThingShadowResponse
-  | UpdateThingShadowResponse;
+  | DeleteThingShadowCommandOutput
+  | GetThingShadowCommandOutput
+  | PublishCommandOutput
+  | UpdateThingShadowCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

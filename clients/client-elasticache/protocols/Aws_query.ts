@@ -1296,31 +1296,43 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidARNFault":
     case "elmo.admin#InvalidARNFault":
-      response = await deserializeAws_queryInvalidARNFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidARNFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotNotFoundFault":
     case "elmo.admin#SnapshotNotFoundFault":
-      response = await deserializeAws_querySnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagQuotaPerResourceExceeded":
     case "elmo.admin#TagQuotaPerResourceExceeded":
-      response = await deserializeAws_queryTagQuotaPerResourceExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1378,38 +1390,53 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationAlreadyExistsFault":
     case "elmo.admin#AuthorizationAlreadyExistsFault":
-      response = await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupNotFoundFault":
     case "elmo.admin#CacheSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheSecurityGroupStateFault":
     case "elmo.admin#InvalidCacheSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1467,17 +1494,23 @@ async function deserializeAws_queryBatchApplyUpdateActionCommandError(
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUpdateNotFoundFault":
     case "elmo.admin#ServiceUpdateNotFoundFault":
-      response = await deserializeAws_queryServiceUpdateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceUpdateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1535,17 +1568,23 @@ async function deserializeAws_queryBatchStopUpdateActionCommandError(
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUpdateNotFoundFault":
     case "elmo.admin#ServiceUpdateNotFoundFault":
-      response = await deserializeAws_queryServiceUpdateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceUpdateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1600,24 +1639,33 @@ async function deserializeAws_queryCompleteMigrationCommandError(
   switch (errorCode) {
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotUnderMigrationFault":
     case "elmo.admin#ReplicationGroupNotUnderMigrationFault":
-      response = await deserializeAws_queryReplicationGroupNotUnderMigrationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotUnderMigrationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1672,45 +1720,63 @@ async function deserializeAws_queryCopySnapshotCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSnapshotStateFault":
     case "elmo.admin#InvalidSnapshotStateFault":
-      response = await deserializeAws_queryInvalidSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotAlreadyExistsFault":
     case "elmo.admin#SnapshotAlreadyExistsFault":
-      response = await deserializeAws_querySnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotNotFoundFault":
     case "elmo.admin#SnapshotNotFoundFault":
-      response = await deserializeAws_querySnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "elmo.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1765,101 +1831,143 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheClusterAlreadyExistsFault":
     case "elmo.admin#CacheClusterAlreadyExistsFault":
-      response = await deserializeAws_queryCacheClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupNotFoundFault":
     case "elmo.admin#CacheParameterGroupNotFoundFault":
-      response = await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupNotFoundFault":
     case "elmo.admin#CacheSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSubnetGroupNotFoundFault":
     case "elmo.admin#CacheSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterQuotaForCustomerExceededFault":
     case "elmo.admin#ClusterQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCacheClusterCapacityFault":
     case "elmo.admin#InsufficientCacheClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "elmo.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForClusterExceededFault":
     case "elmo.admin#NodeQuotaForClusterExceededFault":
-      response = await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForCustomerExceededFault":
     case "elmo.admin#NodeQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagQuotaPerResourceExceeded":
     case "elmo.admin#TagQuotaPerResourceExceeded":
-      response = await deserializeAws_queryTagQuotaPerResourceExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1917,38 +2025,53 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupAlreadyExistsFault":
     case "elmo.admin#CacheParameterGroupAlreadyExistsFault":
-      response = await deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupQuotaExceededFault":
     case "elmo.admin#CacheParameterGroupQuotaExceededFault":
-      response = await deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheParameterGroupStateFault":
     case "elmo.admin#InvalidCacheParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2006,31 +2129,43 @@ async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupAlreadyExistsFault":
     case "elmo.admin#CacheSecurityGroupAlreadyExistsFault":
-      response = await deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupQuotaExceededFault":
     case "elmo.admin#CacheSecurityGroupQuotaExceededFault":
-      response = await deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2088,31 +2223,43 @@ async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
   switch (errorCode) {
     case "CacheSubnetGroupAlreadyExistsFault":
     case "elmo.admin#CacheSubnetGroupAlreadyExistsFault":
-      response = await deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSubnetGroupQuotaExceededFault":
     case "elmo.admin#CacheSubnetGroupQuotaExceededFault":
-      response = await deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSubnetQuotaExceededFault":
     case "elmo.admin#CacheSubnetQuotaExceededFault":
-      response = await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "elmo.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2170,108 +2317,153 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupNotFoundFault":
     case "elmo.admin#CacheParameterGroupNotFoundFault":
-      response = await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupNotFoundFault":
     case "elmo.admin#CacheSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSubnetGroupNotFoundFault":
     case "elmo.admin#CacheSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterQuotaForCustomerExceededFault":
     case "elmo.admin#ClusterQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCacheClusterCapacityFault":
     case "elmo.admin#InsufficientCacheClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "elmo.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeGroupsPerReplicationGroupQuotaExceededFault":
     case "elmo.admin#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForClusterExceededFault":
     case "elmo.admin#NodeQuotaForClusterExceededFault":
-      response = await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForCustomerExceededFault":
     case "elmo.admin#NodeQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupAlreadyExistsFault":
     case "elmo.admin#ReplicationGroupAlreadyExistsFault":
-      response = await deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagQuotaPerResourceExceeded":
     case "elmo.admin#TagQuotaPerResourceExceeded":
-      response = await deserializeAws_queryTagQuotaPerResourceExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2326,66 +2518,93 @@ async function deserializeAws_queryCreateSnapshotCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotAlreadyExistsFault":
     case "elmo.admin#SnapshotAlreadyExistsFault":
-      response = await deserializeAws_querySnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotFeatureNotSupportedFault":
     case "elmo.admin#SnapshotFeatureNotSupportedFault":
-      response = await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "elmo.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2443,87 +2662,123 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterQuotaForCustomerExceededFault":
     case "elmo.admin#ClusterQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCacheClusterCapacityFault":
     case "elmo.admin#InsufficientCacheClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "elmo.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoOperationFault":
     case "elmo.admin#NoOperationFault":
-      response = await deserializeAws_queryNoOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeGroupsPerReplicationGroupQuotaExceededFault":
     case "elmo.admin#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForCustomerExceededFault":
     case "elmo.admin#NodeQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleNotFoundFault":
     case "elmo.admin#ServiceLinkedRoleNotFoundFault":
-      response = await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2578,52 +2833,73 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotAlreadyExistsFault":
     case "elmo.admin#SnapshotAlreadyExistsFault":
-      response = await deserializeAws_querySnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotFeatureNotSupportedFault":
     case "elmo.admin#SnapshotFeatureNotSupportedFault":
-      response = await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "elmo.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2674,31 +2950,43 @@ async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupNotFoundFault":
     case "elmo.admin#CacheParameterGroupNotFoundFault":
-      response = await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheParameterGroupStateFault":
     case "elmo.admin#InvalidCacheParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2749,31 +3037,43 @@ async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupNotFoundFault":
     case "elmo.admin#CacheSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheSecurityGroupStateFault":
     case "elmo.admin#InvalidCacheSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2824,17 +3124,23 @@ async function deserializeAws_queryDeleteCacheSubnetGroupCommandError(
   switch (errorCode) {
     case "CacheSubnetGroupInUse":
     case "elmo.admin#CacheSubnetGroupInUse":
-      response = await deserializeAws_queryCacheSubnetGroupInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSubnetGroupNotFoundFault":
     case "elmo.admin#CacheSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2892,52 +3198,73 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotAlreadyExistsFault":
     case "elmo.admin#SnapshotAlreadyExistsFault":
-      response = await deserializeAws_querySnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotFeatureNotSupportedFault":
     case "elmo.admin#SnapshotFeatureNotSupportedFault":
-      response = await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "elmo.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2992,31 +3319,43 @@ async function deserializeAws_queryDeleteSnapshotCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSnapshotStateFault":
     case "elmo.admin#InvalidSnapshotStateFault":
-      response = await deserializeAws_queryInvalidSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotNotFoundFault":
     case "elmo.admin#SnapshotNotFoundFault":
-      response = await deserializeAws_querySnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3074,24 +3413,33 @@ async function deserializeAws_queryDescribeCacheClustersCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3203,24 +3551,33 @@ async function deserializeAws_queryDescribeCacheParameterGroupsCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupNotFoundFault":
     case "elmo.admin#CacheParameterGroupNotFoundFault":
-      response = await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3278,24 +3635,33 @@ async function deserializeAws_queryDescribeCacheParametersCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupNotFoundFault":
     case "elmo.admin#CacheParameterGroupNotFoundFault":
-      response = await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3353,24 +3719,33 @@ async function deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupNotFoundFault":
     case "elmo.admin#CacheSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3428,10 +3803,13 @@ async function deserializeAws_queryDescribeCacheSubnetGroupsCommandError(
   switch (errorCode) {
     case "CacheSubnetGroupNotFoundFault":
     case "elmo.admin#CacheSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3489,17 +3867,23 @@ async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3554,17 +3938,23 @@ async function deserializeAws_queryDescribeEventsCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3622,24 +4012,33 @@ async function deserializeAws_queryDescribeReplicationGroupsCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3697,24 +4096,33 @@ async function deserializeAws_queryDescribeReservedCacheNodesCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedCacheNodeNotFoundFault":
     case "elmo.admin#ReservedCacheNodeNotFoundFault":
-      response = await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3772,24 +4180,33 @@ async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandErr
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedCacheNodesOfferingNotFoundFault":
     case "elmo.admin#ReservedCacheNodesOfferingNotFoundFault":
-      response = await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3847,24 +4264,33 @@ async function deserializeAws_queryDescribeServiceUpdatesCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUpdateNotFoundFault":
     case "elmo.admin#ServiceUpdateNotFoundFault":
-      response = await deserializeAws_queryServiceUpdateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceUpdateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3919,31 +4345,43 @@ async function deserializeAws_queryDescribeSnapshotsCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotNotFoundFault":
     case "elmo.admin#SnapshotNotFoundFault":
-      response = await deserializeAws_querySnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4001,17 +4439,23 @@ async function deserializeAws_queryDescribeUpdateActionsCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4069,87 +4513,123 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClusterQuotaForCustomerExceededFault":
     case "elmo.admin#ClusterQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCacheClusterCapacityFault":
     case "elmo.admin#InsufficientCacheClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKMSKeyFault":
     case "elmo.admin#InvalidKMSKeyFault":
-      response = await deserializeAws_queryInvalidKMSKeyFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "elmo.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoOperationFault":
     case "elmo.admin#NoOperationFault":
-      response = await deserializeAws_queryNoOperationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoOperationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeGroupsPerReplicationGroupQuotaExceededFault":
     case "elmo.admin#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForCustomerExceededFault":
     case "elmo.admin#NodeQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4207,31 +4687,43 @@ async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4286,24 +4778,33 @@ async function deserializeAws_queryListTagsForResourceCommandError(
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidARNFault":
     case "elmo.admin#InvalidARNFault":
-      response = await deserializeAws_queryInvalidARNFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidARNFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotNotFoundFault":
     case "elmo.admin#SnapshotNotFoundFault":
-      response = await deserializeAws_querySnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4358,80 +4859,113 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupNotFoundFault":
     case "elmo.admin#CacheParameterGroupNotFoundFault":
-      response = await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupNotFoundFault":
     case "elmo.admin#CacheSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCacheClusterCapacityFault":
     case "elmo.admin#InsufficientCacheClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheSecurityGroupStateFault":
     case "elmo.admin#InvalidCacheSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "elmo.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForClusterExceededFault":
     case "elmo.admin#NodeQuotaForClusterExceededFault":
-      response = await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForCustomerExceededFault":
     case "elmo.admin#NodeQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4489,31 +5023,43 @@ async function deserializeAws_queryModifyCacheParameterGroupCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupNotFoundFault":
     case "elmo.admin#CacheParameterGroupNotFoundFault":
-      response = await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheParameterGroupStateFault":
     case "elmo.admin#InvalidCacheParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4571,31 +5117,43 @@ async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
   switch (errorCode) {
     case "CacheSubnetGroupNotFoundFault":
     case "elmo.admin#CacheSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSubnetQuotaExceededFault":
     case "elmo.admin#CacheSubnetQuotaExceededFault":
-      response = await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "elmo.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubnetInUse":
     case "elmo.admin#SubnetInUse":
-      response = await deserializeAws_querySubnetInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubnetInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4653,101 +5211,143 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupNotFoundFault":
     case "elmo.admin#CacheParameterGroupNotFoundFault":
-      response = await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupNotFoundFault":
     case "elmo.admin#CacheSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCacheClusterCapacityFault":
     case "elmo.admin#InsufficientCacheClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheSecurityGroupStateFault":
     case "elmo.admin#InvalidCacheSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKMSKeyFault":
     case "elmo.admin#InvalidKMSKeyFault":
-      response = await deserializeAws_queryInvalidKMSKeyFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "elmo.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForClusterExceededFault":
     case "elmo.admin#NodeQuotaForClusterExceededFault":
-      response = await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForCustomerExceededFault":
     case "elmo.admin#NodeQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4805,73 +5405,103 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientCacheClusterCapacityFault":
     case "elmo.admin#InsufficientCacheClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKMSKeyFault":
     case "elmo.admin#InvalidKMSKeyFault":
-      response = await deserializeAws_queryInvalidKMSKeyFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "elmo.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeGroupsPerReplicationGroupQuotaExceededFault":
     case "elmo.admin#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeQuotaForCustomerExceededFault":
     case "elmo.admin#NodeQuotaForCustomerExceededFault":
-      response = await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4929,38 +5559,53 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedCacheNodeAlreadyExistsFault":
     case "elmo.admin#ReservedCacheNodeAlreadyExistsFault":
-      response = await deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedCacheNodeQuotaExceededFault":
     case "elmo.admin#ReservedCacheNodeQuotaExceededFault":
-      response = await deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedCacheNodesOfferingNotFoundFault":
     case "elmo.admin#ReservedCacheNodesOfferingNotFoundFault":
-      response = await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5015,17 +5660,23 @@ async function deserializeAws_queryRebootCacheClusterCommandError(
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5083,31 +5734,43 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "elmo.admin#CacheClusterNotFoundFault":
-      response = await deserializeAws_queryCacheClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidARNFault":
     case "elmo.admin#InvalidARNFault":
-      response = await deserializeAws_queryInvalidARNFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidARNFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotNotFoundFault":
     case "elmo.admin#SnapshotNotFoundFault":
-      response = await deserializeAws_querySnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagNotFoundFault":
     case "elmo.admin#TagNotFoundFault":
-      response = await deserializeAws_queryTagNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTagNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5165,31 +5828,43 @@ async function deserializeAws_queryResetCacheParameterGroupCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheParameterGroupNotFoundFault":
     case "elmo.admin#CacheParameterGroupNotFoundFault":
-      response = await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheParameterGroupStateFault":
     case "elmo.admin#InvalidCacheParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5247,38 +5922,53 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationNotFoundFault":
     case "elmo.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CacheSecurityGroupNotFoundFault":
     case "elmo.admin#CacheSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheSecurityGroupStateFault":
     case "elmo.admin#InvalidCacheSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5333,31 +6023,43 @@ async function deserializeAws_queryStartMigrationCommandError(
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupAlreadyUnderMigrationFault":
     case "elmo.admin#ReplicationGroupAlreadyUnderMigrationFault":
-      response = await deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5412,66 +6114,93 @@ async function deserializeAws_queryTestFailoverCommandError(
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazon.coral.service#InvalidParameterValueException":
-      response = await deserializeAws_queryInvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "APICallRateForCustomerExceededFault":
     case "elmo.admin#APICallRateForCustomerExceededFault":
-      response = await deserializeAws_queryAPICallRateForCustomerExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAPICallRateForCustomerExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCacheClusterStateFault":
     case "elmo.admin#InvalidCacheClusterStateFault":
-      response = await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKMSKeyFault":
     case "elmo.admin#InvalidKMSKeyFault":
-      response = await deserializeAws_queryInvalidKMSKeyFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplicationGroupStateFault":
     case "elmo.admin#InvalidReplicationGroupStateFault":
-      response = await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NodeGroupNotFoundFault":
     case "elmo.admin#NodeGroupNotFoundFault":
-      response = await deserializeAws_queryNodeGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNodeGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationGroupNotFoundFault":
     case "elmo.admin#ReplicationGroupNotFoundFault":
-      response = await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TestFailoverNotAvailableFault":
     case "elmo.admin#TestFailoverNotAvailableFault":
-      response = await deserializeAws_queryTestFailoverNotAvailableFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTestFailoverNotAvailableFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

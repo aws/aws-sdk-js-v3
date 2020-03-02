@@ -106,7 +106,7 @@ export namespace DeletePlaybackConfigurationRequest {
   }
 }
 
-export interface DeletePlaybackConfigurationResponse extends $MetadataBearer {
+export interface DeletePlaybackConfigurationResponse {
   __type?: "DeletePlaybackConfigurationResponse";
 }
 
@@ -130,7 +130,7 @@ export namespace GetPlaybackConfigurationRequest {
   }
 }
 
-export interface GetPlaybackConfigurationResponse extends $MetadataBearer {
+export interface GetPlaybackConfigurationResponse {
   __type?: "GetPlaybackConfigurationResponse";
   /**
    * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
@@ -240,7 +240,7 @@ export namespace ListPlaybackConfigurationsRequest {
   }
 }
 
-export interface ListPlaybackConfigurationsResponse extends $MetadataBearer {
+export interface ListPlaybackConfigurationsResponse {
   __type?: "ListPlaybackConfigurationsResponse";
   /**
    * <p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored. </p>
@@ -273,7 +273,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>A comma-separated list of tag key:value pairs. For example:
@@ -445,7 +445,7 @@ export namespace PutPlaybackConfigurationRequest {
   }
 }
 
-export interface PutPlaybackConfigurationResponse extends $MetadataBearer {
+export interface PutPlaybackConfigurationResponse {
   __type?: "PutPlaybackConfigurationResponse";
   /**
    * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>

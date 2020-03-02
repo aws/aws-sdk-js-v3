@@ -159,7 +159,7 @@ export namespace CreateProjectRequest {
  *             Result structure used in response to a request to create a project.
  *         </p>
  */
-export interface CreateProjectResult extends $MetadataBearer {
+export interface CreateProjectResult {
   __type?: "CreateProjectResult";
   /**
    * <p>
@@ -201,7 +201,7 @@ export namespace DeleteProjectRequest {
  *             Result structure used in response to request to delete a project.
  *         </p>
  */
-export interface DeleteProjectResult extends $MetadataBearer {
+export interface DeleteProjectResult {
   __type?: "DeleteProjectResult";
   /**
    * <p>
@@ -251,7 +251,7 @@ export namespace DescribeBundleRequest {
  *             Result structure contains the details of the bundle.
  *         </p>
  */
-export interface DescribeBundleResult extends $MetadataBearer {
+export interface DescribeBundleResult {
   __type?: "DescribeBundleResult";
   /**
    * <p>
@@ -300,7 +300,7 @@ export namespace DescribeProjectRequest {
  *             Result structure used for requests of project details.
  *         </p>
  */
-export interface DescribeProjectResult extends $MetadataBearer {
+export interface DescribeProjectResult {
   __type?: "DescribeProjectResult";
   /**
    * <p>
@@ -359,7 +359,7 @@ export namespace ExportBundleRequest {
  *             AWS resources.
  *         </p>
  */
-export interface ExportBundleResult extends $MetadataBearer {
+export interface ExportBundleResult {
   __type?: "ExportBundleResult";
   /**
    * <p>
@@ -403,7 +403,7 @@ export namespace ExportProjectRequest {
  *             Result structure used for requests to export project configuration details.
  *         </p>
  */
-export interface ExportProjectResult extends $MetadataBearer {
+export interface ExportProjectResult {
   __type?: "ExportProjectResult";
   /**
    * <p>
@@ -533,7 +533,7 @@ export namespace ListBundlesRequest {
  *             Result structure contains a list of all available bundles with details.
  *         </p>
  */
-export interface ListBundlesResult extends $MetadataBearer {
+export interface ListBundlesResult {
   __type?: "ListBundlesResult";
   /**
    * <p>
@@ -592,7 +592,7 @@ export namespace ListProjectsRequest {
  *             Result structure used for requests to list projects in AWS Mobile Hub.
  *         </p>
  */
-export interface ListProjectsResult extends $MetadataBearer {
+export interface ListProjectsResult {
   __type?: "ListProjectsResult";
   /**
    * <p>
@@ -925,7 +925,7 @@ export namespace UpdateProjectRequest {
  *             Result structure used for requests to updated project configuration.
  *         </p>
  */
-export interface UpdateProjectResult extends $MetadataBearer {
+export interface UpdateProjectResult {
   __type?: "UpdateProjectResult";
   /**
    * <p>

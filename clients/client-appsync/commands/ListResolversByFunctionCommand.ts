@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListResolversByFunctionCommandInput = ListResolversByFunctionRequest;
-export type ListResolversByFunctionCommandOutput = ListResolversByFunctionResponse;
+export type ListResolversByFunctionCommandOutput = ListResolversByFunctionResponse &
+  __MetadataBearer;
 
 export class ListResolversByFunctionCommand extends $Command<
   ListResolversByFunctionCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateGlobalClusterCommandInput = CreateGlobalClusterMessage;
-export type CreateGlobalClusterCommandOutput = CreateGlobalClusterResult;
+export type CreateGlobalClusterCommandOutput = CreateGlobalClusterResult &
+  __MetadataBearer;
 
 export class CreateGlobalClusterCommand extends $Command<
   CreateGlobalClusterCommandInput,

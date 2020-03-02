@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListFacetNamesCommandInput = ListFacetNamesRequest;
-export type ListFacetNamesCommandOutput = ListFacetNamesResponse;
+export type ListFacetNamesCommandOutput = ListFacetNamesResponse &
+  __MetadataBearer;
 
 export class ListFacetNamesCommand extends $Command<
   ListFacetNamesCommandInput,

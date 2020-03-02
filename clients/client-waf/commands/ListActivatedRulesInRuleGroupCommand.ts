@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListActivatedRulesInRuleGroupCommandInput = ListActivatedRulesInRuleGroupRequest;
-export type ListActivatedRulesInRuleGroupCommandOutput = ListActivatedRulesInRuleGroupResponse;
+export type ListActivatedRulesInRuleGroupCommandOutput = ListActivatedRulesInRuleGroupResponse &
+  __MetadataBearer;
 
 export class ListActivatedRulesInRuleGroupCommand extends $Command<
   ListActivatedRulesInRuleGroupCommandInput,

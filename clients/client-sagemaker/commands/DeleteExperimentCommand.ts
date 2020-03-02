@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteExperimentCommandInput = DeleteExperimentRequest;
-export type DeleteExperimentCommandOutput = DeleteExperimentResponse;
+export type DeleteExperimentCommandOutput = DeleteExperimentResponse &
+  __MetadataBearer;
 
 export class DeleteExperimentCommand extends $Command<
   DeleteExperimentCommandInput,

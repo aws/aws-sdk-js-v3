@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeConformancePackComplianceCommandInput = DescribeConformancePackComplianceRequest;
-export type DescribeConformancePackComplianceCommandOutput = DescribeConformancePackComplianceResponse;
+export type DescribeConformancePackComplianceCommandOutput = DescribeConformancePackComplianceResponse &
+  __MetadataBearer;
 
 export class DescribeConformancePackComplianceCommand extends $Command<
   DescribeConformancePackComplianceCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResendConfirmationCodeCommandInput = ResendConfirmationCodeRequest;
-export type ResendConfirmationCodeCommandOutput = ResendConfirmationCodeResponse;
+export type ResendConfirmationCodeCommandOutput = ResendConfirmationCodeResponse &
+  __MetadataBearer;
 
 export class ResendConfirmationCodeCommand extends $Command<
   ResendConfirmationCodeCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetTaskStatusCommandInput = SetTaskStatusInput;
-export type SetTaskStatusCommandOutput = SetTaskStatusOutput;
+export type SetTaskStatusCommandOutput = SetTaskStatusOutput & __MetadataBearer;
 
 export class SetTaskStatusCommand extends $Command<
   SetTaskStatusCommandInput,

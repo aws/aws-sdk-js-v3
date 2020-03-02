@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutAccountSettingCommandInput = PutAccountSettingRequest;
-export type PutAccountSettingCommandOutput = PutAccountSettingResponse;
+export type PutAccountSettingCommandOutput = PutAccountSettingResponse &
+  __MetadataBearer;
 
 export class PutAccountSettingCommand extends $Command<
   PutAccountSettingCommandInput,

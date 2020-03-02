@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelStepsCommandInput = CancelStepsInput;
-export type CancelStepsCommandOutput = CancelStepsOutput;
+export type CancelStepsCommandOutput = CancelStepsOutput & __MetadataBearer;
 
 export class CancelStepsCommand extends $Command<
   CancelStepsCommandInput,
