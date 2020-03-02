@@ -6,7 +6,7 @@ import {
   EventStreamMarshaller as IEventStreamMarshaller
 } from "@aws-sdk/types";
 import { Readable, pipeline } from "stream";
-import { ReadabletoIterable } from "./utils";
+import { readabletoIterable } from "./utils";
 import { EventMessageChunkerStream } from "./EventMessageChunkerStream";
 import { MessageUnmarshallerStream } from "./MessageUnmarshallerStream";
 import { EventDeserializerStream } from "./EventDeserializerStream";
@@ -44,7 +44,11 @@ export class EventStreamMarshaller {
     );
     //should use stream[Symbol.asyncIterable] when the api is stable
     //reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator
-    return ReadabletoIterable(eventDeserializerStream);
+    if (typeof eventDeserializerStream[Symbol.asyncIterator] === "function") {
+      // use the experimental feature if available.
+      return eventDeserializerStream;
+    }
+    return readabletoIterable(eventDeserializerStream);
   }
 
   serialize<T>(
