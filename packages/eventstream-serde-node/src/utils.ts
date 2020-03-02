@@ -18,13 +18,9 @@ export function getSignatureBinary(signature: string): Uint8Array {
  * Reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator
  */
 
-export async function* ReadabletoIterable<T>(
+export async function* readabletoIterable<T>(
   readStream: Readable
 ): AsyncIterable<T> {
-  if (typeof readStream[Symbol.asyncIterator] === "function") {
-    // use the experimental feature if available.
-    throw readStream;
-  }
   let streamEnded = false;
   let generationEnded = false;
   const records = new Array<T>();
