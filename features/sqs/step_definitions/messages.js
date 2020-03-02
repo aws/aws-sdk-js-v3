@@ -54,7 +54,7 @@ module.exports = function() {
         next.condition = function() {
           return (
             this.data.Messages[0].MessageAttributes.binary.BinaryValue.toString() ===
-            "\u0001\u0002\u0003"
+            "1,2,3"
           );
         };
         var params = {
