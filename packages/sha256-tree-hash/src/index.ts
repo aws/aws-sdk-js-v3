@@ -71,7 +71,7 @@ export class TreeHash implements Hash {
     this.collectedHashDigests = [];
 
     // loop through collected hashes
-    if (this.buffer) {
+    if (this.buffer && this.buffer.byteLength > 0) {
       const smallHash = new this.Sha256();
       smallHash.update(this.buffer);
       collectedHashDigests.push(smallHash.digest());

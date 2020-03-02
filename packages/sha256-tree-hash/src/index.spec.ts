@@ -35,6 +35,19 @@ describe("ChecksumGenerator", () => {
     );
   });
 
+  it("computes tree hashes of bodies = 1 MB", async () => {
+    const treeHash = new TreeHash(Sha256, fromUtf8);
+    const payload = new Uint8Array(1024 * 1024);
+    payload.fill(0);
+
+    treeHash.update(payload);
+    let results = await treeHash.digest();
+
+    expect(toHex(results)).toEqual(
+      "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58"
+    );
+  });
+
   it("computes tree hashes of chunked bodies", async () => {
     const treeHash = new TreeHash(Sha256, fromUtf8);
     const payload = new Uint8Array(1024 * 1024 * 5.5);
