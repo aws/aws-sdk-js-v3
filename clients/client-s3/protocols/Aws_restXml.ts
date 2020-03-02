@@ -14903,13 +14903,23 @@ const collectBodyString = (
   );
 };
 
+const decodeEscapedXML = (str: string) => {
+  return str
+    .replace(/&amp;/g, "&")
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&gt;/g, ">")
+    .replace(/&lt;/g, "<");
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
         ignoreAttributes: false,
-        parseNodeValue: false
+        parseNodeValue: false,
+        tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
       });
       return parsedObj[Object.keys(parsedObj)[0]];
     }
