@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetFpgaImageAttributeCommandInput = ResetFpgaImageAttributeRequest;
-export type ResetFpgaImageAttributeCommandOutput = ResetFpgaImageAttributeResult;
+export type ResetFpgaImageAttributeCommandOutput = ResetFpgaImageAttributeResult &
+  __MetadataBearer;
 
 export class ResetFpgaImageAttributeCommand extends $Command<
   ResetFpgaImageAttributeCommandInput,

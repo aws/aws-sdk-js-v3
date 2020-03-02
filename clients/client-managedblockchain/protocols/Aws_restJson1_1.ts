@@ -939,59 +939,83 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
-      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1045,45 +1069,63 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
-      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1133,59 +1175,83 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
-      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1238,45 +1304,63 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1322,45 +1406,63 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1406,45 +1508,63 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1494,38 +1614,53 @@ async function deserializeAws_restJson1_1GetMemberCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1575,38 +1710,53 @@ async function deserializeAws_restJson1_1GetNetworkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1656,38 +1806,53 @@ async function deserializeAws_restJson1_1GetNodeCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1740,38 +1905,53 @@ async function deserializeAws_restJson1_1GetProposalCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1831,45 +2011,63 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
-      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1926,31 +2124,43 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2007,31 +2217,43 @@ async function deserializeAws_restJson1_1ListNetworksCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2088,31 +2310,43 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2172,31 +2406,43 @@ async function deserializeAws_restJson1_1ListProposalVotesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2253,38 +2499,53 @@ async function deserializeAws_restJson1_1ListProposalsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2333,45 +2594,63 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalActionException":
     case "com.amazonaws.taiga.webservice.api#IllegalActionException":
-      response = await deserializeAws_restJson1_1IllegalActionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IllegalActionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2420,45 +2699,63 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalActionException":
     case "com.amazonaws.taiga.webservice.api#IllegalActionException":
-      response = await deserializeAws_restJson1_1IllegalActionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IllegalActionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

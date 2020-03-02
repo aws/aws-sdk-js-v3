@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RefreshSchemasCommandInput = RefreshSchemasMessage;
-export type RefreshSchemasCommandOutput = RefreshSchemasResponse;
+export type RefreshSchemasCommandOutput = RefreshSchemasResponse &
+  __MetadataBearer;
 
 export class RefreshSchemasCommand extends $Command<
   RefreshSchemasCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListResourceSharePermissionsCommandInput = ListResourceSharePermissionsRequest;
-export type ListResourceSharePermissionsCommandOutput = ListResourceSharePermissionsResponse;
+export type ListResourceSharePermissionsCommandOutput = ListResourceSharePermissionsResponse &
+  __MetadataBearer;
 
 export class ListResourceSharePermissionsCommand extends $Command<
   ListResourceSharePermissionsCommandInput,

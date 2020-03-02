@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateS3ResourcesCommandInput = UpdateS3ResourcesRequest;
-export type UpdateS3ResourcesCommandOutput = UpdateS3ResourcesResult;
+export type UpdateS3ResourcesCommandOutput = UpdateS3ResourcesResult &
+  __MetadataBearer;
 
 export class UpdateS3ResourcesCommand extends $Command<
   UpdateS3ResourcesCommandInput,

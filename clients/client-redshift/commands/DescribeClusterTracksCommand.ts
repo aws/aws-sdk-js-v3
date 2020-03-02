@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeClusterTracksCommandInput = DescribeClusterTracksMessage;
-export type DescribeClusterTracksCommandOutput = TrackListMessage;
+export type DescribeClusterTracksCommandOutput = TrackListMessage &
+  __MetadataBearer;
 
 export class DescribeClusterTracksCommand extends $Command<
   DescribeClusterTracksCommandInput,

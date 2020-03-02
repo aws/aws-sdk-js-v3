@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopFleetCommandInput = StopFleetRequest;
-export type StopFleetCommandOutput = StopFleetResult;
+export type StopFleetCommandOutput = StopFleetResult & __MetadataBearer;
 
 export class StopFleetCommand extends $Command<
   StopFleetCommandInput,

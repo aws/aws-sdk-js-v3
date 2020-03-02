@@ -44,7 +44,7 @@ export namespace BulkPublishRequest {
 /**
  * <p>The output for the BulkPublish operation.</p>
  */
-export interface BulkPublishResponse extends $MetadataBearer {
+export interface BulkPublishResponse {
   __type?: "BulkPublishResponse";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
@@ -209,7 +209,7 @@ export namespace DeleteDatasetRequest {
 /**
  * <p>Response to a successful DeleteDataset request.</p>
  */
-export interface DeleteDatasetResponse extends $MetadataBearer {
+export interface DeleteDatasetResponse {
   __type?: "DeleteDatasetResponse";
   /**
    * <p>A collection of data for an identity pool. An identity pool can have multiple
@@ -260,7 +260,7 @@ export namespace DescribeDatasetRequest {
 /**
  * <p>Response to a successful DescribeDataset request.</p>
  */
-export interface DescribeDatasetResponse extends $MetadataBearer {
+export interface DescribeDatasetResponse {
   __type?: "DescribeDatasetResponse";
   /**
    * <p>Metadata for a collection of data for an identity. An identity can have multiple
@@ -298,7 +298,7 @@ export namespace DescribeIdentityPoolUsageRequest {
 /**
  * <p>Response to a successful DescribeIdentityPoolUsage request.</p>
  */
-export interface DescribeIdentityPoolUsageResponse extends $MetadataBearer {
+export interface DescribeIdentityPoolUsageResponse {
   __type?: "DescribeIdentityPoolUsageResponse";
   /**
    * <p>Information about the usage of the identity pool.</p>
@@ -339,7 +339,7 @@ export namespace DescribeIdentityUsageRequest {
 /**
  * <p>The response to a successful DescribeIdentityUsage request.</p>
  */
-export interface DescribeIdentityUsageResponse extends $MetadataBearer {
+export interface DescribeIdentityUsageResponse {
   __type?: "DescribeIdentityUsageResponse";
   /**
    * <p>Usage information for the identity.</p>
@@ -393,7 +393,7 @@ export namespace GetBulkPublishDetailsRequest {
 /**
  * <p>The output for the GetBulkPublishDetails operation.</p>
  */
-export interface GetBulkPublishDetailsResponse extends $MetadataBearer {
+export interface GetBulkPublishDetailsResponse {
   __type?: "GetBulkPublishDetailsResponse";
   /**
    * <p>If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</p>
@@ -461,7 +461,7 @@ export namespace GetCognitoEventsRequest {
 /**
  * <p>The response from the GetCognitoEvents request</p>
  */
-export interface GetCognitoEventsResponse extends $MetadataBearer {
+export interface GetCognitoEventsResponse {
   __type?: "GetCognitoEventsResponse";
   /**
    * <p>The Cognito Events returned from the GetCognitoEvents request</p>
@@ -495,7 +495,7 @@ export namespace GetIdentityPoolConfigurationRequest {
 /**
  * <p>The output for the GetIdentityPoolConfiguration operation.</p>
  */
-export interface GetIdentityPoolConfigurationResponse extends $MetadataBearer {
+export interface GetIdentityPoolConfigurationResponse {
   __type?: "GetIdentityPoolConfigurationResponse";
   /**
    * <p>Options to apply to this identity pool for Amazon Cognito streams.</p>
@@ -765,7 +765,7 @@ export namespace ListDatasetsRequest {
 /**
  * <p>Returned for a successful ListDatasets request.</p>
  */
-export interface ListDatasetsResponse extends $MetadataBearer {
+export interface ListDatasetsResponse {
   __type?: "ListDatasetsResponse";
   /**
    * <p>Number of datasets returned.</p>
@@ -814,7 +814,7 @@ export namespace ListIdentityPoolUsageRequest {
 /**
  * <p>Returned for a successful ListIdentityPoolUsage request.</p>
  */
-export interface ListIdentityPoolUsageResponse extends $MetadataBearer {
+export interface ListIdentityPoolUsageResponse {
   __type?: "ListIdentityPoolUsageResponse";
   /**
    * <p>Total number of identities for the identity pool.</p>
@@ -893,7 +893,7 @@ export namespace ListRecordsRequest {
 /**
  * <p>Returned for a successful ListRecordsRequest.</p>
  */
-export interface ListRecordsResponse extends $MetadataBearer {
+export interface ListRecordsResponse {
   __type?: "ListRecordsResponse";
   /**
    * <p>Total number of records.</p>
@@ -1107,7 +1107,7 @@ export namespace RegisterDeviceRequest {
 /**
  * <p>Response to a RegisterDevice request.</p>
  */
-export interface RegisterDeviceResponse extends $MetadataBearer {
+export interface RegisterDeviceResponse {
   __type?: "RegisterDeviceResponse";
   /**
    * <p>The unique ID generated for this device by Cognito.</p>
@@ -1213,7 +1213,7 @@ export namespace SetIdentityPoolConfigurationRequest {
 /**
  * <p>The output for the SetIdentityPoolConfiguration operation</p>
  */
-export interface SetIdentityPoolConfigurationResponse extends $MetadataBearer {
+export interface SetIdentityPoolConfigurationResponse {
   __type?: "SetIdentityPoolConfigurationResponse";
   /**
    * <p>Options to apply to this identity pool for Amazon Cognito streams.</p>
@@ -1274,7 +1274,7 @@ export namespace SubscribeToDatasetRequest {
 /**
  * <p>Response to a SubscribeToDataset request.</p>
  */
-export interface SubscribeToDatasetResponse extends $MetadataBearer {
+export interface SubscribeToDatasetResponse {
   __type?: "SubscribeToDatasetResponse";
 }
 
@@ -1339,7 +1339,7 @@ export namespace UnsubscribeFromDatasetRequest {
 /**
  * <p>Response to an UnsubscribeFromDataset request.</p>
  */
-export interface UnsubscribeFromDatasetResponse extends $MetadataBearer {
+export interface UnsubscribeFromDatasetResponse {
   __type?: "UnsubscribeFromDatasetResponse";
 }
 
@@ -1399,7 +1399,7 @@ export namespace UpdateRecordsRequest {
 /**
  * <p>Returned for a successful UpdateRecordsRequest.</p>
  */
-export interface UpdateRecordsResponse extends $MetadataBearer {
+export interface UpdateRecordsResponse {
   __type?: "UpdateRecordsResponse";
   /**
    * <p>A list of records that have been updated.</p>

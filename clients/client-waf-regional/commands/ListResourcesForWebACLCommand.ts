@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListResourcesForWebACLCommandInput = ListResourcesForWebACLRequest;
-export type ListResourcesForWebACLCommandOutput = ListResourcesForWebACLResponse;
+export type ListResourcesForWebACLCommandOutput = ListResourcesForWebACLResponse &
+  __MetadataBearer;
 
 export class ListResourcesForWebACLCommand extends $Command<
   ListResourcesForWebACLCommandInput,

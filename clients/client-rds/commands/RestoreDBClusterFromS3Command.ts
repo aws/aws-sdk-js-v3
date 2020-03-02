@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreDBClusterFromS3CommandInput = RestoreDBClusterFromS3Message;
-export type RestoreDBClusterFromS3CommandOutput = RestoreDBClusterFromS3Result;
+export type RestoreDBClusterFromS3CommandOutput = RestoreDBClusterFromS3Result &
+  __MetadataBearer;
 
 export class RestoreDBClusterFromS3Command extends $Command<
   RestoreDBClusterFromS3CommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPhoneNumbersOptedOutCommandInput = ListPhoneNumbersOptedOutInput;
-export type ListPhoneNumbersOptedOutCommandOutput = ListPhoneNumbersOptedOutResponse;
+export type ListPhoneNumbersOptedOutCommandOutput = ListPhoneNumbersOptedOutResponse &
+  __MetadataBearer;
 
 export class ListPhoneNumbersOptedOutCommand extends $Command<
   ListPhoneNumbersOptedOutCommandInput,

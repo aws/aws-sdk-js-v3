@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateMeshCommandInput = UpdateMeshInput;
-export type UpdateMeshCommandOutput = UpdateMeshOutput;
+export type UpdateMeshCommandOutput = UpdateMeshOutput & __MetadataBearer;
 
 export class UpdateMeshCommand extends $Command<
   UpdateMeshCommandInput,

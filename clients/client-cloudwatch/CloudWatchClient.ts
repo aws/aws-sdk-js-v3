@@ -1,57 +1,119 @@
 import {
-  DeleteAlarmsInput,
-  DeleteAnomalyDetectorInput,
-  DeleteAnomalyDetectorOutput,
-  DeleteDashboardsInput,
-  DeleteDashboardsOutput,
-  DeleteInsightRulesInput,
-  DeleteInsightRulesOutput,
-  DescribeAlarmHistoryInput,
-  DescribeAlarmHistoryOutput,
-  DescribeAlarmsForMetricInput,
-  DescribeAlarmsForMetricOutput,
-  DescribeAlarmsInput,
-  DescribeAlarmsOutput,
-  DescribeAnomalyDetectorsInput,
-  DescribeAnomalyDetectorsOutput,
-  DescribeInsightRulesInput,
-  DescribeInsightRulesOutput,
-  DisableAlarmActionsInput,
-  DisableInsightRulesInput,
-  DisableInsightRulesOutput,
-  EnableAlarmActionsInput,
-  EnableInsightRulesInput,
-  EnableInsightRulesOutput,
-  GetDashboardInput,
-  GetDashboardOutput,
-  GetInsightRuleReportInput,
-  GetInsightRuleReportOutput,
-  GetMetricDataInput,
-  GetMetricDataOutput,
-  GetMetricStatisticsInput,
-  GetMetricStatisticsOutput,
-  GetMetricWidgetImageInput,
-  GetMetricWidgetImageOutput,
-  ListDashboardsInput,
-  ListDashboardsOutput,
-  ListMetricsInput,
-  ListMetricsOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  PutAnomalyDetectorInput,
-  PutAnomalyDetectorOutput,
-  PutDashboardInput,
-  PutDashboardOutput,
-  PutInsightRuleInput,
-  PutInsightRuleOutput,
-  PutMetricAlarmInput,
-  PutMetricDataInput,
-  SetAlarmStateInput,
-  TagResourceInput,
-  TagResourceOutput,
-  UntagResourceInput,
-  UntagResourceOutput
-} from "./models/index";
+  DeleteAlarmsCommandInput,
+  DeleteAlarmsCommandOutput
+} from "./commands/DeleteAlarmsCommand";
+import {
+  DeleteAnomalyDetectorCommandInput,
+  DeleteAnomalyDetectorCommandOutput
+} from "./commands/DeleteAnomalyDetectorCommand";
+import {
+  DeleteDashboardsCommandInput,
+  DeleteDashboardsCommandOutput
+} from "./commands/DeleteDashboardsCommand";
+import {
+  DeleteInsightRulesCommandInput,
+  DeleteInsightRulesCommandOutput
+} from "./commands/DeleteInsightRulesCommand";
+import {
+  DescribeAlarmHistoryCommandInput,
+  DescribeAlarmHistoryCommandOutput
+} from "./commands/DescribeAlarmHistoryCommand";
+import {
+  DescribeAlarmsCommandInput,
+  DescribeAlarmsCommandOutput
+} from "./commands/DescribeAlarmsCommand";
+import {
+  DescribeAlarmsForMetricCommandInput,
+  DescribeAlarmsForMetricCommandOutput
+} from "./commands/DescribeAlarmsForMetricCommand";
+import {
+  DescribeAnomalyDetectorsCommandInput,
+  DescribeAnomalyDetectorsCommandOutput
+} from "./commands/DescribeAnomalyDetectorsCommand";
+import {
+  DescribeInsightRulesCommandInput,
+  DescribeInsightRulesCommandOutput
+} from "./commands/DescribeInsightRulesCommand";
+import {
+  DisableAlarmActionsCommandInput,
+  DisableAlarmActionsCommandOutput
+} from "./commands/DisableAlarmActionsCommand";
+import {
+  DisableInsightRulesCommandInput,
+  DisableInsightRulesCommandOutput
+} from "./commands/DisableInsightRulesCommand";
+import {
+  EnableAlarmActionsCommandInput,
+  EnableAlarmActionsCommandOutput
+} from "./commands/EnableAlarmActionsCommand";
+import {
+  EnableInsightRulesCommandInput,
+  EnableInsightRulesCommandOutput
+} from "./commands/EnableInsightRulesCommand";
+import {
+  GetDashboardCommandInput,
+  GetDashboardCommandOutput
+} from "./commands/GetDashboardCommand";
+import {
+  GetInsightRuleReportCommandInput,
+  GetInsightRuleReportCommandOutput
+} from "./commands/GetInsightRuleReportCommand";
+import {
+  GetMetricDataCommandInput,
+  GetMetricDataCommandOutput
+} from "./commands/GetMetricDataCommand";
+import {
+  GetMetricStatisticsCommandInput,
+  GetMetricStatisticsCommandOutput
+} from "./commands/GetMetricStatisticsCommand";
+import {
+  GetMetricWidgetImageCommandInput,
+  GetMetricWidgetImageCommandOutput
+} from "./commands/GetMetricWidgetImageCommand";
+import {
+  ListDashboardsCommandInput,
+  ListDashboardsCommandOutput
+} from "./commands/ListDashboardsCommand";
+import {
+  ListMetricsCommandInput,
+  ListMetricsCommandOutput
+} from "./commands/ListMetricsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutAnomalyDetectorCommandInput,
+  PutAnomalyDetectorCommandOutput
+} from "./commands/PutAnomalyDetectorCommand";
+import {
+  PutDashboardCommandInput,
+  PutDashboardCommandOutput
+} from "./commands/PutDashboardCommand";
+import {
+  PutInsightRuleCommandInput,
+  PutInsightRuleCommandOutput
+} from "./commands/PutInsightRuleCommand";
+import {
+  PutMetricAlarmCommandInput,
+  PutMetricAlarmCommandOutput
+} from "./commands/PutMetricAlarmCommand";
+import {
+  PutMetricDataCommandInput,
+  PutMetricDataCommandOutput
+} from "./commands/PutMetricDataCommand";
+import {
+  SetAlarmStateCommandInput,
+  SetAlarmStateCommandOutput
+} from "./commands/SetAlarmStateCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -99,68 +161,72 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteAlarmsInput
-  | DeleteAnomalyDetectorInput
-  | DeleteDashboardsInput
-  | DeleteInsightRulesInput
-  | DescribeAlarmHistoryInput
-  | DescribeAlarmsForMetricInput
-  | DescribeAlarmsInput
-  | DescribeAnomalyDetectorsInput
-  | DescribeInsightRulesInput
-  | DisableAlarmActionsInput
-  | DisableInsightRulesInput
-  | EnableAlarmActionsInput
-  | EnableInsightRulesInput
-  | GetDashboardInput
-  | GetInsightRuleReportInput
-  | GetMetricDataInput
-  | GetMetricStatisticsInput
-  | GetMetricWidgetImageInput
-  | ListDashboardsInput
-  | ListMetricsInput
-  | ListTagsForResourceInput
-  | PutAnomalyDetectorInput
-  | PutDashboardInput
-  | PutInsightRuleInput
-  | PutMetricAlarmInput
-  | PutMetricDataInput
-  | SetAlarmStateInput
-  | TagResourceInput
-  | UntagResourceInput;
+  | DeleteAlarmsCommandInput
+  | DeleteAnomalyDetectorCommandInput
+  | DeleteDashboardsCommandInput
+  | DeleteInsightRulesCommandInput
+  | DescribeAlarmHistoryCommandInput
+  | DescribeAlarmsCommandInput
+  | DescribeAlarmsForMetricCommandInput
+  | DescribeAnomalyDetectorsCommandInput
+  | DescribeInsightRulesCommandInput
+  | DisableAlarmActionsCommandInput
+  | DisableInsightRulesCommandInput
+  | EnableAlarmActionsCommandInput
+  | EnableInsightRulesCommandInput
+  | GetDashboardCommandInput
+  | GetInsightRuleReportCommandInput
+  | GetMetricDataCommandInput
+  | GetMetricStatisticsCommandInput
+  | GetMetricWidgetImageCommandInput
+  | ListDashboardsCommandInput
+  | ListMetricsCommandInput
+  | ListTagsForResourceCommandInput
+  | PutAnomalyDetectorCommandInput
+  | PutDashboardCommandInput
+  | PutInsightRuleCommandInput
+  | PutMetricAlarmCommandInput
+  | PutMetricDataCommandInput
+  | SetAlarmStateCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | DeleteAnomalyDetectorOutput
-  | DeleteDashboardsOutput
-  | DeleteInsightRulesOutput
-  | DescribeAlarmHistoryOutput
-  | DescribeAlarmsForMetricOutput
-  | DescribeAlarmsOutput
-  | DescribeAnomalyDetectorsOutput
-  | DescribeInsightRulesOutput
-  | DisableInsightRulesOutput
-  | EnableInsightRulesOutput
-  | GetDashboardOutput
-  | GetInsightRuleReportOutput
-  | GetMetricDataOutput
-  | GetMetricStatisticsOutput
-  | GetMetricWidgetImageOutput
-  | ListDashboardsOutput
-  | ListMetricsOutput
-  | ListTagsForResourceOutput
-  | PutAnomalyDetectorOutput
-  | PutDashboardOutput
-  | PutInsightRuleOutput
-  | TagResourceOutput
-  | UntagResourceOutput;
+  | DeleteAlarmsCommandOutput
+  | DeleteAnomalyDetectorCommandOutput
+  | DeleteDashboardsCommandOutput
+  | DeleteInsightRulesCommandOutput
+  | DescribeAlarmHistoryCommandOutput
+  | DescribeAlarmsCommandOutput
+  | DescribeAlarmsForMetricCommandOutput
+  | DescribeAnomalyDetectorsCommandOutput
+  | DescribeInsightRulesCommandOutput
+  | DisableAlarmActionsCommandOutput
+  | DisableInsightRulesCommandOutput
+  | EnableAlarmActionsCommandOutput
+  | EnableInsightRulesCommandOutput
+  | GetDashboardCommandOutput
+  | GetInsightRuleReportCommandOutput
+  | GetMetricDataCommandOutput
+  | GetMetricStatisticsCommandOutput
+  | GetMetricWidgetImageCommandOutput
+  | ListDashboardsCommandOutput
+  | ListMetricsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutAnomalyDetectorCommandOutput
+  | PutDashboardCommandOutput
+  | PutInsightRuleCommandOutput
+  | PutMetricAlarmCommandOutput
+  | PutMetricDataCommandOutput
+  | SetAlarmStateCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

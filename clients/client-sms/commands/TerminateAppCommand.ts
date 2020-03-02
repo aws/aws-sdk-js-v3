@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TerminateAppCommandInput = TerminateAppRequest;
-export type TerminateAppCommandOutput = TerminateAppResponse;
+export type TerminateAppCommandOutput = TerminateAppResponse & __MetadataBearer;
 
 export class TerminateAppCommand extends $Command<
   TerminateAppCommandInput,

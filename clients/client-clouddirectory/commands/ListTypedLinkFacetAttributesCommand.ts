@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTypedLinkFacetAttributesCommandInput = ListTypedLinkFacetAttributesRequest;
-export type ListTypedLinkFacetAttributesCommandOutput = ListTypedLinkFacetAttributesResponse;
+export type ListTypedLinkFacetAttributesCommandOutput = ListTypedLinkFacetAttributesResponse &
+  __MetadataBearer;
 
 export class ListTypedLinkFacetAttributesCommand extends $Command<
   ListTypedLinkFacetAttributesCommandInput,

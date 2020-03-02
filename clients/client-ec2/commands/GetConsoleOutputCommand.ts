@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetConsoleOutputCommandInput = GetConsoleOutputRequest;
-export type GetConsoleOutputCommandOutput = GetConsoleOutputResult;
+export type GetConsoleOutputCommandOutput = GetConsoleOutputResult &
+  __MetadataBearer;
 
 export class GetConsoleOutputCommand extends $Command<
   GetConsoleOutputCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelMaintenanceWindowExecutionCommandInput = CancelMaintenanceWindowExecutionRequest;
-export type CancelMaintenanceWindowExecutionCommandOutput = CancelMaintenanceWindowExecutionResult;
+export type CancelMaintenanceWindowExecutionCommandOutput = CancelMaintenanceWindowExecutionResult &
+  __MetadataBearer;
 
 export class CancelMaintenanceWindowExecutionCommand extends $Command<
   CancelMaintenanceWindowExecutionCommandInput,

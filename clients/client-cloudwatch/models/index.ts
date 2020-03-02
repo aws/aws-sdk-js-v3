@@ -396,7 +396,7 @@ export namespace DeleteAnomalyDetectorInput {
   }
 }
 
-export interface DeleteAnomalyDetectorOutput extends $MetadataBearer {
+export interface DeleteAnomalyDetectorOutput {
   __type?: "DeleteAnomalyDetectorOutput";
 }
 
@@ -420,7 +420,7 @@ export namespace DeleteDashboardsInput {
   }
 }
 
-export interface DeleteDashboardsOutput extends $MetadataBearer {
+export interface DeleteDashboardsOutput {
   __type?: "DeleteDashboardsOutput";
 }
 
@@ -444,7 +444,7 @@ export namespace DeleteInsightRulesInput {
   }
 }
 
-export interface DeleteInsightRulesOutput extends $MetadataBearer {
+export interface DeleteInsightRulesOutput {
   __type?: "DeleteInsightRulesOutput";
   /**
    * <p>An array listing the rules that could not be deleted. You cannot delete built-in rules.</p>
@@ -498,7 +498,7 @@ export namespace DescribeAlarmHistoryInput {
   }
 }
 
-export interface DescribeAlarmHistoryOutput extends $MetadataBearer {
+export interface DescribeAlarmHistoryOutput {
   __type?: "DescribeAlarmHistoryOutput";
   /**
    * <p>The alarm histories, in JSON format.</p>
@@ -564,7 +564,7 @@ export namespace DescribeAlarmsForMetricInput {
   }
 }
 
-export interface DescribeAlarmsForMetricOutput extends $MetadataBearer {
+export interface DescribeAlarmsForMetricOutput {
   __type?: "DescribeAlarmsForMetricOutput";
   /**
    * <p>The information for each alarm with the specified metric.</p>
@@ -619,7 +619,7 @@ export namespace DescribeAlarmsInput {
   }
 }
 
-export interface DescribeAlarmsOutput extends $MetadataBearer {
+export interface DescribeAlarmsOutput {
   __type?: "DescribeAlarmsOutput";
   /**
    * <p>The information for the specified alarms.</p>
@@ -680,7 +680,7 @@ export namespace DescribeAnomalyDetectorsInput {
   }
 }
 
-export interface DescribeAnomalyDetectorsOutput extends $MetadataBearer {
+export interface DescribeAnomalyDetectorsOutput {
   __type?: "DescribeAnomalyDetectorsOutput";
   /**
    * <p>The list of anomaly detection models returned by the operation.</p>
@@ -719,7 +719,7 @@ export namespace DescribeInsightRulesInput {
   }
 }
 
-export interface DescribeInsightRulesOutput extends $MetadataBearer {
+export interface DescribeInsightRulesOutput {
   __type?: "DescribeInsightRulesOutput";
   /**
    * <p>The rules returned by the operation.</p>
@@ -810,7 +810,7 @@ export namespace DisableInsightRulesInput {
   }
 }
 
-export interface DisableInsightRulesOutput extends $MetadataBearer {
+export interface DisableInsightRulesOutput {
   __type?: "DisableInsightRulesOutput";
   /**
    * <p>An array listing the rules that could not be disabled. You cannot disable built-in rules.</p>
@@ -852,7 +852,7 @@ export namespace EnableInsightRulesInput {
   }
 }
 
-export interface EnableInsightRulesOutput extends $MetadataBearer {
+export interface EnableInsightRulesOutput {
   __type?: "EnableInsightRulesOutput";
   /**
    * <p>An array listing the rules that could not be enabled. You cannot disable or enable built-in rules.</p>
@@ -880,7 +880,7 @@ export namespace GetDashboardInput {
   }
 }
 
-export interface GetDashboardOutput extends $MetadataBearer {
+export interface GetDashboardOutput {
   __type?: "GetDashboardOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
@@ -989,7 +989,7 @@ export namespace GetInsightRuleReportInput {
   }
 }
 
-export interface GetInsightRuleReportOutput extends $MetadataBearer {
+export interface GetInsightRuleReportOutput {
   __type?: "GetInsightRuleReportOutput";
   /**
    * <p>The sum of the values from all individual contributors that match the rule.</p>
@@ -1108,7 +1108,7 @@ export namespace GetMetricDataInput {
   }
 }
 
-export interface GetMetricDataOutput extends $MetadataBearer {
+export interface GetMetricDataOutput {
   __type?: "GetMetricDataOutput";
   /**
    * <p>Contains a message about this <code>GetMetricData</code> operation, if the operation
@@ -1247,7 +1247,7 @@ export namespace GetMetricStatisticsInput {
   }
 }
 
-export interface GetMetricStatisticsOutput extends $MetadataBearer {
+export interface GetMetricStatisticsOutput {
   __type?: "GetMetricStatisticsOutput";
   /**
    * <p>The data points for the specified metric.</p>
@@ -1332,7 +1332,7 @@ export namespace GetMetricWidgetImageInput {
   }
 }
 
-export interface GetMetricWidgetImageOutput extends $MetadataBearer {
+export interface GetMetricWidgetImageOutput {
   __type?: "GetMetricWidgetImageOutput";
   /**
    * <p>The image of the graph, in the output format specified.</p>
@@ -1614,7 +1614,7 @@ export namespace ListDashboardsInput {
   }
 }
 
-export interface ListDashboardsOutput extends $MetadataBearer {
+export interface ListDashboardsOutput {
   __type?: "ListDashboardsOutput";
   /**
    * <p>The list of matching dashboards.</p>
@@ -1663,7 +1663,7 @@ export namespace ListMetricsInput {
   }
 }
 
-export interface ListMetricsOutput extends $MetadataBearer {
+export interface ListMetricsOutput {
   __type?: "ListMetricsOutput";
   /**
    * <p>The metrics.</p>
@@ -1697,7 +1697,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>The list of tag keys and values associated with the resource you specified.</p>
@@ -2271,7 +2271,7 @@ export namespace PutAnomalyDetectorInput {
   }
 }
 
-export interface PutAnomalyDetectorOutput extends $MetadataBearer {
+export interface PutAnomalyDetectorOutput {
   __type?: "PutAnomalyDetectorOutput";
 }
 
@@ -2305,7 +2305,7 @@ export namespace PutDashboardInput {
   }
 }
 
-export interface PutDashboardOutput extends $MetadataBearer {
+export interface PutDashboardOutput {
   __type?: "PutDashboardOutput";
   /**
    * <p>If the input for <code>PutDashboard</code> was correct and the dashboard was successfully created or modified, this result is empty.</p>
@@ -2348,7 +2348,7 @@ export namespace PutInsightRuleInput {
   }
 }
 
-export interface PutInsightRuleOutput extends $MetadataBearer {
+export interface PutInsightRuleOutput {
   __type?: "PutInsightRuleOutput";
 }
 
@@ -2849,7 +2849,7 @@ export namespace TagResourceInput {
   }
 }
 
-export interface TagResourceOutput extends $MetadataBearer {
+export interface TagResourceOutput {
   __type?: "TagResourceOutput";
 }
 
@@ -2879,7 +2879,7 @@ export namespace UntagResourceInput {
   }
 }
 
-export interface UntagResourceOutput extends $MetadataBearer {
+export interface UntagResourceOutput {
   __type?: "UntagResourceOutput";
 }
 

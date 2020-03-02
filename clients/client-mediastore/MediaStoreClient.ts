@@ -1,41 +1,75 @@
 import {
-  CreateContainerInput,
-  CreateContainerOutput,
-  DeleteContainerInput,
-  DeleteContainerOutput,
-  DeleteContainerPolicyInput,
-  DeleteContainerPolicyOutput,
-  DeleteCorsPolicyInput,
-  DeleteCorsPolicyOutput,
-  DeleteLifecyclePolicyInput,
-  DeleteLifecyclePolicyOutput,
-  DescribeContainerInput,
-  DescribeContainerOutput,
-  GetContainerPolicyInput,
-  GetContainerPolicyOutput,
-  GetCorsPolicyInput,
-  GetCorsPolicyOutput,
-  GetLifecyclePolicyInput,
-  GetLifecyclePolicyOutput,
-  ListContainersInput,
-  ListContainersOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  PutContainerPolicyInput,
-  PutContainerPolicyOutput,
-  PutCorsPolicyInput,
-  PutCorsPolicyOutput,
-  PutLifecyclePolicyInput,
-  PutLifecyclePolicyOutput,
-  StartAccessLoggingInput,
-  StartAccessLoggingOutput,
-  StopAccessLoggingInput,
-  StopAccessLoggingOutput,
-  TagResourceInput,
-  TagResourceOutput,
-  UntagResourceInput,
-  UntagResourceOutput
-} from "./models/index";
+  CreateContainerCommandInput,
+  CreateContainerCommandOutput
+} from "./commands/CreateContainerCommand";
+import {
+  DeleteContainerCommandInput,
+  DeleteContainerCommandOutput
+} from "./commands/DeleteContainerCommand";
+import {
+  DeleteContainerPolicyCommandInput,
+  DeleteContainerPolicyCommandOutput
+} from "./commands/DeleteContainerPolicyCommand";
+import {
+  DeleteCorsPolicyCommandInput,
+  DeleteCorsPolicyCommandOutput
+} from "./commands/DeleteCorsPolicyCommand";
+import {
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput
+} from "./commands/DeleteLifecyclePolicyCommand";
+import {
+  DescribeContainerCommandInput,
+  DescribeContainerCommandOutput
+} from "./commands/DescribeContainerCommand";
+import {
+  GetContainerPolicyCommandInput,
+  GetContainerPolicyCommandOutput
+} from "./commands/GetContainerPolicyCommand";
+import {
+  GetCorsPolicyCommandInput,
+  GetCorsPolicyCommandOutput
+} from "./commands/GetCorsPolicyCommand";
+import {
+  GetLifecyclePolicyCommandInput,
+  GetLifecyclePolicyCommandOutput
+} from "./commands/GetLifecyclePolicyCommand";
+import {
+  ListContainersCommandInput,
+  ListContainersCommandOutput
+} from "./commands/ListContainersCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutContainerPolicyCommandInput,
+  PutContainerPolicyCommandOutput
+} from "./commands/PutContainerPolicyCommand";
+import {
+  PutCorsPolicyCommandInput,
+  PutCorsPolicyCommandOutput
+} from "./commands/PutCorsPolicyCommand";
+import {
+  PutLifecyclePolicyCommandInput,
+  PutLifecyclePolicyCommandOutput
+} from "./commands/PutLifecyclePolicyCommand";
+import {
+  StartAccessLoggingCommandInput,
+  StartAccessLoggingCommandOutput
+} from "./commands/StartAccessLoggingCommand";
+import {
+  StopAccessLoggingCommandInput,
+  StopAccessLoggingCommandOutput
+} from "./commands/StopAccessLoggingCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -89,44 +123,44 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateContainerInput
-  | DeleteContainerInput
-  | DeleteContainerPolicyInput
-  | DeleteCorsPolicyInput
-  | DeleteLifecyclePolicyInput
-  | DescribeContainerInput
-  | GetContainerPolicyInput
-  | GetCorsPolicyInput
-  | GetLifecyclePolicyInput
-  | ListContainersInput
-  | ListTagsForResourceInput
-  | PutContainerPolicyInput
-  | PutCorsPolicyInput
-  | PutLifecyclePolicyInput
-  | StartAccessLoggingInput
-  | StopAccessLoggingInput
-  | TagResourceInput
-  | UntagResourceInput;
+  | CreateContainerCommandInput
+  | DeleteContainerCommandInput
+  | DeleteContainerPolicyCommandInput
+  | DeleteCorsPolicyCommandInput
+  | DeleteLifecyclePolicyCommandInput
+  | DescribeContainerCommandInput
+  | GetContainerPolicyCommandInput
+  | GetCorsPolicyCommandInput
+  | GetLifecyclePolicyCommandInput
+  | ListContainersCommandInput
+  | ListTagsForResourceCommandInput
+  | PutContainerPolicyCommandInput
+  | PutCorsPolicyCommandInput
+  | PutLifecyclePolicyCommandInput
+  | StartAccessLoggingCommandInput
+  | StopAccessLoggingCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateContainerOutput
-  | DeleteContainerOutput
-  | DeleteContainerPolicyOutput
-  | DeleteCorsPolicyOutput
-  | DeleteLifecyclePolicyOutput
-  | DescribeContainerOutput
-  | GetContainerPolicyOutput
-  | GetCorsPolicyOutput
-  | GetLifecyclePolicyOutput
-  | ListContainersOutput
-  | ListTagsForResourceOutput
-  | PutContainerPolicyOutput
-  | PutCorsPolicyOutput
-  | PutLifecyclePolicyOutput
-  | StartAccessLoggingOutput
-  | StopAccessLoggingOutput
-  | TagResourceOutput
-  | UntagResourceOutput;
+  | CreateContainerCommandOutput
+  | DeleteContainerCommandOutput
+  | DeleteContainerPolicyCommandOutput
+  | DeleteCorsPolicyCommandOutput
+  | DeleteLifecyclePolicyCommandOutput
+  | DescribeContainerCommandOutput
+  | GetContainerPolicyCommandOutput
+  | GetCorsPolicyCommandOutput
+  | GetLifecyclePolicyCommandOutput
+  | ListContainersCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutContainerPolicyCommandOutput
+  | PutCorsPolicyCommandOutput
+  | PutLifecyclePolicyCommandOutput
+  | StartAccessLoggingCommandOutput
+  | StopAccessLoggingCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

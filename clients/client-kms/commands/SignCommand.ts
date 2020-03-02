@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SignCommandInput = SignRequest;
-export type SignCommandOutput = SignResponse;
+export type SignCommandOutput = SignResponse & __MetadataBearer;
 
 export class SignCommand extends $Command<
   SignCommandInput,

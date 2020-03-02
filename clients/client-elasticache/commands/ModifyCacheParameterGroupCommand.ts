@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyCacheParameterGroupCommandInput = ModifyCacheParameterGroupMessage;
-export type ModifyCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage;
+export type ModifyCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage &
+  __MetadataBearer;
 
 export class ModifyCacheParameterGroupCommand extends $Command<
   ModifyCacheParameterGroupCommandInput,

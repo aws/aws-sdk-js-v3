@@ -23,7 +23,7 @@ export namespace AcceptInvitationRequest {
   }
 }
 
-export interface AcceptInvitationResponse extends $MetadataBearer {
+export interface AcceptInvitationResponse {
   __type?: "AcceptInvitationResponse";
 }
 
@@ -1528,7 +1528,7 @@ export namespace BatchDisableStandardsRequest {
   }
 }
 
-export interface BatchDisableStandardsResponse extends $MetadataBearer {
+export interface BatchDisableStandardsResponse {
   __type?: "BatchDisableStandardsResponse";
   /**
    * <p>The details of the standards subscriptions that were disabled.</p>
@@ -1563,7 +1563,7 @@ export namespace BatchEnableStandardsRequest {
   }
 }
 
-export interface BatchEnableStandardsResponse extends $MetadataBearer {
+export interface BatchEnableStandardsResponse {
   __type?: "BatchEnableStandardsResponse";
   /**
    * <p>The details of the standards subscriptions that were enabled.</p>
@@ -1592,7 +1592,7 @@ export namespace BatchImportFindingsRequest {
   }
 }
 
-export interface BatchImportFindingsResponse extends $MetadataBearer {
+export interface BatchImportFindingsResponse {
   __type?: "BatchImportFindingsResponse";
   /**
    * <p>The number of findings that failed to import.</p>
@@ -1727,7 +1727,7 @@ export namespace CreateActionTargetRequest {
   }
 }
 
-export interface CreateActionTargetResponse extends $MetadataBearer {
+export interface CreateActionTargetResponse {
   __type?: "CreateActionTargetResponse";
   /**
    * <p>The ARN for the custom action target.</p>
@@ -1766,7 +1766,7 @@ export namespace CreateInsightRequest {
   }
 }
 
-export interface CreateInsightResponse extends $MetadataBearer {
+export interface CreateInsightResponse {
   __type?: "CreateInsightResponse";
   /**
    * <p>The ARN of the insight created.</p>
@@ -1795,7 +1795,7 @@ export namespace CreateMembersRequest {
   }
 }
 
-export interface CreateMembersResponse extends $MetadataBearer {
+export interface CreateMembersResponse {
   __type?: "CreateMembersResponse";
   /**
    * <p>A list of account ID and email address pairs of the AWS accounts that weren't
@@ -1878,7 +1878,7 @@ export namespace DeclineInvitationsRequest {
   }
 }
 
-export interface DeclineInvitationsResponse extends $MetadataBearer {
+export interface DeclineInvitationsResponse {
   __type?: "DeclineInvitationsResponse";
   /**
    * <p>A list of account ID and email address pairs of the AWS accounts that weren't
@@ -1907,7 +1907,7 @@ export namespace DeleteActionTargetRequest {
   }
 }
 
-export interface DeleteActionTargetResponse extends $MetadataBearer {
+export interface DeleteActionTargetResponse {
   __type?: "DeleteActionTargetResponse";
   /**
    * <p>The ARN of the custom action target that was deleted.</p>
@@ -1935,7 +1935,7 @@ export namespace DeleteInsightRequest {
   }
 }
 
-export interface DeleteInsightResponse extends $MetadataBearer {
+export interface DeleteInsightResponse {
   __type?: "DeleteInsightResponse";
   /**
    * <p>The ARN of the insight that was deleted.</p>
@@ -1963,7 +1963,7 @@ export namespace DeleteInvitationsRequest {
   }
 }
 
-export interface DeleteInvitationsResponse extends $MetadataBearer {
+export interface DeleteInvitationsResponse {
   __type?: "DeleteInvitationsResponse";
   /**
    * <p>A list of account ID and email address pairs of the AWS accounts that invitations
@@ -1992,7 +1992,7 @@ export namespace DeleteMembersRequest {
   }
 }
 
-export interface DeleteMembersResponse extends $MetadataBearer {
+export interface DeleteMembersResponse {
   __type?: "DeleteMembersResponse";
   /**
    * <p>A list of account ID and email address pairs of the AWS accounts that weren't
@@ -2031,7 +2031,7 @@ export namespace DescribeActionTargetsRequest {
   }
 }
 
-export interface DescribeActionTargetsResponse extends $MetadataBearer {
+export interface DescribeActionTargetsResponse {
   __type?: "DescribeActionTargetsResponse";
   /**
    * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
@@ -2066,7 +2066,7 @@ export namespace DescribeHubRequest {
   }
 }
 
-export interface DescribeHubResponse extends $MetadataBearer {
+export interface DescribeHubResponse {
   __type?: "DescribeHubResponse";
   /**
    * <p>The ARN of the Hub resource retrieved.</p>
@@ -2104,7 +2104,7 @@ export namespace DescribeProductsRequest {
   }
 }
 
-export interface DescribeProductsResponse extends $MetadataBearer {
+export interface DescribeProductsResponse {
   __type?: "DescribeProductsResponse";
   /**
    * <p>The token that is required for pagination.</p>
@@ -2149,7 +2149,7 @@ export namespace DescribeStandardsControlsRequest {
   }
 }
 
-export interface DescribeStandardsControlsResponse extends $MetadataBearer {
+export interface DescribeStandardsControlsResponse {
   __type?: "DescribeStandardsControlsResponse";
   /**
    * <p>A list of compliance standards controls.</p>
@@ -2184,8 +2184,7 @@ export namespace DisableImportFindingsForProductRequest {
   }
 }
 
-export interface DisableImportFindingsForProductResponse
-  extends $MetadataBearer {
+export interface DisableImportFindingsForProductResponse {
   __type?: "DisableImportFindingsForProductResponse";
 }
 
@@ -2205,7 +2204,7 @@ export namespace DisableSecurityHubRequest {
   }
 }
 
-export interface DisableSecurityHubResponse extends $MetadataBearer {
+export interface DisableSecurityHubResponse {
   __type?: "DisableSecurityHubResponse";
 }
 
@@ -2225,7 +2224,7 @@ export namespace DisassociateFromMasterAccountRequest {
   }
 }
 
-export interface DisassociateFromMasterAccountResponse extends $MetadataBearer {
+export interface DisassociateFromMasterAccountResponse {
   __type?: "DisassociateFromMasterAccountResponse";
 }
 
@@ -2249,7 +2248,7 @@ export namespace DisassociateMembersRequest {
   }
 }
 
-export interface DisassociateMembersResponse extends $MetadataBearer {
+export interface DisassociateMembersResponse {
   __type?: "DisassociateMembersResponse";
 }
 
@@ -2273,8 +2272,7 @@ export namespace EnableImportFindingsForProductRequest {
   }
 }
 
-export interface EnableImportFindingsForProductResponse
-  extends $MetadataBearer {
+export interface EnableImportFindingsForProductResponse {
   __type?: "EnableImportFindingsForProductResponse";
   /**
    * <p>The ARN of your subscription to the product to enable integrations for.</p>
@@ -2302,7 +2300,7 @@ export namespace EnableSecurityHubRequest {
   }
 }
 
-export interface EnableSecurityHubResponse extends $MetadataBearer {
+export interface EnableSecurityHubResponse {
   __type?: "EnableSecurityHubResponse";
 }
 
@@ -2339,7 +2337,7 @@ export namespace GetEnabledStandardsRequest {
   }
 }
 
-export interface GetEnabledStandardsResponse extends $MetadataBearer {
+export interface GetEnabledStandardsResponse {
   __type?: "GetEnabledStandardsResponse";
   /**
    * <p>The token that is required for pagination.</p>
@@ -2390,7 +2388,7 @@ export namespace GetFindingsRequest {
   }
 }
 
-export interface GetFindingsResponse extends $MetadataBearer {
+export interface GetFindingsResponse {
   __type?: "GetFindingsResponse";
   /**
    * <p>The findings that matched the filters specified in the request.</p>
@@ -2423,7 +2421,7 @@ export namespace GetInsightResultsRequest {
   }
 }
 
-export interface GetInsightResultsResponse extends $MetadataBearer {
+export interface GetInsightResultsResponse {
   __type?: "GetInsightResultsResponse";
   /**
    * <p>The insight results returned by the operation.</p>
@@ -2464,7 +2462,7 @@ export namespace GetInsightsRequest {
   }
 }
 
-export interface GetInsightsResponse extends $MetadataBearer {
+export interface GetInsightsResponse {
   __type?: "GetInsightsResponse";
   /**
    * <p>The insights returned by the operation.</p>
@@ -2493,7 +2491,7 @@ export namespace GetInvitationsCountRequest {
   }
 }
 
-export interface GetInvitationsCountResponse extends $MetadataBearer {
+export interface GetInvitationsCountResponse {
   __type?: "GetInvitationsCountResponse";
   /**
    * <p>The number of all membership invitations sent to this Security Hub member account, not
@@ -2518,7 +2516,7 @@ export namespace GetMasterAccountRequest {
   }
 }
 
-export interface GetMasterAccountResponse extends $MetadataBearer {
+export interface GetMasterAccountResponse {
   __type?: "GetMasterAccountResponse";
   /**
    * <p>A list of details about the Security Hub master account for the current member account.
@@ -2548,7 +2546,7 @@ export namespace GetMembersRequest {
   }
 }
 
-export interface GetMembersResponse extends $MetadataBearer {
+export interface GetMembersResponse {
   __type?: "GetMembersResponse";
   /**
    * <p>A list of details about the Security Hub member accounts.</p>
@@ -2784,7 +2782,7 @@ export namespace InviteMembersRequest {
   }
 }
 
-export interface InviteMembersResponse extends $MetadataBearer {
+export interface InviteMembersResponse {
   __type?: "InviteMembersResponse";
   /**
    * <p>A list of account ID and email address pairs of the AWS accounts that couldn't be
@@ -2874,7 +2872,7 @@ export namespace ListEnabledProductsForImportRequest {
   }
 }
 
-export interface ListEnabledProductsForImportResponse extends $MetadataBearer {
+export interface ListEnabledProductsForImportResponse {
   __type?: "ListEnabledProductsForImportResponse";
   /**
    * <p>The token that is required for pagination.</p>
@@ -2915,7 +2913,7 @@ export namespace ListInvitationsRequest {
   }
 }
 
-export interface ListInvitationsResponse extends $MetadataBearer {
+export interface ListInvitationsResponse {
   __type?: "ListInvitationsResponse";
   /**
    * <p>The details of the invitations returned by the operation.</p>
@@ -2966,7 +2964,7 @@ export namespace ListMembersRequest {
   }
 }
 
-export interface ListMembersResponse extends $MetadataBearer {
+export interface ListMembersResponse {
   __type?: "ListMembersResponse";
   /**
    * <p>Member details returned by the operation.</p>
@@ -2999,7 +2997,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags associated with a resource.</p>
@@ -3894,7 +3892,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -3990,7 +3988,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -4024,7 +4022,7 @@ export namespace UpdateActionTargetRequest {
   }
 }
 
-export interface UpdateActionTargetResponse extends $MetadataBearer {
+export interface UpdateActionTargetResponse {
   __type?: "UpdateActionTargetResponse";
 }
 
@@ -4058,7 +4056,7 @@ export namespace UpdateFindingsRequest {
   }
 }
 
-export interface UpdateFindingsResponse extends $MetadataBearer {
+export interface UpdateFindingsResponse {
   __type?: "UpdateFindingsResponse";
 }
 
@@ -4097,7 +4095,7 @@ export namespace UpdateInsightRequest {
   }
 }
 
-export interface UpdateInsightResponse extends $MetadataBearer {
+export interface UpdateInsightResponse {
   __type?: "UpdateInsightResponse";
 }
 
@@ -4131,7 +4129,7 @@ export namespace UpdateStandardsControlRequest {
   }
 }
 
-export interface UpdateStandardsControlResponse extends $MetadataBearer {
+export interface UpdateStandardsControlResponse {
   __type?: "UpdateStandardsControlResponse";
 }
 

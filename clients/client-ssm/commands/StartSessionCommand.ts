@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartSessionCommandInput = StartSessionRequest;
-export type StartSessionCommandOutput = StartSessionResponse;
+export type StartSessionCommandOutput = StartSessionResponse & __MetadataBearer;
 
 export class StartSessionCommand extends $Command<
   StartSessionCommandInput,

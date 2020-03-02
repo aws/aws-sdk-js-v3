@@ -763,8 +763,7 @@ export namespace CreateCloudFrontOriginAccessIdentityRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface CreateCloudFrontOriginAccessIdentityResult
-  extends $MetadataBearer {
+export interface CreateCloudFrontOriginAccessIdentityResult {
   __type?: "CreateCloudFrontOriginAccessIdentityResult";
   /**
    * <p>The origin access identity's information.</p>
@@ -809,7 +808,7 @@ export namespace CreateDistributionRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface CreateDistributionResult extends $MetadataBearer {
+export interface CreateDistributionResult {
   __type?: "CreateDistributionResult";
   /**
    * <p>The distribution's information.</p>
@@ -854,7 +853,7 @@ export namespace CreateDistributionWithTagsRequest {
 /**
  * <p>The returned result of the corresponding request. </p>
  */
-export interface CreateDistributionWithTagsResult extends $MetadataBearer {
+export interface CreateDistributionWithTagsResult {
   __type?: "CreateDistributionWithTagsResult";
   /**
    * <p>The distribution's information. </p>
@@ -894,8 +893,7 @@ export namespace CreateFieldLevelEncryptionConfigRequest {
   }
 }
 
-export interface CreateFieldLevelEncryptionConfigResult
-  extends $MetadataBearer {
+export interface CreateFieldLevelEncryptionConfigResult {
   __type?: "CreateFieldLevelEncryptionConfigResult";
   /**
    * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -936,8 +934,7 @@ export namespace CreateFieldLevelEncryptionProfileRequest {
   }
 }
 
-export interface CreateFieldLevelEncryptionProfileResult
-  extends $MetadataBearer {
+export interface CreateFieldLevelEncryptionProfileResult {
   __type?: "CreateFieldLevelEncryptionProfileResult";
   /**
    * <p>The current version of the field level encryption profile. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -987,7 +984,7 @@ export namespace CreateInvalidationRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface CreateInvalidationResult extends $MetadataBearer {
+export interface CreateInvalidationResult {
   __type?: "CreateInvalidationResult";
   /**
    * <p>The invalidation's information.</p>
@@ -1021,7 +1018,7 @@ export namespace CreatePublicKeyRequest {
   }
 }
 
-export interface CreatePublicKeyResult extends $MetadataBearer {
+export interface CreatePublicKeyResult {
   __type?: "CreatePublicKeyResult";
   /**
    * <p>The current version of the public key. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -1066,7 +1063,7 @@ export namespace CreateStreamingDistributionRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface CreateStreamingDistributionResult extends $MetadataBearer {
+export interface CreateStreamingDistributionResult {
   __type?: "CreateStreamingDistributionResult";
   /**
    * <p>The current version of the streaming distribution created.</p>
@@ -1114,8 +1111,7 @@ export namespace CreateStreamingDistributionWithTagsRequest {
 /**
  * <p>The returned result of the corresponding request. </p>
  */
-export interface CreateStreamingDistributionWithTagsResult
-  extends $MetadataBearer {
+export interface CreateStreamingDistributionWithTagsResult {
   __type?: "CreateStreamingDistributionWithTagsResult";
   /**
    * <p>The current version of the distribution created.</p>
@@ -2662,8 +2658,7 @@ export namespace GetCloudFrontOriginAccessIdentityConfigRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface GetCloudFrontOriginAccessIdentityConfigResult
-  extends $MetadataBearer {
+export interface GetCloudFrontOriginAccessIdentityConfigResult {
   __type?: "GetCloudFrontOriginAccessIdentityConfigResult";
   /**
    * <p>The origin access identity's configuration information. </p>
@@ -2705,8 +2700,7 @@ export namespace GetCloudFrontOriginAccessIdentityRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface GetCloudFrontOriginAccessIdentityResult
-  extends $MetadataBearer {
+export interface GetCloudFrontOriginAccessIdentityResult {
   __type?: "GetCloudFrontOriginAccessIdentityResult";
   /**
    * <p>The origin access identity's information.</p>
@@ -2746,7 +2740,7 @@ export namespace GetDistributionConfigRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface GetDistributionConfigResult extends $MetadataBearer {
+export interface GetDistributionConfigResult {
   __type?: "GetDistributionConfigResult";
   /**
    * <p>The distribution's configuration information.</p>
@@ -2786,7 +2780,7 @@ export namespace GetDistributionRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface GetDistributionResult extends $MetadataBearer {
+export interface GetDistributionResult {
   __type?: "GetDistributionResult";
   /**
    * <p>The distribution's information.</p>
@@ -2820,7 +2814,7 @@ export namespace GetFieldLevelEncryptionConfigRequest {
   }
 }
 
-export interface GetFieldLevelEncryptionConfigResult extends $MetadataBearer {
+export interface GetFieldLevelEncryptionConfigResult {
   __type?: "GetFieldLevelEncryptionConfigResult";
   /**
    * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -2855,8 +2849,7 @@ export namespace GetFieldLevelEncryptionProfileConfigRequest {
   }
 }
 
-export interface GetFieldLevelEncryptionProfileConfigResult
-  extends $MetadataBearer {
+export interface GetFieldLevelEncryptionProfileConfigResult {
   __type?: "GetFieldLevelEncryptionProfileConfigResult";
   /**
    * <p>The current version of the field-level encryption profile configuration result. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -2889,7 +2882,7 @@ export namespace GetFieldLevelEncryptionProfileRequest {
   }
 }
 
-export interface GetFieldLevelEncryptionProfileResult extends $MetadataBearer {
+export interface GetFieldLevelEncryptionProfileResult {
   __type?: "GetFieldLevelEncryptionProfileResult";
   /**
    * <p>The current version of the field level encryption profile. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -2922,7 +2915,7 @@ export namespace GetFieldLevelEncryptionRequest {
   }
 }
 
-export interface GetFieldLevelEncryptionResult extends $MetadataBearer {
+export interface GetFieldLevelEncryptionResult {
   __type?: "GetFieldLevelEncryptionResult";
   /**
    * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -2967,7 +2960,7 @@ export namespace GetInvalidationRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface GetInvalidationResult extends $MetadataBearer {
+export interface GetInvalidationResult {
   __type?: "GetInvalidationResult";
   /**
    * <p>The invalidation's information. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html">Invalidation Complex Type</a>. </p>
@@ -2995,7 +2988,7 @@ export namespace GetPublicKeyConfigRequest {
   }
 }
 
-export interface GetPublicKeyConfigResult extends $MetadataBearer {
+export interface GetPublicKeyConfigResult {
   __type?: "GetPublicKeyConfigResult";
   /**
    * <p>The current version of the public key configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -3028,7 +3021,7 @@ export namespace GetPublicKeyRequest {
   }
 }
 
-export interface GetPublicKeyResult extends $MetadataBearer {
+export interface GetPublicKeyResult {
   __type?: "GetPublicKeyResult";
   /**
    * <p>The current version of the public key. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -3067,7 +3060,7 @@ export namespace GetStreamingDistributionConfigRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface GetStreamingDistributionConfigResult extends $MetadataBearer {
+export interface GetStreamingDistributionConfigResult {
   __type?: "GetStreamingDistributionConfigResult";
   /**
    * <p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>.
@@ -3107,7 +3100,7 @@ export namespace GetStreamingDistributionRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface GetStreamingDistributionResult extends $MetadataBearer {
+export interface GetStreamingDistributionResult {
   __type?: "GetStreamingDistributionResult";
   /**
    * <p>The current version of the streaming distribution's information. For example:
@@ -3498,8 +3491,7 @@ export namespace ListCloudFrontOriginAccessIdentitiesRequest {
 /**
  * <p>The returned result of the corresponding request. </p>
  */
-export interface ListCloudFrontOriginAccessIdentitiesResult
-  extends $MetadataBearer {
+export interface ListCloudFrontOriginAccessIdentitiesResult {
   __type?: "ListCloudFrontOriginAccessIdentitiesResult";
   /**
    * <p>The <code>CloudFrontOriginAccessIdentityList</code> type. </p>
@@ -3552,7 +3544,7 @@ export namespace ListDistributionsByWebACLIdRequest {
  * <p>The response to a request to list the distributions that are associated with a
  * 			specified AWS WAF web ACL. </p>
  */
-export interface ListDistributionsByWebACLIdResult extends $MetadataBearer {
+export interface ListDistributionsByWebACLIdResult {
   __type?: "ListDistributionsByWebACLIdResult";
   /**
    * <p>The <code>DistributionList</code> type. </p>
@@ -3595,7 +3587,7 @@ export namespace ListDistributionsRequest {
 /**
  * <p>The returned result of the corresponding request. </p>
  */
-export interface ListDistributionsResult extends $MetadataBearer {
+export interface ListDistributionsResult {
   __type?: "ListDistributionsResult";
   /**
    * <p>The <code>DistributionList</code> type. </p>
@@ -3630,7 +3622,7 @@ export namespace ListFieldLevelEncryptionConfigsRequest {
   }
 }
 
-export interface ListFieldLevelEncryptionConfigsResult extends $MetadataBearer {
+export interface ListFieldLevelEncryptionConfigsResult {
   __type?: "ListFieldLevelEncryptionConfigsResult";
   /**
    * <p>Returns a list of all field-level encryption configurations that have been created in CloudFront for this account.</p>
@@ -3665,8 +3657,7 @@ export namespace ListFieldLevelEncryptionProfilesRequest {
   }
 }
 
-export interface ListFieldLevelEncryptionProfilesResult
-  extends $MetadataBearer {
+export interface ListFieldLevelEncryptionProfilesResult {
   __type?: "ListFieldLevelEncryptionProfilesResult";
   /**
    * <p>Returns a list of the field-level encryption profiles that have been created in CloudFront for this account.</p>
@@ -3716,7 +3707,7 @@ export namespace ListInvalidationsRequest {
 /**
  * <p>The returned result of the corresponding request. </p>
  */
-export interface ListInvalidationsResult extends $MetadataBearer {
+export interface ListInvalidationsResult {
   __type?: "ListInvalidationsResult";
   /**
    * <p>Information about invalidation batches. </p>
@@ -3751,7 +3742,7 @@ export namespace ListPublicKeysRequest {
   }
 }
 
-export interface ListPublicKeysResult extends $MetadataBearer {
+export interface ListPublicKeysResult {
   __type?: "ListPublicKeysResult";
   /**
    * <p>Returns a list of all public keys that have been added to CloudFront for this account.</p>
@@ -3790,7 +3781,7 @@ export namespace ListStreamingDistributionsRequest {
 /**
  * <p>The returned result of the corresponding request. </p>
  */
-export interface ListStreamingDistributionsResult extends $MetadataBearer {
+export interface ListStreamingDistributionsResult {
   __type?: "ListStreamingDistributionsResult";
   /**
    * <p>The <code>StreamingDistributionList</code> type. </p>
@@ -3824,7 +3815,7 @@ export namespace ListTagsForResourceRequest {
 /**
  * <p> The returned result of the corresponding request.</p>
  */
-export interface ListTagsForResourceResult extends $MetadataBearer {
+export interface ListTagsForResourceResult {
   __type?: "ListTagsForResourceResult";
   /**
    * <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
@@ -5129,8 +5120,7 @@ export namespace UpdateCloudFrontOriginAccessIdentityRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface UpdateCloudFrontOriginAccessIdentityResult
-  extends $MetadataBearer {
+export interface UpdateCloudFrontOriginAccessIdentityResult {
   __type?: "UpdateCloudFrontOriginAccessIdentityResult";
   /**
    * <p>The origin access identity's information.</p>
@@ -5181,7 +5171,7 @@ export namespace UpdateDistributionRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface UpdateDistributionResult extends $MetadataBearer {
+export interface UpdateDistributionResult {
   __type?: "UpdateDistributionResult";
   /**
    * <p>The distribution's information.</p>
@@ -5226,8 +5216,7 @@ export namespace UpdateFieldLevelEncryptionConfigRequest {
   }
 }
 
-export interface UpdateFieldLevelEncryptionConfigResult
-  extends $MetadataBearer {
+export interface UpdateFieldLevelEncryptionConfigResult {
   __type?: "UpdateFieldLevelEncryptionConfigResult";
   /**
    * <p>The value of the <code>ETag</code> header that you received when updating the configuration.
@@ -5274,8 +5263,7 @@ export namespace UpdateFieldLevelEncryptionProfileRequest {
   }
 }
 
-export interface UpdateFieldLevelEncryptionProfileResult
-  extends $MetadataBearer {
+export interface UpdateFieldLevelEncryptionProfileResult {
   __type?: "UpdateFieldLevelEncryptionProfileResult";
   /**
    * <p>The result of the field-level encryption profile request. </p>
@@ -5319,7 +5307,7 @@ export namespace UpdatePublicKeyRequest {
   }
 }
 
-export interface UpdatePublicKeyResult extends $MetadataBearer {
+export interface UpdatePublicKeyResult {
   __type?: "UpdatePublicKeyResult";
   /**
    * <p>The current version of the update public key result. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -5369,7 +5357,7 @@ export namespace UpdateStreamingDistributionRequest {
 /**
  * <p>The returned result of the corresponding request.</p>
  */
-export interface UpdateStreamingDistributionResult extends $MetadataBearer {
+export interface UpdateStreamingDistributionResult {
   __type?: "UpdateStreamingDistributionResult";
   /**
    * <p>The current version of the configuration. For example:

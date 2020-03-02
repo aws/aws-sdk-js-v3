@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutBotCommandInput = PutBotRequest;
-export type PutBotCommandOutput = PutBotResponse;
+export type PutBotCommandOutput = PutBotResponse & __MetadataBearer;
 
 export class PutBotCommand extends $Command<
   PutBotCommandInput,

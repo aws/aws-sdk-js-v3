@@ -1,29 +1,55 @@
 import {
-  ClaimDevicesByClaimCodeRequest,
-  ClaimDevicesByClaimCodeResponse,
-  DescribeDeviceRequest,
-  DescribeDeviceResponse,
-  FinalizeDeviceClaimRequest,
-  FinalizeDeviceClaimResponse,
-  GetDeviceMethodsRequest,
-  GetDeviceMethodsResponse,
-  InitiateDeviceClaimRequest,
-  InitiateDeviceClaimResponse,
-  InvokeDeviceMethodRequest,
-  InvokeDeviceMethodResponse,
-  ListDeviceEventsRequest,
-  ListDeviceEventsResponse,
-  ListDevicesRequest,
-  ListDevicesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  UnclaimDeviceRequest,
-  UnclaimDeviceResponse,
-  UntagResourceRequest,
-  UpdateDeviceStateRequest,
-  UpdateDeviceStateResponse
-} from "./models/index";
+  ClaimDevicesByClaimCodeCommandInput,
+  ClaimDevicesByClaimCodeCommandOutput
+} from "./commands/ClaimDevicesByClaimCodeCommand";
+import {
+  DescribeDeviceCommandInput,
+  DescribeDeviceCommandOutput
+} from "./commands/DescribeDeviceCommand";
+import {
+  FinalizeDeviceClaimCommandInput,
+  FinalizeDeviceClaimCommandOutput
+} from "./commands/FinalizeDeviceClaimCommand";
+import {
+  GetDeviceMethodsCommandInput,
+  GetDeviceMethodsCommandOutput
+} from "./commands/GetDeviceMethodsCommand";
+import {
+  InitiateDeviceClaimCommandInput,
+  InitiateDeviceClaimCommandOutput
+} from "./commands/InitiateDeviceClaimCommand";
+import {
+  InvokeDeviceMethodCommandInput,
+  InvokeDeviceMethodCommandOutput
+} from "./commands/InvokeDeviceMethodCommand";
+import {
+  ListDeviceEventsCommandInput,
+  ListDeviceEventsCommandOutput
+} from "./commands/ListDeviceEventsCommand";
+import {
+  ListDevicesCommandInput,
+  ListDevicesCommandOutput
+} from "./commands/ListDevicesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UnclaimDeviceCommandInput,
+  UnclaimDeviceCommandOutput
+} from "./commands/UnclaimDeviceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDeviceStateCommandInput,
+  UpdateDeviceStateCommandOutput
+} from "./commands/UpdateDeviceStateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -71,40 +97,40 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | ClaimDevicesByClaimCodeRequest
-  | DescribeDeviceRequest
-  | FinalizeDeviceClaimRequest
-  | GetDeviceMethodsRequest
-  | InitiateDeviceClaimRequest
-  | InvokeDeviceMethodRequest
-  | ListDeviceEventsRequest
-  | ListDevicesRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UnclaimDeviceRequest
-  | UntagResourceRequest
-  | UpdateDeviceStateRequest;
+  | ClaimDevicesByClaimCodeCommandInput
+  | DescribeDeviceCommandInput
+  | FinalizeDeviceClaimCommandInput
+  | GetDeviceMethodsCommandInput
+  | InitiateDeviceClaimCommandInput
+  | InvokeDeviceMethodCommandInput
+  | ListDeviceEventsCommandInput
+  | ListDevicesCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UnclaimDeviceCommandInput
+  | UntagResourceCommandInput
+  | UpdateDeviceStateCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | ClaimDevicesByClaimCodeResponse
-  | DescribeDeviceResponse
-  | FinalizeDeviceClaimResponse
-  | GetDeviceMethodsResponse
-  | InitiateDeviceClaimResponse
-  | InvokeDeviceMethodResponse
-  | ListDeviceEventsResponse
-  | ListDevicesResponse
-  | ListTagsForResourceResponse
-  | UnclaimDeviceResponse
-  | UpdateDeviceStateResponse;
+  | ClaimDevicesByClaimCodeCommandOutput
+  | DescribeDeviceCommandOutput
+  | FinalizeDeviceClaimCommandOutput
+  | GetDeviceMethodsCommandOutput
+  | InitiateDeviceClaimCommandOutput
+  | InvokeDeviceMethodCommandOutput
+  | ListDeviceEventsCommandOutput
+  | ListDevicesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UnclaimDeviceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDeviceStateCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListS3ResourcesCommandInput = ListS3ResourcesRequest;
-export type ListS3ResourcesCommandOutput = ListS3ResourcesResult;
+export type ListS3ResourcesCommandOutput = ListS3ResourcesResult &
+  __MetadataBearer;
 
 export class ListS3ResourcesCommand extends $Command<
   ListS3ResourcesCommandInput,

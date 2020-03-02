@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetResourceConfigHistoryCommandInput = GetResourceConfigHistoryRequest;
-export type GetResourceConfigHistoryCommandOutput = GetResourceConfigHistoryResponse;
+export type GetResourceConfigHistoryCommandOutput = GetResourceConfigHistoryResponse &
+  __MetadataBearer;
 
 export class GetResourceConfigHistoryCommand extends $Command<
   GetResourceConfigHistoryCommandInput,

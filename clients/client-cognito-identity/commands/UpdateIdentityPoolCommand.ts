@@ -21,11 +21,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateIdentityPoolCommandInput = IdentityPool;
-export type UpdateIdentityPoolCommandOutput = IdentityPool;
+export type UpdateIdentityPoolCommandOutput = IdentityPool & __MetadataBearer;
 
 export class UpdateIdentityPoolCommand extends $Command<
   UpdateIdentityPoolCommandInput,

@@ -644,38 +644,53 @@ async function deserializeAws_json1_1CreateAppCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -731,66 +746,93 @@ async function deserializeAws_json1_1CreateReplicationJobCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoConnectorsAvailableException":
     case "com.amazonaws.servermigration.V2016_10_24#NoConnectorsAvailableException":
-      response = await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationJobAlreadyExistsException":
     case "com.amazonaws.servermigration.V2016_10_24#ReplicationJobAlreadyExistsException":
-      response = await deserializeAws_json1_1ReplicationJobAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplicationJobAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerCannotBeReplicatedException":
     case "com.amazonaws.servermigration.V2016_10_24#ServerCannotBeReplicatedException":
-      response = await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TemporarilyUnavailableException":
     case "com.amazonaws.servermigration.V2016_10_24#TemporarilyUnavailableException":
-      response = await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -843,38 +885,53 @@ async function deserializeAws_json1_1DeleteAppCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -933,38 +990,53 @@ async function deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1023,38 +1095,53 @@ async function deserializeAws_json1_1DeleteAppReplicationConfigurationCommandErr
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1110,38 +1197,53 @@ async function deserializeAws_json1_1DeleteReplicationJobCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationJobNotFoundException":
     case "com.amazonaws.servermigration.V2016_10_24#ReplicationJobNotFoundException":
-      response = await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1197,31 +1299,43 @@ async function deserializeAws_json1_1DeleteServerCatalogCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1277,31 +1391,43 @@ async function deserializeAws_json1_1DisassociateConnectorCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1354,38 +1480,53 @@ async function deserializeAws_json1_1GenerateChangeSetCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1438,38 +1579,53 @@ async function deserializeAws_json1_1GenerateTemplateCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1522,38 +1678,53 @@ async function deserializeAws_json1_1GetAppCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1612,38 +1783,53 @@ async function deserializeAws_json1_1GetAppLaunchConfigurationCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1702,38 +1888,53 @@ async function deserializeAws_json1_1GetAppReplicationConfigurationCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1786,10 +1987,13 @@ async function deserializeAws_json1_1GetConnectorsCommandError(
   switch (errorCode) {
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1845,24 +2049,33 @@ async function deserializeAws_json1_1GetReplicationJobsCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1918,24 +2131,33 @@ async function deserializeAws_json1_1GetReplicationRunsCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1988,10 +2210,13 @@ async function deserializeAws_json1_1GetServersCommandError(
   switch (errorCode) {
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2047,38 +2272,53 @@ async function deserializeAws_json1_1ImportServerCatalogCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoConnectorsAvailableException":
     case "com.amazonaws.servermigration.V2016_10_24#NoConnectorsAvailableException":
-      response = await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2131,38 +2371,53 @@ async function deserializeAws_json1_1LaunchAppCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2215,38 +2470,53 @@ async function deserializeAws_json1_1ListAppsCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2305,38 +2575,53 @@ async function deserializeAws_json1_1PutAppLaunchConfigurationCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2395,38 +2680,53 @@ async function deserializeAws_json1_1PutAppReplicationConfigurationCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2482,38 +2782,53 @@ async function deserializeAws_json1_1StartAppReplicationCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2572,38 +2887,53 @@ async function deserializeAws_json1_1StartOnDemandReplicationRunCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationRunLimitExceededException":
     case "com.amazonaws.servermigration.V2016_10_24#ReplicationRunLimitExceededException":
-      response = await deserializeAws_json1_1ReplicationRunLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplicationRunLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2659,38 +2989,53 @@ async function deserializeAws_json1_1StopAppReplicationCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2743,38 +3088,53 @@ async function deserializeAws_json1_1TerminateAppCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2827,38 +3187,53 @@ async function deserializeAws_json1_1UpdateAppCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2914,59 +3289,83 @@ async function deserializeAws_json1_1UpdateReplicationJobCommandError(
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
-      response = await deserializeAws_json1_1InternalErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
-      response = await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationJobNotFoundException":
     case "com.amazonaws.servermigration.V2016_10_24#ReplicationJobNotFoundException":
-      response = await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerCannotBeReplicatedException":
     case "com.amazonaws.servermigration.V2016_10_24#ServerCannotBeReplicatedException":
-      response = await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TemporarilyUnavailableException":
     case "com.amazonaws.servermigration.V2016_10_24#TemporarilyUnavailableException":
-      response = await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
-      response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -1,37 +1,71 @@
 import {
-  AddFlowOutputsRequest,
-  AddFlowOutputsResponse,
-  CreateFlowRequest,
-  CreateFlowResponse,
-  DeleteFlowRequest,
-  DeleteFlowResponse,
-  DescribeFlowRequest,
-  DescribeFlowResponse,
-  GrantFlowEntitlementsRequest,
-  GrantFlowEntitlementsResponse,
-  ListEntitlementsRequest,
-  ListEntitlementsResponse,
-  ListFlowsRequest,
-  ListFlowsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  RemoveFlowOutputRequest,
-  RemoveFlowOutputResponse,
-  RevokeFlowEntitlementRequest,
-  RevokeFlowEntitlementResponse,
-  StartFlowRequest,
-  StartFlowResponse,
-  StopFlowRequest,
-  StopFlowResponse,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateFlowEntitlementRequest,
-  UpdateFlowEntitlementResponse,
-  UpdateFlowOutputRequest,
-  UpdateFlowOutputResponse,
-  UpdateFlowSourceRequest,
-  UpdateFlowSourceResponse
-} from "./models/index";
+  AddFlowOutputsCommandInput,
+  AddFlowOutputsCommandOutput
+} from "./commands/AddFlowOutputsCommand";
+import {
+  CreateFlowCommandInput,
+  CreateFlowCommandOutput
+} from "./commands/CreateFlowCommand";
+import {
+  DeleteFlowCommandInput,
+  DeleteFlowCommandOutput
+} from "./commands/DeleteFlowCommand";
+import {
+  DescribeFlowCommandInput,
+  DescribeFlowCommandOutput
+} from "./commands/DescribeFlowCommand";
+import {
+  GrantFlowEntitlementsCommandInput,
+  GrantFlowEntitlementsCommandOutput
+} from "./commands/GrantFlowEntitlementsCommand";
+import {
+  ListEntitlementsCommandInput,
+  ListEntitlementsCommandOutput
+} from "./commands/ListEntitlementsCommand";
+import {
+  ListFlowsCommandInput,
+  ListFlowsCommandOutput
+} from "./commands/ListFlowsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  RemoveFlowOutputCommandInput,
+  RemoveFlowOutputCommandOutput
+} from "./commands/RemoveFlowOutputCommand";
+import {
+  RevokeFlowEntitlementCommandInput,
+  RevokeFlowEntitlementCommandOutput
+} from "./commands/RevokeFlowEntitlementCommand";
+import {
+  StartFlowCommandInput,
+  StartFlowCommandOutput
+} from "./commands/StartFlowCommand";
+import {
+  StopFlowCommandInput,
+  StopFlowCommandOutput
+} from "./commands/StopFlowCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateFlowEntitlementCommandInput,
+  UpdateFlowEntitlementCommandOutput
+} from "./commands/UpdateFlowEntitlementCommand";
+import {
+  UpdateFlowOutputCommandInput,
+  UpdateFlowOutputCommandOutput
+} from "./commands/UpdateFlowOutputCommand";
+import {
+  UpdateFlowSourceCommandInput,
+  UpdateFlowSourceCommandOutput
+} from "./commands/UpdateFlowSourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -79,48 +113,48 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddFlowOutputsRequest
-  | CreateFlowRequest
-  | DeleteFlowRequest
-  | DescribeFlowRequest
-  | GrantFlowEntitlementsRequest
-  | ListEntitlementsRequest
-  | ListFlowsRequest
-  | ListTagsForResourceRequest
-  | RemoveFlowOutputRequest
-  | RevokeFlowEntitlementRequest
-  | StartFlowRequest
-  | StopFlowRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateFlowEntitlementRequest
-  | UpdateFlowOutputRequest
-  | UpdateFlowSourceRequest;
+  | AddFlowOutputsCommandInput
+  | CreateFlowCommandInput
+  | DeleteFlowCommandInput
+  | DescribeFlowCommandInput
+  | GrantFlowEntitlementsCommandInput
+  | ListEntitlementsCommandInput
+  | ListFlowsCommandInput
+  | ListTagsForResourceCommandInput
+  | RemoveFlowOutputCommandInput
+  | RevokeFlowEntitlementCommandInput
+  | StartFlowCommandInput
+  | StopFlowCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateFlowEntitlementCommandInput
+  | UpdateFlowOutputCommandInput
+  | UpdateFlowSourceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AddFlowOutputsResponse
-  | CreateFlowResponse
-  | DeleteFlowResponse
-  | DescribeFlowResponse
-  | GrantFlowEntitlementsResponse
-  | ListEntitlementsResponse
-  | ListFlowsResponse
-  | ListTagsForResourceResponse
-  | RemoveFlowOutputResponse
-  | RevokeFlowEntitlementResponse
-  | StartFlowResponse
-  | StopFlowResponse
-  | UpdateFlowEntitlementResponse
-  | UpdateFlowOutputResponse
-  | UpdateFlowSourceResponse;
+  | AddFlowOutputsCommandOutput
+  | CreateFlowCommandOutput
+  | DeleteFlowCommandOutput
+  | DescribeFlowCommandOutput
+  | GrantFlowEntitlementsCommandOutput
+  | ListEntitlementsCommandOutput
+  | ListFlowsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | RemoveFlowOutputCommandOutput
+  | RevokeFlowEntitlementCommandOutput
+  | StartFlowCommandOutput
+  | StopFlowCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateFlowEntitlementCommandOutput
+  | UpdateFlowOutputCommandOutput
+  | UpdateFlowSourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

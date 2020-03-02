@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminInitiateAuthCommandInput = AdminInitiateAuthRequest;
-export type AdminInitiateAuthCommandOutput = AdminInitiateAuthResponse;
+export type AdminInitiateAuthCommandOutput = AdminInitiateAuthResponse &
+  __MetadataBearer;
 
 export class AdminInitiateAuthCommand extends $Command<
   AdminInitiateAuthCommandInput,

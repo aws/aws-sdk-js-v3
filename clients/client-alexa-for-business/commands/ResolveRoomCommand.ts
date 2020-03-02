@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResolveRoomCommandInput = ResolveRoomRequest;
-export type ResolveRoomCommandOutput = ResolveRoomResponse;
+export type ResolveRoomCommandOutput = ResolveRoomResponse & __MetadataBearer;
 
 export class ResolveRoomCommand extends $Command<
   ResolveRoomCommandInput,

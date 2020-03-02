@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIdentityVerificationAttributesCommandInput = GetIdentityVerificationAttributesRequest;
-export type GetIdentityVerificationAttributesCommandOutput = GetIdentityVerificationAttributesResponse;
+export type GetIdentityVerificationAttributesCommandOutput = GetIdentityVerificationAttributesResponse &
+  __MetadataBearer;
 
 export class GetIdentityVerificationAttributesCommand extends $Command<
   GetIdentityVerificationAttributesCommandInput,

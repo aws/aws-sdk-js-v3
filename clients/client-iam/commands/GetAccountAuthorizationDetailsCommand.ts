@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccountAuthorizationDetailsCommandInput = GetAccountAuthorizationDetailsRequest;
-export type GetAccountAuthorizationDetailsCommandOutput = GetAccountAuthorizationDetailsResponse;
+export type GetAccountAuthorizationDetailsCommandOutput = GetAccountAuthorizationDetailsResponse &
+  __MetadataBearer;
 
 export class GetAccountAuthorizationDetailsCommand extends $Command<
   GetAccountAuthorizationDetailsCommandInput,

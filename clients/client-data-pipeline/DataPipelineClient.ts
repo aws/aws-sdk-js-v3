@@ -1,41 +1,79 @@
 import {
-  ActivatePipelineInput,
-  ActivatePipelineOutput,
-  AddTagsInput,
-  AddTagsOutput,
-  CreatePipelineInput,
-  CreatePipelineOutput,
-  DeactivatePipelineInput,
-  DeactivatePipelineOutput,
-  DeletePipelineInput,
-  DescribeObjectsInput,
-  DescribeObjectsOutput,
-  DescribePipelinesInput,
-  DescribePipelinesOutput,
-  EvaluateExpressionInput,
-  EvaluateExpressionOutput,
-  GetPipelineDefinitionInput,
-  GetPipelineDefinitionOutput,
-  ListPipelinesInput,
-  ListPipelinesOutput,
-  PollForTaskInput,
-  PollForTaskOutput,
-  PutPipelineDefinitionInput,
-  PutPipelineDefinitionOutput,
-  QueryObjectsInput,
-  QueryObjectsOutput,
-  RemoveTagsInput,
-  RemoveTagsOutput,
-  ReportTaskProgressInput,
-  ReportTaskProgressOutput,
-  ReportTaskRunnerHeartbeatInput,
-  ReportTaskRunnerHeartbeatOutput,
-  SetStatusInput,
-  SetTaskStatusInput,
-  SetTaskStatusOutput,
-  ValidatePipelineDefinitionInput,
-  ValidatePipelineDefinitionOutput
-} from "./models/index";
+  ActivatePipelineCommandInput,
+  ActivatePipelineCommandOutput
+} from "./commands/ActivatePipelineCommand";
+import {
+  AddTagsCommandInput,
+  AddTagsCommandOutput
+} from "./commands/AddTagsCommand";
+import {
+  CreatePipelineCommandInput,
+  CreatePipelineCommandOutput
+} from "./commands/CreatePipelineCommand";
+import {
+  DeactivatePipelineCommandInput,
+  DeactivatePipelineCommandOutput
+} from "./commands/DeactivatePipelineCommand";
+import {
+  DeletePipelineCommandInput,
+  DeletePipelineCommandOutput
+} from "./commands/DeletePipelineCommand";
+import {
+  DescribeObjectsCommandInput,
+  DescribeObjectsCommandOutput
+} from "./commands/DescribeObjectsCommand";
+import {
+  DescribePipelinesCommandInput,
+  DescribePipelinesCommandOutput
+} from "./commands/DescribePipelinesCommand";
+import {
+  EvaluateExpressionCommandInput,
+  EvaluateExpressionCommandOutput
+} from "./commands/EvaluateExpressionCommand";
+import {
+  GetPipelineDefinitionCommandInput,
+  GetPipelineDefinitionCommandOutput
+} from "./commands/GetPipelineDefinitionCommand";
+import {
+  ListPipelinesCommandInput,
+  ListPipelinesCommandOutput
+} from "./commands/ListPipelinesCommand";
+import {
+  PollForTaskCommandInput,
+  PollForTaskCommandOutput
+} from "./commands/PollForTaskCommand";
+import {
+  PutPipelineDefinitionCommandInput,
+  PutPipelineDefinitionCommandOutput
+} from "./commands/PutPipelineDefinitionCommand";
+import {
+  QueryObjectsCommandInput,
+  QueryObjectsCommandOutput
+} from "./commands/QueryObjectsCommand";
+import {
+  RemoveTagsCommandInput,
+  RemoveTagsCommandOutput
+} from "./commands/RemoveTagsCommand";
+import {
+  ReportTaskProgressCommandInput,
+  ReportTaskProgressCommandOutput
+} from "./commands/ReportTaskProgressCommand";
+import {
+  ReportTaskRunnerHeartbeatCommandInput,
+  ReportTaskRunnerHeartbeatCommandOutput
+} from "./commands/ReportTaskRunnerHeartbeatCommand";
+import {
+  SetStatusCommandInput,
+  SetStatusCommandOutput
+} from "./commands/SetStatusCommand";
+import {
+  SetTaskStatusCommandInput,
+  SetTaskStatusCommandOutput
+} from "./commands/SetTaskStatusCommand";
+import {
+  ValidatePipelineDefinitionCommandInput,
+  ValidatePipelineDefinitionCommandOutput
+} from "./commands/ValidatePipelineDefinitionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -83,52 +121,52 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | ActivatePipelineInput
-  | AddTagsInput
-  | CreatePipelineInput
-  | DeactivatePipelineInput
-  | DeletePipelineInput
-  | DescribeObjectsInput
-  | DescribePipelinesInput
-  | EvaluateExpressionInput
-  | GetPipelineDefinitionInput
-  | ListPipelinesInput
-  | PollForTaskInput
-  | PutPipelineDefinitionInput
-  | QueryObjectsInput
-  | RemoveTagsInput
-  | ReportTaskProgressInput
-  | ReportTaskRunnerHeartbeatInput
-  | SetStatusInput
-  | SetTaskStatusInput
-  | ValidatePipelineDefinitionInput;
+  | ActivatePipelineCommandInput
+  | AddTagsCommandInput
+  | CreatePipelineCommandInput
+  | DeactivatePipelineCommandInput
+  | DeletePipelineCommandInput
+  | DescribeObjectsCommandInput
+  | DescribePipelinesCommandInput
+  | EvaluateExpressionCommandInput
+  | GetPipelineDefinitionCommandInput
+  | ListPipelinesCommandInput
+  | PollForTaskCommandInput
+  | PutPipelineDefinitionCommandInput
+  | QueryObjectsCommandInput
+  | RemoveTagsCommandInput
+  | ReportTaskProgressCommandInput
+  | ReportTaskRunnerHeartbeatCommandInput
+  | SetStatusCommandInput
+  | SetTaskStatusCommandInput
+  | ValidatePipelineDefinitionCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | ActivatePipelineOutput
-  | AddTagsOutput
-  | CreatePipelineOutput
-  | DeactivatePipelineOutput
-  | DescribeObjectsOutput
-  | DescribePipelinesOutput
-  | EvaluateExpressionOutput
-  | GetPipelineDefinitionOutput
-  | ListPipelinesOutput
-  | PollForTaskOutput
-  | PutPipelineDefinitionOutput
-  | QueryObjectsOutput
-  | RemoveTagsOutput
-  | ReportTaskProgressOutput
-  | ReportTaskRunnerHeartbeatOutput
-  | SetTaskStatusOutput
-  | ValidatePipelineDefinitionOutput;
+  | ActivatePipelineCommandOutput
+  | AddTagsCommandOutput
+  | CreatePipelineCommandOutput
+  | DeactivatePipelineCommandOutput
+  | DeletePipelineCommandOutput
+  | DescribeObjectsCommandOutput
+  | DescribePipelinesCommandOutput
+  | EvaluateExpressionCommandOutput
+  | GetPipelineDefinitionCommandOutput
+  | ListPipelinesCommandOutput
+  | PollForTaskCommandOutput
+  | PutPipelineDefinitionCommandOutput
+  | QueryObjectsCommandOutput
+  | RemoveTagsCommandOutput
+  | ReportTaskProgressCommandOutput
+  | ReportTaskRunnerHeartbeatCommandOutput
+  | SetStatusCommandOutput
+  | SetTaskStatusCommandOutput
+  | ValidatePipelineDefinitionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

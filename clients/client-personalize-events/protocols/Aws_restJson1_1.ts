@@ -79,10 +79,13 @@ async function deserializeAws_restJson1_1PutEventsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.services.personalize.events.exceptions#InvalidInputException":
-      response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidInputExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

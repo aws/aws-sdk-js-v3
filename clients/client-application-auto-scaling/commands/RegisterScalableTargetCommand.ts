@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterScalableTargetCommandInput = RegisterScalableTargetRequest;
-export type RegisterScalableTargetCommandOutput = RegisterScalableTargetResponse;
+export type RegisterScalableTargetCommandOutput = RegisterScalableTargetResponse &
+  __MetadataBearer;
 
 export class RegisterScalableTargetCommand extends $Command<
   RegisterScalableTargetCommandInput,

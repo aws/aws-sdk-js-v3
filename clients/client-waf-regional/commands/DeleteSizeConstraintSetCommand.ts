@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSizeConstraintSetCommandInput = DeleteSizeConstraintSetRequest;
-export type DeleteSizeConstraintSetCommandOutput = DeleteSizeConstraintSetResponse;
+export type DeleteSizeConstraintSetCommandOutput = DeleteSizeConstraintSetResponse &
+  __MetadataBearer;
 
 export class DeleteSizeConstraintSetCommand extends $Command<
   DeleteSizeConstraintSetCommandInput,

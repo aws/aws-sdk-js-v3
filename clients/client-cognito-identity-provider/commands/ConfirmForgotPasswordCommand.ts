@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfirmForgotPasswordCommandInput = ConfirmForgotPasswordRequest;
-export type ConfirmForgotPasswordCommandOutput = ConfirmForgotPasswordResponse;
+export type ConfirmForgotPasswordCommandOutput = ConfirmForgotPasswordResponse &
+  __MetadataBearer;
 
 export class ConfirmForgotPasswordCommand extends $Command<
   ConfirmForgotPasswordCommandInput,

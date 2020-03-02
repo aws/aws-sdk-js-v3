@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDocumentDefaultVersionCommandInput = UpdateDocumentDefaultVersionRequest;
-export type UpdateDocumentDefaultVersionCommandOutput = UpdateDocumentDefaultVersionResult;
+export type UpdateDocumentDefaultVersionCommandOutput = UpdateDocumentDefaultVersionResult &
+  __MetadataBearer;
 
 export class UpdateDocumentDefaultVersionCommand extends $Command<
   UpdateDocumentDefaultVersionCommandInput,

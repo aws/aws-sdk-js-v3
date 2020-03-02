@@ -1,17 +1,27 @@
 import {
-  CreateScalingPlanRequest,
-  CreateScalingPlanResponse,
-  DeleteScalingPlanRequest,
-  DeleteScalingPlanResponse,
-  DescribeScalingPlanResourcesRequest,
-  DescribeScalingPlanResourcesResponse,
-  DescribeScalingPlansRequest,
-  DescribeScalingPlansResponse,
-  GetScalingPlanResourceForecastDataRequest,
-  GetScalingPlanResourceForecastDataResponse,
-  UpdateScalingPlanRequest,
-  UpdateScalingPlanResponse
-} from "./models/index";
+  CreateScalingPlanCommandInput,
+  CreateScalingPlanCommandOutput
+} from "./commands/CreateScalingPlanCommand";
+import {
+  DeleteScalingPlanCommandInput,
+  DeleteScalingPlanCommandOutput
+} from "./commands/DeleteScalingPlanCommand";
+import {
+  DescribeScalingPlanResourcesCommandInput,
+  DescribeScalingPlanResourcesCommandOutput
+} from "./commands/DescribeScalingPlanResourcesCommand";
+import {
+  DescribeScalingPlansCommandInput,
+  DescribeScalingPlansCommandOutput
+} from "./commands/DescribeScalingPlansCommand";
+import {
+  GetScalingPlanResourceForecastDataCommandInput,
+  GetScalingPlanResourceForecastDataCommandOutput
+} from "./commands/GetScalingPlanResourceForecastDataCommand";
+import {
+  UpdateScalingPlanCommandInput,
+  UpdateScalingPlanCommandOutput
+} from "./commands/UpdateScalingPlanCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -65,20 +75,20 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateScalingPlanRequest
-  | DeleteScalingPlanRequest
-  | DescribeScalingPlanResourcesRequest
-  | DescribeScalingPlansRequest
-  | GetScalingPlanResourceForecastDataRequest
-  | UpdateScalingPlanRequest;
+  | CreateScalingPlanCommandInput
+  | DeleteScalingPlanCommandInput
+  | DescribeScalingPlanResourcesCommandInput
+  | DescribeScalingPlansCommandInput
+  | GetScalingPlanResourceForecastDataCommandInput
+  | UpdateScalingPlanCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateScalingPlanResponse
-  | DeleteScalingPlanResponse
-  | DescribeScalingPlanResourcesResponse
-  | DescribeScalingPlansResponse
-  | GetScalingPlanResourceForecastDataResponse
-  | UpdateScalingPlanResponse;
+  | CreateScalingPlanCommandOutput
+  | DeleteScalingPlanCommandOutput
+  | DescribeScalingPlanResourcesCommandOutput
+  | DescribeScalingPlansCommandOutput
+  | GetScalingPlanResourceForecastDataCommandOutput
+  | UpdateScalingPlanCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

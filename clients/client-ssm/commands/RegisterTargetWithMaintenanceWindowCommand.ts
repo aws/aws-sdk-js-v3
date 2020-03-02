@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterTargetWithMaintenanceWindowCommandInput = RegisterTargetWithMaintenanceWindowRequest;
-export type RegisterTargetWithMaintenanceWindowCommandOutput = RegisterTargetWithMaintenanceWindowResult;
+export type RegisterTargetWithMaintenanceWindowCommandOutput = RegisterTargetWithMaintenanceWindowResult &
+  __MetadataBearer;
 
 export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
   RegisterTargetWithMaintenanceWindowCommandInput,

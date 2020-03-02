@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetGatewayCommandInput = GetGatewayRequest;
-export type GetGatewayCommandOutput = GetGatewayResponse;
+export type GetGatewayCommandOutput = GetGatewayResponse & __MetadataBearer;
 
 export class GetGatewayCommand extends $Command<
   GetGatewayCommandInput,

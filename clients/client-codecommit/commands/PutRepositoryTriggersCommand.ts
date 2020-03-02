@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutRepositoryTriggersCommandInput = PutRepositoryTriggersInput;
-export type PutRepositoryTriggersCommandOutput = PutRepositoryTriggersOutput;
+export type PutRepositoryTriggersCommandOutput = PutRepositoryTriggersOutput &
+  __MetadataBearer;
 
 export class PutRepositoryTriggersCommand extends $Command<
   PutRepositoryTriggersCommandInput,

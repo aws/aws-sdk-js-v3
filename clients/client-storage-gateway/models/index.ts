@@ -15,7 +15,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             on the gateway ARN.</p>
  *          </note>
  */
-export interface ActivateGatewayOutput extends $MetadataBearer {
+export interface ActivateGatewayOutput {
   __type?: "ActivateGatewayOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -66,7 +66,7 @@ export namespace AddWorkingStorageInput {
  * <p>A JSON object containing the of the gateway for which working storage was
  *          configured.</p>
  */
-export interface AddWorkingStorageOutput extends $MetadataBearer {
+export interface AddWorkingStorageOutput {
   __type?: "AddWorkingStorageOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -170,7 +170,7 @@ export namespace CreateSnapshotInput {
 /**
  * <p>A JSON object containing the following fields:</p>
  */
-export interface CreateSnapshotOutput extends $MetadataBearer {
+export interface CreateSnapshotOutput {
   __type?: "CreateSnapshotOutput";
   /**
    * <p>The snapshot ID that is used to refer to the snapshot in future operations such as
@@ -304,7 +304,7 @@ export namespace CreateStorediSCSIVolumeInput {
 /**
  * <p>A JSON object containing the following fields:</p>
  */
-export interface CreateStorediSCSIVolumeOutput extends $MetadataBearer {
+export interface CreateStorediSCSIVolumeOutput {
   __type?: "CreateStorediSCSIVolumeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
@@ -333,7 +333,7 @@ export namespace CreateStorediSCSIVolumeOutput {
  * <p>A JSON object containing the of the gateway whose bandwidth rate information was
  *          deleted.</p>
  */
-export interface DeleteBandwidthRateLimitOutput extends $MetadataBearer {
+export interface DeleteBandwidthRateLimitOutput {
   __type?: "DeleteBandwidthRateLimitOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -386,7 +386,7 @@ export namespace DeleteChapCredentialsInput {
 /**
  * <p>A JSON object containing the following fields:</p>
  */
-export interface DeleteChapCredentialsOutput extends $MetadataBearer {
+export interface DeleteChapCredentialsOutput {
   __type?: "DeleteChapCredentialsOutput";
   /**
    * <p>The iSCSI initiator that connects to the target.</p>
@@ -426,7 +426,7 @@ export namespace DeleteGatewayInput {
 /**
  * <p>A JSON object containing the ID of the deleted gateway.</p>
  */
-export interface DeleteGatewayOutput extends $MetadataBearer {
+export interface DeleteGatewayOutput {
   __type?: "DeleteGatewayOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -463,7 +463,7 @@ export namespace DeleteVolumeInput {
 /**
  * <p>A JSON object containing the of the storage volume that was deleted</p>
  */
-export interface DeleteVolumeOutput extends $MetadataBearer {
+export interface DeleteVolumeOutput {
   __type?: "DeleteVolumeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same
@@ -499,7 +499,7 @@ export namespace DescribeBandwidthRateLimitInput {
 /**
  * <p>A JSON object containing the following fields:</p>
  */
-export interface DescribeBandwidthRateLimitOutput extends $MetadataBearer {
+export interface DescribeBandwidthRateLimitOutput {
   __type?: "DescribeBandwidthRateLimitOutput";
   /**
    * <p>The average download bandwidth rate limit in bits per second. This field does not
@@ -548,7 +548,7 @@ export namespace DescribeChapCredentialsInput {
 /**
  * <p>A JSON object containing a .</p>
  */
-export interface DescribeChapCredentialsOutput extends $MetadataBearer {
+export interface DescribeChapCredentialsOutput {
   __type?: "DescribeChapCredentialsOutput";
   /**
    * <p>An array of <a>ChapInfo</a> objects that represent CHAP credentials. Each
@@ -686,7 +686,7 @@ export namespace DescribeWorkingStorageInput {
 /**
  * <p>A JSON object containing the following fields:</p>
  */
-export interface DescribeWorkingStorageOutput extends $MetadataBearer {
+export interface DescribeWorkingStorageOutput {
   __type?: "DescribeWorkingStorageOutput";
   /**
    * <p>An array of the gateway's local disk IDs that are configured as working storage. Each
@@ -1014,7 +1014,7 @@ export namespace ShutdownGatewayInput {
 /**
  * <p>A JSON object containing the of the gateway that was shut down.</p>
  */
-export interface ShutdownGatewayOutput extends $MetadataBearer {
+export interface ShutdownGatewayOutput {
   __type?: "ShutdownGatewayOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1050,7 +1050,7 @@ export namespace StartGatewayInput {
 /**
  * <p>A JSON object containing the of the gateway that was restarted.</p>
  */
-export interface StartGatewayOutput extends $MetadataBearer {
+export interface StartGatewayOutput {
   __type?: "StartGatewayOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1133,7 +1133,7 @@ export namespace UpdateBandwidthRateLimitInput {
  * <p>A JSON object containing the of the gateway whose throttle information was
  *          updated.</p>
  */
-export interface UpdateBandwidthRateLimitOutput extends $MetadataBearer {
+export interface UpdateBandwidthRateLimitOutput {
   __type?: "UpdateBandwidthRateLimitOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1216,7 +1216,7 @@ export namespace UpdateChapCredentialsInput {
 /**
  * <p>A JSON object containing the following fields:</p>
  */
-export interface UpdateChapCredentialsOutput extends $MetadataBearer {
+export interface UpdateChapCredentialsOutput {
   __type?: "UpdateChapCredentialsOutput";
   /**
    * <p>The iSCSI initiator that connects to the target. This is the same initiator name
@@ -1240,7 +1240,7 @@ export namespace UpdateChapCredentialsOutput {
 /**
  * <p>A JSON object containing the ARN of the gateway that was updated.</p>
  */
-export interface UpdateGatewayInformationOutput extends $MetadataBearer {
+export interface UpdateGatewayInformationOutput {
   __type?: "UpdateGatewayInformationOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1281,7 +1281,7 @@ export namespace UpdateGatewaySoftwareNowInput {
 /**
  * <p>A JSON object containing the of the gateway that was updated.</p>
  */
-export interface UpdateGatewaySoftwareNowOutput extends $MetadataBearer {
+export interface UpdateGatewaySoftwareNowOutput {
   __type?: "UpdateGatewaySoftwareNowOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1370,7 +1370,7 @@ export namespace UpdateMaintenanceStartTimeInput {
  * <p>A JSON object containing the of the gateway whose maintenance start time is
  *          updated.</p>
  */
-export interface UpdateMaintenanceStartTimeOutput extends $MetadataBearer {
+export interface UpdateMaintenanceStartTimeOutput {
   __type?: "UpdateMaintenanceStartTimeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1457,7 +1457,7 @@ export namespace UpdateSnapshotScheduleInput {
 /**
  * <p>A JSON object containing the of the updated storage volume.</p>
  */
-export interface UpdateSnapshotScheduleOutput extends $MetadataBearer {
+export interface UpdateSnapshotScheduleOutput {
   __type?: "UpdateSnapshotScheduleOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
@@ -1531,7 +1531,7 @@ export namespace AddCacheInput {
   }
 }
 
-export interface AddCacheOutput extends $MetadataBearer {
+export interface AddCacheOutput {
   __type?: "AddCacheOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1568,7 +1568,7 @@ export namespace AddUploadBufferInput {
   }
 }
 
-export interface AddUploadBufferOutput extends $MetadataBearer {
+export interface AddUploadBufferOutput {
   __type?: "AddUploadBufferOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1668,7 +1668,7 @@ export namespace CreateCachediSCSIVolumeInput {
   }
 }
 
-export interface CreateCachediSCSIVolumeOutput extends $MetadataBearer {
+export interface CreateCachediSCSIVolumeOutput {
   __type?: "CreateCachediSCSIVolumeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
@@ -1688,8 +1688,7 @@ export namespace CreateCachediSCSIVolumeOutput {
   }
 }
 
-export interface CreateSnapshotFromVolumeRecoveryPointOutput
-  extends $MetadataBearer {
+export interface CreateSnapshotFromVolumeRecoveryPointOutput {
   __type?: "CreateSnapshotFromVolumeRecoveryPointOutput";
   /**
    * <p>The ID of the snapshot.</p>
@@ -1730,7 +1729,7 @@ export namespace DeleteSnapshotScheduleInput {
   }
 }
 
-export interface DeleteSnapshotScheduleOutput extends $MetadataBearer {
+export interface DeleteSnapshotScheduleOutput {
   __type?: "DeleteSnapshotScheduleOutput";
   /**
    * <p>The volume which snapshot schedule was deleted.</p>
@@ -1759,7 +1758,7 @@ export namespace DescribeCacheInput {
   }
 }
 
-export interface DescribeCacheOutput extends $MetadataBearer {
+export interface DescribeCacheOutput {
   __type?: "DescribeCacheOutput";
   /**
    * <p>The amount of cache in bytes allocated to the a gateway.</p>
@@ -1840,7 +1839,7 @@ export namespace DescribeUploadBufferInput {
   }
 }
 
-export interface DescribeUploadBufferOutput extends $MetadataBearer {
+export interface DescribeUploadBufferOutput {
   __type?: "DescribeUploadBufferOutput";
   /**
    * <p>An array of the gateway's local disk IDs that are configured as working storage. Each
@@ -1888,7 +1887,7 @@ export namespace ListVolumeRecoveryPointsInput {
   }
 }
 
-export interface ListVolumeRecoveryPointsOutput extends $MetadataBearer {
+export interface ListVolumeRecoveryPointsOutput {
   __type?: "ListVolumeRecoveryPointsOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2110,7 +2109,7 @@ export namespace AddTagsToResourceInput {
 /**
  * <p>AddTagsToResourceOutput</p>
  */
-export interface AddTagsToResourceOutput extends $MetadataBearer {
+export interface AddTagsToResourceOutput {
   __type?: "AddTagsToResourceOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to.</p>
@@ -2146,7 +2145,7 @@ export namespace AssignTapePoolInput {
   }
 }
 
-export interface AssignTapePoolOutput extends $MetadataBearer {
+export interface AssignTapePoolOutput {
   __type?: "AssignTapePoolOutput";
   /**
    * <p>The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape
@@ -2214,7 +2213,7 @@ export namespace AttachVolumeInput {
 /**
  * <p>AttachVolumeOutput</p>
  */
-export interface AttachVolumeOutput extends $MetadataBearer {
+export interface AttachVolumeOutput {
   __type?: "AttachVolumeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
@@ -2366,7 +2365,7 @@ export namespace CancelArchivalInput {
 /**
  * <p>CancelArchivalOutput</p>
  */
-export interface CancelArchivalOutput extends $MetadataBearer {
+export interface CancelArchivalOutput {
   __type?: "CancelArchivalOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape for which archiving was
@@ -2408,7 +2407,7 @@ export namespace CancelRetrievalInput {
 /**
  * <p>CancelRetrievalOutput</p>
  */
-export interface CancelRetrievalOutput extends $MetadataBearer {
+export interface CancelRetrievalOutput {
   __type?: "CancelRetrievalOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape for which retrieval was
@@ -2553,7 +2552,7 @@ export namespace CreateNFSFileShareInput {
 /**
  * <p>CreateNFSFileShareOutput</p>
  */
-export interface CreateNFSFileShareOutput extends $MetadataBearer {
+export interface CreateNFSFileShareOutput {
   __type?: "CreateNFSFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the newly created file share. </p>
@@ -2710,7 +2709,7 @@ export namespace CreateSMBFileShareInput {
 /**
  * <p>CreateSMBFileShareOutput</p>
  */
-export interface CreateSMBFileShareOutput extends $MetadataBearer {
+export interface CreateSMBFileShareOutput {
   __type?: "CreateSMBFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the newly created file share. </p>
@@ -2828,7 +2827,7 @@ export namespace CreateTapeWithBarcodeInput {
 /**
  * <p>CreateTapeOutput</p>
  */
-export interface CreateTapeWithBarcodeOutput extends $MetadataBearer {
+export interface CreateTapeWithBarcodeOutput {
   __type?: "CreateTapeWithBarcodeOutput";
   /**
    * <p>A unique Amazon Resource Name (ARN) that represents the virtual tape that was
@@ -2929,7 +2928,7 @@ export namespace CreateTapesInput {
 /**
  * <p>CreateTapeOutput</p>
  */
-export interface CreateTapesOutput extends $MetadataBearer {
+export interface CreateTapesOutput {
   __type?: "CreateTapesOutput";
   /**
    * <p>A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that
@@ -3004,7 +3003,7 @@ export namespace DeleteFileShareInput {
 /**
  * <p>DeleteFileShareOutput</p>
  */
-export interface DeleteFileShareOutput extends $MetadataBearer {
+export interface DeleteFileShareOutput {
   __type?: "DeleteFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted file share. </p>
@@ -3039,7 +3038,7 @@ export namespace DeleteTapeArchiveInput {
 /**
  * <p>DeleteTapeArchiveOutput</p>
  */
-export interface DeleteTapeArchiveOutput extends $MetadataBearer {
+export interface DeleteTapeArchiveOutput {
   __type?: "DeleteTapeArchiveOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual
@@ -3081,7 +3080,7 @@ export namespace DeleteTapeInput {
 /**
  * <p>DeleteTapeOutput</p>
  */
-export interface DeleteTapeOutput extends $MetadataBearer {
+export interface DeleteTapeOutput {
   __type?: "DeleteTapeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted virtual tape.</p>
@@ -3110,7 +3109,7 @@ export namespace DescribeAvailabilityMonitorTestInput {
   }
 }
 
-export interface DescribeAvailabilityMonitorTestOutput extends $MetadataBearer {
+export interface DescribeAvailabilityMonitorTestOutput {
   __type?: "DescribeAvailabilityMonitorTestOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -3140,7 +3139,7 @@ export namespace DescribeAvailabilityMonitorTestOutput {
 /**
  * <p>A JSON object containing the following fields:</p>
  */
-export interface DescribeCachediSCSIVolumesOutput extends $MetadataBearer {
+export interface DescribeCachediSCSIVolumesOutput {
   __type?: "DescribeCachediSCSIVolumesOutput";
   /**
    * <p>An array of objects where each object contains metadata about one cached
@@ -3158,7 +3157,7 @@ export namespace DescribeCachediSCSIVolumesOutput {
 /**
  * <p>A JSON object containing the following fields:</p>
  */
-export interface DescribeGatewayInformationOutput extends $MetadataBearer {
+export interface DescribeGatewayInformationOutput {
   __type?: "DescribeGatewayInformationOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Log Group that is used to monitor events in the gateway.</p>
@@ -3282,7 +3281,7 @@ export namespace DescribeGatewayInformationOutput {
  *             </li>
  *          </ul>
  */
-export interface DescribeMaintenanceStartTimeOutput extends $MetadataBearer {
+export interface DescribeMaintenanceStartTimeOutput {
   __type?: "DescribeMaintenanceStartTimeOutput";
   /**
    * <p>The day of the month component of the maintenance start time represented as an ordinal number from
@@ -3355,7 +3354,7 @@ export namespace DescribeNFSFileSharesInput {
 /**
  * <p>DescribeNFSFileSharesOutput</p>
  */
-export interface DescribeNFSFileSharesOutput extends $MetadataBearer {
+export interface DescribeNFSFileSharesOutput {
   __type?: "DescribeNFSFileSharesOutput";
   /**
    * <p>An array containing a description for each requested file share. </p>
@@ -3390,7 +3389,7 @@ export namespace DescribeSMBFileSharesInput {
 /**
  * <p>DescribeSMBFileSharesOutput</p>
  */
-export interface DescribeSMBFileSharesOutput extends $MetadataBearer {
+export interface DescribeSMBFileSharesOutput {
   __type?: "DescribeSMBFileSharesOutput";
   /**
    * <p>An array containing a description for each requested file share. </p>
@@ -3419,7 +3418,7 @@ export namespace DescribeSMBSettingsInput {
   }
 }
 
-export interface DescribeSMBSettingsOutput extends $MetadataBearer {
+export interface DescribeSMBSettingsOutput {
   __type?: "DescribeSMBSettingsOutput";
   /**
    * <p>Indicates the status of a gateway that is a member of the Active Directory
@@ -3493,7 +3492,7 @@ export namespace DescribeSMBSettingsOutput {
   }
 }
 
-export interface DescribeSnapshotScheduleOutput extends $MetadataBearer {
+export interface DescribeSnapshotScheduleOutput {
   __type?: "DescribeSnapshotScheduleOutput";
   /**
    * <p>The snapshot description.</p>
@@ -3537,7 +3536,7 @@ export namespace DescribeSnapshotScheduleOutput {
   }
 }
 
-export interface DescribeStorediSCSIVolumesOutput extends $MetadataBearer {
+export interface DescribeStorediSCSIVolumesOutput {
   __type?: "DescribeStorediSCSIVolumesOutput";
   /**
    * <p>Describes a single unit of output from <a>DescribeStorediSCSIVolumes</a>.
@@ -3685,7 +3684,7 @@ export namespace DescribeTapeArchivesInput {
 /**
  * <p>DescribeTapeArchivesOutput</p>
  */
-export interface DescribeTapeArchivesOutput extends $MetadataBearer {
+export interface DescribeTapeArchivesOutput {
   __type?: "DescribeTapeArchivesOutput";
   /**
    * <p>An opaque string that indicates the position at which the virtual tapes that were
@@ -3743,7 +3742,7 @@ export namespace DescribeTapeRecoveryPointsInput {
 /**
  * <p>DescribeTapeRecoveryPointsOutput</p>
  */
-export interface DescribeTapeRecoveryPointsOutput extends $MetadataBearer {
+export interface DescribeTapeRecoveryPointsOutput {
   __type?: "DescribeTapeRecoveryPointsOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -3817,7 +3816,7 @@ export namespace DescribeTapesInput {
 /**
  * <p>DescribeTapesOutput</p>
  */
-export interface DescribeTapesOutput extends $MetadataBearer {
+export interface DescribeTapesOutput {
   __type?: "DescribeTapesOutput";
   /**
    * <p>An opaque string which can be used as part of a subsequent DescribeTapes call to
@@ -3882,7 +3881,7 @@ export namespace DescribeVTLDevicesInput {
 /**
  * <p>DescribeVTLDevicesOutput</p>
  */
-export interface DescribeVTLDevicesOutput extends $MetadataBearer {
+export interface DescribeVTLDevicesOutput {
   __type?: "DescribeVTLDevicesOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -3939,7 +3938,7 @@ export namespace DetachVolumeInput {
 /**
  * <p>AttachVolumeOutput</p>
  */
-export interface DetachVolumeOutput extends $MetadataBearer {
+export interface DetachVolumeOutput {
   __type?: "DetachVolumeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume that was detached.</p>
@@ -4007,7 +4006,7 @@ export namespace DisableGatewayInput {
 /**
  * <p>DisableGatewayOutput</p>
  */
-export interface DisableGatewayOutput extends $MetadataBearer {
+export interface DisableGatewayOutput {
   __type?: "DisableGatewayOutput";
   /**
    * <p>The unique Amazon Resource Name (ARN) of the disabled gateway.</p>
@@ -4233,7 +4232,7 @@ export namespace JoinDomainInput {
 /**
  * <p>JoinDomainOutput</p>
  */
-export interface JoinDomainOutput extends $MetadataBearer {
+export interface JoinDomainOutput {
   __type?: "JoinDomainOutput";
   /**
    * <p>Indicates the status of the gateway as a member of the Active Directory domain.</p>
@@ -4314,7 +4313,7 @@ export namespace ListFileSharesInput {
 /**
  * <p>ListFileShareOutput</p>
  */
-export interface ListFileSharesOutput extends $MetadataBearer {
+export interface ListFileSharesOutput {
   __type?: "ListFileSharesOutput";
   /**
    * <p>An array of information about the file gateway's file shares. </p>
@@ -4341,7 +4340,7 @@ export namespace ListFileSharesOutput {
   }
 }
 
-export interface ListGatewaysOutput extends $MetadataBearer {
+export interface ListGatewaysOutput {
   __type?: "ListGatewaysOutput";
   /**
    * <p>An array of <a>GatewayInfo</a> objects.</p>
@@ -4361,7 +4360,7 @@ export namespace ListGatewaysOutput {
   }
 }
 
-export interface ListLocalDisksOutput extends $MetadataBearer {
+export interface ListLocalDisksOutput {
   __type?: "ListLocalDisksOutput";
   /**
    * <p>A JSON object containing the following fields:</p>
@@ -4421,7 +4420,7 @@ export namespace ListTagsForResourceInput {
 /**
  * <p>ListTagsForResourceOutput</p>
  */
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>An opaque string that indicates the position at which to stop returning the list of
@@ -4508,7 +4507,7 @@ export namespace ListTapesInput {
  *             </li>
  *          </ul>
  */
-export interface ListTapesOutput extends $MetadataBearer {
+export interface ListTapesOutput {
   __type?: "ListTapesOutput";
   /**
    * <p>A string that indicates the position at which to begin returning the next list of
@@ -4552,7 +4551,7 @@ export namespace ListVolumeInitiatorsInput {
 /**
  * <p>ListVolumeInitiatorsOutput</p>
  */
-export interface ListVolumeInitiatorsOutput extends $MetadataBearer {
+export interface ListVolumeInitiatorsOutput {
   __type?: "ListVolumeInitiatorsOutput";
   /**
    * <p>The host names and port numbers of all iSCSI initiators that are connected to the
@@ -4582,7 +4581,7 @@ export namespace ListVolumeInitiatorsOutput {
  *             </li>
  *          </ul>
  */
-export interface ListVolumesOutput extends $MetadataBearer {
+export interface ListVolumesOutput {
   __type?: "ListVolumesOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -4810,7 +4809,7 @@ export namespace NotifyWhenUploadedInput {
   }
 }
 
-export interface NotifyWhenUploadedOutput extends $MetadataBearer {
+export interface NotifyWhenUploadedOutput {
   __type?: "NotifyWhenUploadedOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the file share. </p>
@@ -4878,7 +4877,7 @@ export namespace RefreshCacheInput {
 /**
  * <p>RefreshCacheOutput</p>
  */
-export interface RefreshCacheOutput extends $MetadataBearer {
+export interface RefreshCacheOutput {
   __type?: "RefreshCacheOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the file share. </p>
@@ -4925,7 +4924,7 @@ export namespace RemoveTagsFromResourceInput {
 /**
  * <p>RemoveTagsFromResourceOutput</p>
  */
-export interface RemoveTagsFromResourceOutput extends $MetadataBearer {
+export interface RemoveTagsFromResourceOutput {
   __type?: "RemoveTagsFromResourceOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that the tags were removed
@@ -4955,7 +4954,7 @@ export namespace ResetCacheInput {
   }
 }
 
-export interface ResetCacheOutput extends $MetadataBearer {
+export interface ResetCacheOutput {
   __type?: "ResetCacheOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5000,7 +4999,7 @@ export namespace RetrieveTapeArchiveInput {
 /**
  * <p>RetrieveTapeArchiveOutput</p>
  */
-export interface RetrieveTapeArchiveOutput extends $MetadataBearer {
+export interface RetrieveTapeArchiveOutput {
   __type?: "RetrieveTapeArchiveOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the retrieved virtual tape.</p>
@@ -5041,7 +5040,7 @@ export namespace RetrieveTapeRecoveryPointInput {
 /**
  * <p>RetrieveTapeRecoveryPointOutput</p>
  */
-export interface RetrieveTapeRecoveryPointOutput extends $MetadataBearer {
+export interface RetrieveTapeRecoveryPointOutput {
   __type?: "RetrieveTapeRecoveryPointOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was
@@ -5235,7 +5234,7 @@ export namespace SetLocalConsolePasswordInput {
   }
 }
 
-export interface SetLocalConsolePasswordOutput extends $MetadataBearer {
+export interface SetLocalConsolePasswordOutput {
   __type?: "SetLocalConsolePasswordOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5273,7 +5272,7 @@ export namespace SetSMBGuestPasswordInput {
   }
 }
 
-export interface SetSMBGuestPasswordOutput extends $MetadataBearer {
+export interface SetSMBGuestPasswordOutput {
   __type?: "SetSMBGuestPasswordOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5303,7 +5302,7 @@ export namespace StartAvailabilityMonitorTestInput {
   }
 }
 
-export interface StartAvailabilityMonitorTestOutput extends $MetadataBearer {
+export interface StartAvailabilityMonitorTestOutput {
   __type?: "StartAvailabilityMonitorTestOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5809,7 +5808,7 @@ export namespace UpdateNFSFileShareInput {
 /**
  * <p>UpdateNFSFileShareOutput</p>
  */
-export interface UpdateNFSFileShareOutput extends $MetadataBearer {
+export interface UpdateNFSFileShareOutput {
   __type?: "UpdateNFSFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the updated file share. </p>
@@ -5928,7 +5927,7 @@ export namespace UpdateSMBFileShareInput {
 /**
  * <p>UpdateSMBFileShareOutput</p>
  */
-export interface UpdateSMBFileShareOutput extends $MetadataBearer {
+export interface UpdateSMBFileShareOutput {
   __type?: "UpdateSMBFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the updated SMB file share. </p>
@@ -5972,7 +5971,7 @@ export namespace UpdateSMBSecurityStrategyInput {
   }
 }
 
-export interface UpdateSMBSecurityStrategyOutput extends $MetadataBearer {
+export interface UpdateSMBSecurityStrategyOutput {
   __type?: "UpdateSMBSecurityStrategyOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6010,7 +6009,7 @@ export namespace UpdateVTLDeviceTypeInput {
 /**
  * <p>UpdateVTLDeviceTypeOutput</p>
  */
-export interface UpdateVTLDeviceTypeOutput extends $MetadataBearer {
+export interface UpdateVTLDeviceTypeOutput {
   __type?: "UpdateVTLDeviceTypeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the medium changer you have selected.</p>

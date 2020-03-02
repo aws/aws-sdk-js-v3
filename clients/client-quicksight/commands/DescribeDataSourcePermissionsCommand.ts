@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDataSourcePermissionsCommandInput = DescribeDataSourcePermissionsRequest;
-export type DescribeDataSourcePermissionsCommandOutput = DescribeDataSourcePermissionsResponse;
+export type DescribeDataSourcePermissionsCommandOutput = DescribeDataSourcePermissionsResponse &
+  __MetadataBearer;
 
 export class DescribeDataSourcePermissionsCommand extends $Command<
   DescribeDataSourcePermissionsCommandInput,

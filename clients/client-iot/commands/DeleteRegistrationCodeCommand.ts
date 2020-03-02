@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRegistrationCodeCommandInput = DeleteRegistrationCodeRequest;
-export type DeleteRegistrationCodeCommandOutput = DeleteRegistrationCodeResponse;
+export type DeleteRegistrationCodeCommandOutput = DeleteRegistrationCodeResponse &
+  __MetadataBearer;
 
 export class DeleteRegistrationCodeCommand extends $Command<
   DeleteRegistrationCodeCommandInput,

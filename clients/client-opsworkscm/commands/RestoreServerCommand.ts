@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreServerCommandInput = RestoreServerRequest;
-export type RestoreServerCommandOutput = RestoreServerResponse;
+export type RestoreServerCommandOutput = RestoreServerResponse &
+  __MetadataBearer;
 
 export class RestoreServerCommand extends $Command<
   RestoreServerCommandInput,

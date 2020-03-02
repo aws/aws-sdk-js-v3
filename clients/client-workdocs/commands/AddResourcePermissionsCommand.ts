@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddResourcePermissionsCommandInput = AddResourcePermissionsRequest;
-export type AddResourcePermissionsCommandOutput = AddResourcePermissionsResponse;
+export type AddResourcePermissionsCommandOutput = AddResourcePermissionsResponse &
+  __MetadataBearer;
 
 export class AddResourcePermissionsCommand extends $Command<
   AddResourcePermissionsCommandInput,

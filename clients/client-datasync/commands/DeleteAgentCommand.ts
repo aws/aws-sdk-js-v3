@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAgentCommandInput = DeleteAgentRequest;
-export type DeleteAgentCommandOutput = DeleteAgentResponse;
+export type DeleteAgentCommandOutput = DeleteAgentResponse & __MetadataBearer;
 
 export class DeleteAgentCommand extends $Command<
   DeleteAgentCommandInput,

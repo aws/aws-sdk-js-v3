@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBlacklistReportsCommandInput = GetBlacklistReportsRequest;
-export type GetBlacklistReportsCommandOutput = GetBlacklistReportsResponse;
+export type GetBlacklistReportsCommandOutput = GetBlacklistReportsResponse &
+  __MetadataBearer;
 
 export class GetBlacklistReportsCommand extends $Command<
   GetBlacklistReportsCommandInput,

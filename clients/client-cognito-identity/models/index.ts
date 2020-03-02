@@ -184,7 +184,7 @@ export namespace DeleteIdentitiesInput {
  * <p>Returned in response to a successful <code>DeleteIdentities</code>
  *          operation.</p>
  */
-export interface DeleteIdentitiesResponse extends $MetadataBearer {
+export interface DeleteIdentitiesResponse {
   __type?: "DeleteIdentitiesResponse";
   /**
    * <p>An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and
@@ -339,7 +339,7 @@ export namespace GetCredentialsForIdentityInput {
  * <p>Returned in response to a successful <code>GetCredentialsForIdentity</code>
  *          operation.</p>
  */
-export interface GetCredentialsForIdentityResponse extends $MetadataBearer {
+export interface GetCredentialsForIdentityResponse {
   __type?: "GetCredentialsForIdentityResponse";
   /**
    * <p>Credentials for the provided identity ID.</p>
@@ -417,7 +417,7 @@ export namespace GetIdInput {
 /**
  * <p>Returned in response to a GetId request.</p>
  */
-export interface GetIdResponse extends $MetadataBearer {
+export interface GetIdResponse {
   __type?: "GetIdResponse";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
@@ -452,7 +452,7 @@ export namespace GetIdentityPoolRolesInput {
  * <p>Returned in response to a successful <code>GetIdentityPoolRoles</code>
  *          operation.</p>
  */
-export interface GetIdentityPoolRolesResponse extends $MetadataBearer {
+export interface GetIdentityPoolRolesResponse {
   __type?: "GetIdentityPoolRolesResponse";
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
@@ -532,8 +532,7 @@ export namespace GetOpenIdTokenForDeveloperIdentityInput {
  * <p>Returned in response to a successful <code>GetOpenIdTokenForDeveloperIdentity</code>
  *          request.</p>
  */
-export interface GetOpenIdTokenForDeveloperIdentityResponse
-  extends $MetadataBearer {
+export interface GetOpenIdTokenForDeveloperIdentityResponse {
   __type?: "GetOpenIdTokenForDeveloperIdentityResponse";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
@@ -580,7 +579,7 @@ export namespace GetOpenIdTokenInput {
 /**
  * <p>Returned in response to a successful GetOpenIdToken request.</p>
  */
-export interface GetOpenIdTokenResponse extends $MetadataBearer {
+export interface GetOpenIdTokenResponse {
   __type?: "GetOpenIdTokenResponse";
   /**
    * <p>A unique identifier in the format REGION:GUID. Note that the IdentityId returned may
@@ -603,7 +602,7 @@ export namespace GetOpenIdTokenResponse {
 /**
  * <p>A description of the identity.</p>
  */
-export interface IdentityDescription extends $MetadataBearer {
+export interface IdentityDescription {
   __type?: "IdentityDescription";
   /**
    * <p>Date on which the identity was created.</p>
@@ -635,7 +634,7 @@ export namespace IdentityDescription {
 /**
  * <p>An object representing an Amazon Cognito identity pool.</p>
  */
-export interface IdentityPool extends $MetadataBearer {
+export interface IdentityPool {
   __type?: "IdentityPool";
   /**
    * <p>Enables or disables the Basic (Classic) authentication flow. For more information, see
@@ -838,7 +837,7 @@ export namespace ListIdentitiesInput {
 /**
  * <p>The response to a ListIdentities request.</p>
  */
-export interface ListIdentitiesResponse extends $MetadataBearer {
+export interface ListIdentitiesResponse {
   __type?: "ListIdentitiesResponse";
   /**
    * <p>An object containing a set of identities and associated mappings.</p>
@@ -887,7 +886,7 @@ export namespace ListIdentityPoolsInput {
 /**
  * <p>The result of a successful ListIdentityPools action.</p>
  */
-export interface ListIdentityPoolsResponse extends $MetadataBearer {
+export interface ListIdentityPoolsResponse {
   __type?: "ListIdentityPoolsResponse";
   /**
    * <p>The identity pools returned by the ListIdentityPools action.</p>
@@ -921,7 +920,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags that are assigned to the identity pool.</p>
@@ -983,7 +982,7 @@ export namespace LookupDeveloperIdentityInput {
  * <p>Returned in response to a successful <code>LookupDeveloperIdentity</code>
  *          action.</p>
  */
-export interface LookupDeveloperIdentityResponse extends $MetadataBearer {
+export interface LookupDeveloperIdentityResponse {
   __type?: "LookupDeveloperIdentityResponse";
   /**
    * <p>This is the list of developer user identifiers associated with an identity ID.
@@ -1098,7 +1097,7 @@ export namespace MergeDeveloperIdentitiesInput {
  * <p>Returned in response to a successful <code>MergeDeveloperIdentities</code>
  *          action.</p>
  */
-export interface MergeDeveloperIdentitiesResponse extends $MetadataBearer {
+export interface MergeDeveloperIdentitiesResponse {
   __type?: "MergeDeveloperIdentitiesResponse";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
@@ -1285,7 +1284,7 @@ export namespace TagResourceInput {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1418,7 +1417,7 @@ export namespace UntagResourceInput {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

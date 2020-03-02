@@ -1,65 +1,123 @@
 import {
-  BatchCreateVariableRequest,
-  BatchCreateVariableResult,
-  BatchGetVariableRequest,
-  BatchGetVariableResult,
-  CreateDetectorVersionRequest,
-  CreateDetectorVersionResult,
-  CreateModelVersionRequest,
-  CreateModelVersionResult,
-  CreateRuleRequest,
-  CreateRuleResult,
-  CreateVariableRequest,
-  CreateVariableResult,
-  DeleteDetectorVersionRequest,
-  DeleteDetectorVersionResult,
-  DeleteEventRequest,
-  DeleteEventResult,
-  DescribeDetectorRequest,
-  DescribeDetectorResult,
-  DescribeModelVersionsRequest,
-  DescribeModelVersionsResult,
-  GetDetectorVersionRequest,
-  GetDetectorVersionResult,
-  GetDetectorsRequest,
-  GetDetectorsResult,
-  GetExternalModelsRequest,
-  GetExternalModelsResult,
-  GetModelVersionRequest,
-  GetModelVersionResult,
-  GetModelsRequest,
-  GetModelsResult,
-  GetOutcomesRequest,
-  GetOutcomesResult,
-  GetPredictionRequest,
-  GetPredictionResult,
-  GetRulesRequest,
-  GetRulesResult,
-  GetVariablesRequest,
-  GetVariablesResult,
-  PutDetectorRequest,
-  PutDetectorResult,
-  PutExternalModelRequest,
-  PutExternalModelResult,
-  PutModelRequest,
-  PutModelResult,
-  PutOutcomeRequest,
-  PutOutcomeResult,
-  UpdateDetectorVersionMetadataRequest,
-  UpdateDetectorVersionMetadataResult,
-  UpdateDetectorVersionRequest,
-  UpdateDetectorVersionResult,
-  UpdateDetectorVersionStatusRequest,
-  UpdateDetectorVersionStatusResult,
-  UpdateModelVersionRequest,
-  UpdateModelVersionResult,
-  UpdateRuleMetadataRequest,
-  UpdateRuleMetadataResult,
-  UpdateRuleVersionRequest,
-  UpdateRuleVersionResult,
-  UpdateVariableRequest,
-  UpdateVariableResult
-} from "./models/index";
+  BatchCreateVariableCommandInput,
+  BatchCreateVariableCommandOutput
+} from "./commands/BatchCreateVariableCommand";
+import {
+  BatchGetVariableCommandInput,
+  BatchGetVariableCommandOutput
+} from "./commands/BatchGetVariableCommand";
+import {
+  CreateDetectorVersionCommandInput,
+  CreateDetectorVersionCommandOutput
+} from "./commands/CreateDetectorVersionCommand";
+import {
+  CreateModelVersionCommandInput,
+  CreateModelVersionCommandOutput
+} from "./commands/CreateModelVersionCommand";
+import {
+  CreateRuleCommandInput,
+  CreateRuleCommandOutput
+} from "./commands/CreateRuleCommand";
+import {
+  CreateVariableCommandInput,
+  CreateVariableCommandOutput
+} from "./commands/CreateVariableCommand";
+import {
+  DeleteDetectorVersionCommandInput,
+  DeleteDetectorVersionCommandOutput
+} from "./commands/DeleteDetectorVersionCommand";
+import {
+  DeleteEventCommandInput,
+  DeleteEventCommandOutput
+} from "./commands/DeleteEventCommand";
+import {
+  DescribeDetectorCommandInput,
+  DescribeDetectorCommandOutput
+} from "./commands/DescribeDetectorCommand";
+import {
+  DescribeModelVersionsCommandInput,
+  DescribeModelVersionsCommandOutput
+} from "./commands/DescribeModelVersionsCommand";
+import {
+  GetDetectorVersionCommandInput,
+  GetDetectorVersionCommandOutput
+} from "./commands/GetDetectorVersionCommand";
+import {
+  GetDetectorsCommandInput,
+  GetDetectorsCommandOutput
+} from "./commands/GetDetectorsCommand";
+import {
+  GetExternalModelsCommandInput,
+  GetExternalModelsCommandOutput
+} from "./commands/GetExternalModelsCommand";
+import {
+  GetModelVersionCommandInput,
+  GetModelVersionCommandOutput
+} from "./commands/GetModelVersionCommand";
+import {
+  GetModelsCommandInput,
+  GetModelsCommandOutput
+} from "./commands/GetModelsCommand";
+import {
+  GetOutcomesCommandInput,
+  GetOutcomesCommandOutput
+} from "./commands/GetOutcomesCommand";
+import {
+  GetPredictionCommandInput,
+  GetPredictionCommandOutput
+} from "./commands/GetPredictionCommand";
+import {
+  GetRulesCommandInput,
+  GetRulesCommandOutput
+} from "./commands/GetRulesCommand";
+import {
+  GetVariablesCommandInput,
+  GetVariablesCommandOutput
+} from "./commands/GetVariablesCommand";
+import {
+  PutDetectorCommandInput,
+  PutDetectorCommandOutput
+} from "./commands/PutDetectorCommand";
+import {
+  PutExternalModelCommandInput,
+  PutExternalModelCommandOutput
+} from "./commands/PutExternalModelCommand";
+import {
+  PutModelCommandInput,
+  PutModelCommandOutput
+} from "./commands/PutModelCommand";
+import {
+  PutOutcomeCommandInput,
+  PutOutcomeCommandOutput
+} from "./commands/PutOutcomeCommand";
+import {
+  UpdateDetectorVersionCommandInput,
+  UpdateDetectorVersionCommandOutput
+} from "./commands/UpdateDetectorVersionCommand";
+import {
+  UpdateDetectorVersionMetadataCommandInput,
+  UpdateDetectorVersionMetadataCommandOutput
+} from "./commands/UpdateDetectorVersionMetadataCommand";
+import {
+  UpdateDetectorVersionStatusCommandInput,
+  UpdateDetectorVersionStatusCommandOutput
+} from "./commands/UpdateDetectorVersionStatusCommand";
+import {
+  UpdateModelVersionCommandInput,
+  UpdateModelVersionCommandOutput
+} from "./commands/UpdateModelVersionCommand";
+import {
+  UpdateRuleMetadataCommandInput,
+  UpdateRuleMetadataCommandOutput
+} from "./commands/UpdateRuleMetadataCommand";
+import {
+  UpdateRuleVersionCommandInput,
+  UpdateRuleVersionCommandOutput
+} from "./commands/UpdateRuleVersionCommand";
+import {
+  UpdateVariableCommandInput,
+  UpdateVariableCommandOutput
+} from "./commands/UpdateVariableCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -113,68 +171,68 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchCreateVariableRequest
-  | BatchGetVariableRequest
-  | CreateDetectorVersionRequest
-  | CreateModelVersionRequest
-  | CreateRuleRequest
-  | CreateVariableRequest
-  | DeleteDetectorVersionRequest
-  | DeleteEventRequest
-  | DescribeDetectorRequest
-  | DescribeModelVersionsRequest
-  | GetDetectorVersionRequest
-  | GetDetectorsRequest
-  | GetExternalModelsRequest
-  | GetModelVersionRequest
-  | GetModelsRequest
-  | GetOutcomesRequest
-  | GetPredictionRequest
-  | GetRulesRequest
-  | GetVariablesRequest
-  | PutDetectorRequest
-  | PutExternalModelRequest
-  | PutModelRequest
-  | PutOutcomeRequest
-  | UpdateDetectorVersionMetadataRequest
-  | UpdateDetectorVersionRequest
-  | UpdateDetectorVersionStatusRequest
-  | UpdateModelVersionRequest
-  | UpdateRuleMetadataRequest
-  | UpdateRuleVersionRequest
-  | UpdateVariableRequest;
+  | BatchCreateVariableCommandInput
+  | BatchGetVariableCommandInput
+  | CreateDetectorVersionCommandInput
+  | CreateModelVersionCommandInput
+  | CreateRuleCommandInput
+  | CreateVariableCommandInput
+  | DeleteDetectorVersionCommandInput
+  | DeleteEventCommandInput
+  | DescribeDetectorCommandInput
+  | DescribeModelVersionsCommandInput
+  | GetDetectorVersionCommandInput
+  | GetDetectorsCommandInput
+  | GetExternalModelsCommandInput
+  | GetModelVersionCommandInput
+  | GetModelsCommandInput
+  | GetOutcomesCommandInput
+  | GetPredictionCommandInput
+  | GetRulesCommandInput
+  | GetVariablesCommandInput
+  | PutDetectorCommandInput
+  | PutExternalModelCommandInput
+  | PutModelCommandInput
+  | PutOutcomeCommandInput
+  | UpdateDetectorVersionCommandInput
+  | UpdateDetectorVersionMetadataCommandInput
+  | UpdateDetectorVersionStatusCommandInput
+  | UpdateModelVersionCommandInput
+  | UpdateRuleMetadataCommandInput
+  | UpdateRuleVersionCommandInput
+  | UpdateVariableCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchCreateVariableResult
-  | BatchGetVariableResult
-  | CreateDetectorVersionResult
-  | CreateModelVersionResult
-  | CreateRuleResult
-  | CreateVariableResult
-  | DeleteDetectorVersionResult
-  | DeleteEventResult
-  | DescribeDetectorResult
-  | DescribeModelVersionsResult
-  | GetDetectorVersionResult
-  | GetDetectorsResult
-  | GetExternalModelsResult
-  | GetModelVersionResult
-  | GetModelsResult
-  | GetOutcomesResult
-  | GetPredictionResult
-  | GetRulesResult
-  | GetVariablesResult
-  | PutDetectorResult
-  | PutExternalModelResult
-  | PutModelResult
-  | PutOutcomeResult
-  | UpdateDetectorVersionMetadataResult
-  | UpdateDetectorVersionResult
-  | UpdateDetectorVersionStatusResult
-  | UpdateModelVersionResult
-  | UpdateRuleMetadataResult
-  | UpdateRuleVersionResult
-  | UpdateVariableResult;
+  | BatchCreateVariableCommandOutput
+  | BatchGetVariableCommandOutput
+  | CreateDetectorVersionCommandOutput
+  | CreateModelVersionCommandOutput
+  | CreateRuleCommandOutput
+  | CreateVariableCommandOutput
+  | DeleteDetectorVersionCommandOutput
+  | DeleteEventCommandOutput
+  | DescribeDetectorCommandOutput
+  | DescribeModelVersionsCommandOutput
+  | GetDetectorVersionCommandOutput
+  | GetDetectorsCommandOutput
+  | GetExternalModelsCommandOutput
+  | GetModelVersionCommandOutput
+  | GetModelsCommandOutput
+  | GetOutcomesCommandOutput
+  | GetPredictionCommandOutput
+  | GetRulesCommandOutput
+  | GetVariablesCommandOutput
+  | PutDetectorCommandOutput
+  | PutExternalModelCommandOutput
+  | PutModelCommandOutput
+  | PutOutcomeCommandOutput
+  | UpdateDetectorVersionCommandOutput
+  | UpdateDetectorVersionMetadataCommandOutput
+  | UpdateDetectorVersionStatusCommandOutput
+  | UpdateModelVersionCommandOutput
+  | UpdateRuleMetadataCommandOutput
+  | UpdateRuleVersionCommandOutput
+  | UpdateVariableCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

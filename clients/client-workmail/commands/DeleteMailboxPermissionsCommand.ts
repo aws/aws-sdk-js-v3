@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMailboxPermissionsCommandInput = DeleteMailboxPermissionsRequest;
-export type DeleteMailboxPermissionsCommandOutput = DeleteMailboxPermissionsResponse;
+export type DeleteMailboxPermissionsCommandOutput = DeleteMailboxPermissionsResponse &
+  __MetadataBearer;
 
 export class DeleteMailboxPermissionsCommand extends $Command<
   DeleteMailboxPermissionsCommandInput,

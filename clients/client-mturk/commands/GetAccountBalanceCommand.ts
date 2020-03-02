@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccountBalanceCommandInput = GetAccountBalanceRequest;
-export type GetAccountBalanceCommandOutput = GetAccountBalanceResponse;
+export type GetAccountBalanceCommandOutput = GetAccountBalanceResponse &
+  __MetadataBearer;
 
 export class GetAccountBalanceCommand extends $Command<
   GetAccountBalanceCommandInput,

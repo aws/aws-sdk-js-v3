@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketEncryptionCommandInput = GetBucketEncryptionRequest;
-export type GetBucketEncryptionCommandOutput = GetBucketEncryptionOutput;
+export type GetBucketEncryptionCommandOutput = GetBucketEncryptionOutput &
+  __MetadataBearer;
 
 export class GetBucketEncryptionCommand extends $Command<
   GetBucketEncryptionCommandInput,

@@ -105,7 +105,7 @@ export namespace CreateServerRequest {
   }
 }
 
-export interface CreateServerResponse extends $MetadataBearer {
+export interface CreateServerResponse {
   __type?: "CreateServerResponse";
   /**
    * <p>The service-assigned ID of the SFTP server that is created.</p>
@@ -230,7 +230,7 @@ export namespace CreateUserRequest {
   }
 }
 
-export interface CreateUserResponse extends $MetadataBearer {
+export interface CreateUserResponse {
   __type?: "CreateUserResponse";
   /**
    * <p>The ID of the SFTP server that the user is attached to.</p>
@@ -322,7 +322,7 @@ export namespace DescribeServerRequest {
   }
 }
 
-export interface DescribeServerResponse extends $MetadataBearer {
+export interface DescribeServerResponse {
   __type?: "DescribeServerResponse";
   /**
    * <p>An array containing the properties of the server with the <code>ServerID</code> you
@@ -357,7 +357,7 @@ export namespace DescribeUserRequest {
   }
 }
 
-export interface DescribeUserResponse extends $MetadataBearer {
+export interface DescribeUserResponse {
   __type?: "DescribeUserResponse";
   /**
    * <p>A system-assigned unique identifier for an SFTP server that has this user assigned.</p>
@@ -687,7 +687,7 @@ export namespace ImportSshPublicKeyRequest {
  *       SSH public key associated with that user. A user can have more than one key on each server
  *       that they are associated with.</p>
  */
-export interface ImportSshPublicKeyResponse extends $MetadataBearer {
+export interface ImportSshPublicKeyResponse {
   __type?: "ImportSshPublicKeyResponse";
   /**
    * <p>A system-assigned unique identifier for an SFTP server.</p>
@@ -786,7 +786,7 @@ export namespace ListServersRequest {
   }
 }
 
-export interface ListServersResponse extends $MetadataBearer {
+export interface ListServersResponse {
   __type?: "ListServersResponse";
   /**
    * <p>When you can get additional results from the <code>ListServers</code> operation, a
@@ -835,7 +835,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>This value is the ARN you specified to list the tags of.</p>
@@ -892,7 +892,7 @@ export namespace ListUsersRequest {
   }
 }
 
-export interface ListUsersResponse extends $MetadataBearer {
+export interface ListUsersResponse {
   __type?: "ListUsersResponse";
   /**
    * <p>When you can get additional results from the <code>ListUsers</code> call, a
@@ -1220,7 +1220,7 @@ export namespace TestIdentityProviderRequest {
   }
 }
 
-export interface TestIdentityProviderResponse extends $MetadataBearer {
+export interface TestIdentityProviderResponse {
   __type?: "TestIdentityProviderResponse";
   /**
    * <p>A message that indicates whether the test was successful or not. </p>
@@ -1343,7 +1343,7 @@ export namespace UpdateServerRequest {
   }
 }
 
-export interface UpdateServerResponse extends $MetadataBearer {
+export interface UpdateServerResponse {
   __type?: "UpdateServerResponse";
   /**
    * <p>A system-assigned unique identifier for an SFTP server that the user account is assigned
@@ -1459,7 +1459,7 @@ export namespace UpdateUserRequest {
  *             <code>UpdateUserResponse</code> returns the user name and server identifier for the
  *       request to update a user's properties.</p>
  */
-export interface UpdateUserResponse extends $MetadataBearer {
+export interface UpdateUserResponse {
   __type?: "UpdateUserResponse";
   /**
    * <p>A system-assigned unique identifier for an SFTP server instance that the user account is

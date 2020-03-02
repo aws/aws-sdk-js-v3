@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLoadBalancerCommandInput = DeleteLoadBalancerRequest;
-export type DeleteLoadBalancerCommandOutput = DeleteLoadBalancerResult;
+export type DeleteLoadBalancerCommandOutput = DeleteLoadBalancerResult &
+  __MetadataBearer;
 
 export class DeleteLoadBalancerCommand extends $Command<
   DeleteLoadBalancerCommandInput,

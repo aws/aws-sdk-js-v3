@@ -21,11 +21,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketAclCommandInput = GetBucketAclRequest;
-export type GetBucketAclCommandOutput = GetBucketAclOutput;
+export type GetBucketAclCommandOutput = GetBucketAclOutput & __MetadataBearer;
 
 export class GetBucketAclCommand extends $Command<
   GetBucketAclCommandInput,

@@ -1,145 +1,303 @@
 import {
-  AssociateApprovalRuleTemplateWithRepositoryInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
-  BatchDescribeMergeConflictsInput,
-  BatchDescribeMergeConflictsOutput,
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
-  BatchGetCommitsInput,
-  BatchGetCommitsOutput,
-  BatchGetRepositoriesInput,
-  BatchGetRepositoriesOutput,
-  CreateApprovalRuleTemplateInput,
-  CreateApprovalRuleTemplateOutput,
-  CreateBranchInput,
-  CreateCommitInput,
-  CreateCommitOutput,
-  CreatePullRequestApprovalRuleInput,
-  CreatePullRequestApprovalRuleOutput,
-  CreatePullRequestInput,
-  CreatePullRequestOutput,
-  CreateRepositoryInput,
-  CreateRepositoryOutput,
-  CreateUnreferencedMergeCommitInput,
-  CreateUnreferencedMergeCommitOutput,
-  DeleteApprovalRuleTemplateInput,
-  DeleteApprovalRuleTemplateOutput,
-  DeleteBranchInput,
-  DeleteBranchOutput,
-  DeleteCommentContentInput,
-  DeleteCommentContentOutput,
-  DeleteFileInput,
-  DeleteFileOutput,
-  DeletePullRequestApprovalRuleInput,
-  DeletePullRequestApprovalRuleOutput,
-  DeleteRepositoryInput,
-  DeleteRepositoryOutput,
-  DescribeMergeConflictsInput,
-  DescribeMergeConflictsOutput,
-  DescribePullRequestEventsInput,
-  DescribePullRequestEventsOutput,
-  DisassociateApprovalRuleTemplateFromRepositoryInput,
-  EvaluatePullRequestApprovalRulesInput,
-  EvaluatePullRequestApprovalRulesOutput,
-  GetApprovalRuleTemplateInput,
-  GetApprovalRuleTemplateOutput,
-  GetBlobInput,
-  GetBlobOutput,
-  GetBranchInput,
-  GetBranchOutput,
-  GetCommentInput,
-  GetCommentOutput,
-  GetCommentsForComparedCommitInput,
-  GetCommentsForComparedCommitOutput,
-  GetCommentsForPullRequestInput,
-  GetCommentsForPullRequestOutput,
-  GetCommitInput,
-  GetCommitOutput,
-  GetDifferencesInput,
-  GetDifferencesOutput,
-  GetFileInput,
-  GetFileOutput,
-  GetFolderInput,
-  GetFolderOutput,
-  GetMergeCommitInput,
-  GetMergeCommitOutput,
-  GetMergeConflictsInput,
-  GetMergeConflictsOutput,
-  GetMergeOptionsInput,
-  GetMergeOptionsOutput,
-  GetPullRequestApprovalStatesInput,
-  GetPullRequestApprovalStatesOutput,
-  GetPullRequestInput,
-  GetPullRequestOutput,
-  GetPullRequestOverrideStateInput,
-  GetPullRequestOverrideStateOutput,
-  GetRepositoryInput,
-  GetRepositoryOutput,
-  GetRepositoryTriggersInput,
-  GetRepositoryTriggersOutput,
-  ListApprovalRuleTemplatesInput,
-  ListApprovalRuleTemplatesOutput,
-  ListAssociatedApprovalRuleTemplatesForRepositoryInput,
-  ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
-  ListBranchesInput,
-  ListBranchesOutput,
-  ListPullRequestsInput,
-  ListPullRequestsOutput,
-  ListRepositoriesForApprovalRuleTemplateInput,
-  ListRepositoriesForApprovalRuleTemplateOutput,
-  ListRepositoriesInput,
-  ListRepositoriesOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  MergeBranchesByFastForwardInput,
-  MergeBranchesByFastForwardOutput,
-  MergeBranchesBySquashInput,
-  MergeBranchesBySquashOutput,
-  MergeBranchesByThreeWayInput,
-  MergeBranchesByThreeWayOutput,
-  MergePullRequestByFastForwardInput,
-  MergePullRequestByFastForwardOutput,
-  MergePullRequestBySquashInput,
-  MergePullRequestBySquashOutput,
-  MergePullRequestByThreeWayInput,
-  MergePullRequestByThreeWayOutput,
-  OverridePullRequestApprovalRulesInput,
-  PostCommentForComparedCommitInput,
-  PostCommentForComparedCommitOutput,
-  PostCommentForPullRequestInput,
-  PostCommentForPullRequestOutput,
-  PostCommentReplyInput,
-  PostCommentReplyOutput,
-  PutFileInput,
-  PutFileOutput,
-  PutRepositoryTriggersInput,
-  PutRepositoryTriggersOutput,
-  TagResourceInput,
-  TestRepositoryTriggersInput,
-  TestRepositoryTriggersOutput,
-  UntagResourceInput,
-  UpdateApprovalRuleTemplateContentInput,
-  UpdateApprovalRuleTemplateContentOutput,
-  UpdateApprovalRuleTemplateDescriptionInput,
-  UpdateApprovalRuleTemplateDescriptionOutput,
-  UpdateApprovalRuleTemplateNameInput,
-  UpdateApprovalRuleTemplateNameOutput,
-  UpdateCommentInput,
-  UpdateCommentOutput,
-  UpdateDefaultBranchInput,
-  UpdatePullRequestApprovalRuleContentInput,
-  UpdatePullRequestApprovalRuleContentOutput,
-  UpdatePullRequestApprovalStateInput,
-  UpdatePullRequestDescriptionInput,
-  UpdatePullRequestDescriptionOutput,
-  UpdatePullRequestStatusInput,
-  UpdatePullRequestStatusOutput,
-  UpdatePullRequestTitleInput,
-  UpdatePullRequestTitleOutput,
-  UpdateRepositoryDescriptionInput,
-  UpdateRepositoryNameInput
-} from "./models/index";
+  AssociateApprovalRuleTemplateWithRepositoryCommandInput,
+  AssociateApprovalRuleTemplateWithRepositoryCommandOutput
+} from "./commands/AssociateApprovalRuleTemplateWithRepositoryCommand";
+import {
+  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
+  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
+} from "./commands/BatchAssociateApprovalRuleTemplateWithRepositoriesCommand";
+import {
+  BatchDescribeMergeConflictsCommandInput,
+  BatchDescribeMergeConflictsCommandOutput
+} from "./commands/BatchDescribeMergeConflictsCommand";
+import {
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+} from "./commands/BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand";
+import {
+  BatchGetCommitsCommandInput,
+  BatchGetCommitsCommandOutput
+} from "./commands/BatchGetCommitsCommand";
+import {
+  BatchGetRepositoriesCommandInput,
+  BatchGetRepositoriesCommandOutput
+} from "./commands/BatchGetRepositoriesCommand";
+import {
+  CreateApprovalRuleTemplateCommandInput,
+  CreateApprovalRuleTemplateCommandOutput
+} from "./commands/CreateApprovalRuleTemplateCommand";
+import {
+  CreateBranchCommandInput,
+  CreateBranchCommandOutput
+} from "./commands/CreateBranchCommand";
+import {
+  CreateCommitCommandInput,
+  CreateCommitCommandOutput
+} from "./commands/CreateCommitCommand";
+import {
+  CreatePullRequestApprovalRuleCommandInput,
+  CreatePullRequestApprovalRuleCommandOutput
+} from "./commands/CreatePullRequestApprovalRuleCommand";
+import {
+  CreatePullRequestCommandInput,
+  CreatePullRequestCommandOutput
+} from "./commands/CreatePullRequestCommand";
+import {
+  CreateRepositoryCommandInput,
+  CreateRepositoryCommandOutput
+} from "./commands/CreateRepositoryCommand";
+import {
+  CreateUnreferencedMergeCommitCommandInput,
+  CreateUnreferencedMergeCommitCommandOutput
+} from "./commands/CreateUnreferencedMergeCommitCommand";
+import {
+  DeleteApprovalRuleTemplateCommandInput,
+  DeleteApprovalRuleTemplateCommandOutput
+} from "./commands/DeleteApprovalRuleTemplateCommand";
+import {
+  DeleteBranchCommandInput,
+  DeleteBranchCommandOutput
+} from "./commands/DeleteBranchCommand";
+import {
+  DeleteCommentContentCommandInput,
+  DeleteCommentContentCommandOutput
+} from "./commands/DeleteCommentContentCommand";
+import {
+  DeleteFileCommandInput,
+  DeleteFileCommandOutput
+} from "./commands/DeleteFileCommand";
+import {
+  DeletePullRequestApprovalRuleCommandInput,
+  DeletePullRequestApprovalRuleCommandOutput
+} from "./commands/DeletePullRequestApprovalRuleCommand";
+import {
+  DeleteRepositoryCommandInput,
+  DeleteRepositoryCommandOutput
+} from "./commands/DeleteRepositoryCommand";
+import {
+  DescribeMergeConflictsCommandInput,
+  DescribeMergeConflictsCommandOutput
+} from "./commands/DescribeMergeConflictsCommand";
+import {
+  DescribePullRequestEventsCommandInput,
+  DescribePullRequestEventsCommandOutput
+} from "./commands/DescribePullRequestEventsCommand";
+import {
+  DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
+  DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
+} from "./commands/DisassociateApprovalRuleTemplateFromRepositoryCommand";
+import {
+  EvaluatePullRequestApprovalRulesCommandInput,
+  EvaluatePullRequestApprovalRulesCommandOutput
+} from "./commands/EvaluatePullRequestApprovalRulesCommand";
+import {
+  GetApprovalRuleTemplateCommandInput,
+  GetApprovalRuleTemplateCommandOutput
+} from "./commands/GetApprovalRuleTemplateCommand";
+import {
+  GetBlobCommandInput,
+  GetBlobCommandOutput
+} from "./commands/GetBlobCommand";
+import {
+  GetBranchCommandInput,
+  GetBranchCommandOutput
+} from "./commands/GetBranchCommand";
+import {
+  GetCommentCommandInput,
+  GetCommentCommandOutput
+} from "./commands/GetCommentCommand";
+import {
+  GetCommentsForComparedCommitCommandInput,
+  GetCommentsForComparedCommitCommandOutput
+} from "./commands/GetCommentsForComparedCommitCommand";
+import {
+  GetCommentsForPullRequestCommandInput,
+  GetCommentsForPullRequestCommandOutput
+} from "./commands/GetCommentsForPullRequestCommand";
+import {
+  GetCommitCommandInput,
+  GetCommitCommandOutput
+} from "./commands/GetCommitCommand";
+import {
+  GetDifferencesCommandInput,
+  GetDifferencesCommandOutput
+} from "./commands/GetDifferencesCommand";
+import {
+  GetFileCommandInput,
+  GetFileCommandOutput
+} from "./commands/GetFileCommand";
+import {
+  GetFolderCommandInput,
+  GetFolderCommandOutput
+} from "./commands/GetFolderCommand";
+import {
+  GetMergeCommitCommandInput,
+  GetMergeCommitCommandOutput
+} from "./commands/GetMergeCommitCommand";
+import {
+  GetMergeConflictsCommandInput,
+  GetMergeConflictsCommandOutput
+} from "./commands/GetMergeConflictsCommand";
+import {
+  GetMergeOptionsCommandInput,
+  GetMergeOptionsCommandOutput
+} from "./commands/GetMergeOptionsCommand";
+import {
+  GetPullRequestApprovalStatesCommandInput,
+  GetPullRequestApprovalStatesCommandOutput
+} from "./commands/GetPullRequestApprovalStatesCommand";
+import {
+  GetPullRequestCommandInput,
+  GetPullRequestCommandOutput
+} from "./commands/GetPullRequestCommand";
+import {
+  GetPullRequestOverrideStateCommandInput,
+  GetPullRequestOverrideStateCommandOutput
+} from "./commands/GetPullRequestOverrideStateCommand";
+import {
+  GetRepositoryCommandInput,
+  GetRepositoryCommandOutput
+} from "./commands/GetRepositoryCommand";
+import {
+  GetRepositoryTriggersCommandInput,
+  GetRepositoryTriggersCommandOutput
+} from "./commands/GetRepositoryTriggersCommand";
+import {
+  ListApprovalRuleTemplatesCommandInput,
+  ListApprovalRuleTemplatesCommandOutput
+} from "./commands/ListApprovalRuleTemplatesCommand";
+import {
+  ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
+  ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
+} from "./commands/ListAssociatedApprovalRuleTemplatesForRepositoryCommand";
+import {
+  ListBranchesCommandInput,
+  ListBranchesCommandOutput
+} from "./commands/ListBranchesCommand";
+import {
+  ListPullRequestsCommandInput,
+  ListPullRequestsCommandOutput
+} from "./commands/ListPullRequestsCommand";
+import {
+  ListRepositoriesCommandInput,
+  ListRepositoriesCommandOutput
+} from "./commands/ListRepositoriesCommand";
+import {
+  ListRepositoriesForApprovalRuleTemplateCommandInput,
+  ListRepositoriesForApprovalRuleTemplateCommandOutput
+} from "./commands/ListRepositoriesForApprovalRuleTemplateCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  MergeBranchesByFastForwardCommandInput,
+  MergeBranchesByFastForwardCommandOutput
+} from "./commands/MergeBranchesByFastForwardCommand";
+import {
+  MergeBranchesBySquashCommandInput,
+  MergeBranchesBySquashCommandOutput
+} from "./commands/MergeBranchesBySquashCommand";
+import {
+  MergeBranchesByThreeWayCommandInput,
+  MergeBranchesByThreeWayCommandOutput
+} from "./commands/MergeBranchesByThreeWayCommand";
+import {
+  MergePullRequestByFastForwardCommandInput,
+  MergePullRequestByFastForwardCommandOutput
+} from "./commands/MergePullRequestByFastForwardCommand";
+import {
+  MergePullRequestBySquashCommandInput,
+  MergePullRequestBySquashCommandOutput
+} from "./commands/MergePullRequestBySquashCommand";
+import {
+  MergePullRequestByThreeWayCommandInput,
+  MergePullRequestByThreeWayCommandOutput
+} from "./commands/MergePullRequestByThreeWayCommand";
+import {
+  OverridePullRequestApprovalRulesCommandInput,
+  OverridePullRequestApprovalRulesCommandOutput
+} from "./commands/OverridePullRequestApprovalRulesCommand";
+import {
+  PostCommentForComparedCommitCommandInput,
+  PostCommentForComparedCommitCommandOutput
+} from "./commands/PostCommentForComparedCommitCommand";
+import {
+  PostCommentForPullRequestCommandInput,
+  PostCommentForPullRequestCommandOutput
+} from "./commands/PostCommentForPullRequestCommand";
+import {
+  PostCommentReplyCommandInput,
+  PostCommentReplyCommandOutput
+} from "./commands/PostCommentReplyCommand";
+import {
+  PutFileCommandInput,
+  PutFileCommandOutput
+} from "./commands/PutFileCommand";
+import {
+  PutRepositoryTriggersCommandInput,
+  PutRepositoryTriggersCommandOutput
+} from "./commands/PutRepositoryTriggersCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  TestRepositoryTriggersCommandInput,
+  TestRepositoryTriggersCommandOutput
+} from "./commands/TestRepositoryTriggersCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateApprovalRuleTemplateContentCommandInput,
+  UpdateApprovalRuleTemplateContentCommandOutput
+} from "./commands/UpdateApprovalRuleTemplateContentCommand";
+import {
+  UpdateApprovalRuleTemplateDescriptionCommandInput,
+  UpdateApprovalRuleTemplateDescriptionCommandOutput
+} from "./commands/UpdateApprovalRuleTemplateDescriptionCommand";
+import {
+  UpdateApprovalRuleTemplateNameCommandInput,
+  UpdateApprovalRuleTemplateNameCommandOutput
+} from "./commands/UpdateApprovalRuleTemplateNameCommand";
+import {
+  UpdateCommentCommandInput,
+  UpdateCommentCommandOutput
+} from "./commands/UpdateCommentCommand";
+import {
+  UpdateDefaultBranchCommandInput,
+  UpdateDefaultBranchCommandOutput
+} from "./commands/UpdateDefaultBranchCommand";
+import {
+  UpdatePullRequestApprovalRuleContentCommandInput,
+  UpdatePullRequestApprovalRuleContentCommandOutput
+} from "./commands/UpdatePullRequestApprovalRuleContentCommand";
+import {
+  UpdatePullRequestApprovalStateCommandInput,
+  UpdatePullRequestApprovalStateCommandOutput
+} from "./commands/UpdatePullRequestApprovalStateCommand";
+import {
+  UpdatePullRequestDescriptionCommandInput,
+  UpdatePullRequestDescriptionCommandOutput
+} from "./commands/UpdatePullRequestDescriptionCommand";
+import {
+  UpdatePullRequestStatusCommandInput,
+  UpdatePullRequestStatusCommandOutput
+} from "./commands/UpdatePullRequestStatusCommand";
+import {
+  UpdatePullRequestTitleCommandInput,
+  UpdatePullRequestTitleCommandOutput
+} from "./commands/UpdatePullRequestTitleCommand";
+import {
+  UpdateRepositoryDescriptionCommandInput,
+  UpdateRepositoryDescriptionCommandOutput
+} from "./commands/UpdateRepositoryDescriptionCommand";
+import {
+  UpdateRepositoryNameCommandInput,
+  UpdateRepositoryNameCommandOutput
+} from "./commands/UpdateRepositoryNameCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -187,156 +345,164 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateApprovalRuleTemplateWithRepositoryInput
-  | BatchAssociateApprovalRuleTemplateWithRepositoriesInput
-  | BatchDescribeMergeConflictsInput
-  | BatchDisassociateApprovalRuleTemplateFromRepositoriesInput
-  | BatchGetCommitsInput
-  | BatchGetRepositoriesInput
-  | CreateApprovalRuleTemplateInput
-  | CreateBranchInput
-  | CreateCommitInput
-  | CreatePullRequestApprovalRuleInput
-  | CreatePullRequestInput
-  | CreateRepositoryInput
-  | CreateUnreferencedMergeCommitInput
-  | DeleteApprovalRuleTemplateInput
-  | DeleteBranchInput
-  | DeleteCommentContentInput
-  | DeleteFileInput
-  | DeletePullRequestApprovalRuleInput
-  | DeleteRepositoryInput
-  | DescribeMergeConflictsInput
-  | DescribePullRequestEventsInput
-  | DisassociateApprovalRuleTemplateFromRepositoryInput
-  | EvaluatePullRequestApprovalRulesInput
-  | GetApprovalRuleTemplateInput
-  | GetBlobInput
-  | GetBranchInput
-  | GetCommentInput
-  | GetCommentsForComparedCommitInput
-  | GetCommentsForPullRequestInput
-  | GetCommitInput
-  | GetDifferencesInput
-  | GetFileInput
-  | GetFolderInput
-  | GetMergeCommitInput
-  | GetMergeConflictsInput
-  | GetMergeOptionsInput
-  | GetPullRequestApprovalStatesInput
-  | GetPullRequestInput
-  | GetPullRequestOverrideStateInput
-  | GetRepositoryInput
-  | GetRepositoryTriggersInput
-  | ListApprovalRuleTemplatesInput
-  | ListAssociatedApprovalRuleTemplatesForRepositoryInput
-  | ListBranchesInput
-  | ListPullRequestsInput
-  | ListRepositoriesForApprovalRuleTemplateInput
-  | ListRepositoriesInput
-  | ListTagsForResourceInput
-  | MergeBranchesByFastForwardInput
-  | MergeBranchesBySquashInput
-  | MergeBranchesByThreeWayInput
-  | MergePullRequestByFastForwardInput
-  | MergePullRequestBySquashInput
-  | MergePullRequestByThreeWayInput
-  | OverridePullRequestApprovalRulesInput
-  | PostCommentForComparedCommitInput
-  | PostCommentForPullRequestInput
-  | PostCommentReplyInput
-  | PutFileInput
-  | PutRepositoryTriggersInput
-  | TagResourceInput
-  | TestRepositoryTriggersInput
-  | UntagResourceInput
-  | UpdateApprovalRuleTemplateContentInput
-  | UpdateApprovalRuleTemplateDescriptionInput
-  | UpdateApprovalRuleTemplateNameInput
-  | UpdateCommentInput
-  | UpdateDefaultBranchInput
-  | UpdatePullRequestApprovalRuleContentInput
-  | UpdatePullRequestApprovalStateInput
-  | UpdatePullRequestDescriptionInput
-  | UpdatePullRequestStatusInput
-  | UpdatePullRequestTitleInput
-  | UpdateRepositoryDescriptionInput
-  | UpdateRepositoryNameInput;
+  | AssociateApprovalRuleTemplateWithRepositoryCommandInput
+  | BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput
+  | BatchDescribeMergeConflictsCommandInput
+  | BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput
+  | BatchGetCommitsCommandInput
+  | BatchGetRepositoriesCommandInput
+  | CreateApprovalRuleTemplateCommandInput
+  | CreateBranchCommandInput
+  | CreateCommitCommandInput
+  | CreatePullRequestApprovalRuleCommandInput
+  | CreatePullRequestCommandInput
+  | CreateRepositoryCommandInput
+  | CreateUnreferencedMergeCommitCommandInput
+  | DeleteApprovalRuleTemplateCommandInput
+  | DeleteBranchCommandInput
+  | DeleteCommentContentCommandInput
+  | DeleteFileCommandInput
+  | DeletePullRequestApprovalRuleCommandInput
+  | DeleteRepositoryCommandInput
+  | DescribeMergeConflictsCommandInput
+  | DescribePullRequestEventsCommandInput
+  | DisassociateApprovalRuleTemplateFromRepositoryCommandInput
+  | EvaluatePullRequestApprovalRulesCommandInput
+  | GetApprovalRuleTemplateCommandInput
+  | GetBlobCommandInput
+  | GetBranchCommandInput
+  | GetCommentCommandInput
+  | GetCommentsForComparedCommitCommandInput
+  | GetCommentsForPullRequestCommandInput
+  | GetCommitCommandInput
+  | GetDifferencesCommandInput
+  | GetFileCommandInput
+  | GetFolderCommandInput
+  | GetMergeCommitCommandInput
+  | GetMergeConflictsCommandInput
+  | GetMergeOptionsCommandInput
+  | GetPullRequestApprovalStatesCommandInput
+  | GetPullRequestCommandInput
+  | GetPullRequestOverrideStateCommandInput
+  | GetRepositoryCommandInput
+  | GetRepositoryTriggersCommandInput
+  | ListApprovalRuleTemplatesCommandInput
+  | ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput
+  | ListBranchesCommandInput
+  | ListPullRequestsCommandInput
+  | ListRepositoriesCommandInput
+  | ListRepositoriesForApprovalRuleTemplateCommandInput
+  | ListTagsForResourceCommandInput
+  | MergeBranchesByFastForwardCommandInput
+  | MergeBranchesBySquashCommandInput
+  | MergeBranchesByThreeWayCommandInput
+  | MergePullRequestByFastForwardCommandInput
+  | MergePullRequestBySquashCommandInput
+  | MergePullRequestByThreeWayCommandInput
+  | OverridePullRequestApprovalRulesCommandInput
+  | PostCommentForComparedCommitCommandInput
+  | PostCommentForPullRequestCommandInput
+  | PostCommentReplyCommandInput
+  | PutFileCommandInput
+  | PutRepositoryTriggersCommandInput
+  | TagResourceCommandInput
+  | TestRepositoryTriggersCommandInput
+  | UntagResourceCommandInput
+  | UpdateApprovalRuleTemplateContentCommandInput
+  | UpdateApprovalRuleTemplateDescriptionCommandInput
+  | UpdateApprovalRuleTemplateNameCommandInput
+  | UpdateCommentCommandInput
+  | UpdateDefaultBranchCommandInput
+  | UpdatePullRequestApprovalRuleContentCommandInput
+  | UpdatePullRequestApprovalStateCommandInput
+  | UpdatePullRequestDescriptionCommandInput
+  | UpdatePullRequestStatusCommandInput
+  | UpdatePullRequestTitleCommandInput
+  | UpdateRepositoryDescriptionCommandInput
+  | UpdateRepositoryNameCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
-  | BatchDescribeMergeConflictsOutput
-  | BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
-  | BatchGetCommitsOutput
-  | BatchGetRepositoriesOutput
-  | CreateApprovalRuleTemplateOutput
-  | CreateCommitOutput
-  | CreatePullRequestApprovalRuleOutput
-  | CreatePullRequestOutput
-  | CreateRepositoryOutput
-  | CreateUnreferencedMergeCommitOutput
-  | DeleteApprovalRuleTemplateOutput
-  | DeleteBranchOutput
-  | DeleteCommentContentOutput
-  | DeleteFileOutput
-  | DeletePullRequestApprovalRuleOutput
-  | DeleteRepositoryOutput
-  | DescribeMergeConflictsOutput
-  | DescribePullRequestEventsOutput
-  | EvaluatePullRequestApprovalRulesOutput
-  | GetApprovalRuleTemplateOutput
-  | GetBlobOutput
-  | GetBranchOutput
-  | GetCommentOutput
-  | GetCommentsForComparedCommitOutput
-  | GetCommentsForPullRequestOutput
-  | GetCommitOutput
-  | GetDifferencesOutput
-  | GetFileOutput
-  | GetFolderOutput
-  | GetMergeCommitOutput
-  | GetMergeConflictsOutput
-  | GetMergeOptionsOutput
-  | GetPullRequestApprovalStatesOutput
-  | GetPullRequestOutput
-  | GetPullRequestOverrideStateOutput
-  | GetRepositoryOutput
-  | GetRepositoryTriggersOutput
-  | ListApprovalRuleTemplatesOutput
-  | ListAssociatedApprovalRuleTemplatesForRepositoryOutput
-  | ListBranchesOutput
-  | ListPullRequestsOutput
-  | ListRepositoriesForApprovalRuleTemplateOutput
-  | ListRepositoriesOutput
-  | ListTagsForResourceOutput
-  | MergeBranchesByFastForwardOutput
-  | MergeBranchesBySquashOutput
-  | MergeBranchesByThreeWayOutput
-  | MergePullRequestByFastForwardOutput
-  | MergePullRequestBySquashOutput
-  | MergePullRequestByThreeWayOutput
-  | PostCommentForComparedCommitOutput
-  | PostCommentForPullRequestOutput
-  | PostCommentReplyOutput
-  | PutFileOutput
-  | PutRepositoryTriggersOutput
-  | TestRepositoryTriggersOutput
-  | UpdateApprovalRuleTemplateContentOutput
-  | UpdateApprovalRuleTemplateDescriptionOutput
-  | UpdateApprovalRuleTemplateNameOutput
-  | UpdateCommentOutput
-  | UpdatePullRequestApprovalRuleContentOutput
-  | UpdatePullRequestDescriptionOutput
-  | UpdatePullRequestStatusOutput
-  | UpdatePullRequestTitleOutput;
+  | AssociateApprovalRuleTemplateWithRepositoryCommandOutput
+  | BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
+  | BatchDescribeMergeConflictsCommandOutput
+  | BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+  | BatchGetCommitsCommandOutput
+  | BatchGetRepositoriesCommandOutput
+  | CreateApprovalRuleTemplateCommandOutput
+  | CreateBranchCommandOutput
+  | CreateCommitCommandOutput
+  | CreatePullRequestApprovalRuleCommandOutput
+  | CreatePullRequestCommandOutput
+  | CreateRepositoryCommandOutput
+  | CreateUnreferencedMergeCommitCommandOutput
+  | DeleteApprovalRuleTemplateCommandOutput
+  | DeleteBranchCommandOutput
+  | DeleteCommentContentCommandOutput
+  | DeleteFileCommandOutput
+  | DeletePullRequestApprovalRuleCommandOutput
+  | DeleteRepositoryCommandOutput
+  | DescribeMergeConflictsCommandOutput
+  | DescribePullRequestEventsCommandOutput
+  | DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
+  | EvaluatePullRequestApprovalRulesCommandOutput
+  | GetApprovalRuleTemplateCommandOutput
+  | GetBlobCommandOutput
+  | GetBranchCommandOutput
+  | GetCommentCommandOutput
+  | GetCommentsForComparedCommitCommandOutput
+  | GetCommentsForPullRequestCommandOutput
+  | GetCommitCommandOutput
+  | GetDifferencesCommandOutput
+  | GetFileCommandOutput
+  | GetFolderCommandOutput
+  | GetMergeCommitCommandOutput
+  | GetMergeConflictsCommandOutput
+  | GetMergeOptionsCommandOutput
+  | GetPullRequestApprovalStatesCommandOutput
+  | GetPullRequestCommandOutput
+  | GetPullRequestOverrideStateCommandOutput
+  | GetRepositoryCommandOutput
+  | GetRepositoryTriggersCommandOutput
+  | ListApprovalRuleTemplatesCommandOutput
+  | ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
+  | ListBranchesCommandOutput
+  | ListPullRequestsCommandOutput
+  | ListRepositoriesCommandOutput
+  | ListRepositoriesForApprovalRuleTemplateCommandOutput
+  | ListTagsForResourceCommandOutput
+  | MergeBranchesByFastForwardCommandOutput
+  | MergeBranchesBySquashCommandOutput
+  | MergeBranchesByThreeWayCommandOutput
+  | MergePullRequestByFastForwardCommandOutput
+  | MergePullRequestBySquashCommandOutput
+  | MergePullRequestByThreeWayCommandOutput
+  | OverridePullRequestApprovalRulesCommandOutput
+  | PostCommentForComparedCommitCommandOutput
+  | PostCommentForPullRequestCommandOutput
+  | PostCommentReplyCommandOutput
+  | PutFileCommandOutput
+  | PutRepositoryTriggersCommandOutput
+  | TagResourceCommandOutput
+  | TestRepositoryTriggersCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateApprovalRuleTemplateContentCommandOutput
+  | UpdateApprovalRuleTemplateDescriptionCommandOutput
+  | UpdateApprovalRuleTemplateNameCommandOutput
+  | UpdateCommentCommandOutput
+  | UpdateDefaultBranchCommandOutput
+  | UpdatePullRequestApprovalRuleContentCommandOutput
+  | UpdatePullRequestApprovalStateCommandOutput
+  | UpdatePullRequestDescriptionCommandOutput
+  | UpdatePullRequestStatusCommandOutput
+  | UpdatePullRequestTitleCommandOutput
+  | UpdateRepositoryDescriptionCommandOutput
+  | UpdateRepositoryNameCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

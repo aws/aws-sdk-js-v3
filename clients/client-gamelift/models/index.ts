@@ -33,7 +33,7 @@ export namespace AcceptMatchInput {
   }
 }
 
-export interface AcceptMatchOutput extends $MetadataBearer {
+export interface AcceptMatchOutput {
   __type?: "AcceptMatchOutput";
 }
 
@@ -402,7 +402,7 @@ export namespace CreateAliasInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreateAliasOutput extends $MetadataBearer {
+export interface CreateAliasOutput {
   __type?: "CreateAliasOutput";
   /**
    * <p>The newly created alias resource.</p>
@@ -474,7 +474,7 @@ export namespace CreateBuildInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreateBuildOutput extends $MetadataBearer {
+export interface CreateBuildOutput {
   __type?: "CreateBuildOutput";
   /**
    * <p>The newly created build record, including a unique build IDs and status. </p>
@@ -708,7 +708,7 @@ export namespace CreateFleetInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreateFleetOutput extends $MetadataBearer {
+export interface CreateFleetOutput {
   __type?: "CreateFleetOutput";
   /**
    * <p>Properties for the newly created fleet.</p>
@@ -799,7 +799,7 @@ export namespace CreateGameSessionInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreateGameSessionOutput extends $MetadataBearer {
+export interface CreateGameSessionOutput {
   __type?: "CreateGameSessionOutput";
   /**
    * <p>Object that describes the newly created game session record.</p>
@@ -869,7 +869,7 @@ export namespace CreateGameSessionQueueInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreateGameSessionQueueOutput extends $MetadataBearer {
+export interface CreateGameSessionQueueOutput {
   __type?: "CreateGameSessionQueueOutput";
   /**
    * <p>An object that describes the newly created game session queue.</p>
@@ -997,7 +997,7 @@ export namespace CreateMatchmakingConfigurationInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreateMatchmakingConfigurationOutput extends $MetadataBearer {
+export interface CreateMatchmakingConfigurationOutput {
   __type?: "CreateMatchmakingConfigurationOutput";
   /**
    * <p>Object that describes the newly created matchmaking configuration.</p>
@@ -1052,7 +1052,7 @@ export namespace CreateMatchmakingRuleSetInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreateMatchmakingRuleSetOutput extends $MetadataBearer {
+export interface CreateMatchmakingRuleSetOutput {
   __type?: "CreateMatchmakingRuleSetOutput";
   /**
    * <p>The newly created matchmaking rule set.</p>
@@ -1096,7 +1096,7 @@ export namespace CreatePlayerSessionInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreatePlayerSessionOutput extends $MetadataBearer {
+export interface CreatePlayerSessionOutput {
   __type?: "CreatePlayerSessionOutput";
   /**
    * <p>Object that describes the newly created player session record.</p>
@@ -1143,7 +1143,7 @@ export namespace CreatePlayerSessionsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreatePlayerSessionsOutput extends $MetadataBearer {
+export interface CreatePlayerSessionsOutput {
   __type?: "CreatePlayerSessionsOutput";
   /**
    * <p>A collection of player session objects created for the added players.</p>
@@ -1210,7 +1210,7 @@ export namespace CreateScriptInput {
   }
 }
 
-export interface CreateScriptOutput extends $MetadataBearer {
+export interface CreateScriptOutput {
   __type?: "CreateScriptOutput";
   /**
    * <p>The newly created script record with a unique script ID and ARN. The new script's
@@ -1258,7 +1258,7 @@ export namespace CreateVpcPeeringAuthorizationInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface CreateVpcPeeringAuthorizationOutput extends $MetadataBearer {
+export interface CreateVpcPeeringAuthorizationOutput {
   __type?: "CreateVpcPeeringAuthorizationOutput";
   /**
    * <p>Details on the requested VPC peering authorization, including expiration.</p>
@@ -1305,7 +1305,7 @@ export namespace CreateVpcPeeringConnectionInput {
   }
 }
 
-export interface CreateVpcPeeringConnectionOutput extends $MetadataBearer {
+export interface CreateVpcPeeringConnectionOutput {
   __type?: "CreateVpcPeeringConnectionOutput";
 }
 
@@ -1384,7 +1384,7 @@ export namespace DeleteGameSessionQueueInput {
   }
 }
 
-export interface DeleteGameSessionQueueOutput extends $MetadataBearer {
+export interface DeleteGameSessionQueueOutput {
   __type?: "DeleteGameSessionQueueOutput";
 }
 
@@ -1411,7 +1411,7 @@ export namespace DeleteMatchmakingConfigurationInput {
   }
 }
 
-export interface DeleteMatchmakingConfigurationOutput extends $MetadataBearer {
+export interface DeleteMatchmakingConfigurationOutput {
   __type?: "DeleteMatchmakingConfigurationOutput";
 }
 
@@ -1442,7 +1442,7 @@ export namespace DeleteMatchmakingRuleSetInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DeleteMatchmakingRuleSetOutput extends $MetadataBearer {
+export interface DeleteMatchmakingRuleSetOutput {
   __type?: "DeleteMatchmakingRuleSetOutput";
 }
 
@@ -1514,7 +1514,7 @@ export namespace DeleteVpcPeeringAuthorizationInput {
   }
 }
 
-export interface DeleteVpcPeeringAuthorizationOutput extends $MetadataBearer {
+export interface DeleteVpcPeeringAuthorizationOutput {
   __type?: "DeleteVpcPeeringAuthorizationOutput";
 }
 
@@ -1547,7 +1547,7 @@ export namespace DeleteVpcPeeringConnectionInput {
   }
 }
 
-export interface DeleteVpcPeeringConnectionOutput extends $MetadataBearer {
+export interface DeleteVpcPeeringConnectionOutput {
   __type?: "DeleteVpcPeeringConnectionOutput";
 }
 
@@ -1578,7 +1578,7 @@ export namespace DescribeAliasInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeAliasOutput extends $MetadataBearer {
+export interface DescribeAliasOutput {
   __type?: "DescribeAliasOutput";
   /**
    * <p>The requested alias resource.</p>
@@ -1612,7 +1612,7 @@ export namespace DescribeBuildInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeBuildOutput extends $MetadataBearer {
+export interface DescribeBuildOutput {
   __type?: "DescribeBuildOutput";
   /**
    * <p>Set of properties describing the requested build.</p>
@@ -1651,7 +1651,7 @@ export namespace DescribeEC2InstanceLimitsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeEC2InstanceLimitsOutput extends $MetadataBearer {
+export interface DescribeEC2InstanceLimitsOutput {
   __type?: "DescribeEC2InstanceLimitsOutput";
   /**
    * <p>The maximum number of instances for the specified instance
@@ -1699,7 +1699,7 @@ export namespace DescribeFleetAttributesInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeFleetAttributesOutput extends $MetadataBearer {
+export interface DescribeFleetAttributesOutput {
   __type?: "DescribeFleetAttributesOutput";
   /**
    * <p>A collection of objects containing attribute metadata for each requested fleet
@@ -1752,7 +1752,7 @@ export namespace DescribeFleetCapacityInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeFleetCapacityOutput extends $MetadataBearer {
+export interface DescribeFleetCapacityOutput {
   __type?: "DescribeFleetCapacityOutput";
   /**
    * <p>A collection of objects containing capacity information for each requested fleet ID.
@@ -1817,7 +1817,7 @@ export namespace DescribeFleetEventsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeFleetEventsOutput extends $MetadataBearer {
+export interface DescribeFleetEventsOutput {
   __type?: "DescribeFleetEventsOutput";
   /**
    * <p>A collection of objects containing event log entries for the specified
@@ -1858,7 +1858,7 @@ export namespace DescribeFleetPortSettingsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeFleetPortSettingsOutput extends $MetadataBearer {
+export interface DescribeFleetPortSettingsOutput {
   __type?: "DescribeFleetPortSettingsOutput";
   /**
    * <p>The port settings for the requested fleet ID.</p>
@@ -1905,7 +1905,7 @@ export namespace DescribeFleetUtilizationInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeFleetUtilizationOutput extends $MetadataBearer {
+export interface DescribeFleetUtilizationOutput {
   __type?: "DescribeFleetUtilizationOutput";
   /**
    * <p>A collection of objects containing utilization information for each requested fleet
@@ -1974,7 +1974,7 @@ export namespace DescribeGameSessionDetailsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeGameSessionDetailsOutput extends $MetadataBearer {
+export interface DescribeGameSessionDetailsOutput {
   __type?: "DescribeGameSessionDetailsOutput";
   /**
    * <p>A collection of objects containing game session properties and the protection policy
@@ -2014,7 +2014,7 @@ export namespace DescribeGameSessionPlacementInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeGameSessionPlacementOutput extends $MetadataBearer {
+export interface DescribeGameSessionPlacementOutput {
   __type?: "DescribeGameSessionPlacementOutput";
   /**
    * <p>Object that describes the requested game session placement.</p>
@@ -2059,7 +2059,7 @@ export namespace DescribeGameSessionQueuesInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeGameSessionQueuesOutput extends $MetadataBearer {
+export interface DescribeGameSessionQueuesOutput {
   __type?: "DescribeGameSessionQueuesOutput";
   /**
    * <p>A collection of objects that describe the requested game session queues.</p>
@@ -2126,7 +2126,7 @@ export namespace DescribeGameSessionsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeGameSessionsOutput extends $MetadataBearer {
+export interface DescribeGameSessionsOutput {
   __type?: "DescribeGameSessionsOutput";
   /**
    * <p>A collection of objects containing game session properties for each session matching
@@ -2183,7 +2183,7 @@ export namespace DescribeInstancesInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeInstancesOutput extends $MetadataBearer {
+export interface DescribeInstancesOutput {
   __type?: "DescribeInstancesOutput";
   /**
    * <p>A collection of objects containing properties for each instance returned.</p>
@@ -2239,8 +2239,7 @@ export namespace DescribeMatchmakingConfigurationsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeMatchmakingConfigurationsOutput
-  extends $MetadataBearer {
+export interface DescribeMatchmakingConfigurationsOutput {
   __type?: "DescribeMatchmakingConfigurationsOutput";
   /**
    * <p>A collection of requested matchmaking configurations.</p>
@@ -2279,7 +2278,7 @@ export namespace DescribeMatchmakingInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeMatchmakingOutput extends $MetadataBearer {
+export interface DescribeMatchmakingOutput {
   __type?: "DescribeMatchmakingOutput";
   /**
    * <p>A collection of existing matchmaking ticket objects matching the request.</p>
@@ -2325,7 +2324,7 @@ export namespace DescribeMatchmakingRuleSetsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeMatchmakingRuleSetsOutput extends $MetadataBearer {
+export interface DescribeMatchmakingRuleSetsOutput {
   __type?: "DescribeMatchmakingRuleSetsOutput";
   /**
    * <p>A token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
@@ -2414,7 +2413,7 @@ export namespace DescribePlayerSessionsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribePlayerSessionsOutput extends $MetadataBearer {
+export interface DescribePlayerSessionsOutput {
   __type?: "DescribePlayerSessionsOutput";
   /**
    * <p>Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
@@ -2455,7 +2454,7 @@ export namespace DescribeRuntimeConfigurationInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeRuntimeConfigurationOutput extends $MetadataBearer {
+export interface DescribeRuntimeConfigurationOutput {
   __type?: "DescribeRuntimeConfigurationOutput";
   /**
    * <p>Instructions describing how server processes should be launched and maintained on
@@ -2544,7 +2543,7 @@ export namespace DescribeScalingPoliciesInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeScalingPoliciesOutput extends $MetadataBearer {
+export interface DescribeScalingPoliciesOutput {
   __type?: "DescribeScalingPoliciesOutput";
   /**
    * <p>Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
@@ -2579,7 +2578,7 @@ export namespace DescribeScriptInput {
   }
 }
 
-export interface DescribeScriptOutput extends $MetadataBearer {
+export interface DescribeScriptOutput {
   __type?: "DescribeScriptOutput";
   /**
    * <p>A set of properties describing the requested script.</p>
@@ -2603,8 +2602,7 @@ export namespace DescribeVpcPeeringAuthorizationsInput {
   }
 }
 
-export interface DescribeVpcPeeringAuthorizationsOutput
-  extends $MetadataBearer {
+export interface DescribeVpcPeeringAuthorizationsOutput {
   __type?: "DescribeVpcPeeringAuthorizationsOutput";
   /**
    * <p>A collection of objects that describe all valid VPC peering operations for the
@@ -2639,7 +2637,7 @@ export namespace DescribeVpcPeeringConnectionsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DescribeVpcPeeringConnectionsOutput extends $MetadataBearer {
+export interface DescribeVpcPeeringConnectionsOutput {
   __type?: "DescribeVpcPeeringConnectionsOutput";
   /**
    * <p>A collection of VPC peering connection records that match the request.</p>
@@ -4195,7 +4193,7 @@ export namespace GetGameSessionLogUrlInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface GetGameSessionLogUrlOutput extends $MetadataBearer {
+export interface GetGameSessionLogUrlOutput {
   __type?: "GetGameSessionLogUrlOutput";
   /**
    * <p>Location of the requested game session logs, available for download. This URL is
@@ -4242,7 +4240,7 @@ export namespace GetInstanceAccessInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface GetInstanceAccessOutput extends $MetadataBearer {
+export interface GetInstanceAccessOutput {
   __type?: "GetInstanceAccessOutput";
   /**
    * <p>The connection information for a fleet instance, including IP
@@ -4618,7 +4616,7 @@ export namespace ListAliasesInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface ListAliasesOutput extends $MetadataBearer {
+export interface ListAliasesOutput {
   __type?: "ListAliasesOutput";
   /**
    * <p>A collection of alias resources that match the request parameters.</p>
@@ -4688,7 +4686,7 @@ export namespace ListBuildsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface ListBuildsOutput extends $MetadataBearer {
+export interface ListBuildsOutput {
   __type?: "ListBuildsOutput";
   /**
    * <p>A collection of build records that match the request.</p>
@@ -4746,7 +4744,7 @@ export namespace ListFleetsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface ListFleetsOutput extends $MetadataBearer {
+export interface ListFleetsOutput {
   __type?: "ListFleetsOutput";
   /**
    * <p>Set of fleet IDs matching the list request. You can retrieve additional information
@@ -4786,7 +4784,7 @@ export namespace ListScriptsInput {
   }
 }
 
-export interface ListScriptsOutput extends $MetadataBearer {
+export interface ListScriptsOutput {
   __type?: "ListScriptsOutput";
   /**
    * <p>A token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
@@ -4824,7 +4822,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>
@@ -5752,7 +5750,7 @@ export namespace PutScalingPolicyInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface PutScalingPolicyOutput extends $MetadataBearer {
+export interface PutScalingPolicyOutput {
   __type?: "PutScalingPolicyOutput";
   /**
    * <p>A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.</p>
@@ -5786,7 +5784,7 @@ export namespace RequestUploadCredentialsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface RequestUploadCredentialsOutput extends $MetadataBearer {
+export interface RequestUploadCredentialsOutput {
   __type?: "RequestUploadCredentialsOutput";
   /**
    * <p>Amazon S3 path and key, identifying where the game build files are
@@ -5829,7 +5827,7 @@ export namespace ResolveAliasInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface ResolveAliasOutput extends $MetadataBearer {
+export interface ResolveAliasOutput {
   __type?: "ResolveAliasOutput";
   /**
    * <p>
@@ -6560,7 +6558,7 @@ export namespace SearchGameSessionsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface SearchGameSessionsOutput extends $MetadataBearer {
+export interface SearchGameSessionsOutput {
   __type?: "SearchGameSessionsOutput";
   /**
    * <p>A collection of objects containing game session properties for each session matching
@@ -6647,7 +6645,7 @@ export namespace StartFleetActionsInput {
   }
 }
 
-export interface StartFleetActionsOutput extends $MetadataBearer {
+export interface StartFleetActionsOutput {
   __type?: "StartFleetActionsOutput";
 }
 
@@ -6718,7 +6716,7 @@ export namespace StartGameSessionPlacementInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface StartGameSessionPlacementOutput extends $MetadataBearer {
+export interface StartGameSessionPlacementOutput {
   __type?: "StartGameSessionPlacementOutput";
   /**
    * <p>Object that describes the newly created game session placement. This object
@@ -6790,7 +6788,7 @@ export namespace StartMatchBackfillInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface StartMatchBackfillOutput extends $MetadataBearer {
+export interface StartMatchBackfillOutput {
   __type?: "StartMatchBackfillOutput";
   /**
    * <p>Ticket representing the backfill matchmaking request. This object includes the
@@ -6843,7 +6841,7 @@ export namespace StartMatchmakingInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface StartMatchmakingOutput extends $MetadataBearer {
+export interface StartMatchmakingOutput {
   __type?: "StartMatchmakingOutput";
   /**
    * <p>Ticket representing the matchmaking request. This object include the information
@@ -6878,7 +6876,7 @@ export namespace StopFleetActionsInput {
   }
 }
 
-export interface StopFleetActionsOutput extends $MetadataBearer {
+export interface StopFleetActionsOutput {
   __type?: "StopFleetActionsOutput";
 }
 
@@ -6908,7 +6906,7 @@ export namespace StopGameSessionPlacementInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface StopGameSessionPlacementOutput extends $MetadataBearer {
+export interface StopGameSessionPlacementOutput {
   __type?: "StopGameSessionPlacementOutput";
   /**
    * <p>Object that describes the canceled game session placement, with
@@ -6940,7 +6938,7 @@ export namespace StopMatchmakingInput {
   }
 }
 
-export interface StopMatchmakingOutput extends $MetadataBearer {
+export interface StopMatchmakingOutput {
   __type?: "StopMatchmakingOutput";
 }
 
@@ -7036,7 +7034,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -7220,7 +7218,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -7267,7 +7265,7 @@ export namespace UpdateAliasInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface UpdateAliasOutput extends $MetadataBearer {
+export interface UpdateAliasOutput {
   __type?: "UpdateAliasOutput";
   /**
    * <p>The updated alias resource.</p>
@@ -7311,7 +7309,7 @@ export namespace UpdateBuildInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface UpdateBuildOutput extends $MetadataBearer {
+export interface UpdateBuildOutput {
   __type?: "UpdateBuildOutput";
   /**
    * <p>The updated build record.</p>
@@ -7390,7 +7388,7 @@ export namespace UpdateFleetAttributesInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface UpdateFleetAttributesOutput extends $MetadataBearer {
+export interface UpdateFleetAttributesOutput {
   __type?: "UpdateFleetAttributesOutput";
   /**
    * <p>A unique identifier for a fleet that was updated. Use either the fleet ID or ARN value.</p>
@@ -7441,7 +7439,7 @@ export namespace UpdateFleetCapacityInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface UpdateFleetCapacityOutput extends $MetadataBearer {
+export interface UpdateFleetCapacityOutput {
   __type?: "UpdateFleetCapacityOutput";
   /**
    * <p>A unique identifier for a fleet that was updated.</p>
@@ -7486,7 +7484,7 @@ export namespace UpdateFleetPortSettingsInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface UpdateFleetPortSettingsOutput extends $MetadataBearer {
+export interface UpdateFleetPortSettingsOutput {
   __type?: "UpdateFleetPortSettingsOutput";
   /**
    * <p>A unique identifier for a fleet that was updated.</p>
@@ -7553,7 +7551,7 @@ export namespace UpdateGameSessionInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface UpdateGameSessionOutput extends $MetadataBearer {
+export interface UpdateGameSessionOutput {
   __type?: "UpdateGameSessionOutput";
   /**
    * <p>The updated game session metadata.</p>
@@ -7609,7 +7607,7 @@ export namespace UpdateGameSessionQueueInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface UpdateGameSessionQueueOutput extends $MetadataBearer {
+export interface UpdateGameSessionQueueOutput {
   __type?: "UpdateGameSessionQueueOutput";
   /**
    * <p>An object that describes the newly updated game session queue.</p>
@@ -7722,7 +7720,7 @@ export namespace UpdateMatchmakingConfigurationInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface UpdateMatchmakingConfigurationOutput extends $MetadataBearer {
+export interface UpdateMatchmakingConfigurationOutput {
   __type?: "UpdateMatchmakingConfigurationOutput";
   /**
    * <p>The updated matchmaking configuration.</p>
@@ -7768,7 +7766,7 @@ export namespace UpdateRuntimeConfigurationInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface UpdateRuntimeConfigurationOutput extends $MetadataBearer {
+export interface UpdateRuntimeConfigurationOutput {
   __type?: "UpdateRuntimeConfigurationOutput";
   /**
    * <p>The runtime configuration currently in force. If the update was successful, this
@@ -7828,7 +7826,7 @@ export namespace UpdateScriptInput {
   }
 }
 
-export interface UpdateScriptOutput extends $MetadataBearer {
+export interface UpdateScriptOutput {
   __type?: "UpdateScriptOutput";
   /**
    * <p>The newly created script record with a unique script ID. The new script's storage
@@ -7867,7 +7865,7 @@ export namespace ValidateMatchmakingRuleSetInput {
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface ValidateMatchmakingRuleSetOutput extends $MetadataBearer {
+export interface ValidateMatchmakingRuleSetOutput {
   __type?: "ValidateMatchmakingRuleSetOutput";
   /**
    * <p>A response indicating whether the rule set is valid.</p>

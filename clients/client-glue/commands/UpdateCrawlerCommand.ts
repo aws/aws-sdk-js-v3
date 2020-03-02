@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateCrawlerCommandInput = UpdateCrawlerRequest;
-export type UpdateCrawlerCommandOutput = UpdateCrawlerResponse;
+export type UpdateCrawlerCommandOutput = UpdateCrawlerResponse &
+  __MetadataBearer;
 
 export class UpdateCrawlerCommand extends $Command<
   UpdateCrawlerCommandInput,

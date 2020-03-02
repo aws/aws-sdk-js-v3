@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTimeToLiveCommandInput = DescribeTimeToLiveInput;
-export type DescribeTimeToLiveCommandOutput = DescribeTimeToLiveOutput;
+export type DescribeTimeToLiveCommandOutput = DescribeTimeToLiveOutput &
+  __MetadataBearer;
 
 export class DescribeTimeToLiveCommand extends $Command<
   DescribeTimeToLiveCommandInput,

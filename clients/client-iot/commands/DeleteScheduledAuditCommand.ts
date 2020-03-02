@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteScheduledAuditCommandInput = DeleteScheduledAuditRequest;
-export type DeleteScheduledAuditCommandOutput = DeleteScheduledAuditResponse;
+export type DeleteScheduledAuditCommandOutput = DeleteScheduledAuditResponse &
+  __MetadataBearer;
 
 export class DeleteScheduledAuditCommand extends $Command<
   DeleteScheduledAuditCommandInput,

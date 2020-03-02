@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SyncDeploymentJobCommandInput = SyncDeploymentJobRequest;
-export type SyncDeploymentJobCommandOutput = SyncDeploymentJobResponse;
+export type SyncDeploymentJobCommandOutput = SyncDeploymentJobResponse &
+  __MetadataBearer;
 
 export class SyncDeploymentJobCommand extends $Command<
   SyncDeploymentJobCommandInput,

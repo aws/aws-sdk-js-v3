@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeIdentityIdFormatCommandInput = DescribeIdentityIdFormatRequest;
-export type DescribeIdentityIdFormatCommandOutput = DescribeIdentityIdFormatResult;
+export type DescribeIdentityIdFormatCommandOutput = DescribeIdentityIdFormatResult &
+  __MetadataBearer;
 
 export class DescribeIdentityIdFormatCommand extends $Command<
   DescribeIdentityIdFormatCommandInput,

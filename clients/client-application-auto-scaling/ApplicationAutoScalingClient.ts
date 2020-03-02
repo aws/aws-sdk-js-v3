@@ -1,25 +1,43 @@
 import {
-  DeleteScalingPolicyRequest,
-  DeleteScalingPolicyResponse,
-  DeleteScheduledActionRequest,
-  DeleteScheduledActionResponse,
-  DeregisterScalableTargetRequest,
-  DeregisterScalableTargetResponse,
-  DescribeScalableTargetsRequest,
-  DescribeScalableTargetsResponse,
-  DescribeScalingActivitiesRequest,
-  DescribeScalingActivitiesResponse,
-  DescribeScalingPoliciesRequest,
-  DescribeScalingPoliciesResponse,
-  DescribeScheduledActionsRequest,
-  DescribeScheduledActionsResponse,
-  PutScalingPolicyRequest,
-  PutScalingPolicyResponse,
-  PutScheduledActionRequest,
-  PutScheduledActionResponse,
-  RegisterScalableTargetRequest,
-  RegisterScalableTargetResponse
-} from "./models/index";
+  DeleteScalingPolicyCommandInput,
+  DeleteScalingPolicyCommandOutput
+} from "./commands/DeleteScalingPolicyCommand";
+import {
+  DeleteScheduledActionCommandInput,
+  DeleteScheduledActionCommandOutput
+} from "./commands/DeleteScheduledActionCommand";
+import {
+  DeregisterScalableTargetCommandInput,
+  DeregisterScalableTargetCommandOutput
+} from "./commands/DeregisterScalableTargetCommand";
+import {
+  DescribeScalableTargetsCommandInput,
+  DescribeScalableTargetsCommandOutput
+} from "./commands/DescribeScalableTargetsCommand";
+import {
+  DescribeScalingActivitiesCommandInput,
+  DescribeScalingActivitiesCommandOutput
+} from "./commands/DescribeScalingActivitiesCommand";
+import {
+  DescribeScalingPoliciesCommandInput,
+  DescribeScalingPoliciesCommandOutput
+} from "./commands/DescribeScalingPoliciesCommand";
+import {
+  DescribeScheduledActionsCommandInput,
+  DescribeScheduledActionsCommandOutput
+} from "./commands/DescribeScheduledActionsCommand";
+import {
+  PutScalingPolicyCommandInput,
+  PutScalingPolicyCommandOutput
+} from "./commands/PutScalingPolicyCommand";
+import {
+  PutScheduledActionCommandInput,
+  PutScheduledActionCommandOutput
+} from "./commands/PutScheduledActionCommand";
+import {
+  RegisterScalableTargetCommandInput,
+  RegisterScalableTargetCommandOutput
+} from "./commands/RegisterScalableTargetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -73,28 +91,28 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteScalingPolicyRequest
-  | DeleteScheduledActionRequest
-  | DeregisterScalableTargetRequest
-  | DescribeScalableTargetsRequest
-  | DescribeScalingActivitiesRequest
-  | DescribeScalingPoliciesRequest
-  | DescribeScheduledActionsRequest
-  | PutScalingPolicyRequest
-  | PutScheduledActionRequest
-  | RegisterScalableTargetRequest;
+  | DeleteScalingPolicyCommandInput
+  | DeleteScheduledActionCommandInput
+  | DeregisterScalableTargetCommandInput
+  | DescribeScalableTargetsCommandInput
+  | DescribeScalingActivitiesCommandInput
+  | DescribeScalingPoliciesCommandInput
+  | DescribeScheduledActionsCommandInput
+  | PutScalingPolicyCommandInput
+  | PutScheduledActionCommandInput
+  | RegisterScalableTargetCommandInput;
 
 export type ServiceOutputTypes =
-  | DeleteScalingPolicyResponse
-  | DeleteScheduledActionResponse
-  | DeregisterScalableTargetResponse
-  | DescribeScalableTargetsResponse
-  | DescribeScalingActivitiesResponse
-  | DescribeScalingPoliciesResponse
-  | DescribeScheduledActionsResponse
-  | PutScalingPolicyResponse
-  | PutScheduledActionResponse
-  | RegisterScalableTargetResponse;
+  | DeleteScalingPolicyCommandOutput
+  | DeleteScheduledActionCommandOutput
+  | DeregisterScalableTargetCommandOutput
+  | DescribeScalableTargetsCommandOutput
+  | DescribeScalingActivitiesCommandOutput
+  | DescribeScalingPoliciesCommandOutput
+  | DescribeScheduledActionsCommandOutput
+  | PutScalingPolicyCommandOutput
+  | PutScheduledActionCommandOutput
+  | RegisterScalableTargetCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

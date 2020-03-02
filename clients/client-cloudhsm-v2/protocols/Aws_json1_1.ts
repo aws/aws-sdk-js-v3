@@ -314,45 +314,63 @@ async function deserializeAws_json1_1CopyBackupToRegionCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
-      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -405,45 +423,63 @@ async function deserializeAws_json1_1CreateClusterCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
-      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -496,38 +532,53 @@ async function deserializeAws_json1_1CreateHsmCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -580,38 +631,53 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -664,45 +730,63 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
-      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -755,38 +839,53 @@ async function deserializeAws_json1_1DeleteHsmCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -839,45 +938,63 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
-      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -930,38 +1047,53 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
-      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1014,38 +1146,53 @@ async function deserializeAws_json1_1InitializeClusterCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1098,45 +1245,63 @@ async function deserializeAws_json1_1ListTagsCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
-      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1189,38 +1354,53 @@ async function deserializeAws_json1_1RestoreBackupCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1273,45 +1453,63 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
-      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1364,45 +1562,63 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
-      response = await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInternalFailureException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
-      response = await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmInvalidRequestException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
-      response = await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmResourceNotFoundException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
-      response = await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
-      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

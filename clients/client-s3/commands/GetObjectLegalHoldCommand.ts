@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetObjectLegalHoldCommandInput = GetObjectLegalHoldRequest;
-export type GetObjectLegalHoldCommandOutput = GetObjectLegalHoldOutput;
+export type GetObjectLegalHoldCommandOutput = GetObjectLegalHoldOutput &
+  __MetadataBearer;
 
 export class GetObjectLegalHoldCommand extends $Command<
   GetObjectLegalHoldCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateActivationCommandInput = CreateActivationRequest;
-export type CreateActivationCommandOutput = CreateActivationResult;
+export type CreateActivationCommandOutput = CreateActivationResult &
+  __MetadataBearer;
 
 export class CreateActivationCommand extends $Command<
   CreateActivationCommandInput,

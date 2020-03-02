@@ -786,24 +786,33 @@ async function deserializeAws_queryAddTagsCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.elb.version_2012_06_01#DuplicateTagKeysException":
-      response = await deserializeAws_queryDuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.elb.version_2012_06_01#TooManyTagsException":
-      response = await deserializeAws_queryTooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -861,24 +870,33 @@ async function deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSecurityGroupException":
     case "com.amazon.elb.version_2012_06_01#InvalidSecurityGroupException":
-      response = await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -936,31 +954,43 @@ async function deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnetException":
     case "com.amazon.elb.version_2012_06_01#InvalidSubnetException":
-      response = await deserializeAws_queryInvalidSubnetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubnetNotFoundException":
     case "com.amazon.elb.version_2012_06_01#SubnetNotFoundException":
-      response = await deserializeAws_querySubnetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubnetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1018,10 +1048,13 @@ async function deserializeAws_queryConfigureHealthCheckCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1079,31 +1112,43 @@ async function deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicatePolicyNameException":
     case "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException":
-      response = await deserializeAws_queryDuplicatePolicyNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyPoliciesException":
     case "com.amazon.elb.version_2012_06_01#TooManyPoliciesException":
-      response = await deserializeAws_queryTooManyPoliciesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1161,31 +1206,43 @@ async function deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicatePolicyNameException":
     case "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException":
-      response = await deserializeAws_queryDuplicatePolicyNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyPoliciesException":
     case "com.amazon.elb.version_2012_06_01#TooManyPoliciesException":
-      response = await deserializeAws_queryTooManyPoliciesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1240,87 +1297,123 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
   switch (errorCode) {
     case "CertificateNotFoundException":
     case "com.amazon.elb.version_2012_06_01#CertificateNotFoundException":
-      response = await deserializeAws_queryCertificateNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateAccessPointNameException":
     case "com.amazon.elb.version_2012_06_01#DuplicateAccessPointNameException":
-      response = await deserializeAws_queryDuplicateAccessPointNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateAccessPointNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.elb.version_2012_06_01#DuplicateTagKeysException":
-      response = await deserializeAws_queryDuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSchemeException":
     case "com.amazon.elb.version_2012_06_01#InvalidSchemeException":
-      response = await deserializeAws_queryInvalidSchemeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSchemeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSecurityGroupException":
     case "com.amazon.elb.version_2012_06_01#InvalidSecurityGroupException":
-      response = await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnetException":
     case "com.amazon.elb.version_2012_06_01#InvalidSubnetException":
-      response = await deserializeAws_queryInvalidSubnetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazon.elb.version_2012_06_01#OperationNotPermittedException":
-      response = await deserializeAws_queryOperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubnetNotFoundException":
     case "com.amazon.elb.version_2012_06_01#SubnetNotFoundException":
-      response = await deserializeAws_querySubnetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubnetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyAccessPointsException":
     case "com.amazon.elb.version_2012_06_01#TooManyAccessPointsException":
-      response = await deserializeAws_queryTooManyAccessPointsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyAccessPointsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.elb.version_2012_06_01#TooManyTagsException":
-      response = await deserializeAws_queryTooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedProtocolException":
     case "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException":
-      response = await deserializeAws_queryUnsupportedProtocolExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1378,38 +1471,53 @@ async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CertificateNotFoundException":
     case "com.amazon.elb.version_2012_06_01#CertificateNotFoundException":
-      response = await deserializeAws_queryCertificateNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateListenerException":
     case "com.amazon.elb.version_2012_06_01#DuplicateListenerException":
-      response = await deserializeAws_queryDuplicateListenerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateListenerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedProtocolException":
     case "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException":
-      response = await deserializeAws_queryUnsupportedProtocolExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1467,38 +1575,53 @@ async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicatePolicyNameException":
     case "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException":
-      response = await deserializeAws_queryDuplicatePolicyNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyTypeNotFoundException":
     case "com.amazon.elb.version_2012_06_01#PolicyTypeNotFoundException":
-      response = await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyPoliciesException":
     case "com.amazon.elb.version_2012_06_01#TooManyPoliciesException":
-      response = await deserializeAws_queryTooManyPoliciesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1607,10 +1730,13 @@ async function deserializeAws_queryDeleteLoadBalancerListenersCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1668,17 +1794,23 @@ async function deserializeAws_queryDeleteLoadBalancerPolicyCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1736,17 +1868,23 @@ async function deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandErr
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEndPointException":
     case "com.amazon.elb.version_2012_06_01#InvalidEndPointException":
-      response = await deserializeAws_queryInvalidEndPointExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidEndPointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1858,17 +1996,23 @@ async function deserializeAws_queryDescribeInstanceHealthCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEndPointException":
     case "com.amazon.elb.version_2012_06_01#InvalidEndPointException":
-      response = await deserializeAws_queryInvalidEndPointExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidEndPointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1926,17 +2070,23 @@ async function deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerAttributeNotFoundException":
     case "com.amazon.elb.version_2012_06_01#LoadBalancerAttributeNotFoundException":
-      response = await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1994,17 +2144,23 @@ async function deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyNotFoundException":
     case "com.amazon.elb.version_2012_06_01#PolicyNotFoundException":
-      response = await deserializeAws_queryPolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2062,10 +2218,13 @@ async function deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError(
   switch (errorCode) {
     case "PolicyTypeNotFoundException":
     case "com.amazon.elb.version_2012_06_01#PolicyTypeNotFoundException":
-      response = await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2123,17 +2282,23 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependencyThrottleException":
     case "com.amazon.elb.version_2012_06_01#DependencyThrottleException":
-      response = await deserializeAws_queryDependencyThrottleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDependencyThrottleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2188,10 +2353,13 @@ async function deserializeAws_queryDescribeTagsCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2249,17 +2417,23 @@ async function deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2317,17 +2491,23 @@ async function deserializeAws_queryDisableAvailabilityZonesForLoadBalancerComman
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2385,10 +2565,13 @@ async function deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2446,24 +2629,33 @@ async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerAttributeNotFoundException":
     case "com.amazon.elb.version_2012_06_01#LoadBalancerAttributeNotFoundException":
-      response = await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2521,17 +2713,23 @@ async function deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEndPointException":
     case "com.amazon.elb.version_2012_06_01#InvalidEndPointException":
-      response = await deserializeAws_queryInvalidEndPointExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidEndPointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2586,10 +2784,13 @@ async function deserializeAws_queryRemoveTagsCommandError(
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2647,38 +2848,53 @@ async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandE
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CertificateNotFoundException":
     case "com.amazon.elb.version_2012_06_01#CertificateNotFoundException":
-      response = await deserializeAws_queryCertificateNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2012_06_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedProtocolException":
     case "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException":
-      response = await deserializeAws_queryUnsupportedProtocolExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2736,24 +2952,33 @@ async function deserializeAws_querySetLoadBalancerPoliciesForBackendServerComman
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyNotFoundException":
     case "com.amazon.elb.version_2012_06_01#PolicyNotFoundException":
-      response = await deserializeAws_queryPolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2811,31 +3036,43 @@ async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
-      response = await deserializeAws_queryAccessPointNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2012_06_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyNotFoundException":
     case "com.amazon.elb.version_2012_06_01#PolicyNotFoundException":
-      response = await deserializeAws_queryPolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

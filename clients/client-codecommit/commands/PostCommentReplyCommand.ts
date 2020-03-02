@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PostCommentReplyCommandInput = PostCommentReplyInput;
-export type PostCommentReplyCommandOutput = PostCommentReplyOutput;
+export type PostCommentReplyCommandOutput = PostCommentReplyOutput &
+  __MetadataBearer;
 
 export class PostCommentReplyCommand extends $Command<
   PostCommentReplyCommandInput,

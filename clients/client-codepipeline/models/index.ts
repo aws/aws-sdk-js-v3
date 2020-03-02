@@ -32,7 +32,7 @@ export namespace AcknowledgeJobInput {
 /**
  * <p>Represents the output of an AcknowledgeJob action.</p>
  */
-export interface AcknowledgeJobOutput extends $MetadataBearer {
+export interface AcknowledgeJobOutput {
   __type?: "AcknowledgeJobOutput";
   /**
    * <p>Whether the job worker has received the specified job.</p>
@@ -78,7 +78,7 @@ export namespace AcknowledgeThirdPartyJobInput {
 /**
  * <p>Represents the output of an AcknowledgeThirdPartyJob action.</p>
  */
-export interface AcknowledgeThirdPartyJobOutput extends $MetadataBearer {
+export interface AcknowledgeThirdPartyJobOutput {
   __type?: "AcknowledgeThirdPartyJobOutput";
   /**
    * <p>The status information for the third party job, if any.</p>
@@ -953,7 +953,7 @@ export namespace CreateCustomActionTypeInput {
 /**
  * <p>Represents the output of a <code>CreateCustomActionType</code> operation.</p>
  */
-export interface CreateCustomActionTypeOutput extends $MetadataBearer {
+export interface CreateCustomActionTypeOutput {
   __type?: "CreateCustomActionTypeOutput";
   /**
    * <p>Returns information about the details of an action type.</p>
@@ -998,7 +998,7 @@ export namespace CreatePipelineInput {
 /**
  * <p>Represents the output of a <code>CreatePipeline</code> action.</p>
  */
-export interface CreatePipelineOutput extends $MetadataBearer {
+export interface CreatePipelineOutput {
   __type?: "CreatePipelineOutput";
   /**
    * <p>Represents the structure of actions and stages to be performed in the pipeline.
@@ -1079,7 +1079,7 @@ export namespace DeleteWebhookInput {
   }
 }
 
-export interface DeleteWebhookOutput extends $MetadataBearer {
+export interface DeleteWebhookOutput {
   __type?: "DeleteWebhookOutput";
 }
 
@@ -1103,7 +1103,7 @@ export namespace DeregisterWebhookWithThirdPartyInput {
   }
 }
 
-export interface DeregisterWebhookWithThirdPartyOutput extends $MetadataBearer {
+export interface DeregisterWebhookWithThirdPartyOutput {
   __type?: "DeregisterWebhookWithThirdPartyOutput";
 }
 
@@ -1271,7 +1271,7 @@ export namespace GetJobDetailsInput {
 /**
  * <p>Represents the output of a <code>GetJobDetails</code> action.</p>
  */
-export interface GetJobDetailsOutput extends $MetadataBearer {
+export interface GetJobDetailsOutput {
   __type?: "GetJobDetailsOutput";
   /**
    * <p>The details of the job.</p>
@@ -1315,7 +1315,7 @@ export namespace GetPipelineExecutionInput {
 /**
  * <p>Represents the output of a <code>GetPipelineExecution</code> action.</p>
  */
-export interface GetPipelineExecutionOutput extends $MetadataBearer {
+export interface GetPipelineExecutionOutput {
   __type?: "GetPipelineExecutionOutput";
   /**
    * <p>Represents information about the execution of a pipeline.</p>
@@ -1356,7 +1356,7 @@ export namespace GetPipelineInput {
 /**
  * <p>Represents the output of a <code>GetPipeline</code> action.</p>
  */
-export interface GetPipelineOutput extends $MetadataBearer {
+export interface GetPipelineOutput {
   __type?: "GetPipelineOutput";
   /**
    * <p>Represents the pipeline metadata information returned as part of the output of a
@@ -1397,7 +1397,7 @@ export namespace GetPipelineStateInput {
 /**
  * <p>Represents the output of a <code>GetPipelineState</code> action.</p>
  */
-export interface GetPipelineStateOutput extends $MetadataBearer {
+export interface GetPipelineStateOutput {
   __type?: "GetPipelineStateOutput";
   /**
    * <p>The date and time the pipeline was created, in timestamp format.</p>
@@ -1462,7 +1462,7 @@ export namespace GetThirdPartyJobDetailsInput {
 /**
  * <p>Represents the output of a <code>GetThirdPartyJobDetails</code> action.</p>
  */
-export interface GetThirdPartyJobDetailsOutput extends $MetadataBearer {
+export interface GetThirdPartyJobDetailsOutput {
   __type?: "GetThirdPartyJobDetailsOutput";
   /**
    * <p>The details of the job, including any protected values defined for the
@@ -1918,7 +1918,7 @@ export namespace ListActionExecutionsInput {
   }
 }
 
-export interface ListActionExecutionsOutput extends $MetadataBearer {
+export interface ListActionExecutionsOutput {
   __type?: "ListActionExecutionsOutput";
   /**
    * <p>The details for a list of recent executions, such as action execution ID.</p>
@@ -1965,7 +1965,7 @@ export namespace ListActionTypesInput {
 /**
  * <p>Represents the output of a <code>ListActionTypes</code> action.</p>
  */
-export interface ListActionTypesOutput extends $MetadataBearer {
+export interface ListActionTypesOutput {
   __type?: "ListActionTypesOutput";
   /**
    * <p>Provides details of the action types.</p>
@@ -2022,7 +2022,7 @@ export namespace ListPipelineExecutionsInput {
 /**
  * <p>Represents the output of a <code>ListPipelineExecutions</code> action.</p>
  */
-export interface ListPipelineExecutionsOutput extends $MetadataBearer {
+export interface ListPipelineExecutionsOutput {
   __type?: "ListPipelineExecutionsOutput";
   /**
    * <p>A token that can be used in the next <code>ListPipelineExecutions</code> call. To
@@ -2064,7 +2064,7 @@ export namespace ListPipelinesInput {
 /**
  * <p>Represents the output of a <code>ListPipelines</code> action.</p>
  */
-export interface ListPipelinesOutput extends $MetadataBearer {
+export interface ListPipelinesOutput {
   __type?: "ListPipelinesOutput";
   /**
    * <p>If the amount of returned information is significantly large, an identifier is also
@@ -2111,7 +2111,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>If the amount of returned information is significantly large, an identifier is also
@@ -2207,7 +2207,7 @@ export namespace ListWebhooksInput {
   }
 }
 
-export interface ListWebhooksOutput extends $MetadataBearer {
+export interface ListWebhooksOutput {
   __type?: "ListWebhooksOutput";
   /**
    * <p>If the amount of returned information is significantly large, an identifier is also
@@ -2674,7 +2674,7 @@ export namespace PollForJobsInput {
 /**
  * <p>Represents the output of a <code>PollForJobs</code> action.</p>
  */
-export interface PollForJobsOutput extends $MetadataBearer {
+export interface PollForJobsOutput {
   __type?: "PollForJobsOutput";
   /**
    * <p>Information about the jobs to take action on.</p>
@@ -2713,7 +2713,7 @@ export namespace PollForThirdPartyJobsInput {
 /**
  * <p>Represents the output of a <code>PollForThirdPartyJobs</code> action.</p>
  */
-export interface PollForThirdPartyJobsOutput extends $MetadataBearer {
+export interface PollForThirdPartyJobsOutput {
   __type?: "PollForThirdPartyJobsOutput";
   /**
    * <p>Information about the jobs to take action on.</p>
@@ -2763,7 +2763,7 @@ export namespace PutActionRevisionInput {
 /**
  * <p>Represents the output of a <code>PutActionRevision</code> action.</p>
  */
-export interface PutActionRevisionOutput extends $MetadataBearer {
+export interface PutActionRevisionOutput {
   __type?: "PutActionRevisionOutput";
   /**
    * <p>Indicates whether the artifact revision was previously used in an execution of the
@@ -2825,7 +2825,7 @@ export namespace PutApprovalResultInput {
 /**
  * <p>Represents the output of a <code>PutApprovalResult</code> action.</p>
  */
-export interface PutApprovalResultOutput extends $MetadataBearer {
+export interface PutApprovalResultOutput {
   __type?: "PutApprovalResultOutput";
   /**
    * <p>The timestamp showing when the approval or rejection was submitted.</p>
@@ -3005,7 +3005,7 @@ export namespace PutWebhookInput {
   }
 }
 
-export interface PutWebhookOutput extends $MetadataBearer {
+export interface PutWebhookOutput {
   __type?: "PutWebhookOutput";
   /**
    * <p>The detail returned from creating the webhook, such as the webhook name, webhook
@@ -3035,7 +3035,7 @@ export namespace RegisterWebhookWithThirdPartyInput {
   }
 }
 
-export interface RegisterWebhookWithThirdPartyOutput extends $MetadataBearer {
+export interface RegisterWebhookWithThirdPartyOutput {
   __type?: "RegisterWebhookWithThirdPartyOutput";
 }
 
@@ -3082,7 +3082,7 @@ export namespace RetryStageExecutionInput {
 /**
  * <p>Represents the output of a <code>RetryStageExecution</code> action.</p>
  */
-export interface RetryStageExecutionOutput extends $MetadataBearer {
+export interface RetryStageExecutionOutput {
   __type?: "RetryStageExecutionOutput";
   /**
    * <p>The ID of the current workflow execution in the failed stage.</p>
@@ -3325,7 +3325,7 @@ export namespace StartPipelineExecutionInput {
 /**
  * <p>Represents the output of a <code>StartPipelineExecution</code> action.</p>
  */
-export interface StartPipelineExecutionOutput extends $MetadataBearer {
+export interface StartPipelineExecutionOutput {
   __type?: "StartPipelineExecutionOutput";
   /**
    * <p>The unique system-generated ID of the pipeline execution that was
@@ -3392,7 +3392,7 @@ export namespace StopPipelineExecutionInput {
   }
 }
 
-export interface StopPipelineExecutionOutput extends $MetadataBearer {
+export interface StopPipelineExecutionOutput {
   __type?: "StopPipelineExecutionOutput";
   /**
    * <p>The unique system-generated ID of the pipeline execution that was stopped.</p>
@@ -3447,7 +3447,7 @@ export namespace TagResourceInput {
   }
 }
 
-export interface TagResourceOutput extends $MetadataBearer {
+export interface TagResourceOutput {
   __type?: "TagResourceOutput";
 }
 
@@ -3658,7 +3658,7 @@ export namespace UntagResourceInput {
   }
 }
 
-export interface UntagResourceOutput extends $MetadataBearer {
+export interface UntagResourceOutput {
   __type?: "UntagResourceOutput";
 }
 
@@ -3688,7 +3688,7 @@ export namespace UpdatePipelineInput {
 /**
  * <p>Represents the output of an <code>UpdatePipeline</code> action.</p>
  */
-export interface UpdatePipelineOutput extends $MetadataBearer {
+export interface UpdatePipelineOutput {
   __type?: "UpdatePipelineOutput";
   /**
    * <p>The structure of the updated pipeline.</p>

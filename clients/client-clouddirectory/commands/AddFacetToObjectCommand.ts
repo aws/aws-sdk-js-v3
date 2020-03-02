@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddFacetToObjectCommandInput = AddFacetToObjectRequest;
-export type AddFacetToObjectCommandOutput = AddFacetToObjectResponse;
+export type AddFacetToObjectCommandOutput = AddFacetToObjectResponse &
+  __MetadataBearer;
 
 export class AddFacetToObjectCommand extends $Command<
   AddFacetToObjectCommandInput,

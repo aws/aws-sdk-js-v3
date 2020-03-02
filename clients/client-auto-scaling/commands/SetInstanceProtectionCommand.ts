@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetInstanceProtectionCommandInput = SetInstanceProtectionQuery;
-export type SetInstanceProtectionCommandOutput = SetInstanceProtectionAnswer;
+export type SetInstanceProtectionCommandOutput = SetInstanceProtectionAnswer &
+  __MetadataBearer;
 
 export class SetInstanceProtectionCommand extends $Command<
   SetInstanceProtectionCommandInput,

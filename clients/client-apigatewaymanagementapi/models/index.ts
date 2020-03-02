@@ -40,7 +40,7 @@ export namespace GetConnectionRequest {
   }
 }
 
-export interface GetConnectionResponse extends $MetadataBearer {
+export interface GetConnectionResponse {
   __type?: "GetConnectionResponse";
   /**
    * <p>The time in ISO 8601 format for when the connection was established.</p>

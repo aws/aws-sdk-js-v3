@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateClientVpnTargetNetworkCommandInput = DisassociateClientVpnTargetNetworkRequest;
-export type DisassociateClientVpnTargetNetworkCommandOutput = DisassociateClientVpnTargetNetworkResult;
+export type DisassociateClientVpnTargetNetworkCommandOutput = DisassociateClientVpnTargetNetworkResult &
+  __MetadataBearer;
 
 export class DisassociateClientVpnTargetNetworkCommand extends $Command<
   DisassociateClientVpnTargetNetworkCommandInput,

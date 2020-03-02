@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartOutboundVoiceContactCommandInput = StartOutboundVoiceContactRequest;
-export type StartOutboundVoiceContactCommandOutput = StartOutboundVoiceContactResponse;
+export type StartOutboundVoiceContactCommandOutput = StartOutboundVoiceContactResponse &
+  __MetadataBearer;
 
 export class StartOutboundVoiceContactCommand extends $Command<
   StartOutboundVoiceContactCommandInput,

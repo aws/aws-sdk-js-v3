@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateSkillGroupFromRoomCommandInput = DisassociateSkillGroupFromRoomRequest;
-export type DisassociateSkillGroupFromRoomCommandOutput = DisassociateSkillGroupFromRoomResponse;
+export type DisassociateSkillGroupFromRoomCommandOutput = DisassociateSkillGroupFromRoomResponse &
+  __MetadataBearer;
 
 export class DisassociateSkillGroupFromRoomCommand extends $Command<
   DisassociateSkillGroupFromRoomCommandInput,

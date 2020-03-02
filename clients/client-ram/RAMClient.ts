@@ -1,51 +1,95 @@
 import {
-  AcceptResourceShareInvitationRequest,
-  AcceptResourceShareInvitationResponse,
-  AssociateResourceSharePermissionRequest,
-  AssociateResourceSharePermissionResponse,
-  AssociateResourceShareRequest,
-  AssociateResourceShareResponse,
-  CreateResourceShareRequest,
-  CreateResourceShareResponse,
-  DeleteResourceShareRequest,
-  DeleteResourceShareResponse,
-  DisassociateResourceSharePermissionRequest,
-  DisassociateResourceSharePermissionResponse,
-  DisassociateResourceShareRequest,
-  DisassociateResourceShareResponse,
-  EnableSharingWithAwsOrganizationRequest,
-  EnableSharingWithAwsOrganizationResponse,
-  GetPermissionRequest,
-  GetPermissionResponse,
-  GetResourcePoliciesRequest,
-  GetResourcePoliciesResponse,
-  GetResourceShareAssociationsRequest,
-  GetResourceShareAssociationsResponse,
-  GetResourceShareInvitationsRequest,
-  GetResourceShareInvitationsResponse,
-  GetResourceSharesRequest,
-  GetResourceSharesResponse,
-  ListPendingInvitationResourcesRequest,
-  ListPendingInvitationResourcesResponse,
-  ListPermissionsRequest,
-  ListPermissionsResponse,
-  ListPrincipalsRequest,
-  ListPrincipalsResponse,
-  ListResourceSharePermissionsRequest,
-  ListResourceSharePermissionsResponse,
-  ListResourcesRequest,
-  ListResourcesResponse,
-  PromoteResourceShareCreatedFromPolicyRequest,
-  PromoteResourceShareCreatedFromPolicyResponse,
-  RejectResourceShareInvitationRequest,
-  RejectResourceShareInvitationResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateResourceShareRequest,
-  UpdateResourceShareResponse
-} from "./models/index";
+  AcceptResourceShareInvitationCommandInput,
+  AcceptResourceShareInvitationCommandOutput
+} from "./commands/AcceptResourceShareInvitationCommand";
+import {
+  AssociateResourceShareCommandInput,
+  AssociateResourceShareCommandOutput
+} from "./commands/AssociateResourceShareCommand";
+import {
+  AssociateResourceSharePermissionCommandInput,
+  AssociateResourceSharePermissionCommandOutput
+} from "./commands/AssociateResourceSharePermissionCommand";
+import {
+  CreateResourceShareCommandInput,
+  CreateResourceShareCommandOutput
+} from "./commands/CreateResourceShareCommand";
+import {
+  DeleteResourceShareCommandInput,
+  DeleteResourceShareCommandOutput
+} from "./commands/DeleteResourceShareCommand";
+import {
+  DisassociateResourceShareCommandInput,
+  DisassociateResourceShareCommandOutput
+} from "./commands/DisassociateResourceShareCommand";
+import {
+  DisassociateResourceSharePermissionCommandInput,
+  DisassociateResourceSharePermissionCommandOutput
+} from "./commands/DisassociateResourceSharePermissionCommand";
+import {
+  EnableSharingWithAwsOrganizationCommandInput,
+  EnableSharingWithAwsOrganizationCommandOutput
+} from "./commands/EnableSharingWithAwsOrganizationCommand";
+import {
+  GetPermissionCommandInput,
+  GetPermissionCommandOutput
+} from "./commands/GetPermissionCommand";
+import {
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput
+} from "./commands/GetResourcePoliciesCommand";
+import {
+  GetResourceShareAssociationsCommandInput,
+  GetResourceShareAssociationsCommandOutput
+} from "./commands/GetResourceShareAssociationsCommand";
+import {
+  GetResourceShareInvitationsCommandInput,
+  GetResourceShareInvitationsCommandOutput
+} from "./commands/GetResourceShareInvitationsCommand";
+import {
+  GetResourceSharesCommandInput,
+  GetResourceSharesCommandOutput
+} from "./commands/GetResourceSharesCommand";
+import {
+  ListPendingInvitationResourcesCommandInput,
+  ListPendingInvitationResourcesCommandOutput
+} from "./commands/ListPendingInvitationResourcesCommand";
+import {
+  ListPermissionsCommandInput,
+  ListPermissionsCommandOutput
+} from "./commands/ListPermissionsCommand";
+import {
+  ListPrincipalsCommandInput,
+  ListPrincipalsCommandOutput
+} from "./commands/ListPrincipalsCommand";
+import {
+  ListResourceSharePermissionsCommandInput,
+  ListResourceSharePermissionsCommandOutput
+} from "./commands/ListResourceSharePermissionsCommand";
+import {
+  ListResourcesCommandInput,
+  ListResourcesCommandOutput
+} from "./commands/ListResourcesCommand";
+import {
+  PromoteResourceShareCreatedFromPolicyCommandInput,
+  PromoteResourceShareCreatedFromPolicyCommandOutput
+} from "./commands/PromoteResourceShareCreatedFromPolicyCommand";
+import {
+  RejectResourceShareInvitationCommandInput,
+  RejectResourceShareInvitationCommandOutput
+} from "./commands/RejectResourceShareInvitationCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateResourceShareCommandInput,
+  UpdateResourceShareCommandOutput
+} from "./commands/UpdateResourceShareCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -99,54 +143,54 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AcceptResourceShareInvitationRequest
-  | AssociateResourceSharePermissionRequest
-  | AssociateResourceShareRequest
-  | CreateResourceShareRequest
-  | DeleteResourceShareRequest
-  | DisassociateResourceSharePermissionRequest
-  | DisassociateResourceShareRequest
-  | EnableSharingWithAwsOrganizationRequest
-  | GetPermissionRequest
-  | GetResourcePoliciesRequest
-  | GetResourceShareAssociationsRequest
-  | GetResourceShareInvitationsRequest
-  | GetResourceSharesRequest
-  | ListPendingInvitationResourcesRequest
-  | ListPermissionsRequest
-  | ListPrincipalsRequest
-  | ListResourceSharePermissionsRequest
-  | ListResourcesRequest
-  | PromoteResourceShareCreatedFromPolicyRequest
-  | RejectResourceShareInvitationRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateResourceShareRequest;
+  | AcceptResourceShareInvitationCommandInput
+  | AssociateResourceShareCommandInput
+  | AssociateResourceSharePermissionCommandInput
+  | CreateResourceShareCommandInput
+  | DeleteResourceShareCommandInput
+  | DisassociateResourceShareCommandInput
+  | DisassociateResourceSharePermissionCommandInput
+  | EnableSharingWithAwsOrganizationCommandInput
+  | GetPermissionCommandInput
+  | GetResourcePoliciesCommandInput
+  | GetResourceShareAssociationsCommandInput
+  | GetResourceShareInvitationsCommandInput
+  | GetResourceSharesCommandInput
+  | ListPendingInvitationResourcesCommandInput
+  | ListPermissionsCommandInput
+  | ListPrincipalsCommandInput
+  | ListResourceSharePermissionsCommandInput
+  | ListResourcesCommandInput
+  | PromoteResourceShareCreatedFromPolicyCommandInput
+  | RejectResourceShareInvitationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateResourceShareCommandInput;
 
 export type ServiceOutputTypes =
-  | AcceptResourceShareInvitationResponse
-  | AssociateResourceSharePermissionResponse
-  | AssociateResourceShareResponse
-  | CreateResourceShareResponse
-  | DeleteResourceShareResponse
-  | DisassociateResourceSharePermissionResponse
-  | DisassociateResourceShareResponse
-  | EnableSharingWithAwsOrganizationResponse
-  | GetPermissionResponse
-  | GetResourcePoliciesResponse
-  | GetResourceShareAssociationsResponse
-  | GetResourceShareInvitationsResponse
-  | GetResourceSharesResponse
-  | ListPendingInvitationResourcesResponse
-  | ListPermissionsResponse
-  | ListPrincipalsResponse
-  | ListResourceSharePermissionsResponse
-  | ListResourcesResponse
-  | PromoteResourceShareCreatedFromPolicyResponse
-  | RejectResourceShareInvitationResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateResourceShareResponse;
+  | AcceptResourceShareInvitationCommandOutput
+  | AssociateResourceShareCommandOutput
+  | AssociateResourceSharePermissionCommandOutput
+  | CreateResourceShareCommandOutput
+  | DeleteResourceShareCommandOutput
+  | DisassociateResourceShareCommandOutput
+  | DisassociateResourceSharePermissionCommandOutput
+  | EnableSharingWithAwsOrganizationCommandOutput
+  | GetPermissionCommandOutput
+  | GetResourcePoliciesCommandOutput
+  | GetResourceShareAssociationsCommandOutput
+  | GetResourceShareInvitationsCommandOutput
+  | GetResourceSharesCommandOutput
+  | ListPendingInvitationResourcesCommandOutput
+  | ListPermissionsCommandOutput
+  | ListPrincipalsCommandOutput
+  | ListResourceSharePermissionsCommandOutput
+  | ListResourcesCommandOutput
+  | PromoteResourceShareCreatedFromPolicyCommandOutput
+  | RejectResourceShareInvitationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateResourceShareCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

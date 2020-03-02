@@ -128,10 +128,13 @@ async function deserializeAws_json1_0CreateConnectionCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.codestar.connections#LimitExceededException":
-      response = await deserializeAws_json1_0LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -184,10 +187,13 @@ async function deserializeAws_json1_0DeleteConnectionCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestar.connections#ResourceNotFoundException":
-      response = await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -240,10 +246,13 @@ async function deserializeAws_json1_0GetConnectionCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestar.connections#ResourceNotFoundException":
-      response = await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

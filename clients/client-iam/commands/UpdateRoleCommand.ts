@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateRoleCommandInput = UpdateRoleRequest;
-export type UpdateRoleCommandOutput = UpdateRoleResponse;
+export type UpdateRoleCommandOutput = UpdateRoleResponse & __MetadataBearer;
 
 export class UpdateRoleCommand extends $Command<
   UpdateRoleCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDashboardsCommandInput = ListDashboardsInput;
-export type ListDashboardsCommandOutput = ListDashboardsOutput;
+export type ListDashboardsCommandOutput = ListDashboardsOutput &
+  __MetadataBearer;
 
 export class ListDashboardsCommand extends $Command<
   ListDashboardsCommandInput,

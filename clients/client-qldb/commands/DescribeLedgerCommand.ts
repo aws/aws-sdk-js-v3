@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLedgerCommandInput = DescribeLedgerRequest;
-export type DescribeLedgerCommandOutput = DescribeLedgerResponse;
+export type DescribeLedgerCommandOutput = DescribeLedgerResponse &
+  __MetadataBearer;
 
 export class DescribeLedgerCommand extends $Command<
   DescribeLedgerCommandInput,

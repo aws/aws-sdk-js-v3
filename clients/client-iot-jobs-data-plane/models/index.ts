@@ -186,7 +186,7 @@ export namespace DescribeJobExecutionRequest {
   }
 }
 
-export interface DescribeJobExecutionResponse extends $MetadataBearer {
+export interface DescribeJobExecutionResponse {
   __type?: "DescribeJobExecutionResponse";
   /**
    * <p>Contains data about a job execution.</p>
@@ -214,7 +214,7 @@ export namespace GetPendingJobExecutionsRequest {
   }
 }
 
-export interface GetPendingJobExecutionsResponse extends $MetadataBearer {
+export interface GetPendingJobExecutionsResponse {
   __type?: "GetPendingJobExecutionsResponse";
   /**
    * <p>A list of JobExecutionSummary objects with status IN_PROGRESS.</p>
@@ -407,7 +407,7 @@ export namespace StartNextPendingJobExecutionRequest {
   }
 }
 
-export interface StartNextPendingJobExecutionResponse extends $MetadataBearer {
+export interface StartNextPendingJobExecutionResponse {
   __type?: "StartNextPendingJobExecutionResponse";
   /**
    * <p>A JobExecution object.</p>
@@ -488,7 +488,7 @@ export namespace UpdateJobExecutionRequest {
   }
 }
 
-export interface UpdateJobExecutionResponse extends $MetadataBearer {
+export interface UpdateJobExecutionResponse {
   __type?: "UpdateJobExecutionResponse";
   /**
    * <p>A JobExecutionState object.</p>

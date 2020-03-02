@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDashboardCommandInput = UpdateDashboardRequest;
-export type UpdateDashboardCommandOutput = UpdateDashboardResponse;
+export type UpdateDashboardCommandOutput = UpdateDashboardResponse &
+  __MetadataBearer;
 
 export class UpdateDashboardCommand extends $Command<
   UpdateDashboardCommandInput,

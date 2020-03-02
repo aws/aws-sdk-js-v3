@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyClusterIamRolesCommandInput = ModifyClusterIamRolesMessage;
-export type ModifyClusterIamRolesCommandOutput = ModifyClusterIamRolesResult;
+export type ModifyClusterIamRolesCommandOutput = ModifyClusterIamRolesResult &
+  __MetadataBearer;
 
 export class ModifyClusterIamRolesCommand extends $Command<
   ModifyClusterIamRolesCommandInput,

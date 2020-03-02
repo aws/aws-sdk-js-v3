@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateGrantCommandInput = CreateGrantRequest;
-export type CreateGrantCommandOutput = CreateGrantResponse;
+export type CreateGrantCommandOutput = CreateGrantResponse & __MetadataBearer;
 
 export class CreateGrantCommand extends $Command<
   CreateGrantCommandInput,

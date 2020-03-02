@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type FlushApiCacheCommandInput = FlushApiCacheRequest;
-export type FlushApiCacheCommandOutput = FlushApiCacheResponse;
+export type FlushApiCacheCommandOutput = FlushApiCacheResponse &
+  __MetadataBearer;
 
 export class FlushApiCacheCommand extends $Command<
   FlushApiCacheCommandInput,

@@ -1,248 +1,535 @@
 import {
-  AddTagsInput,
-  AddTagsOutput,
-  AssociateTrialComponentRequest,
-  AssociateTrialComponentResponse,
-  CreateAlgorithmInput,
-  CreateAlgorithmOutput,
-  CreateAppRequest,
-  CreateAppResponse,
-  CreateAutoMLJobRequest,
-  CreateAutoMLJobResponse,
-  CreateCodeRepositoryInput,
-  CreateCodeRepositoryOutput,
-  CreateCompilationJobRequest,
-  CreateCompilationJobResponse,
-  CreateDomainRequest,
-  CreateDomainResponse,
-  CreateEndpointConfigInput,
-  CreateEndpointConfigOutput,
-  CreateEndpointInput,
-  CreateEndpointOutput,
-  CreateExperimentRequest,
-  CreateExperimentResponse,
-  CreateFlowDefinitionRequest,
-  CreateFlowDefinitionResponse,
-  CreateHumanTaskUiRequest,
-  CreateHumanTaskUiResponse,
-  CreateHyperParameterTuningJobRequest,
-  CreateHyperParameterTuningJobResponse,
-  CreateLabelingJobRequest,
-  CreateLabelingJobResponse,
-  CreateModelInput,
-  CreateModelOutput,
-  CreateModelPackageInput,
-  CreateModelPackageOutput,
-  CreateMonitoringScheduleRequest,
-  CreateMonitoringScheduleResponse,
-  CreateNotebookInstanceInput,
-  CreateNotebookInstanceLifecycleConfigInput,
-  CreateNotebookInstanceLifecycleConfigOutput,
-  CreateNotebookInstanceOutput,
-  CreatePresignedDomainUrlRequest,
-  CreatePresignedDomainUrlResponse,
-  CreatePresignedNotebookInstanceUrlInput,
-  CreatePresignedNotebookInstanceUrlOutput,
-  CreateProcessingJobRequest,
-  CreateProcessingJobResponse,
-  CreateTrainingJobRequest,
-  CreateTrainingJobResponse,
-  CreateTransformJobRequest,
-  CreateTransformJobResponse,
-  CreateTrialComponentRequest,
-  CreateTrialComponentResponse,
-  CreateTrialRequest,
-  CreateTrialResponse,
-  CreateUserProfileRequest,
-  CreateUserProfileResponse,
-  CreateWorkteamRequest,
-  CreateWorkteamResponse,
-  DeleteAlgorithmInput,
-  DeleteAppRequest,
-  DeleteCodeRepositoryInput,
-  DeleteDomainRequest,
-  DeleteEndpointConfigInput,
-  DeleteEndpointInput,
-  DeleteExperimentRequest,
-  DeleteExperimentResponse,
-  DeleteFlowDefinitionRequest,
-  DeleteFlowDefinitionResponse,
-  DeleteModelInput,
-  DeleteModelPackageInput,
-  DeleteMonitoringScheduleRequest,
-  DeleteNotebookInstanceInput,
-  DeleteNotebookInstanceLifecycleConfigInput,
-  DeleteTagsInput,
-  DeleteTagsOutput,
-  DeleteTrialComponentRequest,
-  DeleteTrialComponentResponse,
-  DeleteTrialRequest,
-  DeleteTrialResponse,
-  DeleteUserProfileRequest,
-  DeleteWorkteamRequest,
-  DeleteWorkteamResponse,
-  DescribeAlgorithmInput,
-  DescribeAlgorithmOutput,
-  DescribeAppRequest,
-  DescribeAppResponse,
-  DescribeAutoMLJobRequest,
-  DescribeAutoMLJobResponse,
-  DescribeCodeRepositoryInput,
-  DescribeCodeRepositoryOutput,
-  DescribeCompilationJobRequest,
-  DescribeCompilationJobResponse,
-  DescribeDomainRequest,
-  DescribeDomainResponse,
-  DescribeEndpointConfigInput,
-  DescribeEndpointConfigOutput,
-  DescribeEndpointInput,
-  DescribeEndpointOutput,
-  DescribeExperimentRequest,
-  DescribeExperimentResponse,
-  DescribeFlowDefinitionRequest,
-  DescribeFlowDefinitionResponse,
-  DescribeHumanTaskUiRequest,
-  DescribeHumanTaskUiResponse,
-  DescribeHyperParameterTuningJobRequest,
-  DescribeHyperParameterTuningJobResponse,
-  DescribeLabelingJobRequest,
-  DescribeLabelingJobResponse,
-  DescribeModelInput,
-  DescribeModelOutput,
-  DescribeModelPackageInput,
-  DescribeModelPackageOutput,
-  DescribeMonitoringScheduleRequest,
-  DescribeMonitoringScheduleResponse,
-  DescribeNotebookInstanceInput,
-  DescribeNotebookInstanceLifecycleConfigInput,
-  DescribeNotebookInstanceLifecycleConfigOutput,
-  DescribeNotebookInstanceOutput,
-  DescribeProcessingJobRequest,
-  DescribeProcessingJobResponse,
-  DescribeSubscribedWorkteamRequest,
-  DescribeSubscribedWorkteamResponse,
-  DescribeTrainingJobRequest,
-  DescribeTrainingJobResponse,
-  DescribeTransformJobRequest,
-  DescribeTransformJobResponse,
-  DescribeTrialComponentRequest,
-  DescribeTrialComponentResponse,
-  DescribeTrialRequest,
-  DescribeTrialResponse,
-  DescribeUserProfileRequest,
-  DescribeUserProfileResponse,
-  DescribeWorkforceRequest,
-  DescribeWorkforceResponse,
-  DescribeWorkteamRequest,
-  DescribeWorkteamResponse,
-  DisassociateTrialComponentRequest,
-  DisassociateTrialComponentResponse,
-  GetSearchSuggestionsRequest,
-  GetSearchSuggestionsResponse,
-  ListAlgorithmsInput,
-  ListAlgorithmsOutput,
-  ListAppsRequest,
-  ListAppsResponse,
-  ListAutoMLJobsRequest,
-  ListAutoMLJobsResponse,
-  ListCandidatesForAutoMLJobRequest,
-  ListCandidatesForAutoMLJobResponse,
-  ListCodeRepositoriesInput,
-  ListCodeRepositoriesOutput,
-  ListCompilationJobsRequest,
-  ListCompilationJobsResponse,
-  ListDomainsRequest,
-  ListDomainsResponse,
-  ListEndpointConfigsInput,
-  ListEndpointConfigsOutput,
-  ListEndpointsInput,
-  ListEndpointsOutput,
-  ListExperimentsRequest,
-  ListExperimentsResponse,
-  ListFlowDefinitionsRequest,
-  ListFlowDefinitionsResponse,
-  ListHumanTaskUisRequest,
-  ListHumanTaskUisResponse,
-  ListHyperParameterTuningJobsRequest,
-  ListHyperParameterTuningJobsResponse,
-  ListLabelingJobsForWorkteamRequest,
-  ListLabelingJobsForWorkteamResponse,
-  ListLabelingJobsRequest,
-  ListLabelingJobsResponse,
-  ListModelPackagesInput,
-  ListModelPackagesOutput,
-  ListModelsInput,
-  ListModelsOutput,
-  ListMonitoringExecutionsRequest,
-  ListMonitoringExecutionsResponse,
-  ListMonitoringSchedulesRequest,
-  ListMonitoringSchedulesResponse,
-  ListNotebookInstanceLifecycleConfigsInput,
-  ListNotebookInstanceLifecycleConfigsOutput,
-  ListNotebookInstancesInput,
-  ListNotebookInstancesOutput,
-  ListProcessingJobsRequest,
-  ListProcessingJobsResponse,
-  ListSubscribedWorkteamsRequest,
-  ListSubscribedWorkteamsResponse,
-  ListTagsInput,
-  ListTagsOutput,
-  ListTrainingJobsForHyperParameterTuningJobRequest,
-  ListTrainingJobsForHyperParameterTuningJobResponse,
-  ListTrainingJobsRequest,
-  ListTrainingJobsResponse,
-  ListTransformJobsRequest,
-  ListTransformJobsResponse,
-  ListTrialComponentsRequest,
-  ListTrialComponentsResponse,
-  ListTrialsRequest,
-  ListTrialsResponse,
-  ListUserProfilesRequest,
-  ListUserProfilesResponse,
-  ListWorkteamsRequest,
-  ListWorkteamsResponse,
-  RenderUiTemplateRequest,
-  RenderUiTemplateResponse,
-  SearchRequest,
-  SearchResponse,
-  StartMonitoringScheduleRequest,
-  StartNotebookInstanceInput,
-  StopAutoMLJobRequest,
-  StopCompilationJobRequest,
-  StopHyperParameterTuningJobRequest,
-  StopLabelingJobRequest,
-  StopMonitoringScheduleRequest,
-  StopNotebookInstanceInput,
-  StopProcessingJobRequest,
-  StopTrainingJobRequest,
-  StopTransformJobRequest,
-  UpdateCodeRepositoryInput,
-  UpdateCodeRepositoryOutput,
-  UpdateDomainRequest,
-  UpdateDomainResponse,
-  UpdateEndpointInput,
-  UpdateEndpointOutput,
-  UpdateEndpointWeightsAndCapacitiesInput,
-  UpdateEndpointWeightsAndCapacitiesOutput,
-  UpdateExperimentRequest,
-  UpdateExperimentResponse,
-  UpdateMonitoringScheduleRequest,
-  UpdateMonitoringScheduleResponse,
-  UpdateNotebookInstanceInput,
-  UpdateNotebookInstanceLifecycleConfigInput,
-  UpdateNotebookInstanceLifecycleConfigOutput,
-  UpdateNotebookInstanceOutput,
-  UpdateTrialComponentRequest,
-  UpdateTrialComponentResponse,
-  UpdateTrialRequest,
-  UpdateTrialResponse,
-  UpdateUserProfileRequest,
-  UpdateUserProfileResponse,
-  UpdateWorkforceRequest,
-  UpdateWorkforceResponse,
-  UpdateWorkteamRequest,
-  UpdateWorkteamResponse
-} from "./models/index";
+  AddTagsCommandInput,
+  AddTagsCommandOutput
+} from "./commands/AddTagsCommand";
+import {
+  AssociateTrialComponentCommandInput,
+  AssociateTrialComponentCommandOutput
+} from "./commands/AssociateTrialComponentCommand";
+import {
+  CreateAlgorithmCommandInput,
+  CreateAlgorithmCommandOutput
+} from "./commands/CreateAlgorithmCommand";
+import {
+  CreateAppCommandInput,
+  CreateAppCommandOutput
+} from "./commands/CreateAppCommand";
+import {
+  CreateAutoMLJobCommandInput,
+  CreateAutoMLJobCommandOutput
+} from "./commands/CreateAutoMLJobCommand";
+import {
+  CreateCodeRepositoryCommandInput,
+  CreateCodeRepositoryCommandOutput
+} from "./commands/CreateCodeRepositoryCommand";
+import {
+  CreateCompilationJobCommandInput,
+  CreateCompilationJobCommandOutput
+} from "./commands/CreateCompilationJobCommand";
+import {
+  CreateDomainCommandInput,
+  CreateDomainCommandOutput
+} from "./commands/CreateDomainCommand";
+import {
+  CreateEndpointCommandInput,
+  CreateEndpointCommandOutput
+} from "./commands/CreateEndpointCommand";
+import {
+  CreateEndpointConfigCommandInput,
+  CreateEndpointConfigCommandOutput
+} from "./commands/CreateEndpointConfigCommand";
+import {
+  CreateExperimentCommandInput,
+  CreateExperimentCommandOutput
+} from "./commands/CreateExperimentCommand";
+import {
+  CreateFlowDefinitionCommandInput,
+  CreateFlowDefinitionCommandOutput
+} from "./commands/CreateFlowDefinitionCommand";
+import {
+  CreateHumanTaskUiCommandInput,
+  CreateHumanTaskUiCommandOutput
+} from "./commands/CreateHumanTaskUiCommand";
+import {
+  CreateHyperParameterTuningJobCommandInput,
+  CreateHyperParameterTuningJobCommandOutput
+} from "./commands/CreateHyperParameterTuningJobCommand";
+import {
+  CreateLabelingJobCommandInput,
+  CreateLabelingJobCommandOutput
+} from "./commands/CreateLabelingJobCommand";
+import {
+  CreateModelCommandInput,
+  CreateModelCommandOutput
+} from "./commands/CreateModelCommand";
+import {
+  CreateModelPackageCommandInput,
+  CreateModelPackageCommandOutput
+} from "./commands/CreateModelPackageCommand";
+import {
+  CreateMonitoringScheduleCommandInput,
+  CreateMonitoringScheduleCommandOutput
+} from "./commands/CreateMonitoringScheduleCommand";
+import {
+  CreateNotebookInstanceCommandInput,
+  CreateNotebookInstanceCommandOutput
+} from "./commands/CreateNotebookInstanceCommand";
+import {
+  CreateNotebookInstanceLifecycleConfigCommandInput,
+  CreateNotebookInstanceLifecycleConfigCommandOutput
+} from "./commands/CreateNotebookInstanceLifecycleConfigCommand";
+import {
+  CreatePresignedDomainUrlCommandInput,
+  CreatePresignedDomainUrlCommandOutput
+} from "./commands/CreatePresignedDomainUrlCommand";
+import {
+  CreatePresignedNotebookInstanceUrlCommandInput,
+  CreatePresignedNotebookInstanceUrlCommandOutput
+} from "./commands/CreatePresignedNotebookInstanceUrlCommand";
+import {
+  CreateProcessingJobCommandInput,
+  CreateProcessingJobCommandOutput
+} from "./commands/CreateProcessingJobCommand";
+import {
+  CreateTrainingJobCommandInput,
+  CreateTrainingJobCommandOutput
+} from "./commands/CreateTrainingJobCommand";
+import {
+  CreateTransformJobCommandInput,
+  CreateTransformJobCommandOutput
+} from "./commands/CreateTransformJobCommand";
+import {
+  CreateTrialCommandInput,
+  CreateTrialCommandOutput
+} from "./commands/CreateTrialCommand";
+import {
+  CreateTrialComponentCommandInput,
+  CreateTrialComponentCommandOutput
+} from "./commands/CreateTrialComponentCommand";
+import {
+  CreateUserProfileCommandInput,
+  CreateUserProfileCommandOutput
+} from "./commands/CreateUserProfileCommand";
+import {
+  CreateWorkteamCommandInput,
+  CreateWorkteamCommandOutput
+} from "./commands/CreateWorkteamCommand";
+import {
+  DeleteAlgorithmCommandInput,
+  DeleteAlgorithmCommandOutput
+} from "./commands/DeleteAlgorithmCommand";
+import {
+  DeleteAppCommandInput,
+  DeleteAppCommandOutput
+} from "./commands/DeleteAppCommand";
+import {
+  DeleteCodeRepositoryCommandInput,
+  DeleteCodeRepositoryCommandOutput
+} from "./commands/DeleteCodeRepositoryCommand";
+import {
+  DeleteDomainCommandInput,
+  DeleteDomainCommandOutput
+} from "./commands/DeleteDomainCommand";
+import {
+  DeleteEndpointCommandInput,
+  DeleteEndpointCommandOutput
+} from "./commands/DeleteEndpointCommand";
+import {
+  DeleteEndpointConfigCommandInput,
+  DeleteEndpointConfigCommandOutput
+} from "./commands/DeleteEndpointConfigCommand";
+import {
+  DeleteExperimentCommandInput,
+  DeleteExperimentCommandOutput
+} from "./commands/DeleteExperimentCommand";
+import {
+  DeleteFlowDefinitionCommandInput,
+  DeleteFlowDefinitionCommandOutput
+} from "./commands/DeleteFlowDefinitionCommand";
+import {
+  DeleteModelCommandInput,
+  DeleteModelCommandOutput
+} from "./commands/DeleteModelCommand";
+import {
+  DeleteModelPackageCommandInput,
+  DeleteModelPackageCommandOutput
+} from "./commands/DeleteModelPackageCommand";
+import {
+  DeleteMonitoringScheduleCommandInput,
+  DeleteMonitoringScheduleCommandOutput
+} from "./commands/DeleteMonitoringScheduleCommand";
+import {
+  DeleteNotebookInstanceCommandInput,
+  DeleteNotebookInstanceCommandOutput
+} from "./commands/DeleteNotebookInstanceCommand";
+import {
+  DeleteNotebookInstanceLifecycleConfigCommandInput,
+  DeleteNotebookInstanceLifecycleConfigCommandOutput
+} from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
+import {
+  DeleteTagsCommandInput,
+  DeleteTagsCommandOutput
+} from "./commands/DeleteTagsCommand";
+import {
+  DeleteTrialCommandInput,
+  DeleteTrialCommandOutput
+} from "./commands/DeleteTrialCommand";
+import {
+  DeleteTrialComponentCommandInput,
+  DeleteTrialComponentCommandOutput
+} from "./commands/DeleteTrialComponentCommand";
+import {
+  DeleteUserProfileCommandInput,
+  DeleteUserProfileCommandOutput
+} from "./commands/DeleteUserProfileCommand";
+import {
+  DeleteWorkteamCommandInput,
+  DeleteWorkteamCommandOutput
+} from "./commands/DeleteWorkteamCommand";
+import {
+  DescribeAlgorithmCommandInput,
+  DescribeAlgorithmCommandOutput
+} from "./commands/DescribeAlgorithmCommand";
+import {
+  DescribeAppCommandInput,
+  DescribeAppCommandOutput
+} from "./commands/DescribeAppCommand";
+import {
+  DescribeAutoMLJobCommandInput,
+  DescribeAutoMLJobCommandOutput
+} from "./commands/DescribeAutoMLJobCommand";
+import {
+  DescribeCodeRepositoryCommandInput,
+  DescribeCodeRepositoryCommandOutput
+} from "./commands/DescribeCodeRepositoryCommand";
+import {
+  DescribeCompilationJobCommandInput,
+  DescribeCompilationJobCommandOutput
+} from "./commands/DescribeCompilationJobCommand";
+import {
+  DescribeDomainCommandInput,
+  DescribeDomainCommandOutput
+} from "./commands/DescribeDomainCommand";
+import {
+  DescribeEndpointCommandInput,
+  DescribeEndpointCommandOutput
+} from "./commands/DescribeEndpointCommand";
+import {
+  DescribeEndpointConfigCommandInput,
+  DescribeEndpointConfigCommandOutput
+} from "./commands/DescribeEndpointConfigCommand";
+import {
+  DescribeExperimentCommandInput,
+  DescribeExperimentCommandOutput
+} from "./commands/DescribeExperimentCommand";
+import {
+  DescribeFlowDefinitionCommandInput,
+  DescribeFlowDefinitionCommandOutput
+} from "./commands/DescribeFlowDefinitionCommand";
+import {
+  DescribeHumanTaskUiCommandInput,
+  DescribeHumanTaskUiCommandOutput
+} from "./commands/DescribeHumanTaskUiCommand";
+import {
+  DescribeHyperParameterTuningJobCommandInput,
+  DescribeHyperParameterTuningJobCommandOutput
+} from "./commands/DescribeHyperParameterTuningJobCommand";
+import {
+  DescribeLabelingJobCommandInput,
+  DescribeLabelingJobCommandOutput
+} from "./commands/DescribeLabelingJobCommand";
+import {
+  DescribeModelCommandInput,
+  DescribeModelCommandOutput
+} from "./commands/DescribeModelCommand";
+import {
+  DescribeModelPackageCommandInput,
+  DescribeModelPackageCommandOutput
+} from "./commands/DescribeModelPackageCommand";
+import {
+  DescribeMonitoringScheduleCommandInput,
+  DescribeMonitoringScheduleCommandOutput
+} from "./commands/DescribeMonitoringScheduleCommand";
+import {
+  DescribeNotebookInstanceCommandInput,
+  DescribeNotebookInstanceCommandOutput
+} from "./commands/DescribeNotebookInstanceCommand";
+import {
+  DescribeNotebookInstanceLifecycleConfigCommandInput,
+  DescribeNotebookInstanceLifecycleConfigCommandOutput
+} from "./commands/DescribeNotebookInstanceLifecycleConfigCommand";
+import {
+  DescribeProcessingJobCommandInput,
+  DescribeProcessingJobCommandOutput
+} from "./commands/DescribeProcessingJobCommand";
+import {
+  DescribeSubscribedWorkteamCommandInput,
+  DescribeSubscribedWorkteamCommandOutput
+} from "./commands/DescribeSubscribedWorkteamCommand";
+import {
+  DescribeTrainingJobCommandInput,
+  DescribeTrainingJobCommandOutput
+} from "./commands/DescribeTrainingJobCommand";
+import {
+  DescribeTransformJobCommandInput,
+  DescribeTransformJobCommandOutput
+} from "./commands/DescribeTransformJobCommand";
+import {
+  DescribeTrialCommandInput,
+  DescribeTrialCommandOutput
+} from "./commands/DescribeTrialCommand";
+import {
+  DescribeTrialComponentCommandInput,
+  DescribeTrialComponentCommandOutput
+} from "./commands/DescribeTrialComponentCommand";
+import {
+  DescribeUserProfileCommandInput,
+  DescribeUserProfileCommandOutput
+} from "./commands/DescribeUserProfileCommand";
+import {
+  DescribeWorkforceCommandInput,
+  DescribeWorkforceCommandOutput
+} from "./commands/DescribeWorkforceCommand";
+import {
+  DescribeWorkteamCommandInput,
+  DescribeWorkteamCommandOutput
+} from "./commands/DescribeWorkteamCommand";
+import {
+  DisassociateTrialComponentCommandInput,
+  DisassociateTrialComponentCommandOutput
+} from "./commands/DisassociateTrialComponentCommand";
+import {
+  GetSearchSuggestionsCommandInput,
+  GetSearchSuggestionsCommandOutput
+} from "./commands/GetSearchSuggestionsCommand";
+import {
+  ListAlgorithmsCommandInput,
+  ListAlgorithmsCommandOutput
+} from "./commands/ListAlgorithmsCommand";
+import {
+  ListAppsCommandInput,
+  ListAppsCommandOutput
+} from "./commands/ListAppsCommand";
+import {
+  ListAutoMLJobsCommandInput,
+  ListAutoMLJobsCommandOutput
+} from "./commands/ListAutoMLJobsCommand";
+import {
+  ListCandidatesForAutoMLJobCommandInput,
+  ListCandidatesForAutoMLJobCommandOutput
+} from "./commands/ListCandidatesForAutoMLJobCommand";
+import {
+  ListCodeRepositoriesCommandInput,
+  ListCodeRepositoriesCommandOutput
+} from "./commands/ListCodeRepositoriesCommand";
+import {
+  ListCompilationJobsCommandInput,
+  ListCompilationJobsCommandOutput
+} from "./commands/ListCompilationJobsCommand";
+import {
+  ListDomainsCommandInput,
+  ListDomainsCommandOutput
+} from "./commands/ListDomainsCommand";
+import {
+  ListEndpointConfigsCommandInput,
+  ListEndpointConfigsCommandOutput
+} from "./commands/ListEndpointConfigsCommand";
+import {
+  ListEndpointsCommandInput,
+  ListEndpointsCommandOutput
+} from "./commands/ListEndpointsCommand";
+import {
+  ListExperimentsCommandInput,
+  ListExperimentsCommandOutput
+} from "./commands/ListExperimentsCommand";
+import {
+  ListFlowDefinitionsCommandInput,
+  ListFlowDefinitionsCommandOutput
+} from "./commands/ListFlowDefinitionsCommand";
+import {
+  ListHumanTaskUisCommandInput,
+  ListHumanTaskUisCommandOutput
+} from "./commands/ListHumanTaskUisCommand";
+import {
+  ListHyperParameterTuningJobsCommandInput,
+  ListHyperParameterTuningJobsCommandOutput
+} from "./commands/ListHyperParameterTuningJobsCommand";
+import {
+  ListLabelingJobsCommandInput,
+  ListLabelingJobsCommandOutput
+} from "./commands/ListLabelingJobsCommand";
+import {
+  ListLabelingJobsForWorkteamCommandInput,
+  ListLabelingJobsForWorkteamCommandOutput
+} from "./commands/ListLabelingJobsForWorkteamCommand";
+import {
+  ListModelPackagesCommandInput,
+  ListModelPackagesCommandOutput
+} from "./commands/ListModelPackagesCommand";
+import {
+  ListModelsCommandInput,
+  ListModelsCommandOutput
+} from "./commands/ListModelsCommand";
+import {
+  ListMonitoringExecutionsCommandInput,
+  ListMonitoringExecutionsCommandOutput
+} from "./commands/ListMonitoringExecutionsCommand";
+import {
+  ListMonitoringSchedulesCommandInput,
+  ListMonitoringSchedulesCommandOutput
+} from "./commands/ListMonitoringSchedulesCommand";
+import {
+  ListNotebookInstanceLifecycleConfigsCommandInput,
+  ListNotebookInstanceLifecycleConfigsCommandOutput
+} from "./commands/ListNotebookInstanceLifecycleConfigsCommand";
+import {
+  ListNotebookInstancesCommandInput,
+  ListNotebookInstancesCommandOutput
+} from "./commands/ListNotebookInstancesCommand";
+import {
+  ListProcessingJobsCommandInput,
+  ListProcessingJobsCommandOutput
+} from "./commands/ListProcessingJobsCommand";
+import {
+  ListSubscribedWorkteamsCommandInput,
+  ListSubscribedWorkteamsCommandOutput
+} from "./commands/ListSubscribedWorkteamsCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  ListTrainingJobsCommandInput,
+  ListTrainingJobsCommandOutput
+} from "./commands/ListTrainingJobsCommand";
+import {
+  ListTrainingJobsForHyperParameterTuningJobCommandInput,
+  ListTrainingJobsForHyperParameterTuningJobCommandOutput
+} from "./commands/ListTrainingJobsForHyperParameterTuningJobCommand";
+import {
+  ListTransformJobsCommandInput,
+  ListTransformJobsCommandOutput
+} from "./commands/ListTransformJobsCommand";
+import {
+  ListTrialComponentsCommandInput,
+  ListTrialComponentsCommandOutput
+} from "./commands/ListTrialComponentsCommand";
+import {
+  ListTrialsCommandInput,
+  ListTrialsCommandOutput
+} from "./commands/ListTrialsCommand";
+import {
+  ListUserProfilesCommandInput,
+  ListUserProfilesCommandOutput
+} from "./commands/ListUserProfilesCommand";
+import {
+  ListWorkteamsCommandInput,
+  ListWorkteamsCommandOutput
+} from "./commands/ListWorkteamsCommand";
+import {
+  RenderUiTemplateCommandInput,
+  RenderUiTemplateCommandOutput
+} from "./commands/RenderUiTemplateCommand";
+import {
+  SearchCommandInput,
+  SearchCommandOutput
+} from "./commands/SearchCommand";
+import {
+  StartMonitoringScheduleCommandInput,
+  StartMonitoringScheduleCommandOutput
+} from "./commands/StartMonitoringScheduleCommand";
+import {
+  StartNotebookInstanceCommandInput,
+  StartNotebookInstanceCommandOutput
+} from "./commands/StartNotebookInstanceCommand";
+import {
+  StopAutoMLJobCommandInput,
+  StopAutoMLJobCommandOutput
+} from "./commands/StopAutoMLJobCommand";
+import {
+  StopCompilationJobCommandInput,
+  StopCompilationJobCommandOutput
+} from "./commands/StopCompilationJobCommand";
+import {
+  StopHyperParameterTuningJobCommandInput,
+  StopHyperParameterTuningJobCommandOutput
+} from "./commands/StopHyperParameterTuningJobCommand";
+import {
+  StopLabelingJobCommandInput,
+  StopLabelingJobCommandOutput
+} from "./commands/StopLabelingJobCommand";
+import {
+  StopMonitoringScheduleCommandInput,
+  StopMonitoringScheduleCommandOutput
+} from "./commands/StopMonitoringScheduleCommand";
+import {
+  StopNotebookInstanceCommandInput,
+  StopNotebookInstanceCommandOutput
+} from "./commands/StopNotebookInstanceCommand";
+import {
+  StopProcessingJobCommandInput,
+  StopProcessingJobCommandOutput
+} from "./commands/StopProcessingJobCommand";
+import {
+  StopTrainingJobCommandInput,
+  StopTrainingJobCommandOutput
+} from "./commands/StopTrainingJobCommand";
+import {
+  StopTransformJobCommandInput,
+  StopTransformJobCommandOutput
+} from "./commands/StopTransformJobCommand";
+import {
+  UpdateCodeRepositoryCommandInput,
+  UpdateCodeRepositoryCommandOutput
+} from "./commands/UpdateCodeRepositoryCommand";
+import {
+  UpdateDomainCommandInput,
+  UpdateDomainCommandOutput
+} from "./commands/UpdateDomainCommand";
+import {
+  UpdateEndpointCommandInput,
+  UpdateEndpointCommandOutput
+} from "./commands/UpdateEndpointCommand";
+import {
+  UpdateEndpointWeightsAndCapacitiesCommandInput,
+  UpdateEndpointWeightsAndCapacitiesCommandOutput
+} from "./commands/UpdateEndpointWeightsAndCapacitiesCommand";
+import {
+  UpdateExperimentCommandInput,
+  UpdateExperimentCommandOutput
+} from "./commands/UpdateExperimentCommand";
+import {
+  UpdateMonitoringScheduleCommandInput,
+  UpdateMonitoringScheduleCommandOutput
+} from "./commands/UpdateMonitoringScheduleCommand";
+import {
+  UpdateNotebookInstanceCommandInput,
+  UpdateNotebookInstanceCommandOutput
+} from "./commands/UpdateNotebookInstanceCommand";
+import {
+  UpdateNotebookInstanceLifecycleConfigCommandInput,
+  UpdateNotebookInstanceLifecycleConfigCommandOutput
+} from "./commands/UpdateNotebookInstanceLifecycleConfigCommand";
+import {
+  UpdateTrialCommandInput,
+  UpdateTrialCommandOutput
+} from "./commands/UpdateTrialCommand";
+import {
+  UpdateTrialComponentCommandInput,
+  UpdateTrialComponentCommandOutput
+} from "./commands/UpdateTrialComponentCommand";
+import {
+  UpdateUserProfileCommandInput,
+  UpdateUserProfileCommandOutput
+} from "./commands/UpdateUserProfileCommand";
+import {
+  UpdateWorkforceCommandInput,
+  UpdateWorkforceCommandOutput
+} from "./commands/UpdateWorkforceCommand";
+import {
+  UpdateWorkteamCommandInput,
+  UpdateWorkteamCommandOutput
+} from "./commands/UpdateWorkteamCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -290,259 +577,280 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsInput
-  | AssociateTrialComponentRequest
-  | CreateAlgorithmInput
-  | CreateAppRequest
-  | CreateAutoMLJobRequest
-  | CreateCodeRepositoryInput
-  | CreateCompilationJobRequest
-  | CreateDomainRequest
-  | CreateEndpointConfigInput
-  | CreateEndpointInput
-  | CreateExperimentRequest
-  | CreateFlowDefinitionRequest
-  | CreateHumanTaskUiRequest
-  | CreateHyperParameterTuningJobRequest
-  | CreateLabelingJobRequest
-  | CreateModelInput
-  | CreateModelPackageInput
-  | CreateMonitoringScheduleRequest
-  | CreateNotebookInstanceInput
-  | CreateNotebookInstanceLifecycleConfigInput
-  | CreatePresignedDomainUrlRequest
-  | CreatePresignedNotebookInstanceUrlInput
-  | CreateProcessingJobRequest
-  | CreateTrainingJobRequest
-  | CreateTransformJobRequest
-  | CreateTrialComponentRequest
-  | CreateTrialRequest
-  | CreateUserProfileRequest
-  | CreateWorkteamRequest
-  | DeleteAlgorithmInput
-  | DeleteAppRequest
-  | DeleteCodeRepositoryInput
-  | DeleteDomainRequest
-  | DeleteEndpointConfigInput
-  | DeleteEndpointInput
-  | DeleteExperimentRequest
-  | DeleteFlowDefinitionRequest
-  | DeleteModelInput
-  | DeleteModelPackageInput
-  | DeleteMonitoringScheduleRequest
-  | DeleteNotebookInstanceInput
-  | DeleteNotebookInstanceLifecycleConfigInput
-  | DeleteTagsInput
-  | DeleteTrialComponentRequest
-  | DeleteTrialRequest
-  | DeleteUserProfileRequest
-  | DeleteWorkteamRequest
-  | DescribeAlgorithmInput
-  | DescribeAppRequest
-  | DescribeAutoMLJobRequest
-  | DescribeCodeRepositoryInput
-  | DescribeCompilationJobRequest
-  | DescribeDomainRequest
-  | DescribeEndpointConfigInput
-  | DescribeEndpointInput
-  | DescribeExperimentRequest
-  | DescribeFlowDefinitionRequest
-  | DescribeHumanTaskUiRequest
-  | DescribeHyperParameterTuningJobRequest
-  | DescribeLabelingJobRequest
-  | DescribeModelInput
-  | DescribeModelPackageInput
-  | DescribeMonitoringScheduleRequest
-  | DescribeNotebookInstanceInput
-  | DescribeNotebookInstanceLifecycleConfigInput
-  | DescribeProcessingJobRequest
-  | DescribeSubscribedWorkteamRequest
-  | DescribeTrainingJobRequest
-  | DescribeTransformJobRequest
-  | DescribeTrialComponentRequest
-  | DescribeTrialRequest
-  | DescribeUserProfileRequest
-  | DescribeWorkforceRequest
-  | DescribeWorkteamRequest
-  | DisassociateTrialComponentRequest
-  | GetSearchSuggestionsRequest
-  | ListAlgorithmsInput
-  | ListAppsRequest
-  | ListAutoMLJobsRequest
-  | ListCandidatesForAutoMLJobRequest
-  | ListCodeRepositoriesInput
-  | ListCompilationJobsRequest
-  | ListDomainsRequest
-  | ListEndpointConfigsInput
-  | ListEndpointsInput
-  | ListExperimentsRequest
-  | ListFlowDefinitionsRequest
-  | ListHumanTaskUisRequest
-  | ListHyperParameterTuningJobsRequest
-  | ListLabelingJobsForWorkteamRequest
-  | ListLabelingJobsRequest
-  | ListModelPackagesInput
-  | ListModelsInput
-  | ListMonitoringExecutionsRequest
-  | ListMonitoringSchedulesRequest
-  | ListNotebookInstanceLifecycleConfigsInput
-  | ListNotebookInstancesInput
-  | ListProcessingJobsRequest
-  | ListSubscribedWorkteamsRequest
-  | ListTagsInput
-  | ListTrainingJobsForHyperParameterTuningJobRequest
-  | ListTrainingJobsRequest
-  | ListTransformJobsRequest
-  | ListTrialComponentsRequest
-  | ListTrialsRequest
-  | ListUserProfilesRequest
-  | ListWorkteamsRequest
-  | RenderUiTemplateRequest
-  | SearchRequest
-  | StartMonitoringScheduleRequest
-  | StartNotebookInstanceInput
-  | StopAutoMLJobRequest
-  | StopCompilationJobRequest
-  | StopHyperParameterTuningJobRequest
-  | StopLabelingJobRequest
-  | StopMonitoringScheduleRequest
-  | StopNotebookInstanceInput
-  | StopProcessingJobRequest
-  | StopTrainingJobRequest
-  | StopTransformJobRequest
-  | UpdateCodeRepositoryInput
-  | UpdateDomainRequest
-  | UpdateEndpointInput
-  | UpdateEndpointWeightsAndCapacitiesInput
-  | UpdateExperimentRequest
-  | UpdateMonitoringScheduleRequest
-  | UpdateNotebookInstanceInput
-  | UpdateNotebookInstanceLifecycleConfigInput
-  | UpdateTrialComponentRequest
-  | UpdateTrialRequest
-  | UpdateUserProfileRequest
-  | UpdateWorkforceRequest
-  | UpdateWorkteamRequest;
+  | AddTagsCommandInput
+  | AssociateTrialComponentCommandInput
+  | CreateAlgorithmCommandInput
+  | CreateAppCommandInput
+  | CreateAutoMLJobCommandInput
+  | CreateCodeRepositoryCommandInput
+  | CreateCompilationJobCommandInput
+  | CreateDomainCommandInput
+  | CreateEndpointCommandInput
+  | CreateEndpointConfigCommandInput
+  | CreateExperimentCommandInput
+  | CreateFlowDefinitionCommandInput
+  | CreateHumanTaskUiCommandInput
+  | CreateHyperParameterTuningJobCommandInput
+  | CreateLabelingJobCommandInput
+  | CreateModelCommandInput
+  | CreateModelPackageCommandInput
+  | CreateMonitoringScheduleCommandInput
+  | CreateNotebookInstanceCommandInput
+  | CreateNotebookInstanceLifecycleConfigCommandInput
+  | CreatePresignedDomainUrlCommandInput
+  | CreatePresignedNotebookInstanceUrlCommandInput
+  | CreateProcessingJobCommandInput
+  | CreateTrainingJobCommandInput
+  | CreateTransformJobCommandInput
+  | CreateTrialCommandInput
+  | CreateTrialComponentCommandInput
+  | CreateUserProfileCommandInput
+  | CreateWorkteamCommandInput
+  | DeleteAlgorithmCommandInput
+  | DeleteAppCommandInput
+  | DeleteCodeRepositoryCommandInput
+  | DeleteDomainCommandInput
+  | DeleteEndpointCommandInput
+  | DeleteEndpointConfigCommandInput
+  | DeleteExperimentCommandInput
+  | DeleteFlowDefinitionCommandInput
+  | DeleteModelCommandInput
+  | DeleteModelPackageCommandInput
+  | DeleteMonitoringScheduleCommandInput
+  | DeleteNotebookInstanceCommandInput
+  | DeleteNotebookInstanceLifecycleConfigCommandInput
+  | DeleteTagsCommandInput
+  | DeleteTrialCommandInput
+  | DeleteTrialComponentCommandInput
+  | DeleteUserProfileCommandInput
+  | DeleteWorkteamCommandInput
+  | DescribeAlgorithmCommandInput
+  | DescribeAppCommandInput
+  | DescribeAutoMLJobCommandInput
+  | DescribeCodeRepositoryCommandInput
+  | DescribeCompilationJobCommandInput
+  | DescribeDomainCommandInput
+  | DescribeEndpointCommandInput
+  | DescribeEndpointConfigCommandInput
+  | DescribeExperimentCommandInput
+  | DescribeFlowDefinitionCommandInput
+  | DescribeHumanTaskUiCommandInput
+  | DescribeHyperParameterTuningJobCommandInput
+  | DescribeLabelingJobCommandInput
+  | DescribeModelCommandInput
+  | DescribeModelPackageCommandInput
+  | DescribeMonitoringScheduleCommandInput
+  | DescribeNotebookInstanceCommandInput
+  | DescribeNotebookInstanceLifecycleConfigCommandInput
+  | DescribeProcessingJobCommandInput
+  | DescribeSubscribedWorkteamCommandInput
+  | DescribeTrainingJobCommandInput
+  | DescribeTransformJobCommandInput
+  | DescribeTrialCommandInput
+  | DescribeTrialComponentCommandInput
+  | DescribeUserProfileCommandInput
+  | DescribeWorkforceCommandInput
+  | DescribeWorkteamCommandInput
+  | DisassociateTrialComponentCommandInput
+  | GetSearchSuggestionsCommandInput
+  | ListAlgorithmsCommandInput
+  | ListAppsCommandInput
+  | ListAutoMLJobsCommandInput
+  | ListCandidatesForAutoMLJobCommandInput
+  | ListCodeRepositoriesCommandInput
+  | ListCompilationJobsCommandInput
+  | ListDomainsCommandInput
+  | ListEndpointConfigsCommandInput
+  | ListEndpointsCommandInput
+  | ListExperimentsCommandInput
+  | ListFlowDefinitionsCommandInput
+  | ListHumanTaskUisCommandInput
+  | ListHyperParameterTuningJobsCommandInput
+  | ListLabelingJobsCommandInput
+  | ListLabelingJobsForWorkteamCommandInput
+  | ListModelPackagesCommandInput
+  | ListModelsCommandInput
+  | ListMonitoringExecutionsCommandInput
+  | ListMonitoringSchedulesCommandInput
+  | ListNotebookInstanceLifecycleConfigsCommandInput
+  | ListNotebookInstancesCommandInput
+  | ListProcessingJobsCommandInput
+  | ListSubscribedWorkteamsCommandInput
+  | ListTagsCommandInput
+  | ListTrainingJobsCommandInput
+  | ListTrainingJobsForHyperParameterTuningJobCommandInput
+  | ListTransformJobsCommandInput
+  | ListTrialComponentsCommandInput
+  | ListTrialsCommandInput
+  | ListUserProfilesCommandInput
+  | ListWorkteamsCommandInput
+  | RenderUiTemplateCommandInput
+  | SearchCommandInput
+  | StartMonitoringScheduleCommandInput
+  | StartNotebookInstanceCommandInput
+  | StopAutoMLJobCommandInput
+  | StopCompilationJobCommandInput
+  | StopHyperParameterTuningJobCommandInput
+  | StopLabelingJobCommandInput
+  | StopMonitoringScheduleCommandInput
+  | StopNotebookInstanceCommandInput
+  | StopProcessingJobCommandInput
+  | StopTrainingJobCommandInput
+  | StopTransformJobCommandInput
+  | UpdateCodeRepositoryCommandInput
+  | UpdateDomainCommandInput
+  | UpdateEndpointCommandInput
+  | UpdateEndpointWeightsAndCapacitiesCommandInput
+  | UpdateExperimentCommandInput
+  | UpdateMonitoringScheduleCommandInput
+  | UpdateNotebookInstanceCommandInput
+  | UpdateNotebookInstanceLifecycleConfigCommandInput
+  | UpdateTrialCommandInput
+  | UpdateTrialComponentCommandInput
+  | UpdateUserProfileCommandInput
+  | UpdateWorkforceCommandInput
+  | UpdateWorkteamCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AddTagsOutput
-  | AssociateTrialComponentResponse
-  | CreateAlgorithmOutput
-  | CreateAppResponse
-  | CreateAutoMLJobResponse
-  | CreateCodeRepositoryOutput
-  | CreateCompilationJobResponse
-  | CreateDomainResponse
-  | CreateEndpointConfigOutput
-  | CreateEndpointOutput
-  | CreateExperimentResponse
-  | CreateFlowDefinitionResponse
-  | CreateHumanTaskUiResponse
-  | CreateHyperParameterTuningJobResponse
-  | CreateLabelingJobResponse
-  | CreateModelOutput
-  | CreateModelPackageOutput
-  | CreateMonitoringScheduleResponse
-  | CreateNotebookInstanceLifecycleConfigOutput
-  | CreateNotebookInstanceOutput
-  | CreatePresignedDomainUrlResponse
-  | CreatePresignedNotebookInstanceUrlOutput
-  | CreateProcessingJobResponse
-  | CreateTrainingJobResponse
-  | CreateTransformJobResponse
-  | CreateTrialComponentResponse
-  | CreateTrialResponse
-  | CreateUserProfileResponse
-  | CreateWorkteamResponse
-  | DeleteExperimentResponse
-  | DeleteFlowDefinitionResponse
-  | DeleteTagsOutput
-  | DeleteTrialComponentResponse
-  | DeleteTrialResponse
-  | DeleteWorkteamResponse
-  | DescribeAlgorithmOutput
-  | DescribeAppResponse
-  | DescribeAutoMLJobResponse
-  | DescribeCodeRepositoryOutput
-  | DescribeCompilationJobResponse
-  | DescribeDomainResponse
-  | DescribeEndpointConfigOutput
-  | DescribeEndpointOutput
-  | DescribeExperimentResponse
-  | DescribeFlowDefinitionResponse
-  | DescribeHumanTaskUiResponse
-  | DescribeHyperParameterTuningJobResponse
-  | DescribeLabelingJobResponse
-  | DescribeModelOutput
-  | DescribeModelPackageOutput
-  | DescribeMonitoringScheduleResponse
-  | DescribeNotebookInstanceLifecycleConfigOutput
-  | DescribeNotebookInstanceOutput
-  | DescribeProcessingJobResponse
-  | DescribeSubscribedWorkteamResponse
-  | DescribeTrainingJobResponse
-  | DescribeTransformJobResponse
-  | DescribeTrialComponentResponse
-  | DescribeTrialResponse
-  | DescribeUserProfileResponse
-  | DescribeWorkforceResponse
-  | DescribeWorkteamResponse
-  | DisassociateTrialComponentResponse
-  | GetSearchSuggestionsResponse
-  | ListAlgorithmsOutput
-  | ListAppsResponse
-  | ListAutoMLJobsResponse
-  | ListCandidatesForAutoMLJobResponse
-  | ListCodeRepositoriesOutput
-  | ListCompilationJobsResponse
-  | ListDomainsResponse
-  | ListEndpointConfigsOutput
-  | ListEndpointsOutput
-  | ListExperimentsResponse
-  | ListFlowDefinitionsResponse
-  | ListHumanTaskUisResponse
-  | ListHyperParameterTuningJobsResponse
-  | ListLabelingJobsForWorkteamResponse
-  | ListLabelingJobsResponse
-  | ListModelPackagesOutput
-  | ListModelsOutput
-  | ListMonitoringExecutionsResponse
-  | ListMonitoringSchedulesResponse
-  | ListNotebookInstanceLifecycleConfigsOutput
-  | ListNotebookInstancesOutput
-  | ListProcessingJobsResponse
-  | ListSubscribedWorkteamsResponse
-  | ListTagsOutput
-  | ListTrainingJobsForHyperParameterTuningJobResponse
-  | ListTrainingJobsResponse
-  | ListTransformJobsResponse
-  | ListTrialComponentsResponse
-  | ListTrialsResponse
-  | ListUserProfilesResponse
-  | ListWorkteamsResponse
-  | RenderUiTemplateResponse
-  | SearchResponse
-  | UpdateCodeRepositoryOutput
-  | UpdateDomainResponse
-  | UpdateEndpointOutput
-  | UpdateEndpointWeightsAndCapacitiesOutput
-  | UpdateExperimentResponse
-  | UpdateMonitoringScheduleResponse
-  | UpdateNotebookInstanceLifecycleConfigOutput
-  | UpdateNotebookInstanceOutput
-  | UpdateTrialComponentResponse
-  | UpdateTrialResponse
-  | UpdateUserProfileResponse
-  | UpdateWorkforceResponse
-  | UpdateWorkteamResponse;
+  | AddTagsCommandOutput
+  | AssociateTrialComponentCommandOutput
+  | CreateAlgorithmCommandOutput
+  | CreateAppCommandOutput
+  | CreateAutoMLJobCommandOutput
+  | CreateCodeRepositoryCommandOutput
+  | CreateCompilationJobCommandOutput
+  | CreateDomainCommandOutput
+  | CreateEndpointCommandOutput
+  | CreateEndpointConfigCommandOutput
+  | CreateExperimentCommandOutput
+  | CreateFlowDefinitionCommandOutput
+  | CreateHumanTaskUiCommandOutput
+  | CreateHyperParameterTuningJobCommandOutput
+  | CreateLabelingJobCommandOutput
+  | CreateModelCommandOutput
+  | CreateModelPackageCommandOutput
+  | CreateMonitoringScheduleCommandOutput
+  | CreateNotebookInstanceCommandOutput
+  | CreateNotebookInstanceLifecycleConfigCommandOutput
+  | CreatePresignedDomainUrlCommandOutput
+  | CreatePresignedNotebookInstanceUrlCommandOutput
+  | CreateProcessingJobCommandOutput
+  | CreateTrainingJobCommandOutput
+  | CreateTransformJobCommandOutput
+  | CreateTrialCommandOutput
+  | CreateTrialComponentCommandOutput
+  | CreateUserProfileCommandOutput
+  | CreateWorkteamCommandOutput
+  | DeleteAlgorithmCommandOutput
+  | DeleteAppCommandOutput
+  | DeleteCodeRepositoryCommandOutput
+  | DeleteDomainCommandOutput
+  | DeleteEndpointCommandOutput
+  | DeleteEndpointConfigCommandOutput
+  | DeleteExperimentCommandOutput
+  | DeleteFlowDefinitionCommandOutput
+  | DeleteModelCommandOutput
+  | DeleteModelPackageCommandOutput
+  | DeleteMonitoringScheduleCommandOutput
+  | DeleteNotebookInstanceCommandOutput
+  | DeleteNotebookInstanceLifecycleConfigCommandOutput
+  | DeleteTagsCommandOutput
+  | DeleteTrialCommandOutput
+  | DeleteTrialComponentCommandOutput
+  | DeleteUserProfileCommandOutput
+  | DeleteWorkteamCommandOutput
+  | DescribeAlgorithmCommandOutput
+  | DescribeAppCommandOutput
+  | DescribeAutoMLJobCommandOutput
+  | DescribeCodeRepositoryCommandOutput
+  | DescribeCompilationJobCommandOutput
+  | DescribeDomainCommandOutput
+  | DescribeEndpointCommandOutput
+  | DescribeEndpointConfigCommandOutput
+  | DescribeExperimentCommandOutput
+  | DescribeFlowDefinitionCommandOutput
+  | DescribeHumanTaskUiCommandOutput
+  | DescribeHyperParameterTuningJobCommandOutput
+  | DescribeLabelingJobCommandOutput
+  | DescribeModelCommandOutput
+  | DescribeModelPackageCommandOutput
+  | DescribeMonitoringScheduleCommandOutput
+  | DescribeNotebookInstanceCommandOutput
+  | DescribeNotebookInstanceLifecycleConfigCommandOutput
+  | DescribeProcessingJobCommandOutput
+  | DescribeSubscribedWorkteamCommandOutput
+  | DescribeTrainingJobCommandOutput
+  | DescribeTransformJobCommandOutput
+  | DescribeTrialCommandOutput
+  | DescribeTrialComponentCommandOutput
+  | DescribeUserProfileCommandOutput
+  | DescribeWorkforceCommandOutput
+  | DescribeWorkteamCommandOutput
+  | DisassociateTrialComponentCommandOutput
+  | GetSearchSuggestionsCommandOutput
+  | ListAlgorithmsCommandOutput
+  | ListAppsCommandOutput
+  | ListAutoMLJobsCommandOutput
+  | ListCandidatesForAutoMLJobCommandOutput
+  | ListCodeRepositoriesCommandOutput
+  | ListCompilationJobsCommandOutput
+  | ListDomainsCommandOutput
+  | ListEndpointConfigsCommandOutput
+  | ListEndpointsCommandOutput
+  | ListExperimentsCommandOutput
+  | ListFlowDefinitionsCommandOutput
+  | ListHumanTaskUisCommandOutput
+  | ListHyperParameterTuningJobsCommandOutput
+  | ListLabelingJobsCommandOutput
+  | ListLabelingJobsForWorkteamCommandOutput
+  | ListModelPackagesCommandOutput
+  | ListModelsCommandOutput
+  | ListMonitoringExecutionsCommandOutput
+  | ListMonitoringSchedulesCommandOutput
+  | ListNotebookInstanceLifecycleConfigsCommandOutput
+  | ListNotebookInstancesCommandOutput
+  | ListProcessingJobsCommandOutput
+  | ListSubscribedWorkteamsCommandOutput
+  | ListTagsCommandOutput
+  | ListTrainingJobsCommandOutput
+  | ListTrainingJobsForHyperParameterTuningJobCommandOutput
+  | ListTransformJobsCommandOutput
+  | ListTrialComponentsCommandOutput
+  | ListTrialsCommandOutput
+  | ListUserProfilesCommandOutput
+  | ListWorkteamsCommandOutput
+  | RenderUiTemplateCommandOutput
+  | SearchCommandOutput
+  | StartMonitoringScheduleCommandOutput
+  | StartNotebookInstanceCommandOutput
+  | StopAutoMLJobCommandOutput
+  | StopCompilationJobCommandOutput
+  | StopHyperParameterTuningJobCommandOutput
+  | StopLabelingJobCommandOutput
+  | StopMonitoringScheduleCommandOutput
+  | StopNotebookInstanceCommandOutput
+  | StopProcessingJobCommandOutput
+  | StopTrainingJobCommandOutput
+  | StopTransformJobCommandOutput
+  | UpdateCodeRepositoryCommandOutput
+  | UpdateDomainCommandOutput
+  | UpdateEndpointCommandOutput
+  | UpdateEndpointWeightsAndCapacitiesCommandOutput
+  | UpdateExperimentCommandOutput
+  | UpdateMonitoringScheduleCommandOutput
+  | UpdateNotebookInstanceCommandOutput
+  | UpdateNotebookInstanceLifecycleConfigCommandOutput
+  | UpdateTrialCommandOutput
+  | UpdateTrialComponentCommandOutput
+  | UpdateUserProfileCommandOutput
+  | UpdateWorkforceCommandOutput
+  | UpdateWorkteamCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

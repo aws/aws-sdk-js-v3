@@ -1,39 +1,75 @@
 import {
-  CancelRotateSecretRequest,
-  CancelRotateSecretResponse,
-  CreateSecretRequest,
-  CreateSecretResponse,
-  DeleteResourcePolicyRequest,
-  DeleteResourcePolicyResponse,
-  DeleteSecretRequest,
-  DeleteSecretResponse,
-  DescribeSecretRequest,
-  DescribeSecretResponse,
-  GetRandomPasswordRequest,
-  GetRandomPasswordResponse,
-  GetResourcePolicyRequest,
-  GetResourcePolicyResponse,
-  GetSecretValueRequest,
-  GetSecretValueResponse,
-  ListSecretVersionIdsRequest,
-  ListSecretVersionIdsResponse,
-  ListSecretsRequest,
-  ListSecretsResponse,
-  PutResourcePolicyRequest,
-  PutResourcePolicyResponse,
-  PutSecretValueRequest,
-  PutSecretValueResponse,
-  RestoreSecretRequest,
-  RestoreSecretResponse,
-  RotateSecretRequest,
-  RotateSecretResponse,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateSecretRequest,
-  UpdateSecretResponse,
-  UpdateSecretVersionStageRequest,
-  UpdateSecretVersionStageResponse
-} from "./models/index";
+  CancelRotateSecretCommandInput,
+  CancelRotateSecretCommandOutput
+} from "./commands/CancelRotateSecretCommand";
+import {
+  CreateSecretCommandInput,
+  CreateSecretCommandOutput
+} from "./commands/CreateSecretCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput
+} from "./commands/DeleteResourcePolicyCommand";
+import {
+  DeleteSecretCommandInput,
+  DeleteSecretCommandOutput
+} from "./commands/DeleteSecretCommand";
+import {
+  DescribeSecretCommandInput,
+  DescribeSecretCommandOutput
+} from "./commands/DescribeSecretCommand";
+import {
+  GetRandomPasswordCommandInput,
+  GetRandomPasswordCommandOutput
+} from "./commands/GetRandomPasswordCommand";
+import {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput
+} from "./commands/GetResourcePolicyCommand";
+import {
+  GetSecretValueCommandInput,
+  GetSecretValueCommandOutput
+} from "./commands/GetSecretValueCommand";
+import {
+  ListSecretVersionIdsCommandInput,
+  ListSecretVersionIdsCommandOutput
+} from "./commands/ListSecretVersionIdsCommand";
+import {
+  ListSecretsCommandInput,
+  ListSecretsCommandOutput
+} from "./commands/ListSecretsCommand";
+import {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput
+} from "./commands/PutResourcePolicyCommand";
+import {
+  PutSecretValueCommandInput,
+  PutSecretValueCommandOutput
+} from "./commands/PutSecretValueCommand";
+import {
+  RestoreSecretCommandInput,
+  RestoreSecretCommandOutput
+} from "./commands/RestoreSecretCommand";
+import {
+  RotateSecretCommandInput,
+  RotateSecretCommandOutput
+} from "./commands/RotateSecretCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateSecretCommandInput,
+  UpdateSecretCommandOutput
+} from "./commands/UpdateSecretCommand";
+import {
+  UpdateSecretVersionStageCommandInput,
+  UpdateSecretVersionStageCommandOutput
+} from "./commands/UpdateSecretVersionStageCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,50 +117,50 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelRotateSecretRequest
-  | CreateSecretRequest
-  | DeleteResourcePolicyRequest
-  | DeleteSecretRequest
-  | DescribeSecretRequest
-  | GetRandomPasswordRequest
-  | GetResourcePolicyRequest
-  | GetSecretValueRequest
-  | ListSecretVersionIdsRequest
-  | ListSecretsRequest
-  | PutResourcePolicyRequest
-  | PutSecretValueRequest
-  | RestoreSecretRequest
-  | RotateSecretRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateSecretRequest
-  | UpdateSecretVersionStageRequest;
+  | CancelRotateSecretCommandInput
+  | CreateSecretCommandInput
+  | DeleteResourcePolicyCommandInput
+  | DeleteSecretCommandInput
+  | DescribeSecretCommandInput
+  | GetRandomPasswordCommandInput
+  | GetResourcePolicyCommandInput
+  | GetSecretValueCommandInput
+  | ListSecretVersionIdsCommandInput
+  | ListSecretsCommandInput
+  | PutResourcePolicyCommandInput
+  | PutSecretValueCommandInput
+  | RestoreSecretCommandInput
+  | RotateSecretCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateSecretCommandInput
+  | UpdateSecretVersionStageCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CancelRotateSecretResponse
-  | CreateSecretResponse
-  | DeleteResourcePolicyResponse
-  | DeleteSecretResponse
-  | DescribeSecretResponse
-  | GetRandomPasswordResponse
-  | GetResourcePolicyResponse
-  | GetSecretValueResponse
-  | ListSecretVersionIdsResponse
-  | ListSecretsResponse
-  | PutResourcePolicyResponse
-  | PutSecretValueResponse
-  | RestoreSecretResponse
-  | RotateSecretResponse
-  | UpdateSecretResponse
-  | UpdateSecretVersionStageResponse;
+  | CancelRotateSecretCommandOutput
+  | CreateSecretCommandOutput
+  | DeleteResourcePolicyCommandOutput
+  | DeleteSecretCommandOutput
+  | DescribeSecretCommandOutput
+  | GetRandomPasswordCommandOutput
+  | GetResourcePolicyCommandOutput
+  | GetSecretValueCommandOutput
+  | ListSecretVersionIdsCommandOutput
+  | ListSecretsCommandOutput
+  | PutResourcePolicyCommandOutput
+  | PutSecretValueCommandOutput
+  | RestoreSecretCommandOutput
+  | RotateSecretCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateSecretCommandOutput
+  | UpdateSecretVersionStageCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

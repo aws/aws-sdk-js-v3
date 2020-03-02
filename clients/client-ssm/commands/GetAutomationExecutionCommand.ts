@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAutomationExecutionCommandInput = GetAutomationExecutionRequest;
-export type GetAutomationExecutionCommandOutput = GetAutomationExecutionResult;
+export type GetAutomationExecutionCommandOutput = GetAutomationExecutionResult &
+  __MetadataBearer;
 
 export class GetAutomationExecutionCommand extends $Command<
   GetAutomationExecutionCommandInput,

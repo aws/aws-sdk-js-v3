@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListMultipartUploadsCommandInput = ListMultipartUploadsInput;
-export type ListMultipartUploadsCommandOutput = ListMultipartUploadsOutput;
+export type ListMultipartUploadsCommandOutput = ListMultipartUploadsOutput &
+  __MetadataBearer;
 
 export class ListMultipartUploadsCommand extends $Command<
   ListMultipartUploadsCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListFileSharesCommandInput = ListFileSharesInput;
-export type ListFileSharesCommandOutput = ListFileSharesOutput;
+export type ListFileSharesCommandOutput = ListFileSharesOutput &
+  __MetadataBearer;
 
 export class ListFileSharesCommand extends $Command<
   ListFileSharesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateProtectionCommandInput = CreateProtectionRequest;
-export type CreateProtectionCommandOutput = CreateProtectionResponse;
+export type CreateProtectionCommandOutput = CreateProtectionResponse &
+  __MetadataBearer;
 
 export class CreateProtectionCommand extends $Command<
   CreateProtectionCommandInput,

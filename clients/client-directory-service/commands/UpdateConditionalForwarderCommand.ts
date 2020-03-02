@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateConditionalForwarderCommandInput = UpdateConditionalForwarderRequest;
-export type UpdateConditionalForwarderCommandOutput = UpdateConditionalForwarderResult;
+export type UpdateConditionalForwarderCommandOutput = UpdateConditionalForwarderResult &
+  __MetadataBearer;
 
 export class UpdateConditionalForwarderCommand extends $Command<
   UpdateConditionalForwarderCommandInput,

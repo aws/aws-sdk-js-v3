@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RejectVpcPeeringConnectionCommandInput = RejectVpcPeeringConnectionRequest;
-export type RejectVpcPeeringConnectionCommandOutput = RejectVpcPeeringConnectionResult;
+export type RejectVpcPeeringConnectionCommandOutput = RejectVpcPeeringConnectionResult &
+  __MetadataBearer;
 
 export class RejectVpcPeeringConnectionCommand extends $Command<
   RejectVpcPeeringConnectionCommandInput,

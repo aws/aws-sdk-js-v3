@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTrustCommandInput = DeleteTrustRequest;
-export type DeleteTrustCommandOutput = DeleteTrustResult;
+export type DeleteTrustCommandOutput = DeleteTrustResult & __MetadataBearer;
 
 export class DeleteTrustCommand extends $Command<
   DeleteTrustCommandInput,

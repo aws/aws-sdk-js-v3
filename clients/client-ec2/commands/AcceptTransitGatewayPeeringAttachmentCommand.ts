@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcceptTransitGatewayPeeringAttachmentCommandInput = AcceptTransitGatewayPeeringAttachmentRequest;
-export type AcceptTransitGatewayPeeringAttachmentCommandOutput = AcceptTransitGatewayPeeringAttachmentResult;
+export type AcceptTransitGatewayPeeringAttachmentCommandOutput = AcceptTransitGatewayPeeringAttachmentResult &
+  __MetadataBearer;
 
 export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
   AcceptTransitGatewayPeeringAttachmentCommandInput,

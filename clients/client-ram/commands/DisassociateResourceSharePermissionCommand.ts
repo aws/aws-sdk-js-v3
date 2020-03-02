@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateResourceSharePermissionCommandInput = DisassociateResourceSharePermissionRequest;
-export type DisassociateResourceSharePermissionCommandOutput = DisassociateResourceSharePermissionResponse;
+export type DisassociateResourceSharePermissionCommandOutput = DisassociateResourceSharePermissionResponse &
+  __MetadataBearer;
 
 export class DisassociateResourceSharePermissionCommand extends $Command<
   DisassociateResourceSharePermissionCommandInput,

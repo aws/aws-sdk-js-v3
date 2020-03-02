@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyClusterSubnetGroupCommandInput = ModifyClusterSubnetGroupMessage;
-export type ModifyClusterSubnetGroupCommandOutput = ModifyClusterSubnetGroupResult;
+export type ModifyClusterSubnetGroupCommandOutput = ModifyClusterSubnetGroupResult &
+  __MetadataBearer;
 
 export class ModifyClusterSubnetGroupCommand extends $Command<
   ModifyClusterSubnetGroupCommandInput,

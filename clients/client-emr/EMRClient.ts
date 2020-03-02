@@ -1,60 +1,123 @@
 import {
-  AddInstanceFleetInput,
-  AddInstanceFleetOutput,
-  AddInstanceGroupsInput,
-  AddInstanceGroupsOutput,
-  AddJobFlowStepsInput,
-  AddJobFlowStepsOutput,
-  AddTagsInput,
-  AddTagsOutput,
-  CancelStepsInput,
-  CancelStepsOutput,
-  CreateSecurityConfigurationInput,
-  CreateSecurityConfigurationOutput,
-  DeleteSecurityConfigurationInput,
-  DeleteSecurityConfigurationOutput,
-  DescribeClusterInput,
-  DescribeClusterOutput,
-  DescribeJobFlowsInput,
-  DescribeJobFlowsOutput,
-  DescribeSecurityConfigurationInput,
-  DescribeSecurityConfigurationOutput,
-  DescribeStepInput,
-  DescribeStepOutput,
-  GetBlockPublicAccessConfigurationInput,
-  GetBlockPublicAccessConfigurationOutput,
-  ListBootstrapActionsInput,
-  ListBootstrapActionsOutput,
-  ListClustersInput,
-  ListClustersOutput,
-  ListInstanceFleetsInput,
-  ListInstanceFleetsOutput,
-  ListInstanceGroupsInput,
-  ListInstanceGroupsOutput,
-  ListInstancesInput,
-  ListInstancesOutput,
-  ListSecurityConfigurationsInput,
-  ListSecurityConfigurationsOutput,
-  ListStepsInput,
-  ListStepsOutput,
-  ModifyClusterInput,
-  ModifyClusterOutput,
-  ModifyInstanceFleetInput,
-  ModifyInstanceGroupsInput,
-  PutAutoScalingPolicyInput,
-  PutAutoScalingPolicyOutput,
-  PutBlockPublicAccessConfigurationInput,
-  PutBlockPublicAccessConfigurationOutput,
-  RemoveAutoScalingPolicyInput,
-  RemoveAutoScalingPolicyOutput,
-  RemoveTagsInput,
-  RemoveTagsOutput,
-  RunJobFlowInput,
-  RunJobFlowOutput,
-  SetTerminationProtectionInput,
-  SetVisibleToAllUsersInput,
-  TerminateJobFlowsInput
-} from "./models/index";
+  AddInstanceFleetCommandInput,
+  AddInstanceFleetCommandOutput
+} from "./commands/AddInstanceFleetCommand";
+import {
+  AddInstanceGroupsCommandInput,
+  AddInstanceGroupsCommandOutput
+} from "./commands/AddInstanceGroupsCommand";
+import {
+  AddJobFlowStepsCommandInput,
+  AddJobFlowStepsCommandOutput
+} from "./commands/AddJobFlowStepsCommand";
+import {
+  AddTagsCommandInput,
+  AddTagsCommandOutput
+} from "./commands/AddTagsCommand";
+import {
+  CancelStepsCommandInput,
+  CancelStepsCommandOutput
+} from "./commands/CancelStepsCommand";
+import {
+  CreateSecurityConfigurationCommandInput,
+  CreateSecurityConfigurationCommandOutput
+} from "./commands/CreateSecurityConfigurationCommand";
+import {
+  DeleteSecurityConfigurationCommandInput,
+  DeleteSecurityConfigurationCommandOutput
+} from "./commands/DeleteSecurityConfigurationCommand";
+import {
+  DescribeClusterCommandInput,
+  DescribeClusterCommandOutput
+} from "./commands/DescribeClusterCommand";
+import {
+  DescribeJobFlowsCommandInput,
+  DescribeJobFlowsCommandOutput
+} from "./commands/DescribeJobFlowsCommand";
+import {
+  DescribeSecurityConfigurationCommandInput,
+  DescribeSecurityConfigurationCommandOutput
+} from "./commands/DescribeSecurityConfigurationCommand";
+import {
+  DescribeStepCommandInput,
+  DescribeStepCommandOutput
+} from "./commands/DescribeStepCommand";
+import {
+  GetBlockPublicAccessConfigurationCommandInput,
+  GetBlockPublicAccessConfigurationCommandOutput
+} from "./commands/GetBlockPublicAccessConfigurationCommand";
+import {
+  ListBootstrapActionsCommandInput,
+  ListBootstrapActionsCommandOutput
+} from "./commands/ListBootstrapActionsCommand";
+import {
+  ListClustersCommandInput,
+  ListClustersCommandOutput
+} from "./commands/ListClustersCommand";
+import {
+  ListInstanceFleetsCommandInput,
+  ListInstanceFleetsCommandOutput
+} from "./commands/ListInstanceFleetsCommand";
+import {
+  ListInstanceGroupsCommandInput,
+  ListInstanceGroupsCommandOutput
+} from "./commands/ListInstanceGroupsCommand";
+import {
+  ListInstancesCommandInput,
+  ListInstancesCommandOutput
+} from "./commands/ListInstancesCommand";
+import {
+  ListSecurityConfigurationsCommandInput,
+  ListSecurityConfigurationsCommandOutput
+} from "./commands/ListSecurityConfigurationsCommand";
+import {
+  ListStepsCommandInput,
+  ListStepsCommandOutput
+} from "./commands/ListStepsCommand";
+import {
+  ModifyClusterCommandInput,
+  ModifyClusterCommandOutput
+} from "./commands/ModifyClusterCommand";
+import {
+  ModifyInstanceFleetCommandInput,
+  ModifyInstanceFleetCommandOutput
+} from "./commands/ModifyInstanceFleetCommand";
+import {
+  ModifyInstanceGroupsCommandInput,
+  ModifyInstanceGroupsCommandOutput
+} from "./commands/ModifyInstanceGroupsCommand";
+import {
+  PutAutoScalingPolicyCommandInput,
+  PutAutoScalingPolicyCommandOutput
+} from "./commands/PutAutoScalingPolicyCommand";
+import {
+  PutBlockPublicAccessConfigurationCommandInput,
+  PutBlockPublicAccessConfigurationCommandOutput
+} from "./commands/PutBlockPublicAccessConfigurationCommand";
+import {
+  RemoveAutoScalingPolicyCommandInput,
+  RemoveAutoScalingPolicyCommandOutput
+} from "./commands/RemoveAutoScalingPolicyCommand";
+import {
+  RemoveTagsCommandInput,
+  RemoveTagsCommandOutput
+} from "./commands/RemoveTagsCommand";
+import {
+  RunJobFlowCommandInput,
+  RunJobFlowCommandOutput
+} from "./commands/RunJobFlowCommand";
+import {
+  SetTerminationProtectionCommandInput,
+  SetTerminationProtectionCommandOutput
+} from "./commands/SetTerminationProtectionCommand";
+import {
+  SetVisibleToAllUsersCommandInput,
+  SetVisibleToAllUsersCommandOutput
+} from "./commands/SetVisibleToAllUsersCommand";
+import {
+  TerminateJobFlowsCommandInput,
+  TerminateJobFlowsCommandOutput
+} from "./commands/TerminateJobFlowsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -102,71 +165,74 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddInstanceFleetInput
-  | AddInstanceGroupsInput
-  | AddJobFlowStepsInput
-  | AddTagsInput
-  | CancelStepsInput
-  | CreateSecurityConfigurationInput
-  | DeleteSecurityConfigurationInput
-  | DescribeClusterInput
-  | DescribeJobFlowsInput
-  | DescribeSecurityConfigurationInput
-  | DescribeStepInput
-  | GetBlockPublicAccessConfigurationInput
-  | ListBootstrapActionsInput
-  | ListClustersInput
-  | ListInstanceFleetsInput
-  | ListInstanceGroupsInput
-  | ListInstancesInput
-  | ListSecurityConfigurationsInput
-  | ListStepsInput
-  | ModifyClusterInput
-  | ModifyInstanceFleetInput
-  | ModifyInstanceGroupsInput
-  | PutAutoScalingPolicyInput
-  | PutBlockPublicAccessConfigurationInput
-  | RemoveAutoScalingPolicyInput
-  | RemoveTagsInput
-  | RunJobFlowInput
-  | SetTerminationProtectionInput
-  | SetVisibleToAllUsersInput
-  | TerminateJobFlowsInput;
+  | AddInstanceFleetCommandInput
+  | AddInstanceGroupsCommandInput
+  | AddJobFlowStepsCommandInput
+  | AddTagsCommandInput
+  | CancelStepsCommandInput
+  | CreateSecurityConfigurationCommandInput
+  | DeleteSecurityConfigurationCommandInput
+  | DescribeClusterCommandInput
+  | DescribeJobFlowsCommandInput
+  | DescribeSecurityConfigurationCommandInput
+  | DescribeStepCommandInput
+  | GetBlockPublicAccessConfigurationCommandInput
+  | ListBootstrapActionsCommandInput
+  | ListClustersCommandInput
+  | ListInstanceFleetsCommandInput
+  | ListInstanceGroupsCommandInput
+  | ListInstancesCommandInput
+  | ListSecurityConfigurationsCommandInput
+  | ListStepsCommandInput
+  | ModifyClusterCommandInput
+  | ModifyInstanceFleetCommandInput
+  | ModifyInstanceGroupsCommandInput
+  | PutAutoScalingPolicyCommandInput
+  | PutBlockPublicAccessConfigurationCommandInput
+  | RemoveAutoScalingPolicyCommandInput
+  | RemoveTagsCommandInput
+  | RunJobFlowCommandInput
+  | SetTerminationProtectionCommandInput
+  | SetVisibleToAllUsersCommandInput
+  | TerminateJobFlowsCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AddInstanceFleetOutput
-  | AddInstanceGroupsOutput
-  | AddJobFlowStepsOutput
-  | AddTagsOutput
-  | CancelStepsOutput
-  | CreateSecurityConfigurationOutput
-  | DeleteSecurityConfigurationOutput
-  | DescribeClusterOutput
-  | DescribeJobFlowsOutput
-  | DescribeSecurityConfigurationOutput
-  | DescribeStepOutput
-  | GetBlockPublicAccessConfigurationOutput
-  | ListBootstrapActionsOutput
-  | ListClustersOutput
-  | ListInstanceFleetsOutput
-  | ListInstanceGroupsOutput
-  | ListInstancesOutput
-  | ListSecurityConfigurationsOutput
-  | ListStepsOutput
-  | ModifyClusterOutput
-  | PutAutoScalingPolicyOutput
-  | PutBlockPublicAccessConfigurationOutput
-  | RemoveAutoScalingPolicyOutput
-  | RemoveTagsOutput
-  | RunJobFlowOutput;
+  | AddInstanceFleetCommandOutput
+  | AddInstanceGroupsCommandOutput
+  | AddJobFlowStepsCommandOutput
+  | AddTagsCommandOutput
+  | CancelStepsCommandOutput
+  | CreateSecurityConfigurationCommandOutput
+  | DeleteSecurityConfigurationCommandOutput
+  | DescribeClusterCommandOutput
+  | DescribeJobFlowsCommandOutput
+  | DescribeSecurityConfigurationCommandOutput
+  | DescribeStepCommandOutput
+  | GetBlockPublicAccessConfigurationCommandOutput
+  | ListBootstrapActionsCommandOutput
+  | ListClustersCommandOutput
+  | ListInstanceFleetsCommandOutput
+  | ListInstanceGroupsCommandOutput
+  | ListInstancesCommandOutput
+  | ListSecurityConfigurationsCommandOutput
+  | ListStepsCommandOutput
+  | ModifyClusterCommandOutput
+  | ModifyInstanceFleetCommandOutput
+  | ModifyInstanceGroupsCommandOutput
+  | PutAutoScalingPolicyCommandOutput
+  | PutBlockPublicAccessConfigurationCommandOutput
+  | RemoveAutoScalingPolicyCommandOutput
+  | RemoveTagsCommandOutput
+  | RunJobFlowCommandOutput
+  | SetTerminationProtectionCommandOutput
+  | SetVisibleToAllUsersCommandOutput
+  | TerminateJobFlowsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

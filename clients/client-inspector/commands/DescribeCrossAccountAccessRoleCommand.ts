@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCrossAccountAccessRoleCommandInput = {};
-export type DescribeCrossAccountAccessRoleCommandOutput = DescribeCrossAccountAccessRoleResponse;
+export type DescribeCrossAccountAccessRoleCommandOutput = DescribeCrossAccountAccessRoleResponse &
+  __MetadataBearer;
 
 export class DescribeCrossAccountAccessRoleCommand extends $Command<
   DescribeCrossAccountAccessRoleCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateNotificationSettingsCommandInput = UpdateNotificationSettingsRequest;
-export type UpdateNotificationSettingsCommandOutput = UpdateNotificationSettingsResponse;
+export type UpdateNotificationSettingsCommandOutput = UpdateNotificationSettingsResponse &
+  __MetadataBearer;
 
 export class UpdateNotificationSettingsCommand extends $Command<
   UpdateNotificationSettingsCommandInput,

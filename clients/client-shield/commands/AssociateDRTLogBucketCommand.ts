@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateDRTLogBucketCommandInput = AssociateDRTLogBucketRequest;
-export type AssociateDRTLogBucketCommandOutput = AssociateDRTLogBucketResponse;
+export type AssociateDRTLogBucketCommandOutput = AssociateDRTLogBucketResponse &
+  __MetadataBearer;
 
 export class AssociateDRTLogBucketCommand extends $Command<
   AssociateDRTLogBucketCommandInput,

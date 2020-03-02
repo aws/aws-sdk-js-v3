@@ -1,58 +1,135 @@
 import {
-  AbortMultipartUploadInput,
-  AbortVaultLockInput,
-  AddTagsToVaultInput,
-  ArchiveCreationOutput,
-  CompleteMultipartUploadInput,
-  CompleteVaultLockInput,
-  CreateVaultInput,
-  CreateVaultOutput,
-  DeleteArchiveInput,
-  DeleteVaultAccessPolicyInput,
-  DeleteVaultInput,
-  DeleteVaultNotificationsInput,
-  DescribeJobInput,
-  DescribeVaultInput,
-  DescribeVaultOutput,
-  GetDataRetrievalPolicyInput,
-  GetDataRetrievalPolicyOutput,
-  GetJobOutputInput,
-  GetJobOutputOutput,
-  GetVaultAccessPolicyInput,
-  GetVaultAccessPolicyOutput,
-  GetVaultLockInput,
-  GetVaultLockOutput,
-  GetVaultNotificationsInput,
-  GetVaultNotificationsOutput,
-  GlacierJobDescription,
-  InitiateJobInput,
-  InitiateJobOutput,
-  InitiateMultipartUploadInput,
-  InitiateMultipartUploadOutput,
-  InitiateVaultLockInput,
-  InitiateVaultLockOutput,
-  ListJobsInput,
-  ListJobsOutput,
-  ListMultipartUploadsInput,
-  ListMultipartUploadsOutput,
-  ListPartsInput,
-  ListPartsOutput,
-  ListProvisionedCapacityInput,
-  ListProvisionedCapacityOutput,
-  ListTagsForVaultInput,
-  ListTagsForVaultOutput,
-  ListVaultsInput,
-  ListVaultsOutput,
-  PurchaseProvisionedCapacityInput,
-  PurchaseProvisionedCapacityOutput,
-  RemoveTagsFromVaultInput,
-  SetDataRetrievalPolicyInput,
-  SetVaultAccessPolicyInput,
-  SetVaultNotificationsInput,
-  UploadArchiveInput,
-  UploadMultipartPartInput,
-  UploadMultipartPartOutput
-} from "./models/index";
+  AbortMultipartUploadCommandInput,
+  AbortMultipartUploadCommandOutput
+} from "./commands/AbortMultipartUploadCommand";
+import {
+  AbortVaultLockCommandInput,
+  AbortVaultLockCommandOutput
+} from "./commands/AbortVaultLockCommand";
+import {
+  AddTagsToVaultCommandInput,
+  AddTagsToVaultCommandOutput
+} from "./commands/AddTagsToVaultCommand";
+import {
+  CompleteMultipartUploadCommandInput,
+  CompleteMultipartUploadCommandOutput
+} from "./commands/CompleteMultipartUploadCommand";
+import {
+  CompleteVaultLockCommandInput,
+  CompleteVaultLockCommandOutput
+} from "./commands/CompleteVaultLockCommand";
+import {
+  CreateVaultCommandInput,
+  CreateVaultCommandOutput
+} from "./commands/CreateVaultCommand";
+import {
+  DeleteArchiveCommandInput,
+  DeleteArchiveCommandOutput
+} from "./commands/DeleteArchiveCommand";
+import {
+  DeleteVaultAccessPolicyCommandInput,
+  DeleteVaultAccessPolicyCommandOutput
+} from "./commands/DeleteVaultAccessPolicyCommand";
+import {
+  DeleteVaultCommandInput,
+  DeleteVaultCommandOutput
+} from "./commands/DeleteVaultCommand";
+import {
+  DeleteVaultNotificationsCommandInput,
+  DeleteVaultNotificationsCommandOutput
+} from "./commands/DeleteVaultNotificationsCommand";
+import {
+  DescribeJobCommandInput,
+  DescribeJobCommandOutput
+} from "./commands/DescribeJobCommand";
+import {
+  DescribeVaultCommandInput,
+  DescribeVaultCommandOutput
+} from "./commands/DescribeVaultCommand";
+import {
+  GetDataRetrievalPolicyCommandInput,
+  GetDataRetrievalPolicyCommandOutput
+} from "./commands/GetDataRetrievalPolicyCommand";
+import {
+  GetJobOutputCommandInput,
+  GetJobOutputCommandOutput
+} from "./commands/GetJobOutputCommand";
+import {
+  GetVaultAccessPolicyCommandInput,
+  GetVaultAccessPolicyCommandOutput
+} from "./commands/GetVaultAccessPolicyCommand";
+import {
+  GetVaultLockCommandInput,
+  GetVaultLockCommandOutput
+} from "./commands/GetVaultLockCommand";
+import {
+  GetVaultNotificationsCommandInput,
+  GetVaultNotificationsCommandOutput
+} from "./commands/GetVaultNotificationsCommand";
+import {
+  InitiateJobCommandInput,
+  InitiateJobCommandOutput
+} from "./commands/InitiateJobCommand";
+import {
+  InitiateMultipartUploadCommandInput,
+  InitiateMultipartUploadCommandOutput
+} from "./commands/InitiateMultipartUploadCommand";
+import {
+  InitiateVaultLockCommandInput,
+  InitiateVaultLockCommandOutput
+} from "./commands/InitiateVaultLockCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  ListMultipartUploadsCommandInput,
+  ListMultipartUploadsCommandOutput
+} from "./commands/ListMultipartUploadsCommand";
+import {
+  ListPartsCommandInput,
+  ListPartsCommandOutput
+} from "./commands/ListPartsCommand";
+import {
+  ListProvisionedCapacityCommandInput,
+  ListProvisionedCapacityCommandOutput
+} from "./commands/ListProvisionedCapacityCommand";
+import {
+  ListTagsForVaultCommandInput,
+  ListTagsForVaultCommandOutput
+} from "./commands/ListTagsForVaultCommand";
+import {
+  ListVaultsCommandInput,
+  ListVaultsCommandOutput
+} from "./commands/ListVaultsCommand";
+import {
+  PurchaseProvisionedCapacityCommandInput,
+  PurchaseProvisionedCapacityCommandOutput
+} from "./commands/PurchaseProvisionedCapacityCommand";
+import {
+  RemoveTagsFromVaultCommandInput,
+  RemoveTagsFromVaultCommandOutput
+} from "./commands/RemoveTagsFromVaultCommand";
+import {
+  SetDataRetrievalPolicyCommandInput,
+  SetDataRetrievalPolicyCommandOutput
+} from "./commands/SetDataRetrievalPolicyCommand";
+import {
+  SetVaultAccessPolicyCommandInput,
+  SetVaultAccessPolicyCommandOutput
+} from "./commands/SetVaultAccessPolicyCommand";
+import {
+  SetVaultNotificationsCommandInput,
+  SetVaultNotificationsCommandOutput
+} from "./commands/SetVaultNotificationsCommand";
+import {
+  UploadArchiveCommandInput,
+  UploadArchiveCommandOutput
+} from "./commands/UploadArchiveCommand";
+import {
+  UploadMultipartPartCommandInput,
+  UploadMultipartPartCommandOutput
+} from "./commands/UploadMultipartPartCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -102,70 +179,80 @@ import {
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   HttpRequest as __HttpRequest,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AbortMultipartUploadInput
-  | AbortVaultLockInput
-  | AddTagsToVaultInput
-  | CompleteMultipartUploadInput
-  | CompleteVaultLockInput
-  | CreateVaultInput
-  | DeleteArchiveInput
-  | DeleteVaultAccessPolicyInput
-  | DeleteVaultInput
-  | DeleteVaultNotificationsInput
-  | DescribeJobInput
-  | DescribeVaultInput
-  | GetDataRetrievalPolicyInput
-  | GetJobOutputInput
-  | GetVaultAccessPolicyInput
-  | GetVaultLockInput
-  | GetVaultNotificationsInput
-  | InitiateJobInput
-  | InitiateMultipartUploadInput
-  | InitiateVaultLockInput
-  | ListJobsInput
-  | ListMultipartUploadsInput
-  | ListPartsInput
-  | ListProvisionedCapacityInput
-  | ListTagsForVaultInput
-  | ListVaultsInput
-  | PurchaseProvisionedCapacityInput
-  | RemoveTagsFromVaultInput
-  | SetDataRetrievalPolicyInput
-  | SetVaultAccessPolicyInput
-  | SetVaultNotificationsInput
-  | UploadArchiveInput
-  | UploadMultipartPartInput;
+  | AbortMultipartUploadCommandInput
+  | AbortVaultLockCommandInput
+  | AddTagsToVaultCommandInput
+  | CompleteMultipartUploadCommandInput
+  | CompleteVaultLockCommandInput
+  | CreateVaultCommandInput
+  | DeleteArchiveCommandInput
+  | DeleteVaultAccessPolicyCommandInput
+  | DeleteVaultCommandInput
+  | DeleteVaultNotificationsCommandInput
+  | DescribeJobCommandInput
+  | DescribeVaultCommandInput
+  | GetDataRetrievalPolicyCommandInput
+  | GetJobOutputCommandInput
+  | GetVaultAccessPolicyCommandInput
+  | GetVaultLockCommandInput
+  | GetVaultNotificationsCommandInput
+  | InitiateJobCommandInput
+  | InitiateMultipartUploadCommandInput
+  | InitiateVaultLockCommandInput
+  | ListJobsCommandInput
+  | ListMultipartUploadsCommandInput
+  | ListPartsCommandInput
+  | ListProvisionedCapacityCommandInput
+  | ListTagsForVaultCommandInput
+  | ListVaultsCommandInput
+  | PurchaseProvisionedCapacityCommandInput
+  | RemoveTagsFromVaultCommandInput
+  | SetDataRetrievalPolicyCommandInput
+  | SetVaultAccessPolicyCommandInput
+  | SetVaultNotificationsCommandInput
+  | UploadArchiveCommandInput
+  | UploadMultipartPartCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | ArchiveCreationOutput
-  | ArchiveCreationOutput
-  | CreateVaultOutput
-  | DescribeVaultOutput
-  | GetDataRetrievalPolicyOutput
-  | GetJobOutputOutput
-  | GetVaultAccessPolicyOutput
-  | GetVaultLockOutput
-  | GetVaultNotificationsOutput
-  | GlacierJobDescription
-  | InitiateJobOutput
-  | InitiateMultipartUploadOutput
-  | InitiateVaultLockOutput
-  | ListJobsOutput
-  | ListMultipartUploadsOutput
-  | ListPartsOutput
-  | ListProvisionedCapacityOutput
-  | ListTagsForVaultOutput
-  | ListVaultsOutput
-  | PurchaseProvisionedCapacityOutput
-  | UploadMultipartPartOutput;
+  | AbortMultipartUploadCommandOutput
+  | AbortVaultLockCommandOutput
+  | AddTagsToVaultCommandOutput
+  | CompleteMultipartUploadCommandOutput
+  | CompleteVaultLockCommandOutput
+  | CreateVaultCommandOutput
+  | DeleteArchiveCommandOutput
+  | DeleteVaultAccessPolicyCommandOutput
+  | DeleteVaultCommandOutput
+  | DeleteVaultNotificationsCommandOutput
+  | DescribeJobCommandOutput
+  | DescribeVaultCommandOutput
+  | GetDataRetrievalPolicyCommandOutput
+  | GetJobOutputCommandOutput
+  | GetVaultAccessPolicyCommandOutput
+  | GetVaultLockCommandOutput
+  | GetVaultNotificationsCommandOutput
+  | InitiateJobCommandOutput
+  | InitiateMultipartUploadCommandOutput
+  | InitiateVaultLockCommandOutput
+  | ListJobsCommandOutput
+  | ListMultipartUploadsCommandOutput
+  | ListPartsCommandOutput
+  | ListProvisionedCapacityCommandOutput
+  | ListTagsForVaultCommandOutput
+  | ListVaultsCommandOutput
+  | PurchaseProvisionedCapacityCommandOutput
+  | RemoveTagsFromVaultCommandOutput
+  | SetDataRetrievalPolicyCommandOutput
+  | SetVaultAccessPolicyCommandOutput
+  | SetVaultNotificationsCommandOutput
+  | UploadArchiveCommandOutput
+  | UploadMultipartPartCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

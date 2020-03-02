@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAuditStreamConfigurationCommandInput = UpdateAuditStreamConfigurationRequest;
-export type UpdateAuditStreamConfigurationCommandOutput = UpdateAuditStreamConfigurationResponse;
+export type UpdateAuditStreamConfigurationCommandOutput = UpdateAuditStreamConfigurationResponse &
+  __MetadataBearer;
 
 export class UpdateAuditStreamConfigurationCommand extends $Command<
   UpdateAuditStreamConfigurationCommandInput,

@@ -3246,31 +3246,43 @@ async function deserializeAws_queryAddRoleToDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterRoleAlreadyExistsFault":
     case "rds.admin#DBClusterRoleAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterRoleQuotaExceededFault":
     case "rds.admin#DBClusterRoleQuotaExceededFault":
-      response = await deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3318,31 +3330,43 @@ async function deserializeAws_queryAddRoleToDBInstanceCommandError(
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceRoleAlreadyExistsFault":
     case "rds.admin#DBInstanceRoleAlreadyExistsFault":
-      response = await deserializeAws_queryDBInstanceRoleAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceRoleAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceRoleQuotaExceededFault":
     case "rds.admin#DBInstanceRoleQuotaExceededFault":
-      response = await deserializeAws_queryDBInstanceRoleQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceRoleQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3400,17 +3424,23 @@ async function deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError
   switch (errorCode) {
     case "SourceNotFoundFault":
     case "rds.admin#SourceNotFoundFault":
-      response = await deserializeAws_querySourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionNotFoundFault":
     case "rds.admin#SubscriptionNotFoundFault":
-      response = await deserializeAws_querySubscriptionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3458,24 +3488,33 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3533,24 +3572,33 @@ async function deserializeAws_queryApplyPendingMaintenanceActionCommandError(
   switch (errorCode) {
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "rds.admin#ResourceNotFoundFault":
-      response = await deserializeAws_queryResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3608,31 +3656,43 @@ async function deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError(
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
     case "rds.admin#AuthorizationAlreadyExistsFault":
-      response = await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationQuotaExceededFault":
     case "rds.admin#AuthorizationQuotaExceededFault":
-      response = await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSecurityGroupStateFault":
     case "rds.admin#InvalidDBSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3687,17 +3747,23 @@ async function deserializeAws_queryBacktrackDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3755,24 +3821,33 @@ async function deserializeAws_queryCopyDBClusterParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
     case "rds.admin#DBParameterGroupAlreadyExistsFault":
-      response = await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupQuotaExceededFault":
     case "rds.admin#DBParameterGroupQuotaExceededFault":
-      response = await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3830,45 +3905,63 @@ async function deserializeAws_queryCopyDBClusterSnapshotCommandError(
   switch (errorCode) {
     case "DBClusterSnapshotAlreadyExistsFault":
     case "rds.admin#DBClusterSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterSnapshotNotFoundFault":
     case "rds.admin#DBClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterSnapshotStateFault":
     case "rds.admin#InvalidDBClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "rds.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3926,24 +4019,33 @@ async function deserializeAws_queryCopyDBParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
     case "rds.admin#DBParameterGroupAlreadyExistsFault":
-      response = await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupQuotaExceededFault":
     case "rds.admin#DBParameterGroupQuotaExceededFault":
-      response = await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3998,38 +4100,53 @@ async function deserializeAws_queryCopyDBSnapshotCommandError(
   switch (errorCode) {
     case "DBSnapshotAlreadyExistsFault":
     case "rds.admin#DBSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSnapshotStateFault":
     case "rds.admin#InvalidDBSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "rds.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4084,24 +4201,33 @@ async function deserializeAws_queryCopyOptionGroupCommandError(
   switch (errorCode) {
     case "OptionGroupAlreadyExistsFault":
     case "rds.admin#OptionGroupAlreadyExistsFault":
-      response = await deserializeAws_queryOptionGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupQuotaExceededFault":
     case "rds.admin#OptionGroupQuotaExceededFault":
-      response = await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4159,24 +4285,33 @@ async function deserializeAws_queryCreateCustomAvailabilityZoneCommandError(
   switch (errorCode) {
     case "CustomAvailabilityZoneAlreadyExistsFault":
     case "rds.admin#CustomAvailabilityZoneAlreadyExistsFault":
-      response = await deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CustomAvailabilityZoneQuotaExceededFault":
     case "rds.admin#CustomAvailabilityZoneQuotaExceededFault":
-      response = await deserializeAws_queryCustomAvailabilityZoneQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCustomAvailabilityZoneQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4231,129 +4366,183 @@ async function deserializeAws_queryCreateDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "rds.admin#DBClusterAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterParameterGroupNotFoundFault":
     case "rds.admin#DBClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterQuotaExceededFault":
     case "rds.admin#DBClusterQuotaExceededFault":
-      response = await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "GlobalClusterNotFoundFault":
     case "rds.admin#GlobalClusterNotFoundFault":
-      response = await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientStorageClusterCapacityFault":
     case "rds.admin#InsufficientStorageClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSubnetGroupStateFault":
     case "rds.admin#InvalidDBSubnetGroupStateFault":
-      response = await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGlobalClusterStateFault":
     case "rds.admin#InvalidGlobalClusterStateFault":
-      response = await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4411,45 +4600,63 @@ async function deserializeAws_queryCreateDBClusterEndpointCommandError(
   switch (errorCode) {
     case "DBClusterEndpointAlreadyExistsFault":
     case "rds.admin#DBClusterEndpointAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterEndpointAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterEndpointAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterEndpointQuotaExceededFault":
     case "rds.admin#DBClusterEndpointQuotaExceededFault":
-      response = await deserializeAws_queryDBClusterEndpointQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterEndpointQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4507,17 +4714,23 @@ async function deserializeAws_queryCreateDBClusterParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
     case "rds.admin#DBParameterGroupAlreadyExistsFault":
-      response = await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupQuotaExceededFault":
     case "rds.admin#DBParameterGroupQuotaExceededFault":
-      response = await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4575,38 +4788,53 @@ async function deserializeAws_queryCreateDBClusterSnapshotCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterSnapshotAlreadyExistsFault":
     case "rds.admin#DBClusterSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterSnapshotStateFault":
     case "rds.admin#InvalidDBClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "rds.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4661,136 +4889,193 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "rds.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BackupPolicyNotFoundFault":
     case "rds.admin#BackupPolicyNotFoundFault":
-      response = await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceAlreadyExistsFault":
     case "rds.admin#DBInstanceAlreadyExistsFault":
-      response = await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceQuotaExceededFault":
     case "rds.admin#InstanceQuotaExceededFault":
-      response = await deserializeAws_queryInstanceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientDBInstanceCapacityFault":
     case "rds.admin#InsufficientDBInstanceCapacityFault":
-      response = await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedIopsNotAvailableInAZFault":
     case "rds.admin#ProvisionedIopsNotAvailableInAZFault":
-      response = await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageTypeNotSupportedFault":
     case "rds.admin#StorageTypeNotSupportedFault":
-      response = await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4848,136 +5133,193 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
   switch (errorCode) {
     case "DBInstanceAlreadyExistsFault":
     case "rds.admin#DBInstanceAlreadyExistsFault":
-      response = await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotAllowedFault":
     case "rds.admin#DBSubnetGroupNotAllowedFault":
-      response = await deserializeAws_queryDBSubnetGroupNotAllowedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotAllowedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceQuotaExceededFault":
     case "rds.admin#InstanceQuotaExceededFault":
-      response = await deserializeAws_queryInstanceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientDBInstanceCapacityFault":
     case "rds.admin#InsufficientDBInstanceCapacityFault":
-      response = await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSubnetGroupFault":
     case "rds.admin#InvalidDBSubnetGroupFault":
-      response = await deserializeAws_queryInvalidDBSubnetGroupFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSubnetGroupFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedIopsNotAvailableInAZFault":
     case "rds.admin#ProvisionedIopsNotAvailableInAZFault":
-      response = await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageTypeNotSupportedFault":
     case "rds.admin#StorageTypeNotSupportedFault":
-      response = await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5035,17 +5377,23 @@ async function deserializeAws_queryCreateDBParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
     case "rds.admin#DBParameterGroupAlreadyExistsFault":
-      response = await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupQuotaExceededFault":
     case "rds.admin#DBParameterGroupQuotaExceededFault":
-      response = await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5100,24 +5448,33 @@ async function deserializeAws_queryCreateDBProxyCommandError(
   switch (errorCode) {
     case "DBProxyAlreadyExistsFault":
     case "rds.admin#DBProxyAlreadyExistsFault":
-      response = await deserializeAws_queryDBProxyAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyQuotaExceededFault":
     case "rds.admin#DBProxyQuotaExceededFault":
-      response = await deserializeAws_queryDBProxyQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5175,24 +5532,33 @@ async function deserializeAws_queryCreateDBSecurityGroupCommandError(
   switch (errorCode) {
     case "DBSecurityGroupAlreadyExistsFault":
     case "rds.admin#DBSecurityGroupAlreadyExistsFault":
-      response = await deserializeAws_queryDBSecurityGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupNotSupportedFault":
     case "rds.admin#DBSecurityGroupNotSupportedFault":
-      response = await deserializeAws_queryDBSecurityGroupNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupQuotaExceededFault":
     case "rds.admin#DBSecurityGroupQuotaExceededFault":
-      response = await deserializeAws_queryDBSecurityGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5247,31 +5613,43 @@ async function deserializeAws_queryCreateDBSnapshotCommandError(
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSnapshotAlreadyExistsFault":
     case "rds.admin#DBSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "rds.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5326,38 +5704,53 @@ async function deserializeAws_queryCreateDBSubnetGroupCommandError(
   switch (errorCode) {
     case "DBSubnetGroupAlreadyExistsFault":
     case "rds.admin#DBSubnetGroupAlreadyExistsFault":
-      response = await deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupQuotaExceededFault":
     case "rds.admin#DBSubnetGroupQuotaExceededFault":
-      response = await deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetQuotaExceededFault":
     case "rds.admin#DBSubnetQuotaExceededFault":
-      response = await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5415,52 +5808,73 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
     case "rds.admin#EventSubscriptionQuotaExceededFault":
-      response = await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSInvalidTopicFault":
     case "rds.admin#SNSInvalidTopicFault":
-      response = await deserializeAws_querySNSInvalidTopicFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSInvalidTopicFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSNoAuthorizationFault":
     case "rds.admin#SNSNoAuthorizationFault":
-      response = await deserializeAws_querySNSNoAuthorizationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSTopicArnNotFoundFault":
     case "rds.admin#SNSTopicArnNotFoundFault":
-      response = await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SourceNotFoundFault":
     case "rds.admin#SourceNotFoundFault":
-      response = await deserializeAws_querySourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionAlreadyExistFault":
     case "rds.admin#SubscriptionAlreadyExistFault":
-      response = await deserializeAws_querySubscriptionAlreadyExistFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionAlreadyExistFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionCategoryNotFoundFault":
     case "rds.admin#SubscriptionCategoryNotFoundFault":
-      response = await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5515,31 +5929,43 @@ async function deserializeAws_queryCreateGlobalClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "GlobalClusterAlreadyExistsFault":
     case "rds.admin#GlobalClusterAlreadyExistsFault":
-      response = await deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "GlobalClusterQuotaExceededFault":
     case "rds.admin#GlobalClusterQuotaExceededFault":
-      response = await deserializeAws_queryGlobalClusterQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryGlobalClusterQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5594,17 +6020,23 @@ async function deserializeAws_queryCreateOptionGroupCommandError(
   switch (errorCode) {
     case "OptionGroupAlreadyExistsFault":
     case "rds.admin#OptionGroupAlreadyExistsFault":
-      response = await deserializeAws_queryOptionGroupAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupQuotaExceededFault":
     case "rds.admin#OptionGroupQuotaExceededFault":
-      response = await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5662,17 +6094,23 @@ async function deserializeAws_queryDeleteCustomAvailabilityZoneCommandError(
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
     case "rds.admin#CustomAvailabilityZoneNotFoundFault":
-      response = await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5727,38 +6165,53 @@ async function deserializeAws_queryDeleteDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterSnapshotAlreadyExistsFault":
     case "rds.admin#DBClusterSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterSnapshotStateFault":
     case "rds.admin#InvalidDBClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "rds.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5816,24 +6269,33 @@ async function deserializeAws_queryDeleteDBClusterEndpointCommandError(
   switch (errorCode) {
     case "DBClusterEndpointNotFoundFault":
     case "rds.admin#DBClusterEndpointNotFoundFault":
-      response = await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterEndpointStateFault":
     case "rds.admin#InvalidDBClusterEndpointStateFault":
-      response = await deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5884,17 +6346,23 @@ async function deserializeAws_queryDeleteDBClusterParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBParameterGroupStateFault":
     case "rds.admin#InvalidDBParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5952,17 +6420,23 @@ async function deserializeAws_queryDeleteDBClusterSnapshotCommandError(
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
     case "rds.admin#DBClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterSnapshotStateFault":
     case "rds.admin#InvalidDBClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6017,45 +6491,63 @@ async function deserializeAws_queryDeleteDBInstanceCommandError(
   switch (errorCode) {
     case "DBInstanceAutomatedBackupQuotaExceededFault":
     case "rds.admin#DBInstanceAutomatedBackupQuotaExceededFault":
-      response = await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSnapshotAlreadyExistsFault":
     case "rds.admin#DBSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "rds.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6113,17 +6605,23 @@ async function deserializeAws_queryDeleteDBInstanceAutomatedBackupCommandError(
   switch (errorCode) {
     case "DBInstanceAutomatedBackupNotFoundFault":
     case "rds.admin#DBInstanceAutomatedBackupNotFoundFault":
-      response = await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceAutomatedBackupStateFault":
     case "rds.admin#InvalidDBInstanceAutomatedBackupStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceAutomatedBackupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceAutomatedBackupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6174,17 +6672,23 @@ async function deserializeAws_queryDeleteDBParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBParameterGroupStateFault":
     case "rds.admin#InvalidDBParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6239,17 +6743,23 @@ async function deserializeAws_queryDeleteDBProxyCommandError(
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "rds.admin#DBProxyNotFoundFault":
-      response = await deserializeAws_queryDBProxyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBProxyStateFault":
     case "rds.admin#InvalidDBProxyStateFault":
-      response = await deserializeAws_queryInvalidDBProxyStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6300,17 +6810,23 @@ async function deserializeAws_queryDeleteDBSecurityGroupCommandError(
   switch (errorCode) {
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSecurityGroupStateFault":
     case "rds.admin#InvalidDBSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6365,17 +6881,23 @@ async function deserializeAws_queryDeleteDBSnapshotCommandError(
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSnapshotStateFault":
     case "rds.admin#InvalidDBSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6423,24 +6945,33 @@ async function deserializeAws_queryDeleteDBSubnetGroupCommandError(
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSubnetGroupStateFault":
     case "rds.admin#InvalidDBSubnetGroupStateFault":
-      response = await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSubnetStateFault":
     case "rds.admin#InvalidDBSubnetStateFault":
-      response = await deserializeAws_queryInvalidDBSubnetStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSubnetStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6498,17 +7029,23 @@ async function deserializeAws_queryDeleteEventSubscriptionCommandError(
   switch (errorCode) {
     case "InvalidEventSubscriptionStateFault":
     case "rds.admin#InvalidEventSubscriptionStateFault":
-      response = await deserializeAws_queryInvalidEventSubscriptionStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidEventSubscriptionStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionNotFoundFault":
     case "rds.admin#SubscriptionNotFoundFault":
-      response = await deserializeAws_querySubscriptionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6563,17 +7100,23 @@ async function deserializeAws_queryDeleteGlobalClusterCommandError(
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
     case "rds.admin#GlobalClusterNotFoundFault":
-      response = await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGlobalClusterStateFault":
     case "rds.admin#InvalidGlobalClusterStateFault":
-      response = await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6631,10 +7174,13 @@ async function deserializeAws_queryDeleteInstallationMediaCommandError(
   switch (errorCode) {
     case "InstallationMediaNotFoundFault":
     case "rds.admin#InstallationMediaNotFoundFault":
-      response = await deserializeAws_queryInstallationMediaNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInstallationMediaNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6682,17 +7228,23 @@ async function deserializeAws_queryDeleteOptionGroupCommandError(
   switch (errorCode) {
     case "InvalidOptionGroupStateFault":
     case "rds.admin#InvalidOptionGroupStateFault":
-      response = await deserializeAws_queryInvalidOptionGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidOptionGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6750,24 +7302,33 @@ async function deserializeAws_queryDeregisterDBProxyTargetsCommandError(
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "rds.admin#DBProxyNotFoundFault":
-      response = await deserializeAws_queryDBProxyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyTargetGroupNotFoundFault":
     case "rds.admin#DBProxyTargetGroupNotFoundFault":
-      response = await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyTargetNotFoundFault":
     case "rds.admin#DBProxyTargetNotFoundFault":
-      response = await deserializeAws_queryDBProxyTargetNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyTargetNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6879,10 +7440,13 @@ async function deserializeAws_queryDescribeCertificatesCommandError(
   switch (errorCode) {
     case "CertificateNotFoundFault":
     case "rds.admin#CertificateNotFoundFault":
-      response = await deserializeAws_queryCertificateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCertificateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6940,10 +7504,13 @@ async function deserializeAws_queryDescribeCustomAvailabilityZonesCommandError(
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
     case "rds.admin#CustomAvailabilityZoneNotFoundFault":
-      response = await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7001,17 +7568,23 @@ async function deserializeAws_queryDescribeDBClusterBacktracksCommandError(
   switch (errorCode) {
     case "DBClusterBacktrackNotFoundFault":
     case "rds.admin#DBClusterBacktrackNotFoundFault":
-      response = await deserializeAws_queryDBClusterBacktrackNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterBacktrackNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7069,10 +7642,13 @@ async function deserializeAws_queryDescribeDBClusterEndpointsCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7130,10 +7706,13 @@ async function deserializeAws_queryDescribeDBClusterParameterGroupsCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7191,10 +7770,13 @@ async function deserializeAws_queryDescribeDBClusterParametersCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7252,10 +7834,13 @@ async function deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandErr
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
     case "rds.admin#DBClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7313,10 +7898,13 @@ async function deserializeAws_queryDescribeDBClusterSnapshotsCommandError(
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
     case "rds.admin#DBClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7371,10 +7959,13 @@ async function deserializeAws_queryDescribeDBClustersCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7486,10 +8077,13 @@ async function deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommandErro
   switch (errorCode) {
     case "DBInstanceAutomatedBackupNotFoundFault":
     case "rds.admin#DBInstanceAutomatedBackupNotFoundFault":
-      response = await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7544,10 +8138,13 @@ async function deserializeAws_queryDescribeDBInstancesCommandError(
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7602,10 +8199,13 @@ async function deserializeAws_queryDescribeDBLogFilesCommandError(
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7663,10 +8263,13 @@ async function deserializeAws_queryDescribeDBParameterGroupsCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7724,10 +8327,13 @@ async function deserializeAws_queryDescribeDBParametersCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7782,10 +8388,13 @@ async function deserializeAws_queryDescribeDBProxiesCommandError(
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "rds.admin#DBProxyNotFoundFault":
-      response = await deserializeAws_queryDBProxyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7843,10 +8452,13 @@ async function deserializeAws_queryDescribeDBProxyTargetGroupsCommandError(
   switch (errorCode) {
     case "DBProxyTargetGroupNotFoundFault":
     case "rds.admin#DBProxyTargetGroupNotFoundFault":
-      response = await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7904,24 +8516,33 @@ async function deserializeAws_queryDescribeDBProxyTargetsCommandError(
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "rds.admin#DBProxyNotFoundFault":
-      response = await deserializeAws_queryDBProxyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyTargetGroupNotFoundFault":
     case "rds.admin#DBProxyTargetGroupNotFoundFault":
-      response = await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyTargetNotFoundFault":
     case "rds.admin#DBProxyTargetNotFoundFault":
-      response = await deserializeAws_queryDBProxyTargetNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyTargetNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7979,10 +8600,13 @@ async function deserializeAws_queryDescribeDBSecurityGroupsCommandError(
   switch (errorCode) {
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8040,10 +8664,13 @@ async function deserializeAws_queryDescribeDBSnapshotAttributesCommandError(
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8098,10 +8725,13 @@ async function deserializeAws_queryDescribeDBSnapshotsCommandError(
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8159,10 +8789,13 @@ async function deserializeAws_queryDescribeDBSubnetGroupsCommandError(
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8382,10 +9015,13 @@ async function deserializeAws_queryDescribeEventSubscriptionsCommandError(
   switch (errorCode) {
     case "SubscriptionNotFoundFault":
     case "rds.admin#SubscriptionNotFoundFault":
-      response = await deserializeAws_querySubscriptionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8494,10 +9130,13 @@ async function deserializeAws_queryDescribeGlobalClustersCommandError(
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
     case "rds.admin#GlobalClusterNotFoundFault":
-      response = await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8555,10 +9194,13 @@ async function deserializeAws_queryDescribeInstallationMediaCommandError(
   switch (errorCode) {
     case "InstallationMediaNotFoundFault":
     case "rds.admin#InstallationMediaNotFoundFault":
-      response = await deserializeAws_queryInstallationMediaNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInstallationMediaNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8670,10 +9312,13 @@ async function deserializeAws_queryDescribeOptionGroupsCommandError(
   switch (errorCode) {
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8785,10 +9430,13 @@ async function deserializeAws_queryDescribePendingMaintenanceActionsCommandError
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "rds.admin#ResourceNotFoundFault":
-      response = await deserializeAws_queryResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8846,10 +9494,13 @@ async function deserializeAws_queryDescribeReservedDBInstancesCommandError(
   switch (errorCode) {
     case "ReservedDBInstanceNotFoundFault":
     case "rds.admin#ReservedDBInstanceNotFoundFault":
-      response = await deserializeAws_queryReservedDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8907,10 +9558,13 @@ async function deserializeAws_queryDescribeReservedDBInstancesOfferingsCommandEr
   switch (errorCode) {
     case "ReservedDBInstancesOfferingNotFoundFault":
     case "rds.admin#ReservedDBInstancesOfferingNotFoundFault":
-      response = await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9022,17 +9676,23 @@ async function deserializeAws_queryDescribeValidDBInstanceModificationsCommandEr
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9090,17 +9750,23 @@ async function deserializeAws_queryDownloadDBLogFilePortionCommandError(
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBLogFileNotFoundFault":
     case "rds.admin#DBLogFileNotFoundFault":
-      response = await deserializeAws_queryDBLogFileNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBLogFileNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9155,24 +9821,33 @@ async function deserializeAws_queryFailoverDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9230,17 +9905,23 @@ async function deserializeAws_queryImportInstallationMediaCommandError(
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
     case "rds.admin#CustomAvailabilityZoneNotFoundFault":
-      response = await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstallationMediaAlreadyExistsFault":
     case "rds.admin#InstallationMediaAlreadyExistsFault":
-      response = await deserializeAws_queryInstallationMediaAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInstallationMediaAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9295,24 +9976,33 @@ async function deserializeAws_queryListTagsForResourceCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9367,10 +10057,13 @@ async function deserializeAws_queryModifyCertificatesCommandError(
   switch (errorCode) {
     case "CertificateNotFoundFault":
     case "rds.admin#CertificateNotFoundFault":
-      response = await deserializeAws_queryCertificateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCertificateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9428,24 +10121,33 @@ async function deserializeAws_queryModifyCurrentDBClusterCapacityCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterCapacityFault":
     case "rds.admin#InvalidDBClusterCapacityFault":
-      response = await deserializeAws_queryInvalidDBClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9500,87 +10202,123 @@ async function deserializeAws_queryModifyDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "rds.admin#DBClusterAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterParameterGroupNotFoundFault":
     case "rds.admin#DBClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSecurityGroupStateFault":
     case "rds.admin#InvalidDBSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSubnetGroupStateFault":
     case "rds.admin#InvalidDBSubnetGroupStateFault":
-      response = await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9638,38 +10376,53 @@ async function deserializeAws_queryModifyDBClusterEndpointCommandError(
   switch (errorCode) {
     case "DBClusterEndpointNotFoundFault":
     case "rds.admin#DBClusterEndpointNotFoundFault":
-      response = await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterEndpointStateFault":
     case "rds.admin#InvalidDBClusterEndpointStateFault":
-      response = await deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9727,17 +10480,23 @@ async function deserializeAws_queryModifyDBClusterParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBParameterGroupStateFault":
     case "rds.admin#InvalidDBParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9795,24 +10554,33 @@ async function deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError(
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
     case "rds.admin#DBClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterSnapshotStateFault":
     case "rds.admin#InvalidDBClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SharedSnapshotQuotaExceededFault":
     case "rds.admin#SharedSnapshotQuotaExceededFault":
-      response = await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9867,122 +10635,173 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "rds.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BackupPolicyNotFoundFault":
     case "rds.admin#BackupPolicyNotFoundFault":
-      response = await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CertificateNotFoundFault":
     case "rds.admin#CertificateNotFoundFault":
-      response = await deserializeAws_queryCertificateNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCertificateNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceAlreadyExistsFault":
     case "rds.admin#DBInstanceAlreadyExistsFault":
-      response = await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBUpgradeDependencyFailureFault":
     case "rds.admin#DBUpgradeDependencyFailureFault":
-      response = await deserializeAws_queryDBUpgradeDependencyFailureFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBUpgradeDependencyFailureFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientDBInstanceCapacityFault":
     case "rds.admin#InsufficientDBInstanceCapacityFault":
-      response = await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSecurityGroupStateFault":
     case "rds.admin#InvalidDBSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedIopsNotAvailableInAZFault":
     case "rds.admin#ProvisionedIopsNotAvailableInAZFault":
-      response = await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageTypeNotSupportedFault":
     case "rds.admin#StorageTypeNotSupportedFault":
-      response = await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10040,17 +10859,23 @@ async function deserializeAws_queryModifyDBParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBParameterGroupStateFault":
     case "rds.admin#InvalidDBParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10105,24 +10930,33 @@ async function deserializeAws_queryModifyDBProxyCommandError(
   switch (errorCode) {
     case "DBProxyAlreadyExistsFault":
     case "rds.admin#DBProxyAlreadyExistsFault":
-      response = await deserializeAws_queryDBProxyAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyNotFoundFault":
     case "rds.admin#DBProxyNotFoundFault":
-      response = await deserializeAws_queryDBProxyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBProxyStateFault":
     case "rds.admin#InvalidDBProxyStateFault":
-      response = await deserializeAws_queryInvalidDBProxyStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10180,17 +11014,23 @@ async function deserializeAws_queryModifyDBProxyTargetGroupCommandError(
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "rds.admin#DBProxyNotFoundFault":
-      response = await deserializeAws_queryDBProxyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyTargetGroupNotFoundFault":
     case "rds.admin#DBProxyTargetGroupNotFoundFault":
-      response = await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10245,10 +11085,13 @@ async function deserializeAws_queryModifyDBSnapshotCommandError(
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10306,24 +11149,33 @@ async function deserializeAws_queryModifyDBSnapshotAttributeCommandError(
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSnapshotStateFault":
     case "rds.admin#InvalidDBSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SharedSnapshotQuotaExceededFault":
     case "rds.admin#SharedSnapshotQuotaExceededFault":
-      response = await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10378,38 +11230,53 @@ async function deserializeAws_queryModifyDBSubnetGroupCommandError(
   switch (errorCode) {
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetQuotaExceededFault":
     case "rds.admin#DBSubnetQuotaExceededFault":
-      response = await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubnetAlreadyInUse":
     case "rds.admin#SubnetAlreadyInUse":
-      response = await deserializeAws_querySubnetAlreadyInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubnetAlreadyInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10467,45 +11334,63 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
     case "rds.admin#EventSubscriptionQuotaExceededFault":
-      response = await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSInvalidTopicFault":
     case "rds.admin#SNSInvalidTopicFault":
-      response = await deserializeAws_querySNSInvalidTopicFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSInvalidTopicFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSNoAuthorizationFault":
     case "rds.admin#SNSNoAuthorizationFault":
-      response = await deserializeAws_querySNSNoAuthorizationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSTopicArnNotFoundFault":
     case "rds.admin#SNSTopicArnNotFoundFault":
-      response = await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionCategoryNotFoundFault":
     case "rds.admin#SubscriptionCategoryNotFoundFault":
-      response = await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionNotFoundFault":
     case "rds.admin#SubscriptionNotFoundFault":
-      response = await deserializeAws_querySubscriptionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10560,17 +11445,23 @@ async function deserializeAws_queryModifyGlobalClusterCommandError(
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
     case "rds.admin#GlobalClusterNotFoundFault":
-      response = await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGlobalClusterStateFault":
     case "rds.admin#InvalidGlobalClusterStateFault":
-      response = await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10625,17 +11516,23 @@ async function deserializeAws_queryModifyOptionGroupCommandError(
   switch (errorCode) {
     case "InvalidOptionGroupStateFault":
     case "rds.admin#InvalidOptionGroupStateFault":
-      response = await deserializeAws_queryInvalidOptionGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidOptionGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10690,17 +11587,23 @@ async function deserializeAws_queryPromoteReadReplicaCommandError(
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10758,17 +11661,23 @@ async function deserializeAws_queryPromoteReadReplicaDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10826,24 +11735,33 @@ async function deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandErr
   switch (errorCode) {
     case "ReservedDBInstanceAlreadyExistsFault":
     case "rds.admin#ReservedDBInstanceAlreadyExistsFault":
-      response = await deserializeAws_queryReservedDBInstanceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedDBInstanceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedDBInstanceQuotaExceededFault":
     case "rds.admin#ReservedDBInstanceQuotaExceededFault":
-      response = await deserializeAws_queryReservedDBInstanceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedDBInstanceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReservedDBInstancesOfferingNotFoundFault":
     case "rds.admin#ReservedDBInstancesOfferingNotFoundFault":
-      response = await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10898,17 +11816,23 @@ async function deserializeAws_queryRebootDBInstanceCommandError(
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10966,52 +11890,73 @@ async function deserializeAws_queryRegisterDBProxyTargetsCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyNotFoundFault":
     case "rds.admin#DBProxyNotFoundFault":
-      response = await deserializeAws_queryDBProxyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyTargetAlreadyRegisteredFault":
     case "rds.admin#DBProxyTargetAlreadyRegisteredFault":
-      response = await deserializeAws_queryDBProxyTargetAlreadyRegisteredFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyTargetAlreadyRegisteredFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBProxyTargetGroupNotFoundFault":
     case "rds.admin#DBProxyTargetGroupNotFoundFault":
-      response = await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11069,24 +12014,33 @@ async function deserializeAws_queryRemoveFromGlobalClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "GlobalClusterNotFoundFault":
     case "rds.admin#GlobalClusterNotFoundFault":
-      response = await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGlobalClusterStateFault":
     case "rds.admin#InvalidGlobalClusterStateFault":
-      response = await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11137,24 +12091,33 @@ async function deserializeAws_queryRemoveRoleFromDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterRoleNotFoundFault":
     case "rds.admin#DBClusterRoleNotFoundFault":
-      response = await deserializeAws_queryDBClusterRoleNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterRoleNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11205,24 +12168,33 @@ async function deserializeAws_queryRemoveRoleFromDBInstanceCommandError(
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceRoleNotFoundFault":
     case "rds.admin#DBInstanceRoleNotFoundFault":
-      response = await deserializeAws_queryDBInstanceRoleNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceRoleNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11280,17 +12252,23 @@ async function deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand
   switch (errorCode) {
     case "SourceNotFoundFault":
     case "rds.admin#SourceNotFoundFault":
-      response = await deserializeAws_querySourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubscriptionNotFoundFault":
     case "rds.admin#SubscriptionNotFoundFault":
-      response = await deserializeAws_querySubscriptionNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11341,24 +12319,33 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11416,17 +12403,23 @@ async function deserializeAws_queryResetDBClusterParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBParameterGroupStateFault":
     case "rds.admin#InvalidDBParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11484,17 +12477,23 @@ async function deserializeAws_queryResetDBParameterGroupCommandError(
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBParameterGroupStateFault":
     case "rds.admin#InvalidDBParameterGroupStateFault":
-      response = await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11552,101 +12551,143 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "rds.admin#DBClusterAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterParameterGroupNotFoundFault":
     case "rds.admin#DBClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterQuotaExceededFault":
     case "rds.admin#DBClusterQuotaExceededFault":
-      response = await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientStorageClusterCapacityFault":
     case "rds.admin#InsufficientStorageClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSubnetGroupStateFault":
     case "rds.admin#InvalidDBSubnetGroupStateFault":
-      response = await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3BucketFault":
     case "rds.admin#InvalidS3BucketFault":
-      response = await deserializeAws_queryInvalidS3BucketFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidS3BucketFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11704,122 +12745,173 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "rds.admin#DBClusterAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterParameterGroupNotFoundFault":
     case "rds.admin#DBClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterQuotaExceededFault":
     case "rds.admin#DBClusterQuotaExceededFault":
-      response = await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterSnapshotNotFoundFault":
     case "rds.admin#DBClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientDBClusterCapacityFault":
     case "rds.admin#InsufficientDBClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientStorageClusterCapacityFault":
     case "rds.admin#InsufficientStorageClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterSnapshotStateFault":
     case "rds.admin#InvalidDBClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSnapshotStateFault":
     case "rds.admin#InvalidDBSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRestoreFault":
     case "rds.admin#InvalidRestoreFault":
-      response = await deserializeAws_queryInvalidRestoreFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRestoreFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11877,129 +12969,183 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "rds.admin#DBClusterAlreadyExistsFault":
-      response = await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterParameterGroupNotFoundFault":
     case "rds.admin#DBClusterParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterQuotaExceededFault":
     case "rds.admin#DBClusterQuotaExceededFault":
-      response = await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterSnapshotNotFoundFault":
     case "rds.admin#DBClusterSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientDBClusterCapacityFault":
     case "rds.admin#InsufficientDBClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientStorageClusterCapacityFault":
     case "rds.admin#InsufficientStorageClusterCapacityFault":
-      response = await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterSnapshotStateFault":
     case "rds.admin#InvalidDBClusterSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSnapshotStateFault":
     case "rds.admin#InvalidDBSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRestoreFault":
     case "rds.admin#InvalidRestoreFault":
-      response = await deserializeAws_queryInvalidRestoreFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRestoreFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12057,143 +13203,203 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "rds.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BackupPolicyNotFoundFault":
     case "rds.admin#BackupPolicyNotFoundFault":
-      response = await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceAlreadyExistsFault":
     case "rds.admin#DBInstanceAlreadyExistsFault":
-      response = await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSnapshotNotFoundFault":
     case "rds.admin#DBSnapshotNotFoundFault":
-      response = await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceQuotaExceededFault":
     case "rds.admin#InstanceQuotaExceededFault":
-      response = await deserializeAws_queryInstanceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientDBInstanceCapacityFault":
     case "rds.admin#InsufficientDBInstanceCapacityFault":
-      response = await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSnapshotStateFault":
     case "rds.admin#InvalidDBSnapshotStateFault":
-      response = await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRestoreFault":
     case "rds.admin#InvalidRestoreFault":
-      response = await deserializeAws_queryInvalidRestoreFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRestoreFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedIopsNotAvailableInAZFault":
     case "rds.admin#ProvisionedIopsNotAvailableInAZFault":
-      response = await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageTypeNotSupportedFault":
     case "rds.admin#StorageTypeNotSupportedFault":
-      response = await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12251,122 +13457,173 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "rds.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BackupPolicyNotFoundFault":
     case "rds.admin#BackupPolicyNotFoundFault":
-      response = await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceAlreadyExistsFault":
     case "rds.admin#DBInstanceAlreadyExistsFault":
-      response = await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceQuotaExceededFault":
     case "rds.admin#InstanceQuotaExceededFault":
-      response = await deserializeAws_queryInstanceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientDBInstanceCapacityFault":
     case "rds.admin#InsufficientDBInstanceCapacityFault":
-      response = await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3BucketFault":
     case "rds.admin#InvalidS3BucketFault":
-      response = await deserializeAws_queryInvalidS3BucketFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidS3BucketFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedIopsNotAvailableInAZFault":
     case "rds.admin#ProvisionedIopsNotAvailableInAZFault":
-      response = await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageTypeNotSupportedFault":
     case "rds.admin#StorageTypeNotSupportedFault":
-      response = await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12424,157 +13681,223 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "rds.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BackupPolicyNotFoundFault":
     case "rds.admin#BackupPolicyNotFoundFault":
-      response = await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceAlreadyExistsFault":
     case "rds.admin#DBInstanceAlreadyExistsFault":
-      response = await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceAutomatedBackupNotFoundFault":
     case "rds.admin#DBInstanceAutomatedBackupNotFoundFault":
-      response = await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBParameterGroupNotFoundFault":
     case "rds.admin#DBParameterGroupNotFoundFault":
-      response = await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainNotFoundFault":
     case "rds.admin#DomainNotFoundFault":
-      response = await deserializeAws_queryDomainNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDomainNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceQuotaExceededFault":
     case "rds.admin#InstanceQuotaExceededFault":
-      response = await deserializeAws_queryInstanceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientDBInstanceCapacityFault":
     case "rds.admin#InsufficientDBInstanceCapacityFault":
-      response = await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRestoreFault":
     case "rds.admin#InvalidRestoreFault":
-      response = await deserializeAws_queryInvalidRestoreFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRestoreFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptionGroupNotFoundFault":
     case "rds.admin#OptionGroupNotFoundFault":
-      response = await deserializeAws_queryOptionGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PointInTimeRestoreNotEnabledFault":
     case "rds.admin#PointInTimeRestoreNotEnabledFault":
-      response = await deserializeAws_queryPointInTimeRestoreNotEnabledFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPointInTimeRestoreNotEnabledFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedIopsNotAvailableInAZFault":
     case "rds.admin#ProvisionedIopsNotAvailableInAZFault":
-      response = await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "rds.admin#StorageQuotaExceededFault":
-      response = await deserializeAws_queryStorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageTypeNotSupportedFault":
     case "rds.admin#StorageTypeNotSupportedFault":
-      response = await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12632,24 +13955,33 @@ async function deserializeAws_queryRevokeDBSecurityGroupIngressCommandError(
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "rds.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSecurityGroupNotFoundFault":
     case "rds.admin#DBSecurityGroupNotFoundFault":
-      response = await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBSecurityGroupStateFault":
     case "rds.admin#InvalidDBSecurityGroupStateFault":
-      response = await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12704,45 +14036,63 @@ async function deserializeAws_queryStartActivityStreamCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "rds.admin#ResourceNotFoundFault":
-      response = await deserializeAws_queryResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12797,24 +14147,33 @@ async function deserializeAws_queryStartDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12869,80 +14228,113 @@ async function deserializeAws_queryStartDBInstanceCommandError(
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "rds.admin#AuthorizationNotFoundFault":
-      response = await deserializeAws_queryAuthorizationNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSubnetGroupNotFoundFault":
     case "rds.admin#DBSubnetGroupNotFoundFault":
-      response = await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientDBInstanceCapacityFault":
     case "rds.admin#InsufficientDBInstanceCapacityFault":
-      response = await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "rds.admin#InvalidSubnet":
-      response = await deserializeAws_queryInvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidVPCNetworkStateFault":
     case "rds.admin#InvalidVPCNetworkStateFault":
-      response = await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "rds.admin#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12997,38 +14389,53 @@ async function deserializeAws_queryStopActivityStreamCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "rds.admin#ResourceNotFoundFault":
-      response = await deserializeAws_queryResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -13083,24 +14490,33 @@ async function deserializeAws_queryStopDBClusterCommandError(
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "rds.admin#DBClusterNotFoundFault":
-      response = await deserializeAws_queryDBClusterNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -13155,38 +14571,53 @@ async function deserializeAws_queryStopDBInstanceCommandError(
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "rds.admin#DBInstanceNotFoundFault":
-      response = await deserializeAws_queryDBInstanceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DBSnapshotAlreadyExistsFault":
     case "rds.admin#DBSnapshotAlreadyExistsFault":
-      response = await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBClusterStateFault":
     case "rds.admin#InvalidDBClusterStateFault":
-      response = await deserializeAws_queryInvalidDBClusterStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDBInstanceStateFault":
     case "rds.admin#InvalidDBInstanceStateFault":
-      response = await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotQuotaExceededFault":
     case "rds.admin#SnapshotQuotaExceededFault":
-      response = await deserializeAws_querySnapshotQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMaintenanceStartTimeCommandInput = DescribeMaintenanceStartTimeInput;
-export type DescribeMaintenanceStartTimeCommandOutput = DescribeMaintenanceStartTimeOutput;
+export type DescribeMaintenanceStartTimeCommandOutput = DescribeMaintenanceStartTimeOutput &
+  __MetadataBearer;
 
 export class DescribeMaintenanceStartTimeCommand extends $Command<
   DescribeMaintenanceStartTimeCommandInput,

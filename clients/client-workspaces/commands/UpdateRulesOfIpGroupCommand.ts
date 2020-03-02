@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateRulesOfIpGroupCommandInput = UpdateRulesOfIpGroupRequest;
-export type UpdateRulesOfIpGroupCommandOutput = UpdateRulesOfIpGroupResult;
+export type UpdateRulesOfIpGroupCommandOutput = UpdateRulesOfIpGroupResult &
+  __MetadataBearer;
 
 export class UpdateRulesOfIpGroupCommand extends $Command<
   UpdateRulesOfIpGroupCommandInput,

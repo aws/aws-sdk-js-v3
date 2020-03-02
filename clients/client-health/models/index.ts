@@ -109,8 +109,7 @@ export namespace DescribeAffectedAccountsForOrganizationRequest {
   }
 }
 
-export interface DescribeAffectedAccountsForOrganizationResponse
-  extends $MetadataBearer {
+export interface DescribeAffectedAccountsForOrganizationResponse {
   __type?: "DescribeAffectedAccountsForOrganizationResponse";
   /**
    * <p>A JSON set of elements of the affected accounts.</p>
@@ -169,8 +168,7 @@ export namespace DescribeAffectedEntitiesForOrganizationRequest {
   }
 }
 
-export interface DescribeAffectedEntitiesForOrganizationResponse
-  extends $MetadataBearer {
+export interface DescribeAffectedEntitiesForOrganizationResponse {
   __type?: "DescribeAffectedEntitiesForOrganizationResponse";
   /**
    * <p>A JSON set of elements including the <code>awsAccountId</code> and its
@@ -234,7 +232,7 @@ export namespace DescribeAffectedEntitiesRequest {
   }
 }
 
-export interface DescribeAffectedEntitiesResponse extends $MetadataBearer {
+export interface DescribeAffectedEntitiesResponse {
   __type?: "DescribeAffectedEntitiesResponse";
   /**
    * <p>The entities that match the filter criteria.</p>
@@ -271,7 +269,7 @@ export namespace DescribeEntityAggregatesRequest {
   }
 }
 
-export interface DescribeEntityAggregatesResponse extends $MetadataBearer {
+export interface DescribeEntityAggregatesResponse {
   __type?: "DescribeEntityAggregatesResponse";
   /**
    * <p>The number of entities that are affected by each of the specified events.</p>
@@ -317,7 +315,7 @@ export namespace DescribeEventAggregatesRequest {
   }
 }
 
-export interface DescribeEventAggregatesResponse extends $MetadataBearer {
+export interface DescribeEventAggregatesResponse {
   __type?: "DescribeEventAggregatesResponse";
   /**
    * <p>The number of events in each category that meet the optional filter
@@ -360,8 +358,7 @@ export namespace DescribeEventDetailsForOrganizationRequest {
   }
 }
 
-export interface DescribeEventDetailsForOrganizationResponse
-  extends $MetadataBearer {
+export interface DescribeEventDetailsForOrganizationResponse {
   __type?: "DescribeEventDetailsForOrganizationResponse";
   /**
    * <p>Error messages for any events that could not be retrieved.</p>
@@ -402,7 +399,7 @@ export namespace DescribeEventDetailsRequest {
   }
 }
 
-export interface DescribeEventDetailsResponse extends $MetadataBearer {
+export interface DescribeEventDetailsResponse {
   __type?: "DescribeEventDetailsResponse";
   /**
    * <p>Error messages for any events that could not be retrieved.</p>
@@ -453,7 +450,7 @@ export namespace DescribeEventTypesRequest {
   }
 }
 
-export interface DescribeEventTypesResponse extends $MetadataBearer {
+export interface DescribeEventTypesResponse {
   __type?: "DescribeEventTypesResponse";
   /**
    * <p>A list of event types that match the filter criteria. Event types have a category
@@ -513,7 +510,7 @@ export namespace DescribeEventsForOrganizationRequest {
   }
 }
 
-export interface DescribeEventsForOrganizationResponse extends $MetadataBearer {
+export interface DescribeEventsForOrganizationResponse {
   __type?: "DescribeEventsForOrganizationResponse";
   /**
    * <p>The events that match the specified filter criteria.</p>
@@ -567,7 +564,7 @@ export namespace DescribeEventsRequest {
   }
 }
 
-export interface DescribeEventsResponse extends $MetadataBearer {
+export interface DescribeEventsResponse {
   __type?: "DescribeEventsResponse";
   /**
    * <p>The events that match the specified filter criteria.</p>
@@ -589,8 +586,7 @@ export namespace DescribeEventsResponse {
   }
 }
 
-export interface DescribeHealthServiceStatusForOrganizationResponse
-  extends $MetadataBearer {
+export interface DescribeHealthServiceStatusForOrganizationResponse {
   __type?: "DescribeHealthServiceStatusForOrganizationResponse";
   /**
    * <p>Information about the status of enabling or disabling AWS Health Organizational View in

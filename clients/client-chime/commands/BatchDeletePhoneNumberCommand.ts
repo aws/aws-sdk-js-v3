@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDeletePhoneNumberCommandInput = BatchDeletePhoneNumberRequest;
-export type BatchDeletePhoneNumberCommandOutput = BatchDeletePhoneNumberResponse;
+export type BatchDeletePhoneNumberCommandOutput = BatchDeletePhoneNumberResponse &
+  __MetadataBearer;
 
 export class BatchDeletePhoneNumberCommand extends $Command<
   BatchDeletePhoneNumberCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutPartnerEventsCommandInput = PutPartnerEventsRequest;
-export type PutPartnerEventsCommandOutput = PutPartnerEventsResponse;
+export type PutPartnerEventsCommandOutput = PutPartnerEventsResponse &
+  __MetadataBearer;
 
 export class PutPartnerEventsCommand extends $Command<
   PutPartnerEventsCommandInput,

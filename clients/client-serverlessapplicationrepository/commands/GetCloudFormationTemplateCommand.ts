@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCloudFormationTemplateCommandInput = GetCloudFormationTemplateRequest;
-export type GetCloudFormationTemplateCommandOutput = GetCloudFormationTemplateResponse;
+export type GetCloudFormationTemplateCommandOutput = GetCloudFormationTemplateResponse &
+  __MetadataBearer;
 
 export class GetCloudFormationTemplateCommand extends $Command<
   GetCloudFormationTemplateCommandInput,

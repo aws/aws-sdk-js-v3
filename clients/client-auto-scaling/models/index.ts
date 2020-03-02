@@ -4,7 +4,7 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export interface ActivitiesType extends $MetadataBearer {
+export interface ActivitiesType {
   __type?: "ActivitiesType";
   /**
    * <p>The scaling activities. Activities are sorted by start time. Activities still in
@@ -90,7 +90,7 @@ export namespace Activity {
   }
 }
 
-export interface ActivityType extends $MetadataBearer {
+export interface ActivityType {
   __type?: "ActivityType";
   /**
    * <p>A scaling activity.</p>
@@ -181,8 +181,7 @@ export namespace AttachInstancesQuery {
   }
 }
 
-export interface AttachLoadBalancerTargetGroupsResultType
-  extends $MetadataBearer {
+export interface AttachLoadBalancerTargetGroupsResultType {
   __type?: "AttachLoadBalancerTargetGroupsResultType";
 }
 
@@ -212,7 +211,7 @@ export namespace AttachLoadBalancerTargetGroupsType {
   }
 }
 
-export interface AttachLoadBalancersResultType extends $MetadataBearer {
+export interface AttachLoadBalancersResultType {
   __type?: "AttachLoadBalancersResultType";
 }
 
@@ -421,7 +420,7 @@ export namespace AutoScalingGroupNamesType {
   }
 }
 
-export interface AutoScalingGroupsType extends $MetadataBearer {
+export interface AutoScalingGroupsType {
   __type?: "AutoScalingGroupsType";
   /**
    * <p>The groups.</p>
@@ -510,7 +509,7 @@ export namespace AutoScalingInstanceDetails {
   }
 }
 
-export interface AutoScalingInstancesType extends $MetadataBearer {
+export interface AutoScalingInstancesType {
   __type?: "AutoScalingInstancesType";
   /**
    * <p>The instances.</p>
@@ -532,7 +531,7 @@ export namespace AutoScalingInstancesType {
   }
 }
 
-export interface BatchDeleteScheduledActionAnswer extends $MetadataBearer {
+export interface BatchDeleteScheduledActionAnswer {
   __type?: "BatchDeleteScheduledActionAnswer";
   /**
    * <p>The names of the scheduled actions that could not be deleted, including an error
@@ -567,8 +566,7 @@ export namespace BatchDeleteScheduledActionType {
   }
 }
 
-export interface BatchPutScheduledUpdateGroupActionAnswer
-  extends $MetadataBearer {
+export interface BatchPutScheduledUpdateGroupActionAnswer {
   __type?: "BatchPutScheduledUpdateGroupActionAnswer";
   /**
    * <p>The names of the scheduled actions that could not be created or updated, including an
@@ -643,7 +641,7 @@ export namespace BlockDeviceMapping {
   }
 }
 
-export interface CompleteLifecycleActionAnswer extends $MetadataBearer {
+export interface CompleteLifecycleActionAnswer {
   __type?: "CompleteLifecycleActionAnswer";
 }
 
@@ -1178,7 +1176,7 @@ export namespace DeleteAutoScalingGroupType {
   }
 }
 
-export interface DeleteLifecycleHookAnswer extends $MetadataBearer {
+export interface DeleteLifecycleHookAnswer {
   __type?: "DeleteLifecycleHookAnswer";
 }
 
@@ -1279,7 +1277,7 @@ export namespace DeleteTagsType {
   }
 }
 
-export interface DescribeAccountLimitsAnswer extends $MetadataBearer {
+export interface DescribeAccountLimitsAnswer {
   __type?: "DescribeAccountLimitsAnswer";
   /**
    * <p>The maximum number of groups allowed for your AWS account. The default limit is 200
@@ -1310,7 +1308,7 @@ export namespace DescribeAccountLimitsAnswer {
   }
 }
 
-export interface DescribeAdjustmentTypesAnswer extends $MetadataBearer {
+export interface DescribeAdjustmentTypesAnswer {
   __type?: "DescribeAdjustmentTypesAnswer";
   /**
    * <p>The policy adjustment types.</p>
@@ -1352,8 +1350,7 @@ export namespace DescribeAutoScalingInstancesType {
   }
 }
 
-export interface DescribeAutoScalingNotificationTypesAnswer
-  extends $MetadataBearer {
+export interface DescribeAutoScalingNotificationTypesAnswer {
   __type?: "DescribeAutoScalingNotificationTypesAnswer";
   /**
    * <p>The notification types.</p>
@@ -1367,7 +1364,7 @@ export namespace DescribeAutoScalingNotificationTypesAnswer {
   }
 }
 
-export interface DescribeLifecycleHookTypesAnswer extends $MetadataBearer {
+export interface DescribeLifecycleHookTypesAnswer {
   __type?: "DescribeLifecycleHookTypesAnswer";
   /**
    * <p>The lifecycle hook types.</p>
@@ -1381,7 +1378,7 @@ export namespace DescribeLifecycleHookTypesAnswer {
   }
 }
 
-export interface DescribeLifecycleHooksAnswer extends $MetadataBearer {
+export interface DescribeLifecycleHooksAnswer {
   __type?: "DescribeLifecycleHooksAnswer";
   /**
    * <p>The lifecycle hooks for the specified group.</p>
@@ -1441,8 +1438,7 @@ export namespace DescribeLoadBalancerTargetGroupsRequest {
   }
 }
 
-export interface DescribeLoadBalancerTargetGroupsResponse
-  extends $MetadataBearer {
+export interface DescribeLoadBalancerTargetGroupsResponse {
   __type?: "DescribeLoadBalancerTargetGroupsResponse";
   /**
    * <p>Information about the target groups.</p>
@@ -1490,7 +1486,7 @@ export namespace DescribeLoadBalancersRequest {
   }
 }
 
-export interface DescribeLoadBalancersResponse extends $MetadataBearer {
+export interface DescribeLoadBalancersResponse {
   __type?: "DescribeLoadBalancersResponse";
   /**
    * <p>The load balancers.</p>
@@ -1512,7 +1508,7 @@ export namespace DescribeLoadBalancersResponse {
   }
 }
 
-export interface DescribeMetricCollectionTypesAnswer extends $MetadataBearer {
+export interface DescribeMetricCollectionTypesAnswer {
   __type?: "DescribeMetricCollectionTypesAnswer";
   /**
    * <p>The granularities for the metrics.</p>
@@ -1531,8 +1527,7 @@ export namespace DescribeMetricCollectionTypesAnswer {
   }
 }
 
-export interface DescribeNotificationConfigurationsAnswer
-  extends $MetadataBearer {
+export interface DescribeNotificationConfigurationsAnswer {
   __type?: "DescribeNotificationConfigurationsAnswer";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
@@ -1726,7 +1721,7 @@ export namespace DescribeTagsType {
   }
 }
 
-export interface DescribeTerminationPolicyTypesAnswer extends $MetadataBearer {
+export interface DescribeTerminationPolicyTypesAnswer {
   __type?: "DescribeTerminationPolicyTypesAnswer";
   /**
    * <p>The termination policies supported by Amazon EC2 Auto Scaling: <code>OldestInstance</code>,
@@ -1743,7 +1738,7 @@ export namespace DescribeTerminationPolicyTypesAnswer {
   }
 }
 
-export interface DetachInstancesAnswer extends $MetadataBearer {
+export interface DetachInstancesAnswer {
   __type?: "DetachInstancesAnswer";
   /**
    * <p>The activities related to detaching the instances from the Auto Scaling group.</p>
@@ -1782,8 +1777,7 @@ export namespace DetachInstancesQuery {
   }
 }
 
-export interface DetachLoadBalancerTargetGroupsResultType
-  extends $MetadataBearer {
+export interface DetachLoadBalancerTargetGroupsResultType {
   __type?: "DetachLoadBalancerTargetGroupsResultType";
 }
 
@@ -1813,7 +1807,7 @@ export namespace DetachLoadBalancerTargetGroupsType {
   }
 }
 
-export interface DetachLoadBalancersResultType extends $MetadataBearer {
+export interface DetachLoadBalancersResultType {
   __type?: "DetachLoadBalancersResultType";
 }
 
@@ -2125,7 +2119,7 @@ export namespace EnabledMetric {
   }
 }
 
-export interface EnterStandbyAnswer extends $MetadataBearer {
+export interface EnterStandbyAnswer {
   __type?: "EnterStandbyAnswer";
   /**
    * <p>The activities related to moving instances into <code>Standby</code> mode.</p>
@@ -2213,7 +2207,7 @@ export namespace ExecutePolicyType {
   }
 }
 
-export interface ExitStandbyAnswer extends $MetadataBearer {
+export interface ExitStandbyAnswer {
   __type?: "ExitStandbyAnswer";
   /**
    * <p>The activities related to moving instances out of <code>Standby</code> mode.</p>
@@ -2685,7 +2679,7 @@ export namespace LaunchConfigurationNamesType {
   }
 }
 
-export interface LaunchConfigurationsType extends $MetadataBearer {
+export interface LaunchConfigurationsType {
   __type?: "LaunchConfigurationsType";
   /**
    * <p>The launch configurations.</p>
@@ -3338,7 +3332,7 @@ export namespace NotificationConfiguration {
   }
 }
 
-export interface PoliciesType extends $MetadataBearer {
+export interface PoliciesType {
   __type?: "PoliciesType";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
@@ -3363,7 +3357,7 @@ export namespace PoliciesType {
 /**
  * <p>Contains the output of PutScalingPolicy.</p>
  */
-export interface PolicyARNType extends $MetadataBearer {
+export interface PolicyARNType {
   __type?: "PolicyARNType";
   /**
    * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
@@ -3504,7 +3498,7 @@ export namespace ProcessType {
   }
 }
 
-export interface ProcessesType extends $MetadataBearer {
+export interface ProcessesType {
   __type?: "ProcessesType";
   /**
    * <p>The names of the process types.</p>
@@ -3518,7 +3512,7 @@ export namespace ProcessesType {
   }
 }
 
-export interface PutLifecycleHookAnswer extends $MetadataBearer {
+export interface PutLifecycleHookAnswer {
   __type?: "PutLifecycleHookAnswer";
 }
 
@@ -3815,7 +3809,7 @@ export namespace PutScheduledUpdateGroupActionType {
   }
 }
 
-export interface RecordLifecycleActionHeartbeatAnswer extends $MetadataBearer {
+export interface RecordLifecycleActionHeartbeatAnswer {
   __type?: "RecordLifecycleActionHeartbeatAnswer";
 }
 
@@ -4088,7 +4082,7 @@ export namespace ScalingProcessQuery {
   }
 }
 
-export interface ScheduledActionsType extends $MetadataBearer {
+export interface ScheduledActionsType {
   __type?: "ScheduledActionsType";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
@@ -4315,7 +4309,7 @@ export namespace SetInstanceHealthQuery {
   }
 }
 
-export interface SetInstanceProtectionAnswer extends $MetadataBearer {
+export interface SetInstanceProtectionAnswer {
   __type?: "SetInstanceProtectionAnswer";
 }
 
@@ -4522,7 +4516,7 @@ export namespace TagDescription {
   }
 }
 
-export interface TagsType extends $MetadataBearer {
+export interface TagsType {
   __type?: "TagsType";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in

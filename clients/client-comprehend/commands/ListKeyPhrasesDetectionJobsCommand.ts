@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListKeyPhrasesDetectionJobsCommandInput = ListKeyPhrasesDetectionJobsRequest;
-export type ListKeyPhrasesDetectionJobsCommandOutput = ListKeyPhrasesDetectionJobsResponse;
+export type ListKeyPhrasesDetectionJobsCommandOutput = ListKeyPhrasesDetectionJobsResponse &
+  __MetadataBearer;
 
 export class ListKeyPhrasesDetectionJobsCommand extends $Command<
   ListKeyPhrasesDetectionJobsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateMLTransformCommandInput = CreateMLTransformRequest;
-export type CreateMLTransformCommandOutput = CreateMLTransformResponse;
+export type CreateMLTransformCommandOutput = CreateMLTransformResponse &
+  __MetadataBearer;
 
 export class CreateMLTransformCommand extends $Command<
   CreateMLTransformCommandInput,

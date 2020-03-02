@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RequestCertificateCommandInput = RequestCertificateRequest;
-export type RequestCertificateCommandOutput = RequestCertificateResponse;
+export type RequestCertificateCommandOutput = RequestCertificateResponse &
+  __MetadataBearer;
 
 export class RequestCertificateCommand extends $Command<
   RequestCertificateCommandInput,

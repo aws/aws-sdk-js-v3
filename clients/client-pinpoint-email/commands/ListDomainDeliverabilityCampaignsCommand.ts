@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDomainDeliverabilityCampaignsCommandInput = ListDomainDeliverabilityCampaignsRequest;
-export type ListDomainDeliverabilityCampaignsCommandOutput = ListDomainDeliverabilityCampaignsResponse;
+export type ListDomainDeliverabilityCampaignsCommandOutput = ListDomainDeliverabilityCampaignsResponse &
+  __MetadataBearer;
 
 export class ListDomainDeliverabilityCampaignsCommand extends $Command<
   ListDomainDeliverabilityCampaignsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUserPoolMfaConfigCommandInput = GetUserPoolMfaConfigRequest;
-export type GetUserPoolMfaConfigCommandOutput = GetUserPoolMfaConfigResponse;
+export type GetUserPoolMfaConfigCommandOutput = GetUserPoolMfaConfigResponse &
+  __MetadataBearer;
 
 export class GetUserPoolMfaConfigCommand extends $Command<
   GetUserPoolMfaConfigCommandInput,

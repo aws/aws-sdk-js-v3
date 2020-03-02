@@ -211,8 +211,7 @@ export namespace DescribeEntitiesDetectionV2JobRequest {
   }
 }
 
-export interface DescribeEntitiesDetectionV2JobResponse
-  extends $MetadataBearer {
+export interface DescribeEntitiesDetectionV2JobResponse {
   __type?: "DescribeEntitiesDetectionV2JobResponse";
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
@@ -241,7 +240,7 @@ export namespace DescribePHIDetectionJobRequest {
   }
 }
 
-export interface DescribePHIDetectionJobResponse extends $MetadataBearer {
+export interface DescribePHIDetectionJobResponse {
   __type?: "DescribePHIDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
@@ -270,7 +269,7 @@ export namespace DetectEntitiesRequest {
   }
 }
 
-export interface DetectEntitiesResponse extends $MetadataBearer {
+export interface DetectEntitiesResponse {
   __type?: "DetectEntitiesResponse";
   /**
    * <p> The collection of medical entities extracted from the input text and their associated
@@ -319,7 +318,7 @@ export namespace DetectEntitiesV2Request {
   }
 }
 
-export interface DetectEntitiesV2Response extends $MetadataBearer {
+export interface DetectEntitiesV2Response {
   __type?: "DetectEntitiesV2Response";
   /**
    * <p>The collection of medical entities extracted from the input text and their associated
@@ -368,7 +367,7 @@ export namespace DetectPHIRequest {
   }
 }
 
-export interface DetectPHIResponse extends $MetadataBearer {
+export interface DetectPHIResponse {
   __type?: "DetectPHIResponse";
   /**
    * <p> The collection of PHI entities extracted from the input text and their associated
@@ -726,7 +725,7 @@ export namespace InferICD10CMRequest {
   }
 }
 
-export interface InferICD10CMResponse extends $MetadataBearer {
+export interface InferICD10CMResponse {
   __type?: "InferICD10CMResponse";
   /**
    * <p>The medical conditions detected in the text linked to ICD-10-CM concepts. If the action is
@@ -769,7 +768,7 @@ export namespace InferRxNormRequest {
   }
 }
 
-export interface InferRxNormResponse extends $MetadataBearer {
+export interface InferRxNormResponse {
   __type?: "InferRxNormResponse";
   /**
    * <p>The medication entities detected in the text linked to RxNorm concepts. If the action is
@@ -914,7 +913,7 @@ export namespace ListEntitiesDetectionV2JobsRequest {
   }
 }
 
-export interface ListEntitiesDetectionV2JobsResponse extends $MetadataBearer {
+export interface ListEntitiesDetectionV2JobsResponse {
   __type?: "ListEntitiesDetectionV2JobsResponse";
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -960,7 +959,7 @@ export namespace ListPHIDetectionJobsRequest {
   }
 }
 
-export interface ListPHIDetectionJobsResponse extends $MetadataBearer {
+export interface ListPHIDetectionJobsResponse {
   __type?: "ListPHIDetectionJobsResponse";
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -1301,7 +1300,7 @@ export namespace StartEntitiesDetectionV2JobRequest {
   }
 }
 
-export interface StartEntitiesDetectionV2JobResponse extends $MetadataBearer {
+export interface StartEntitiesDetectionV2JobResponse {
   __type?: "StartEntitiesDetectionV2JobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -1363,7 +1362,7 @@ export namespace StartPHIDetectionJobRequest {
   }
 }
 
-export interface StartPHIDetectionJobResponse extends $MetadataBearer {
+export interface StartPHIDetectionJobResponse {
   __type?: "StartPHIDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -1392,7 +1391,7 @@ export namespace StopEntitiesDetectionV2JobRequest {
   }
 }
 
-export interface StopEntitiesDetectionV2JobResponse extends $MetadataBearer {
+export interface StopEntitiesDetectionV2JobResponse {
   __type?: "StopEntitiesDetectionV2JobResponse";
   /**
    * <p>The identifier of the medical entities detection job that was stopped.</p>
@@ -1420,7 +1419,7 @@ export namespace StopPHIDetectionJobRequest {
   }
 }
 
-export interface StopPHIDetectionJobResponse extends $MetadataBearer {
+export interface StopPHIDetectionJobResponse {
   __type?: "StopPHIDetectionJobResponse";
   /**
    * <p>The identifier of the PHI detection job that was stopped.</p>

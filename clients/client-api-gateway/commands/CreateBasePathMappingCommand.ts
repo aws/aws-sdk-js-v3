@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBasePathMappingCommandInput = CreateBasePathMappingRequest;
-export type CreateBasePathMappingCommandOutput = BasePathMapping;
+export type CreateBasePathMappingCommandOutput = BasePathMapping &
+  __MetadataBearer;
 
 export class CreateBasePathMappingCommand extends $Command<
   CreateBasePathMappingCommandInput,

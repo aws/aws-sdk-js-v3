@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateIpGroupCommandInput = CreateIpGroupRequest;
-export type CreateIpGroupCommandOutput = CreateIpGroupResult;
+export type CreateIpGroupCommandOutput = CreateIpGroupResult & __MetadataBearer;
 
 export class CreateIpGroupCommand extends $Command<
   CreateIpGroupCommandInput,

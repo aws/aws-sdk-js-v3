@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetEnabledStandardsCommandInput = GetEnabledStandardsRequest;
-export type GetEnabledStandardsCommandOutput = GetEnabledStandardsResponse;
+export type GetEnabledStandardsCommandOutput = GetEnabledStandardsResponse &
+  __MetadataBearer;
 
 export class GetEnabledStandardsCommand extends $Command<
   GetEnabledStandardsCommandInput,

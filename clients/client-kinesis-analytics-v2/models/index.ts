@@ -30,8 +30,7 @@ export namespace AddApplicationCloudWatchLoggingOptionRequest {
   }
 }
 
-export interface AddApplicationCloudWatchLoggingOptionResponse
-  extends $MetadataBearer {
+export interface AddApplicationCloudWatchLoggingOptionResponse {
   __type?: "AddApplicationCloudWatchLoggingOptionResponse";
   /**
    * <p>The application's ARN.</p>
@@ -97,8 +96,7 @@ export namespace AddApplicationInputProcessingConfigurationRequest {
   }
 }
 
-export interface AddApplicationInputProcessingConfigurationResponse
-  extends $MetadataBearer {
+export interface AddApplicationInputProcessingConfigurationResponse {
   __type?: "AddApplicationInputProcessingConfigurationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -156,7 +154,7 @@ export namespace AddApplicationInputRequest {
   }
 }
 
-export interface AddApplicationInputResponse extends $MetadataBearer {
+export interface AddApplicationInputResponse {
   __type?: "AddApplicationInputResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -213,7 +211,7 @@ export namespace AddApplicationOutputRequest {
   }
 }
 
-export interface AddApplicationOutputResponse extends $MetadataBearer {
+export interface AddApplicationOutputResponse {
   __type?: "AddApplicationOutputResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -271,8 +269,7 @@ export namespace AddApplicationReferenceDataSourceRequest {
   }
 }
 
-export interface AddApplicationReferenceDataSourceResponse
-  extends $MetadataBearer {
+export interface AddApplicationReferenceDataSourceResponse {
   __type?: "AddApplicationReferenceDataSourceResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -328,8 +325,7 @@ export namespace AddApplicationVpcConfigurationRequest {
   }
 }
 
-export interface AddApplicationVpcConfigurationResponse
-  extends $MetadataBearer {
+export interface AddApplicationVpcConfigurationResponse {
   __type?: "AddApplicationVpcConfigurationResponse";
   /**
    * <p>The ARN of the application.</p>
@@ -1258,7 +1254,7 @@ export namespace CreateApplicationRequest {
   }
 }
 
-export interface CreateApplicationResponse extends $MetadataBearer {
+export interface CreateApplicationResponse {
   __type?: "CreateApplicationResponse";
   /**
    * <p>In response to your <code>CreateApplication</code> request, Kinesis Data Analytics returns a
@@ -1292,7 +1288,7 @@ export namespace CreateApplicationSnapshotRequest {
   }
 }
 
-export interface CreateApplicationSnapshotResponse extends $MetadataBearer {
+export interface CreateApplicationSnapshotResponse {
   __type?: "CreateApplicationSnapshotResponse";
 }
 
@@ -1330,8 +1326,7 @@ export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
   }
 }
 
-export interface DeleteApplicationCloudWatchLoggingOptionResponse
-  extends $MetadataBearer {
+export interface DeleteApplicationCloudWatchLoggingOptionResponse {
   __type?: "DeleteApplicationCloudWatchLoggingOptionResponse";
   /**
    * <p>The application's Amazon Resource Name (ARN).</p>
@@ -1392,8 +1387,7 @@ export namespace DeleteApplicationInputProcessingConfigurationRequest {
   }
 }
 
-export interface DeleteApplicationInputProcessingConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteApplicationInputProcessingConfigurationResponse {
   __type?: "DeleteApplicationInputProcessingConfigurationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1446,7 +1440,7 @@ export namespace DeleteApplicationOutputRequest {
   }
 }
 
-export interface DeleteApplicationOutputResponse extends $MetadataBearer {
+export interface DeleteApplicationOutputResponse {
   __type?: "DeleteApplicationOutputResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -1497,8 +1491,7 @@ export namespace DeleteApplicationReferenceDataSourceRequest {
   }
 }
 
-export interface DeleteApplicationReferenceDataSourceResponse
-  extends $MetadataBearer {
+export interface DeleteApplicationReferenceDataSourceResponse {
   __type?: "DeleteApplicationReferenceDataSourceResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -1538,7 +1531,7 @@ export namespace DeleteApplicationRequest {
   }
 }
 
-export interface DeleteApplicationResponse extends $MetadataBearer {
+export interface DeleteApplicationResponse {
   __type?: "DeleteApplicationResponse";
 }
 
@@ -1573,7 +1566,7 @@ export namespace DeleteApplicationSnapshotRequest {
   }
 }
 
-export interface DeleteApplicationSnapshotResponse extends $MetadataBearer {
+export interface DeleteApplicationSnapshotResponse {
   __type?: "DeleteApplicationSnapshotResponse";
 }
 
@@ -1607,8 +1600,7 @@ export namespace DeleteApplicationVpcConfigurationRequest {
   }
 }
 
-export interface DeleteApplicationVpcConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteApplicationVpcConfigurationResponse {
   __type?: "DeleteApplicationVpcConfigurationResponse";
   /**
    * <p>The ARN of the Kinesis Data Analytics application.</p>
@@ -1646,7 +1638,7 @@ export namespace DescribeApplicationRequest {
   }
 }
 
-export interface DescribeApplicationResponse extends $MetadataBearer {
+export interface DescribeApplicationResponse {
   __type?: "DescribeApplicationResponse";
   /**
    * <p>Provides a description of the application, such as the application's Amazon Resource Name
@@ -1680,7 +1672,7 @@ export namespace DescribeApplicationSnapshotRequest {
   }
 }
 
-export interface DescribeApplicationSnapshotResponse extends $MetadataBearer {
+export interface DescribeApplicationSnapshotResponse {
   __type?: "DescribeApplicationSnapshotResponse";
   /**
    * <p>An object containing information about the application snapshot.</p>
@@ -1748,7 +1740,7 @@ export namespace DiscoverInputSchemaRequest {
   }
 }
 
-export interface DiscoverInputSchemaResponse extends $MetadataBearer {
+export interface DiscoverInputSchemaResponse {
   __type?: "DiscoverInputSchemaResponse";
   /**
    * <p>The schema inferred from the streaming source. It identifies the format of the data in the
@@ -2817,7 +2809,7 @@ export namespace ListApplicationSnapshotsRequest {
   }
 }
 
-export interface ListApplicationSnapshotsResponse extends $MetadataBearer {
+export interface ListApplicationSnapshotsResponse {
   __type?: "ListApplicationSnapshotsResponse";
   /**
    * <p>The token for the next set of results, or <code>null</code> if there are no additional results.</p>
@@ -2858,7 +2850,7 @@ export namespace ListApplicationsRequest {
   }
 }
 
-export interface ListApplicationsResponse extends $MetadataBearer {
+export interface ListApplicationsResponse {
   __type?: "ListApplicationsResponse";
   /**
    * <p>A list of <code>ApplicationSummary</code> objects.</p>
@@ -2894,7 +2886,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The key-value tags assigned to the application.</p>
@@ -4036,7 +4028,7 @@ export namespace StartApplicationRequest {
   }
 }
 
-export interface StartApplicationResponse extends $MetadataBearer {
+export interface StartApplicationResponse {
   __type?: "StartApplicationResponse";
 }
 
@@ -4060,7 +4052,7 @@ export namespace StopApplicationRequest {
   }
 }
 
-export interface StopApplicationResponse extends $MetadataBearer {
+export interface StopApplicationResponse {
   __type?: "StopApplicationResponse";
 }
 
@@ -4113,7 +4105,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -4203,7 +4195,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -4254,7 +4246,7 @@ export namespace UpdateApplicationRequest {
   }
 }
 
-export interface UpdateApplicationResponse extends $MetadataBearer {
+export interface UpdateApplicationResponse {
   __type?: "UpdateApplicationResponse";
   /**
    * <p>Describes application updates.</p>

@@ -54,7 +54,7 @@ export namespace CreateGroupInput {
   }
 }
 
-export interface CreateGroupOutput extends $MetadataBearer {
+export interface CreateGroupOutput {
   __type?: "CreateGroupOutput";
   /**
    * <p>A full description of the resource group after it is created.</p>
@@ -92,7 +92,7 @@ export namespace DeleteGroupInput {
   }
 }
 
-export interface DeleteGroupOutput extends $MetadataBearer {
+export interface DeleteGroupOutput {
   __type?: "DeleteGroupOutput";
   /**
    * <p>A full description of the deleted resource group.</p>
@@ -135,7 +135,7 @@ export namespace GetGroupInput {
   }
 }
 
-export interface GetGroupOutput extends $MetadataBearer {
+export interface GetGroupOutput {
   __type?: "GetGroupOutput";
   /**
    * <p>A full description of the resource group.</p>
@@ -163,7 +163,7 @@ export namespace GetGroupQueryInput {
   }
 }
 
-export interface GetGroupQueryOutput extends $MetadataBearer {
+export interface GetGroupQueryOutput {
   __type?: "GetGroupQueryOutput";
   /**
    * <p>The resource query associated with the specified group.</p>
@@ -191,7 +191,7 @@ export namespace GetTagsInput {
   }
 }
 
-export interface GetTagsOutput extends $MetadataBearer {
+export interface GetTagsOutput {
   __type?: "GetTagsOutput";
   /**
    * <p>The ARN of the tagged resource group.</p>
@@ -360,7 +360,7 @@ export namespace ListGroupResourcesInput {
   }
 }
 
-export interface ListGroupResourcesOutput extends $MetadataBearer {
+export interface ListGroupResourcesOutput {
   __type?: "ListGroupResourcesOutput";
   /**
    * <p>The NextToken value to include in a subsequent <code>ListGroupResources</code> request, to get more results.</p>
@@ -417,7 +417,7 @@ export namespace ListGroupsInput {
   }
 }
 
-export interface ListGroupsOutput extends $MetadataBearer {
+export interface ListGroupsOutput {
   __type?: "ListGroupsOutput";
   /**
    * <p>A list of GroupIdentifier objects. Each identifier is an object that contains both the GroupName and the GroupArn.</p>
@@ -642,7 +642,7 @@ export namespace SearchResourcesInput {
   }
 }
 
-export interface SearchResourcesOutput extends $MetadataBearer {
+export interface SearchResourcesOutput {
   __type?: "SearchResourcesOutput";
   /**
    * <p>The NextToken value to include in a subsequent <code>SearchResources</code> request, to get more results.</p>
@@ -689,7 +689,7 @@ export namespace TagInput {
   }
 }
 
-export interface TagOutput extends $MetadataBearer {
+export interface TagOutput {
   __type?: "TagOutput";
   /**
    * <p>The ARN of the tagged resource.</p>
@@ -761,7 +761,7 @@ export namespace UntagInput {
   }
 }
 
-export interface UntagOutput extends $MetadataBearer {
+export interface UntagOutput {
   __type?: "UntagOutput";
   /**
    * <p>The ARN of the resource from which tags have been removed.</p>
@@ -800,7 +800,7 @@ export namespace UpdateGroupInput {
   }
 }
 
-export interface UpdateGroupOutput extends $MetadataBearer {
+export interface UpdateGroupOutput {
   __type?: "UpdateGroupOutput";
   /**
    * <p>The full description of the resource group after it has been updated.</p>
@@ -833,7 +833,7 @@ export namespace UpdateGroupQueryInput {
   }
 }
 
-export interface UpdateGroupQueryOutput extends $MetadataBearer {
+export interface UpdateGroupQueryOutput {
   __type?: "UpdateGroupQueryOutput";
   /**
    * <p>The resource query associated with the resource group after the update.</p>

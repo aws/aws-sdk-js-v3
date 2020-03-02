@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteOTAUpdateCommandInput = DeleteOTAUpdateRequest;
-export type DeleteOTAUpdateCommandOutput = DeleteOTAUpdateResponse;
+export type DeleteOTAUpdateCommandOutput = DeleteOTAUpdateResponse &
+  __MetadataBearer;
 
 export class DeleteOTAUpdateCommand extends $Command<
   DeleteOTAUpdateCommandInput,

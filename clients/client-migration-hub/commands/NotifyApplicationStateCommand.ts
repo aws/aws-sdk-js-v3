@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type NotifyApplicationStateCommandInput = NotifyApplicationStateRequest;
-export type NotifyApplicationStateCommandOutput = NotifyApplicationStateResult;
+export type NotifyApplicationStateCommandOutput = NotifyApplicationStateResult &
+  __MetadataBearer;
 
 export class NotifyApplicationStateCommand extends $Command<
   NotifyApplicationStateCommandInput,

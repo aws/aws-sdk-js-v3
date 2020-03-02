@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetOfferingStatusCommandInput = GetOfferingStatusRequest;
-export type GetOfferingStatusCommandOutput = GetOfferingStatusResult;
+export type GetOfferingStatusCommandOutput = GetOfferingStatusResult &
+  __MetadataBearer;
 
 export class GetOfferingStatusCommand extends $Command<
   GetOfferingStatusCommandInput,

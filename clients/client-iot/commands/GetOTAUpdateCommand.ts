@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetOTAUpdateCommandInput = GetOTAUpdateRequest;
-export type GetOTAUpdateCommandOutput = GetOTAUpdateResponse;
+export type GetOTAUpdateCommandOutput = GetOTAUpdateResponse & __MetadataBearer;
 
 export class GetOTAUpdateCommand extends $Command<
   GetOTAUpdateCommandInput,

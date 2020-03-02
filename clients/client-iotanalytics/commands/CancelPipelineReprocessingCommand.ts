@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelPipelineReprocessingCommandInput = CancelPipelineReprocessingRequest;
-export type CancelPipelineReprocessingCommandOutput = CancelPipelineReprocessingResponse;
+export type CancelPipelineReprocessingCommandOutput = CancelPipelineReprocessingResponse &
+  __MetadataBearer;
 
 export class CancelPipelineReprocessingCommand extends $Command<
   CancelPipelineReprocessingCommandInput,

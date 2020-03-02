@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RecordActivityTaskHeartbeatCommandInput = RecordActivityTaskHeartbeatInput;
-export type RecordActivityTaskHeartbeatCommandOutput = ActivityTaskStatus;
+export type RecordActivityTaskHeartbeatCommandOutput = ActivityTaskStatus &
+  __MetadataBearer;
 
 export class RecordActivityTaskHeartbeatCommand extends $Command<
   RecordActivityTaskHeartbeatCommandInput,

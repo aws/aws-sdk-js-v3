@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEnvironmentMembershipsCommandInput = DescribeEnvironmentMembershipsRequest;
-export type DescribeEnvironmentMembershipsCommandOutput = DescribeEnvironmentMembershipsResult;
+export type DescribeEnvironmentMembershipsCommandOutput = DescribeEnvironmentMembershipsResult &
+  __MetadataBearer;
 
 export class DescribeEnvironmentMembershipsCommand extends $Command<
   DescribeEnvironmentMembershipsCommandInput,

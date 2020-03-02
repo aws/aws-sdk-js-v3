@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcceptResourceShareInvitationCommandInput = AcceptResourceShareInvitationRequest;
-export type AcceptResourceShareInvitationCommandOutput = AcceptResourceShareInvitationResponse;
+export type AcceptResourceShareInvitationCommandOutput = AcceptResourceShareInvitationResponse &
+  __MetadataBearer;
 
 export class AcceptResourceShareInvitationCommand extends $Command<
   AcceptResourceShareInvitationCommandInput,

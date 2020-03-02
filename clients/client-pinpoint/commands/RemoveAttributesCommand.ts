@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveAttributesCommandInput = RemoveAttributesRequest;
-export type RemoveAttributesCommandOutput = RemoveAttributesResponse;
+export type RemoveAttributesCommandOutput = RemoveAttributesResponse &
+  __MetadataBearer;
 
 export class RemoveAttributesCommand extends $Command<
   RemoveAttributesCommandInput,

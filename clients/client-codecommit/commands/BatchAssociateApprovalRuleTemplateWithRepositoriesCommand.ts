@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput = BatchAssociateApprovalRuleTemplateWithRepositoriesInput;
-export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput = BatchAssociateApprovalRuleTemplateWithRepositoriesOutput;
+export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput = BatchAssociateApprovalRuleTemplateWithRepositoriesOutput &
+  __MetadataBearer;
 
 export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $Command<
   BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,

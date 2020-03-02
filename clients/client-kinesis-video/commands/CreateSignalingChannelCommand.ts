@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSignalingChannelCommandInput = CreateSignalingChannelInput;
-export type CreateSignalingChannelCommandOutput = CreateSignalingChannelOutput;
+export type CreateSignalingChannelCommandOutput = CreateSignalingChannelOutput &
+  __MetadataBearer;
 
 export class CreateSignalingChannelCommand extends $Command<
   CreateSignalingChannelCommandInput,

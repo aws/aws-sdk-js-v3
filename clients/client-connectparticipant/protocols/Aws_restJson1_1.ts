@@ -261,31 +261,43 @@ async function deserializeAws_restJson1_1CreateParticipantConnectionCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -334,31 +346,43 @@ async function deserializeAws_restJson1_1DisconnectParticipantCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -419,31 +443,43 @@ async function deserializeAws_restJson1_1GetTranscriptCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -497,31 +533,43 @@ async function deserializeAws_restJson1_1SendEventCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -575,31 +623,43 @@ async function deserializeAws_restJson1_1SendMessageCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

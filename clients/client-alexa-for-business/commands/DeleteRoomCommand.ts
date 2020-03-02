@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRoomCommandInput = DeleteRoomRequest;
-export type DeleteRoomCommandOutput = DeleteRoomResponse;
+export type DeleteRoomCommandOutput = DeleteRoomResponse & __MetadataBearer;
 
 export class DeleteRoomCommand extends $Command<
   DeleteRoomCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListProvisionedCapacityCommandInput = ListProvisionedCapacityInput;
-export type ListProvisionedCapacityCommandOutput = ListProvisionedCapacityOutput;
+export type ListProvisionedCapacityCommandOutput = ListProvisionedCapacityOutput &
+  __MetadataBearer;
 
 export class ListProvisionedCapacityCommand extends $Command<
   ListProvisionedCapacityCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateCompanyNetworkConfigurationCommandInput = UpdateCompanyNetworkConfigurationRequest;
-export type UpdateCompanyNetworkConfigurationCommandOutput = UpdateCompanyNetworkConfigurationResponse;
+export type UpdateCompanyNetworkConfigurationCommandOutput = UpdateCompanyNetworkConfigurationResponse &
+  __MetadataBearer;
 
 export class UpdateCompanyNetworkConfigurationCommand extends $Command<
   UpdateCompanyNetworkConfigurationCommandInput,

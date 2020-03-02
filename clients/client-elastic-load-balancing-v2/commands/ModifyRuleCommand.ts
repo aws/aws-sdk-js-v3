@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyRuleCommandInput = ModifyRuleInput;
-export type ModifyRuleCommandOutput = ModifyRuleOutput;
+export type ModifyRuleCommandOutput = ModifyRuleOutput & __MetadataBearer;
 
 export class ModifyRuleCommand extends $Command<
   ModifyRuleCommandInput,

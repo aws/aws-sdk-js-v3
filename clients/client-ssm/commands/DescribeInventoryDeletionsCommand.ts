@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeInventoryDeletionsCommandInput = DescribeInventoryDeletionsRequest;
-export type DescribeInventoryDeletionsCommandOutput = DescribeInventoryDeletionsResult;
+export type DescribeInventoryDeletionsCommandOutput = DescribeInventoryDeletionsResult &
+  __MetadataBearer;
 
 export class DescribeInventoryDeletionsCommand extends $Command<
   DescribeInventoryDeletionsCommandInput,

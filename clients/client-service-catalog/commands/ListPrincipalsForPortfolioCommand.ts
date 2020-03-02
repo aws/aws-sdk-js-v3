@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPrincipalsForPortfolioCommandInput = ListPrincipalsForPortfolioInput;
-export type ListPrincipalsForPortfolioCommandOutput = ListPrincipalsForPortfolioOutput;
+export type ListPrincipalsForPortfolioCommandOutput = ListPrincipalsForPortfolioOutput &
+  __MetadataBearer;
 
 export class ListPrincipalsForPortfolioCommand extends $Command<
   ListPrincipalsForPortfolioCommandInput,

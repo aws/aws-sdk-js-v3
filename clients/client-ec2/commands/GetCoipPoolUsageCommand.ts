@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCoipPoolUsageCommandInput = GetCoipPoolUsageRequest;
-export type GetCoipPoolUsageCommandOutput = GetCoipPoolUsageResult;
+export type GetCoipPoolUsageCommandOutput = GetCoipPoolUsageResult &
+  __MetadataBearer;
 
 export class GetCoipPoolUsageCommand extends $Command<
   GetCoipPoolUsageCommandInput,

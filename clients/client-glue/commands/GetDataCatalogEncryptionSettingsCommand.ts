@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDataCatalogEncryptionSettingsCommandInput = GetDataCatalogEncryptionSettingsRequest;
-export type GetDataCatalogEncryptionSettingsCommandOutput = GetDataCatalogEncryptionSettingsResponse;
+export type GetDataCatalogEncryptionSettingsCommandOutput = GetDataCatalogEncryptionSettingsResponse &
+  __MetadataBearer;
 
 export class GetDataCatalogEncryptionSettingsCommand extends $Command<
   GetDataCatalogEncryptionSettingsCommandInput,

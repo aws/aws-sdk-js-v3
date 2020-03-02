@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateS3ResourcesCommandInput = DisassociateS3ResourcesRequest;
-export type DisassociateS3ResourcesCommandOutput = DisassociateS3ResourcesResult;
+export type DisassociateS3ResourcesCommandOutput = DisassociateS3ResourcesResult &
+  __MetadataBearer;
 
 export class DisassociateS3ResourcesCommand extends $Command<
   DisassociateS3ResourcesCommandInput,

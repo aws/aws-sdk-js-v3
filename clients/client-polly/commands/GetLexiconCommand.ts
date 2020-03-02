@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLexiconCommandInput = GetLexiconInput;
-export type GetLexiconCommandOutput = GetLexiconOutput;
+export type GetLexiconCommandOutput = GetLexiconOutput & __MetadataBearer;
 
 export class GetLexiconCommand extends $Command<
   GetLexiconCommandInput,

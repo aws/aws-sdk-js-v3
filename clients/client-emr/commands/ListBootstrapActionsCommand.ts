@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListBootstrapActionsCommandInput = ListBootstrapActionsInput;
-export type ListBootstrapActionsCommandOutput = ListBootstrapActionsOutput;
+export type ListBootstrapActionsCommandOutput = ListBootstrapActionsOutput &
+  __MetadataBearer;
 
 export class ListBootstrapActionsCommand extends $Command<
   ListBootstrapActionsCommandInput,

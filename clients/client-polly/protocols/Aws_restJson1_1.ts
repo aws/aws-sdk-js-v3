@@ -421,17 +421,23 @@ async function deserializeAws_restJson1_1DeleteLexiconCommandError(
   switch (errorCode) {
     case "LexiconNotFoundException":
     case "com.amazonaws.parrot.v1#LexiconNotFoundException":
-      response = await deserializeAws_restJson1_1LexiconNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LexiconNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
-      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -488,17 +494,23 @@ async function deserializeAws_restJson1_1DescribeVoicesCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.parrot.v1#InvalidNextTokenException":
-      response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
-      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -555,17 +567,23 @@ async function deserializeAws_restJson1_1GetLexiconCommandError(
   switch (errorCode) {
     case "LexiconNotFoundException":
     case "com.amazonaws.parrot.v1#LexiconNotFoundException":
-      response = await deserializeAws_restJson1_1LexiconNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LexiconNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
-      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -621,24 +639,33 @@ async function deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(
   switch (errorCode) {
     case "InvalidTaskIdException":
     case "com.amazonaws.parrot.v1#InvalidTaskIdException":
-      response = await deserializeAws_restJson1_1InvalidTaskIdExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidTaskIdExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
-      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SynthesisTaskNotFoundException":
     case "com.amazonaws.parrot.v1#SynthesisTaskNotFoundException":
-      response = await deserializeAws_restJson1_1SynthesisTaskNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SynthesisTaskNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -695,17 +722,23 @@ async function deserializeAws_restJson1_1ListLexiconsCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.parrot.v1#InvalidNextTokenException":
-      response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
-      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -765,17 +798,23 @@ async function deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.parrot.v1#InvalidNextTokenException":
-      response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
-      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -821,52 +860,73 @@ async function deserializeAws_restJson1_1PutLexiconCommandError(
   switch (errorCode) {
     case "InvalidLexiconException":
     case "com.amazonaws.parrot.v1#InvalidLexiconException":
-      response = await deserializeAws_restJson1_1InvalidLexiconExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidLexiconExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LexiconSizeExceededException":
     case "com.amazonaws.parrot.v1#LexiconSizeExceededException":
-      response = await deserializeAws_restJson1_1LexiconSizeExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LexiconSizeExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaxLexemeLengthExceededException":
     case "com.amazonaws.parrot.v1#MaxLexemeLengthExceededException":
-      response = await deserializeAws_restJson1_1MaxLexemeLengthExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MaxLexemeLengthExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaxLexiconsNumberExceededException":
     case "com.amazonaws.parrot.v1#MaxLexiconsNumberExceededException":
-      response = await deserializeAws_restJson1_1MaxLexiconsNumberExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MaxLexiconsNumberExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
-      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedPlsAlphabetException":
     case "com.amazonaws.parrot.v1#UnsupportedPlsAlphabetException":
-      response = await deserializeAws_restJson1_1UnsupportedPlsAlphabetExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnsupportedPlsAlphabetExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedPlsLanguageException":
     case "com.amazonaws.parrot.v1#UnsupportedPlsLanguageException":
-      response = await deserializeAws_restJson1_1UnsupportedPlsLanguageExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnsupportedPlsLanguageExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -922,87 +982,123 @@ async function deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(
   switch (errorCode) {
     case "EngineNotSupportedException":
     case "com.amazonaws.parrot.v1#EngineNotSupportedException":
-      response = await deserializeAws_restJson1_1EngineNotSupportedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EngineNotSupportedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3BucketException":
     case "com.amazonaws.parrot.v1#InvalidS3BucketException":
-      response = await deserializeAws_restJson1_1InvalidS3BucketExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidS3BucketExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3KeyException":
     case "com.amazonaws.parrot.v1#InvalidS3KeyException":
-      response = await deserializeAws_restJson1_1InvalidS3KeyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidS3KeyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSampleRateException":
     case "com.amazonaws.parrot.v1#InvalidSampleRateException":
-      response = await deserializeAws_restJson1_1InvalidSampleRateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidSampleRateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSnsTopicArnException":
     case "com.amazonaws.parrot.v1#InvalidSnsTopicArnException":
-      response = await deserializeAws_restJson1_1InvalidSnsTopicArnExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidSnsTopicArnExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSsmlException":
     case "com.amazonaws.parrot.v1#InvalidSsmlException":
-      response = await deserializeAws_restJson1_1InvalidSsmlExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidSsmlExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LanguageNotSupportedException":
     case "com.amazonaws.parrot.v1#LanguageNotSupportedException":
-      response = await deserializeAws_restJson1_1LanguageNotSupportedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LanguageNotSupportedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LexiconNotFoundException":
     case "com.amazonaws.parrot.v1#LexiconNotFoundException":
-      response = await deserializeAws_restJson1_1LexiconNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LexiconNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MarksNotSupportedForFormatException":
     case "com.amazonaws.parrot.v1#MarksNotSupportedForFormatException":
-      response = await deserializeAws_restJson1_1MarksNotSupportedForFormatExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MarksNotSupportedForFormatExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
-      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SsmlMarksNotSupportedForTextTypeException":
     case "com.amazonaws.parrot.v1#SsmlMarksNotSupportedForTextTypeException":
-      response = await deserializeAws_restJson1_1SsmlMarksNotSupportedForTextTypeExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SsmlMarksNotSupportedForTextTypeExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextLengthExceededException":
     case "com.amazonaws.parrot.v1#TextLengthExceededException":
-      response = await deserializeAws_restJson1_1TextLengthExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TextLengthExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1064,66 +1160,93 @@ async function deserializeAws_restJson1_1SynthesizeSpeechCommandError(
   switch (errorCode) {
     case "EngineNotSupportedException":
     case "com.amazonaws.parrot.v1#EngineNotSupportedException":
-      response = await deserializeAws_restJson1_1EngineNotSupportedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EngineNotSupportedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSampleRateException":
     case "com.amazonaws.parrot.v1#InvalidSampleRateException":
-      response = await deserializeAws_restJson1_1InvalidSampleRateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidSampleRateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSsmlException":
     case "com.amazonaws.parrot.v1#InvalidSsmlException":
-      response = await deserializeAws_restJson1_1InvalidSsmlExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidSsmlExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LanguageNotSupportedException":
     case "com.amazonaws.parrot.v1#LanguageNotSupportedException":
-      response = await deserializeAws_restJson1_1LanguageNotSupportedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LanguageNotSupportedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LexiconNotFoundException":
     case "com.amazonaws.parrot.v1#LexiconNotFoundException":
-      response = await deserializeAws_restJson1_1LexiconNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LexiconNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MarksNotSupportedForFormatException":
     case "com.amazonaws.parrot.v1#MarksNotSupportedForFormatException":
-      response = await deserializeAws_restJson1_1MarksNotSupportedForFormatExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MarksNotSupportedForFormatExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
-      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SsmlMarksNotSupportedForTextTypeException":
     case "com.amazonaws.parrot.v1#SsmlMarksNotSupportedForTextTypeException":
-      response = await deserializeAws_restJson1_1SsmlMarksNotSupportedForTextTypeExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SsmlMarksNotSupportedForTextTypeExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextLengthExceededException":
     case "com.amazonaws.parrot.v1#TextLengthExceededException":
-      response = await deserializeAws_restJson1_1TextLengthExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TextLengthExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

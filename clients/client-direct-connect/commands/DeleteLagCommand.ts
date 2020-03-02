@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLagCommandInput = DeleteLagRequest;
-export type DeleteLagCommandOutput = Lag;
+export type DeleteLagCommandOutput = Lag & __MetadataBearer;
 
 export class DeleteLagCommand extends $Command<
   DeleteLagCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDBInstanceCommandInput = CreateDBInstanceMessage;
-export type CreateDBInstanceCommandOutput = CreateDBInstanceResult;
+export type CreateDBInstanceCommandOutput = CreateDBInstanceResult &
+  __MetadataBearer;
 
 export class CreateDBInstanceCommand extends $Command<
   CreateDBInstanceCommandInput,

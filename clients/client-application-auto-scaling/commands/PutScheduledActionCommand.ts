@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutScheduledActionCommandInput = PutScheduledActionRequest;
-export type PutScheduledActionCommandOutput = PutScheduledActionResponse;
+export type PutScheduledActionCommandOutput = PutScheduledActionResponse &
+  __MetadataBearer;
 
 export class PutScheduledActionCommand extends $Command<
   PutScheduledActionCommandInput,

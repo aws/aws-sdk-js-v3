@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteVolumeCommandInput = DeleteVolumeInput;
-export type DeleteVolumeCommandOutput = DeleteVolumeOutput;
+export type DeleteVolumeCommandOutput = DeleteVolumeOutput & __MetadataBearer;
 
 export class DeleteVolumeCommand extends $Command<
   DeleteVolumeCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInstanceSnapshotsCommandInput = GetInstanceSnapshotsRequest;
-export type GetInstanceSnapshotsCommandOutput = GetInstanceSnapshotsResult;
+export type GetInstanceSnapshotsCommandOutput = GetInstanceSnapshotsResult &
+  __MetadataBearer;
 
 export class GetInstanceSnapshotsCommand extends $Command<
   GetInstanceSnapshotsCommandInput,

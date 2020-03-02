@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeprovisionByoipCidrCommandInput = DeprovisionByoipCidrRequest;
-export type DeprovisionByoipCidrCommandOutput = DeprovisionByoipCidrResult;
+export type DeprovisionByoipCidrCommandOutput = DeprovisionByoipCidrResult &
+  __MetadataBearer;
 
 export class DeprovisionByoipCidrCommand extends $Command<
   DeprovisionByoipCidrCommandInput,

@@ -56,7 +56,7 @@ export namespace AssociateRepositoryRequest {
   }
 }
 
-export interface AssociateRepositoryResponse extends $MetadataBearer {
+export interface AssociateRepositoryResponse {
   __type?: "AssociateRepositoryResponse";
   /**
    * <p>Information about the repository association.</p>
@@ -119,7 +119,7 @@ export namespace DescribeRepositoryAssociationRequest {
   }
 }
 
-export interface DescribeRepositoryAssociationResponse extends $MetadataBearer {
+export interface DescribeRepositoryAssociationResponse {
   __type?: "DescribeRepositoryAssociationResponse";
   /**
    * <p>Information about the repository association.</p>
@@ -147,7 +147,7 @@ export namespace DisassociateRepositoryRequest {
   }
 }
 
-export interface DisassociateRepositoryResponse extends $MetadataBearer {
+export interface DisassociateRepositoryResponse {
   __type?: "DisassociateRepositoryResponse";
   /**
    * <p>Information about the disassociated repository.</p>
@@ -233,7 +233,7 @@ export namespace ListRepositoryAssociationsRequest {
   }
 }
 
-export interface ListRepositoryAssociationsResponse extends $MetadataBearer {
+export interface ListRepositoryAssociationsResponse {
   __type?: "ListRepositoryAssociationsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRecommendations</code> request.

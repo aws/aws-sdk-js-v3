@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAuditFindingCommandInput = DescribeAuditFindingRequest;
-export type DescribeAuditFindingCommandOutput = DescribeAuditFindingResponse;
+export type DescribeAuditFindingCommandOutput = DescribeAuditFindingResponse &
+  __MetadataBearer;
 
 export class DescribeAuditFindingCommand extends $Command<
   DescribeAuditFindingCommandInput,

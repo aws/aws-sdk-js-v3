@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RefreshCacheCommandInput = RefreshCacheInput;
-export type RefreshCacheCommandOutput = RefreshCacheOutput;
+export type RefreshCacheCommandOutput = RefreshCacheOutput & __MetadataBearer;
 
 export class RefreshCacheCommand extends $Command<
   RefreshCacheCommandInput,

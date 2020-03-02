@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyDBClusterSnapshotCommandInput = CopyDBClusterSnapshotMessage;
-export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult;
+export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult &
+  __MetadataBearer;
 
 export class CopyDBClusterSnapshotCommand extends $Command<
   CopyDBClusterSnapshotCommandInput,

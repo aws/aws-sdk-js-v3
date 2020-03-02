@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchCheckLayerAvailabilityCommandInput = BatchCheckLayerAvailabilityRequest;
-export type BatchCheckLayerAvailabilityCommandOutput = BatchCheckLayerAvailabilityResponse;
+export type BatchCheckLayerAvailabilityCommandOutput = BatchCheckLayerAvailabilityResponse &
+  __MetadataBearer;
 
 export class BatchCheckLayerAvailabilityCommand extends $Command<
   BatchCheckLayerAvailabilityCommandInput,

@@ -1,55 +1,119 @@
 import {
-  CreateUserRequest,
-  CreateUserResponse,
-  DeleteUserRequest,
-  DescribeUserHierarchyGroupRequest,
-  DescribeUserHierarchyGroupResponse,
-  DescribeUserHierarchyStructureRequest,
-  DescribeUserHierarchyStructureResponse,
-  DescribeUserRequest,
-  DescribeUserResponse,
-  GetContactAttributesRequest,
-  GetContactAttributesResponse,
-  GetCurrentMetricDataRequest,
-  GetCurrentMetricDataResponse,
-  GetFederationTokenRequest,
-  GetFederationTokenResponse,
-  GetMetricDataRequest,
-  GetMetricDataResponse,
-  ListContactFlowsRequest,
-  ListContactFlowsResponse,
-  ListHoursOfOperationsRequest,
-  ListHoursOfOperationsResponse,
-  ListPhoneNumbersRequest,
-  ListPhoneNumbersResponse,
-  ListQueuesRequest,
-  ListQueuesResponse,
-  ListRoutingProfilesRequest,
-  ListRoutingProfilesResponse,
-  ListSecurityProfilesRequest,
-  ListSecurityProfilesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListUserHierarchyGroupsRequest,
-  ListUserHierarchyGroupsResponse,
-  ListUsersRequest,
-  ListUsersResponse,
-  StartChatContactRequest,
-  StartChatContactResponse,
-  StartOutboundVoiceContactRequest,
-  StartOutboundVoiceContactResponse,
-  StopContactRequest,
-  StopContactResponse,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateContactAttributesRequest,
-  UpdateContactAttributesResponse,
-  UpdateUserHierarchyRequest,
-  UpdateUserIdentityInfoRequest,
-  UpdateUserPhoneConfigRequest,
-  UpdateUserRoutingProfileRequest,
-  UpdateUserSecurityProfilesRequest
-} from "./models/index";
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
+import {
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput
+} from "./commands/DeleteUserCommand";
+import {
+  DescribeUserCommandInput,
+  DescribeUserCommandOutput
+} from "./commands/DescribeUserCommand";
+import {
+  DescribeUserHierarchyGroupCommandInput,
+  DescribeUserHierarchyGroupCommandOutput
+} from "./commands/DescribeUserHierarchyGroupCommand";
+import {
+  DescribeUserHierarchyStructureCommandInput,
+  DescribeUserHierarchyStructureCommandOutput
+} from "./commands/DescribeUserHierarchyStructureCommand";
+import {
+  GetContactAttributesCommandInput,
+  GetContactAttributesCommandOutput
+} from "./commands/GetContactAttributesCommand";
+import {
+  GetCurrentMetricDataCommandInput,
+  GetCurrentMetricDataCommandOutput
+} from "./commands/GetCurrentMetricDataCommand";
+import {
+  GetFederationTokenCommandInput,
+  GetFederationTokenCommandOutput
+} from "./commands/GetFederationTokenCommand";
+import {
+  GetMetricDataCommandInput,
+  GetMetricDataCommandOutput
+} from "./commands/GetMetricDataCommand";
+import {
+  ListContactFlowsCommandInput,
+  ListContactFlowsCommandOutput
+} from "./commands/ListContactFlowsCommand";
+import {
+  ListHoursOfOperationsCommandInput,
+  ListHoursOfOperationsCommandOutput
+} from "./commands/ListHoursOfOperationsCommand";
+import {
+  ListPhoneNumbersCommandInput,
+  ListPhoneNumbersCommandOutput
+} from "./commands/ListPhoneNumbersCommand";
+import {
+  ListQueuesCommandInput,
+  ListQueuesCommandOutput
+} from "./commands/ListQueuesCommand";
+import {
+  ListRoutingProfilesCommandInput,
+  ListRoutingProfilesCommandOutput
+} from "./commands/ListRoutingProfilesCommand";
+import {
+  ListSecurityProfilesCommandInput,
+  ListSecurityProfilesCommandOutput
+} from "./commands/ListSecurityProfilesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListUserHierarchyGroupsCommandInput,
+  ListUserHierarchyGroupsCommandOutput
+} from "./commands/ListUserHierarchyGroupsCommand";
+import {
+  ListUsersCommandInput,
+  ListUsersCommandOutput
+} from "./commands/ListUsersCommand";
+import {
+  StartChatContactCommandInput,
+  StartChatContactCommandOutput
+} from "./commands/StartChatContactCommand";
+import {
+  StartOutboundVoiceContactCommandInput,
+  StartOutboundVoiceContactCommandOutput
+} from "./commands/StartOutboundVoiceContactCommand";
+import {
+  StopContactCommandInput,
+  StopContactCommandOutput
+} from "./commands/StopContactCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateContactAttributesCommandInput,
+  UpdateContactAttributesCommandOutput
+} from "./commands/UpdateContactAttributesCommand";
+import {
+  UpdateUserHierarchyCommandInput,
+  UpdateUserHierarchyCommandOutput
+} from "./commands/UpdateUserHierarchyCommand";
+import {
+  UpdateUserIdentityInfoCommandInput,
+  UpdateUserIdentityInfoCommandOutput
+} from "./commands/UpdateUserIdentityInfoCommand";
+import {
+  UpdateUserPhoneConfigCommandInput,
+  UpdateUserPhoneConfigCommandOutput
+} from "./commands/UpdateUserPhoneConfigCommand";
+import {
+  UpdateUserRoutingProfileCommandInput,
+  UpdateUserRoutingProfileCommandOutput
+} from "./commands/UpdateUserRoutingProfileCommand";
+import {
+  UpdateUserSecurityProfilesCommandInput,
+  UpdateUserSecurityProfilesCommandOutput
+} from "./commands/UpdateUserSecurityProfilesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -97,66 +161,72 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateUserRequest
-  | DeleteUserRequest
-  | DescribeUserHierarchyGroupRequest
-  | DescribeUserHierarchyStructureRequest
-  | DescribeUserRequest
-  | GetContactAttributesRequest
-  | GetCurrentMetricDataRequest
-  | GetFederationTokenRequest
-  | GetMetricDataRequest
-  | ListContactFlowsRequest
-  | ListHoursOfOperationsRequest
-  | ListPhoneNumbersRequest
-  | ListQueuesRequest
-  | ListRoutingProfilesRequest
-  | ListSecurityProfilesRequest
-  | ListTagsForResourceRequest
-  | ListUserHierarchyGroupsRequest
-  | ListUsersRequest
-  | StartChatContactRequest
-  | StartOutboundVoiceContactRequest
-  | StopContactRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateContactAttributesRequest
-  | UpdateUserHierarchyRequest
-  | UpdateUserIdentityInfoRequest
-  | UpdateUserPhoneConfigRequest
-  | UpdateUserRoutingProfileRequest
-  | UpdateUserSecurityProfilesRequest;
+  | CreateUserCommandInput
+  | DeleteUserCommandInput
+  | DescribeUserCommandInput
+  | DescribeUserHierarchyGroupCommandInput
+  | DescribeUserHierarchyStructureCommandInput
+  | GetContactAttributesCommandInput
+  | GetCurrentMetricDataCommandInput
+  | GetFederationTokenCommandInput
+  | GetMetricDataCommandInput
+  | ListContactFlowsCommandInput
+  | ListHoursOfOperationsCommandInput
+  | ListPhoneNumbersCommandInput
+  | ListQueuesCommandInput
+  | ListRoutingProfilesCommandInput
+  | ListSecurityProfilesCommandInput
+  | ListTagsForResourceCommandInput
+  | ListUserHierarchyGroupsCommandInput
+  | ListUsersCommandInput
+  | StartChatContactCommandInput
+  | StartOutboundVoiceContactCommandInput
+  | StopContactCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateContactAttributesCommandInput
+  | UpdateUserHierarchyCommandInput
+  | UpdateUserIdentityInfoCommandInput
+  | UpdateUserPhoneConfigCommandInput
+  | UpdateUserRoutingProfileCommandInput
+  | UpdateUserSecurityProfilesCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateUserResponse
-  | DescribeUserHierarchyGroupResponse
-  | DescribeUserHierarchyStructureResponse
-  | DescribeUserResponse
-  | GetContactAttributesResponse
-  | GetCurrentMetricDataResponse
-  | GetFederationTokenResponse
-  | GetMetricDataResponse
-  | ListContactFlowsResponse
-  | ListHoursOfOperationsResponse
-  | ListPhoneNumbersResponse
-  | ListQueuesResponse
-  | ListRoutingProfilesResponse
-  | ListSecurityProfilesResponse
-  | ListTagsForResourceResponse
-  | ListUserHierarchyGroupsResponse
-  | ListUsersResponse
-  | StartChatContactResponse
-  | StartOutboundVoiceContactResponse
-  | StopContactResponse
-  | UpdateContactAttributesResponse;
+  | CreateUserCommandOutput
+  | DeleteUserCommandOutput
+  | DescribeUserCommandOutput
+  | DescribeUserHierarchyGroupCommandOutput
+  | DescribeUserHierarchyStructureCommandOutput
+  | GetContactAttributesCommandOutput
+  | GetCurrentMetricDataCommandOutput
+  | GetFederationTokenCommandOutput
+  | GetMetricDataCommandOutput
+  | ListContactFlowsCommandOutput
+  | ListHoursOfOperationsCommandOutput
+  | ListPhoneNumbersCommandOutput
+  | ListQueuesCommandOutput
+  | ListRoutingProfilesCommandOutput
+  | ListSecurityProfilesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListUserHierarchyGroupsCommandOutput
+  | ListUsersCommandOutput
+  | StartChatContactCommandOutput
+  | StartOutboundVoiceContactCommandOutput
+  | StopContactCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateContactAttributesCommandOutput
+  | UpdateUserHierarchyCommandOutput
+  | UpdateUserIdentityInfoCommandOutput
+  | UpdateUserPhoneConfigCommandOutput
+  | UpdateUserRoutingProfileCommandOutput
+  | UpdateUserSecurityProfilesCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

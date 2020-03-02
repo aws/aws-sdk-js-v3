@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TerminateEnvironmentCommandInput = TerminateEnvironmentMessage;
-export type TerminateEnvironmentCommandOutput = EnvironmentDescription;
+export type TerminateEnvironmentCommandOutput = EnvironmentDescription &
+  __MetadataBearer;
 
 export class TerminateEnvironmentCommand extends $Command<
   TerminateEnvironmentCommandInput,

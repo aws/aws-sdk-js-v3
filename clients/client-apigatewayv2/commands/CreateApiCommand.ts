@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateApiCommandInput = CreateApiRequest;
-export type CreateApiCommandOutput = CreateApiResponse;
+export type CreateApiCommandOutput = CreateApiResponse & __MetadataBearer;
 
 export class CreateApiCommand extends $Command<
   CreateApiCommandInput,

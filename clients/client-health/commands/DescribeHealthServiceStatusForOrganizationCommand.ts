@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeHealthServiceStatusForOrganizationCommandInput = {};
-export type DescribeHealthServiceStatusForOrganizationCommandOutput = DescribeHealthServiceStatusForOrganizationResponse;
+export type DescribeHealthServiceStatusForOrganizationCommandOutput = DescribeHealthServiceStatusForOrganizationResponse &
+  __MetadataBearer;
 
 export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
   DescribeHealthServiceStatusForOrganizationCommandInput,

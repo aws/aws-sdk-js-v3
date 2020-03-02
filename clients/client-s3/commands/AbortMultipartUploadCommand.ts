@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AbortMultipartUploadCommandInput = AbortMultipartUploadRequest;
-export type AbortMultipartUploadCommandOutput = AbortMultipartUploadOutput;
+export type AbortMultipartUploadCommandOutput = AbortMultipartUploadOutput &
+  __MetadataBearer;
 
 export class AbortMultipartUploadCommand extends $Command<
   AbortMultipartUploadCommandInput,

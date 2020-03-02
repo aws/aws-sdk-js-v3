@@ -139,7 +139,7 @@ export namespace CreateAssetRequest {
   }
 }
 
-export interface CreateAssetResponse extends $MetadataBearer {
+export interface CreateAssetResponse {
   __type?: "CreateAssetResponse";
   /**
    * The ARN of the Asset.
@@ -230,7 +230,7 @@ export namespace CreatePackagingConfigurationRequest {
   }
 }
 
-export interface CreatePackagingConfigurationResponse extends $MetadataBearer {
+export interface CreatePackagingConfigurationResponse {
   __type?: "CreatePackagingConfigurationResponse";
   /**
    * The ARN of the PackagingConfiguration.
@@ -291,7 +291,7 @@ export namespace CreatePackagingGroupRequest {
   }
 }
 
-export interface CreatePackagingGroupResponse extends $MetadataBearer {
+export interface CreatePackagingGroupResponse {
   __type?: "CreatePackagingGroupResponse";
   /**
    * The ARN of the PackagingGroup.
@@ -406,7 +406,7 @@ export namespace DeleteAssetRequest {
   }
 }
 
-export interface DeleteAssetResponse extends $MetadataBearer {
+export interface DeleteAssetResponse {
   __type?: "DeleteAssetResponse";
 }
 
@@ -430,7 +430,7 @@ export namespace DeletePackagingConfigurationRequest {
   }
 }
 
-export interface DeletePackagingConfigurationResponse extends $MetadataBearer {
+export interface DeletePackagingConfigurationResponse {
   __type?: "DeletePackagingConfigurationResponse";
 }
 
@@ -454,7 +454,7 @@ export namespace DeletePackagingGroupRequest {
   }
 }
 
-export interface DeletePackagingGroupResponse extends $MetadataBearer {
+export interface DeletePackagingGroupResponse {
   __type?: "DeletePackagingGroupResponse";
 }
 
@@ -478,7 +478,7 @@ export namespace DescribeAssetRequest {
   }
 }
 
-export interface DescribeAssetResponse extends $MetadataBearer {
+export interface DescribeAssetResponse {
   __type?: "DescribeAssetResponse";
   /**
    * The ARN of the Asset.
@@ -541,8 +541,7 @@ export namespace DescribePackagingConfigurationRequest {
   }
 }
 
-export interface DescribePackagingConfigurationResponse
-  extends $MetadataBearer {
+export interface DescribePackagingConfigurationResponse {
   __type?: "DescribePackagingConfigurationResponse";
   /**
    * The ARN of the PackagingConfiguration.
@@ -600,7 +599,7 @@ export namespace DescribePackagingGroupRequest {
   }
 }
 
-export interface DescribePackagingGroupResponse extends $MetadataBearer {
+export interface DescribePackagingGroupResponse {
   __type?: "DescribePackagingGroupResponse";
   /**
    * The ARN of the PackagingGroup.
@@ -823,7 +822,7 @@ export namespace ListAssetsRequest {
   }
 }
 
-export interface ListAssetsResponse extends $MetadataBearer {
+export interface ListAssetsResponse {
   __type?: "ListAssetsResponse";
   /**
    * A list of MediaPackage VOD Asset resources.
@@ -866,7 +865,7 @@ export namespace ListPackagingConfigurationsRequest {
   }
 }
 
-export interface ListPackagingConfigurationsResponse extends $MetadataBearer {
+export interface ListPackagingConfigurationsResponse {
   __type?: "ListPackagingConfigurationsResponse";
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -904,7 +903,7 @@ export namespace ListPackagingGroupsRequest {
   }
 }
 
-export interface ListPackagingGroupsResponse extends $MetadataBearer {
+export interface ListPackagingGroupsResponse {
   __type?: "ListPackagingGroupsResponse";
   /**
    * A token that can be used to resume pagination from the end of the collection.

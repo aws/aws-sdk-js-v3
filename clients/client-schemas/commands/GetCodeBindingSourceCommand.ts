@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCodeBindingSourceCommandInput = GetCodeBindingSourceRequest;
-export type GetCodeBindingSourceCommandOutput = GetCodeBindingSourceResponse;
+export type GetCodeBindingSourceCommandOutput = GetCodeBindingSourceResponse &
+  __MetadataBearer;
 
 export class GetCodeBindingSourceCommand extends $Command<
   GetCodeBindingSourceCommandInput,

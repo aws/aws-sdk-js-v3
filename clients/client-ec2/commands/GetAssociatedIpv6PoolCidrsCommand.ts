@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAssociatedIpv6PoolCidrsCommandInput = GetAssociatedIpv6PoolCidrsRequest;
-export type GetAssociatedIpv6PoolCidrsCommandOutput = GetAssociatedIpv6PoolCidrsResult;
+export type GetAssociatedIpv6PoolCidrsCommandOutput = GetAssociatedIpv6PoolCidrsResult &
+  __MetadataBearer;
 
 export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
   GetAssociatedIpv6PoolCidrsCommandInput,

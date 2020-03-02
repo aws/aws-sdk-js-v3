@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateGatewaySoftwareNowCommandInput = UpdateGatewaySoftwareNowInput;
-export type UpdateGatewaySoftwareNowCommandOutput = UpdateGatewaySoftwareNowOutput;
+export type UpdateGatewaySoftwareNowCommandOutput = UpdateGatewaySoftwareNowOutput &
+  __MetadataBearer;
 
 export class UpdateGatewaySoftwareNowCommand extends $Command<
   UpdateGatewaySoftwareNowCommandInput,

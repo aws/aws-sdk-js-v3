@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListProgressUpdateStreamsCommandInput = ListProgressUpdateStreamsRequest;
-export type ListProgressUpdateStreamsCommandOutput = ListProgressUpdateStreamsResult;
+export type ListProgressUpdateStreamsCommandOutput = ListProgressUpdateStreamsResult &
+  __MetadataBearer;
 
 export class ListProgressUpdateStreamsCommand extends $Command<
   ListProgressUpdateStreamsCommandInput,

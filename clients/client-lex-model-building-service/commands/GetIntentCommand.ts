@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIntentCommandInput = GetIntentRequest;
-export type GetIntentCommandOutput = GetIntentResponse;
+export type GetIntentCommandOutput = GetIntentResponse & __MetadataBearer;
 
 export class GetIntentCommand extends $Command<
   GetIntentCommandInput,

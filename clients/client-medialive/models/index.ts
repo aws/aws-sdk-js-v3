@@ -814,7 +814,7 @@ export namespace BatchUpdateScheduleRequest {
 /**
  * Placeholder documentation for BatchUpdateScheduleResponse
  */
-export interface BatchUpdateScheduleResponse extends $MetadataBearer {
+export interface BatchUpdateScheduleResponse {
   __type?: "BatchUpdateScheduleResponse";
   /**
    * Schedule actions created in the schedule.
@@ -1529,7 +1529,7 @@ export namespace CreateChannelRequest {
 /**
  * Placeholder documentation for CreateChannelResponse
  */
-export interface CreateChannelResponse extends $MetadataBearer {
+export interface CreateChannelResponse {
   __type?: "CreateChannelResponse";
   /**
    * Placeholder documentation for Channel
@@ -1616,7 +1616,7 @@ export namespace CreateInputRequest {
 /**
  * Placeholder documentation for CreateInputResponse
  */
-export interface CreateInputResponse extends $MetadataBearer {
+export interface CreateInputResponse {
   __type?: "CreateInputResponse";
   /**
    * Placeholder documentation for Input
@@ -1655,7 +1655,7 @@ export namespace CreateInputSecurityGroupRequest {
 /**
  * Placeholder documentation for CreateInputSecurityGroupResponse
  */
-export interface CreateInputSecurityGroupResponse extends $MetadataBearer {
+export interface CreateInputSecurityGroupResponse {
   __type?: "CreateInputSecurityGroupResponse";
   /**
    * An Input Security Group
@@ -1705,7 +1705,7 @@ export namespace CreateMultiplexProgramRequest {
 /**
  * Placeholder documentation for CreateMultiplexProgramResponse
  */
-export interface CreateMultiplexProgramResponse extends $MetadataBearer {
+export interface CreateMultiplexProgramResponse {
   __type?: "CreateMultiplexProgramResponse";
   /**
    * The newly created multiplex program.
@@ -1760,7 +1760,7 @@ export namespace CreateMultiplexRequest {
 /**
  * Placeholder documentation for CreateMultiplexResponse
  */
-export interface CreateMultiplexResponse extends $MetadataBearer {
+export interface CreateMultiplexResponse {
   __type?: "CreateMultiplexResponse";
   /**
    * The newly created multiplex.
@@ -1816,7 +1816,7 @@ export namespace DeleteChannelRequest {
 /**
  * Placeholder documentation for DeleteChannelResponse
  */
-export interface DeleteChannelResponse extends $MetadataBearer {
+export interface DeleteChannelResponse {
   __type?: "DeleteChannelResponse";
   /**
    * The unique arn of the channel.
@@ -1922,7 +1922,7 @@ export namespace DeleteInputRequest {
 /**
  * Placeholder documentation for DeleteInputResponse
  */
-export interface DeleteInputResponse extends $MetadataBearer {
+export interface DeleteInputResponse {
   __type?: "DeleteInputResponse";
 }
 
@@ -1952,7 +1952,7 @@ export namespace DeleteInputSecurityGroupRequest {
 /**
  * Placeholder documentation for DeleteInputSecurityGroupResponse
  */
-export interface DeleteInputSecurityGroupResponse extends $MetadataBearer {
+export interface DeleteInputSecurityGroupResponse {
   __type?: "DeleteInputSecurityGroupResponse";
 }
 
@@ -1987,7 +1987,7 @@ export namespace DeleteMultiplexProgramRequest {
 /**
  * Placeholder documentation for DeleteMultiplexProgramResponse
  */
-export interface DeleteMultiplexProgramResponse extends $MetadataBearer {
+export interface DeleteMultiplexProgramResponse {
   __type?: "DeleteMultiplexProgramResponse";
   /**
    * The MediaLive channel associated with the program.
@@ -2036,7 +2036,7 @@ export namespace DeleteMultiplexRequest {
 /**
  * Placeholder documentation for DeleteMultiplexResponse
  */
-export interface DeleteMultiplexResponse extends $MetadataBearer {
+export interface DeleteMultiplexResponse {
   __type?: "DeleteMultiplexResponse";
   /**
    * The unique arn of the multiplex.
@@ -2115,7 +2115,7 @@ export namespace DeleteReservationRequest {
 /**
  * Placeholder documentation for DeleteReservationResponse
  */
-export interface DeleteReservationResponse extends $MetadataBearer {
+export interface DeleteReservationResponse {
   __type?: "DeleteReservationResponse";
   /**
    * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
@@ -2234,7 +2234,7 @@ export namespace DeleteScheduleRequest {
 /**
  * Placeholder documentation for DeleteScheduleResponse
  */
-export interface DeleteScheduleResponse extends $MetadataBearer {
+export interface DeleteScheduleResponse {
   __type?: "DeleteScheduleResponse";
 }
 
@@ -2286,7 +2286,7 @@ export namespace DescribeChannelRequest {
 /**
  * Placeholder documentation for DescribeChannelResponse
  */
-export interface DescribeChannelResponse extends $MetadataBearer {
+export interface DescribeChannelResponse {
   __type?: "DescribeChannelResponse";
   /**
    * The unique arn of the channel.
@@ -2392,7 +2392,7 @@ export namespace DescribeInputRequest {
 /**
  * Placeholder documentation for DescribeInputResponse
  */
-export interface DescribeInputResponse extends $MetadataBearer {
+export interface DescribeInputResponse {
   __type?: "DescribeInputResponse";
   /**
    * The Unique ARN of the input (generated, immutable).
@@ -2493,7 +2493,7 @@ export namespace DescribeInputSecurityGroupRequest {
 /**
  * Placeholder documentation for DescribeInputSecurityGroupResponse
  */
-export interface DescribeInputSecurityGroupResponse extends $MetadataBearer {
+export interface DescribeInputSecurityGroupResponse {
   __type?: "DescribeInputSecurityGroupResponse";
   /**
    * Unique ARN of Input Security Group
@@ -2557,7 +2557,7 @@ export namespace DescribeMultiplexProgramRequest {
 /**
  * Placeholder documentation for DescribeMultiplexProgramResponse
  */
-export interface DescribeMultiplexProgramResponse extends $MetadataBearer {
+export interface DescribeMultiplexProgramResponse {
   __type?: "DescribeMultiplexProgramResponse";
   /**
    * The MediaLive channel associated with the program.
@@ -2606,7 +2606,7 @@ export namespace DescribeMultiplexRequest {
 /**
  * Placeholder documentation for DescribeMultiplexResponse
  */
-export interface DescribeMultiplexResponse extends $MetadataBearer {
+export interface DescribeMultiplexResponse {
   __type?: "DescribeMultiplexResponse";
   /**
    * The unique arn of the multiplex.
@@ -2685,7 +2685,7 @@ export namespace DescribeOfferingRequest {
 /**
  * Placeholder documentation for DescribeOfferingResponse
  */
-export interface DescribeOfferingResponse extends $MetadataBearer {
+export interface DescribeOfferingResponse {
   __type?: "DescribeOfferingResponse";
   /**
    * Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
@@ -2769,7 +2769,7 @@ export namespace DescribeReservationRequest {
 /**
  * Placeholder documentation for DescribeReservationResponse
  */
-export interface DescribeReservationResponse extends $MetadataBearer {
+export interface DescribeReservationResponse {
   __type?: "DescribeReservationResponse";
   /**
    * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
@@ -2898,7 +2898,7 @@ export namespace DescribeScheduleRequest {
 /**
  * Placeholder documentation for DescribeScheduleResponse
  */
-export interface DescribeScheduleResponse extends $MetadataBearer {
+export interface DescribeScheduleResponse {
   __type?: "DescribeScheduleResponse";
   /**
    * The next token; for use in pagination.
@@ -5856,7 +5856,7 @@ export namespace ListChannelsRequest {
 /**
  * Placeholder documentation for ListChannelsResponse
  */
-export interface ListChannelsResponse extends $MetadataBearer {
+export interface ListChannelsResponse {
   __type?: "ListChannelsResponse";
   /**
    * Placeholder documentation for __listOfChannelSummary
@@ -5900,7 +5900,7 @@ export namespace ListInputSecurityGroupsRequest {
 /**
  * Placeholder documentation for ListInputSecurityGroupsResponse
  */
-export interface ListInputSecurityGroupsResponse extends $MetadataBearer {
+export interface ListInputSecurityGroupsResponse {
   __type?: "ListInputSecurityGroupsResponse";
   /**
    * List of input security groups
@@ -5944,7 +5944,7 @@ export namespace ListInputsRequest {
 /**
  * Placeholder documentation for ListInputsResponse
  */
-export interface ListInputsResponse extends $MetadataBearer {
+export interface ListInputsResponse {
   __type?: "ListInputsResponse";
   /**
    * Placeholder documentation for __listOfInput
@@ -5993,7 +5993,7 @@ export namespace ListMultiplexProgramsRequest {
 /**
  * Placeholder documentation for ListMultiplexProgramsResponse
  */
-export interface ListMultiplexProgramsResponse extends $MetadataBearer {
+export interface ListMultiplexProgramsResponse {
   __type?: "ListMultiplexProgramsResponse";
   /**
    * List of multiplex programs.
@@ -6037,7 +6037,7 @@ export namespace ListMultiplexesRequest {
 /**
  * Placeholder documentation for ListMultiplexesResponse
  */
-export interface ListMultiplexesResponse extends $MetadataBearer {
+export interface ListMultiplexesResponse {
   __type?: "ListMultiplexesResponse";
   /**
    * List of multiplexes.
@@ -6131,7 +6131,7 @@ export namespace ListOfferingsRequest {
 /**
  * Placeholder documentation for ListOfferingsResponse
  */
-export interface ListOfferingsResponse extends $MetadataBearer {
+export interface ListOfferingsResponse {
   __type?: "ListOfferingsResponse";
   /**
    * Token to retrieve the next page of results
@@ -6215,7 +6215,7 @@ export namespace ListReservationsRequest {
 /**
  * Placeholder documentation for ListReservationsResponse
  */
-export interface ListReservationsResponse extends $MetadataBearer {
+export interface ListReservationsResponse {
   __type?: "ListReservationsResponse";
   /**
    * Token to retrieve the next page of results
@@ -6254,7 +6254,7 @@ export namespace ListTagsForResourceRequest {
 /**
  * Placeholder documentation for ListTagsForResourceResponse
  */
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * Placeholder documentation for Tags
@@ -8015,7 +8015,7 @@ export namespace PurchaseOfferingRequest {
 /**
  * Placeholder documentation for PurchaseOfferingResponse
  */
-export interface PurchaseOfferingResponse extends $MetadataBearer {
+export interface PurchaseOfferingResponse {
   __type?: "PurchaseOfferingResponse";
   /**
    * Reserved resources available to use
@@ -8975,7 +8975,7 @@ export namespace StartChannelRequest {
 /**
  * Placeholder documentation for StartChannelResponse
  */
-export interface StartChannelResponse extends $MetadataBearer {
+export interface StartChannelResponse {
   __type?: "StartChannelResponse";
   /**
    * The unique arn of the channel.
@@ -9081,7 +9081,7 @@ export namespace StartMultiplexRequest {
 /**
  * Placeholder documentation for StartMultiplexResponse
  */
-export interface StartMultiplexResponse extends $MetadataBearer {
+export interface StartMultiplexResponse {
   __type?: "StartMultiplexResponse";
   /**
    * The unique arn of the multiplex.
@@ -9285,7 +9285,7 @@ export namespace StopChannelRequest {
 /**
  * Placeholder documentation for StopChannelResponse
  */
-export interface StopChannelResponse extends $MetadataBearer {
+export interface StopChannelResponse {
   __type?: "StopChannelResponse";
   /**
    * The unique arn of the channel.
@@ -9391,7 +9391,7 @@ export namespace StopMultiplexRequest {
 /**
  * Placeholder documentation for StopMultiplexResponse
  */
-export interface StopMultiplexResponse extends $MetadataBearer {
+export interface StopMultiplexResponse {
   __type?: "StopMultiplexResponse";
   /**
    * The unique arn of the multiplex.
@@ -9712,7 +9712,7 @@ export namespace UpdateChannelClassRequest {
 /**
  * Placeholder documentation for UpdateChannelClassResponse
  */
-export interface UpdateChannelClassResponse extends $MetadataBearer {
+export interface UpdateChannelClassResponse {
   __type?: "UpdateChannelClassResponse";
   /**
    * Placeholder documentation for Channel
@@ -9781,7 +9781,7 @@ export namespace UpdateChannelRequest {
 /**
  * Placeholder documentation for UpdateChannelResponse
  */
-export interface UpdateChannelResponse extends $MetadataBearer {
+export interface UpdateChannelResponse {
   __type?: "UpdateChannelResponse";
   /**
    * Placeholder documentation for Channel
@@ -9849,7 +9849,7 @@ export namespace UpdateInputRequest {
 /**
  * Placeholder documentation for UpdateInputResponse
  */
-export interface UpdateInputResponse extends $MetadataBearer {
+export interface UpdateInputResponse {
   __type?: "UpdateInputResponse";
   /**
    * Placeholder documentation for Input
@@ -9893,7 +9893,7 @@ export namespace UpdateInputSecurityGroupRequest {
 /**
  * Placeholder documentation for UpdateInputSecurityGroupResponse
  */
-export interface UpdateInputSecurityGroupResponse extends $MetadataBearer {
+export interface UpdateInputSecurityGroupResponse {
   __type?: "UpdateInputSecurityGroupResponse";
   /**
    * An Input Security Group
@@ -9937,7 +9937,7 @@ export namespace UpdateMultiplexProgramRequest {
 /**
  * Placeholder documentation for UpdateMultiplexProgramResponse
  */
-export interface UpdateMultiplexProgramResponse extends $MetadataBearer {
+export interface UpdateMultiplexProgramResponse {
   __type?: "UpdateMultiplexProgramResponse";
   /**
    * The updated multiplex program.
@@ -9981,7 +9981,7 @@ export namespace UpdateMultiplexRequest {
 /**
  * Placeholder documentation for UpdateMultiplexResponse
  */
-export interface UpdateMultiplexResponse extends $MetadataBearer {
+export interface UpdateMultiplexResponse {
   __type?: "UpdateMultiplexResponse";
   /**
    * The updated multiplex.
@@ -10020,7 +10020,7 @@ export namespace UpdateReservationRequest {
 /**
  * Placeholder documentation for UpdateReservationResponse
  */
-export interface UpdateReservationResponse extends $MetadataBearer {
+export interface UpdateReservationResponse {
   __type?: "UpdateReservationResponse";
   /**
    * Reserved resources available to use

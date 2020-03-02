@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreTableToPointInTimeCommandInput = RestoreTableToPointInTimeInput;
-export type RestoreTableToPointInTimeCommandOutput = RestoreTableToPointInTimeOutput;
+export type RestoreTableToPointInTimeCommandOutput = RestoreTableToPointInTimeOutput &
+  __MetadataBearer;
 
 export class RestoreTableToPointInTimeCommand extends $Command<
   RestoreTableToPointInTimeCommandInput,

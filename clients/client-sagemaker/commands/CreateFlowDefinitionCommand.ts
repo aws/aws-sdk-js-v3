@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateFlowDefinitionCommandInput = CreateFlowDefinitionRequest;
-export type CreateFlowDefinitionCommandOutput = CreateFlowDefinitionResponse;
+export type CreateFlowDefinitionCommandOutput = CreateFlowDefinitionResponse &
+  __MetadataBearer;
 
 export class CreateFlowDefinitionCommand extends $Command<
   CreateFlowDefinitionCommandInput,

@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type MergeDeveloperIdentitiesCommandInput = MergeDeveloperIdentitiesInput;
-export type MergeDeveloperIdentitiesCommandOutput = MergeDeveloperIdentitiesResponse;
+export type MergeDeveloperIdentitiesCommandOutput = MergeDeveloperIdentitiesResponse &
+  __MetadataBearer;
 
 export class MergeDeveloperIdentitiesCommand extends $Command<
   MergeDeveloperIdentitiesCommandInput,

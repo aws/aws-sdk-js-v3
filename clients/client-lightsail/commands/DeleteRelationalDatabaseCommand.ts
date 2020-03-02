@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRelationalDatabaseCommandInput = DeleteRelationalDatabaseRequest;
-export type DeleteRelationalDatabaseCommandOutput = DeleteRelationalDatabaseResult;
+export type DeleteRelationalDatabaseCommandOutput = DeleteRelationalDatabaseResult &
+  __MetadataBearer;
 
 export class DeleteRelationalDatabaseCommand extends $Command<
   DeleteRelationalDatabaseCommandInput,

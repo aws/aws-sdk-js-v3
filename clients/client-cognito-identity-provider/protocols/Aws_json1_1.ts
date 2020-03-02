@@ -2188,45 +2188,63 @@ async function deserializeAws_json1_1AddCustomAttributesCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserImportInProgressException":
     case "com.amazonaws.cognito.identity.idp.model#UserImportInProgressException":
-      response = await deserializeAws_json1_1UserImportInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserImportInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2278,45 +2296,63 @@ async function deserializeAws_json1_1AdminAddUserToGroupCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2372,80 +2408,113 @@ async function deserializeAws_json1_1AdminConfirmSignUpCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFailedAttemptsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyFailedAttemptsException":
-      response = await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2498,115 +2567,163 @@ async function deserializeAws_json1_1AdminCreateUserCommandError(
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionNotMetException":
     case "com.amazonaws.cognito.identity.idp.model#PreconditionNotMetException":
-      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedUserStateException":
     case "com.amazonaws.cognito.identity.idp.model#UnsupportedUserStateException":
-      response = await deserializeAws_json1_1UnsupportedUserStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedUserStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UsernameExistsException":
     case "com.amazonaws.cognito.identity.idp.model#UsernameExistsException":
-      response = await deserializeAws_json1_1UsernameExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UsernameExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2655,45 +2772,63 @@ async function deserializeAws_json1_1AdminDeleteUserCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2752,45 +2887,63 @@ async function deserializeAws_json1_1AdminDeleteUserAttributesCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2849,52 +3002,73 @@ async function deserializeAws_json1_1AdminDisableProviderForUserCommandError(
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AliasExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2947,45 +3121,63 @@ async function deserializeAws_json1_1AdminDisableUserCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3038,45 +3230,63 @@ async function deserializeAws_json1_1AdminEnableUserCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3125,52 +3335,73 @@ async function deserializeAws_json1_1AdminForgetDeviceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3223,45 +3454,63 @@ async function deserializeAws_json1_1AdminGetDeviceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3314,45 +3563,63 @@ async function deserializeAws_json1_1AdminGetUserCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3405,108 +3672,153 @@ async function deserializeAws_json1_1AdminInitiateAuthCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#MFAMethodNotFoundException":
-      response = await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3565,52 +3877,73 @@ async function deserializeAws_json1_1AdminLinkProviderForUserCommandError(
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AliasExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3663,45 +3996,63 @@ async function deserializeAws_json1_1AdminListDevicesCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3760,45 +4111,63 @@ async function deserializeAws_json1_1AdminListGroupsForUserCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3857,52 +4226,73 @@ async function deserializeAws_json1_1AdminListUserAuthEventsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3954,45 +4344,63 @@ async function deserializeAws_json1_1AdminRemoveUserFromGroupCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4051,94 +4459,133 @@ async function deserializeAws_json1_1AdminResetUserPasswordCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4197,143 +4644,203 @@ async function deserializeAws_json1_1AdminRespondToAuthChallengeCommandError(
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AliasExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#MFAMethodNotFoundException":
-      response = await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#SoftwareTokenMFANotFoundException":
-      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4392,52 +4899,73 @@ async function deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4493,52 +5021,73 @@ async function deserializeAws_json1_1AdminSetUserPasswordCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4594,38 +5143,53 @@ async function deserializeAws_json1_1AdminSetUserSettingsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4684,52 +5248,73 @@ async function deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4788,52 +5373,73 @@ async function deserializeAws_json1_1AdminUpdateDeviceStatusCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4892,94 +5498,133 @@ async function deserializeAws_json1_1AdminUpdateUserAttributesCommandError(
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AliasExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5038,45 +5683,63 @@ async function deserializeAws_json1_1AdminUserGlobalSignOutCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5135,38 +5798,53 @@ async function deserializeAws_json1_1AssociateSoftwareTokenCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#SoftwareTokenMFANotFoundException":
-      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5219,73 +5897,103 @@ async function deserializeAws_json1_1ChangePasswordCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5338,87 +6046,123 @@ async function deserializeAws_json1_1ConfirmDeviceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UsernameExistsException":
     case "com.amazonaws.cognito.identity.idp.model#UsernameExistsException":
-      response = await deserializeAws_json1_1UsernameExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UsernameExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5474,108 +6218,153 @@ async function deserializeAws_json1_1ConfirmForgotPasswordCommandError(
   switch (errorCode) {
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFailedAttemptsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyFailedAttemptsException":
-      response = await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5628,101 +6417,143 @@ async function deserializeAws_json1_1ConfirmSignUpCommandError(
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AliasExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyFailedAttemptsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyFailedAttemptsException":
-      response = await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5775,52 +6606,73 @@ async function deserializeAws_json1_1CreateGroupCommandError(
   switch (errorCode) {
     case "GroupExistsException":
     case "com.amazonaws.cognito.identity.idp.model#GroupExistsException":
-      response = await deserializeAws_json1_1GroupExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1GroupExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5879,52 +6731,73 @@ async function deserializeAws_json1_1CreateIdentityProviderCommandError(
   switch (errorCode) {
     case "DuplicateProviderException":
     case "com.amazonaws.cognito.identity.idp.model#DuplicateProviderException":
-      response = await deserializeAws_json1_1DuplicateProviderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateProviderExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5980,45 +6853,63 @@ async function deserializeAws_json1_1CreateResourceServerCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6074,52 +6965,73 @@ async function deserializeAws_json1_1CreateUserImportJobCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionNotMetException":
     case "com.amazonaws.cognito.identity.idp.model#PreconditionNotMetException":
-      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6172,66 +7084,93 @@ async function deserializeAws_json1_1CreateUserPoolCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserPoolTaggingException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolTaggingException":
-      response = await deserializeAws_json1_1UserPoolTaggingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserPoolTaggingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6287,59 +7226,83 @@ async function deserializeAws_json1_1CreateUserPoolClientCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOAuthFlowException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidOAuthFlowException":
-      response = await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScopeDoesNotExistException":
     case "com.amazonaws.cognito.identity.idp.model#ScopeDoesNotExistException":
-      response = await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6395,38 +7358,53 @@ async function deserializeAws_json1_1CreateUserPoolDomainCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6475,38 +7453,53 @@ async function deserializeAws_json1_1DeleteGroupCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6558,45 +7551,63 @@ async function deserializeAws_json1_1DeleteIdentityProviderCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedIdentityProviderException":
     case "com.amazonaws.cognito.identity.idp.model#UnsupportedIdentityProviderException":
-      response = await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6648,38 +7659,53 @@ async function deserializeAws_json1_1DeleteResourceServerCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6728,59 +7754,83 @@ async function deserializeAws_json1_1DeleteUserCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6836,59 +7886,83 @@ async function deserializeAws_json1_1DeleteUserAttributesCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6937,45 +8011,63 @@ async function deserializeAws_json1_1DeleteUserPoolCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserImportInProgressException":
     case "com.amazonaws.cognito.identity.idp.model#UserImportInProgressException":
-      response = await deserializeAws_json1_1UserImportInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserImportInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7027,38 +8119,53 @@ async function deserializeAws_json1_1DeleteUserPoolClientCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7114,31 +8221,43 @@ async function deserializeAws_json1_1DeleteUserPoolDomainCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7197,38 +8316,53 @@ async function deserializeAws_json1_1DescribeIdentityProviderCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7287,38 +8421,53 @@ async function deserializeAws_json1_1DescribeResourceServerCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7377,45 +8526,63 @@ async function deserializeAws_json1_1DescribeRiskConfigurationCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7471,38 +8638,53 @@ async function deserializeAws_json1_1DescribeUserImportJobCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7555,45 +8737,63 @@ async function deserializeAws_json1_1DescribeUserPoolCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserPoolTaggingException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolTaggingException":
-      response = await deserializeAws_json1_1UserPoolTaggingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserPoolTaggingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7652,38 +8852,53 @@ async function deserializeAws_json1_1DescribeUserPoolClientCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7742,31 +8957,43 @@ async function deserializeAws_json1_1DescribeUserPoolDomainCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7815,66 +9042,93 @@ async function deserializeAws_json1_1ForgetDeviceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7927,108 +9181,153 @@ async function deserializeAws_json1_1ForgotPasswordCommandError(
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8081,38 +9380,53 @@ async function deserializeAws_json1_1GetCSVHeaderCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8165,66 +9479,93 @@ async function deserializeAws_json1_1GetDeviceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8277,38 +9618,53 @@ async function deserializeAws_json1_1GetGroupCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8367,38 +9723,53 @@ async function deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8454,24 +9825,33 @@ async function deserializeAws_json1_1GetSigningCertificateCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8527,38 +9907,53 @@ async function deserializeAws_json1_1GetUICustomizationCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8611,59 +10006,83 @@ async function deserializeAws_json1_1GetUserCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8722,115 +10141,163 @@ async function deserializeAws_json1_1GetUserAttributeVerificationCodeCommandErro
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8886,38 +10353,53 @@ async function deserializeAws_json1_1GetUserPoolMfaConfigCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8970,52 +10452,73 @@ async function deserializeAws_json1_1GlobalSignOutCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9068,101 +10571,143 @@ async function deserializeAws_json1_1InitiateAuthCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9215,66 +10760,93 @@ async function deserializeAws_json1_1ListDevicesCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9327,38 +10899,53 @@ async function deserializeAws_json1_1ListGroupsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9414,38 +11001,53 @@ async function deserializeAws_json1_1ListIdentityProvidersCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9501,38 +11103,53 @@ async function deserializeAws_json1_1ListResourceServersCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9588,38 +11205,53 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9675,38 +11307,53 @@ async function deserializeAws_json1_1ListUserImportJobsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9762,38 +11409,53 @@ async function deserializeAws_json1_1ListUserPoolClientsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9846,31 +11508,43 @@ async function deserializeAws_json1_1ListUserPoolsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9923,38 +11597,53 @@ async function deserializeAws_json1_1ListUsersCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10007,38 +11696,53 @@ async function deserializeAws_json1_1ListUsersInGroupCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10097,101 +11801,143 @@ async function deserializeAws_json1_1ResendConfirmationCodeCommandError(
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10250,143 +11996,203 @@ async function deserializeAws_json1_1RespondToAuthChallengeCommandError(
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AliasExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#MFAMethodNotFoundException":
-      response = await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#SoftwareTokenMFANotFoundException":
-      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10442,59 +12248,83 @@ async function deserializeAws_json1_1SetRiskConfigurationCommandError(
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10550,38 +12380,53 @@ async function deserializeAws_json1_1SetUICustomizationCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10637,52 +12482,73 @@ async function deserializeAws_json1_1SetUserMFAPreferenceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10738,52 +12604,73 @@ async function deserializeAws_json1_1SetUserPoolMfaConfigCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10836,52 +12723,73 @@ async function deserializeAws_json1_1SetUserSettingsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10934,101 +12842,143 @@ async function deserializeAws_json1_1SignUpCommandError(
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UsernameExistsException":
     case "com.amazonaws.cognito.identity.idp.model#UsernameExistsException":
-      response = await deserializeAws_json1_1UsernameExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UsernameExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11084,45 +13034,63 @@ async function deserializeAws_json1_1StartUserImportJobCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionNotMetException":
     case "com.amazonaws.cognito.identity.idp.model#PreconditionNotMetException":
-      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11175,45 +13143,63 @@ async function deserializeAws_json1_1StopUserImportJobCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreconditionNotMetException":
     case "com.amazonaws.cognito.identity.idp.model#PreconditionNotMetException":
-      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11266,38 +13252,53 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11350,38 +13351,53 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11440,52 +13456,73 @@ async function deserializeAws_json1_1UpdateAuthEventFeedbackCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11541,66 +13578,93 @@ async function deserializeAws_json1_1UpdateDeviceStatusCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11653,38 +13717,53 @@ async function deserializeAws_json1_1UpdateGroupCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11743,45 +13822,63 @@ async function deserializeAws_json1_1UpdateIdentityProviderCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedIdentityProviderException":
     case "com.amazonaws.cognito.identity.idp.model#UnsupportedIdentityProviderException":
-      response = await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11837,38 +13934,53 @@ async function deserializeAws_json1_1UpdateResourceServerCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11924,129 +14036,183 @@ async function deserializeAws_json1_1UpdateUserAttributesCommandError(
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AliasExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12099,80 +14265,113 @@ async function deserializeAws_json1_1UpdateUserPoolCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognito.identity.idp.model#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserImportInProgressException":
     case "com.amazonaws.cognito.identity.idp.model#UserImportInProgressException":
-      response = await deserializeAws_json1_1UserImportInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserImportInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserPoolTaggingException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolTaggingException":
-      response = await deserializeAws_json1_1UserPoolTaggingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserPoolTaggingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12228,59 +14427,83 @@ async function deserializeAws_json1_1UpdateUserPoolClientCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognito.identity.idp.model#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOAuthFlowException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidOAuthFlowException":
-      response = await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScopeDoesNotExistException":
     case "com.amazonaws.cognito.identity.idp.model#ScopeDoesNotExistException":
-      response = await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12336,38 +14559,53 @@ async function deserializeAws_json1_1UpdateUserPoolDomainCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12423,87 +14661,123 @@ async function deserializeAws_json1_1VerifySoftwareTokenCommandError(
   switch (errorCode) {
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EnableSoftwareTokenMFAException":
     case "com.amazonaws.cognito.identity.idp.model#EnableSoftwareTokenMFAException":
-      response = await deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#SoftwareTokenMFANotFoundException":
-      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12559,80 +14833,113 @@ async function deserializeAws_json1_1VerifyUserAttributeCommandError(
   switch (errorCode) {
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CodeMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

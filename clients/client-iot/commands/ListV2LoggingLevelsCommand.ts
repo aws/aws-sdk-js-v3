@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListV2LoggingLevelsCommandInput = ListV2LoggingLevelsRequest;
-export type ListV2LoggingLevelsCommandOutput = ListV2LoggingLevelsResponse;
+export type ListV2LoggingLevelsCommandOutput = ListV2LoggingLevelsResponse &
+  __MetadataBearer;
 
 export class ListV2LoggingLevelsCommand extends $Command<
   ListV2LoggingLevelsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListProtectedResourcesCommandInput = ListProtectedResourcesInput;
-export type ListProtectedResourcesCommandOutput = ListProtectedResourcesOutput;
+export type ListProtectedResourcesCommandOutput = ListProtectedResourcesOutput &
+  __MetadataBearer;
 
 export class ListProtectedResourcesCommand extends $Command<
   ListProtectedResourcesCommandInput,

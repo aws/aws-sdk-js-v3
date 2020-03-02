@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTopicCommandInput = CreateTopicInput;
-export type CreateTopicCommandOutput = CreateTopicResponse;
+export type CreateTopicCommandOutput = CreateTopicResponse & __MetadataBearer;
 
 export class CreateTopicCommand extends $Command<
   CreateTopicCommandInput,

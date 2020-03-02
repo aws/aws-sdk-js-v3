@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDiskCommandInput = DeleteDiskRequest;
-export type DeleteDiskCommandOutput = DeleteDiskResult;
+export type DeleteDiskCommandOutput = DeleteDiskResult & __MetadataBearer;
 
 export class DeleteDiskCommand extends $Command<
   DeleteDiskCommandInput,

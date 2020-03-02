@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetWebACLForResourceCommandInput = GetWebACLForResourceRequest;
-export type GetWebACLForResourceCommandOutput = GetWebACLForResourceResponse;
+export type GetWebACLForResourceCommandOutput = GetWebACLForResourceResponse &
+  __MetadataBearer;
 
 export class GetWebACLForResourceCommand extends $Command<
   GetWebACLForResourceCommandInput,

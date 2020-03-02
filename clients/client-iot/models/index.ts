@@ -916,7 +916,7 @@ export namespace ConfirmTopicRuleDestinationRequest {
   }
 }
 
-export interface ConfirmTopicRuleDestinationResponse extends $MetadataBearer {
+export interface ConfirmTopicRuleDestinationResponse {
   __type?: "ConfirmTopicRuleDestinationResponse";
 }
 
@@ -940,7 +940,7 @@ export namespace CreateTopicRuleDestinationRequest {
   }
 }
 
-export interface CreateTopicRuleDestinationResponse extends $MetadataBearer {
+export interface CreateTopicRuleDestinationResponse {
   __type?: "CreateTopicRuleDestinationResponse";
   /**
    * <p>The topic rule destination.</p>
@@ -1002,7 +1002,7 @@ export namespace DeleteTopicRuleDestinationRequest {
   }
 }
 
-export interface DeleteTopicRuleDestinationResponse extends $MetadataBearer {
+export interface DeleteTopicRuleDestinationResponse {
   __type?: "DeleteTopicRuleDestinationResponse";
 }
 
@@ -1281,7 +1281,7 @@ export namespace GetLoggingOptionsRequest {
 /**
  * <p>The output from the GetLoggingOptions operation.</p>
  */
-export interface GetLoggingOptionsResponse extends $MetadataBearer {
+export interface GetLoggingOptionsResponse {
   __type?: "GetLoggingOptionsResponse";
   /**
    * <p>The logging level.</p>
@@ -1314,7 +1314,7 @@ export namespace GetTopicRuleDestinationRequest {
   }
 }
 
-export interface GetTopicRuleDestinationResponse extends $MetadataBearer {
+export interface GetTopicRuleDestinationResponse {
   __type?: "GetTopicRuleDestinationResponse";
   /**
    * <p>The topic rule destination.</p>
@@ -1348,7 +1348,7 @@ export namespace GetTopicRuleRequest {
 /**
  * <p>The output from the GetTopicRule operation.</p>
  */
-export interface GetTopicRuleResponse extends $MetadataBearer {
+export interface GetTopicRuleResponse {
   __type?: "GetTopicRuleResponse";
   /**
    * <p>The rule.</p>
@@ -1377,7 +1377,7 @@ export namespace GetV2LoggingOptionsRequest {
   }
 }
 
-export interface GetV2LoggingOptionsResponse extends $MetadataBearer {
+export interface GetV2LoggingOptionsResponse {
   __type?: "GetV2LoggingOptionsResponse";
   /**
    * <p>The default log level.</p>
@@ -1679,7 +1679,7 @@ export namespace ListTopicRuleDestinationsRequest {
   }
 }
 
-export interface ListTopicRuleDestinationsResponse extends $MetadataBearer {
+export interface ListTopicRuleDestinationsResponse {
   __type?: "ListTopicRuleDestinationsResponse";
   /**
    * <p>Information about a topic rule destination.</p>
@@ -1733,7 +1733,7 @@ export namespace ListTopicRulesRequest {
 /**
  * <p>The output from the ListTopicRules operation.</p>
  */
-export interface ListTopicRulesResponse extends $MetadataBearer {
+export interface ListTopicRulesResponse {
   __type?: "ListTopicRulesResponse";
   /**
    * <p>A token used to retrieve the next value.</p>
@@ -1777,7 +1777,7 @@ export namespace ListV2LoggingLevelsRequest {
   }
 }
 
-export interface ListV2LoggingLevelsResponse extends $MetadataBearer {
+export interface ListV2LoggingLevelsResponse {
   __type?: "ListV2LoggingLevelsResponse";
   /**
    * <p>The logging configuration for a target.</p>
@@ -2553,7 +2553,7 @@ export namespace UpdateTopicRuleDestinationRequest {
   }
 }
 
-export interface UpdateTopicRuleDestinationResponse extends $MetadataBearer {
+export interface UpdateTopicRuleDestinationResponse {
   __type?: "UpdateTopicRuleDestinationResponse";
 }
 
@@ -3108,7 +3108,7 @@ export namespace ClearDefaultAuthorizerRequest {
   }
 }
 
-export interface ClearDefaultAuthorizerResponse extends $MetadataBearer {
+export interface ClearDefaultAuthorizerResponse {
   __type?: "ClearDefaultAuthorizerResponse";
 }
 
@@ -3158,7 +3158,7 @@ export namespace CreateAuthorizerRequest {
   }
 }
 
-export interface CreateAuthorizerResponse extends $MetadataBearer {
+export interface CreateAuthorizerResponse {
   __type?: "CreateAuthorizerResponse";
   /**
    * <p>The authorizer ARN.</p>
@@ -3202,7 +3202,7 @@ export namespace CreateCertificateFromCsrRequest {
 /**
  * <p>The output from the CreateCertificateFromCsr operation.</p>
  */
-export interface CreateCertificateFromCsrResponse extends $MetadataBearer {
+export interface CreateCertificateFromCsrResponse {
   __type?: "CreateCertificateFromCsrResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal
@@ -3269,7 +3269,7 @@ export namespace CreateDomainConfigurationRequest {
   }
 }
 
-export interface CreateDomainConfigurationResponse extends $MetadataBearer {
+export interface CreateDomainConfigurationResponse {
   __type?: "CreateDomainConfigurationResponse";
   /**
    * <p>The ARN of the domain configuration.</p>
@@ -3308,7 +3308,7 @@ export namespace CreateKeysAndCertificateRequest {
 /**
  * <p>The output of the CreateKeysAndCertificate operation.</p>
  */
-export interface CreateKeysAndCertificateResponse extends $MetadataBearer {
+export interface CreateKeysAndCertificateResponse {
   __type?: "CreateKeysAndCertificateResponse";
   /**
    * <p>The ARN of the certificate.</p>
@@ -3364,7 +3364,7 @@ export namespace CreatePolicyRequest {
 /**
  * <p>The output from the CreatePolicy operation.</p>
  */
-export interface CreatePolicyResponse extends $MetadataBearer {
+export interface CreatePolicyResponse {
   __type?: "CreatePolicyResponse";
   /**
    * <p>The policy ARN.</p>
@@ -3426,7 +3426,7 @@ export namespace CreatePolicyVersionRequest {
 /**
  * <p>The output of the CreatePolicyVersion operation.</p>
  */
-export interface CreatePolicyVersionResponse extends $MetadataBearer {
+export interface CreatePolicyVersionResponse {
   __type?: "CreatePolicyVersionResponse";
   /**
    * <p>Specifies whether the policy version is the default.</p>
@@ -3469,7 +3469,7 @@ export namespace CreateProvisioningClaimRequest {
   }
 }
 
-export interface CreateProvisioningClaimResponse extends $MetadataBearer {
+export interface CreateProvisioningClaimResponse {
   __type?: "CreateProvisioningClaimResponse";
   /**
    * <p>The ID of the certificate.</p>
@@ -3545,7 +3545,7 @@ export namespace CreateProvisioningTemplateRequest {
   }
 }
 
-export interface CreateProvisioningTemplateResponse extends $MetadataBearer {
+export interface CreateProvisioningTemplateResponse {
   __type?: "CreateProvisioningTemplateResponse";
   /**
    * <p>The default version of the fleet provisioning template.</p>
@@ -3593,8 +3593,7 @@ export namespace CreateProvisioningTemplateVersionRequest {
   }
 }
 
-export interface CreateProvisioningTemplateVersionResponse
-  extends $MetadataBearer {
+export interface CreateProvisioningTemplateVersionResponse {
   __type?: "CreateProvisioningTemplateVersionResponse";
   /**
    * <p>True if the fleet provisioning template version is the default version, otherwise
@@ -3649,7 +3648,7 @@ export namespace CreateRoleAliasRequest {
   }
 }
 
-export interface CreateRoleAliasResponse extends $MetadataBearer {
+export interface CreateRoleAliasResponse {
   __type?: "CreateRoleAliasResponse";
   /**
    * <p>The role alias.</p>
@@ -3682,7 +3681,7 @@ export namespace DeleteAuthorizerRequest {
   }
 }
 
-export interface DeleteAuthorizerResponse extends $MetadataBearer {
+export interface DeleteAuthorizerResponse {
   __type?: "DeleteAuthorizerResponse";
 }
 
@@ -3713,7 +3712,7 @@ export namespace DeleteCACertificateRequest {
 /**
  * <p>The output for the DeleteCACertificate operation.</p>
  */
-export interface DeleteCACertificateResponse extends $MetadataBearer {
+export interface DeleteCACertificateResponse {
   __type?: "DeleteCACertificateResponse";
 }
 
@@ -3761,7 +3760,7 @@ export namespace DeleteDomainConfigurationRequest {
   }
 }
 
-export interface DeleteDomainConfigurationResponse extends $MetadataBearer {
+export interface DeleteDomainConfigurationResponse {
   __type?: "DeleteDomainConfigurationResponse";
 }
 
@@ -3824,7 +3823,7 @@ export namespace DeleteProvisioningTemplateRequest {
   }
 }
 
-export interface DeleteProvisioningTemplateResponse extends $MetadataBearer {
+export interface DeleteProvisioningTemplateResponse {
   __type?: "DeleteProvisioningTemplateResponse";
 }
 
@@ -3853,8 +3852,7 @@ export namespace DeleteProvisioningTemplateVersionRequest {
   }
 }
 
-export interface DeleteProvisioningTemplateVersionResponse
-  extends $MetadataBearer {
+export interface DeleteProvisioningTemplateVersionResponse {
   __type?: "DeleteProvisioningTemplateVersionResponse";
 }
 
@@ -3880,7 +3878,7 @@ export namespace DeleteRegistrationCodeRequest {
 /**
  * <p>The output for the DeleteRegistrationCode operation.</p>
  */
-export interface DeleteRegistrationCodeResponse extends $MetadataBearer {
+export interface DeleteRegistrationCodeResponse {
   __type?: "DeleteRegistrationCodeResponse";
 }
 
@@ -3904,7 +3902,7 @@ export namespace DeleteRoleAliasRequest {
   }
 }
 
-export interface DeleteRoleAliasResponse extends $MetadataBearer {
+export interface DeleteRoleAliasResponse {
   __type?: "DeleteRoleAliasResponse";
 }
 
@@ -3952,7 +3950,7 @@ export namespace DescribeAuthorizerRequest {
   }
 }
 
-export interface DescribeAuthorizerResponse extends $MetadataBearer {
+export interface DescribeAuthorizerResponse {
   __type?: "DescribeAuthorizerResponse";
   /**
    * <p>The authorizer description.</p>
@@ -3986,7 +3984,7 @@ export namespace DescribeCACertificateRequest {
 /**
  * <p>The output from the DescribeCACertificate operation.</p>
  */
-export interface DescribeCACertificateResponse extends $MetadataBearer {
+export interface DescribeCACertificateResponse {
   __type?: "DescribeCACertificateResponse";
   /**
    * <p>The CA certificate description.</p>
@@ -4026,7 +4024,7 @@ export namespace DescribeCertificateRequest {
 /**
  * <p>The output of the DescribeCertificate operation.</p>
  */
-export interface DescribeCertificateResponse extends $MetadataBearer {
+export interface DescribeCertificateResponse {
   __type?: "DescribeCertificateResponse";
   /**
    * <p>The description of the certificate.</p>
@@ -4050,7 +4048,7 @@ export namespace DescribeDefaultAuthorizerRequest {
   }
 }
 
-export interface DescribeDefaultAuthorizerResponse extends $MetadataBearer {
+export interface DescribeDefaultAuthorizerResponse {
   __type?: "DescribeDefaultAuthorizerResponse";
   /**
    * <p>The default authorizer's description.</p>
@@ -4078,7 +4076,7 @@ export namespace DescribeDomainConfigurationRequest {
   }
 }
 
-export interface DescribeDomainConfigurationResponse extends $MetadataBearer {
+export interface DescribeDomainConfigurationResponse {
   __type?: "DescribeDomainConfigurationResponse";
   /**
    * <p>An object that specifies the authorization service for a domain.</p>
@@ -4173,7 +4171,7 @@ export namespace DescribeEndpointRequest {
 /**
  * <p>The output from the DescribeEndpoint operation.</p>
  */
-export interface DescribeEndpointResponse extends $MetadataBearer {
+export interface DescribeEndpointResponse {
   __type?: "DescribeEndpointResponse";
   /**
    * <p>The endpoint. The format of the endpoint is as follows:
@@ -4202,7 +4200,7 @@ export namespace DescribeProvisioningTemplateRequest {
   }
 }
 
-export interface DescribeProvisioningTemplateResponse extends $MetadataBearer {
+export interface DescribeProvisioningTemplateResponse {
   __type?: "DescribeProvisioningTemplateResponse";
   /**
    * <p>The date when the fleet provisioning template was created.</p>
@@ -4276,8 +4274,7 @@ export namespace DescribeProvisioningTemplateVersionRequest {
   }
 }
 
-export interface DescribeProvisioningTemplateVersionResponse
-  extends $MetadataBearer {
+export interface DescribeProvisioningTemplateVersionResponse {
   __type?: "DescribeProvisioningTemplateVersionResponse";
   /**
    * <p>The date when the fleet provisioning template version was created.</p>
@@ -4322,7 +4319,7 @@ export namespace DescribeRoleAliasRequest {
   }
 }
 
-export interface DescribeRoleAliasResponse extends $MetadataBearer {
+export interface DescribeRoleAliasResponse {
   __type?: "DescribeRoleAliasResponse";
   /**
    * <p>The role alias description.</p>
@@ -4501,7 +4498,7 @@ export namespace GetEffectivePoliciesRequest {
   }
 }
 
-export interface GetEffectivePoliciesResponse extends $MetadataBearer {
+export interface GetEffectivePoliciesResponse {
   __type?: "GetEffectivePoliciesResponse";
   /**
    * <p>The effective policies.</p>
@@ -4535,7 +4532,7 @@ export namespace GetPolicyRequest {
 /**
  * <p>The output from the GetPolicy operation.</p>
  */
-export interface GetPolicyResponse extends $MetadataBearer {
+export interface GetPolicyResponse {
   __type?: "GetPolicyResponse";
   /**
    * <p>The date the policy was created.</p>
@@ -4604,7 +4601,7 @@ export namespace GetPolicyVersionRequest {
 /**
  * <p>The output from the GetPolicyVersion operation.</p>
  */
-export interface GetPolicyVersionResponse extends $MetadataBearer {
+export interface GetPolicyVersionResponse {
   __type?: "GetPolicyVersionResponse";
   /**
    * <p>The date the policy was created.</p>
@@ -4669,7 +4666,7 @@ export namespace GetRegistrationCodeRequest {
 /**
  * <p>The output from the GetRegistrationCode operation.</p>
  */
-export interface GetRegistrationCodeResponse extends $MetadataBearer {
+export interface GetRegistrationCodeResponse {
   __type?: "GetRegistrationCodeResponse";
   /**
    * <p>The CA certificate registration code.</p>
@@ -4775,7 +4772,7 @@ export namespace ListAttachedPoliciesRequest {
   }
 }
 
-export interface ListAttachedPoliciesResponse extends $MetadataBearer {
+export interface ListAttachedPoliciesResponse {
   __type?: "ListAttachedPoliciesResponse";
   /**
    * <p>The token to retrieve the next set of results, or ``null`` if there are no more
@@ -4824,7 +4821,7 @@ export namespace ListAuthorizersRequest {
   }
 }
 
-export interface ListAuthorizersResponse extends $MetadataBearer {
+export interface ListAuthorizersResponse {
   __type?: "ListAuthorizersResponse";
   /**
    * <p>The authorizers.</p>
@@ -4873,7 +4870,7 @@ export namespace ListCACertificatesRequest {
 /**
  * <p>The output from the ListCACertificates operation.</p>
  */
-export interface ListCACertificatesResponse extends $MetadataBearer {
+export interface ListCACertificatesResponse {
   __type?: "ListCACertificatesResponse";
   /**
    * <p>The CA certificates registered in your AWS account.</p>
@@ -4929,7 +4926,7 @@ export namespace ListCertificatesByCARequest {
 /**
  * <p>The output of the ListCertificatesByCA operation.</p>
  */
-export interface ListCertificatesByCAResponse extends $MetadataBearer {
+export interface ListCertificatesByCAResponse {
   __type?: "ListCertificatesByCAResponse";
   /**
    * <p>The device certificates signed by the specified CA certificate.</p>
@@ -4980,7 +4977,7 @@ export namespace ListCertificatesRequest {
 /**
  * <p>The output of the ListCertificates operation.</p>
  */
-export interface ListCertificatesResponse extends $MetadataBearer {
+export interface ListCertificatesResponse {
   __type?: "ListCertificatesResponse";
   /**
    * <p>The descriptions of the certificates.</p>
@@ -5024,7 +5021,7 @@ export namespace ListDomainConfigurationsRequest {
   }
 }
 
-export interface ListDomainConfigurationsResponse extends $MetadataBearer {
+export interface ListDomainConfigurationsResponse {
   __type?: "ListDomainConfigurationsResponse";
   /**
    * <p>A list of objects that contain summary information about the user's domain configurations.</p>
@@ -5074,7 +5071,7 @@ export namespace ListOutgoingCertificatesRequest {
 /**
  * <p>The output from the ListOutgoingCertificates operation.</p>
  */
-export interface ListOutgoingCertificatesResponse extends $MetadataBearer {
+export interface ListOutgoingCertificatesResponse {
   __type?: "ListOutgoingCertificatesResponse";
   /**
    * <p>The marker for the next set of results.</p>
@@ -5124,7 +5121,7 @@ export namespace ListPoliciesRequest {
 /**
  * <p>The output from the ListPolicies operation.</p>
  */
-export interface ListPoliciesResponse extends $MetadataBearer {
+export interface ListPoliciesResponse {
   __type?: "ListPoliciesResponse";
   /**
    * <p>The marker for the next set of results, or null if there are no additional
@@ -5180,7 +5177,7 @@ export namespace ListPolicyPrincipalsRequest {
 /**
  * <p>The output from the ListPolicyPrincipals operation.</p>
  */
-export interface ListPolicyPrincipalsResponse extends $MetadataBearer {
+export interface ListPolicyPrincipalsResponse {
   __type?: "ListPolicyPrincipalsResponse";
   /**
    * <p>The marker for the next set of results, or null if there are no additional
@@ -5220,7 +5217,7 @@ export namespace ListPolicyVersionsRequest {
 /**
  * <p>The output from the ListPolicyVersions operation.</p>
  */
-export interface ListPolicyVersionsResponse extends $MetadataBearer {
+export interface ListPolicyVersionsResponse {
   __type?: "ListPolicyVersionsResponse";
   /**
    * <p>The policy versions.</p>
@@ -5270,7 +5267,7 @@ export namespace ListPrincipalPoliciesRequest {
 /**
  * <p>The output from the ListPrincipalPolicies operation.</p>
  */
-export interface ListPrincipalPoliciesResponse extends $MetadataBearer {
+export interface ListPrincipalPoliciesResponse {
   __type?: "ListPrincipalPoliciesResponse";
   /**
    * <p>The marker for the next set of results, or null if there are no additional
@@ -5314,8 +5311,7 @@ export namespace ListProvisioningTemplateVersionsRequest {
   }
 }
 
-export interface ListProvisioningTemplateVersionsResponse
-  extends $MetadataBearer {
+export interface ListProvisioningTemplateVersionsResponse {
   __type?: "ListProvisioningTemplateVersionsResponse";
   /**
    * <p>A token to retrieve the next set of results.</p>
@@ -5353,7 +5349,7 @@ export namespace ListProvisioningTemplatesRequest {
   }
 }
 
-export interface ListProvisioningTemplatesResponse extends $MetadataBearer {
+export interface ListProvisioningTemplatesResponse {
   __type?: "ListProvisioningTemplatesResponse";
   /**
    * <p>A token to retrieve the next set of results.</p>
@@ -5396,7 +5392,7 @@ export namespace ListRoleAliasesRequest {
   }
 }
 
-export interface ListRoleAliasesResponse extends $MetadataBearer {
+export interface ListRoleAliasesResponse {
   __type?: "ListRoleAliasesResponse";
   /**
    * <p>A marker used to get the next set of results.</p>
@@ -5439,7 +5435,7 @@ export namespace ListTargetsForPolicyRequest {
   }
 }
 
-export interface ListTargetsForPolicyResponse extends $MetadataBearer {
+export interface ListTargetsForPolicyResponse {
   __type?: "ListTargetsForPolicyResponse";
   /**
    * <p>A marker used to get the next set of results.</p>
@@ -5687,7 +5683,7 @@ export namespace RegisterCACertificateRequest {
 /**
  * <p>The output from the RegisterCACertificateResponse operation.</p>
  */
-export interface RegisterCACertificateResponse extends $MetadataBearer {
+export interface RegisterCACertificateResponse {
   __type?: "RegisterCACertificateResponse";
   /**
    * <p>The CA certificate ARN.</p>
@@ -5741,7 +5737,7 @@ export namespace RegisterCertificateRequest {
 /**
  * <p>The output from the RegisterCertificate operation.</p>
  */
-export interface RegisterCertificateResponse extends $MetadataBearer {
+export interface RegisterCertificateResponse {
   __type?: "RegisterCertificateResponse";
   /**
    * <p>The certificate ARN.</p>
@@ -5781,7 +5777,7 @@ export namespace RegisterThingRequest {
   }
 }
 
-export interface RegisterThingResponse extends $MetadataBearer {
+export interface RegisterThingResponse {
   __type?: "RegisterThingResponse";
   /**
    * <p>.</p>
@@ -5944,7 +5940,7 @@ export namespace SetDefaultAuthorizerRequest {
   }
 }
 
-export interface SetDefaultAuthorizerResponse extends $MetadataBearer {
+export interface SetDefaultAuthorizerResponse {
   __type?: "SetDefaultAuthorizerResponse";
   /**
    * <p>The authorizer ARN.</p>
@@ -6027,7 +6023,7 @@ export namespace TestAuthorizationRequest {
   }
 }
 
-export interface TestAuthorizationResponse extends $MetadataBearer {
+export interface TestAuthorizationResponse {
   __type?: "TestAuthorizationResponse";
   /**
    * <p>The authentication results.</p>
@@ -6081,7 +6077,7 @@ export namespace TestInvokeAuthorizerRequest {
   }
 }
 
-export interface TestInvokeAuthorizerResponse extends $MetadataBearer {
+export interface TestInvokeAuthorizerResponse {
   __type?: "TestInvokeAuthorizerResponse";
   /**
    * <p>The number of seconds after which the connection is terminated.</p>
@@ -6163,7 +6159,7 @@ export namespace TransferCertificateRequest {
 /**
  * <p>The output from the TransferCertificate operation.</p>
  */
-export interface TransferCertificateResponse extends $MetadataBearer {
+export interface TransferCertificateResponse {
   __type?: "TransferCertificateResponse";
   /**
    * <p>The ARN of the certificate.</p>
@@ -6248,7 +6244,7 @@ export namespace UpdateAuthorizerRequest {
   }
 }
 
-export interface UpdateAuthorizerResponse extends $MetadataBearer {
+export interface UpdateAuthorizerResponse {
   __type?: "UpdateAuthorizerResponse";
   /**
    * <p>The authorizer ARN.</p>
@@ -6367,7 +6363,7 @@ export namespace UpdateDomainConfigurationRequest {
   }
 }
 
-export interface UpdateDomainConfigurationResponse extends $MetadataBearer {
+export interface UpdateDomainConfigurationResponse {
   __type?: "UpdateDomainConfigurationResponse";
   /**
    * <p>The ARN of the domain configuration that was updated.</p>
@@ -6421,7 +6417,7 @@ export namespace UpdateProvisioningTemplateRequest {
   }
 }
 
-export interface UpdateProvisioningTemplateResponse extends $MetadataBearer {
+export interface UpdateProvisioningTemplateResponse {
   __type?: "UpdateProvisioningTemplateResponse";
 }
 
@@ -6455,7 +6451,7 @@ export namespace UpdateRoleAliasRequest {
   }
 }
 
-export interface UpdateRoleAliasResponse extends $MetadataBearer {
+export interface UpdateRoleAliasResponse {
   __type?: "UpdateRoleAliasResponse";
   /**
    * <p>The role alias.</p>
@@ -6488,7 +6484,7 @@ export namespace DescribeIndexRequest {
   }
 }
 
-export interface DescribeIndexResponse extends $MetadataBearer {
+export interface DescribeIndexResponse {
   __type?: "DescribeIndexResponse";
   /**
    * <p>The index name.</p>
@@ -6586,7 +6582,7 @@ export namespace GetCardinalityRequest {
   }
 }
 
-export interface GetCardinalityResponse extends $MetadataBearer {
+export interface GetCardinalityResponse {
   __type?: "GetCardinalityResponse";
   /**
    * <p>The approximate count of unique values that match the query.</p>
@@ -6610,7 +6606,7 @@ export namespace GetIndexingConfigurationRequest {
   }
 }
 
-export interface GetIndexingConfigurationResponse extends $MetadataBearer {
+export interface GetIndexingConfigurationResponse {
   __type?: "GetIndexingConfigurationResponse";
   /**
    * <p>The index configuration.</p>
@@ -6663,7 +6659,7 @@ export namespace GetPercentilesRequest {
   }
 }
 
-export interface GetPercentilesResponse extends $MetadataBearer {
+export interface GetPercentilesResponse {
   __type?: "GetPercentilesResponse";
   /**
    * <p>The percentile values of the aggregated fields.</p>
@@ -6707,7 +6703,7 @@ export namespace GetStatisticsRequest {
   }
 }
 
-export interface GetStatisticsResponse extends $MetadataBearer {
+export interface GetStatisticsResponse {
   __type?: "GetStatisticsResponse";
   /**
    * <p>The statistics returned by the Fleet Indexing service based on the query and aggregation
@@ -6768,7 +6764,7 @@ export namespace ListIndicesRequest {
   }
 }
 
-export interface ListIndicesResponse extends $MetadataBearer {
+export interface ListIndicesResponse {
   __type?: "ListIndicesResponse";
   /**
    * <p>The index names.</p>
@@ -6845,7 +6841,7 @@ export namespace SearchIndexRequest {
   }
 }
 
-export interface SearchIndexResponse extends $MetadataBearer {
+export interface SearchIndexResponse {
   __type?: "SearchIndexResponse";
   /**
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
@@ -7150,7 +7146,7 @@ export namespace UpdateIndexingConfigurationRequest {
   }
 }
 
-export interface UpdateIndexingConfigurationResponse extends $MetadataBearer {
+export interface UpdateIndexingConfigurationResponse {
   __type?: "UpdateIndexingConfigurationResponse";
 }
 
@@ -7238,7 +7234,7 @@ export namespace AssociateTargetsWithJobRequest {
   }
 }
 
-export interface AssociateTargetsWithJobResponse extends $MetadataBearer {
+export interface AssociateTargetsWithJobResponse {
   __type?: "AssociateTargetsWithJobResponse";
   /**
    * <p>A short text description of the job.</p>
@@ -7343,7 +7339,7 @@ export namespace CancelJobRequest {
   }
 }
 
-export interface CancelJobResponse extends $MetadataBearer {
+export interface CancelJobResponse {
   __type?: "CancelJobResponse";
   /**
    * <p>A short text description of the job.</p>
@@ -7446,7 +7442,7 @@ export namespace CreateJobRequest {
   }
 }
 
-export interface CreateJobResponse extends $MetadataBearer {
+export interface CreateJobResponse {
   __type?: "CreateJobResponse";
   /**
    * <p>The job description.</p>
@@ -7564,7 +7560,7 @@ export namespace DescribeJobExecutionRequest {
   }
 }
 
-export interface DescribeJobExecutionResponse extends $MetadataBearer {
+export interface DescribeJobExecutionResponse {
   __type?: "DescribeJobExecutionResponse";
   /**
    * <p>Information about the job execution.</p>
@@ -7592,7 +7588,7 @@ export namespace DescribeJobRequest {
   }
 }
 
-export interface DescribeJobResponse extends $MetadataBearer {
+export interface DescribeJobResponse {
   __type?: "DescribeJobResponse";
   /**
    * <p>An S3 link to the job document.</p>
@@ -7654,7 +7650,7 @@ export namespace GetJobDocumentRequest {
   }
 }
 
-export interface GetJobDocumentResponse extends $MetadataBearer {
+export interface GetJobDocumentResponse {
   __type?: "GetJobDocumentResponse";
   /**
    * <p>The job document content.</p>
@@ -8122,7 +8118,7 @@ export namespace ListJobExecutionsForJobRequest {
   }
 }
 
-export interface ListJobExecutionsForJobResponse extends $MetadataBearer {
+export interface ListJobExecutionsForJobResponse {
   __type?: "ListJobExecutionsForJobResponse";
   /**
    * <p>A list of job execution summaries.</p>
@@ -8171,7 +8167,7 @@ export namespace ListJobExecutionsForThingRequest {
   }
 }
 
-export interface ListJobExecutionsForThingResponse extends $MetadataBearer {
+export interface ListJobExecutionsForThingResponse {
   __type?: "ListJobExecutionsForThingResponse";
   /**
    * <p>A list of job execution summaries.</p>
@@ -8233,7 +8229,7 @@ export namespace ListJobsRequest {
   }
 }
 
-export interface ListJobsResponse extends $MetadataBearer {
+export interface ListJobsResponse {
   __type?: "ListJobsResponse";
   /**
    * <p>A list of jobs.</p>
@@ -8557,7 +8553,7 @@ export namespace CreateOTAUpdateRequest {
   }
 }
 
-export interface CreateOTAUpdateResponse extends $MetadataBearer {
+export interface CreateOTAUpdateResponse {
   __type?: "CreateOTAUpdateResponse";
   /**
    * <p>The AWS IoT job ARN associated with the OTA update.</p>
@@ -8647,7 +8643,7 @@ export namespace DeleteOTAUpdateRequest {
   }
 }
 
-export interface DeleteOTAUpdateResponse extends $MetadataBearer {
+export interface DeleteOTAUpdateResponse {
   __type?: "DeleteOTAUpdateResponse";
 }
 
@@ -8732,7 +8728,7 @@ export namespace GetOTAUpdateRequest {
   }
 }
 
-export interface GetOTAUpdateResponse extends $MetadataBearer {
+export interface GetOTAUpdateResponse {
   __type?: "GetOTAUpdateResponse";
   /**
    * <p>The OTA update info.</p>
@@ -8770,7 +8766,7 @@ export namespace ListOTAUpdatesRequest {
   }
 }
 
-export interface ListOTAUpdatesResponse extends $MetadataBearer {
+export interface ListOTAUpdatesResponse {
   __type?: "ListOTAUpdatesResponse";
   /**
    * <p>A token to use to get the next set of results.</p>
@@ -9085,7 +9081,7 @@ export namespace AddThingToBillingGroupRequest {
   }
 }
 
-export interface AddThingToBillingGroupResponse extends $MetadataBearer {
+export interface AddThingToBillingGroupResponse {
   __type?: "AddThingToBillingGroupResponse";
 }
 
@@ -9132,7 +9128,7 @@ export namespace AddThingToThingGroupRequest {
   }
 }
 
-export interface AddThingToThingGroupResponse extends $MetadataBearer {
+export interface AddThingToThingGroupResponse {
   __type?: "AddThingToThingGroupResponse";
 }
 
@@ -9168,7 +9164,7 @@ export namespace AttachThingPrincipalRequest {
 /**
  * <p>The output from the AttachThingPrincipal operation.</p>
  */
-export interface AttachThingPrincipalResponse extends $MetadataBearer {
+export interface AttachThingPrincipalResponse {
   __type?: "AttachThingPrincipalResponse";
 }
 
@@ -9202,7 +9198,7 @@ export namespace CreateBillingGroupRequest {
   }
 }
 
-export interface CreateBillingGroupResponse extends $MetadataBearer {
+export interface CreateBillingGroupResponse {
   __type?: "CreateBillingGroupResponse";
   /**
    * <p>The ARN of the billing group.</p>
@@ -9273,7 +9269,7 @@ export namespace CreateDynamicThingGroupRequest {
   }
 }
 
-export interface CreateDynamicThingGroupResponse extends $MetadataBearer {
+export interface CreateDynamicThingGroupResponse {
   __type?: "CreateDynamicThingGroupResponse";
   /**
    * <p>The dynamic thing group index name.</p>
@@ -9341,7 +9337,7 @@ export namespace CreateThingGroupRequest {
   }
 }
 
-export interface CreateThingGroupResponse extends $MetadataBearer {
+export interface CreateThingGroupResponse {
   __type?: "CreateThingGroupResponse";
   /**
    * <p>The thing group ARN.</p>
@@ -9404,7 +9400,7 @@ export namespace CreateThingRequest {
 /**
  * <p>The output of the CreateThing operation.</p>
  */
-export interface CreateThingResponse extends $MetadataBearer {
+export interface CreateThingResponse {
   __type?: "CreateThingResponse";
   /**
    * <p>The ARN of the new thing.</p>
@@ -9460,7 +9456,7 @@ export namespace CreateThingTypeRequest {
 /**
  * <p>The output of the CreateThingType operation.</p>
  */
-export interface CreateThingTypeResponse extends $MetadataBearer {
+export interface CreateThingTypeResponse {
   __type?: "CreateThingTypeResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the thing type.</p>
@@ -9506,7 +9502,7 @@ export namespace DeleteBillingGroupRequest {
   }
 }
 
-export interface DeleteBillingGroupResponse extends $MetadataBearer {
+export interface DeleteBillingGroupResponse {
   __type?: "DeleteBillingGroupResponse";
 }
 
@@ -9535,7 +9531,7 @@ export namespace DeleteDynamicThingGroupRequest {
   }
 }
 
-export interface DeleteDynamicThingGroupResponse extends $MetadataBearer {
+export interface DeleteDynamicThingGroupResponse {
   __type?: "DeleteDynamicThingGroupResponse";
 }
 
@@ -9564,7 +9560,7 @@ export namespace DeleteThingGroupRequest {
   }
 }
 
-export interface DeleteThingGroupResponse extends $MetadataBearer {
+export interface DeleteThingGroupResponse {
   __type?: "DeleteThingGroupResponse";
 }
 
@@ -9602,7 +9598,7 @@ export namespace DeleteThingRequest {
 /**
  * <p>The output of the DeleteThing operation.</p>
  */
-export interface DeleteThingResponse extends $MetadataBearer {
+export interface DeleteThingResponse {
   __type?: "DeleteThingResponse";
 }
 
@@ -9632,7 +9628,7 @@ export namespace DeleteThingTypeRequest {
 /**
  * <p>The output for the DeleteThingType operation.</p>
  */
-export interface DeleteThingTypeResponse extends $MetadataBearer {
+export interface DeleteThingTypeResponse {
   __type?: "DeleteThingTypeResponse";
 }
 
@@ -9668,7 +9664,7 @@ export namespace DeprecateThingTypeRequest {
 /**
  * <p>The output for the DeprecateThingType operation.</p>
  */
-export interface DeprecateThingTypeResponse extends $MetadataBearer {
+export interface DeprecateThingTypeResponse {
   __type?: "DeprecateThingTypeResponse";
 }
 
@@ -9692,7 +9688,7 @@ export namespace DescribeBillingGroupRequest {
   }
 }
 
-export interface DescribeBillingGroupResponse extends $MetadataBearer {
+export interface DescribeBillingGroupResponse {
   __type?: "DescribeBillingGroupResponse";
   /**
    * <p>The ARN of the billing group.</p>
@@ -9741,7 +9737,7 @@ export namespace DescribeEventConfigurationsRequest {
   }
 }
 
-export interface DescribeEventConfigurationsResponse extends $MetadataBearer {
+export interface DescribeEventConfigurationsResponse {
   __type?: "DescribeEventConfigurationsResponse";
   /**
    * <p>The creation date of the event configuration.</p>
@@ -9779,7 +9775,7 @@ export namespace DescribeThingGroupRequest {
   }
 }
 
-export interface DescribeThingGroupResponse extends $MetadataBearer {
+export interface DescribeThingGroupResponse {
   __type?: "DescribeThingGroupResponse";
   /**
    * <p>The dynamic thing group index name.</p>
@@ -9852,7 +9848,7 @@ export namespace DescribeThingRegistrationTaskRequest {
   }
 }
 
-export interface DescribeThingRegistrationTaskResponse extends $MetadataBearer {
+export interface DescribeThingRegistrationTaskResponse {
   __type?: "DescribeThingRegistrationTaskResponse";
   /**
    * <p>The task creation date.</p>
@@ -9941,7 +9937,7 @@ export namespace DescribeThingRequest {
 /**
  * <p>The output from the DescribeThing operation.</p>
  */
-export interface DescribeThingResponse extends $MetadataBearer {
+export interface DescribeThingResponse {
   __type?: "DescribeThingResponse";
   /**
    * <p>The thing attributes.</p>
@@ -10015,7 +10011,7 @@ export namespace DescribeThingTypeRequest {
 /**
  * <p>The output for the DescribeThingType operation.</p>
  */
-export interface DescribeThingTypeResponse extends $MetadataBearer {
+export interface DescribeThingTypeResponse {
   __type?: "DescribeThingTypeResponse";
   /**
    * <p>The thing type ARN.</p>
@@ -10079,7 +10075,7 @@ export namespace DetachThingPrincipalRequest {
 /**
  * <p>The output from the DetachThingPrincipal operation.</p>
  */
-export interface DetachThingPrincipalResponse extends $MetadataBearer {
+export interface DetachThingPrincipalResponse {
   __type?: "DetachThingPrincipalResponse";
 }
 
@@ -10113,7 +10109,7 @@ export namespace ListBillingGroupsRequest {
   }
 }
 
-export interface ListBillingGroupsResponse extends $MetadataBearer {
+export interface ListBillingGroupsResponse {
   __type?: "ListBillingGroupsResponse";
   /**
    * <p>The list of billing groups.</p>
@@ -10162,7 +10158,7 @@ export namespace ListPrincipalThingsRequest {
 /**
  * <p>The output from the ListPrincipalThings operation.</p>
  */
-export interface ListPrincipalThingsResponse extends $MetadataBearer {
+export interface ListPrincipalThingsResponse {
   __type?: "ListPrincipalThingsResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10200,7 +10196,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10243,7 +10239,7 @@ export namespace ListThingGroupsForThingRequest {
   }
 }
 
-export interface ListThingGroupsForThingResponse extends $MetadataBearer {
+export interface ListThingGroupsForThingResponse {
   __type?: "ListThingGroupsForThingResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10296,7 +10292,7 @@ export namespace ListThingGroupsRequest {
   }
 }
 
-export interface ListThingGroupsResponse extends $MetadataBearer {
+export interface ListThingGroupsResponse {
   __type?: "ListThingGroupsResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10335,7 +10331,7 @@ export namespace ListThingPrincipalsRequest {
 /**
  * <p>The output from the ListThingPrincipals operation.</p>
  */
-export interface ListThingPrincipalsResponse extends $MetadataBearer {
+export interface ListThingPrincipalsResponse {
   __type?: "ListThingPrincipalsResponse";
   /**
    * <p>The principals associated with the thing.</p>
@@ -10378,8 +10374,7 @@ export namespace ListThingRegistrationTaskReportsRequest {
   }
 }
 
-export interface ListThingRegistrationTaskReportsResponse
-  extends $MetadataBearer {
+export interface ListThingRegistrationTaskReportsResponse {
   __type?: "ListThingRegistrationTaskReportsResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10427,7 +10422,7 @@ export namespace ListThingRegistrationTasksRequest {
   }
 }
 
-export interface ListThingRegistrationTasksResponse extends $MetadataBearer {
+export interface ListThingRegistrationTasksResponse {
   __type?: "ListThingRegistrationTasksResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10476,7 +10471,7 @@ export namespace ListThingTypesRequest {
 /**
  * <p>The output for the ListThingTypes operation.</p>
  */
-export interface ListThingTypesResponse extends $MetadataBearer {
+export interface ListThingTypesResponse {
   __type?: "ListThingTypesResponse";
   /**
    * <p>The token for the next set of results, or <b>null</b> if
@@ -10520,7 +10515,7 @@ export namespace ListThingsInBillingGroupRequest {
   }
 }
 
-export interface ListThingsInBillingGroupResponse extends $MetadataBearer {
+export interface ListThingsInBillingGroupResponse {
   __type?: "ListThingsInBillingGroupResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10569,7 +10564,7 @@ export namespace ListThingsInThingGroupRequest {
   }
 }
 
-export interface ListThingsInThingGroupResponse extends $MetadataBearer {
+export interface ListThingsInThingGroupResponse {
   __type?: "ListThingsInThingGroupResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10628,7 +10623,7 @@ export namespace ListThingsRequest {
 /**
  * <p>The output from the ListThings operation.</p>
  */
-export interface ListThingsResponse extends $MetadataBearer {
+export interface ListThingsResponse {
   __type?: "ListThingsResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10676,7 +10671,7 @@ export namespace RemoveThingFromBillingGroupRequest {
   }
 }
 
-export interface RemoveThingFromBillingGroupResponse extends $MetadataBearer {
+export interface RemoveThingFromBillingGroupResponse {
   __type?: "RemoveThingFromBillingGroupResponse";
 }
 
@@ -10715,7 +10710,7 @@ export namespace RemoveThingFromThingGroupRequest {
   }
 }
 
-export interface RemoveThingFromThingGroupResponse extends $MetadataBearer {
+export interface RemoveThingFromThingGroupResponse {
   __type?: "RemoveThingFromThingGroupResponse";
 }
 
@@ -10756,7 +10751,7 @@ export namespace StartThingRegistrationTaskRequest {
   }
 }
 
-export interface StartThingRegistrationTaskResponse extends $MetadataBearer {
+export interface StartThingRegistrationTaskResponse {
   __type?: "StartThingRegistrationTaskResponse";
   /**
    * <p>The bulk thing provisioning task ID.</p>
@@ -10784,7 +10779,7 @@ export namespace StopThingRegistrationTaskRequest {
   }
 }
 
-export interface StopThingRegistrationTaskResponse extends $MetadataBearer {
+export interface StopThingRegistrationTaskResponse {
   __type?: "StopThingRegistrationTaskResponse";
 }
 
@@ -10813,7 +10808,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -10842,7 +10837,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -10879,7 +10874,7 @@ export namespace UpdateBillingGroupRequest {
   }
 }
 
-export interface UpdateBillingGroupResponse extends $MetadataBearer {
+export interface UpdateBillingGroupResponse {
   __type?: "UpdateBillingGroupResponse";
   /**
    * <p>The latest version of the billing group.</p>
@@ -10939,7 +10934,7 @@ export namespace UpdateDynamicThingGroupRequest {
   }
 }
 
-export interface UpdateDynamicThingGroupResponse extends $MetadataBearer {
+export interface UpdateDynamicThingGroupResponse {
   __type?: "UpdateDynamicThingGroupResponse";
   /**
    * <p>The dynamic thing group version.</p>
@@ -10967,7 +10962,7 @@ export namespace UpdateEventConfigurationsRequest {
   }
 }
 
-export interface UpdateEventConfigurationsResponse extends $MetadataBearer {
+export interface UpdateEventConfigurationsResponse {
   __type?: "UpdateEventConfigurationsResponse";
 }
 
@@ -11002,7 +10997,7 @@ export namespace UpdateThingGroupRequest {
   }
 }
 
-export interface UpdateThingGroupResponse extends $MetadataBearer {
+export interface UpdateThingGroupResponse {
   __type?: "UpdateThingGroupResponse";
   /**
    * <p>The version of the updated thing group.</p>
@@ -11048,7 +11043,7 @@ export namespace UpdateThingGroupsForThingRequest {
   }
 }
 
-export interface UpdateThingGroupsForThingResponse extends $MetadataBearer {
+export interface UpdateThingGroupsForThingResponse {
   __type?: "UpdateThingGroupsForThingResponse";
 }
 
@@ -11107,7 +11102,7 @@ export namespace UpdateThingRequest {
 /**
  * <p>The output from the UpdateThing operation.</p>
  */
-export interface UpdateThingResponse extends $MetadataBearer {
+export interface UpdateThingResponse {
   __type?: "UpdateThingResponse";
 }
 
@@ -11415,7 +11410,7 @@ export namespace AttachSecurityProfileRequest {
   }
 }
 
-export interface AttachSecurityProfileResponse extends $MetadataBearer {
+export interface AttachSecurityProfileResponse {
   __type?: "AttachSecurityProfileResponse";
 }
 
@@ -11439,8 +11434,7 @@ export namespace CancelAuditMitigationActionsTaskRequest {
   }
 }
 
-export interface CancelAuditMitigationActionsTaskResponse
-  extends $MetadataBearer {
+export interface CancelAuditMitigationActionsTaskResponse {
   __type?: "CancelAuditMitigationActionsTaskResponse";
 }
 
@@ -11465,7 +11459,7 @@ export namespace CancelAuditTaskRequest {
   }
 }
 
-export interface CancelAuditTaskResponse extends $MetadataBearer {
+export interface CancelAuditTaskResponse {
   __type?: "CancelAuditTaskResponse";
 }
 
@@ -11504,7 +11498,7 @@ export namespace CreateMitigationActionRequest {
   }
 }
 
-export interface CreateMitigationActionResponse extends $MetadataBearer {
+export interface CreateMitigationActionResponse {
   __type?: "CreateMitigationActionResponse";
   /**
    * <p>The ARN for the new mitigation action.</p>
@@ -11572,7 +11566,7 @@ export namespace CreateScheduledAuditRequest {
   }
 }
 
-export interface CreateScheduledAuditResponse extends $MetadataBearer {
+export interface CreateScheduledAuditResponse {
   __type?: "CreateScheduledAuditResponse";
   /**
    * <p>The ARN of the scheduled audit.</p>
@@ -11628,7 +11622,7 @@ export namespace CreateSecurityProfileRequest {
   }
 }
 
-export interface CreateSecurityProfileResponse extends $MetadataBearer {
+export interface CreateSecurityProfileResponse {
   __type?: "CreateSecurityProfileResponse";
   /**
    * <p>The ARN of the security profile.</p>
@@ -11661,8 +11655,7 @@ export namespace DeleteAccountAuditConfigurationRequest {
   }
 }
 
-export interface DeleteAccountAuditConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteAccountAuditConfigurationResponse {
   __type?: "DeleteAccountAuditConfigurationResponse";
 }
 
@@ -11686,7 +11679,7 @@ export namespace DeleteMitigationActionRequest {
   }
 }
 
-export interface DeleteMitigationActionResponse extends $MetadataBearer {
+export interface DeleteMitigationActionResponse {
   __type?: "DeleteMitigationActionResponse";
 }
 
@@ -11710,7 +11703,7 @@ export namespace DeleteScheduledAuditRequest {
   }
 }
 
-export interface DeleteScheduledAuditResponse extends $MetadataBearer {
+export interface DeleteScheduledAuditResponse {
   __type?: "DeleteScheduledAuditResponse";
 }
 
@@ -11741,7 +11734,7 @@ export namespace DeleteSecurityProfileRequest {
   }
 }
 
-export interface DeleteSecurityProfileResponse extends $MetadataBearer {
+export interface DeleteSecurityProfileResponse {
   __type?: "DeleteSecurityProfileResponse";
 }
 
@@ -11761,8 +11754,7 @@ export namespace DescribeAccountAuditConfigurationRequest {
   }
 }
 
-export interface DescribeAccountAuditConfigurationResponse
-  extends $MetadataBearer {
+export interface DescribeAccountAuditConfigurationResponse {
   __type?: "DescribeAccountAuditConfigurationResponse";
   /**
    * <p>Which audit checks are enabled and disabled for this account.</p>
@@ -11807,7 +11799,7 @@ export namespace DescribeAuditFindingRequest {
   }
 }
 
-export interface DescribeAuditFindingResponse extends $MetadataBearer {
+export interface DescribeAuditFindingResponse {
   __type?: "DescribeAuditFindingResponse";
   /**
    * <p>The findings (results) of the audit.</p>
@@ -11835,8 +11827,7 @@ export namespace DescribeAuditMitigationActionsTaskRequest {
   }
 }
 
-export interface DescribeAuditMitigationActionsTaskResponse
-  extends $MetadataBearer {
+export interface DescribeAuditMitigationActionsTaskResponse {
   __type?: "DescribeAuditMitigationActionsTaskResponse";
   /**
    * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
@@ -11894,7 +11885,7 @@ export namespace DescribeAuditTaskRequest {
   }
 }
 
-export interface DescribeAuditTaskResponse extends $MetadataBearer {
+export interface DescribeAuditTaskResponse {
   __type?: "DescribeAuditTaskResponse";
   /**
    * <p>Detailed information about each check performed during this audit.</p>
@@ -11948,7 +11939,7 @@ export namespace DescribeMitigationActionRequest {
   }
 }
 
-export interface DescribeMitigationActionResponse extends $MetadataBearer {
+export interface DescribeMitigationActionResponse {
   __type?: "DescribeMitigationActionResponse";
   /**
    * <p>The ARN that identifies this migration action.</p>
@@ -12011,7 +12002,7 @@ export namespace DescribeScheduledAuditRequest {
   }
 }
 
-export interface DescribeScheduledAuditResponse extends $MetadataBearer {
+export interface DescribeScheduledAuditResponse {
   __type?: "DescribeScheduledAuditResponse";
   /**
    * <p>The day of the month on which the scheduled audit takes place. Will be "1"
@@ -12072,7 +12063,7 @@ export namespace DescribeSecurityProfileRequest {
   }
 }
 
-export interface DescribeSecurityProfileResponse extends $MetadataBearer {
+export interface DescribeSecurityProfileResponse {
   __type?: "DescribeSecurityProfileResponse";
   /**
    * <p>A list of metrics whose data is retained (stored). By default, data is retained
@@ -12149,7 +12140,7 @@ export namespace DetachSecurityProfileRequest {
   }
 }
 
-export interface DetachSecurityProfileResponse extends $MetadataBearer {
+export interface DetachSecurityProfileResponse {
   __type?: "DetachSecurityProfileResponse";
 }
 
@@ -12188,7 +12179,7 @@ export namespace ListActiveViolationsRequest {
   }
 }
 
-export interface ListActiveViolationsResponse extends $MetadataBearer {
+export interface ListActiveViolationsResponse {
   __type?: "ListActiveViolationsResponse";
   /**
    * <p>The list of active violations.</p>
@@ -12255,7 +12246,7 @@ export namespace ListAuditFindingsRequest {
   }
 }
 
-export interface ListAuditFindingsResponse extends $MetadataBearer {
+export interface ListAuditFindingsResponse {
   __type?: "ListAuditFindingsResponse";
   /**
    * <p>The findings (results) of the audit.</p>
@@ -12311,8 +12302,7 @@ export namespace ListAuditMitigationActionsExecutionsRequest {
   }
 }
 
-export interface ListAuditMitigationActionsExecutionsResponse
-  extends $MetadataBearer {
+export interface ListAuditMitigationActionsExecutionsResponse {
   __type?: "ListAuditMitigationActionsExecutionsResponse";
   /**
    * <p>A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.</p>
@@ -12377,8 +12367,7 @@ export namespace ListAuditMitigationActionsTasksRequest {
   }
 }
 
-export interface ListAuditMitigationActionsTasksResponse
-  extends $MetadataBearer {
+export interface ListAuditMitigationActionsTasksResponse {
   __type?: "ListAuditMitigationActionsTasksResponse";
   /**
    * <p>The token for the next set of results.</p>
@@ -12440,7 +12429,7 @@ export namespace ListAuditTasksRequest {
   }
 }
 
-export interface ListAuditTasksResponse extends $MetadataBearer {
+export interface ListAuditTasksResponse {
   __type?: "ListAuditTasksResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
@@ -12484,7 +12473,7 @@ export namespace ListMitigationActionsRequest {
   }
 }
 
-export interface ListMitigationActionsResponse extends $MetadataBearer {
+export interface ListMitigationActionsResponse {
   __type?: "ListMitigationActionsResponse";
   /**
    * <p>A set of actions that matched the specified filter criteria.</p>
@@ -12522,7 +12511,7 @@ export namespace ListScheduledAuditsRequest {
   }
 }
 
-export interface ListScheduledAuditsResponse extends $MetadataBearer {
+export interface ListScheduledAuditsResponse {
   __type?: "ListScheduledAuditsResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results,
@@ -12571,7 +12560,7 @@ export namespace ListSecurityProfilesForTargetRequest {
   }
 }
 
-export interface ListSecurityProfilesForTargetResponse extends $MetadataBearer {
+export interface ListSecurityProfilesForTargetResponse {
   __type?: "ListSecurityProfilesForTargetResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
@@ -12610,7 +12599,7 @@ export namespace ListSecurityProfilesRequest {
   }
 }
 
-export interface ListSecurityProfilesResponse extends $MetadataBearer {
+export interface ListSecurityProfilesResponse {
   __type?: "ListSecurityProfilesResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
@@ -12654,7 +12643,7 @@ export namespace ListTargetsForSecurityProfileRequest {
   }
 }
 
-export interface ListTargetsForSecurityProfileResponse extends $MetadataBearer {
+export interface ListTargetsForSecurityProfileResponse {
   __type?: "ListTargetsForSecurityProfileResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
@@ -12713,7 +12702,7 @@ export namespace ListViolationEventsRequest {
   }
 }
 
-export interface ListViolationEventsResponse extends $MetadataBearer {
+export interface ListViolationEventsResponse {
   __type?: "ListViolationEventsResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
@@ -12763,8 +12752,7 @@ export namespace StartAuditMitigationActionsTaskRequest {
   }
 }
 
-export interface StartAuditMitigationActionsTaskResponse
-  extends $MetadataBearer {
+export interface StartAuditMitigationActionsTaskResponse {
   __type?: "StartAuditMitigationActionsTaskResponse";
   /**
    * <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
@@ -12795,7 +12783,7 @@ export namespace StartOnDemandAuditTaskRequest {
   }
 }
 
-export interface StartOnDemandAuditTaskResponse extends $MetadataBearer {
+export interface StartOnDemandAuditTaskResponse {
   __type?: "StartOnDemandAuditTaskResponse";
   /**
    * <p>The ID of the on-demand audit you started.</p>
@@ -12845,8 +12833,7 @@ export namespace UpdateAccountAuditConfigurationRequest {
   }
 }
 
-export interface UpdateAccountAuditConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateAccountAuditConfigurationResponse {
   __type?: "UpdateAccountAuditConfigurationResponse";
 }
 
@@ -12880,7 +12867,7 @@ export namespace UpdateMitigationActionRequest {
   }
 }
 
-export interface UpdateMitigationActionResponse extends $MetadataBearer {
+export interface UpdateMitigationActionResponse {
   __type?: "UpdateMitigationActionResponse";
   /**
    * <p>The ARN for the new mitigation action.</p>
@@ -12943,7 +12930,7 @@ export namespace UpdateScheduledAuditRequest {
   }
 }
 
-export interface UpdateScheduledAuditResponse extends $MetadataBearer {
+export interface UpdateScheduledAuditResponse {
   __type?: "UpdateScheduledAuditResponse";
   /**
    * <p>The ARN of the scheduled audit.</p>
@@ -13019,7 +13006,7 @@ export namespace UpdateSecurityProfileRequest {
   }
 }
 
-export interface UpdateSecurityProfileResponse extends $MetadataBearer {
+export interface UpdateSecurityProfileResponse {
   __type?: "UpdateSecurityProfileResponse";
   /**
    * <p>A list of metrics whose data is retained (stored). By default, data is retained
@@ -13089,8 +13076,7 @@ export namespace ValidateSecurityProfileBehaviorsRequest {
   }
 }
 
-export interface ValidateSecurityProfileBehaviorsResponse
-  extends $MetadataBearer {
+export interface ValidateSecurityProfileBehaviorsResponse {
   __type?: "ValidateSecurityProfileBehaviorsResponse";
   /**
    * <p>True if the behaviors were valid.</p>
@@ -14365,7 +14351,7 @@ export namespace CreateStreamRequest {
   }
 }
 
-export interface CreateStreamResponse extends $MetadataBearer {
+export interface CreateStreamResponse {
   __type?: "CreateStreamResponse";
   /**
    * <p>A description of the stream.</p>
@@ -14408,7 +14394,7 @@ export namespace DeleteStreamRequest {
   }
 }
 
-export interface DeleteStreamResponse extends $MetadataBearer {
+export interface DeleteStreamResponse {
   __type?: "DeleteStreamResponse";
 }
 
@@ -14432,7 +14418,7 @@ export namespace DescribeStreamRequest {
   }
 }
 
-export interface DescribeStreamResponse extends $MetadataBearer {
+export interface DescribeStreamResponse {
   __type?: "DescribeStreamResponse";
   /**
    * <p>Information about the stream.</p>
@@ -14470,7 +14456,7 @@ export namespace ListStreamsRequest {
   }
 }
 
-export interface ListStreamsResponse extends $MetadataBearer {
+export interface ListStreamsResponse {
   __type?: "ListStreamsResponse";
   /**
    * <p>A token used to get the next set of results.</p>
@@ -14624,7 +14610,7 @@ export namespace UpdateStreamRequest {
   }
 }
 
-export interface UpdateStreamResponse extends $MetadataBearer {
+export interface UpdateStreamResponse {
   __type?: "UpdateStreamResponse";
   /**
    * <p>A description of the stream.</p>

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartMonitoringMembersCommandInput = StartMonitoringMembersRequest;
-export type StartMonitoringMembersCommandOutput = StartMonitoringMembersResponse;
+export type StartMonitoringMembersCommandOutput = StartMonitoringMembersResponse &
+  __MetadataBearer;
 
 export class StartMonitoringMembersCommand extends $Command<
   StartMonitoringMembersCommandInput,

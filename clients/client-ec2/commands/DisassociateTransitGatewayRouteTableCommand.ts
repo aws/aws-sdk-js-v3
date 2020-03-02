@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateTransitGatewayRouteTableCommandInput = DisassociateTransitGatewayRouteTableRequest;
-export type DisassociateTransitGatewayRouteTableCommandOutput = DisassociateTransitGatewayRouteTableResult;
+export type DisassociateTransitGatewayRouteTableCommandOutput = DisassociateTransitGatewayRouteTableResult &
+  __MetadataBearer;
 
 export class DisassociateTransitGatewayRouteTableCommand extends $Command<
   DisassociateTransitGatewayRouteTableCommandInput,

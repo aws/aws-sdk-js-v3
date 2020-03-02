@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListEntitiesForPolicyCommandInput = ListEntitiesForPolicyRequest;
-export type ListEntitiesForPolicyCommandOutput = ListEntitiesForPolicyResponse;
+export type ListEntitiesForPolicyCommandOutput = ListEntitiesForPolicyResponse &
+  __MetadataBearer;
 
 export class ListEntitiesForPolicyCommand extends $Command<
   ListEntitiesForPolicyCommandInput,

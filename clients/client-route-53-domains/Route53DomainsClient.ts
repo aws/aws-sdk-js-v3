@@ -1,53 +1,99 @@
 import {
-  CheckDomainAvailabilityRequest,
-  CheckDomainAvailabilityResponse,
-  CheckDomainTransferabilityRequest,
-  CheckDomainTransferabilityResponse,
-  DeleteTagsForDomainRequest,
-  DeleteTagsForDomainResponse,
-  DisableDomainAutoRenewRequest,
-  DisableDomainAutoRenewResponse,
-  DisableDomainTransferLockRequest,
-  DisableDomainTransferLockResponse,
-  EnableDomainAutoRenewRequest,
-  EnableDomainAutoRenewResponse,
-  EnableDomainTransferLockRequest,
-  EnableDomainTransferLockResponse,
-  GetContactReachabilityStatusRequest,
-  GetContactReachabilityStatusResponse,
-  GetDomainDetailRequest,
-  GetDomainDetailResponse,
-  GetDomainSuggestionsRequest,
-  GetDomainSuggestionsResponse,
-  GetOperationDetailRequest,
-  GetOperationDetailResponse,
-  ListDomainsRequest,
-  ListDomainsResponse,
-  ListOperationsRequest,
-  ListOperationsResponse,
-  ListTagsForDomainRequest,
-  ListTagsForDomainResponse,
-  RegisterDomainRequest,
-  RegisterDomainResponse,
-  RenewDomainRequest,
-  RenewDomainResponse,
-  ResendContactReachabilityEmailRequest,
-  ResendContactReachabilityEmailResponse,
-  RetrieveDomainAuthCodeRequest,
-  RetrieveDomainAuthCodeResponse,
-  TransferDomainRequest,
-  TransferDomainResponse,
-  UpdateDomainContactPrivacyRequest,
-  UpdateDomainContactPrivacyResponse,
-  UpdateDomainContactRequest,
-  UpdateDomainContactResponse,
-  UpdateDomainNameserversRequest,
-  UpdateDomainNameserversResponse,
-  UpdateTagsForDomainRequest,
-  UpdateTagsForDomainResponse,
-  ViewBillingRequest,
-  ViewBillingResponse
-} from "./models/index";
+  CheckDomainAvailabilityCommandInput,
+  CheckDomainAvailabilityCommandOutput
+} from "./commands/CheckDomainAvailabilityCommand";
+import {
+  CheckDomainTransferabilityCommandInput,
+  CheckDomainTransferabilityCommandOutput
+} from "./commands/CheckDomainTransferabilityCommand";
+import {
+  DeleteTagsForDomainCommandInput,
+  DeleteTagsForDomainCommandOutput
+} from "./commands/DeleteTagsForDomainCommand";
+import {
+  DisableDomainAutoRenewCommandInput,
+  DisableDomainAutoRenewCommandOutput
+} from "./commands/DisableDomainAutoRenewCommand";
+import {
+  DisableDomainTransferLockCommandInput,
+  DisableDomainTransferLockCommandOutput
+} from "./commands/DisableDomainTransferLockCommand";
+import {
+  EnableDomainAutoRenewCommandInput,
+  EnableDomainAutoRenewCommandOutput
+} from "./commands/EnableDomainAutoRenewCommand";
+import {
+  EnableDomainTransferLockCommandInput,
+  EnableDomainTransferLockCommandOutput
+} from "./commands/EnableDomainTransferLockCommand";
+import {
+  GetContactReachabilityStatusCommandInput,
+  GetContactReachabilityStatusCommandOutput
+} from "./commands/GetContactReachabilityStatusCommand";
+import {
+  GetDomainDetailCommandInput,
+  GetDomainDetailCommandOutput
+} from "./commands/GetDomainDetailCommand";
+import {
+  GetDomainSuggestionsCommandInput,
+  GetDomainSuggestionsCommandOutput
+} from "./commands/GetDomainSuggestionsCommand";
+import {
+  GetOperationDetailCommandInput,
+  GetOperationDetailCommandOutput
+} from "./commands/GetOperationDetailCommand";
+import {
+  ListDomainsCommandInput,
+  ListDomainsCommandOutput
+} from "./commands/ListDomainsCommand";
+import {
+  ListOperationsCommandInput,
+  ListOperationsCommandOutput
+} from "./commands/ListOperationsCommand";
+import {
+  ListTagsForDomainCommandInput,
+  ListTagsForDomainCommandOutput
+} from "./commands/ListTagsForDomainCommand";
+import {
+  RegisterDomainCommandInput,
+  RegisterDomainCommandOutput
+} from "./commands/RegisterDomainCommand";
+import {
+  RenewDomainCommandInput,
+  RenewDomainCommandOutput
+} from "./commands/RenewDomainCommand";
+import {
+  ResendContactReachabilityEmailCommandInput,
+  ResendContactReachabilityEmailCommandOutput
+} from "./commands/ResendContactReachabilityEmailCommand";
+import {
+  RetrieveDomainAuthCodeCommandInput,
+  RetrieveDomainAuthCodeCommandOutput
+} from "./commands/RetrieveDomainAuthCodeCommand";
+import {
+  TransferDomainCommandInput,
+  TransferDomainCommandOutput
+} from "./commands/TransferDomainCommand";
+import {
+  UpdateDomainContactCommandInput,
+  UpdateDomainContactCommandOutput
+} from "./commands/UpdateDomainContactCommand";
+import {
+  UpdateDomainContactPrivacyCommandInput,
+  UpdateDomainContactPrivacyCommandOutput
+} from "./commands/UpdateDomainContactPrivacyCommand";
+import {
+  UpdateDomainNameserversCommandInput,
+  UpdateDomainNameserversCommandOutput
+} from "./commands/UpdateDomainNameserversCommand";
+import {
+  UpdateTagsForDomainCommandInput,
+  UpdateTagsForDomainCommandOutput
+} from "./commands/UpdateTagsForDomainCommand";
+import {
+  ViewBillingCommandInput,
+  ViewBillingCommandOutput
+} from "./commands/ViewBillingCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -101,56 +147,56 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CheckDomainAvailabilityRequest
-  | CheckDomainTransferabilityRequest
-  | DeleteTagsForDomainRequest
-  | DisableDomainAutoRenewRequest
-  | DisableDomainTransferLockRequest
-  | EnableDomainAutoRenewRequest
-  | EnableDomainTransferLockRequest
-  | GetContactReachabilityStatusRequest
-  | GetDomainDetailRequest
-  | GetDomainSuggestionsRequest
-  | GetOperationDetailRequest
-  | ListDomainsRequest
-  | ListOperationsRequest
-  | ListTagsForDomainRequest
-  | RegisterDomainRequest
-  | RenewDomainRequest
-  | ResendContactReachabilityEmailRequest
-  | RetrieveDomainAuthCodeRequest
-  | TransferDomainRequest
-  | UpdateDomainContactPrivacyRequest
-  | UpdateDomainContactRequest
-  | UpdateDomainNameserversRequest
-  | UpdateTagsForDomainRequest
-  | ViewBillingRequest;
+  | CheckDomainAvailabilityCommandInput
+  | CheckDomainTransferabilityCommandInput
+  | DeleteTagsForDomainCommandInput
+  | DisableDomainAutoRenewCommandInput
+  | DisableDomainTransferLockCommandInput
+  | EnableDomainAutoRenewCommandInput
+  | EnableDomainTransferLockCommandInput
+  | GetContactReachabilityStatusCommandInput
+  | GetDomainDetailCommandInput
+  | GetDomainSuggestionsCommandInput
+  | GetOperationDetailCommandInput
+  | ListDomainsCommandInput
+  | ListOperationsCommandInput
+  | ListTagsForDomainCommandInput
+  | RegisterDomainCommandInput
+  | RenewDomainCommandInput
+  | ResendContactReachabilityEmailCommandInput
+  | RetrieveDomainAuthCodeCommandInput
+  | TransferDomainCommandInput
+  | UpdateDomainContactCommandInput
+  | UpdateDomainContactPrivacyCommandInput
+  | UpdateDomainNameserversCommandInput
+  | UpdateTagsForDomainCommandInput
+  | ViewBillingCommandInput;
 
 export type ServiceOutputTypes =
-  | CheckDomainAvailabilityResponse
-  | CheckDomainTransferabilityResponse
-  | DeleteTagsForDomainResponse
-  | DisableDomainAutoRenewResponse
-  | DisableDomainTransferLockResponse
-  | EnableDomainAutoRenewResponse
-  | EnableDomainTransferLockResponse
-  | GetContactReachabilityStatusResponse
-  | GetDomainDetailResponse
-  | GetDomainSuggestionsResponse
-  | GetOperationDetailResponse
-  | ListDomainsResponse
-  | ListOperationsResponse
-  | ListTagsForDomainResponse
-  | RegisterDomainResponse
-  | RenewDomainResponse
-  | ResendContactReachabilityEmailResponse
-  | RetrieveDomainAuthCodeResponse
-  | TransferDomainResponse
-  | UpdateDomainContactPrivacyResponse
-  | UpdateDomainContactResponse
-  | UpdateDomainNameserversResponse
-  | UpdateTagsForDomainResponse
-  | ViewBillingResponse;
+  | CheckDomainAvailabilityCommandOutput
+  | CheckDomainTransferabilityCommandOutput
+  | DeleteTagsForDomainCommandOutput
+  | DisableDomainAutoRenewCommandOutput
+  | DisableDomainTransferLockCommandOutput
+  | EnableDomainAutoRenewCommandOutput
+  | EnableDomainTransferLockCommandOutput
+  | GetContactReachabilityStatusCommandOutput
+  | GetDomainDetailCommandOutput
+  | GetDomainSuggestionsCommandOutput
+  | GetOperationDetailCommandOutput
+  | ListDomainsCommandOutput
+  | ListOperationsCommandOutput
+  | ListTagsForDomainCommandOutput
+  | RegisterDomainCommandOutput
+  | RenewDomainCommandOutput
+  | ResendContactReachabilityEmailCommandOutput
+  | RetrieveDomainAuthCodeCommandOutput
+  | TransferDomainCommandOutput
+  | UpdateDomainContactCommandOutput
+  | UpdateDomainContactPrivacyCommandOutput
+  | UpdateDomainNameserversCommandOutput
+  | UpdateTagsForDomainCommandOutput
+  | ViewBillingCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

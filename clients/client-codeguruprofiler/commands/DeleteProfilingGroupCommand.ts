@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteProfilingGroupCommandInput = DeleteProfilingGroupRequest;
-export type DeleteProfilingGroupCommandOutput = DeleteProfilingGroupResponse;
+export type DeleteProfilingGroupCommandOutput = DeleteProfilingGroupResponse &
+  __MetadataBearer;
 
 export class DeleteProfilingGroupCommand extends $Command<
   DeleteProfilingGroupCommandInput,

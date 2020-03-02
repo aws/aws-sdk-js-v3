@@ -1,11 +1,15 @@
 import {
-  SearchRequest,
-  SearchResponse,
-  SuggestRequest,
-  SuggestResponse,
-  UploadDocumentsRequest,
-  UploadDocumentsResponse
-} from "./models/index";
+  SearchCommandInput,
+  SearchCommandOutput
+} from "./commands/SearchCommand";
+import {
+  SuggestCommandInput,
+  SuggestCommandOutput
+} from "./commands/SuggestCommand";
+import {
+  UploadDocumentsCommandInput,
+  UploadDocumentsCommandOutput
+} from "./commands/UploadDocumentsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -59,14 +63,14 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | SearchRequest
-  | SuggestRequest
-  | UploadDocumentsRequest;
+  | SearchCommandInput
+  | SuggestCommandInput
+  | UploadDocumentsCommandInput;
 
 export type ServiceOutputTypes =
-  | SearchResponse
-  | SuggestResponse
-  | UploadDocumentsResponse;
+  | SearchCommandOutput
+  | SuggestCommandOutput
+  | UploadDocumentsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

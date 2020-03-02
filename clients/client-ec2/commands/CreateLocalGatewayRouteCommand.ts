@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLocalGatewayRouteCommandInput = CreateLocalGatewayRouteRequest;
-export type CreateLocalGatewayRouteCommandOutput = CreateLocalGatewayRouteResult;
+export type CreateLocalGatewayRouteCommandOutput = CreateLocalGatewayRouteResult &
+  __MetadataBearer;
 
 export class CreateLocalGatewayRouteCommand extends $Command<
   CreateLocalGatewayRouteCommandInput,

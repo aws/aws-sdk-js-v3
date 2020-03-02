@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListFacetAttributesCommandInput = ListFacetAttributesRequest;
-export type ListFacetAttributesCommandOutput = ListFacetAttributesResponse;
+export type ListFacetAttributesCommandOutput = ListFacetAttributesResponse &
+  __MetadataBearer;
 
 export class ListFacetAttributesCommand extends $Command<
   ListFacetAttributesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListRecoveryPointsByResourceCommandInput = ListRecoveryPointsByResourceInput;
-export type ListRecoveryPointsByResourceCommandOutput = ListRecoveryPointsByResourceOutput;
+export type ListRecoveryPointsByResourceCommandOutput = ListRecoveryPointsByResourceOutput &
+  __MetadataBearer;
 
 export class ListRecoveryPointsByResourceCommand extends $Command<
   ListRecoveryPointsByResourceCommandInput,

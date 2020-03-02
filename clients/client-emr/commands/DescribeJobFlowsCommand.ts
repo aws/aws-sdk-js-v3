@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeJobFlowsCommandInput = DescribeJobFlowsInput;
-export type DescribeJobFlowsCommandOutput = DescribeJobFlowsOutput;
+export type DescribeJobFlowsCommandOutput = DescribeJobFlowsOutput &
+  __MetadataBearer;
 
 export class DescribeJobFlowsCommand extends $Command<
   DescribeJobFlowsCommandInput,

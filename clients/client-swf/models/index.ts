@@ -7,7 +7,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 /**
  * <p>Unit of work sent to an activity worker.</p>
  */
-export interface ActivityTask extends $MetadataBearer {
+export interface ActivityTask {
   __type?: "ActivityTask";
   /**
    * <p>The unique ID of the task.</p>
@@ -265,7 +265,7 @@ export namespace ActivityTaskStartedEventAttributes {
 /**
  * <p>Status information about an activity task.</p>
  */
-export interface ActivityTaskStatus extends $MetadataBearer {
+export interface ActivityTaskStatus {
   __type?: "ActivityTaskStatus";
   /**
    * <p>Set to <code>true</code> if cancellation of the task is requested.</p>
@@ -426,7 +426,7 @@ export namespace ActivityTypeConfiguration {
 /**
  * <p>Detailed information about an activity type.</p>
  */
-export interface ActivityTypeDetail extends $MetadataBearer {
+export interface ActivityTypeDetail {
   __type?: "ActivityTypeDetail";
   /**
    * <p>The configuration settings registered with the activity type.</p>
@@ -501,7 +501,7 @@ export namespace ActivityTypeInfo {
 /**
  * <p>Contains a paginated list of activity type information structures.</p>
  */
-export interface ActivityTypeInfos extends $MetadataBearer {
+export interface ActivityTypeInfos {
   __type?: "ActivityTypeInfos";
   /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
@@ -1563,7 +1563,7 @@ export namespace Decision {
 /**
  * <p>A structure that represents a decision task. Decision tasks are sent to deciders in order for them to make decisions.</p>
  */
-export interface DecisionTask extends $MetadataBearer {
+export interface DecisionTask {
   __type?: "DecisionTask";
   /**
    * <p>A paginated list of history events of the workflow execution. The decider uses this during the processing of the decision task.</p>
@@ -1832,7 +1832,7 @@ export namespace DomainDeprecatedFault {
 /**
  * <p>Contains details of a domain.</p>
  */
-export interface DomainDetail extends $MetadataBearer {
+export interface DomainDetail {
   __type?: "DomainDetail";
   /**
    * <p>The domain configuration. Currently, this includes only the domain's retention
@@ -1902,7 +1902,7 @@ export namespace DomainInfo {
 /**
  * <p>Contains a paginated collection of DomainInfo structures.</p>
  */
-export interface DomainInfos extends $MetadataBearer {
+export interface DomainInfos {
   __type?: "DomainInfos";
   /**
    * <p>A list of DomainInfo structures.</p>
@@ -2140,7 +2140,7 @@ export namespace FailWorkflowExecutionFailedEventAttributes {
 /**
  * <p>Paginated representation of a workflow history for a workflow execution. This is the up to date, complete and authoritative record of the events related to all tasks and events in the life of the workflow execution.</p>
  */
-export interface History extends $MetadataBearer {
+export interface History {
   __type?: "History";
   /**
    * <p>The list of history events.</p>
@@ -2960,7 +2960,7 @@ export namespace OperationNotPermittedFault {
 /**
  * <p>Contains the count of tasks in a task list.</p>
  */
-export interface PendingTaskCount extends $MetadataBearer {
+export interface PendingTaskCount {
   __type?: "PendingTaskCount";
   /**
    * <p>The number of tasks in the task list.</p>
@@ -4712,7 +4712,7 @@ export namespace WorkflowExecutionContinuedAsNewEventAttributes {
  *       <a>CountClosedWorkflowExecutions</a>
  *          </p>
  */
-export interface WorkflowExecutionCount extends $MetadataBearer {
+export interface WorkflowExecutionCount {
   __type?: "WorkflowExecutionCount";
   /**
    * <p>The number of workflow executions.</p>
@@ -4734,7 +4734,7 @@ export namespace WorkflowExecutionCount {
 /**
  * <p>Contains details about a workflow execution.</p>
  */
-export interface WorkflowExecutionDetail extends $MetadataBearer {
+export interface WorkflowExecutionDetail {
   __type?: "WorkflowExecutionDetail";
   /**
    * <p>The configuration settings for this workflow execution including timeout values, tasklist etc.</p>
@@ -4904,7 +4904,7 @@ export namespace WorkflowExecutionInfo {
 /**
  * <p>Contains a paginated list of information about workflow executions.</p>
  */
-export interface WorkflowExecutionInfos extends $MetadataBearer {
+export interface WorkflowExecutionInfos {
   __type?: "WorkflowExecutionInfos";
   /**
    * <p>The list of workflow information structures.</p>
@@ -5317,7 +5317,7 @@ export namespace WorkflowTypeConfiguration {
 /**
  * <p>Contains details about a workflow type.</p>
  */
-export interface WorkflowTypeDetail extends $MetadataBearer {
+export interface WorkflowTypeDetail {
   __type?: "WorkflowTypeDetail";
   /**
    * <p>Configuration settings of the workflow type registered through <a>RegisterWorkflowType</a>
@@ -5412,7 +5412,7 @@ export namespace WorkflowTypeInfo {
 /**
  * <p>Contains a paginated list of information structures about workflow types.</p>
  */
-export interface WorkflowTypeInfos extends $MetadataBearer {
+export interface WorkflowTypeInfos {
   __type?: "WorkflowTypeInfos";
   /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
@@ -6066,7 +6066,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>An array of tags associated with the domain.</p>
@@ -6666,7 +6666,7 @@ export namespace RespondDecisionTaskCompletedInput {
 /**
  * <p>Specifies the <code>runId</code> of a workflow execution.</p>
  */
-export interface Run extends $MetadataBearer {
+export interface Run {
   __type?: "Run";
   /**
    * <p>The <code>runId</code> of a workflow execution. This ID is generated by the service and

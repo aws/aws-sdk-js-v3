@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListBucketInventoryConfigurationsCommandInput = ListBucketInventoryConfigurationsRequest;
-export type ListBucketInventoryConfigurationsCommandOutput = ListBucketInventoryConfigurationsOutput;
+export type ListBucketInventoryConfigurationsCommandOutput = ListBucketInventoryConfigurationsOutput &
+  __MetadataBearer;
 
 export class ListBucketInventoryConfigurationsCommand extends $Command<
   ListBucketInventoryConfigurationsCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetQueueUrlCommandInput = GetQueueUrlRequest;
-export type GetQueueUrlCommandOutput = GetQueueUrlResult;
+export type GetQueueUrlCommandOutput = GetQueueUrlResult & __MetadataBearer;
 
 export class GetQueueUrlCommand extends $Command<
   GetQueueUrlCommandInput,

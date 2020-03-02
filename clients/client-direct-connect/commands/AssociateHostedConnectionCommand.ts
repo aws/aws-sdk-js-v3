@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateHostedConnectionCommandInput = AssociateHostedConnectionRequest;
-export type AssociateHostedConnectionCommandOutput = Connection;
+export type AssociateHostedConnectionCommandOutput = Connection &
+  __MetadataBearer;
 
 export class AssociateHostedConnectionCommand extends $Command<
   AssociateHostedConnectionCommandInput,

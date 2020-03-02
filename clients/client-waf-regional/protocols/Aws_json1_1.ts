@@ -1703,38 +1703,53 @@ async function deserializeAws_json1_1AssociateWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFUnavailableEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFUnavailableEntityException":
-      response = await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1790,31 +1805,43 @@ async function deserializeAws_json1_1DisassociateWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1870,38 +1897,53 @@ async function deserializeAws_json1_1GetWebACLForResourceCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFUnavailableEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFUnavailableEntityException":
-      response = await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1960,31 +2002,43 @@ async function deserializeAws_json1_1ListResourcesForWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2040,45 +2094,63 @@ async function deserializeAws_json1_1CreateByteMatchSetCommandError(
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2131,45 +2203,63 @@ async function deserializeAws_json1_1CreateGeoMatchSetCommandError(
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2222,45 +2312,63 @@ async function deserializeAws_json1_1CreateIPSetCommandError(
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2316,59 +2424,83 @@ async function deserializeAws_json1_1CreateRateBasedRuleCommandError(
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2424,31 +2556,43 @@ async function deserializeAws_json1_1CreateRegexMatchSetCommandError(
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2504,31 +2648,43 @@ async function deserializeAws_json1_1CreateRegexPatternSetCommandError(
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2581,59 +2737,83 @@ async function deserializeAws_json1_1CreateRuleCommandError(
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2686,52 +2866,73 @@ async function deserializeAws_json1_1CreateRuleGroupCommandError(
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2790,45 +2991,63 @@ async function deserializeAws_json1_1CreateSizeConstraintSetCommandError(
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2887,45 +3106,63 @@ async function deserializeAws_json1_1CreateSqlInjectionMatchSetCommandError(
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2978,66 +3215,93 @@ async function deserializeAws_json1_1CreateWebACLCommandError(
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3090,45 +3354,63 @@ async function deserializeAws_json1_1CreateXssMatchSetCommandError(
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3184,45 +3466,63 @@ async function deserializeAws_json1_1DeleteByteMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3275,45 +3575,63 @@ async function deserializeAws_json1_1DeleteGeoMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3366,45 +3684,63 @@ async function deserializeAws_json1_1DeleteIPSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3463,24 +3799,33 @@ async function deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3539,24 +3884,33 @@ async function deserializeAws_json1_1DeletePermissionPolicyCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3612,59 +3966,83 @@ async function deserializeAws_json1_1DeleteRateBasedRuleCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3720,45 +4098,63 @@ async function deserializeAws_json1_1DeleteRegexMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3814,45 +4210,63 @@ async function deserializeAws_json1_1DeleteRegexPatternSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3905,59 +4319,83 @@ async function deserializeAws_json1_1DeleteRuleCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4010,59 +4448,83 @@ async function deserializeAws_json1_1DeleteRuleGroupCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4121,45 +4583,63 @@ async function deserializeAws_json1_1DeleteSizeConstraintSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4218,45 +4698,63 @@ async function deserializeAws_json1_1DeleteSqlInjectionMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4309,59 +4807,83 @@ async function deserializeAws_json1_1DeleteWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4414,45 +4936,63 @@ async function deserializeAws_json1_1DeleteXssMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4505,24 +5045,33 @@ async function deserializeAws_json1_1GetByteMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4575,10 +5124,13 @@ async function deserializeAws_json1_1GetChangeTokenCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4634,17 +5186,23 @@ async function deserializeAws_json1_1GetChangeTokenStatusCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4697,24 +5255,33 @@ async function deserializeAws_json1_1GetGeoMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4767,24 +5334,33 @@ async function deserializeAws_json1_1GetIPSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4843,17 +5419,23 @@ async function deserializeAws_json1_1GetLoggingConfigurationCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4909,17 +5491,23 @@ async function deserializeAws_json1_1GetPermissionPolicyCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4972,24 +5560,33 @@ async function deserializeAws_json1_1GetRateBasedRuleCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5048,31 +5645,43 @@ async function deserializeAws_json1_1GetRateBasedRuleManagedKeysCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5125,24 +5734,33 @@ async function deserializeAws_json1_1GetRegexMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5198,24 +5816,33 @@ async function deserializeAws_json1_1GetRegexPatternSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5268,24 +5895,33 @@ async function deserializeAws_json1_1GetRuleCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5338,17 +5974,23 @@ async function deserializeAws_json1_1GetRuleGroupCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5404,17 +6046,23 @@ async function deserializeAws_json1_1GetSampledRequestsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5470,24 +6118,33 @@ async function deserializeAws_json1_1GetSizeConstraintSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5546,24 +6203,33 @@ async function deserializeAws_json1_1GetSqlInjectionMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5616,24 +6282,33 @@ async function deserializeAws_json1_1GetWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5686,24 +6361,33 @@ async function deserializeAws_json1_1GetXssMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5762,24 +6446,33 @@ async function deserializeAws_json1_1ListActivatedRulesInRuleGroupCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5832,17 +6525,23 @@ async function deserializeAws_json1_1ListByteMatchSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5895,17 +6594,23 @@ async function deserializeAws_json1_1ListGeoMatchSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5958,17 +6663,23 @@ async function deserializeAws_json1_1ListIPSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6027,24 +6738,33 @@ async function deserializeAws_json1_1ListLoggingConfigurationsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6100,17 +6820,23 @@ async function deserializeAws_json1_1ListRateBasedRulesCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6166,17 +6892,23 @@ async function deserializeAws_json1_1ListRegexMatchSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6232,17 +6964,23 @@ async function deserializeAws_json1_1ListRegexPatternSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6295,10 +7033,13 @@ async function deserializeAws_json1_1ListRuleGroupsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6351,17 +7092,23 @@ async function deserializeAws_json1_1ListRulesCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6420,17 +7167,23 @@ async function deserializeAws_json1_1ListSizeConstraintSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6489,17 +7242,23 @@ async function deserializeAws_json1_1ListSqlInjectionMatchSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6558,17 +7317,23 @@ async function deserializeAws_json1_1ListSubscribedRuleGroupsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6624,45 +7389,63 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6715,17 +7498,23 @@ async function deserializeAws_json1_1ListWebACLsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6778,17 +7567,23 @@ async function deserializeAws_json1_1ListXssMatchSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6847,31 +7642,43 @@ async function deserializeAws_json1_1PutLoggingConfigurationCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFServiceLinkedRoleErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFServiceLinkedRoleErrorException":
-      response = await deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6927,31 +7734,43 @@ async function deserializeAws_json1_1PutPermissionPolicyCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidPermissionPolicyException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidPermissionPolicyException":
-      response = await deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7004,52 +7823,73 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7102,45 +7942,63 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7196,59 +8054,83 @@ async function deserializeAws_json1_1UpdateByteMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7301,66 +8183,93 @@ async function deserializeAws_json1_1UpdateGeoMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7413,66 +8322,93 @@ async function deserializeAws_json1_1UpdateIPSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7528,66 +8464,93 @@ async function deserializeAws_json1_1UpdateRateBasedRuleCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7643,59 +8606,83 @@ async function deserializeAws_json1_1UpdateRegexMatchSetCommandError(
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7751,59 +8738,83 @@ async function deserializeAws_json1_1UpdateRegexPatternSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidRegexPatternException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidRegexPatternException":
-      response = await deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7856,66 +8867,93 @@ async function deserializeAws_json1_1UpdateRuleCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7968,52 +9006,73 @@ async function deserializeAws_json1_1UpdateRuleGroupCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8072,66 +9131,93 @@ async function deserializeAws_json1_1UpdateSizeConstraintSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8190,59 +9276,83 @@ async function deserializeAws_json1_1UpdateSqlInjectionMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8295,73 +9405,103 @@ async function deserializeAws_json1_1UpdateWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFSubscriptionNotFoundException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFSubscriptionNotFoundException":
-      response = await deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8414,59 +9554,83 @@ async function deserializeAws_json1_1UpdateXssMatchSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

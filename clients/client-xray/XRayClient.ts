@@ -1,45 +1,83 @@
 import {
-  BatchGetTracesRequest,
-  BatchGetTracesResult,
-  CreateGroupRequest,
-  CreateGroupResult,
-  CreateSamplingRuleRequest,
-  CreateSamplingRuleResult,
-  DeleteGroupRequest,
-  DeleteGroupResult,
-  DeleteSamplingRuleRequest,
-  DeleteSamplingRuleResult,
-  GetEncryptionConfigRequest,
-  GetEncryptionConfigResult,
-  GetGroupRequest,
-  GetGroupResult,
-  GetGroupsRequest,
-  GetGroupsResult,
-  GetSamplingRulesRequest,
-  GetSamplingRulesResult,
-  GetSamplingStatisticSummariesRequest,
-  GetSamplingStatisticSummariesResult,
-  GetSamplingTargetsRequest,
-  GetSamplingTargetsResult,
-  GetServiceGraphRequest,
-  GetServiceGraphResult,
-  GetTimeSeriesServiceStatisticsRequest,
-  GetTimeSeriesServiceStatisticsResult,
-  GetTraceGraphRequest,
-  GetTraceGraphResult,
-  GetTraceSummariesRequest,
-  GetTraceSummariesResult,
-  PutEncryptionConfigRequest,
-  PutEncryptionConfigResult,
-  PutTelemetryRecordsRequest,
-  PutTelemetryRecordsResult,
-  PutTraceSegmentsRequest,
-  PutTraceSegmentsResult,
-  UpdateGroupRequest,
-  UpdateGroupResult,
-  UpdateSamplingRuleRequest,
-  UpdateSamplingRuleResult
-} from "./models/index";
+  BatchGetTracesCommandInput,
+  BatchGetTracesCommandOutput
+} from "./commands/BatchGetTracesCommand";
+import {
+  CreateGroupCommandInput,
+  CreateGroupCommandOutput
+} from "./commands/CreateGroupCommand";
+import {
+  CreateSamplingRuleCommandInput,
+  CreateSamplingRuleCommandOutput
+} from "./commands/CreateSamplingRuleCommand";
+import {
+  DeleteGroupCommandInput,
+  DeleteGroupCommandOutput
+} from "./commands/DeleteGroupCommand";
+import {
+  DeleteSamplingRuleCommandInput,
+  DeleteSamplingRuleCommandOutput
+} from "./commands/DeleteSamplingRuleCommand";
+import {
+  GetEncryptionConfigCommandInput,
+  GetEncryptionConfigCommandOutput
+} from "./commands/GetEncryptionConfigCommand";
+import {
+  GetGroupCommandInput,
+  GetGroupCommandOutput
+} from "./commands/GetGroupCommand";
+import {
+  GetGroupsCommandInput,
+  GetGroupsCommandOutput
+} from "./commands/GetGroupsCommand";
+import {
+  GetSamplingRulesCommandInput,
+  GetSamplingRulesCommandOutput
+} from "./commands/GetSamplingRulesCommand";
+import {
+  GetSamplingStatisticSummariesCommandInput,
+  GetSamplingStatisticSummariesCommandOutput
+} from "./commands/GetSamplingStatisticSummariesCommand";
+import {
+  GetSamplingTargetsCommandInput,
+  GetSamplingTargetsCommandOutput
+} from "./commands/GetSamplingTargetsCommand";
+import {
+  GetServiceGraphCommandInput,
+  GetServiceGraphCommandOutput
+} from "./commands/GetServiceGraphCommand";
+import {
+  GetTimeSeriesServiceStatisticsCommandInput,
+  GetTimeSeriesServiceStatisticsCommandOutput
+} from "./commands/GetTimeSeriesServiceStatisticsCommand";
+import {
+  GetTraceGraphCommandInput,
+  GetTraceGraphCommandOutput
+} from "./commands/GetTraceGraphCommand";
+import {
+  GetTraceSummariesCommandInput,
+  GetTraceSummariesCommandOutput
+} from "./commands/GetTraceSummariesCommand";
+import {
+  PutEncryptionConfigCommandInput,
+  PutEncryptionConfigCommandOutput
+} from "./commands/PutEncryptionConfigCommand";
+import {
+  PutTelemetryRecordsCommandInput,
+  PutTelemetryRecordsCommandOutput
+} from "./commands/PutTelemetryRecordsCommand";
+import {
+  PutTraceSegmentsCommandInput,
+  PutTraceSegmentsCommandOutput
+} from "./commands/PutTraceSegmentsCommand";
+import {
+  UpdateGroupCommandInput,
+  UpdateGroupCommandOutput
+} from "./commands/UpdateGroupCommand";
+import {
+  UpdateSamplingRuleCommandInput,
+  UpdateSamplingRuleCommandOutput
+} from "./commands/UpdateSamplingRuleCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -93,48 +131,48 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchGetTracesRequest
-  | CreateGroupRequest
-  | CreateSamplingRuleRequest
-  | DeleteGroupRequest
-  | DeleteSamplingRuleRequest
-  | GetEncryptionConfigRequest
-  | GetGroupRequest
-  | GetGroupsRequest
-  | GetSamplingRulesRequest
-  | GetSamplingStatisticSummariesRequest
-  | GetSamplingTargetsRequest
-  | GetServiceGraphRequest
-  | GetTimeSeriesServiceStatisticsRequest
-  | GetTraceGraphRequest
-  | GetTraceSummariesRequest
-  | PutEncryptionConfigRequest
-  | PutTelemetryRecordsRequest
-  | PutTraceSegmentsRequest
-  | UpdateGroupRequest
-  | UpdateSamplingRuleRequest;
+  | BatchGetTracesCommandInput
+  | CreateGroupCommandInput
+  | CreateSamplingRuleCommandInput
+  | DeleteGroupCommandInput
+  | DeleteSamplingRuleCommandInput
+  | GetEncryptionConfigCommandInput
+  | GetGroupCommandInput
+  | GetGroupsCommandInput
+  | GetSamplingRulesCommandInput
+  | GetSamplingStatisticSummariesCommandInput
+  | GetSamplingTargetsCommandInput
+  | GetServiceGraphCommandInput
+  | GetTimeSeriesServiceStatisticsCommandInput
+  | GetTraceGraphCommandInput
+  | GetTraceSummariesCommandInput
+  | PutEncryptionConfigCommandInput
+  | PutTelemetryRecordsCommandInput
+  | PutTraceSegmentsCommandInput
+  | UpdateGroupCommandInput
+  | UpdateSamplingRuleCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchGetTracesResult
-  | CreateGroupResult
-  | CreateSamplingRuleResult
-  | DeleteGroupResult
-  | DeleteSamplingRuleResult
-  | GetEncryptionConfigResult
-  | GetGroupResult
-  | GetGroupsResult
-  | GetSamplingRulesResult
-  | GetSamplingStatisticSummariesResult
-  | GetSamplingTargetsResult
-  | GetServiceGraphResult
-  | GetTimeSeriesServiceStatisticsResult
-  | GetTraceGraphResult
-  | GetTraceSummariesResult
-  | PutEncryptionConfigResult
-  | PutTelemetryRecordsResult
-  | PutTraceSegmentsResult
-  | UpdateGroupResult
-  | UpdateSamplingRuleResult;
+  | BatchGetTracesCommandOutput
+  | CreateGroupCommandOutput
+  | CreateSamplingRuleCommandOutput
+  | DeleteGroupCommandOutput
+  | DeleteSamplingRuleCommandOutput
+  | GetEncryptionConfigCommandOutput
+  | GetGroupCommandOutput
+  | GetGroupsCommandOutput
+  | GetSamplingRulesCommandOutput
+  | GetSamplingStatisticSummariesCommandOutput
+  | GetSamplingTargetsCommandOutput
+  | GetServiceGraphCommandOutput
+  | GetTimeSeriesServiceStatisticsCommandOutput
+  | GetTraceGraphCommandOutput
+  | GetTraceSummariesCommandOutput
+  | PutEncryptionConfigCommandOutput
+  | PutTelemetryRecordsCommandOutput
+  | PutTraceSegmentsCommandOutput
+  | UpdateGroupCommandOutput
+  | UpdateSamplingRuleCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

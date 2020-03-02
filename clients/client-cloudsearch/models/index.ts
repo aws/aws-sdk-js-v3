@@ -217,7 +217,7 @@ export namespace BuildSuggestersRequest {
 /**
  * <p>The result of a <code>BuildSuggester</code> request. Contains a list of the fields used for suggestions.</p>
  */
-export interface BuildSuggestersResponse extends $MetadataBearer {
+export interface BuildSuggestersResponse {
   __type?: "BuildSuggestersResponse";
   /**
    * <p>A list of field names.</p>
@@ -251,7 +251,7 @@ export namespace CreateDomainRequest {
 /**
  * <p>The result of a <code>CreateDomainRequest</code>. Contains the status of a newly created domain.</p>
  */
-export interface CreateDomainResponse extends $MetadataBearer {
+export interface CreateDomainResponse {
   __type?: "CreateDomainResponse";
   /**
    * <p>The current status of the search domain.</p>
@@ -382,7 +382,7 @@ export namespace DefineAnalysisSchemeRequest {
 /**
  * <p>The result of a <code><a>DefineAnalysisScheme</a></code> request. Contains the status of the newly-configured analysis scheme.</p>
  */
-export interface DefineAnalysisSchemeResponse extends $MetadataBearer {
+export interface DefineAnalysisSchemeResponse {
   __type?: "DefineAnalysisSchemeResponse";
   /**
    * <p>The status and configuration of an  <code>AnalysisScheme</code>.</p>
@@ -421,7 +421,7 @@ export namespace DefineExpressionRequest {
 /**
  * <p>The result of a <code>DefineExpression</code> request. Contains the status of the newly-configured expression.</p>
  */
-export interface DefineExpressionResponse extends $MetadataBearer {
+export interface DefineExpressionResponse {
   __type?: "DefineExpressionResponse";
   /**
    * <p>The value of an <code>Expression</code> and its current status.</p>
@@ -460,7 +460,7 @@ export namespace DefineIndexFieldRequest {
 /**
  * <p>The result of a <code><a>DefineIndexField</a></code> request. Contains the status of the newly-configured index field.</p>
  */
-export interface DefineIndexFieldResponse extends $MetadataBearer {
+export interface DefineIndexFieldResponse {
   __type?: "DefineIndexFieldResponse";
   /**
    * <p>The value of an <code>IndexField</code> and its current status.</p>
@@ -499,7 +499,7 @@ export namespace DefineSuggesterRequest {
 /**
  * <p>The result of a <code>DefineSuggester</code> request. Contains the status of the newly-configured suggester.</p>
  */
-export interface DefineSuggesterResponse extends $MetadataBearer {
+export interface DefineSuggesterResponse {
   __type?: "DefineSuggesterResponse";
   /**
    * <p>The value of a <code>Suggester</code> and its current status.</p>
@@ -538,7 +538,7 @@ export namespace DeleteAnalysisSchemeRequest {
 /**
  * <p>The result of a <code>DeleteAnalysisScheme</code> request. Contains the status of the deleted analysis scheme.</p>
  */
-export interface DeleteAnalysisSchemeResponse extends $MetadataBearer {
+export interface DeleteAnalysisSchemeResponse {
   __type?: "DeleteAnalysisSchemeResponse";
   /**
    * <p>The status of the analysis scheme being deleted.</p>
@@ -572,7 +572,7 @@ export namespace DeleteDomainRequest {
 /**
  * <p>The result of a <code>DeleteDomain</code> request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.</p>
  */
-export interface DeleteDomainResponse extends $MetadataBearer {
+export interface DeleteDomainResponse {
   __type?: "DeleteDomainResponse";
   /**
    * <p>The current status of the search domain.</p>
@@ -611,7 +611,7 @@ export namespace DeleteExpressionRequest {
 /**
  * <p>The result of a <code><a>DeleteExpression</a></code> request. Specifies the expression being deleted.</p>
  */
-export interface DeleteExpressionResponse extends $MetadataBearer {
+export interface DeleteExpressionResponse {
   __type?: "DeleteExpressionResponse";
   /**
    * <p>The status of the expression being deleted.</p>
@@ -650,7 +650,7 @@ export namespace DeleteIndexFieldRequest {
 /**
  * <p>The result of a <code><a>DeleteIndexField</a></code> request.</p>
  */
-export interface DeleteIndexFieldResponse extends $MetadataBearer {
+export interface DeleteIndexFieldResponse {
   __type?: "DeleteIndexFieldResponse";
   /**
    * <p>The status of the index field being deleted.</p>
@@ -689,7 +689,7 @@ export namespace DeleteSuggesterRequest {
 /**
  * <p>The result of a <code>DeleteSuggester</code> request. Contains the status of the deleted suggester.</p>
  */
-export interface DeleteSuggesterResponse extends $MetadataBearer {
+export interface DeleteSuggesterResponse {
   __type?: "DeleteSuggesterResponse";
   /**
    * <p>The status of the suggester being deleted.</p>
@@ -733,7 +733,7 @@ export namespace DescribeAnalysisSchemesRequest {
 /**
  * <p>The result of a <code>DescribeAnalysisSchemes</code> request. Contains the analysis schemes configured for the domain specified in the request.</p>
  */
-export interface DescribeAnalysisSchemesResponse extends $MetadataBearer {
+export interface DescribeAnalysisSchemesResponse {
   __type?: "DescribeAnalysisSchemesResponse";
   /**
    * <p>The analysis scheme descriptions.</p>
@@ -772,7 +772,7 @@ export namespace DescribeAvailabilityOptionsRequest {
 /**
  * <p>The result of a <code>DescribeAvailabilityOptions</code> request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request. </p>
  */
-export interface DescribeAvailabilityOptionsResponse extends $MetadataBearer {
+export interface DescribeAvailabilityOptionsResponse {
   __type?: "DescribeAvailabilityOptionsResponse";
   /**
    * <p>The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain. </p>
@@ -811,7 +811,7 @@ export namespace DescribeDomainEndpointOptionsRequest {
 /**
  * <p>The result of a <code>DescribeDomainEndpointOptions</code> request. Contains the status and configuration of a search domain's endpoint options. </p>
  */
-export interface DescribeDomainEndpointOptionsResponse extends $MetadataBearer {
+export interface DescribeDomainEndpointOptionsResponse {
   __type?: "DescribeDomainEndpointOptionsResponse";
   /**
    * <p>The status and configuration of a search domain's endpoint options.</p>
@@ -845,7 +845,7 @@ export namespace DescribeDomainsRequest {
 /**
  * <p>The result of a <code>DescribeDomains</code> request. Contains the status of the domains specified in the request or all domains owned by the account.</p>
  */
-export interface DescribeDomainsResponse extends $MetadataBearer {
+export interface DescribeDomainsResponse {
   __type?: "DescribeDomainsResponse";
   /**
    * <p>A list that contains the status of each requested domain.</p>
@@ -890,7 +890,7 @@ export namespace DescribeExpressionsRequest {
 /**
  * <p>The result of a <code>DescribeExpressions</code> request. Contains the expressions configured for the domain specified in the request.</p>
  */
-export interface DescribeExpressionsResponse extends $MetadataBearer {
+export interface DescribeExpressionsResponse {
   __type?: "DescribeExpressionsResponse";
   /**
    * <p>The expressions configured for the domain.</p>
@@ -934,7 +934,7 @@ export namespace DescribeIndexFieldsRequest {
 /**
  * <p>The result of a <code>DescribeIndexFields</code> request. Contains the index fields configured for the domain specified in the request.</p>
  */
-export interface DescribeIndexFieldsResponse extends $MetadataBearer {
+export interface DescribeIndexFieldsResponse {
   __type?: "DescribeIndexFieldsResponse";
   /**
    * <p>The index fields configured for the domain.</p>
@@ -968,7 +968,7 @@ export namespace DescribeScalingParametersRequest {
 /**
  * <p>The result of a <code>DescribeScalingParameters</code> request. Contains the scaling parameters configured for the domain specified in the request.</p>
  */
-export interface DescribeScalingParametersResponse extends $MetadataBearer {
+export interface DescribeScalingParametersResponse {
   __type?: "DescribeScalingParametersResponse";
   /**
    * <p>The status and configuration of a search domain's scaling parameters. </p>
@@ -1007,7 +1007,7 @@ export namespace DescribeServiceAccessPoliciesRequest {
 /**
  * <p>The result of a <code>DescribeServiceAccessPolicies</code> request.</p>
  */
-export interface DescribeServiceAccessPoliciesResponse extends $MetadataBearer {
+export interface DescribeServiceAccessPoliciesResponse {
   __type?: "DescribeServiceAccessPoliciesResponse";
   /**
    * <p>The access rules configured for the domain specified in the request.</p>
@@ -1051,7 +1051,7 @@ export namespace DescribeSuggestersRequest {
 /**
  * <p>The result of a <code>DescribeSuggesters</code> request.</p>
  */
-export interface DescribeSuggestersResponse extends $MetadataBearer {
+export interface DescribeSuggestersResponse {
   __type?: "DescribeSuggestersResponse";
   /**
    * <p>The suggesters configured for the domain specified in the request.</p>
@@ -1384,7 +1384,7 @@ export namespace IndexDocumentsRequest {
 /**
  * <p>The result of an <code>IndexDocuments</code> request. Contains the status of the indexing operation, including the fields being indexed.</p>
  */
-export interface IndexDocumentsResponse extends $MetadataBearer {
+export interface IndexDocumentsResponse {
   __type?: "IndexDocumentsResponse";
   /**
    * <p>The names of the fields that are currently being indexed.</p>
@@ -1746,7 +1746,7 @@ export namespace Limits {
 /**
  * <p>The result of a <code>ListDomainNames</code> request. Contains a list of the domains owned by an account.</p>
  */
-export interface ListDomainNamesResponse extends $MetadataBearer {
+export interface ListDomainNamesResponse {
   __type?: "ListDomainNamesResponse";
   /**
    * <p>The names of the search domains owned by an account.</p>
@@ -2171,7 +2171,7 @@ export namespace UpdateAvailabilityOptionsRequest {
 /**
  * <p>The result of a <code>UpdateAvailabilityOptions</code> request. Contains the status of the domain's availability options. </p>
  */
-export interface UpdateAvailabilityOptionsResponse extends $MetadataBearer {
+export interface UpdateAvailabilityOptionsResponse {
   __type?: "UpdateAvailabilityOptionsResponse";
   /**
    * <p>The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain. </p>
@@ -2210,7 +2210,7 @@ export namespace UpdateDomainEndpointOptionsRequest {
 /**
  * <p>The result of a <code>UpdateDomainEndpointOptions</code> request. Contains the configuration and status of the domain's endpoint options. </p>
  */
-export interface UpdateDomainEndpointOptionsResponse extends $MetadataBearer {
+export interface UpdateDomainEndpointOptionsResponse {
   __type?: "UpdateDomainEndpointOptionsResponse";
   /**
    * <p>The newly-configured domain endpoint options.</p>
@@ -2249,7 +2249,7 @@ export namespace UpdateScalingParametersRequest {
 /**
  * <p>The result of a <code>UpdateScalingParameters</code> request. Contains the status of the newly-configured scaling parameters.</p>
  */
-export interface UpdateScalingParametersResponse extends $MetadataBearer {
+export interface UpdateScalingParametersResponse {
   __type?: "UpdateScalingParametersResponse";
   /**
    * <p>The status and configuration of a search domain's scaling parameters. </p>
@@ -2288,7 +2288,7 @@ export namespace UpdateServiceAccessPoliciesRequest {
 /**
  * <p>The result of an <code>UpdateServiceAccessPolicies</code> request. Contains the new access policies.</p>
  */
-export interface UpdateServiceAccessPoliciesResponse extends $MetadataBearer {
+export interface UpdateServiceAccessPoliciesResponse {
   __type?: "UpdateServiceAccessPoliciesResponse";
   /**
    * <p>The access rules configured for the domain.</p>

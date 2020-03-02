@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMergeConflictsCommandInput = GetMergeConflictsInput;
-export type GetMergeConflictsCommandOutput = GetMergeConflictsOutput;
+export type GetMergeConflictsCommandOutput = GetMergeConflictsOutput &
+  __MetadataBearer;
 
 export class GetMergeConflictsCommand extends $Command<
   GetMergeConflictsCommandInput,

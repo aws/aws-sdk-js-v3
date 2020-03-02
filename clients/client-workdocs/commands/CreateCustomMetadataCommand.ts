@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCustomMetadataCommandInput = CreateCustomMetadataRequest;
-export type CreateCustomMetadataCommandOutput = CreateCustomMetadataResponse;
+export type CreateCustomMetadataCommandOutput = CreateCustomMetadataResponse &
+  __MetadataBearer;
 
 export class CreateCustomMetadataCommand extends $Command<
   CreateCustomMetadataCommandInput,

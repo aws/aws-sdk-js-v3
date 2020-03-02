@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DecryptCommandInput = DecryptRequest;
-export type DecryptCommandOutput = DecryptResponse;
+export type DecryptCommandOutput = DecryptResponse & __MetadataBearer;
 
 export class DecryptCommand extends $Command<
   DecryptCommandInput,

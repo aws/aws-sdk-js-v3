@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutDedicatedIpWarmupAttributesCommandInput = PutDedicatedIpWarmupAttributesRequest;
-export type PutDedicatedIpWarmupAttributesCommandOutput = PutDedicatedIpWarmupAttributesResponse;
+export type PutDedicatedIpWarmupAttributesCommandOutput = PutDedicatedIpWarmupAttributesResponse &
+  __MetadataBearer;
 
 export class PutDedicatedIpWarmupAttributesCommand extends $Command<
   PutDedicatedIpWarmupAttributesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteGraphqlApiCommandInput = DeleteGraphqlApiRequest;
-export type DeleteGraphqlApiCommandOutput = DeleteGraphqlApiResponse;
+export type DeleteGraphqlApiCommandOutput = DeleteGraphqlApiResponse &
+  __MetadataBearer;
 
 export class DeleteGraphqlApiCommand extends $Command<
   DeleteGraphqlApiCommandInput,

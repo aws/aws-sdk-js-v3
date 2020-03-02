@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccessPointPolicyCommandInput = GetAccessPointPolicyRequest;
-export type GetAccessPointPolicyCommandOutput = GetAccessPointPolicyResult;
+export type GetAccessPointPolicyCommandOutput = GetAccessPointPolicyResult &
+  __MetadataBearer;
 
 export class GetAccessPointPolicyCommand extends $Command<
   GetAccessPointPolicyCommandInput,

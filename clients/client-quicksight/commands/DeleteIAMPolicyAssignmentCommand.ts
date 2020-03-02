@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteIAMPolicyAssignmentCommandInput = DeleteIAMPolicyAssignmentRequest;
-export type DeleteIAMPolicyAssignmentCommandOutput = DeleteIAMPolicyAssignmentResponse;
+export type DeleteIAMPolicyAssignmentCommandOutput = DeleteIAMPolicyAssignmentResponse &
+  __MetadataBearer;
 
 export class DeleteIAMPolicyAssignmentCommand extends $Command<
   DeleteIAMPolicyAssignmentCommandInput,

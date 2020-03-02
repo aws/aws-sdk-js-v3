@@ -1956,17 +1956,23 @@ async function deserializeAws_json1_1SendAnnouncementCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2022,24 +2028,33 @@ async function deserializeAws_json1_1DeleteDeviceUsageDataCommandError(
   switch (errorCode) {
     case "DeviceNotRegisteredException":
     case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
-      response = await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2092,24 +2107,33 @@ async function deserializeAws_json1_1ApproveSkillCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2168,10 +2192,13 @@ async function deserializeAws_json1_1AssociateContactWithAddressBookCommandError
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2230,24 +2257,33 @@ async function deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommandErr
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeviceNotRegisteredException":
     case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
-      response = await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2306,24 +2342,33 @@ async function deserializeAws_json1_1AssociateDeviceWithRoomCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeviceNotRegisteredException":
     case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
-      response = await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2382,10 +2427,13 @@ async function deserializeAws_json1_1AssociateSkillGroupWithRoomCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2444,24 +2492,33 @@ async function deserializeAws_json1_1AssociateSkillWithSkillGroupCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SkillNotLinkedException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#SkillNotLinkedException":
-      response = await deserializeAws_json1_1SkillNotLinkedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SkillNotLinkedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2520,17 +2577,23 @@ async function deserializeAws_json1_1AssociateSkillWithUsersCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2583,17 +2646,23 @@ async function deserializeAws_json1_1CreateAddressBookCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2652,10 +2721,13 @@ async function deserializeAws_json1_1CreateBusinessReportScheduleCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2714,10 +2786,13 @@ async function deserializeAws_json1_1CreateConferenceProviderCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2770,17 +2845,23 @@ async function deserializeAws_json1_1CreateContactCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2836,17 +2917,23 @@ async function deserializeAws_json1_1CreateGatewayGroupCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2902,38 +2989,53 @@ async function deserializeAws_json1_1CreateNetworkProfileCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCertificateAuthorityException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidCertificateAuthorityException":
-      response = await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidServiceLinkedRoleStateException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidServiceLinkedRoleStateException":
-      response = await deserializeAws_json1_1InvalidServiceLinkedRoleStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidServiceLinkedRoleStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2986,24 +3088,33 @@ async function deserializeAws_json1_1CreateProfileCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3056,17 +3167,23 @@ async function deserializeAws_json1_1CreateRoomCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3119,24 +3236,33 @@ async function deserializeAws_json1_1CreateSkillGroupCommandError(
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3189,24 +3315,33 @@ async function deserializeAws_json1_1CreateUserCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.a4b.api#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3259,17 +3394,23 @@ async function deserializeAws_json1_1DeleteAddressBookCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3328,17 +3469,23 @@ async function deserializeAws_json1_1DeleteBusinessReportScheduleCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3397,10 +3544,13 @@ async function deserializeAws_json1_1DeleteConferenceProviderCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3453,17 +3603,23 @@ async function deserializeAws_json1_1DeleteContactCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3516,24 +3672,33 @@ async function deserializeAws_json1_1DeleteDeviceCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCertificateAuthorityException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidCertificateAuthorityException":
-      response = await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3589,10 +3754,13 @@ async function deserializeAws_json1_1DeleteGatewayGroupCommandError(
   switch (errorCode) {
     case "ResourceAssociatedException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#ResourceAssociatedException":
-      response = await deserializeAws_json1_1ResourceAssociatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAssociatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3648,24 +3816,33 @@ async function deserializeAws_json1_1DeleteNetworkProfileCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.a4b.api#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3718,17 +3895,23 @@ async function deserializeAws_json1_1DeleteProfileCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3781,17 +3964,23 @@ async function deserializeAws_json1_1DeleteRoomCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3850,10 +4039,13 @@ async function deserializeAws_json1_1DeleteRoomSkillParameterCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3912,17 +4104,23 @@ async function deserializeAws_json1_1DeleteSkillAuthorizationCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3975,17 +4173,23 @@ async function deserializeAws_json1_1DeleteSkillGroupCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4038,17 +4242,23 @@ async function deserializeAws_json1_1DeleteUserCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4162,17 +4372,23 @@ async function deserializeAws_json1_1DisassociateDeviceFromRoomCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeviceNotRegisteredException":
     case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
-      response = await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4231,17 +4447,23 @@ async function deserializeAws_json1_1DisassociateSkillFromSkillGroupCommandError
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4300,17 +4522,23 @@ async function deserializeAws_json1_1DisassociateSkillFromUsersCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4369,10 +4597,13 @@ async function deserializeAws_json1_1DisassociateSkillGroupFromRoomCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4431,10 +4662,13 @@ async function deserializeAws_json1_1ForgetSmartHomeAppliancesCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4487,10 +4721,13 @@ async function deserializeAws_json1_1GetAddressBookCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4549,10 +4786,13 @@ async function deserializeAws_json1_1GetConferencePreferenceCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4608,10 +4848,13 @@ async function deserializeAws_json1_1GetConferenceProviderCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4664,10 +4907,13 @@ async function deserializeAws_json1_1GetContactCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4720,10 +4966,13 @@ async function deserializeAws_json1_1GetDeviceCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4776,10 +5025,13 @@ async function deserializeAws_json1_1GetGatewayCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4832,10 +5084,13 @@ async function deserializeAws_json1_1GetGatewayGroupCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4894,10 +5149,13 @@ async function deserializeAws_json1_1GetInvitationConfigurationCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4950,17 +5208,23 @@ async function deserializeAws_json1_1GetNetworkProfileCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSecretsManagerResourceException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidSecretsManagerResourceException":
-      response = await deserializeAws_json1_1InvalidSecretsManagerResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSecretsManagerResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5013,10 +5277,13 @@ async function deserializeAws_json1_1GetProfileCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5069,10 +5336,13 @@ async function deserializeAws_json1_1GetRoomCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5128,10 +5398,13 @@ async function deserializeAws_json1_1GetRoomSkillParameterCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5184,10 +5457,13 @@ async function deserializeAws_json1_1GetSkillGroupCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5350,10 +5626,13 @@ async function deserializeAws_json1_1ListDeviceEventsCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5669,10 +5948,13 @@ async function deserializeAws_json1_1ListSmartHomeAppliancesCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5725,10 +6007,13 @@ async function deserializeAws_json1_1ListTagsCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5787,10 +6072,13 @@ async function deserializeAws_json1_1PutConferencePreferenceCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5849,17 +6137,23 @@ async function deserializeAws_json1_1PutInvitationConfigurationCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5915,10 +6209,13 @@ async function deserializeAws_json1_1PutRoomSkillParameterCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5974,17 +6271,23 @@ async function deserializeAws_json1_1PutSkillAuthorizationCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.a4b.api#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6037,24 +6340,33 @@ async function deserializeAws_json1_1RegisterAVSDeviceCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.a4b.api#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeviceException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidDeviceException":
-      response = await deserializeAws_json1_1InvalidDeviceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeviceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6107,17 +6419,23 @@ async function deserializeAws_json1_1RejectSkillCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6170,10 +6488,13 @@ async function deserializeAws_json1_1ResolveRoomCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6226,17 +6547,23 @@ async function deserializeAws_json1_1RevokeInvitationCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6687,24 +7014,33 @@ async function deserializeAws_json1_1SendInvitationCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserStatusException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidUserStatusException":
-      response = await deserializeAws_json1_1InvalidUserStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUserStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6757,10 +7093,13 @@ async function deserializeAws_json1_1StartDeviceSyncCommandError(
   switch (errorCode) {
     case "DeviceNotRegisteredException":
     case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
-      response = await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6819,10 +7158,13 @@ async function deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommandErro
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6875,10 +7217,13 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6931,10 +7276,13 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6987,24 +7335,33 @@ async function deserializeAws_json1_1UpdateAddressBookCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameInUseException":
     case "com.amazonaws.a4b.api#NameInUseException":
-      response = await deserializeAws_json1_1NameInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7063,17 +7420,23 @@ async function deserializeAws_json1_1UpdateBusinessReportScheduleCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7132,10 +7495,13 @@ async function deserializeAws_json1_1UpdateConferenceProviderCommandError(
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7188,17 +7554,23 @@ async function deserializeAws_json1_1UpdateContactCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7251,24 +7623,33 @@ async function deserializeAws_json1_1UpdateDeviceCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeviceNotRegisteredException":
     case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
-      response = await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7321,17 +7702,23 @@ async function deserializeAws_json1_1UpdateGatewayCommandError(
   switch (errorCode) {
     case "NameInUseException":
     case "com.amazonaws.a4b.api#NameInUseException":
-      response = await deserializeAws_json1_1NameInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7387,17 +7774,23 @@ async function deserializeAws_json1_1UpdateGatewayGroupCommandError(
   switch (errorCode) {
     case "NameInUseException":
     case "com.amazonaws.a4b.api#NameInUseException":
-      response = await deserializeAws_json1_1NameInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7453,38 +7846,53 @@ async function deserializeAws_json1_1UpdateNetworkProfileCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameInUseException":
     case "com.amazonaws.a4b.api#NameInUseException":
-      response = await deserializeAws_json1_1NameInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCertificateAuthorityException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidCertificateAuthorityException":
-      response = await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSecretsManagerResourceException":
     case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidSecretsManagerResourceException":
-      response = await deserializeAws_json1_1InvalidSecretsManagerResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSecretsManagerResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7537,24 +7945,33 @@ async function deserializeAws_json1_1UpdateProfileCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameInUseException":
     case "com.amazonaws.a4b.api#NameInUseException":
-      response = await deserializeAws_json1_1NameInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7607,17 +8024,23 @@ async function deserializeAws_json1_1UpdateRoomCommandError(
   switch (errorCode) {
     case "NameInUseException":
     case "com.amazonaws.a4b.api#NameInUseException":
-      response = await deserializeAws_json1_1NameInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7670,24 +8093,33 @@ async function deserializeAws_json1_1UpdateSkillGroupCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.a4b.api#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameInUseException":
     case "com.amazonaws.a4b.api#NameInUseException":
-      response = await deserializeAws_json1_1NameInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.a4b.api#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

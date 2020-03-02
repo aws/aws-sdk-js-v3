@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminUpdateUserAttributesCommandInput = AdminUpdateUserAttributesRequest;
-export type AdminUpdateUserAttributesCommandOutput = AdminUpdateUserAttributesResponse;
+export type AdminUpdateUserAttributesCommandOutput = AdminUpdateUserAttributesResponse &
+  __MetadataBearer;
 
 export class AdminUpdateUserAttributesCommand extends $Command<
   AdminUpdateUserAttributesCommandInput,

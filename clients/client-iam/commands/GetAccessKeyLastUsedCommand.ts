@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccessKeyLastUsedCommandInput = GetAccessKeyLastUsedRequest;
-export type GetAccessKeyLastUsedCommandOutput = GetAccessKeyLastUsedResponse;
+export type GetAccessKeyLastUsedCommandOutput = GetAccessKeyLastUsedResponse &
+  __MetadataBearer;
 
 export class GetAccessKeyLastUsedCommand extends $Command<
   GetAccessKeyLastUsedCommandInput,

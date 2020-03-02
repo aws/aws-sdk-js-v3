@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminUserGlobalSignOutCommandInput = AdminUserGlobalSignOutRequest;
-export type AdminUserGlobalSignOutCommandOutput = AdminUserGlobalSignOutResponse;
+export type AdminUserGlobalSignOutCommandOutput = AdminUserGlobalSignOutResponse &
+  __MetadataBearer;
 
 export class AdminUserGlobalSignOutCommand extends $Command<
   AdminUserGlobalSignOutCommandInput,

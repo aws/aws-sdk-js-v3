@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListIAMPolicyAssignmentsForUserCommandInput = ListIAMPolicyAssignmentsForUserRequest;
-export type ListIAMPolicyAssignmentsForUserCommandOutput = ListIAMPolicyAssignmentsForUserResponse;
+export type ListIAMPolicyAssignmentsForUserCommandOutput = ListIAMPolicyAssignmentsForUserResponse &
+  __MetadataBearer;
 
 export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
   ListIAMPolicyAssignmentsForUserCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PreviewAgentsCommandInput = PreviewAgentsRequest;
-export type PreviewAgentsCommandOutput = PreviewAgentsResponse;
+export type PreviewAgentsCommandOutput = PreviewAgentsResponse &
+  __MetadataBearer;
 
 export class PreviewAgentsCommand extends $Command<
   PreviewAgentsCommandInput,

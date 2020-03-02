@@ -1,61 +1,135 @@
 import {
-  AddPermissionInput,
-  CheckIfPhoneNumberIsOptedOutInput,
-  CheckIfPhoneNumberIsOptedOutResponse,
-  ConfirmSubscriptionInput,
-  ConfirmSubscriptionResponse,
-  CreateEndpointResponse,
-  CreatePlatformApplicationInput,
-  CreatePlatformApplicationResponse,
-  CreatePlatformEndpointInput,
-  CreateTopicInput,
-  CreateTopicResponse,
-  DeleteEndpointInput,
-  DeletePlatformApplicationInput,
-  DeleteTopicInput,
-  GetEndpointAttributesInput,
-  GetEndpointAttributesResponse,
-  GetPlatformApplicationAttributesInput,
-  GetPlatformApplicationAttributesResponse,
-  GetSMSAttributesInput,
-  GetSMSAttributesResponse,
-  GetSubscriptionAttributesInput,
-  GetSubscriptionAttributesResponse,
-  GetTopicAttributesInput,
-  GetTopicAttributesResponse,
-  ListEndpointsByPlatformApplicationInput,
-  ListEndpointsByPlatformApplicationResponse,
-  ListPhoneNumbersOptedOutInput,
-  ListPhoneNumbersOptedOutResponse,
-  ListPlatformApplicationsInput,
-  ListPlatformApplicationsResponse,
-  ListSubscriptionsByTopicInput,
-  ListSubscriptionsByTopicResponse,
-  ListSubscriptionsInput,
-  ListSubscriptionsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTopicsInput,
-  ListTopicsResponse,
-  OptInPhoneNumberInput,
-  OptInPhoneNumberResponse,
-  PublishInput,
-  PublishResponse,
-  RemovePermissionInput,
-  SetEndpointAttributesInput,
-  SetPlatformApplicationAttributesInput,
-  SetSMSAttributesInput,
-  SetSMSAttributesResponse,
-  SetSubscriptionAttributesInput,
-  SetTopicAttributesInput,
-  SubscribeInput,
-  SubscribeResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UnsubscribeInput,
-  UntagResourceRequest,
-  UntagResourceResponse
-} from "./models/index";
+  AddPermissionCommandInput,
+  AddPermissionCommandOutput
+} from "./commands/AddPermissionCommand";
+import {
+  CheckIfPhoneNumberIsOptedOutCommandInput,
+  CheckIfPhoneNumberIsOptedOutCommandOutput
+} from "./commands/CheckIfPhoneNumberIsOptedOutCommand";
+import {
+  ConfirmSubscriptionCommandInput,
+  ConfirmSubscriptionCommandOutput
+} from "./commands/ConfirmSubscriptionCommand";
+import {
+  CreatePlatformApplicationCommandInput,
+  CreatePlatformApplicationCommandOutput
+} from "./commands/CreatePlatformApplicationCommand";
+import {
+  CreatePlatformEndpointCommandInput,
+  CreatePlatformEndpointCommandOutput
+} from "./commands/CreatePlatformEndpointCommand";
+import {
+  CreateTopicCommandInput,
+  CreateTopicCommandOutput
+} from "./commands/CreateTopicCommand";
+import {
+  DeleteEndpointCommandInput,
+  DeleteEndpointCommandOutput
+} from "./commands/DeleteEndpointCommand";
+import {
+  DeletePlatformApplicationCommandInput,
+  DeletePlatformApplicationCommandOutput
+} from "./commands/DeletePlatformApplicationCommand";
+import {
+  DeleteTopicCommandInput,
+  DeleteTopicCommandOutput
+} from "./commands/DeleteTopicCommand";
+import {
+  GetEndpointAttributesCommandInput,
+  GetEndpointAttributesCommandOutput
+} from "./commands/GetEndpointAttributesCommand";
+import {
+  GetPlatformApplicationAttributesCommandInput,
+  GetPlatformApplicationAttributesCommandOutput
+} from "./commands/GetPlatformApplicationAttributesCommand";
+import {
+  GetSMSAttributesCommandInput,
+  GetSMSAttributesCommandOutput
+} from "./commands/GetSMSAttributesCommand";
+import {
+  GetSubscriptionAttributesCommandInput,
+  GetSubscriptionAttributesCommandOutput
+} from "./commands/GetSubscriptionAttributesCommand";
+import {
+  GetTopicAttributesCommandInput,
+  GetTopicAttributesCommandOutput
+} from "./commands/GetTopicAttributesCommand";
+import {
+  ListEndpointsByPlatformApplicationCommandInput,
+  ListEndpointsByPlatformApplicationCommandOutput
+} from "./commands/ListEndpointsByPlatformApplicationCommand";
+import {
+  ListPhoneNumbersOptedOutCommandInput,
+  ListPhoneNumbersOptedOutCommandOutput
+} from "./commands/ListPhoneNumbersOptedOutCommand";
+import {
+  ListPlatformApplicationsCommandInput,
+  ListPlatformApplicationsCommandOutput
+} from "./commands/ListPlatformApplicationsCommand";
+import {
+  ListSubscriptionsByTopicCommandInput,
+  ListSubscriptionsByTopicCommandOutput
+} from "./commands/ListSubscriptionsByTopicCommand";
+import {
+  ListSubscriptionsCommandInput,
+  ListSubscriptionsCommandOutput
+} from "./commands/ListSubscriptionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTopicsCommandInput,
+  ListTopicsCommandOutput
+} from "./commands/ListTopicsCommand";
+import {
+  OptInPhoneNumberCommandInput,
+  OptInPhoneNumberCommandOutput
+} from "./commands/OptInPhoneNumberCommand";
+import {
+  PublishCommandInput,
+  PublishCommandOutput
+} from "./commands/PublishCommand";
+import {
+  RemovePermissionCommandInput,
+  RemovePermissionCommandOutput
+} from "./commands/RemovePermissionCommand";
+import {
+  SetEndpointAttributesCommandInput,
+  SetEndpointAttributesCommandOutput
+} from "./commands/SetEndpointAttributesCommand";
+import {
+  SetPlatformApplicationAttributesCommandInput,
+  SetPlatformApplicationAttributesCommandOutput
+} from "./commands/SetPlatformApplicationAttributesCommand";
+import {
+  SetSMSAttributesCommandInput,
+  SetSMSAttributesCommandOutput
+} from "./commands/SetSMSAttributesCommand";
+import {
+  SetSubscriptionAttributesCommandInput,
+  SetSubscriptionAttributesCommandOutput
+} from "./commands/SetSubscriptionAttributesCommand";
+import {
+  SetTopicAttributesCommandInput,
+  SetTopicAttributesCommandOutput
+} from "./commands/SetTopicAttributesCommand";
+import {
+  SubscribeCommandInput,
+  SubscribeCommandOutput
+} from "./commands/SubscribeCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UnsubscribeCommandInput,
+  UnsubscribeCommandOutput
+} from "./commands/UnsubscribeCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -103,72 +177,80 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddPermissionInput
-  | CheckIfPhoneNumberIsOptedOutInput
-  | ConfirmSubscriptionInput
-  | CreatePlatformApplicationInput
-  | CreatePlatformEndpointInput
-  | CreateTopicInput
-  | DeleteEndpointInput
-  | DeletePlatformApplicationInput
-  | DeleteTopicInput
-  | GetEndpointAttributesInput
-  | GetPlatformApplicationAttributesInput
-  | GetSMSAttributesInput
-  | GetSubscriptionAttributesInput
-  | GetTopicAttributesInput
-  | ListEndpointsByPlatformApplicationInput
-  | ListPhoneNumbersOptedOutInput
-  | ListPlatformApplicationsInput
-  | ListSubscriptionsByTopicInput
-  | ListSubscriptionsInput
-  | ListTagsForResourceRequest
-  | ListTopicsInput
-  | OptInPhoneNumberInput
-  | PublishInput
-  | RemovePermissionInput
-  | SetEndpointAttributesInput
-  | SetPlatformApplicationAttributesInput
-  | SetSMSAttributesInput
-  | SetSubscriptionAttributesInput
-  | SetTopicAttributesInput
-  | SubscribeInput
-  | TagResourceRequest
-  | UnsubscribeInput
-  | UntagResourceRequest;
+  | AddPermissionCommandInput
+  | CheckIfPhoneNumberIsOptedOutCommandInput
+  | ConfirmSubscriptionCommandInput
+  | CreatePlatformApplicationCommandInput
+  | CreatePlatformEndpointCommandInput
+  | CreateTopicCommandInput
+  | DeleteEndpointCommandInput
+  | DeletePlatformApplicationCommandInput
+  | DeleteTopicCommandInput
+  | GetEndpointAttributesCommandInput
+  | GetPlatformApplicationAttributesCommandInput
+  | GetSMSAttributesCommandInput
+  | GetSubscriptionAttributesCommandInput
+  | GetTopicAttributesCommandInput
+  | ListEndpointsByPlatformApplicationCommandInput
+  | ListPhoneNumbersOptedOutCommandInput
+  | ListPlatformApplicationsCommandInput
+  | ListSubscriptionsByTopicCommandInput
+  | ListSubscriptionsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTopicsCommandInput
+  | OptInPhoneNumberCommandInput
+  | PublishCommandInput
+  | RemovePermissionCommandInput
+  | SetEndpointAttributesCommandInput
+  | SetPlatformApplicationAttributesCommandInput
+  | SetSMSAttributesCommandInput
+  | SetSubscriptionAttributesCommandInput
+  | SetTopicAttributesCommandInput
+  | SubscribeCommandInput
+  | TagResourceCommandInput
+  | UnsubscribeCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CheckIfPhoneNumberIsOptedOutResponse
-  | ConfirmSubscriptionResponse
-  | CreateEndpointResponse
-  | CreatePlatformApplicationResponse
-  | CreateTopicResponse
-  | GetEndpointAttributesResponse
-  | GetPlatformApplicationAttributesResponse
-  | GetSMSAttributesResponse
-  | GetSubscriptionAttributesResponse
-  | GetTopicAttributesResponse
-  | ListEndpointsByPlatformApplicationResponse
-  | ListPhoneNumbersOptedOutResponse
-  | ListPlatformApplicationsResponse
-  | ListSubscriptionsByTopicResponse
-  | ListSubscriptionsResponse
-  | ListTagsForResourceResponse
-  | ListTopicsResponse
-  | OptInPhoneNumberResponse
-  | PublishResponse
-  | SetSMSAttributesResponse
-  | SubscribeResponse
-  | TagResourceResponse
-  | UntagResourceResponse;
+  | AddPermissionCommandOutput
+  | CheckIfPhoneNumberIsOptedOutCommandOutput
+  | ConfirmSubscriptionCommandOutput
+  | CreatePlatformApplicationCommandOutput
+  | CreatePlatformEndpointCommandOutput
+  | CreateTopicCommandOutput
+  | DeleteEndpointCommandOutput
+  | DeletePlatformApplicationCommandOutput
+  | DeleteTopicCommandOutput
+  | GetEndpointAttributesCommandOutput
+  | GetPlatformApplicationAttributesCommandOutput
+  | GetSMSAttributesCommandOutput
+  | GetSubscriptionAttributesCommandOutput
+  | GetTopicAttributesCommandOutput
+  | ListEndpointsByPlatformApplicationCommandOutput
+  | ListPhoneNumbersOptedOutCommandOutput
+  | ListPlatformApplicationsCommandOutput
+  | ListSubscriptionsByTopicCommandOutput
+  | ListSubscriptionsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTopicsCommandOutput
+  | OptInPhoneNumberCommandOutput
+  | PublishCommandOutput
+  | RemovePermissionCommandOutput
+  | SetEndpointAttributesCommandOutput
+  | SetPlatformApplicationAttributesCommandOutput
+  | SetSMSAttributesCommandOutput
+  | SetSubscriptionAttributesCommandOutput
+  | SetTopicAttributesCommandOutput
+  | SubscribeCommandOutput
+  | TagResourceCommandOutput
+  | UnsubscribeCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

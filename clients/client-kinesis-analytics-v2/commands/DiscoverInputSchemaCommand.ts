@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DiscoverInputSchemaCommandInput = DiscoverInputSchemaRequest;
-export type DiscoverInputSchemaCommandOutput = DiscoverInputSchemaResponse;
+export type DiscoverInputSchemaCommandOutput = DiscoverInputSchemaResponse &
+  __MetadataBearer;
 
 export class DiscoverInputSchemaCommand extends $Command<
   DiscoverInputSchemaCommandInput,

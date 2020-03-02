@@ -135,7 +135,7 @@ export namespace AddTagsToResourceRequest {
   }
 }
 
-export interface AddTagsToResourceResult extends $MetadataBearer {
+export interface AddTagsToResourceResult {
   __type?: "AddTagsToResourceResult";
 }
 
@@ -1405,7 +1405,7 @@ export namespace CancelCommandRequest {
  * <p>Whether or not the command was successfully canceled. There is no guarantee that a request
  *    can be canceled.</p>
  */
-export interface CancelCommandResult extends $MetadataBearer {
+export interface CancelCommandResult {
   __type?: "CancelCommandResult";
 }
 
@@ -1429,8 +1429,7 @@ export namespace CancelMaintenanceWindowExecutionRequest {
   }
 }
 
-export interface CancelMaintenanceWindowExecutionResult
-  extends $MetadataBearer {
+export interface CancelMaintenanceWindowExecutionResult {
   __type?: "CancelMaintenanceWindowExecutionResult";
   /**
    * <p>The ID of the maintenance window execution that has been stopped.</p>
@@ -2421,7 +2420,7 @@ export namespace CreateActivationRequest {
   }
 }
 
-export interface CreateActivationResult extends $MetadataBearer {
+export interface CreateActivationResult {
   __type?: "CreateActivationResult";
   /**
    * <p>The code the system generates when it processes the activation. The activation code
@@ -2561,7 +2560,7 @@ export namespace CreateAssociationBatchRequestEntry {
   }
 }
 
-export interface CreateAssociationBatchResult extends $MetadataBearer {
+export interface CreateAssociationBatchResult {
   __type?: "CreateAssociationBatchResult";
   /**
    * <p>Information about the associations that failed.</p>
@@ -2695,7 +2694,7 @@ export namespace CreateAssociationRequest {
   }
 }
 
-export interface CreateAssociationResult extends $MetadataBearer {
+export interface CreateAssociationResult {
   __type?: "CreateAssociationResult";
   /**
    * <p>Information about the association.</p>
@@ -2813,7 +2812,7 @@ export namespace CreateDocumentRequest {
   }
 }
 
-export interface CreateDocumentResult extends $MetadataBearer {
+export interface CreateDocumentResult {
   __type?: "CreateDocumentResult";
   /**
    * <p>Information about the Systems Manager document.</p>
@@ -2929,7 +2928,7 @@ export namespace CreateMaintenanceWindowRequest {
   }
 }
 
-export interface CreateMaintenanceWindowResult extends $MetadataBearer {
+export interface CreateMaintenanceWindowResult {
   __type?: "CreateMaintenanceWindowResult";
   /**
    * <p>The ID of the created maintenance window.</p>
@@ -3033,7 +3032,7 @@ export namespace CreateOpsItemRequest {
   }
 }
 
-export interface CreateOpsItemResponse extends $MetadataBearer {
+export interface CreateOpsItemResponse {
   __type?: "CreateOpsItemResponse";
   /**
    * <p>The ID of the OpsItem.</p>
@@ -3169,7 +3168,7 @@ export namespace CreatePatchBaselineRequest {
   }
 }
 
-export interface CreatePatchBaselineResult extends $MetadataBearer {
+export interface CreatePatchBaselineResult {
   __type?: "CreatePatchBaselineResult";
   /**
    * <p>The ID of the created patch baseline.</p>
@@ -3214,7 +3213,7 @@ export namespace CreateResourceDataSyncRequest {
   }
 }
 
-export interface CreateResourceDataSyncResult extends $MetadataBearer {
+export interface CreateResourceDataSyncResult {
   __type?: "CreateResourceDataSyncResult";
 }
 
@@ -3256,7 +3255,7 @@ export namespace DeleteActivationRequest {
   }
 }
 
-export interface DeleteActivationResult extends $MetadataBearer {
+export interface DeleteActivationResult {
   __type?: "DeleteActivationResult";
 }
 
@@ -3290,7 +3289,7 @@ export namespace DeleteAssociationRequest {
   }
 }
 
-export interface DeleteAssociationResult extends $MetadataBearer {
+export interface DeleteAssociationResult {
   __type?: "DeleteAssociationResult";
 }
 
@@ -3334,7 +3333,7 @@ export namespace DeleteDocumentRequest {
   }
 }
 
-export interface DeleteDocumentResult extends $MetadataBearer {
+export interface DeleteDocumentResult {
   __type?: "DeleteDocumentResult";
 }
 
@@ -3384,7 +3383,7 @@ export namespace DeleteInventoryRequest {
   }
 }
 
-export interface DeleteInventoryResult extends $MetadataBearer {
+export interface DeleteInventoryResult {
   __type?: "DeleteInventoryResult";
   /**
    * <p>Every <code>DeleteInventory</code> action is assigned a unique ID. This option returns a
@@ -3425,7 +3424,7 @@ export namespace DeleteMaintenanceWindowRequest {
   }
 }
 
-export interface DeleteMaintenanceWindowResult extends $MetadataBearer {
+export interface DeleteMaintenanceWindowResult {
   __type?: "DeleteMaintenanceWindowResult";
   /**
    * <p>The ID of the deleted maintenance window.</p>
@@ -3453,7 +3452,7 @@ export namespace DeleteParameterRequest {
   }
 }
 
-export interface DeleteParameterResult extends $MetadataBearer {
+export interface DeleteParameterResult {
   __type?: "DeleteParameterResult";
 }
 
@@ -3477,7 +3476,7 @@ export namespace DeleteParametersRequest {
   }
 }
 
-export interface DeleteParametersResult extends $MetadataBearer {
+export interface DeleteParametersResult {
   __type?: "DeleteParametersResult";
   /**
    * <p>The names of the deleted parameters.</p>
@@ -3510,7 +3509,7 @@ export namespace DeletePatchBaselineRequest {
   }
 }
 
-export interface DeletePatchBaselineResult extends $MetadataBearer {
+export interface DeletePatchBaselineResult {
   __type?: "DeletePatchBaselineResult";
   /**
    * <p>The ID of the deleted patch baseline.</p>
@@ -3543,7 +3542,7 @@ export namespace DeleteResourceDataSyncRequest {
   }
 }
 
-export interface DeleteResourceDataSyncResult extends $MetadataBearer {
+export interface DeleteResourceDataSyncResult {
   __type?: "DeleteResourceDataSyncResult";
 }
 
@@ -3568,7 +3567,7 @@ export namespace DeregisterManagedInstanceRequest {
   }
 }
 
-export interface DeregisterManagedInstanceResult extends $MetadataBearer {
+export interface DeregisterManagedInstanceResult {
   __type?: "DeregisterManagedInstanceResult";
 }
 
@@ -3599,8 +3598,7 @@ export namespace DeregisterPatchBaselineForPatchGroupRequest {
   }
 }
 
-export interface DeregisterPatchBaselineForPatchGroupResult
-  extends $MetadataBearer {
+export interface DeregisterPatchBaselineForPatchGroupResult {
   __type?: "DeregisterPatchBaselineForPatchGroupResult";
   /**
    * <p>The ID of the patch baseline the patch group was deregistered from.</p>
@@ -3647,8 +3645,7 @@ export namespace DeregisterTargetFromMaintenanceWindowRequest {
   }
 }
 
-export interface DeregisterTargetFromMaintenanceWindowResult
-  extends $MetadataBearer {
+export interface DeregisterTargetFromMaintenanceWindowResult {
   __type?: "DeregisterTargetFromMaintenanceWindowResult";
   /**
    * <p>The ID of the maintenance window the target was removed from.</p>
@@ -3688,8 +3685,7 @@ export namespace DeregisterTaskFromMaintenanceWindowRequest {
   }
 }
 
-export interface DeregisterTaskFromMaintenanceWindowResult
-  extends $MetadataBearer {
+export interface DeregisterTaskFromMaintenanceWindowResult {
   __type?: "DeregisterTaskFromMaintenanceWindowResult";
   /**
    * <p>The ID of the maintenance window the task was removed from.</p>
@@ -3761,7 +3757,7 @@ export namespace DescribeActivationsRequest {
   }
 }
 
-export interface DescribeActivationsResult extends $MetadataBearer {
+export interface DescribeActivationsResult {
   __type?: "DescribeActivationsResult";
   /**
    * <p>A list of activations for your AWS account.</p>
@@ -3819,8 +3815,7 @@ export namespace DescribeAssociationExecutionTargetsRequest {
   }
 }
 
-export interface DescribeAssociationExecutionTargetsResult
-  extends $MetadataBearer {
+export interface DescribeAssociationExecutionTargetsResult {
   __type?: "DescribeAssociationExecutionTargetsResult";
   /**
    * <p>Information about the execution.</p>
@@ -3873,7 +3868,7 @@ export namespace DescribeAssociationExecutionsRequest {
   }
 }
 
-export interface DescribeAssociationExecutionsResult extends $MetadataBearer {
+export interface DescribeAssociationExecutionsResult {
   __type?: "DescribeAssociationExecutionsResult";
   /**
    * <p>A list of the executions for the specified association ID.</p>
@@ -3925,7 +3920,7 @@ export namespace DescribeAssociationRequest {
   }
 }
 
-export interface DescribeAssociationResult extends $MetadataBearer {
+export interface DescribeAssociationResult {
   __type?: "DescribeAssociationResult";
   /**
    * <p>Information about the association.</p>
@@ -3965,7 +3960,7 @@ export namespace DescribeAutomationExecutionsRequest {
   }
 }
 
-export interface DescribeAutomationExecutionsResult extends $MetadataBearer {
+export interface DescribeAutomationExecutionsResult {
   __type?: "DescribeAutomationExecutionsResult";
   /**
    * <p>The list of details about each automation execution which has occurred which matches the
@@ -4023,8 +4018,7 @@ export namespace DescribeAutomationStepExecutionsRequest {
   }
 }
 
-export interface DescribeAutomationStepExecutionsResult
-  extends $MetadataBearer {
+export interface DescribeAutomationStepExecutionsResult {
   __type?: "DescribeAutomationStepExecutionsResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4069,7 +4063,7 @@ export namespace DescribeAvailablePatchesRequest {
   }
 }
 
-export interface DescribeAvailablePatchesResult extends $MetadataBearer {
+export interface DescribeAvailablePatchesResult {
   __type?: "DescribeAvailablePatchesResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4109,7 +4103,7 @@ export namespace DescribeDocumentPermissionRequest {
   }
 }
 
-export interface DescribeDocumentPermissionResponse extends $MetadataBearer {
+export interface DescribeDocumentPermissionResponse {
   __type?: "DescribeDocumentPermissionResponse";
   /**
    * <p>The account IDs that have permission to use this document. The ID can be either an AWS
@@ -4157,7 +4151,7 @@ export namespace DescribeDocumentRequest {
   }
 }
 
-export interface DescribeDocumentResult extends $MetadataBearer {
+export interface DescribeDocumentResult {
   __type?: "DescribeDocumentResult";
   /**
    * <p>Information about the Systems Manager document.</p>
@@ -4199,8 +4193,7 @@ export namespace DescribeEffectiveInstanceAssociationsRequest {
   }
 }
 
-export interface DescribeEffectiveInstanceAssociationsResult
-  extends $MetadataBearer {
+export interface DescribeEffectiveInstanceAssociationsResult {
   __type?: "DescribeEffectiveInstanceAssociationsResult";
   /**
    * <p>The associations for the requested instance.</p>
@@ -4249,8 +4242,7 @@ export namespace DescribeEffectivePatchesForPatchBaselineRequest {
   }
 }
 
-export interface DescribeEffectivePatchesForPatchBaselineResult
-  extends $MetadataBearer {
+export interface DescribeEffectivePatchesForPatchBaselineResult {
   __type?: "DescribeEffectivePatchesForPatchBaselineResult";
   /**
    * <p>An array of patches and patch status.</p>
@@ -4298,8 +4290,7 @@ export namespace DescribeInstanceAssociationsStatusRequest {
   }
 }
 
-export interface DescribeInstanceAssociationsStatusResult
-  extends $MetadataBearer {
+export interface DescribeInstanceAssociationsStatusResult {
   __type?: "DescribeInstanceAssociationsStatusResult";
   /**
    * <p>Status information about the association.</p>
@@ -4356,7 +4347,7 @@ export namespace DescribeInstanceInformationRequest {
   }
 }
 
-export interface DescribeInstanceInformationResult extends $MetadataBearer {
+export interface DescribeInstanceInformationResult {
   __type?: "DescribeInstanceInformationResult";
   /**
    * <p>The instance information list.</p>
@@ -4412,8 +4403,7 @@ export namespace DescribeInstancePatchStatesForPatchGroupRequest {
   }
 }
 
-export interface DescribeInstancePatchStatesForPatchGroupResult
-  extends $MetadataBearer {
+export interface DescribeInstancePatchStatesForPatchGroupResult {
   __type?: "DescribeInstancePatchStatesForPatchGroupResult";
   /**
    * <p>The high-level patch state for the requested instances. </p>
@@ -4460,7 +4450,7 @@ export namespace DescribeInstancePatchStatesRequest {
   }
 }
 
-export interface DescribeInstancePatchStatesResult extends $MetadataBearer {
+export interface DescribeInstancePatchStatesResult {
   __type?: "DescribeInstancePatchStatesResult";
   /**
    * <p>The high-level patch state for the requested instances.</p>
@@ -4512,7 +4502,7 @@ export namespace DescribeInstancePatchesRequest {
   }
 }
 
-export interface DescribeInstancePatchesResult extends $MetadataBearer {
+export interface DescribeInstancePatchesResult {
   __type?: "DescribeInstancePatchesResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4565,7 +4555,7 @@ export namespace DescribeInventoryDeletionsRequest {
   }
 }
 
-export interface DescribeInventoryDeletionsResult extends $MetadataBearer {
+export interface DescribeInventoryDeletionsResult {
   __type?: "DescribeInventoryDeletionsResult";
   /**
    * <p>A list of status items for deleted inventory.</p>
@@ -4625,8 +4615,7 @@ export namespace DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult
-  extends $MetadataBearer {
+export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult {
   __type?: "DescribeMaintenanceWindowExecutionTaskInvocationsResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4685,8 +4674,7 @@ export namespace DescribeMaintenanceWindowExecutionTasksRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowExecutionTasksResult
-  extends $MetadataBearer {
+export interface DescribeMaintenanceWindowExecutionTasksResult {
   __type?: "DescribeMaintenanceWindowExecutionTasksResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4743,8 +4731,7 @@ export namespace DescribeMaintenanceWindowExecutionsRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowExecutionsResult
-  extends $MetadataBearer {
+export interface DescribeMaintenanceWindowExecutionsResult {
   __type?: "DescribeMaintenanceWindowExecutionsResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4806,8 +4793,7 @@ export namespace DescribeMaintenanceWindowScheduleRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowScheduleResult
-  extends $MetadataBearer {
+export interface DescribeMaintenanceWindowScheduleResult {
   __type?: "DescribeMaintenanceWindowScheduleResult";
   /**
    * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
@@ -4859,8 +4845,7 @@ export namespace DescribeMaintenanceWindowTargetsRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowTargetsResult
-  extends $MetadataBearer {
+export interface DescribeMaintenanceWindowTargetsResult {
   __type?: "DescribeMaintenanceWindowTargetsResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4912,7 +4897,7 @@ export namespace DescribeMaintenanceWindowTasksRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowTasksResult extends $MetadataBearer {
+export interface DescribeMaintenanceWindowTasksResult {
   __type?: "DescribeMaintenanceWindowTasksResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4963,8 +4948,7 @@ export namespace DescribeMaintenanceWindowsForTargetRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowsForTargetResult
-  extends $MetadataBearer {
+export interface DescribeMaintenanceWindowsForTargetResult {
   __type?: "DescribeMaintenanceWindowsForTargetResult";
   /**
    * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
@@ -5011,7 +4995,7 @@ export namespace DescribeMaintenanceWindowsRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowsResult extends $MetadataBearer {
+export interface DescribeMaintenanceWindowsResult {
   __type?: "DescribeMaintenanceWindowsResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -5112,7 +5096,7 @@ export namespace DescribeOpsItemsRequest {
   }
 }
 
-export interface DescribeOpsItemsResponse extends $MetadataBearer {
+export interface DescribeOpsItemsResponse {
   __type?: "DescribeOpsItemsResponse";
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -5163,7 +5147,7 @@ export namespace DescribeParametersRequest {
   }
 }
 
-export interface DescribeParametersResult extends $MetadataBearer {
+export interface DescribeParametersResult {
   __type?: "DescribeParametersResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -5210,7 +5194,7 @@ export namespace DescribePatchBaselinesRequest {
   }
 }
 
-export interface DescribePatchBaselinesResult extends $MetadataBearer {
+export interface DescribePatchBaselinesResult {
   __type?: "DescribePatchBaselinesResult";
   /**
    * <p>An array of PatchBaselineIdentity elements.</p>
@@ -5244,7 +5228,7 @@ export namespace DescribePatchGroupStateRequest {
   }
 }
 
-export interface DescribePatchGroupStateResult extends $MetadataBearer {
+export interface DescribePatchGroupStateResult {
   __type?: "DescribePatchGroupStateResult";
   /**
    * <p>The number of instances in the patch group.</p>
@@ -5332,7 +5316,7 @@ export namespace DescribePatchGroupsRequest {
   }
 }
 
-export interface DescribePatchGroupsResult extends $MetadataBearer {
+export interface DescribePatchGroupsResult {
   __type?: "DescribePatchGroupsResult";
   /**
    * <p>Each entry in the array contains:</p>
@@ -5392,7 +5376,7 @@ export namespace DescribePatchPropertiesRequest {
   }
 }
 
-export interface DescribePatchPropertiesResult extends $MetadataBearer {
+export interface DescribePatchPropertiesResult {
   __type?: "DescribePatchPropertiesResult";
   /**
    * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
@@ -5442,7 +5426,7 @@ export namespace DescribeSessionsRequest {
   }
 }
 
-export interface DescribeSessionsResponse extends $MetadataBearer {
+export interface DescribeSessionsResponse {
   __type?: "DescribeSessionsResponse";
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -6187,7 +6171,7 @@ export namespace GetAutomationExecutionRequest {
   }
 }
 
-export interface GetAutomationExecutionResult extends $MetadataBearer {
+export interface GetAutomationExecutionResult {
   __type?: "GetAutomationExecutionResult";
   /**
    * <p>Detailed information about the current state of an automation execution.</p>
@@ -6222,7 +6206,7 @@ export namespace GetCalendarStateRequest {
   }
 }
 
-export interface GetCalendarStateResponse extends $MetadataBearer {
+export interface GetCalendarStateResponse {
   __type?: "GetCalendarStateResponse";
   /**
    * <p>The time, as an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> string,
@@ -6280,7 +6264,7 @@ export namespace GetCommandInvocationRequest {
   }
 }
 
-export interface GetCommandInvocationResult extends $MetadataBearer {
+export interface GetCommandInvocationResult {
   __type?: "GetCommandInvocationResult";
   /**
    * <p>CloudWatch Logs information where Systems Manager sent the command output.</p>
@@ -6462,7 +6446,7 @@ export namespace GetConnectionStatusRequest {
   }
 }
 
-export interface GetConnectionStatusResponse extends $MetadataBearer {
+export interface GetConnectionStatusResponse {
   __type?: "GetConnectionStatusResponse";
   /**
    * <p>The status of the connection to the instance. For example, 'Connected' or 'Not
@@ -6496,7 +6480,7 @@ export namespace GetDefaultPatchBaselineRequest {
   }
 }
 
-export interface GetDefaultPatchBaselineResult extends $MetadataBearer {
+export interface GetDefaultPatchBaselineResult {
   __type?: "GetDefaultPatchBaselineResult";
   /**
    * <p>The ID of the default patch baseline.</p>
@@ -6536,8 +6520,7 @@ export namespace GetDeployablePatchSnapshotForInstanceRequest {
   }
 }
 
-export interface GetDeployablePatchSnapshotForInstanceResult
-  extends $MetadataBearer {
+export interface GetDeployablePatchSnapshotForInstanceResult {
   __type?: "GetDeployablePatchSnapshotForInstanceResult";
   /**
    * <p>The ID of the instance.</p>
@@ -6601,7 +6584,7 @@ export namespace GetDocumentRequest {
   }
 }
 
-export interface GetDocumentResult extends $MetadataBearer {
+export interface GetDocumentResult {
   __type?: "GetDocumentResult";
   /**
    * <p>A description of the document attachments, including names, locations, sizes, etc.</p>
@@ -6705,7 +6688,7 @@ export namespace GetInventoryRequest {
   }
 }
 
-export interface GetInventoryResult extends $MetadataBearer {
+export interface GetInventoryResult {
   __type?: "GetInventoryResult";
   /**
    * <p>Collection of inventory entities such as a collection of instance inventory. </p>
@@ -6764,7 +6747,7 @@ export namespace GetInventorySchemaRequest {
   }
 }
 
-export interface GetInventorySchemaResult extends $MetadataBearer {
+export interface GetInventorySchemaResult {
   __type?: "GetInventorySchemaResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -6798,7 +6781,7 @@ export namespace GetMaintenanceWindowExecutionRequest {
   }
 }
 
-export interface GetMaintenanceWindowExecutionResult extends $MetadataBearer {
+export interface GetMaintenanceWindowExecutionResult {
   __type?: "GetMaintenanceWindowExecutionResult";
   /**
    * <p>The time the maintenance window finished running.</p>
@@ -6863,8 +6846,7 @@ export namespace GetMaintenanceWindowExecutionTaskInvocationRequest {
   }
 }
 
-export interface GetMaintenanceWindowExecutionTaskInvocationResult
-  extends $MetadataBearer {
+export interface GetMaintenanceWindowExecutionTaskInvocationResult {
   __type?: "GetMaintenanceWindowExecutionTaskInvocationResult";
   /**
    * <p>The time that the task finished running on the target.</p>
@@ -6958,8 +6940,7 @@ export namespace GetMaintenanceWindowExecutionTaskRequest {
   }
 }
 
-export interface GetMaintenanceWindowExecutionTaskResult
-  extends $MetadataBearer {
+export interface GetMaintenanceWindowExecutionTaskResult {
   __type?: "GetMaintenanceWindowExecutionTaskResult";
   /**
    * <p>The time the task execution completed.</p>
@@ -7061,7 +7042,7 @@ export namespace GetMaintenanceWindowRequest {
   }
 }
 
-export interface GetMaintenanceWindowResult extends $MetadataBearer {
+export interface GetMaintenanceWindowResult {
   __type?: "GetMaintenanceWindowResult";
   /**
    * <p>Whether targets must be registered with the maintenance window before tasks can be defined
@@ -7167,7 +7148,7 @@ export namespace GetMaintenanceWindowTaskRequest {
   }
 }
 
-export interface GetMaintenanceWindowTaskResult extends $MetadataBearer {
+export interface GetMaintenanceWindowTaskResult {
   __type?: "GetMaintenanceWindowTaskResult";
   /**
    * <p>The retrieved task description.</p>
@@ -7280,7 +7261,7 @@ export namespace GetOpsItemRequest {
   }
 }
 
-export interface GetOpsItemResponse extends $MetadataBearer {
+export interface GetOpsItemResponse {
   __type?: "GetOpsItemResponse";
   /**
    * <p>The OpsItem.</p>
@@ -7334,7 +7315,7 @@ export namespace GetOpsSummaryRequest {
   }
 }
 
-export interface GetOpsSummaryResult extends $MetadataBearer {
+export interface GetOpsSummaryResult {
   __type?: "GetOpsSummaryResult";
   /**
    * <p>The list of aggregated and filtered OpsItems.</p>
@@ -7386,7 +7367,7 @@ export namespace GetParameterHistoryRequest {
   }
 }
 
-export interface GetParameterHistoryResult extends $MetadataBearer {
+export interface GetParameterHistoryResult {
   __type?: "GetParameterHistoryResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -7426,7 +7407,7 @@ export namespace GetParameterRequest {
   }
 }
 
-export interface GetParameterResult extends $MetadataBearer {
+export interface GetParameterResult {
   __type?: "GetParameterResult";
   /**
    * <p>Information about a parameter.</p>
@@ -7490,7 +7471,7 @@ export namespace GetParametersByPathRequest {
   }
 }
 
-export interface GetParametersByPathResult extends $MetadataBearer {
+export interface GetParametersByPathResult {
   __type?: "GetParametersByPathResult";
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -7530,7 +7511,7 @@ export namespace GetParametersRequest {
   }
 }
 
-export interface GetParametersResult extends $MetadataBearer {
+export interface GetParametersResult {
   __type?: "GetParametersResult";
   /**
    * <p>A list of parameters that are not formatted correctly or do not run during an
@@ -7569,7 +7550,7 @@ export namespace GetPatchBaselineForPatchGroupRequest {
   }
 }
 
-export interface GetPatchBaselineForPatchGroupResult extends $MetadataBearer {
+export interface GetPatchBaselineForPatchGroupResult {
   __type?: "GetPatchBaselineForPatchGroupResult";
   /**
    * <p>The ID of the patch baseline that should be used for the patch group.</p>
@@ -7607,7 +7588,7 @@ export namespace GetPatchBaselineRequest {
   }
 }
 
-export interface GetPatchBaselineResult extends $MetadataBearer {
+export interface GetPatchBaselineResult {
   __type?: "GetPatchBaselineResult";
   /**
    * <p>A set of rules used to include patches in the baseline.</p>
@@ -7716,7 +7697,7 @@ export namespace GetServiceSettingRequest {
 /**
  * <p>The query result body of the GetServiceSetting API action.</p>
  */
-export interface GetServiceSettingResult extends $MetadataBearer {
+export interface GetServiceSettingResult {
   __type?: "GetServiceSettingResult";
   /**
    * <p>The query result of the current service setting.</p>
@@ -9611,7 +9592,7 @@ export namespace LabelParameterVersionRequest {
   }
 }
 
-export interface LabelParameterVersionResult extends $MetadataBearer {
+export interface LabelParameterVersionResult {
   __type?: "LabelParameterVersionResult";
   /**
    * <p>The label does not meet the requirements. For information about parameter label
@@ -9663,7 +9644,7 @@ export namespace ListAssociationVersionsRequest {
   }
 }
 
-export interface ListAssociationVersionsResult extends $MetadataBearer {
+export interface ListAssociationVersionsResult {
   __type?: "ListAssociationVersionsResult";
   /**
    * <p>Information about all versions of the association for the specified association ID.</p>
@@ -9709,7 +9690,7 @@ export namespace ListAssociationsRequest {
   }
 }
 
-export interface ListAssociationsResult extends $MetadataBearer {
+export interface ListAssociationsResult {
   __type?: "ListAssociationsResult";
   /**
    * <p>The associations.</p>
@@ -9772,7 +9753,7 @@ export namespace ListCommandInvocationsRequest {
   }
 }
 
-export interface ListCommandInvocationsResult extends $MetadataBearer {
+export interface ListCommandInvocationsResult {
   __type?: "ListCommandInvocationsResult";
   /**
    * <p>(Optional) A list of all invocations. </p>
@@ -9829,7 +9810,7 @@ export namespace ListCommandsRequest {
   }
 }
 
-export interface ListCommandsResult extends $MetadataBearer {
+export interface ListCommandsResult {
   __type?: "ListCommandsResult";
   /**
    * <p>(Optional) The list of commands requested by the user. </p>
@@ -9887,7 +9868,7 @@ export namespace ListComplianceItemsRequest {
   }
 }
 
-export interface ListComplianceItemsResult extends $MetadataBearer {
+export interface ListComplianceItemsResult {
   __type?: "ListComplianceItemsResult";
   /**
    * <p>A list of compliance information for the specified resource ID. </p>
@@ -9934,7 +9915,7 @@ export namespace ListComplianceSummariesRequest {
   }
 }
 
-export interface ListComplianceSummariesResult extends $MetadataBearer {
+export interface ListComplianceSummariesResult {
   __type?: "ListComplianceSummariesResult";
   /**
    * <p>A list of compliant and non-compliant summary counts based on compliance types. For example,
@@ -9982,7 +9963,7 @@ export namespace ListDocumentVersionsRequest {
   }
 }
 
-export interface ListDocumentVersionsResult extends $MetadataBearer {
+export interface ListDocumentVersionsResult {
   __type?: "ListDocumentVersionsResult";
   /**
    * <p>The document versions.</p>
@@ -10033,7 +10014,7 @@ export namespace ListDocumentsRequest {
   }
 }
 
-export interface ListDocumentsResult extends $MetadataBearer {
+export interface ListDocumentsResult {
   __type?: "ListDocumentsResult";
   /**
    * <p>The names of the Systems Manager documents.</p>
@@ -10089,7 +10070,7 @@ export namespace ListInventoryEntriesRequest {
   }
 }
 
-export interface ListInventoryEntriesResult extends $MetadataBearer {
+export interface ListInventoryEntriesResult {
   __type?: "ListInventoryEntriesResult";
   /**
    * <p>The time that inventory information was collected for the instance(s).</p>
@@ -10154,7 +10135,7 @@ export namespace ListResourceComplianceSummariesRequest {
   }
 }
 
-export interface ListResourceComplianceSummariesResult extends $MetadataBearer {
+export interface ListResourceComplianceSummariesResult {
   __type?: "ListResourceComplianceSummariesResult";
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -10204,7 +10185,7 @@ export namespace ListResourceDataSyncRequest {
   }
 }
 
-export interface ListResourceDataSyncResult extends $MetadataBearer {
+export interface ListResourceDataSyncResult {
   __type?: "ListResourceDataSyncResult";
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -10243,7 +10224,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResult extends $MetadataBearer {
+export interface ListTagsForResourceResult {
   __type?: "ListTagsForResourceResult";
   /**
    * <p>A list of tags.</p>
@@ -11085,7 +11066,7 @@ export namespace ModifyDocumentPermissionRequest {
   }
 }
 
-export interface ModifyDocumentPermissionResponse extends $MetadataBearer {
+export interface ModifyDocumentPermissionResponse {
   __type?: "ModifyDocumentPermissionResponse";
 }
 
@@ -12718,7 +12699,7 @@ export namespace PutComplianceItemsRequest {
   }
 }
 
-export interface PutComplianceItemsResult extends $MetadataBearer {
+export interface PutComplianceItemsResult {
   __type?: "PutComplianceItemsResult";
 }
 
@@ -12747,7 +12728,7 @@ export namespace PutInventoryRequest {
   }
 }
 
-export interface PutInventoryResult extends $MetadataBearer {
+export interface PutInventoryResult {
   __type?: "PutInventoryResult";
   /**
    * <p>Information about the request.</p>
@@ -12987,7 +12968,7 @@ export namespace PutParameterRequest {
   }
 }
 
-export interface PutParameterResult extends $MetadataBearer {
+export interface PutParameterResult {
   __type?: "PutParameterResult";
   /**
    * <p>The tier assigned to the parameter.</p>
@@ -13029,7 +13010,7 @@ export namespace RegisterDefaultPatchBaselineRequest {
   }
 }
 
-export interface RegisterDefaultPatchBaselineResult extends $MetadataBearer {
+export interface RegisterDefaultPatchBaselineResult {
   __type?: "RegisterDefaultPatchBaselineResult";
   /**
    * <p>The ID of the default patch baseline.</p>
@@ -13062,8 +13043,7 @@ export namespace RegisterPatchBaselineForPatchGroupRequest {
   }
 }
 
-export interface RegisterPatchBaselineForPatchGroupResult
-  extends $MetadataBearer {
+export interface RegisterPatchBaselineForPatchGroupResult {
   __type?: "RegisterPatchBaselineForPatchGroupResult";
   /**
    * <p>The ID of the patch baseline the patch group was registered with.</p>
@@ -13174,8 +13154,7 @@ export namespace RegisterTargetWithMaintenanceWindowRequest {
   }
 }
 
-export interface RegisterTargetWithMaintenanceWindowResult
-  extends $MetadataBearer {
+export interface RegisterTargetWithMaintenanceWindowResult {
   __type?: "RegisterTargetWithMaintenanceWindowResult";
   /**
    * <p>The ID of the target definition in this maintenance window.</p>
@@ -13313,8 +13292,7 @@ export namespace RegisterTaskWithMaintenanceWindowRequest {
   }
 }
 
-export interface RegisterTaskWithMaintenanceWindowResult
-  extends $MetadataBearer {
+export interface RegisterTaskWithMaintenanceWindowResult {
   __type?: "RegisterTaskWithMaintenanceWindowResult";
   /**
    * <p>The ID of the task in the maintenance window.</p>
@@ -13385,7 +13363,7 @@ export namespace RemoveTagsFromResourceRequest {
   }
 }
 
-export interface RemoveTagsFromResourceResult extends $MetadataBearer {
+export interface RemoveTagsFromResourceResult {
   __type?: "RemoveTagsFromResourceResult";
 }
 
@@ -13415,7 +13393,7 @@ export namespace ResetServiceSettingRequest {
 /**
  * <p>The result body of the ResetServiceSetting API action.</p>
  */
-export interface ResetServiceSettingResult extends $MetadataBearer {
+export interface ResetServiceSettingResult {
   __type?: "ResetServiceSettingResult";
   /**
    * <p>The current, effective service setting after calling the ResetServiceSetting API
@@ -13936,7 +13914,7 @@ export namespace ResumeSessionRequest {
   }
 }
 
-export interface ResumeSessionResponse extends $MetadataBearer {
+export interface ResumeSessionResponse {
   __type?: "ResumeSessionResponse";
   /**
    * <p>The ID of the session.</p>
@@ -14084,7 +14062,7 @@ export namespace SendAutomationSignalRequest {
   }
 }
 
-export interface SendAutomationSignalResult extends $MetadataBearer {
+export interface SendAutomationSignalResult {
   __type?: "SendAutomationSignalResult";
 }
 
@@ -14219,7 +14197,7 @@ export namespace SendCommandRequest {
   }
 }
 
-export interface SendCommandResult extends $MetadataBearer {
+export interface SendCommandResult {
   __type?: "SendCommandResult";
   /**
    * <p>The request as it was received by Systems Manager. Also provides the command ID which can be used
@@ -14559,7 +14537,7 @@ export namespace StartAssociationsOnceRequest {
   }
 }
 
-export interface StartAssociationsOnceResult extends $MetadataBearer {
+export interface StartAssociationsOnceResult {
   __type?: "StartAssociationsOnceResult";
 }
 
@@ -14678,7 +14656,7 @@ export namespace StartAutomationExecutionRequest {
   }
 }
 
-export interface StartAutomationExecutionResult extends $MetadataBearer {
+export interface StartAutomationExecutionResult {
   __type?: "StartAutomationExecutionResult";
   /**
    * <p>The unique ID of a newly scheduled automation execution.</p>
@@ -14718,7 +14696,7 @@ export namespace StartSessionRequest {
   }
 }
 
-export interface StartSessionResponse extends $MetadataBearer {
+export interface StartSessionResponse {
   __type?: "StartSessionResponse";
   /**
    * <p>The ID of the session.</p>
@@ -14949,7 +14927,7 @@ export namespace StopAutomationExecutionRequest {
   }
 }
 
-export interface StopAutomationExecutionResult extends $MetadataBearer {
+export interface StopAutomationExecutionResult {
   __type?: "StopAutomationExecutionResult";
 }
 
@@ -15199,7 +15177,7 @@ export namespace TerminateSessionRequest {
   }
 }
 
-export interface TerminateSessionResponse extends $MetadataBearer {
+export interface TerminateSessionResponse {
   __type?: "TerminateSessionResponse";
   /**
    * <p>The ID of the session that has been terminated.</p>
@@ -15499,7 +15477,7 @@ export namespace UpdateAssociationRequest {
   }
 }
 
-export interface UpdateAssociationResult extends $MetadataBearer {
+export interface UpdateAssociationResult {
   __type?: "UpdateAssociationResult";
   /**
    * <p>The description of the association that was updated.</p>
@@ -15537,7 +15515,7 @@ export namespace UpdateAssociationStatusRequest {
   }
 }
 
-export interface UpdateAssociationStatusResult extends $MetadataBearer {
+export interface UpdateAssociationStatusResult {
   __type?: "UpdateAssociationStatusResult";
   /**
    * <p>Information about the association.</p>
@@ -15570,7 +15548,7 @@ export namespace UpdateDocumentDefaultVersionRequest {
   }
 }
 
-export interface UpdateDocumentDefaultVersionResult extends $MetadataBearer {
+export interface UpdateDocumentDefaultVersionResult {
   __type?: "UpdateDocumentDefaultVersionResult";
   /**
    * <p>The description of a custom document that you want to set as the default version.</p>
@@ -15631,7 +15609,7 @@ export namespace UpdateDocumentRequest {
   }
 }
 
-export interface UpdateDocumentResult extends $MetadataBearer {
+export interface UpdateDocumentResult {
   __type?: "UpdateDocumentResult";
   /**
    * <p>A description of the document that was updated.</p>
@@ -15725,7 +15703,7 @@ export namespace UpdateMaintenanceWindowRequest {
   }
 }
 
-export interface UpdateMaintenanceWindowResult extends $MetadataBearer {
+export interface UpdateMaintenanceWindowResult {
   __type?: "UpdateMaintenanceWindowResult";
   /**
    * <p>Whether targets must be registered with the maintenance window before tasks can be defined
@@ -15843,7 +15821,7 @@ export namespace UpdateMaintenanceWindowTargetRequest {
   }
 }
 
-export interface UpdateMaintenanceWindowTargetResult extends $MetadataBearer {
+export interface UpdateMaintenanceWindowTargetResult {
   __type?: "UpdateMaintenanceWindowTargetResult";
   /**
    * <p>The updated description.</p>
@@ -16006,7 +15984,7 @@ export namespace UpdateMaintenanceWindowTaskRequest {
   }
 }
 
-export interface UpdateMaintenanceWindowTaskResult extends $MetadataBearer {
+export interface UpdateMaintenanceWindowTaskResult {
   __type?: "UpdateMaintenanceWindowTaskResult";
   /**
    * <p>The updated task description.</p>
@@ -16116,7 +16094,7 @@ export namespace UpdateManagedInstanceRoleRequest {
   }
 }
 
-export interface UpdateManagedInstanceRoleResult extends $MetadataBearer {
+export interface UpdateManagedInstanceRoleResult {
   __type?: "UpdateManagedInstanceRoleResult";
 }
 
@@ -16217,7 +16195,7 @@ export namespace UpdateOpsItemRequest {
   }
 }
 
-export interface UpdateOpsItemResponse extends $MetadataBearer {
+export interface UpdateOpsItemResponse {
   __type?: "UpdateOpsItemResponse";
 }
 
@@ -16323,7 +16301,7 @@ export namespace UpdatePatchBaselineRequest {
   }
 }
 
-export interface UpdatePatchBaselineResult extends $MetadataBearer {
+export interface UpdatePatchBaselineResult {
   __type?: "UpdatePatchBaselineResult";
   /**
    * <p>A set of rules used to include patches in the baseline.</p>
@@ -16434,7 +16412,7 @@ export namespace UpdateResourceDataSyncRequest {
   }
 }
 
-export interface UpdateResourceDataSyncResult extends $MetadataBearer {
+export interface UpdateResourceDataSyncResult {
   __type?: "UpdateResourceDataSyncResult";
 }
 
@@ -16469,7 +16447,7 @@ export namespace UpdateServiceSettingRequest {
 /**
  * <p>The result body of the UpdateServiceSetting API action.</p>
  */
-export interface UpdateServiceSettingResult extends $MetadataBearer {
+export interface UpdateServiceSettingResult {
   __type?: "UpdateServiceSettingResult";
 }
 

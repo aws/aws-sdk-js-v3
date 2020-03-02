@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InitiateVaultLockCommandInput = InitiateVaultLockInput;
-export type InitiateVaultLockCommandOutput = InitiateVaultLockOutput;
+export type InitiateVaultLockCommandOutput = InitiateVaultLockOutput &
+  __MetadataBearer;
 
 export class InitiateVaultLockCommand extends $Command<
   InitiateVaultLockCommandInput,

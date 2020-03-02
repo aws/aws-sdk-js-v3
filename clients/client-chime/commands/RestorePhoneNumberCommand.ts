@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestorePhoneNumberCommandInput = RestorePhoneNumberRequest;
-export type RestorePhoneNumberCommandOutput = RestorePhoneNumberResponse;
+export type RestorePhoneNumberCommandOutput = RestorePhoneNumberResponse &
+  __MetadataBearer;
 
 export class RestorePhoneNumberCommand extends $Command<
   RestorePhoneNumberCommandInput,

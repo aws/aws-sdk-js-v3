@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetNamespaceCommandInput = GetNamespaceRequest;
-export type GetNamespaceCommandOutput = GetNamespaceResponse;
+export type GetNamespaceCommandOutput = GetNamespaceResponse & __MetadataBearer;
 
 export class GetNamespaceCommand extends $Command<
   GetNamespaceCommandInput,

@@ -33,7 +33,7 @@ export namespace AssociateDomainRequest {
   }
 }
 
-export interface AssociateDomainResponse extends $MetadataBearer {
+export interface AssociateDomainResponse {
   __type?: "AssociateDomainResponse";
 }
 
@@ -70,8 +70,7 @@ export namespace AssociateWebsiteAuthorizationProviderRequest {
   }
 }
 
-export interface AssociateWebsiteAuthorizationProviderResponse
-  extends $MetadataBearer {
+export interface AssociateWebsiteAuthorizationProviderResponse {
   __type?: "AssociateWebsiteAuthorizationProviderResponse";
   /**
    * <p>A unique identifier for the authorization provider.</p>
@@ -113,8 +112,7 @@ export namespace AssociateWebsiteCertificateAuthorityRequest {
   }
 }
 
-export interface AssociateWebsiteCertificateAuthorityResponse
-  extends $MetadataBearer {
+export interface AssociateWebsiteCertificateAuthorityResponse {
   __type?: "AssociateWebsiteCertificateAuthorityResponse";
   /**
    * <p>A unique identifier for the CA.</p>
@@ -159,7 +157,7 @@ export namespace CreateFleetRequest {
   }
 }
 
-export interface CreateFleetResponse extends $MetadataBearer {
+export interface CreateFleetResponse {
   __type?: "CreateFleetResponse";
   /**
    * <p>The ARN of the fleet.</p>
@@ -187,7 +185,7 @@ export namespace DeleteFleetRequest {
   }
 }
 
-export interface DeleteFleetResponse extends $MetadataBearer {
+export interface DeleteFleetResponse {
   __type?: "DeleteFleetResponse";
 }
 
@@ -211,8 +209,7 @@ export namespace DescribeAuditStreamConfigurationRequest {
   }
 }
 
-export interface DescribeAuditStreamConfigurationResponse
-  extends $MetadataBearer {
+export interface DescribeAuditStreamConfigurationResponse {
   __type?: "DescribeAuditStreamConfigurationResponse";
   /**
    * <p>The ARN of the Amazon Kinesis data stream that will receive the audit events.</p>
@@ -240,8 +237,7 @@ export namespace DescribeCompanyNetworkConfigurationRequest {
   }
 }
 
-export interface DescribeCompanyNetworkConfigurationResponse
-  extends $MetadataBearer {
+export interface DescribeCompanyNetworkConfigurationResponse {
   __type?: "DescribeCompanyNetworkConfigurationResponse";
   /**
    * <p>The security groups associated with access to the provided subnets.</p>
@@ -283,8 +279,7 @@ export namespace DescribeDevicePolicyConfigurationRequest {
   }
 }
 
-export interface DescribeDevicePolicyConfigurationResponse
-  extends $MetadataBearer {
+export interface DescribeDevicePolicyConfigurationResponse {
   __type?: "DescribeDevicePolicyConfigurationResponse";
   /**
    * <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>
@@ -317,7 +312,7 @@ export namespace DescribeDeviceRequest {
   }
 }
 
-export interface DescribeDeviceResponse extends $MetadataBearer {
+export interface DescribeDeviceResponse {
   __type?: "DescribeDeviceResponse";
   /**
    * <p>The date that the device first signed in to Amazon WorkLink.</p>
@@ -390,7 +385,7 @@ export namespace DescribeDomainRequest {
   }
 }
 
-export interface DescribeDomainResponse extends $MetadataBearer {
+export interface DescribeDomainResponse {
   __type?: "DescribeDomainResponse";
   /**
    * <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>
@@ -438,7 +433,7 @@ export namespace DescribeFleetMetadataRequest {
   }
 }
 
-export interface DescribeFleetMetadataResponse extends $MetadataBearer {
+export interface DescribeFleetMetadataResponse {
   __type?: "DescribeFleetMetadataResponse";
   /**
    * <p>The identifier used by users to sign in to the Amazon WorkLink app.</p>
@@ -499,8 +494,7 @@ export namespace DescribeIdentityProviderConfigurationRequest {
   }
 }
 
-export interface DescribeIdentityProviderConfigurationResponse
-  extends $MetadataBearer {
+export interface DescribeIdentityProviderConfigurationResponse {
   __type?: "DescribeIdentityProviderConfigurationResponse";
   /**
    * <p>The SAML metadata document provided by the user’s identity provider.</p>
@@ -545,8 +539,7 @@ export namespace DescribeWebsiteCertificateAuthorityRequest {
   }
 }
 
-export interface DescribeWebsiteCertificateAuthorityResponse
-  extends $MetadataBearer {
+export interface DescribeWebsiteCertificateAuthorityResponse {
   __type?: "DescribeWebsiteCertificateAuthorityResponse";
   /**
    * <p>The root certificate of the certificate authority.</p>
@@ -618,7 +611,7 @@ export namespace DisassociateDomainRequest {
   }
 }
 
-export interface DisassociateDomainResponse extends $MetadataBearer {
+export interface DisassociateDomainResponse {
   __type?: "DisassociateDomainResponse";
 }
 
@@ -649,8 +642,7 @@ export namespace DisassociateWebsiteAuthorizationProviderRequest {
   }
 }
 
-export interface DisassociateWebsiteAuthorizationProviderResponse
-  extends $MetadataBearer {
+export interface DisassociateWebsiteAuthorizationProviderResponse {
   __type?: "DisassociateWebsiteAuthorizationProviderResponse";
 }
 
@@ -683,8 +675,7 @@ export namespace DisassociateWebsiteCertificateAuthorityRequest {
   }
 }
 
-export interface DisassociateWebsiteCertificateAuthorityResponse
-  extends $MetadataBearer {
+export interface DisassociateWebsiteCertificateAuthorityResponse {
   __type?: "DisassociateWebsiteCertificateAuthorityResponse";
 }
 
@@ -858,7 +849,7 @@ export namespace ListDevicesRequest {
   }
 }
 
-export interface ListDevicesResponse extends $MetadataBearer {
+export interface ListDevicesResponse {
   __type?: "ListDevicesResponse";
   /**
    * <p>Information about the devices.</p>
@@ -903,7 +894,7 @@ export namespace ListDomainsRequest {
   }
 }
 
-export interface ListDomainsResponse extends $MetadataBearer {
+export interface ListDomainsResponse {
   __type?: "ListDomainsResponse";
   /**
    * <p>Information about the domains.</p>
@@ -943,7 +934,7 @@ export namespace ListFleetsRequest {
   }
 }
 
-export interface ListFleetsResponse extends $MetadataBearer {
+export interface ListFleetsResponse {
   __type?: "ListFleetsResponse";
   /**
    * <p>The summary list of the fleets.</p>
@@ -987,8 +978,7 @@ export namespace ListWebsiteAuthorizationProvidersRequest {
   }
 }
 
-export interface ListWebsiteAuthorizationProvidersResponse
-  extends $MetadataBearer {
+export interface ListWebsiteAuthorizationProvidersResponse {
   __type?: "ListWebsiteAuthorizationProvidersResponse";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
@@ -1032,8 +1022,7 @@ export namespace ListWebsiteCertificateAuthoritiesRequest {
   }
 }
 
-export interface ListWebsiteCertificateAuthoritiesResponse
-  extends $MetadataBearer {
+export interface ListWebsiteCertificateAuthoritiesResponse {
   __type?: "ListWebsiteCertificateAuthoritiesResponse";
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation. If
@@ -1107,7 +1096,7 @@ export namespace RestoreDomainAccessRequest {
   }
 }
 
-export interface RestoreDomainAccessResponse extends $MetadataBearer {
+export interface RestoreDomainAccessResponse {
   __type?: "RestoreDomainAccessResponse";
 }
 
@@ -1136,7 +1125,7 @@ export namespace RevokeDomainAccessRequest {
   }
 }
 
-export interface RevokeDomainAccessResponse extends $MetadataBearer {
+export interface RevokeDomainAccessResponse {
   __type?: "RevokeDomainAccessResponse";
 }
 
@@ -1165,7 +1154,7 @@ export namespace SignOutUserRequest {
   }
 }
 
-export interface SignOutUserResponse extends $MetadataBearer {
+export interface SignOutUserResponse {
   __type?: "SignOutUserResponse";
 }
 
@@ -1228,8 +1217,7 @@ export namespace UpdateAuditStreamConfigurationRequest {
   }
 }
 
-export interface UpdateAuditStreamConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateAuditStreamConfigurationResponse {
   __type?: "UpdateAuditStreamConfigurationResponse";
 }
 
@@ -1270,8 +1258,7 @@ export namespace UpdateCompanyNetworkConfigurationRequest {
   }
 }
 
-export interface UpdateCompanyNetworkConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateCompanyNetworkConfigurationResponse {
   __type?: "UpdateCompanyNetworkConfigurationResponse";
 }
 
@@ -1300,8 +1287,7 @@ export namespace UpdateDevicePolicyConfigurationRequest {
   }
 }
 
-export interface UpdateDevicePolicyConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateDevicePolicyConfigurationResponse {
   __type?: "UpdateDevicePolicyConfigurationResponse";
 }
 
@@ -1335,7 +1321,7 @@ export namespace UpdateDomainMetadataRequest {
   }
 }
 
-export interface UpdateDomainMetadataResponse extends $MetadataBearer {
+export interface UpdateDomainMetadataResponse {
   __type?: "UpdateDomainMetadataResponse";
 }
 
@@ -1370,7 +1356,7 @@ export namespace UpdateFleetMetadataRequest {
   }
 }
 
-export interface UpdateFleetMetadataResponse extends $MetadataBearer {
+export interface UpdateFleetMetadataResponse {
   __type?: "UpdateFleetMetadataResponse";
 }
 
@@ -1405,8 +1391,7 @@ export namespace UpdateIdentityProviderConfigurationRequest {
   }
 }
 
-export interface UpdateIdentityProviderConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateIdentityProviderConfigurationResponse {
   __type?: "UpdateIdentityProviderConfigurationResponse";
 }
 

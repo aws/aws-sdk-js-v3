@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetIdentityMailFromDomainCommandInput = SetIdentityMailFromDomainRequest;
-export type SetIdentityMailFromDomainCommandOutput = SetIdentityMailFromDomainResponse;
+export type SetIdentityMailFromDomainCommandOutput = SetIdentityMailFromDomainResponse &
+  __MetadataBearer;
 
 export class SetIdentityMailFromDomainCommand extends $Command<
   SetIdentityMailFromDomainCommandInput,

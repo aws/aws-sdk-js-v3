@@ -139,17 +139,23 @@ async function deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.services.personalize.runtime.exceptions#InvalidInputException":
-      response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidInputExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.personalize.runtime.exceptions#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -205,17 +211,23 @@ async function deserializeAws_restJson1_1GetRecommendationsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.services.personalize.runtime.exceptions#InvalidInputException":
-      response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidInputExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.personalize.runtime.exceptions#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

@@ -1,105 +1,203 @@
 import {
-  AcceptInvitationRequest,
-  AcceptInvitationResponse,
-  ArchiveFindingsRequest,
-  ArchiveFindingsResponse,
-  CreateDetectorRequest,
-  CreateDetectorResponse,
-  CreateFilterRequest,
-  CreateFilterResponse,
-  CreateIPSetRequest,
-  CreateIPSetResponse,
-  CreateMembersRequest,
-  CreateMembersResponse,
-  CreatePublishingDestinationRequest,
-  CreatePublishingDestinationResponse,
-  CreateSampleFindingsRequest,
-  CreateSampleFindingsResponse,
-  CreateThreatIntelSetRequest,
-  CreateThreatIntelSetResponse,
-  DeclineInvitationsRequest,
-  DeclineInvitationsResponse,
-  DeleteDetectorRequest,
-  DeleteDetectorResponse,
-  DeleteFilterRequest,
-  DeleteFilterResponse,
-  DeleteIPSetRequest,
-  DeleteIPSetResponse,
-  DeleteInvitationsRequest,
-  DeleteInvitationsResponse,
-  DeleteMembersRequest,
-  DeleteMembersResponse,
-  DeletePublishingDestinationRequest,
-  DeletePublishingDestinationResponse,
-  DeleteThreatIntelSetRequest,
-  DeleteThreatIntelSetResponse,
-  DescribePublishingDestinationRequest,
-  DescribePublishingDestinationResponse,
-  DisassociateFromMasterAccountRequest,
-  DisassociateFromMasterAccountResponse,
-  DisassociateMembersRequest,
-  DisassociateMembersResponse,
-  GetDetectorRequest,
-  GetDetectorResponse,
-  GetFilterRequest,
-  GetFilterResponse,
-  GetFindingsRequest,
-  GetFindingsResponse,
-  GetFindingsStatisticsRequest,
-  GetFindingsStatisticsResponse,
-  GetIPSetRequest,
-  GetIPSetResponse,
-  GetInvitationsCountRequest,
-  GetInvitationsCountResponse,
-  GetMasterAccountRequest,
-  GetMasterAccountResponse,
-  GetMembersRequest,
-  GetMembersResponse,
-  GetThreatIntelSetRequest,
-  GetThreatIntelSetResponse,
-  InviteMembersRequest,
-  InviteMembersResponse,
-  ListDetectorsRequest,
-  ListDetectorsResponse,
-  ListFiltersRequest,
-  ListFiltersResponse,
-  ListFindingsRequest,
-  ListFindingsResponse,
-  ListIPSetsRequest,
-  ListIPSetsResponse,
-  ListInvitationsRequest,
-  ListInvitationsResponse,
-  ListMembersRequest,
-  ListMembersResponse,
-  ListPublishingDestinationsRequest,
-  ListPublishingDestinationsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListThreatIntelSetsRequest,
-  ListThreatIntelSetsResponse,
-  StartMonitoringMembersRequest,
-  StartMonitoringMembersResponse,
-  StopMonitoringMembersRequest,
-  StopMonitoringMembersResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UnarchiveFindingsRequest,
-  UnarchiveFindingsResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateDetectorRequest,
-  UpdateDetectorResponse,
-  UpdateFilterRequest,
-  UpdateFilterResponse,
-  UpdateFindingsFeedbackRequest,
-  UpdateFindingsFeedbackResponse,
-  UpdateIPSetRequest,
-  UpdateIPSetResponse,
-  UpdatePublishingDestinationRequest,
-  UpdatePublishingDestinationResponse,
-  UpdateThreatIntelSetRequest,
-  UpdateThreatIntelSetResponse
-} from "./models/index";
+  AcceptInvitationCommandInput,
+  AcceptInvitationCommandOutput
+} from "./commands/AcceptInvitationCommand";
+import {
+  ArchiveFindingsCommandInput,
+  ArchiveFindingsCommandOutput
+} from "./commands/ArchiveFindingsCommand";
+import {
+  CreateDetectorCommandInput,
+  CreateDetectorCommandOutput
+} from "./commands/CreateDetectorCommand";
+import {
+  CreateFilterCommandInput,
+  CreateFilterCommandOutput
+} from "./commands/CreateFilterCommand";
+import {
+  CreateIPSetCommandInput,
+  CreateIPSetCommandOutput
+} from "./commands/CreateIPSetCommand";
+import {
+  CreateMembersCommandInput,
+  CreateMembersCommandOutput
+} from "./commands/CreateMembersCommand";
+import {
+  CreatePublishingDestinationCommandInput,
+  CreatePublishingDestinationCommandOutput
+} from "./commands/CreatePublishingDestinationCommand";
+import {
+  CreateSampleFindingsCommandInput,
+  CreateSampleFindingsCommandOutput
+} from "./commands/CreateSampleFindingsCommand";
+import {
+  CreateThreatIntelSetCommandInput,
+  CreateThreatIntelSetCommandOutput
+} from "./commands/CreateThreatIntelSetCommand";
+import {
+  DeclineInvitationsCommandInput,
+  DeclineInvitationsCommandOutput
+} from "./commands/DeclineInvitationsCommand";
+import {
+  DeleteDetectorCommandInput,
+  DeleteDetectorCommandOutput
+} from "./commands/DeleteDetectorCommand";
+import {
+  DeleteFilterCommandInput,
+  DeleteFilterCommandOutput
+} from "./commands/DeleteFilterCommand";
+import {
+  DeleteIPSetCommandInput,
+  DeleteIPSetCommandOutput
+} from "./commands/DeleteIPSetCommand";
+import {
+  DeleteInvitationsCommandInput,
+  DeleteInvitationsCommandOutput
+} from "./commands/DeleteInvitationsCommand";
+import {
+  DeleteMembersCommandInput,
+  DeleteMembersCommandOutput
+} from "./commands/DeleteMembersCommand";
+import {
+  DeletePublishingDestinationCommandInput,
+  DeletePublishingDestinationCommandOutput
+} from "./commands/DeletePublishingDestinationCommand";
+import {
+  DeleteThreatIntelSetCommandInput,
+  DeleteThreatIntelSetCommandOutput
+} from "./commands/DeleteThreatIntelSetCommand";
+import {
+  DescribePublishingDestinationCommandInput,
+  DescribePublishingDestinationCommandOutput
+} from "./commands/DescribePublishingDestinationCommand";
+import {
+  DisassociateFromMasterAccountCommandInput,
+  DisassociateFromMasterAccountCommandOutput
+} from "./commands/DisassociateFromMasterAccountCommand";
+import {
+  DisassociateMembersCommandInput,
+  DisassociateMembersCommandOutput
+} from "./commands/DisassociateMembersCommand";
+import {
+  GetDetectorCommandInput,
+  GetDetectorCommandOutput
+} from "./commands/GetDetectorCommand";
+import {
+  GetFilterCommandInput,
+  GetFilterCommandOutput
+} from "./commands/GetFilterCommand";
+import {
+  GetFindingsCommandInput,
+  GetFindingsCommandOutput
+} from "./commands/GetFindingsCommand";
+import {
+  GetFindingsStatisticsCommandInput,
+  GetFindingsStatisticsCommandOutput
+} from "./commands/GetFindingsStatisticsCommand";
+import {
+  GetIPSetCommandInput,
+  GetIPSetCommandOutput
+} from "./commands/GetIPSetCommand";
+import {
+  GetInvitationsCountCommandInput,
+  GetInvitationsCountCommandOutput
+} from "./commands/GetInvitationsCountCommand";
+import {
+  GetMasterAccountCommandInput,
+  GetMasterAccountCommandOutput
+} from "./commands/GetMasterAccountCommand";
+import {
+  GetMembersCommandInput,
+  GetMembersCommandOutput
+} from "./commands/GetMembersCommand";
+import {
+  GetThreatIntelSetCommandInput,
+  GetThreatIntelSetCommandOutput
+} from "./commands/GetThreatIntelSetCommand";
+import {
+  InviteMembersCommandInput,
+  InviteMembersCommandOutput
+} from "./commands/InviteMembersCommand";
+import {
+  ListDetectorsCommandInput,
+  ListDetectorsCommandOutput
+} from "./commands/ListDetectorsCommand";
+import {
+  ListFiltersCommandInput,
+  ListFiltersCommandOutput
+} from "./commands/ListFiltersCommand";
+import {
+  ListFindingsCommandInput,
+  ListFindingsCommandOutput
+} from "./commands/ListFindingsCommand";
+import {
+  ListIPSetsCommandInput,
+  ListIPSetsCommandOutput
+} from "./commands/ListIPSetsCommand";
+import {
+  ListInvitationsCommandInput,
+  ListInvitationsCommandOutput
+} from "./commands/ListInvitationsCommand";
+import {
+  ListMembersCommandInput,
+  ListMembersCommandOutput
+} from "./commands/ListMembersCommand";
+import {
+  ListPublishingDestinationsCommandInput,
+  ListPublishingDestinationsCommandOutput
+} from "./commands/ListPublishingDestinationsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListThreatIntelSetsCommandInput,
+  ListThreatIntelSetsCommandOutput
+} from "./commands/ListThreatIntelSetsCommand";
+import {
+  StartMonitoringMembersCommandInput,
+  StartMonitoringMembersCommandOutput
+} from "./commands/StartMonitoringMembersCommand";
+import {
+  StopMonitoringMembersCommandInput,
+  StopMonitoringMembersCommandOutput
+} from "./commands/StopMonitoringMembersCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UnarchiveFindingsCommandInput,
+  UnarchiveFindingsCommandOutput
+} from "./commands/UnarchiveFindingsCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDetectorCommandInput,
+  UpdateDetectorCommandOutput
+} from "./commands/UpdateDetectorCommand";
+import {
+  UpdateFilterCommandInput,
+  UpdateFilterCommandOutput
+} from "./commands/UpdateFilterCommand";
+import {
+  UpdateFindingsFeedbackCommandInput,
+  UpdateFindingsFeedbackCommandOutput
+} from "./commands/UpdateFindingsFeedbackCommand";
+import {
+  UpdateIPSetCommandInput,
+  UpdateIPSetCommandOutput
+} from "./commands/UpdateIPSetCommand";
+import {
+  UpdatePublishingDestinationCommandInput,
+  UpdatePublishingDestinationCommandOutput
+} from "./commands/UpdatePublishingDestinationCommand";
+import {
+  UpdateThreatIntelSetCommandInput,
+  UpdateThreatIntelSetCommandOutput
+} from "./commands/UpdateThreatIntelSetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -153,108 +251,108 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AcceptInvitationRequest
-  | ArchiveFindingsRequest
-  | CreateDetectorRequest
-  | CreateFilterRequest
-  | CreateIPSetRequest
-  | CreateMembersRequest
-  | CreatePublishingDestinationRequest
-  | CreateSampleFindingsRequest
-  | CreateThreatIntelSetRequest
-  | DeclineInvitationsRequest
-  | DeleteDetectorRequest
-  | DeleteFilterRequest
-  | DeleteIPSetRequest
-  | DeleteInvitationsRequest
-  | DeleteMembersRequest
-  | DeletePublishingDestinationRequest
-  | DeleteThreatIntelSetRequest
-  | DescribePublishingDestinationRequest
-  | DisassociateFromMasterAccountRequest
-  | DisassociateMembersRequest
-  | GetDetectorRequest
-  | GetFilterRequest
-  | GetFindingsRequest
-  | GetFindingsStatisticsRequest
-  | GetIPSetRequest
-  | GetInvitationsCountRequest
-  | GetMasterAccountRequest
-  | GetMembersRequest
-  | GetThreatIntelSetRequest
-  | InviteMembersRequest
-  | ListDetectorsRequest
-  | ListFiltersRequest
-  | ListFindingsRequest
-  | ListIPSetsRequest
-  | ListInvitationsRequest
-  | ListMembersRequest
-  | ListPublishingDestinationsRequest
-  | ListTagsForResourceRequest
-  | ListThreatIntelSetsRequest
-  | StartMonitoringMembersRequest
-  | StopMonitoringMembersRequest
-  | TagResourceRequest
-  | UnarchiveFindingsRequest
-  | UntagResourceRequest
-  | UpdateDetectorRequest
-  | UpdateFilterRequest
-  | UpdateFindingsFeedbackRequest
-  | UpdateIPSetRequest
-  | UpdatePublishingDestinationRequest
-  | UpdateThreatIntelSetRequest;
+  | AcceptInvitationCommandInput
+  | ArchiveFindingsCommandInput
+  | CreateDetectorCommandInput
+  | CreateFilterCommandInput
+  | CreateIPSetCommandInput
+  | CreateMembersCommandInput
+  | CreatePublishingDestinationCommandInput
+  | CreateSampleFindingsCommandInput
+  | CreateThreatIntelSetCommandInput
+  | DeclineInvitationsCommandInput
+  | DeleteDetectorCommandInput
+  | DeleteFilterCommandInput
+  | DeleteIPSetCommandInput
+  | DeleteInvitationsCommandInput
+  | DeleteMembersCommandInput
+  | DeletePublishingDestinationCommandInput
+  | DeleteThreatIntelSetCommandInput
+  | DescribePublishingDestinationCommandInput
+  | DisassociateFromMasterAccountCommandInput
+  | DisassociateMembersCommandInput
+  | GetDetectorCommandInput
+  | GetFilterCommandInput
+  | GetFindingsCommandInput
+  | GetFindingsStatisticsCommandInput
+  | GetIPSetCommandInput
+  | GetInvitationsCountCommandInput
+  | GetMasterAccountCommandInput
+  | GetMembersCommandInput
+  | GetThreatIntelSetCommandInput
+  | InviteMembersCommandInput
+  | ListDetectorsCommandInput
+  | ListFiltersCommandInput
+  | ListFindingsCommandInput
+  | ListIPSetsCommandInput
+  | ListInvitationsCommandInput
+  | ListMembersCommandInput
+  | ListPublishingDestinationsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListThreatIntelSetsCommandInput
+  | StartMonitoringMembersCommandInput
+  | StopMonitoringMembersCommandInput
+  | TagResourceCommandInput
+  | UnarchiveFindingsCommandInput
+  | UntagResourceCommandInput
+  | UpdateDetectorCommandInput
+  | UpdateFilterCommandInput
+  | UpdateFindingsFeedbackCommandInput
+  | UpdateIPSetCommandInput
+  | UpdatePublishingDestinationCommandInput
+  | UpdateThreatIntelSetCommandInput;
 
 export type ServiceOutputTypes =
-  | AcceptInvitationResponse
-  | ArchiveFindingsResponse
-  | CreateDetectorResponse
-  | CreateFilterResponse
-  | CreateIPSetResponse
-  | CreateMembersResponse
-  | CreatePublishingDestinationResponse
-  | CreateSampleFindingsResponse
-  | CreateThreatIntelSetResponse
-  | DeclineInvitationsResponse
-  | DeleteDetectorResponse
-  | DeleteFilterResponse
-  | DeleteIPSetResponse
-  | DeleteInvitationsResponse
-  | DeleteMembersResponse
-  | DeletePublishingDestinationResponse
-  | DeleteThreatIntelSetResponse
-  | DescribePublishingDestinationResponse
-  | DisassociateFromMasterAccountResponse
-  | DisassociateMembersResponse
-  | GetDetectorResponse
-  | GetFilterResponse
-  | GetFindingsResponse
-  | GetFindingsStatisticsResponse
-  | GetIPSetResponse
-  | GetInvitationsCountResponse
-  | GetMasterAccountResponse
-  | GetMembersResponse
-  | GetThreatIntelSetResponse
-  | InviteMembersResponse
-  | ListDetectorsResponse
-  | ListFiltersResponse
-  | ListFindingsResponse
-  | ListIPSetsResponse
-  | ListInvitationsResponse
-  | ListMembersResponse
-  | ListPublishingDestinationsResponse
-  | ListTagsForResourceResponse
-  | ListThreatIntelSetsResponse
-  | StartMonitoringMembersResponse
-  | StopMonitoringMembersResponse
-  | TagResourceResponse
-  | UnarchiveFindingsResponse
-  | UntagResourceResponse
-  | UpdateDetectorResponse
-  | UpdateFilterResponse
-  | UpdateFindingsFeedbackResponse
-  | UpdateIPSetResponse
-  | UpdatePublishingDestinationResponse
-  | UpdateThreatIntelSetResponse;
+  | AcceptInvitationCommandOutput
+  | ArchiveFindingsCommandOutput
+  | CreateDetectorCommandOutput
+  | CreateFilterCommandOutput
+  | CreateIPSetCommandOutput
+  | CreateMembersCommandOutput
+  | CreatePublishingDestinationCommandOutput
+  | CreateSampleFindingsCommandOutput
+  | CreateThreatIntelSetCommandOutput
+  | DeclineInvitationsCommandOutput
+  | DeleteDetectorCommandOutput
+  | DeleteFilterCommandOutput
+  | DeleteIPSetCommandOutput
+  | DeleteInvitationsCommandOutput
+  | DeleteMembersCommandOutput
+  | DeletePublishingDestinationCommandOutput
+  | DeleteThreatIntelSetCommandOutput
+  | DescribePublishingDestinationCommandOutput
+  | DisassociateFromMasterAccountCommandOutput
+  | DisassociateMembersCommandOutput
+  | GetDetectorCommandOutput
+  | GetFilterCommandOutput
+  | GetFindingsCommandOutput
+  | GetFindingsStatisticsCommandOutput
+  | GetIPSetCommandOutput
+  | GetInvitationsCountCommandOutput
+  | GetMasterAccountCommandOutput
+  | GetMembersCommandOutput
+  | GetThreatIntelSetCommandOutput
+  | InviteMembersCommandOutput
+  | ListDetectorsCommandOutput
+  | ListFiltersCommandOutput
+  | ListFindingsCommandOutput
+  | ListIPSetsCommandOutput
+  | ListInvitationsCommandOutput
+  | ListMembersCommandOutput
+  | ListPublishingDestinationsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListThreatIntelSetsCommandOutput
+  | StartMonitoringMembersCommandOutput
+  | StopMonitoringMembersCommandOutput
+  | TagResourceCommandOutput
+  | UnarchiveFindingsCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDetectorCommandOutput
+  | UpdateFilterCommandOutput
+  | UpdateFindingsFeedbackCommandOutput
+  | UpdateIPSetCommandOutput
+  | UpdatePublishingDestinationCommandOutput
+  | UpdateThreatIntelSetCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EstimateTemplateCostCommandInput = EstimateTemplateCostInput;
-export type EstimateTemplateCostCommandOutput = EstimateTemplateCostOutput;
+export type EstimateTemplateCostCommandOutput = EstimateTemplateCostOutput &
+  __MetadataBearer;
 
 export class EstimateTemplateCostCommand extends $Command<
   EstimateTemplateCostCommandInput,

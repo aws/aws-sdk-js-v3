@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReleaseHostsCommandInput = ReleaseHostsRequest;
-export type ReleaseHostsCommandOutput = ReleaseHostsResult;
+export type ReleaseHostsCommandOutput = ReleaseHostsResult & __MetadataBearer;
 
 export class ReleaseHostsCommand extends $Command<
   ReleaseHostsCommandInput,

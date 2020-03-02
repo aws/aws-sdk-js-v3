@@ -23,7 +23,7 @@ export namespace AssociateRoleToGroupRequest {
   }
 }
 
-export interface AssociateRoleToGroupResponse extends $MetadataBearer {
+export interface AssociateRoleToGroupResponse {
   __type?: "AssociateRoleToGroupResponse";
   /**
    * The time, in milliseconds since the epoch, when the role ARN was associated with the group.
@@ -51,7 +51,7 @@ export namespace AssociateServiceRoleToAccountRequest {
   }
 }
 
-export interface AssociateServiceRoleToAccountResponse extends $MetadataBearer {
+export interface AssociateServiceRoleToAccountResponse {
   __type?: "AssociateServiceRoleToAccountResponse";
   /**
    * The time when the service role was associated with the account.
@@ -359,7 +359,7 @@ export namespace CreateConnectorDefinitionRequest {
   }
 }
 
-export interface CreateConnectorDefinitionResponse extends $MetadataBearer {
+export interface CreateConnectorDefinitionResponse {
   __type?: "CreateConnectorDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -427,8 +427,7 @@ export namespace CreateConnectorDefinitionVersionRequest {
   }
 }
 
-export interface CreateConnectorDefinitionVersionResponse
-  extends $MetadataBearer {
+export interface CreateConnectorDefinitionVersionResponse {
   __type?: "CreateConnectorDefinitionVersionResponse";
   /**
    * The ARN of the version.
@@ -489,7 +488,7 @@ export namespace CreateCoreDefinitionRequest {
   }
 }
 
-export interface CreateCoreDefinitionResponse extends $MetadataBearer {
+export interface CreateCoreDefinitionResponse {
   __type?: "CreateCoreDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -557,7 +556,7 @@ export namespace CreateCoreDefinitionVersionRequest {
   }
 }
 
-export interface CreateCoreDefinitionVersionResponse extends $MetadataBearer {
+export interface CreateCoreDefinitionVersionResponse {
   __type?: "CreateCoreDefinitionVersionResponse";
   /**
    * The ARN of the version.
@@ -620,7 +619,7 @@ export namespace CreateDeploymentRequest {
   }
 }
 
-export interface CreateDeploymentResponse extends $MetadataBearer {
+export interface CreateDeploymentResponse {
   __type?: "CreateDeploymentResponse";
   /**
    * The ARN of the deployment.
@@ -668,7 +667,7 @@ export namespace CreateDeviceDefinitionRequest {
   }
 }
 
-export interface CreateDeviceDefinitionResponse extends $MetadataBearer {
+export interface CreateDeviceDefinitionResponse {
   __type?: "CreateDeviceDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -736,7 +735,7 @@ export namespace CreateDeviceDefinitionVersionRequest {
   }
 }
 
-export interface CreateDeviceDefinitionVersionResponse extends $MetadataBearer {
+export interface CreateDeviceDefinitionVersionResponse {
   __type?: "CreateDeviceDefinitionVersionResponse";
   /**
    * The ARN of the version.
@@ -794,7 +793,7 @@ export namespace CreateFunctionDefinitionRequest {
   }
 }
 
-export interface CreateFunctionDefinitionResponse extends $MetadataBearer {
+export interface CreateFunctionDefinitionResponse {
   __type?: "CreateFunctionDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -870,8 +869,7 @@ export namespace CreateFunctionDefinitionVersionRequest {
   }
 }
 
-export interface CreateFunctionDefinitionVersionResponse
-  extends $MetadataBearer {
+export interface CreateFunctionDefinitionVersionResponse {
   __type?: "CreateFunctionDefinitionVersionResponse";
   /**
    * The ARN of the version.
@@ -919,8 +917,7 @@ export namespace CreateGroupCertificateAuthorityRequest {
   }
 }
 
-export interface CreateGroupCertificateAuthorityResponse
-  extends $MetadataBearer {
+export interface CreateGroupCertificateAuthorityResponse {
   __type?: "CreateGroupCertificateAuthorityResponse";
   /**
    * The ARN of the group certificate authority.
@@ -963,7 +960,7 @@ export namespace CreateGroupRequest {
   }
 }
 
-export interface CreateGroupResponse extends $MetadataBearer {
+export interface CreateGroupResponse {
   __type?: "CreateGroupResponse";
   /**
    * The ARN of the definition.
@@ -1061,7 +1058,7 @@ export namespace CreateGroupVersionRequest {
   }
 }
 
-export interface CreateGroupVersionResponse extends $MetadataBearer {
+export interface CreateGroupVersionResponse {
   __type?: "CreateGroupVersionResponse";
   /**
    * The ARN of the version.
@@ -1119,7 +1116,7 @@ export namespace CreateLoggerDefinitionRequest {
   }
 }
 
-export interface CreateLoggerDefinitionResponse extends $MetadataBearer {
+export interface CreateLoggerDefinitionResponse {
   __type?: "CreateLoggerDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -1187,7 +1184,7 @@ export namespace CreateLoggerDefinitionVersionRequest {
   }
 }
 
-export interface CreateLoggerDefinitionVersionResponse extends $MetadataBearer {
+export interface CreateLoggerDefinitionVersionResponse {
   __type?: "CreateLoggerDefinitionVersionResponse";
   /**
    * The ARN of the version.
@@ -1245,7 +1242,7 @@ export namespace CreateResourceDefinitionRequest {
   }
 }
 
-export interface CreateResourceDefinitionResponse extends $MetadataBearer {
+export interface CreateResourceDefinitionResponse {
   __type?: "CreateResourceDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -1313,8 +1310,7 @@ export namespace CreateResourceDefinitionVersionRequest {
   }
 }
 
-export interface CreateResourceDefinitionVersionResponse
-  extends $MetadataBearer {
+export interface CreateResourceDefinitionVersionResponse {
   __type?: "CreateResourceDefinitionVersionResponse";
   /**
    * The ARN of the version.
@@ -1390,7 +1386,7 @@ export namespace CreateSoftwareUpdateJobRequest {
   }
 }
 
-export interface CreateSoftwareUpdateJobResponse extends $MetadataBearer {
+export interface CreateSoftwareUpdateJobResponse {
   __type?: "CreateSoftwareUpdateJobResponse";
   /**
    * The IoT Job ARN corresponding to this update.
@@ -1443,7 +1439,7 @@ export namespace CreateSubscriptionDefinitionRequest {
   }
 }
 
-export interface CreateSubscriptionDefinitionResponse extends $MetadataBearer {
+export interface CreateSubscriptionDefinitionResponse {
   __type?: "CreateSubscriptionDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -1511,8 +1507,7 @@ export namespace CreateSubscriptionDefinitionVersionRequest {
   }
 }
 
-export interface CreateSubscriptionDefinitionVersionResponse
-  extends $MetadataBearer {
+export interface CreateSubscriptionDefinitionVersionResponse {
   __type?: "CreateSubscriptionDefinitionVersionResponse";
   /**
    * The ARN of the version.
@@ -1609,7 +1604,7 @@ export namespace DeleteConnectorDefinitionRequest {
   }
 }
 
-export interface DeleteConnectorDefinitionResponse extends $MetadataBearer {
+export interface DeleteConnectorDefinitionResponse {
   __type?: "DeleteConnectorDefinitionResponse";
 }
 
@@ -1633,7 +1628,7 @@ export namespace DeleteCoreDefinitionRequest {
   }
 }
 
-export interface DeleteCoreDefinitionResponse extends $MetadataBearer {
+export interface DeleteCoreDefinitionResponse {
   __type?: "DeleteCoreDefinitionResponse";
 }
 
@@ -1657,7 +1652,7 @@ export namespace DeleteDeviceDefinitionRequest {
   }
 }
 
-export interface DeleteDeviceDefinitionResponse extends $MetadataBearer {
+export interface DeleteDeviceDefinitionResponse {
   __type?: "DeleteDeviceDefinitionResponse";
 }
 
@@ -1681,7 +1676,7 @@ export namespace DeleteFunctionDefinitionRequest {
   }
 }
 
-export interface DeleteFunctionDefinitionResponse extends $MetadataBearer {
+export interface DeleteFunctionDefinitionResponse {
   __type?: "DeleteFunctionDefinitionResponse";
 }
 
@@ -1705,7 +1700,7 @@ export namespace DeleteGroupRequest {
   }
 }
 
-export interface DeleteGroupResponse extends $MetadataBearer {
+export interface DeleteGroupResponse {
   __type?: "DeleteGroupResponse";
 }
 
@@ -1729,7 +1724,7 @@ export namespace DeleteLoggerDefinitionRequest {
   }
 }
 
-export interface DeleteLoggerDefinitionResponse extends $MetadataBearer {
+export interface DeleteLoggerDefinitionResponse {
   __type?: "DeleteLoggerDefinitionResponse";
 }
 
@@ -1753,7 +1748,7 @@ export namespace DeleteResourceDefinitionRequest {
   }
 }
 
-export interface DeleteResourceDefinitionResponse extends $MetadataBearer {
+export interface DeleteResourceDefinitionResponse {
   __type?: "DeleteResourceDefinitionResponse";
 }
 
@@ -1777,7 +1772,7 @@ export namespace DeleteSubscriptionDefinitionRequest {
   }
 }
 
-export interface DeleteSubscriptionDefinitionResponse extends $MetadataBearer {
+export interface DeleteSubscriptionDefinitionResponse {
   __type?: "DeleteSubscriptionDefinitionResponse";
 }
 
@@ -1894,7 +1889,7 @@ export namespace DisassociateRoleFromGroupRequest {
   }
 }
 
-export interface DisassociateRoleFromGroupResponse extends $MetadataBearer {
+export interface DisassociateRoleFromGroupResponse {
   __type?: "DisassociateRoleFromGroupResponse";
   /**
    * The time, in milliseconds since the epoch, when the role was disassociated from the group.
@@ -1918,8 +1913,7 @@ export namespace DisassociateServiceRoleFromAccountRequest {
   }
 }
 
-export interface DisassociateServiceRoleFromAccountResponse
-  extends $MetadataBearer {
+export interface DisassociateServiceRoleFromAccountResponse {
   __type?: "DisassociateServiceRoleFromAccountResponse";
   /**
    * The time when the service role was disassociated from the account.
@@ -2190,7 +2184,7 @@ export namespace GetAssociatedRoleRequest {
   }
 }
 
-export interface GetAssociatedRoleResponse extends $MetadataBearer {
+export interface GetAssociatedRoleResponse {
   __type?: "GetAssociatedRoleResponse";
   /**
    * The time when the role was associated with the group.
@@ -2223,7 +2217,7 @@ export namespace GetBulkDeploymentStatusRequest {
   }
 }
 
-export interface GetBulkDeploymentStatusResponse extends $MetadataBearer {
+export interface GetBulkDeploymentStatusResponse {
   __type?: "GetBulkDeploymentStatusResponse";
   /**
    * Relevant metrics on input records processed during bulk deployment.
@@ -2276,7 +2270,7 @@ export namespace GetConnectivityInfoRequest {
   }
 }
 
-export interface GetConnectivityInfoResponse extends $MetadataBearer {
+export interface GetConnectivityInfoResponse {
   __type?: "GetConnectivityInfoResponse";
   /**
    * Connectivity info list.
@@ -2309,7 +2303,7 @@ export namespace GetConnectorDefinitionRequest {
   }
 }
 
-export interface GetConnectorDefinitionResponse extends $MetadataBearer {
+export interface GetConnectorDefinitionResponse {
   __type?: "GetConnectorDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -2382,7 +2376,7 @@ export namespace GetConnectorDefinitionVersionRequest {
   }
 }
 
-export interface GetConnectorDefinitionVersionResponse extends $MetadataBearer {
+export interface GetConnectorDefinitionVersionResponse {
   __type?: "GetConnectorDefinitionVersionResponse";
   /**
    * The ARN of the connector definition version.
@@ -2435,7 +2429,7 @@ export namespace GetCoreDefinitionRequest {
   }
 }
 
-export interface GetCoreDefinitionResponse extends $MetadataBearer {
+export interface GetCoreDefinitionResponse {
   __type?: "GetCoreDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -2503,7 +2497,7 @@ export namespace GetCoreDefinitionVersionRequest {
   }
 }
 
-export interface GetCoreDefinitionVersionResponse extends $MetadataBearer {
+export interface GetCoreDefinitionVersionResponse {
   __type?: "GetCoreDefinitionVersionResponse";
   /**
    * The ARN of the core definition version.
@@ -2561,7 +2555,7 @@ export namespace GetDeploymentStatusRequest {
   }
 }
 
-export interface GetDeploymentStatusResponse extends $MetadataBearer {
+export interface GetDeploymentStatusResponse {
   __type?: "GetDeploymentStatusResponse";
   /**
    * The status of the deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
@@ -2609,7 +2603,7 @@ export namespace GetDeviceDefinitionRequest {
   }
 }
 
-export interface GetDeviceDefinitionResponse extends $MetadataBearer {
+export interface GetDeviceDefinitionResponse {
   __type?: "GetDeviceDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -2682,7 +2676,7 @@ export namespace GetDeviceDefinitionVersionRequest {
   }
 }
 
-export interface GetDeviceDefinitionVersionResponse extends $MetadataBearer {
+export interface GetDeviceDefinitionVersionResponse {
   __type?: "GetDeviceDefinitionVersionResponse";
   /**
    * The ARN of the device definition version.
@@ -2735,7 +2729,7 @@ export namespace GetFunctionDefinitionRequest {
   }
 }
 
-export interface GetFunctionDefinitionResponse extends $MetadataBearer {
+export interface GetFunctionDefinitionResponse {
   __type?: "GetFunctionDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -2808,7 +2802,7 @@ export namespace GetFunctionDefinitionVersionRequest {
   }
 }
 
-export interface GetFunctionDefinitionVersionResponse extends $MetadataBearer {
+export interface GetFunctionDefinitionVersionResponse {
   __type?: "GetFunctionDefinitionVersionResponse";
   /**
    * The ARN of the function definition version.
@@ -2866,7 +2860,7 @@ export namespace GetGroupCertificateAuthorityRequest {
   }
 }
 
-export interface GetGroupCertificateAuthorityResponse extends $MetadataBearer {
+export interface GetGroupCertificateAuthorityResponse {
   __type?: "GetGroupCertificateAuthorityResponse";
   /**
    * The ARN of the certificate authority for the group.
@@ -2904,8 +2898,7 @@ export namespace GetGroupCertificateConfigurationRequest {
   }
 }
 
-export interface GetGroupCertificateConfigurationResponse
-  extends $MetadataBearer {
+export interface GetGroupCertificateConfigurationResponse {
   __type?: "GetGroupCertificateConfigurationResponse";
   /**
    * The amount of time remaining before the certificate authority expires, in milliseconds.
@@ -2943,7 +2936,7 @@ export namespace GetGroupRequest {
   }
 }
 
-export interface GetGroupResponse extends $MetadataBearer {
+export interface GetGroupResponse {
   __type?: "GetGroupResponse";
   /**
    * The ARN of the definition.
@@ -3011,7 +3004,7 @@ export namespace GetGroupVersionRequest {
   }
 }
 
-export interface GetGroupVersionResponse extends $MetadataBearer {
+export interface GetGroupVersionResponse {
   __type?: "GetGroupVersionResponse";
   /**
    * The ARN of the group version.
@@ -3059,7 +3052,7 @@ export namespace GetLoggerDefinitionRequest {
   }
 }
 
-export interface GetLoggerDefinitionResponse extends $MetadataBearer {
+export interface GetLoggerDefinitionResponse {
   __type?: "GetLoggerDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -3132,7 +3125,7 @@ export namespace GetLoggerDefinitionVersionRequest {
   }
 }
 
-export interface GetLoggerDefinitionVersionResponse extends $MetadataBearer {
+export interface GetLoggerDefinitionVersionResponse {
   __type?: "GetLoggerDefinitionVersionResponse";
   /**
    * The ARN of the logger definition version.
@@ -3180,7 +3173,7 @@ export namespace GetResourceDefinitionRequest {
   }
 }
 
-export interface GetResourceDefinitionResponse extends $MetadataBearer {
+export interface GetResourceDefinitionResponse {
   __type?: "GetResourceDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -3248,7 +3241,7 @@ export namespace GetResourceDefinitionVersionRequest {
   }
 }
 
-export interface GetResourceDefinitionVersionResponse extends $MetadataBearer {
+export interface GetResourceDefinitionVersionResponse {
   __type?: "GetResourceDefinitionVersionResponse";
   /**
    * Arn of the resource definition version.
@@ -3292,7 +3285,7 @@ export namespace GetServiceRoleForAccountRequest {
   }
 }
 
-export interface GetServiceRoleForAccountResponse extends $MetadataBearer {
+export interface GetServiceRoleForAccountResponse {
   __type?: "GetServiceRoleForAccountResponse";
   /**
    * The time when the service role was associated with the account.
@@ -3325,7 +3318,7 @@ export namespace GetSubscriptionDefinitionRequest {
   }
 }
 
-export interface GetSubscriptionDefinitionResponse extends $MetadataBearer {
+export interface GetSubscriptionDefinitionResponse {
   __type?: "GetSubscriptionDefinitionResponse";
   /**
    * The ARN of the definition.
@@ -3398,8 +3391,7 @@ export namespace GetSubscriptionDefinitionVersionRequest {
   }
 }
 
-export interface GetSubscriptionDefinitionVersionResponse
-  extends $MetadataBearer {
+export interface GetSubscriptionDefinitionVersionResponse {
   __type?: "GetSubscriptionDefinitionVersionResponse";
   /**
    * The ARN of the subscription definition version.
@@ -3625,8 +3617,7 @@ export namespace ListBulkDeploymentDetailedReportsRequest {
   }
 }
 
-export interface ListBulkDeploymentDetailedReportsResponse
-  extends $MetadataBearer {
+export interface ListBulkDeploymentDetailedReportsResponse {
   __type?: "ListBulkDeploymentDetailedReportsResponse";
   /**
    * A list of the individual group deployments in the bulk deployment operation.
@@ -3664,7 +3655,7 @@ export namespace ListBulkDeploymentsRequest {
   }
 }
 
-export interface ListBulkDeploymentsResponse extends $MetadataBearer {
+export interface ListBulkDeploymentsResponse {
   __type?: "ListBulkDeploymentsResponse";
   /**
    * A list of bulk deployments.
@@ -3707,8 +3698,7 @@ export namespace ListConnectorDefinitionVersionsRequest {
   }
 }
 
-export interface ListConnectorDefinitionVersionsResponse
-  extends $MetadataBearer {
+export interface ListConnectorDefinitionVersionsResponse {
   __type?: "ListConnectorDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3746,7 +3736,7 @@ export namespace ListConnectorDefinitionsRequest {
   }
 }
 
-export interface ListConnectorDefinitionsResponse extends $MetadataBearer {
+export interface ListConnectorDefinitionsResponse {
   __type?: "ListConnectorDefinitionsResponse";
   /**
    * Information about a definition.
@@ -3789,7 +3779,7 @@ export namespace ListCoreDefinitionVersionsRequest {
   }
 }
 
-export interface ListCoreDefinitionVersionsResponse extends $MetadataBearer {
+export interface ListCoreDefinitionVersionsResponse {
   __type?: "ListCoreDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3827,7 +3817,7 @@ export namespace ListCoreDefinitionsRequest {
   }
 }
 
-export interface ListCoreDefinitionsResponse extends $MetadataBearer {
+export interface ListCoreDefinitionsResponse {
   __type?: "ListCoreDefinitionsResponse";
   /**
    * Information about a definition.
@@ -3870,7 +3860,7 @@ export namespace ListDeploymentsRequest {
   }
 }
 
-export interface ListDeploymentsResponse extends $MetadataBearer {
+export interface ListDeploymentsResponse {
   __type?: "ListDeploymentsResponse";
   /**
    * A list of deployments for the requested groups.
@@ -3913,7 +3903,7 @@ export namespace ListDeviceDefinitionVersionsRequest {
   }
 }
 
-export interface ListDeviceDefinitionVersionsResponse extends $MetadataBearer {
+export interface ListDeviceDefinitionVersionsResponse {
   __type?: "ListDeviceDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3951,7 +3941,7 @@ export namespace ListDeviceDefinitionsRequest {
   }
 }
 
-export interface ListDeviceDefinitionsResponse extends $MetadataBearer {
+export interface ListDeviceDefinitionsResponse {
   __type?: "ListDeviceDefinitionsResponse";
   /**
    * Information about a definition.
@@ -3994,8 +3984,7 @@ export namespace ListFunctionDefinitionVersionsRequest {
   }
 }
 
-export interface ListFunctionDefinitionVersionsResponse
-  extends $MetadataBearer {
+export interface ListFunctionDefinitionVersionsResponse {
   __type?: "ListFunctionDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4033,7 +4022,7 @@ export namespace ListFunctionDefinitionsRequest {
   }
 }
 
-export interface ListFunctionDefinitionsResponse extends $MetadataBearer {
+export interface ListFunctionDefinitionsResponse {
   __type?: "ListFunctionDefinitionsResponse";
   /**
    * Information about a definition.
@@ -4066,8 +4055,7 @@ export namespace ListGroupCertificateAuthoritiesRequest {
   }
 }
 
-export interface ListGroupCertificateAuthoritiesResponse
-  extends $MetadataBearer {
+export interface ListGroupCertificateAuthoritiesResponse {
   __type?: "ListGroupCertificateAuthoritiesResponse";
   /**
    * A list of certificate authorities associated with the group.
@@ -4105,7 +4093,7 @@ export namespace ListGroupVersionsRequest {
   }
 }
 
-export interface ListGroupVersionsResponse extends $MetadataBearer {
+export interface ListGroupVersionsResponse {
   __type?: "ListGroupVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4143,7 +4131,7 @@ export namespace ListGroupsRequest {
   }
 }
 
-export interface ListGroupsResponse extends $MetadataBearer {
+export interface ListGroupsResponse {
   __type?: "ListGroupsResponse";
   /**
    * Information about a group.
@@ -4186,7 +4174,7 @@ export namespace ListLoggerDefinitionVersionsRequest {
   }
 }
 
-export interface ListLoggerDefinitionVersionsResponse extends $MetadataBearer {
+export interface ListLoggerDefinitionVersionsResponse {
   __type?: "ListLoggerDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4224,7 +4212,7 @@ export namespace ListLoggerDefinitionsRequest {
   }
 }
 
-export interface ListLoggerDefinitionsResponse extends $MetadataBearer {
+export interface ListLoggerDefinitionsResponse {
   __type?: "ListLoggerDefinitionsResponse";
   /**
    * Information about a definition.
@@ -4267,8 +4255,7 @@ export namespace ListResourceDefinitionVersionsRequest {
   }
 }
 
-export interface ListResourceDefinitionVersionsResponse
-  extends $MetadataBearer {
+export interface ListResourceDefinitionVersionsResponse {
   __type?: "ListResourceDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4306,7 +4293,7 @@ export namespace ListResourceDefinitionsRequest {
   }
 }
 
-export interface ListResourceDefinitionsResponse extends $MetadataBearer {
+export interface ListResourceDefinitionsResponse {
   __type?: "ListResourceDefinitionsResponse";
   /**
    * Information about a definition.
@@ -4349,8 +4336,7 @@ export namespace ListSubscriptionDefinitionVersionsRequest {
   }
 }
 
-export interface ListSubscriptionDefinitionVersionsResponse
-  extends $MetadataBearer {
+export interface ListSubscriptionDefinitionVersionsResponse {
   __type?: "ListSubscriptionDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4388,7 +4374,7 @@ export namespace ListSubscriptionDefinitionsRequest {
   }
 }
 
-export interface ListSubscriptionDefinitionsResponse extends $MetadataBearer {
+export interface ListSubscriptionDefinitionsResponse {
   __type?: "ListSubscriptionDefinitionsResponse";
   /**
    * Information about a definition.
@@ -4421,7 +4407,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * The key-value pair for the resource tag.
@@ -4588,7 +4574,7 @@ export namespace ResetDeploymentsRequest {
   }
 }
 
-export interface ResetDeploymentsResponse extends $MetadataBearer {
+export interface ResetDeploymentsResponse {
   __type?: "ResetDeploymentsResponse";
   /**
    * The ARN of the deployment.
@@ -4842,7 +4828,7 @@ export namespace StartBulkDeploymentRequest {
   }
 }
 
-export interface StartBulkDeploymentResponse extends $MetadataBearer {
+export interface StartBulkDeploymentResponse {
   __type?: "StartBulkDeploymentResponse";
   /**
    * The ARN of the bulk deployment.
@@ -4875,7 +4861,7 @@ export namespace StopBulkDeploymentRequest {
   }
 }
 
-export interface StopBulkDeploymentResponse extends $MetadataBearer {
+export interface StopBulkDeploymentResponse {
   __type?: "StopBulkDeploymentResponse";
 }
 
@@ -5008,7 +4994,7 @@ export namespace UpdateConnectivityInfoRequest {
   }
 }
 
-export interface UpdateConnectivityInfoResponse extends $MetadataBearer {
+export interface UpdateConnectivityInfoResponse {
   __type?: "UpdateConnectivityInfoResponse";
   /**
    * A message about the connectivity info update request.
@@ -5046,7 +5032,7 @@ export namespace UpdateConnectorDefinitionRequest {
   }
 }
 
-export interface UpdateConnectorDefinitionResponse extends $MetadataBearer {
+export interface UpdateConnectorDefinitionResponse {
   __type?: "UpdateConnectorDefinitionResponse";
 }
 
@@ -5075,7 +5061,7 @@ export namespace UpdateCoreDefinitionRequest {
   }
 }
 
-export interface UpdateCoreDefinitionResponse extends $MetadataBearer {
+export interface UpdateCoreDefinitionResponse {
   __type?: "UpdateCoreDefinitionResponse";
 }
 
@@ -5104,7 +5090,7 @@ export namespace UpdateDeviceDefinitionRequest {
   }
 }
 
-export interface UpdateDeviceDefinitionResponse extends $MetadataBearer {
+export interface UpdateDeviceDefinitionResponse {
   __type?: "UpdateDeviceDefinitionResponse";
 }
 
@@ -5133,7 +5119,7 @@ export namespace UpdateFunctionDefinitionRequest {
   }
 }
 
-export interface UpdateFunctionDefinitionResponse extends $MetadataBearer {
+export interface UpdateFunctionDefinitionResponse {
   __type?: "UpdateFunctionDefinitionResponse";
 }
 
@@ -5162,8 +5148,7 @@ export namespace UpdateGroupCertificateConfigurationRequest {
   }
 }
 
-export interface UpdateGroupCertificateConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateGroupCertificateConfigurationResponse {
   __type?: "UpdateGroupCertificateConfigurationResponse";
   /**
    * The amount of time remaining before the certificate authority expires, in milliseconds.
@@ -5208,7 +5193,7 @@ export namespace UpdateGroupRequest {
   }
 }
 
-export interface UpdateGroupResponse extends $MetadataBearer {
+export interface UpdateGroupResponse {
   __type?: "UpdateGroupResponse";
 }
 
@@ -5237,7 +5222,7 @@ export namespace UpdateLoggerDefinitionRequest {
   }
 }
 
-export interface UpdateLoggerDefinitionResponse extends $MetadataBearer {
+export interface UpdateLoggerDefinitionResponse {
   __type?: "UpdateLoggerDefinitionResponse";
 }
 
@@ -5266,7 +5251,7 @@ export namespace UpdateResourceDefinitionRequest {
   }
 }
 
-export interface UpdateResourceDefinitionResponse extends $MetadataBearer {
+export interface UpdateResourceDefinitionResponse {
   __type?: "UpdateResourceDefinitionResponse";
 }
 
@@ -5295,7 +5280,7 @@ export namespace UpdateSubscriptionDefinitionRequest {
   }
 }
 
-export interface UpdateSubscriptionDefinitionResponse extends $MetadataBearer {
+export interface UpdateSubscriptionDefinitionResponse {
   __type?: "UpdateSubscriptionDefinitionResponse";
 }
 

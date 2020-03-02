@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListBucketAnalyticsConfigurationsCommandInput = ListBucketAnalyticsConfigurationsRequest;
-export type ListBucketAnalyticsConfigurationsCommandOutput = ListBucketAnalyticsConfigurationsOutput;
+export type ListBucketAnalyticsConfigurationsCommandOutput = ListBucketAnalyticsConfigurationsOutput &
+  __MetadataBearer;
 
 export class ListBucketAnalyticsConfigurationsCommand extends $Command<
   ListBucketAnalyticsConfigurationsCommandInput,

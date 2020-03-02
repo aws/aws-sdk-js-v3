@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachInstancesCommandInput = DetachInstancesQuery;
-export type DetachInstancesCommandOutput = DetachInstancesAnswer;
+export type DetachInstancesCommandOutput = DetachInstancesAnswer &
+  __MetadataBearer;
 
 export class DetachInstancesCommand extends $Command<
   DetachInstancesCommandInput,

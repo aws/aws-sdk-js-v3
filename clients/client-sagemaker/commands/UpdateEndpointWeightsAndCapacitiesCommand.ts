@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateEndpointWeightsAndCapacitiesCommandInput = UpdateEndpointWeightsAndCapacitiesInput;
-export type UpdateEndpointWeightsAndCapacitiesCommandOutput = UpdateEndpointWeightsAndCapacitiesOutput;
+export type UpdateEndpointWeightsAndCapacitiesCommandOutput = UpdateEndpointWeightsAndCapacitiesOutput &
+  __MetadataBearer;
 
 export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
   UpdateEndpointWeightsAndCapacitiesCommandInput,

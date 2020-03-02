@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDiskCommandInput = CreateDiskRequest;
-export type CreateDiskCommandOutput = CreateDiskResult;
+export type CreateDiskCommandOutput = CreateDiskResult & __MetadataBearer;
 
 export class CreateDiskCommand extends $Command<
   CreateDiskCommandInput,

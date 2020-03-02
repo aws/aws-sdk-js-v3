@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListReusableDelegationSetsCommandInput = ListReusableDelegationSetsRequest;
-export type ListReusableDelegationSetsCommandOutput = ListReusableDelegationSetsResponse;
+export type ListReusableDelegationSetsCommandOutput = ListReusableDelegationSetsResponse &
+  __MetadataBearer;
 
 export class ListReusableDelegationSetsCommand extends $Command<
   ListReusableDelegationSetsCommandInput,

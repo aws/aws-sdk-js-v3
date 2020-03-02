@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTrainingJobsForHyperParameterTuningJobCommandInput = ListTrainingJobsForHyperParameterTuningJobRequest;
-export type ListTrainingJobsForHyperParameterTuningJobCommandOutput = ListTrainingJobsForHyperParameterTuningJobResponse;
+export type ListTrainingJobsForHyperParameterTuningJobCommandOutput = ListTrainingJobsForHyperParameterTuningJobResponse &
+  __MetadataBearer;
 
 export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
   ListTrainingJobsForHyperParameterTuningJobCommandInput,

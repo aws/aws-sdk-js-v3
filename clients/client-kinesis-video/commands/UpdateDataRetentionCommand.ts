@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDataRetentionCommandInput = UpdateDataRetentionInput;
-export type UpdateDataRetentionCommandOutput = UpdateDataRetentionOutput;
+export type UpdateDataRetentionCommandOutput = UpdateDataRetentionOutput &
+  __MetadataBearer;
 
 export class UpdateDataRetentionCommand extends $Command<
   UpdateDataRetentionCommandInput,

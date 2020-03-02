@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAccountSettingCommandInput = DeleteAccountSettingRequest;
-export type DeleteAccountSettingCommandOutput = DeleteAccountSettingResponse;
+export type DeleteAccountSettingCommandOutput = DeleteAccountSettingResponse &
+  __MetadataBearer;
 
 export class DeleteAccountSettingCommand extends $Command<
   DeleteAccountSettingCommandInput,

@@ -1,39 +1,80 @@
 import {
-  BatchDeleteDocumentRequest,
-  BatchDeleteDocumentResponse,
-  BatchPutDocumentRequest,
-  BatchPutDocumentResponse,
-  CreateDataSourceRequest,
-  CreateDataSourceResponse,
-  CreateFaqRequest,
-  CreateFaqResponse,
-  CreateIndexRequest,
-  CreateIndexResponse,
-  DeleteFaqRequest,
-  DeleteIndexRequest,
-  DescribeDataSourceRequest,
-  DescribeDataSourceResponse,
-  DescribeFaqRequest,
-  DescribeFaqResponse,
-  DescribeIndexRequest,
-  DescribeIndexResponse,
-  ListDataSourceSyncJobsRequest,
-  ListDataSourceSyncJobsResponse,
-  ListDataSourcesRequest,
-  ListDataSourcesResponse,
-  ListFaqsRequest,
-  ListFaqsResponse,
-  ListIndicesRequest,
-  ListIndicesResponse,
-  QueryRequest,
-  QueryResult,
-  StartDataSourceSyncJobRequest,
-  StartDataSourceSyncJobResponse,
-  StopDataSourceSyncJobRequest,
-  SubmitFeedbackRequest,
-  UpdateDataSourceRequest,
-  UpdateIndexRequest
-} from "./models/index";
+  BatchDeleteDocumentCommandInput,
+  BatchDeleteDocumentCommandOutput
+} from "./commands/BatchDeleteDocumentCommand";
+import {
+  BatchPutDocumentCommandInput,
+  BatchPutDocumentCommandOutput
+} from "./commands/BatchPutDocumentCommand";
+import {
+  CreateDataSourceCommandInput,
+  CreateDataSourceCommandOutput
+} from "./commands/CreateDataSourceCommand";
+import {
+  CreateFaqCommandInput,
+  CreateFaqCommandOutput
+} from "./commands/CreateFaqCommand";
+import {
+  CreateIndexCommandInput,
+  CreateIndexCommandOutput
+} from "./commands/CreateIndexCommand";
+import {
+  DeleteFaqCommandInput,
+  DeleteFaqCommandOutput
+} from "./commands/DeleteFaqCommand";
+import {
+  DeleteIndexCommandInput,
+  DeleteIndexCommandOutput
+} from "./commands/DeleteIndexCommand";
+import {
+  DescribeDataSourceCommandInput,
+  DescribeDataSourceCommandOutput
+} from "./commands/DescribeDataSourceCommand";
+import {
+  DescribeFaqCommandInput,
+  DescribeFaqCommandOutput
+} from "./commands/DescribeFaqCommand";
+import {
+  DescribeIndexCommandInput,
+  DescribeIndexCommandOutput
+} from "./commands/DescribeIndexCommand";
+import {
+  ListDataSourceSyncJobsCommandInput,
+  ListDataSourceSyncJobsCommandOutput
+} from "./commands/ListDataSourceSyncJobsCommand";
+import {
+  ListDataSourcesCommandInput,
+  ListDataSourcesCommandOutput
+} from "./commands/ListDataSourcesCommand";
+import {
+  ListFaqsCommandInput,
+  ListFaqsCommandOutput
+} from "./commands/ListFaqsCommand";
+import {
+  ListIndicesCommandInput,
+  ListIndicesCommandOutput
+} from "./commands/ListIndicesCommand";
+import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+import {
+  StartDataSourceSyncJobCommandInput,
+  StartDataSourceSyncJobCommandOutput
+} from "./commands/StartDataSourceSyncJobCommand";
+import {
+  StopDataSourceSyncJobCommandInput,
+  StopDataSourceSyncJobCommandOutput
+} from "./commands/StopDataSourceSyncJobCommand";
+import {
+  SubmitFeedbackCommandInput,
+  SubmitFeedbackCommandOutput
+} from "./commands/SubmitFeedbackCommand";
+import {
+  UpdateDataSourceCommandInput,
+  UpdateDataSourceCommandOutput
+} from "./commands/UpdateDataSourceCommand";
+import {
+  UpdateIndexCommandInput,
+  UpdateIndexCommandOutput
+} from "./commands/UpdateIndexCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,50 +122,54 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchDeleteDocumentRequest
-  | BatchPutDocumentRequest
-  | CreateDataSourceRequest
-  | CreateFaqRequest
-  | CreateIndexRequest
-  | DeleteFaqRequest
-  | DeleteIndexRequest
-  | DescribeDataSourceRequest
-  | DescribeFaqRequest
-  | DescribeIndexRequest
-  | ListDataSourceSyncJobsRequest
-  | ListDataSourcesRequest
-  | ListFaqsRequest
-  | ListIndicesRequest
-  | QueryRequest
-  | StartDataSourceSyncJobRequest
-  | StopDataSourceSyncJobRequest
-  | SubmitFeedbackRequest
-  | UpdateDataSourceRequest
-  | UpdateIndexRequest;
+  | BatchDeleteDocumentCommandInput
+  | BatchPutDocumentCommandInput
+  | CreateDataSourceCommandInput
+  | CreateFaqCommandInput
+  | CreateIndexCommandInput
+  | DeleteFaqCommandInput
+  | DeleteIndexCommandInput
+  | DescribeDataSourceCommandInput
+  | DescribeFaqCommandInput
+  | DescribeIndexCommandInput
+  | ListDataSourceSyncJobsCommandInput
+  | ListDataSourcesCommandInput
+  | ListFaqsCommandInput
+  | ListIndicesCommandInput
+  | QueryCommandInput
+  | StartDataSourceSyncJobCommandInput
+  | StopDataSourceSyncJobCommandInput
+  | SubmitFeedbackCommandInput
+  | UpdateDataSourceCommandInput
+  | UpdateIndexCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | BatchDeleteDocumentResponse
-  | BatchPutDocumentResponse
-  | CreateDataSourceResponse
-  | CreateFaqResponse
-  | CreateIndexResponse
-  | DescribeDataSourceResponse
-  | DescribeFaqResponse
-  | DescribeIndexResponse
-  | ListDataSourceSyncJobsResponse
-  | ListDataSourcesResponse
-  | ListFaqsResponse
-  | ListIndicesResponse
-  | QueryResult
-  | StartDataSourceSyncJobResponse;
+  | BatchDeleteDocumentCommandOutput
+  | BatchPutDocumentCommandOutput
+  | CreateDataSourceCommandOutput
+  | CreateFaqCommandOutput
+  | CreateIndexCommandOutput
+  | DeleteFaqCommandOutput
+  | DeleteIndexCommandOutput
+  | DescribeDataSourceCommandOutput
+  | DescribeFaqCommandOutput
+  | DescribeIndexCommandOutput
+  | ListDataSourceSyncJobsCommandOutput
+  | ListDataSourcesCommandOutput
+  | ListFaqsCommandOutput
+  | ListIndicesCommandOutput
+  | QueryCommandOutput
+  | StartDataSourceSyncJobCommandOutput
+  | StopDataSourceSyncJobCommandOutput
+  | SubmitFeedbackCommandOutput
+  | UpdateDataSourceCommandOutput
+  | UpdateIndexCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

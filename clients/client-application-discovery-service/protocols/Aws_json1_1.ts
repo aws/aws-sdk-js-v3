@@ -593,38 +593,53 @@ async function deserializeAws_json1_1AssociateConfigurationItemsToApplicationCom
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -680,38 +695,53 @@ async function deserializeAws_json1_1BatchDeleteImportDataCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -764,38 +794,53 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -848,45 +893,63 @@ async function deserializeAws_json1_1CreateTagsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -942,38 +1005,53 @@ async function deserializeAws_json1_1DeleteApplicationsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1026,45 +1104,63 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1117,38 +1213,53 @@ async function deserializeAws_json1_1DescribeAgentsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1207,38 +1318,53 @@ async function deserializeAws_json1_1DescribeConfigurationsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1297,52 +1423,73 @@ async function deserializeAws_json1_1DescribeContinuousExportsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1401,45 +1548,63 @@ async function deserializeAws_json1_1DescribeExportConfigurationsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1495,38 +1660,53 @@ async function deserializeAws_json1_1DescribeExportTasksCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1582,38 +1762,53 @@ async function deserializeAws_json1_1DescribeImportTasksCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1666,45 +1861,63 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1763,38 +1976,53 @@ async function deserializeAws_json1_1DisassociateConfigurationItemsFromApplicati
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1850,45 +2078,63 @@ async function deserializeAws_json1_1ExportConfigurationsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1944,38 +2190,53 @@ async function deserializeAws_json1_1GetDiscoverySummaryCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2031,45 +2292,63 @@ async function deserializeAws_json1_1ListConfigurationsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2125,38 +2404,53 @@ async function deserializeAws_json1_1ListServerNeighborsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2212,59 +2506,83 @@ async function deserializeAws_json1_1StartContinuousExportCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ConflictErrorException":
-      response = await deserializeAws_json1_1ConflictErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConflictErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2323,38 +2641,53 @@ async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2407,45 +2740,63 @@ async function deserializeAws_json1_1StartExportTaskCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2498,45 +2849,63 @@ async function deserializeAws_json1_1StartImportTaskCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2592,59 +2961,83 @@ async function deserializeAws_json1_1StopContinuousExportCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2703,38 +3096,53 @@ async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2787,38 +3195,53 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
-      response = await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
-      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
-      response = await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

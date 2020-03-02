@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateMultiplexCommandInput = UpdateMultiplexRequest;
-export type UpdateMultiplexCommandOutput = UpdateMultiplexResponse;
+export type UpdateMultiplexCommandOutput = UpdateMultiplexResponse &
+  __MetadataBearer;
 
 export class UpdateMultiplexCommand extends $Command<
   UpdateMultiplexCommandInput,

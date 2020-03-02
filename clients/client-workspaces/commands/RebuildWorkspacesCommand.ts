@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RebuildWorkspacesCommandInput = RebuildWorkspacesRequest;
-export type RebuildWorkspacesCommandOutput = RebuildWorkspacesResult;
+export type RebuildWorkspacesCommandOutput = RebuildWorkspacesResult &
+  __MetadataBearer;
 
 export class RebuildWorkspacesCommand extends $Command<
   RebuildWorkspacesCommandInput,

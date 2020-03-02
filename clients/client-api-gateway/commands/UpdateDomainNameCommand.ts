@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDomainNameCommandInput = UpdateDomainNameRequest;
-export type UpdateDomainNameCommandOutput = DomainName;
+export type UpdateDomainNameCommandOutput = DomainName & __MetadataBearer;
 
 export class UpdateDomainNameCommand extends $Command<
   UpdateDomainNameCommandInput,

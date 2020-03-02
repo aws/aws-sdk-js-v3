@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteGeoMatchSetCommandInput = DeleteGeoMatchSetRequest;
-export type DeleteGeoMatchSetCommandOutput = DeleteGeoMatchSetResponse;
+export type DeleteGeoMatchSetCommandOutput = DeleteGeoMatchSetResponse &
+  __MetadataBearer;
 
 export class DeleteGeoMatchSetCommand extends $Command<
   DeleteGeoMatchSetCommandInput,

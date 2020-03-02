@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type LaunchAppCommandInput = LaunchAppRequest;
-export type LaunchAppCommandOutput = LaunchAppResponse;
+export type LaunchAppCommandOutput = LaunchAppResponse & __MetadataBearer;
 
 export class LaunchAppCommand extends $Command<
   LaunchAppCommandInput,

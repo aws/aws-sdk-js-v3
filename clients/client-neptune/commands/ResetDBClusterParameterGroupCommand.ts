@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetDBClusterParameterGroupCommandInput = ResetDBClusterParameterGroupMessage;
-export type ResetDBClusterParameterGroupCommandOutput = DBClusterParameterGroupNameMessage;
+export type ResetDBClusterParameterGroupCommandOutput = DBClusterParameterGroupNameMessage &
+  __MetadataBearer;
 
 export class ResetDBClusterParameterGroupCommand extends $Command<
   ResetDBClusterParameterGroupCommandInput,

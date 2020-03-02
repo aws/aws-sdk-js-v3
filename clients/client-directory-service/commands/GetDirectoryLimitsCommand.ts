@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDirectoryLimitsCommandInput = GetDirectoryLimitsRequest;
-export type GetDirectoryLimitsCommandOutput = GetDirectoryLimitsResult;
+export type GetDirectoryLimitsCommandOutput = GetDirectoryLimitsResult &
+  __MetadataBearer;
 
 export class GetDirectoryLimitsCommand extends $Command<
   GetDirectoryLimitsCommandInput,

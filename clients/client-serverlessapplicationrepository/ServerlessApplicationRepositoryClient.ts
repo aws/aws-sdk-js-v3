@@ -1,30 +1,55 @@
 import {
-  CreateApplicationRequest,
-  CreateApplicationResponse,
-  CreateApplicationVersionRequest,
-  CreateApplicationVersionResponse,
-  CreateCloudFormationChangeSetRequest,
-  CreateCloudFormationChangeSetResponse,
-  CreateCloudFormationTemplateRequest,
-  CreateCloudFormationTemplateResponse,
-  DeleteApplicationRequest,
-  GetApplicationPolicyRequest,
-  GetApplicationPolicyResponse,
-  GetApplicationRequest,
-  GetApplicationResponse,
-  GetCloudFormationTemplateRequest,
-  GetCloudFormationTemplateResponse,
-  ListApplicationDependenciesRequest,
-  ListApplicationDependenciesResponse,
-  ListApplicationVersionsRequest,
-  ListApplicationVersionsResponse,
-  ListApplicationsRequest,
-  ListApplicationsResponse,
-  PutApplicationPolicyRequest,
-  PutApplicationPolicyResponse,
-  UpdateApplicationRequest,
-  UpdateApplicationResponse
-} from "./models/index";
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput
+} from "./commands/CreateApplicationCommand";
+import {
+  CreateApplicationVersionCommandInput,
+  CreateApplicationVersionCommandOutput
+} from "./commands/CreateApplicationVersionCommand";
+import {
+  CreateCloudFormationChangeSetCommandInput,
+  CreateCloudFormationChangeSetCommandOutput
+} from "./commands/CreateCloudFormationChangeSetCommand";
+import {
+  CreateCloudFormationTemplateCommandInput,
+  CreateCloudFormationTemplateCommandOutput
+} from "./commands/CreateCloudFormationTemplateCommand";
+import {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput
+} from "./commands/DeleteApplicationCommand";
+import {
+  GetApplicationCommandInput,
+  GetApplicationCommandOutput
+} from "./commands/GetApplicationCommand";
+import {
+  GetApplicationPolicyCommandInput,
+  GetApplicationPolicyCommandOutput
+} from "./commands/GetApplicationPolicyCommand";
+import {
+  GetCloudFormationTemplateCommandInput,
+  GetCloudFormationTemplateCommandOutput
+} from "./commands/GetCloudFormationTemplateCommand";
+import {
+  ListApplicationDependenciesCommandInput,
+  ListApplicationDependenciesCommandOutput
+} from "./commands/ListApplicationDependenciesCommand";
+import {
+  ListApplicationVersionsCommandInput,
+  ListApplicationVersionsCommandOutput
+} from "./commands/ListApplicationVersionsCommand";
+import {
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput
+} from "./commands/ListApplicationsCommand";
+import {
+  PutApplicationPolicyCommandInput,
+  PutApplicationPolicyCommandOutput
+} from "./commands/PutApplicationPolicyCommand";
+import {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput
+} from "./commands/UpdateApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -72,41 +97,40 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateApplicationRequest
-  | CreateApplicationVersionRequest
-  | CreateCloudFormationChangeSetRequest
-  | CreateCloudFormationTemplateRequest
-  | DeleteApplicationRequest
-  | GetApplicationPolicyRequest
-  | GetApplicationRequest
-  | GetCloudFormationTemplateRequest
-  | ListApplicationDependenciesRequest
-  | ListApplicationVersionsRequest
-  | ListApplicationsRequest
-  | PutApplicationPolicyRequest
-  | UpdateApplicationRequest;
+  | CreateApplicationCommandInput
+  | CreateApplicationVersionCommandInput
+  | CreateCloudFormationChangeSetCommandInput
+  | CreateCloudFormationTemplateCommandInput
+  | DeleteApplicationCommandInput
+  | GetApplicationCommandInput
+  | GetApplicationPolicyCommandInput
+  | GetCloudFormationTemplateCommandInput
+  | ListApplicationDependenciesCommandInput
+  | ListApplicationVersionsCommandInput
+  | ListApplicationsCommandInput
+  | PutApplicationPolicyCommandInput
+  | UpdateApplicationCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateApplicationResponse
-  | CreateApplicationVersionResponse
-  | CreateCloudFormationChangeSetResponse
-  | CreateCloudFormationTemplateResponse
-  | GetApplicationPolicyResponse
-  | GetApplicationResponse
-  | GetCloudFormationTemplateResponse
-  | ListApplicationDependenciesResponse
-  | ListApplicationVersionsResponse
-  | ListApplicationsResponse
-  | PutApplicationPolicyResponse
-  | UpdateApplicationResponse;
+  | CreateApplicationCommandOutput
+  | CreateApplicationVersionCommandOutput
+  | CreateCloudFormationChangeSetCommandOutput
+  | CreateCloudFormationTemplateCommandOutput
+  | DeleteApplicationCommandOutput
+  | GetApplicationCommandOutput
+  | GetApplicationPolicyCommandOutput
+  | GetCloudFormationTemplateCommandOutput
+  | ListApplicationDependenciesCommandOutput
+  | ListApplicationVersionsCommandOutput
+  | ListApplicationsCommandOutput
+  | PutApplicationPolicyCommandOutput
+  | UpdateApplicationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

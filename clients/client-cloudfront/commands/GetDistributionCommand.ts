@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDistributionCommandInput = GetDistributionRequest;
-export type GetDistributionCommandOutput = GetDistributionResult;
+export type GetDistributionCommandOutput = GetDistributionResult &
+  __MetadataBearer;
 
 export class GetDistributionCommand extends $Command<
   GetDistributionCommandInput,

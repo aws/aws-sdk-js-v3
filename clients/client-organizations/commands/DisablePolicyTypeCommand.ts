@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisablePolicyTypeCommandInput = DisablePolicyTypeRequest;
-export type DisablePolicyTypeCommandOutput = DisablePolicyTypeResponse;
+export type DisablePolicyTypeCommandOutput = DisablePolicyTypeResponse &
+  __MetadataBearer;
 
 export class DisablePolicyTypeCommand extends $Command<
   DisablePolicyTypeCommandInput,

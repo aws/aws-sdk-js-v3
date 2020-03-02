@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDetectEntitiesCommandInput = BatchDetectEntitiesRequest;
-export type BatchDetectEntitiesCommandOutput = BatchDetectEntitiesResponse;
+export type BatchDetectEntitiesCommandOutput = BatchDetectEntitiesResponse &
+  __MetadataBearer;
 
 export class BatchDetectEntitiesCommand extends $Command<
   BatchDetectEntitiesCommandInput,

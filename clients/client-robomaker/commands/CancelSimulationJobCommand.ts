@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelSimulationJobCommandInput = CancelSimulationJobRequest;
-export type CancelSimulationJobCommandOutput = CancelSimulationJobResponse;
+export type CancelSimulationJobCommandOutput = CancelSimulationJobResponse &
+  __MetadataBearer;
 
 export class CancelSimulationJobCommand extends $Command<
   CancelSimulationJobCommandInput,

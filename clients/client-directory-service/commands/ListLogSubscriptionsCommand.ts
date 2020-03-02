@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListLogSubscriptionsCommandInput = ListLogSubscriptionsRequest;
-export type ListLogSubscriptionsCommandOutput = ListLogSubscriptionsResult;
+export type ListLogSubscriptionsCommandOutput = ListLogSubscriptionsResult &
+  __MetadataBearer;
 
 export class ListLogSubscriptionsCommand extends $Command<
   ListLogSubscriptionsCommandInput,

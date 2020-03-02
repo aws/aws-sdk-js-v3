@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRegionsCommandInput = DescribeRegionsRequest;
-export type DescribeRegionsCommandOutput = DescribeRegionsResult;
+export type DescribeRegionsCommandOutput = DescribeRegionsResult &
+  __MetadataBearer;
 
 export class DescribeRegionsCommand extends $Command<
   DescribeRegionsCommandInput,

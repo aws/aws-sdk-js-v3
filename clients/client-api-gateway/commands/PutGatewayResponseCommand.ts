@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutGatewayResponseCommandInput = PutGatewayResponseRequest;
-export type PutGatewayResponseCommandOutput = GatewayResponse;
+export type PutGatewayResponseCommandOutput = GatewayResponse &
+  __MetadataBearer;
 
 export class PutGatewayResponseCommand extends $Command<
   PutGatewayResponseCommandInput,

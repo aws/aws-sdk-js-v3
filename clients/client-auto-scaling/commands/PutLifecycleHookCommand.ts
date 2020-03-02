@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutLifecycleHookCommandInput = PutLifecycleHookType;
-export type PutLifecycleHookCommandOutput = PutLifecycleHookAnswer;
+export type PutLifecycleHookCommandOutput = PutLifecycleHookAnswer &
+  __MetadataBearer;
 
 export class PutLifecycleHookCommand extends $Command<
   PutLifecycleHookCommandInput,

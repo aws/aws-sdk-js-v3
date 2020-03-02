@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyCacheSubnetGroupCommandInput = ModifyCacheSubnetGroupMessage;
-export type ModifyCacheSubnetGroupCommandOutput = ModifyCacheSubnetGroupResult;
+export type ModifyCacheSubnetGroupCommandOutput = ModifyCacheSubnetGroupResult &
+  __MetadataBearer;
 
 export class ModifyCacheSubnetGroupCommand extends $Command<
   ModifyCacheSubnetGroupCommandInput,

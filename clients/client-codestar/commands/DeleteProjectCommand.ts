@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteProjectCommandInput = DeleteProjectRequest;
-export type DeleteProjectCommandOutput = DeleteProjectResult;
+export type DeleteProjectCommandOutput = DeleteProjectResult & __MetadataBearer;
 
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,

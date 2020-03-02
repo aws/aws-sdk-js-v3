@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyWorkspaceImageCommandInput = CopyWorkspaceImageRequest;
-export type CopyWorkspaceImageCommandOutput = CopyWorkspaceImageResult;
+export type CopyWorkspaceImageCommandOutput = CopyWorkspaceImageResult &
+  __MetadataBearer;
 
 export class CopyWorkspaceImageCommand extends $Command<
   CopyWorkspaceImageCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateWebhookCommandInput = UpdateWebhookRequest;
-export type UpdateWebhookCommandOutput = UpdateWebhookResult;
+export type UpdateWebhookCommandOutput = UpdateWebhookResult & __MetadataBearer;
 
 export class UpdateWebhookCommand extends $Command<
   UpdateWebhookCommandInput,

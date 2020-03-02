@@ -731,7 +731,7 @@ export namespace CreateUserRequest {
   }
 }
 
-export interface CreateUserResponse extends $MetadataBearer {
+export interface CreateUserResponse {
   __type?: "CreateUserResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the user account.</p>
@@ -821,7 +821,7 @@ export namespace DescribeUserHierarchyGroupRequest {
   }
 }
 
-export interface DescribeUserHierarchyGroupResponse extends $MetadataBearer {
+export interface DescribeUserHierarchyGroupResponse {
   __type?: "DescribeUserHierarchyGroupResponse";
   /**
    * <p>Information about the hierarchy group.</p>
@@ -849,8 +849,7 @@ export namespace DescribeUserHierarchyStructureRequest {
   }
 }
 
-export interface DescribeUserHierarchyStructureResponse
-  extends $MetadataBearer {
+export interface DescribeUserHierarchyStructureResponse {
   __type?: "DescribeUserHierarchyStructureResponse";
   /**
    * <p>Information about the hierarchy structure.</p>
@@ -883,7 +882,7 @@ export namespace DescribeUserRequest {
   }
 }
 
-export interface DescribeUserResponse extends $MetadataBearer {
+export interface DescribeUserResponse {
   __type?: "DescribeUserResponse";
   /**
    * <p>Information about the user account and configuration settings.</p>
@@ -953,7 +952,7 @@ export namespace GetContactAttributesRequest {
   }
 }
 
-export interface GetContactAttributesResponse extends $MetadataBearer {
+export interface GetContactAttributesResponse {
   __type?: "GetContactAttributesResponse";
   /**
    * <p>Information about the attributes.</p>
@@ -1072,7 +1071,7 @@ export namespace GetCurrentMetricDataRequest {
   }
 }
 
-export interface GetCurrentMetricDataResponse extends $MetadataBearer {
+export interface GetCurrentMetricDataResponse {
   __type?: "GetCurrentMetricDataResponse";
   /**
    * <p>The time at which the metrics were retrieved and cached for pagination.</p>
@@ -1112,7 +1111,7 @@ export namespace GetFederationTokenRequest {
   }
 }
 
-export interface GetFederationTokenResponse extends $MetadataBearer {
+export interface GetFederationTokenResponse {
   __type?: "GetFederationTokenResponse";
   /**
    * <p>The credentials to use for federation.</p>
@@ -1320,7 +1319,7 @@ export namespace GetMetricDataRequest {
   }
 }
 
-export interface GetMetricDataResponse extends $MetadataBearer {
+export interface GetMetricDataResponse {
   __type?: "GetMetricDataResponse";
   /**
    * <p>Information about the historical metrics.</p>
@@ -1644,7 +1643,7 @@ export namespace ListContactFlowsRequest {
   }
 }
 
-export interface ListContactFlowsResponse extends $MetadataBearer {
+export interface ListContactFlowsResponse {
   __type?: "ListContactFlowsResponse";
   /**
    * <p>Information about the contact flows.</p>
@@ -1688,7 +1687,7 @@ export namespace ListHoursOfOperationsRequest {
   }
 }
 
-export interface ListHoursOfOperationsResponse extends $MetadataBearer {
+export interface ListHoursOfOperationsResponse {
   __type?: "ListHoursOfOperationsResponse";
   /**
    * <p>Information about the hours of operation.</p>
@@ -1742,7 +1741,7 @@ export namespace ListPhoneNumbersRequest {
   }
 }
 
-export interface ListPhoneNumbersResponse extends $MetadataBearer {
+export interface ListPhoneNumbersResponse {
   __type?: "ListPhoneNumbersResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1791,7 +1790,7 @@ export namespace ListQueuesRequest {
   }
 }
 
-export interface ListQueuesResponse extends $MetadataBearer {
+export interface ListQueuesResponse {
   __type?: "ListQueuesResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1835,7 +1834,7 @@ export namespace ListRoutingProfilesRequest {
   }
 }
 
-export interface ListRoutingProfilesResponse extends $MetadataBearer {
+export interface ListRoutingProfilesResponse {
   __type?: "ListRoutingProfilesResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1879,7 +1878,7 @@ export namespace ListSecurityProfilesRequest {
   }
 }
 
-export interface ListSecurityProfilesResponse extends $MetadataBearer {
+export interface ListSecurityProfilesResponse {
   __type?: "ListSecurityProfilesResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1912,7 +1911,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>Information about the tags.</p>
@@ -1951,7 +1950,7 @@ export namespace ListUserHierarchyGroupsRequest {
   }
 }
 
-export interface ListUserHierarchyGroupsResponse extends $MetadataBearer {
+export interface ListUserHierarchyGroupsResponse {
   __type?: "ListUserHierarchyGroupsResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1995,7 +1994,7 @@ export namespace ListUsersRequest {
   }
 }
 
-export interface ListUsersResponse extends $MetadataBearer {
+export interface ListUsersResponse {
   __type?: "ListUsersResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -2220,7 +2219,7 @@ export namespace StartChatContactRequest {
   }
 }
 
-export interface StartChatContactResponse extends $MetadataBearer {
+export interface StartChatContactResponse {
   __type?: "StartChatContactResponse";
   /**
    * <p>The identifier of this contact within the Amazon Connect instance. </p>
@@ -2299,7 +2298,7 @@ export namespace StartOutboundVoiceContactRequest {
   }
 }
 
-export interface StartOutboundVoiceContactResponse extends $MetadataBearer {
+export interface StartOutboundVoiceContactResponse {
   __type?: "StartOutboundVoiceContactResponse";
   /**
    * <p>The identifier of this contact within the Amazon Connect instance.</p>
@@ -2332,7 +2331,7 @@ export namespace StopContactRequest {
   }
 }
 
-export interface StopContactResponse extends $MetadataBearer {
+export interface StopContactResponse {
   __type?: "StopContactResponse";
 }
 
@@ -2425,7 +2424,7 @@ export namespace UpdateContactAttributesRequest {
   }
 }
 
-export interface UpdateContactAttributesResponse extends $MetadataBearer {
+export interface UpdateContactAttributesResponse {
   __type?: "UpdateContactAttributesResponse";
 }
 

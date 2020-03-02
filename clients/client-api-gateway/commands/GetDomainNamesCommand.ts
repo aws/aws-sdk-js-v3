@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDomainNamesCommandInput = GetDomainNamesRequest;
-export type GetDomainNamesCommandOutput = DomainNames;
+export type GetDomainNamesCommandOutput = DomainNames & __MetadataBearer;
 
 export class GetDomainNamesCommand extends $Command<
   GetDomainNamesCommandInput,

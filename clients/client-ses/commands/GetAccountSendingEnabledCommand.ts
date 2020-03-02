@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccountSendingEnabledCommandInput = {};
-export type GetAccountSendingEnabledCommandOutput = GetAccountSendingEnabledResponse;
+export type GetAccountSendingEnabledCommandOutput = GetAccountSendingEnabledResponse &
+  __MetadataBearer;
 
 export class GetAccountSendingEnabledCommand extends $Command<
   GetAccountSendingEnabledCommandInput,

@@ -1,11 +1,15 @@
 import {
-  ListTagsForResourceRequest,
-  ListTagsForResourceResult,
-  TagResourceRequest,
-  TagResourceResult,
-  UntagResourceRequest,
-  UntagResourceResult
-} from "./models/index";
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -59,14 +63,14 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest;
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | ListTagsForResourceResult
-  | TagResourceResult
-  | UntagResourceResult;
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

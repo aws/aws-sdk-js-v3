@@ -18,7 +18,7 @@ export namespace AcceptSharedDirectoryRequest {
   }
 }
 
-export interface AcceptSharedDirectoryResult extends $MetadataBearer {
+export interface AcceptSharedDirectoryResult {
   __type?: "AcceptSharedDirectoryResult";
   /**
    * <p>The shared directory in the directory consumer account.</p>
@@ -146,7 +146,7 @@ export namespace AddIpRoutesRequest {
   }
 }
 
-export interface AddIpRoutesResult extends $MetadataBearer {
+export interface AddIpRoutesResult {
   __type?: "AddIpRoutesResult";
 }
 
@@ -175,7 +175,7 @@ export namespace AddTagsToResourceRequest {
   }
 }
 
-export interface AddTagsToResourceResult extends $MetadataBearer {
+export interface AddTagsToResourceResult {
   __type?: "AddTagsToResourceResult";
 }
 
@@ -251,7 +251,7 @@ export namespace CancelSchemaExtensionRequest {
   }
 }
 
-export interface CancelSchemaExtensionResult extends $MetadataBearer {
+export interface CancelSchemaExtensionResult {
   __type?: "CancelSchemaExtensionResult";
 }
 
@@ -572,7 +572,7 @@ export namespace ConnectDirectoryRequest {
 /**
  * <p>Contains the results of the <a>ConnectDirectory</a> operation.</p>
  */
-export interface ConnectDirectoryResult extends $MetadataBearer {
+export interface ConnectDirectoryResult {
   __type?: "ConnectDirectoryResult";
   /**
    * <p>The identifier of the new directory.</p>
@@ -613,7 +613,7 @@ export namespace CreateAliasRequest {
 /**
  * <p>Contains the results of the <a>CreateAlias</a> operation.</p>
  */
-export interface CreateAliasResult extends $MetadataBearer {
+export interface CreateAliasResult {
   __type?: "CreateAliasResult";
   /**
    * <p>The alias for the directory.</p>
@@ -673,7 +673,7 @@ export namespace CreateComputerRequest {
 /**
  * <p>Contains the results for the <a>CreateComputer</a> operation.</p>
  */
-export interface CreateComputerResult extends $MetadataBearer {
+export interface CreateComputerResult {
   __type?: "CreateComputerResult";
   /**
    * <p>A <a>Computer</a> object that represents the computer account.</p>
@@ -717,7 +717,7 @@ export namespace CreateConditionalForwarderRequest {
 /**
  * <p>The result of a CreateConditinalForwarder request.</p>
  */
-export interface CreateConditionalForwarderResult extends $MetadataBearer {
+export interface CreateConditionalForwarderResult {
   __type?: "CreateConditionalForwarderResult";
 }
 
@@ -781,7 +781,7 @@ export namespace CreateDirectoryRequest {
 /**
  * <p>Contains the results of the <a>CreateDirectory</a> operation.</p>
  */
-export interface CreateDirectoryResult extends $MetadataBearer {
+export interface CreateDirectoryResult {
   __type?: "CreateDirectoryResult";
   /**
    * <p>The identifier of the directory that was created.</p>
@@ -815,7 +815,7 @@ export namespace CreateLogSubscriptionRequest {
   }
 }
 
-export interface CreateLogSubscriptionResult extends $MetadataBearer {
+export interface CreateLogSubscriptionResult {
   __type?: "CreateLogSubscriptionResult";
 }
 
@@ -878,7 +878,7 @@ export namespace CreateMicrosoftADRequest {
 /**
  * <p>Result of a CreateMicrosoftAD request.</p>
  */
-export interface CreateMicrosoftADResult extends $MetadataBearer {
+export interface CreateMicrosoftADResult {
   __type?: "CreateMicrosoftADResult";
   /**
    * <p>The identifier of the directory that was created.</p>
@@ -917,7 +917,7 @@ export namespace CreateSnapshotRequest {
 /**
  * <p>Contains the results of the <a>CreateSnapshot</a> operation.</p>
  */
-export interface CreateSnapshotResult extends $MetadataBearer {
+export interface CreateSnapshotResult {
   __type?: "CreateSnapshotResult";
   /**
    * <p>The identifier of the snapshot that was created.</p>
@@ -982,7 +982,7 @@ export namespace CreateTrustRequest {
 /**
  * <p>The result of a CreateTrust request.</p>
  */
-export interface CreateTrustResult extends $MetadataBearer {
+export interface CreateTrustResult {
   __type?: "CreateTrustResult";
   /**
    * <p>A unique identifier for the trust relationship that was created.</p>
@@ -1021,7 +1021,7 @@ export namespace DeleteConditionalForwarderRequest {
 /**
  * <p>The result of a DeleteConditionalForwarder request.</p>
  */
-export interface DeleteConditionalForwarderResult extends $MetadataBearer {
+export interface DeleteConditionalForwarderResult {
   __type?: "DeleteConditionalForwarderResult";
 }
 
@@ -1051,7 +1051,7 @@ export namespace DeleteDirectoryRequest {
 /**
  * <p>Contains the results of the <a>DeleteDirectory</a> operation.</p>
  */
-export interface DeleteDirectoryResult extends $MetadataBearer {
+export interface DeleteDirectoryResult {
   __type?: "DeleteDirectoryResult";
   /**
    * <p>The directory identifier.</p>
@@ -1079,7 +1079,7 @@ export namespace DeleteLogSubscriptionRequest {
   }
 }
 
-export interface DeleteLogSubscriptionResult extends $MetadataBearer {
+export interface DeleteLogSubscriptionResult {
   __type?: "DeleteLogSubscriptionResult";
 }
 
@@ -1109,7 +1109,7 @@ export namespace DeleteSnapshotRequest {
 /**
  * <p>Contains the results of the <a>DeleteSnapshot</a> operation.</p>
  */
-export interface DeleteSnapshotResult extends $MetadataBearer {
+export interface DeleteSnapshotResult {
   __type?: "DeleteSnapshotResult";
   /**
    * <p>The identifier of the directory snapshot that was deleted.</p>
@@ -1148,7 +1148,7 @@ export namespace DeleteTrustRequest {
 /**
  * <p>The result of a DeleteTrust request.</p>
  */
-export interface DeleteTrustResult extends $MetadataBearer {
+export interface DeleteTrustResult {
   __type?: "DeleteTrustResult";
   /**
    * <p>The Trust ID of the trust relationship that was deleted.</p>
@@ -1181,7 +1181,7 @@ export namespace DeregisterCertificateRequest {
   }
 }
 
-export interface DeregisterCertificateResult extends $MetadataBearer {
+export interface DeregisterCertificateResult {
   __type?: "DeregisterCertificateResult";
 }
 
@@ -1216,7 +1216,7 @@ export namespace DeregisterEventTopicRequest {
 /**
  * <p>The result of a DeregisterEventTopic request.</p>
  */
-export interface DeregisterEventTopicResult extends $MetadataBearer {
+export interface DeregisterEventTopicResult {
   __type?: "DeregisterEventTopicResult";
 }
 
@@ -1245,7 +1245,7 @@ export namespace DescribeCertificateRequest {
   }
 }
 
-export interface DescribeCertificateResult extends $MetadataBearer {
+export interface DescribeCertificateResult {
   __type?: "DescribeCertificateResult";
   /**
    * <p>Information about the certificate, including registered date time, certificate state, the
@@ -1285,7 +1285,7 @@ export namespace DescribeConditionalForwardersRequest {
 /**
  * <p>The result of a DescribeConditionalForwarder request.</p>
  */
-export interface DescribeConditionalForwardersResult extends $MetadataBearer {
+export interface DescribeConditionalForwardersResult {
   __type?: "DescribeConditionalForwardersResult";
   /**
    * <p>The list of conditional forwarders that have been created.</p>
@@ -1331,7 +1331,7 @@ export namespace DescribeDirectoriesRequest {
 /**
  * <p>Contains the results of the <a>DescribeDirectories</a> operation.</p>
  */
-export interface DescribeDirectoriesResult extends $MetadataBearer {
+export interface DescribeDirectoriesResult {
   __type?: "DescribeDirectoriesResult";
   /**
    * <p>The list of <a>DirectoryDescription</a> objects that were retrieved.</p>
@@ -1384,7 +1384,7 @@ export namespace DescribeDomainControllersRequest {
   }
 }
 
-export interface DescribeDomainControllersResult extends $MetadataBearer {
+export interface DescribeDomainControllersResult {
   __type?: "DescribeDomainControllersResult";
   /**
    * <p>List of the <a>DomainController</a> objects that were retrieved.</p>
@@ -1429,7 +1429,7 @@ export namespace DescribeEventTopicsRequest {
 /**
  * <p>The result of a DescribeEventTopic request.</p>
  */
-export interface DescribeEventTopicsResult extends $MetadataBearer {
+export interface DescribeEventTopicsResult {
   __type?: "DescribeEventTopicsResult";
   /**
    * <p>A list of SNS topic names that receive status messages from the specified Directory ID.</p>
@@ -1473,7 +1473,7 @@ export namespace DescribeLDAPSSettingsRequest {
   }
 }
 
-export interface DescribeLDAPSSettingsResult extends $MetadataBearer {
+export interface DescribeLDAPSSettingsResult {
   __type?: "DescribeLDAPSSettingsResult";
   /**
    * <p>Information about LDAP security for the specified directory, including status of
@@ -1524,7 +1524,7 @@ export namespace DescribeSharedDirectoriesRequest {
   }
 }
 
-export interface DescribeSharedDirectoriesResult extends $MetadataBearer {
+export interface DescribeSharedDirectoriesResult {
   __type?: "DescribeSharedDirectoriesResult";
   /**
    * <p>If not null, token that indicates that more results are available. Pass this value for the <code>NextToken</code> parameter
@@ -1582,7 +1582,7 @@ export namespace DescribeSnapshotsRequest {
 /**
  * <p>Contains the results of the <a>DescribeSnapshots</a> operation.</p>
  */
-export interface DescribeSnapshotsResult extends $MetadataBearer {
+export interface DescribeSnapshotsResult {
   __type?: "DescribeSnapshotsResult";
   /**
    * <p>If not null, more results are available. Pass this value in the <i>NextToken</i> member of
@@ -1643,7 +1643,7 @@ export namespace DescribeTrustsRequest {
 /**
  * <p>The result of a DescribeTrust request.</p>
  */
-export interface DescribeTrustsResult extends $MetadataBearer {
+export interface DescribeTrustsResult {
   __type?: "DescribeTrustsResult";
   /**
    * <p>If not null, more results are available. Pass this value for the <i>NextToken</i> parameter
@@ -2191,7 +2191,7 @@ export namespace DisableLDAPSRequest {
   }
 }
 
-export interface DisableLDAPSResult extends $MetadataBearer {
+export interface DisableLDAPSResult {
   __type?: "DisableLDAPSResult";
 }
 
@@ -2221,7 +2221,7 @@ export namespace DisableRadiusRequest {
 /**
  * <p>Contains the results of the <a>DisableRadius</a> operation.</p>
  */
-export interface DisableRadiusResult extends $MetadataBearer {
+export interface DisableRadiusResult {
   __type?: "DisableRadiusResult";
 }
 
@@ -2266,7 +2266,7 @@ export namespace DisableSsoRequest {
 /**
  * <p>Contains the results of the <a>DisableSso</a> operation.</p>
  */
-export interface DisableSsoResult extends $MetadataBearer {
+export interface DisableSsoResult {
   __type?: "DisableSsoResult";
 }
 
@@ -2393,7 +2393,7 @@ export namespace EnableLDAPSRequest {
   }
 }
 
-export interface EnableLDAPSResult extends $MetadataBearer {
+export interface EnableLDAPSResult {
   __type?: "EnableLDAPSResult";
 }
 
@@ -2428,7 +2428,7 @@ export namespace EnableRadiusRequest {
 /**
  * <p>Contains the results of the <a>EnableRadius</a> operation.</p>
  */
-export interface EnableRadiusResult extends $MetadataBearer {
+export interface EnableRadiusResult {
   __type?: "EnableRadiusResult";
 }
 
@@ -2473,7 +2473,7 @@ export namespace EnableSsoRequest {
 /**
  * <p>Contains the results of the <a>EnableSso</a> operation.</p>
  */
-export interface EnableSsoResult extends $MetadataBearer {
+export interface EnableSsoResult {
   __type?: "EnableSsoResult";
 }
 
@@ -2586,7 +2586,7 @@ export namespace GetDirectoryLimitsRequest {
 /**
  * <p>Contains the results of the <a>GetDirectoryLimits</a> operation.</p>
  */
-export interface GetDirectoryLimitsResult extends $MetadataBearer {
+export interface GetDirectoryLimitsResult {
   __type?: "GetDirectoryLimitsResult";
   /**
    * <p>A <a>DirectoryLimits</a> object that contains the directory limits for the
@@ -2621,7 +2621,7 @@ export namespace GetSnapshotLimitsRequest {
 /**
  * <p>Contains the results of the <a>GetSnapshotLimits</a> operation.</p>
  */
-export interface GetSnapshotLimitsResult extends $MetadataBearer {
+export interface GetSnapshotLimitsResult {
   __type?: "GetSnapshotLimitsResult";
   /**
    * <p>A <a>SnapshotLimits</a> object that contains the manual snapshot limits for the specified
@@ -2975,7 +2975,7 @@ export namespace ListCertificatesRequest {
   }
 }
 
-export interface ListCertificatesResult extends $MetadataBearer {
+export interface ListCertificatesResult {
   __type?: "ListCertificatesResult";
   /**
    * <p>A list of certificates with basic details including certificate ID, certificate common
@@ -3021,7 +3021,7 @@ export namespace ListIpRoutesRequest {
   }
 }
 
-export interface ListIpRoutesResult extends $MetadataBearer {
+export interface ListIpRoutesResult {
   __type?: "ListIpRoutesResult";
   /**
    * <p>A list of <a>IpRoute</a>s.</p>
@@ -3065,7 +3065,7 @@ export namespace ListLogSubscriptionsRequest {
   }
 }
 
-export interface ListLogSubscriptionsResult extends $MetadataBearer {
+export interface ListLogSubscriptionsResult {
   __type?: "ListLogSubscriptionsResult";
   /**
    * <p>A list of active <a>LogSubscription</a> objects for calling the AWS account.</p>
@@ -3108,7 +3108,7 @@ export namespace ListSchemaExtensionsRequest {
   }
 }
 
-export interface ListSchemaExtensionsResult extends $MetadataBearer {
+export interface ListSchemaExtensionsResult {
   __type?: "ListSchemaExtensionsResult";
   /**
    * <p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <code>ListSchemaExtensions</code> to retrieve the next set of items.</p>
@@ -3151,7 +3151,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResult extends $MetadataBearer {
+export interface ListTagsForResourceResult {
   __type?: "ListTagsForResourceResult";
   /**
    * <p>Reserved for future use.</p>
@@ -3374,7 +3374,7 @@ export namespace RegisterCertificateRequest {
   }
 }
 
-export interface RegisterCertificateResult extends $MetadataBearer {
+export interface RegisterCertificateResult {
   __type?: "RegisterCertificateResult";
   /**
    * <p>The identifier of the certificate.</p>
@@ -3413,7 +3413,7 @@ export namespace RegisterEventTopicRequest {
 /**
  * <p>The result of a RegisterEventTopic request.</p>
  */
-export interface RegisterEventTopicResult extends $MetadataBearer {
+export interface RegisterEventTopicResult {
   __type?: "RegisterEventTopicResult";
 }
 
@@ -3437,7 +3437,7 @@ export namespace RejectSharedDirectoryRequest {
   }
 }
 
-export interface RejectSharedDirectoryResult extends $MetadataBearer {
+export interface RejectSharedDirectoryResult {
   __type?: "RejectSharedDirectoryResult";
   /**
    * <p>Identifier of the shared directory in the directory consumer account.</p>
@@ -3470,7 +3470,7 @@ export namespace RemoveIpRoutesRequest {
   }
 }
 
-export interface RemoveIpRoutesResult extends $MetadataBearer {
+export interface RemoveIpRoutesResult {
   __type?: "RemoveIpRoutesResult";
 }
 
@@ -3499,7 +3499,7 @@ export namespace RemoveTagsFromResourceRequest {
   }
 }
 
-export interface RemoveTagsFromResourceResult extends $MetadataBearer {
+export interface RemoveTagsFromResourceResult {
   __type?: "RemoveTagsFromResourceResult";
 }
 
@@ -3537,7 +3537,7 @@ export namespace ResetUserPasswordRequest {
   }
 }
 
-export interface ResetUserPasswordResult extends $MetadataBearer {
+export interface ResetUserPasswordResult {
   __type?: "ResetUserPasswordResult";
 }
 
@@ -3567,7 +3567,7 @@ export namespace RestoreFromSnapshotRequest {
 /**
  * <p>Contains the results of the <a>RestoreFromSnapshot</a> operation.</p>
  */
-export interface RestoreFromSnapshotResult extends $MetadataBearer {
+export interface RestoreFromSnapshotResult {
   __type?: "RestoreFromSnapshotResult";
 }
 
@@ -3697,7 +3697,7 @@ export namespace ShareDirectoryRequest {
   }
 }
 
-export interface ShareDirectoryResult extends $MetadataBearer {
+export interface ShareDirectoryResult {
   __type?: "ShareDirectoryResult";
   /**
    * <p>Identifier of the directory that is stored in the directory consumer account that is
@@ -3974,7 +3974,7 @@ export namespace StartSchemaExtensionRequest {
   }
 }
 
-export interface StartSchemaExtensionResult extends $MetadataBearer {
+export interface StartSchemaExtensionResult {
   __type?: "StartSchemaExtensionResult";
   /**
    * <p>The identifier of the schema extension that will be applied.</p>
@@ -4157,7 +4157,7 @@ export namespace UnshareDirectoryRequest {
   }
 }
 
-export interface UnshareDirectoryResult extends $MetadataBearer {
+export interface UnshareDirectoryResult {
   __type?: "UnshareDirectoryResult";
   /**
    * <p>Identifier of the directory stored in the directory consumer account that is to be unshared from the specified directory (<code>DirectoryId</code>).</p>
@@ -4248,7 +4248,7 @@ export namespace UpdateConditionalForwarderRequest {
 /**
  * <p>The result of an UpdateConditionalForwarder request.</p>
  */
-export interface UpdateConditionalForwarderResult extends $MetadataBearer {
+export interface UpdateConditionalForwarderResult {
   __type?: "UpdateConditionalForwarderResult";
 }
 
@@ -4277,7 +4277,7 @@ export namespace UpdateNumberOfDomainControllersRequest {
   }
 }
 
-export interface UpdateNumberOfDomainControllersResult extends $MetadataBearer {
+export interface UpdateNumberOfDomainControllersResult {
   __type?: "UpdateNumberOfDomainControllersResult";
 }
 
@@ -4312,7 +4312,7 @@ export namespace UpdateRadiusRequest {
 /**
  * <p>Contains the results of the <a>UpdateRadius</a> operation.</p>
  */
-export interface UpdateRadiusResult extends $MetadataBearer {
+export interface UpdateRadiusResult {
   __type?: "UpdateRadiusResult";
 }
 
@@ -4341,7 +4341,7 @@ export namespace UpdateTrustRequest {
   }
 }
 
-export interface UpdateTrustResult extends $MetadataBearer {
+export interface UpdateTrustResult {
   __type?: "UpdateTrustResult";
   /**
    * <p>The AWS request identifier.</p>
@@ -4405,7 +4405,7 @@ export namespace VerifyTrustRequest {
 /**
  * <p>Result of a VerifyTrust request.</p>
  */
-export interface VerifyTrustResult extends $MetadataBearer {
+export interface VerifyTrustResult {
   __type?: "VerifyTrustResult";
   /**
    * <p>The unique Trust ID of the trust relationship that was verified.</p>

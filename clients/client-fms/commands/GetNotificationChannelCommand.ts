@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetNotificationChannelCommandInput = GetNotificationChannelRequest;
-export type GetNotificationChannelCommandOutput = GetNotificationChannelResponse;
+export type GetNotificationChannelCommandOutput = GetNotificationChannelResponse &
+  __MetadataBearer;
 
 export class GetNotificationChannelCommand extends $Command<
   GetNotificationChannelCommandInput,

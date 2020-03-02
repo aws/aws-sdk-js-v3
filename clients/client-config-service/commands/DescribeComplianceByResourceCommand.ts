@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeComplianceByResourceCommandInput = DescribeComplianceByResourceRequest;
-export type DescribeComplianceByResourceCommandOutput = DescribeComplianceByResourceResponse;
+export type DescribeComplianceByResourceCommandOutput = DescribeComplianceByResourceResponse &
+  __MetadataBearer;
 
 export class DescribeComplianceByResourceCommand extends $Command<
   DescribeComplianceByResourceCommandInput,

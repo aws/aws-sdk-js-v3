@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateRegexMatchSetCommandInput = UpdateRegexMatchSetRequest;
-export type UpdateRegexMatchSetCommandOutput = UpdateRegexMatchSetResponse;
+export type UpdateRegexMatchSetCommandOutput = UpdateRegexMatchSetResponse &
+  __MetadataBearer;
 
 export class UpdateRegexMatchSetCommand extends $Command<
   UpdateRegexMatchSetCommandInput,

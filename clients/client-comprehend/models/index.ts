@@ -45,7 +45,7 @@ export namespace BatchDetectDominantLanguageRequest {
   }
 }
 
-export interface BatchDetectDominantLanguageResponse extends $MetadataBearer {
+export interface BatchDetectDominantLanguageResponse {
   __type?: "BatchDetectDominantLanguageResponse";
   /**
    * <p>A list containing one  object for each document
@@ -118,7 +118,7 @@ export namespace BatchDetectEntitiesRequest {
   }
 }
 
-export interface BatchDetectEntitiesResponse extends $MetadataBearer {
+export interface BatchDetectEntitiesResponse {
   __type?: "BatchDetectEntitiesResponse";
   /**
    * <p>A list containing one  object for each document
@@ -191,7 +191,7 @@ export namespace BatchDetectKeyPhrasesRequest {
   }
 }
 
-export interface BatchDetectKeyPhrasesResponse extends $MetadataBearer {
+export interface BatchDetectKeyPhrasesResponse {
   __type?: "BatchDetectKeyPhrasesResponse";
   /**
    * <p>A list containing one  object for each document
@@ -269,7 +269,7 @@ export namespace BatchDetectSentimentRequest {
   }
 }
 
-export interface BatchDetectSentimentResponse extends $MetadataBearer {
+export interface BatchDetectSentimentResponse {
   __type?: "BatchDetectSentimentResponse";
   /**
    * <p>A list containing one  object for each document
@@ -340,7 +340,7 @@ export namespace BatchDetectSyntaxRequest {
   }
 }
 
-export interface BatchDetectSyntaxResponse extends $MetadataBearer {
+export interface BatchDetectSyntaxResponse {
   __type?: "BatchDetectSyntaxResponse";
   /**
    * <p>A list containing one  object for each document that
@@ -531,7 +531,7 @@ export namespace ClassifyDocumentRequest {
   }
 }
 
-export interface ClassifyDocumentResponse extends $MetadataBearer {
+export interface ClassifyDocumentResponse {
   __type?: "ClassifyDocumentResponse";
   /**
    * <p>The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected
@@ -650,7 +650,7 @@ export namespace CreateDocumentClassifierRequest {
   }
 }
 
-export interface CreateDocumentClassifierResponse extends $MetadataBearer {
+export interface CreateDocumentClassifierResponse {
   __type?: "CreateDocumentClassifierResponse";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>
@@ -702,7 +702,7 @@ export namespace CreateEndpointRequest {
   }
 }
 
-export interface CreateEndpointResponse extends $MetadataBearer {
+export interface CreateEndpointResponse {
   __type?: "CreateEndpointResponse";
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint being created.</p>
@@ -782,7 +782,7 @@ export namespace CreateEntityRecognizerRequest {
   }
 }
 
-export interface CreateEntityRecognizerResponse extends $MetadataBearer {
+export interface CreateEntityRecognizerResponse {
   __type?: "CreateEntityRecognizerResponse";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
@@ -810,7 +810,7 @@ export namespace DeleteDocumentClassifierRequest {
   }
 }
 
-export interface DeleteDocumentClassifierResponse extends $MetadataBearer {
+export interface DeleteDocumentClassifierResponse {
   __type?: "DeleteDocumentClassifierResponse";
 }
 
@@ -834,7 +834,7 @@ export namespace DeleteEndpointRequest {
   }
 }
 
-export interface DeleteEndpointResponse extends $MetadataBearer {
+export interface DeleteEndpointResponse {
   __type?: "DeleteEndpointResponse";
 }
 
@@ -858,7 +858,7 @@ export namespace DeleteEntityRecognizerRequest {
   }
 }
 
-export interface DeleteEntityRecognizerResponse extends $MetadataBearer {
+export interface DeleteEntityRecognizerResponse {
   __type?: "DeleteEntityRecognizerResponse";
 }
 
@@ -883,8 +883,7 @@ export namespace DescribeDocumentClassificationJobRequest {
   }
 }
 
-export interface DescribeDocumentClassificationJobResponse
-  extends $MetadataBearer {
+export interface DescribeDocumentClassificationJobResponse {
   __type?: "DescribeDocumentClassificationJobResponse";
   /**
    * <p>An object that describes the properties associated with the document classification
@@ -914,7 +913,7 @@ export namespace DescribeDocumentClassifierRequest {
   }
 }
 
-export interface DescribeDocumentClassifierResponse extends $MetadataBearer {
+export interface DescribeDocumentClassifierResponse {
   __type?: "DescribeDocumentClassifierResponse";
   /**
    * <p>An object that contains the properties associated with a document classifier.</p>
@@ -945,8 +944,7 @@ export namespace DescribeDominantLanguageDetectionJobRequest {
   }
 }
 
-export interface DescribeDominantLanguageDetectionJobResponse
-  extends $MetadataBearer {
+export interface DescribeDominantLanguageDetectionJobResponse {
   __type?: "DescribeDominantLanguageDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with a dominant language detection
@@ -977,7 +975,7 @@ export namespace DescribeEndpointRequest {
   }
 }
 
-export interface DescribeEndpointResponse extends $MetadataBearer {
+export interface DescribeEndpointResponse {
   __type?: "DescribeEndpointResponse";
   /**
    * <p>Describes information associated with the specific endpoint.</p>
@@ -1006,7 +1004,7 @@ export namespace DescribeEntitiesDetectionJobRequest {
   }
 }
 
-export interface DescribeEntitiesDetectionJobResponse extends $MetadataBearer {
+export interface DescribeEntitiesDetectionJobResponse {
   __type?: "DescribeEntitiesDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with an entities detection job.</p>
@@ -1034,7 +1032,7 @@ export namespace DescribeEntityRecognizerRequest {
   }
 }
 
-export interface DescribeEntityRecognizerResponse extends $MetadataBearer {
+export interface DescribeEntityRecognizerResponse {
   __type?: "DescribeEntityRecognizerResponse";
   /**
    * <p>Describes information associated with an entity recognizer.</p>
@@ -1063,8 +1061,7 @@ export namespace DescribeKeyPhrasesDetectionJobRequest {
   }
 }
 
-export interface DescribeKeyPhrasesDetectionJobResponse
-  extends $MetadataBearer {
+export interface DescribeKeyPhrasesDetectionJobResponse {
   __type?: "DescribeKeyPhrasesDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with a key phrases detection job.
@@ -1094,7 +1091,7 @@ export namespace DescribeSentimentDetectionJobRequest {
   }
 }
 
-export interface DescribeSentimentDetectionJobResponse extends $MetadataBearer {
+export interface DescribeSentimentDetectionJobResponse {
   __type?: "DescribeSentimentDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with a sentiment detection job.</p>
@@ -1122,7 +1119,7 @@ export namespace DescribeTopicsDetectionJobRequest {
   }
 }
 
-export interface DescribeTopicsDetectionJobResponse extends $MetadataBearer {
+export interface DescribeTopicsDetectionJobResponse {
   __type?: "DescribeTopicsDetectionJobResponse";
   /**
    * <p>The list of properties for the requested job.</p>
@@ -1151,7 +1148,7 @@ export namespace DetectDominantLanguageRequest {
   }
 }
 
-export interface DetectDominantLanguageResponse extends $MetadataBearer {
+export interface DetectDominantLanguageResponse {
   __type?: "DetectDominantLanguageResponse";
   /**
    * <p>The languages that Amazon Comprehend detected in the input text. For each language, the response
@@ -1190,7 +1187,7 @@ export namespace DetectEntitiesRequest {
   }
 }
 
-export interface DetectEntitiesResponse extends $MetadataBearer {
+export interface DetectEntitiesResponse {
   __type?: "DetectEntitiesResponse";
   /**
    * <p>A collection of entities identified in the input text. For each entity, the response
@@ -1228,7 +1225,7 @@ export namespace DetectKeyPhrasesRequest {
   }
 }
 
-export interface DetectKeyPhrasesResponse extends $MetadataBearer {
+export interface DetectKeyPhrasesResponse {
   __type?: "DetectKeyPhrasesResponse";
   /**
    * <p>A collection of key phrases that Amazon Comprehend identified in the input text. For each key
@@ -1266,7 +1263,7 @@ export namespace DetectSentimentRequest {
   }
 }
 
-export interface DetectSentimentResponse extends $MetadataBearer {
+export interface DetectSentimentResponse {
   __type?: "DetectSentimentResponse";
   /**
    * <p>The inferred sentiment that Amazon Comprehend has the highest level of confidence in.</p>
@@ -1307,7 +1304,7 @@ export namespace DetectSyntaxRequest {
   }
 }
 
-export interface DetectSyntaxResponse extends $MetadataBearer {
+export interface DetectSyntaxResponse {
   __type?: "DetectSyntaxResponse";
   /**
    * <p>A collection of syntax tokens describing the text. For each token, the response provides
@@ -2845,8 +2842,7 @@ export namespace ListDocumentClassificationJobsRequest {
   }
 }
 
-export interface ListDocumentClassificationJobsResponse
-  extends $MetadataBearer {
+export interface ListDocumentClassificationJobsResponse {
   __type?: "ListDocumentClassificationJobsResponse";
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -2892,7 +2888,7 @@ export namespace ListDocumentClassifiersRequest {
   }
 }
 
-export interface ListDocumentClassifiersResponse extends $MetadataBearer {
+export interface ListDocumentClassifiersResponse {
   __type?: "ListDocumentClassifiersResponse";
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -2936,8 +2932,7 @@ export namespace ListDominantLanguageDetectionJobsRequest {
   }
 }
 
-export interface ListDominantLanguageDetectionJobsResponse
-  extends $MetadataBearer {
+export interface ListDominantLanguageDetectionJobsResponse {
   __type?: "ListDominantLanguageDetectionJobsResponse";
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -2983,7 +2978,7 @@ export namespace ListEndpointsRequest {
   }
 }
 
-export interface ListEndpointsResponse extends $MetadataBearer {
+export interface ListEndpointsResponse {
   __type?: "ListEndpointsResponse";
   /**
    * <p>Displays a list of endpoint properties being retrieved by the service in response to the request.</p>
@@ -3027,7 +3022,7 @@ export namespace ListEntitiesDetectionJobsRequest {
   }
 }
 
-export interface ListEntitiesDetectionJobsResponse extends $MetadataBearer {
+export interface ListEntitiesDetectionJobsResponse {
   __type?: "ListEntitiesDetectionJobsResponse";
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -3070,7 +3065,7 @@ export namespace ListEntityRecognizersRequest {
   }
 }
 
-export interface ListEntityRecognizersResponse extends $MetadataBearer {
+export interface ListEntityRecognizersResponse {
   __type?: "ListEntityRecognizersResponse";
   /**
    * <p>The list of properties of an entity recognizer.</p>
@@ -3114,7 +3109,7 @@ export namespace ListKeyPhrasesDetectionJobsRequest {
   }
 }
 
-export interface ListKeyPhrasesDetectionJobsResponse extends $MetadataBearer {
+export interface ListKeyPhrasesDetectionJobsResponse {
   __type?: "ListKeyPhrasesDetectionJobsResponse";
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -3160,7 +3155,7 @@ export namespace ListSentimentDetectionJobsRequest {
   }
 }
 
-export interface ListSentimentDetectionJobsResponse extends $MetadataBearer {
+export interface ListSentimentDetectionJobsResponse {
   __type?: "ListSentimentDetectionJobsResponse";
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -3193,7 +3188,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.</p>
@@ -3238,7 +3233,7 @@ export namespace ListTopicsDetectionJobsRequest {
   }
 }
 
-export interface ListTopicsDetectionJobsResponse extends $MetadataBearer {
+export interface ListTopicsDetectionJobsResponse {
   __type?: "ListTopicsDetectionJobsResponse";
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -3662,8 +3657,7 @@ export namespace StartDocumentClassificationJobRequest {
   }
 }
 
-export interface StartDocumentClassificationJobResponse
-  extends $MetadataBearer {
+export interface StartDocumentClassificationJobResponse {
   __type?: "StartDocumentClassificationJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of the job, use this identifier
@@ -3761,8 +3755,7 @@ export namespace StartDominantLanguageDetectionJobRequest {
   }
 }
 
-export interface StartDominantLanguageDetectionJobResponse
-  extends $MetadataBearer {
+export interface StartDominantLanguageDetectionJobResponse {
   __type?: "StartDominantLanguageDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -3868,7 +3861,7 @@ export namespace StartEntitiesDetectionJobRequest {
   }
 }
 
-export interface StartEntitiesDetectionJobResponse extends $MetadataBearer {
+export interface StartEntitiesDetectionJobResponse {
   __type?: "StartEntitiesDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of job, use this identifier with
@@ -3973,7 +3966,7 @@ export namespace StartKeyPhrasesDetectionJobRequest {
   }
 }
 
-export interface StartKeyPhrasesDetectionJobResponse extends $MetadataBearer {
+export interface StartKeyPhrasesDetectionJobResponse {
   __type?: "StartKeyPhrasesDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -4072,7 +4065,7 @@ export namespace StartSentimentDetectionJobRequest {
   }
 }
 
-export interface StartSentimentDetectionJobResponse extends $MetadataBearer {
+export interface StartSentimentDetectionJobResponse {
   __type?: "StartSentimentDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -4171,7 +4164,7 @@ export namespace StartTopicsDetectionJobRequest {
   }
 }
 
-export interface StartTopicsDetectionJobResponse extends $MetadataBearer {
+export interface StartTopicsDetectionJobResponse {
   __type?: "StartTopicsDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of the job, use this identifier
@@ -4221,8 +4214,7 @@ export namespace StopDominantLanguageDetectionJobRequest {
   }
 }
 
-export interface StopDominantLanguageDetectionJobResponse
-  extends $MetadataBearer {
+export interface StopDominantLanguageDetectionJobResponse {
   __type?: "StopDominantLanguageDetectionJobResponse";
   /**
    * <p>The identifier of the dominant language detection job to stop.</p>
@@ -4257,7 +4249,7 @@ export namespace StopEntitiesDetectionJobRequest {
   }
 }
 
-export interface StopEntitiesDetectionJobResponse extends $MetadataBearer {
+export interface StopEntitiesDetectionJobResponse {
   __type?: "StopEntitiesDetectionJobResponse";
   /**
    * <p>The identifier of the entities detection job to stop.</p>
@@ -4292,7 +4284,7 @@ export namespace StopKeyPhrasesDetectionJobRequest {
   }
 }
 
-export interface StopKeyPhrasesDetectionJobResponse extends $MetadataBearer {
+export interface StopKeyPhrasesDetectionJobResponse {
   __type?: "StopKeyPhrasesDetectionJobResponse";
   /**
    * <p>The identifier of the key phrases detection job to stop.</p>
@@ -4327,7 +4319,7 @@ export namespace StopSentimentDetectionJobRequest {
   }
 }
 
-export interface StopSentimentDetectionJobResponse extends $MetadataBearer {
+export interface StopSentimentDetectionJobResponse {
   __type?: "StopSentimentDetectionJobResponse";
   /**
    * <p>The identifier of the sentiment detection job to stop.</p>
@@ -4362,8 +4354,7 @@ export namespace StopTrainingDocumentClassifierRequest {
   }
 }
 
-export interface StopTrainingDocumentClassifierResponse
-  extends $MetadataBearer {
+export interface StopTrainingDocumentClassifierResponse {
   __type?: "StopTrainingDocumentClassifierResponse";
 }
 
@@ -4387,7 +4378,7 @@ export namespace StopTrainingEntityRecognizerRequest {
   }
 }
 
-export interface StopTrainingEntityRecognizerResponse extends $MetadataBearer {
+export interface StopTrainingEntityRecognizerResponse {
   __type?: "StopTrainingEntityRecognizerResponse";
 }
 
@@ -4488,7 +4479,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -4733,7 +4724,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -4763,7 +4754,7 @@ export namespace UpdateEndpointRequest {
   }
 }
 
-export interface UpdateEndpointResponse extends $MetadataBearer {
+export interface UpdateEndpointResponse {
   __type?: "UpdateEndpointResponse";
 }
 

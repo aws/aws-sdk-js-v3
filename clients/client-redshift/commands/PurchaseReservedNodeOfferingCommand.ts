@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PurchaseReservedNodeOfferingCommandInput = PurchaseReservedNodeOfferingMessage;
-export type PurchaseReservedNodeOfferingCommandOutput = PurchaseReservedNodeOfferingResult;
+export type PurchaseReservedNodeOfferingCommandOutput = PurchaseReservedNodeOfferingResult &
+  __MetadataBearer;
 
 export class PurchaseReservedNodeOfferingCommand extends $Command<
   PurchaseReservedNodeOfferingCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetFunctionDefinitionCommandInput = GetFunctionDefinitionRequest;
-export type GetFunctionDefinitionCommandOutput = GetFunctionDefinitionResponse;
+export type GetFunctionDefinitionCommandOutput = GetFunctionDefinitionResponse &
+  __MetadataBearer;
 
 export class GetFunctionDefinitionCommand extends $Command<
   GetFunctionDefinitionCommandInput,

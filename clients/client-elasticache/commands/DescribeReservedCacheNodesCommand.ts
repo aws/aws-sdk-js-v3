@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReservedCacheNodesCommandInput = DescribeReservedCacheNodesMessage;
-export type DescribeReservedCacheNodesCommandOutput = ReservedCacheNodeMessage;
+export type DescribeReservedCacheNodesCommandOutput = ReservedCacheNodeMessage &
+  __MetadataBearer;
 
 export class DescribeReservedCacheNodesCommand extends $Command<
   DescribeReservedCacheNodesCommandInput,

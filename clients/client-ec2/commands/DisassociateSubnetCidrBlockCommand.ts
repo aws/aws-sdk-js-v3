@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateSubnetCidrBlockCommandInput = DisassociateSubnetCidrBlockRequest;
-export type DisassociateSubnetCidrBlockCommandOutput = DisassociateSubnetCidrBlockResult;
+export type DisassociateSubnetCidrBlockCommandOutput = DisassociateSubnetCidrBlockResult &
+  __MetadataBearer;
 
 export class DisassociateSubnetCidrBlockCommand extends $Command<
   DisassociateSubnetCidrBlockCommandInput,

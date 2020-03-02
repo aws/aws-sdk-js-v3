@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeWorkspaceImagesCommandInput = DescribeWorkspaceImagesRequest;
-export type DescribeWorkspaceImagesCommandOutput = DescribeWorkspaceImagesResult;
+export type DescribeWorkspaceImagesCommandOutput = DescribeWorkspaceImagesResult &
+  __MetadataBearer;
 
 export class DescribeWorkspaceImagesCommand extends $Command<
   DescribeWorkspaceImagesCommandInput,

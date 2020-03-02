@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetOpenIdTokenCommandInput = GetOpenIdTokenInput;
-export type GetOpenIdTokenCommandOutput = GetOpenIdTokenResponse;
+export type GetOpenIdTokenCommandOutput = GetOpenIdTokenResponse &
+  __MetadataBearer;
 
 export class GetOpenIdTokenCommand extends $Command<
   GetOpenIdTokenCommandInput,

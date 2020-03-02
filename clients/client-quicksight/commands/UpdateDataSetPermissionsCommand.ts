@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDataSetPermissionsCommandInput = UpdateDataSetPermissionsRequest;
-export type UpdateDataSetPermissionsCommandOutput = UpdateDataSetPermissionsResponse;
+export type UpdateDataSetPermissionsCommandOutput = UpdateDataSetPermissionsResponse &
+  __MetadataBearer;
 
 export class UpdateDataSetPermissionsCommand extends $Command<
   UpdateDataSetPermissionsCommandInput,

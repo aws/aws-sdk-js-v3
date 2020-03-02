@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateBatchPredictionCommandInput = UpdateBatchPredictionInput;
-export type UpdateBatchPredictionCommandOutput = UpdateBatchPredictionOutput;
+export type UpdateBatchPredictionCommandOutput = UpdateBatchPredictionOutput &
+  __MetadataBearer;
 
 export class UpdateBatchPredictionCommand extends $Command<
   UpdateBatchPredictionCommandInput,

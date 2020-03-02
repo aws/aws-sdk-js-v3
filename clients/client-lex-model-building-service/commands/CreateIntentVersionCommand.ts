@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateIntentVersionCommandInput = CreateIntentVersionRequest;
-export type CreateIntentVersionCommandOutput = CreateIntentVersionResponse;
+export type CreateIntentVersionCommandOutput = CreateIntentVersionResponse &
+  __MetadataBearer;
 
 export class CreateIntentVersionCommand extends $Command<
   CreateIntentVersionCommandInput,

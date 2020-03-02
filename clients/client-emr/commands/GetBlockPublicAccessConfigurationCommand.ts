@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBlockPublicAccessConfigurationCommandInput = GetBlockPublicAccessConfigurationInput;
-export type GetBlockPublicAccessConfigurationCommandOutput = GetBlockPublicAccessConfigurationOutput;
+export type GetBlockPublicAccessConfigurationCommandOutput = GetBlockPublicAccessConfigurationOutput &
+  __MetadataBearer;
 
 export class GetBlockPublicAccessConfigurationCommand extends $Command<
   GetBlockPublicAccessConfigurationCommandInput,

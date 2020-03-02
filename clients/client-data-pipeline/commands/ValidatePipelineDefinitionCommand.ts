@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ValidatePipelineDefinitionCommandInput = ValidatePipelineDefinitionInput;
-export type ValidatePipelineDefinitionCommandOutput = ValidatePipelineDefinitionOutput;
+export type ValidatePipelineDefinitionCommandOutput = ValidatePipelineDefinitionOutput &
+  __MetadataBearer;
 
 export class ValidatePipelineDefinitionCommand extends $Command<
   ValidatePipelineDefinitionCommandInput,

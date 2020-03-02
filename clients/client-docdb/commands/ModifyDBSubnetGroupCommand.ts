@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDBSubnetGroupCommandInput = ModifyDBSubnetGroupMessage;
-export type ModifyDBSubnetGroupCommandOutput = ModifyDBSubnetGroupResult;
+export type ModifyDBSubnetGroupCommandOutput = ModifyDBSubnetGroupResult &
+  __MetadataBearer;
 
 export class ModifyDBSubnetGroupCommand extends $Command<
   ModifyDBSubnetGroupCommandInput,

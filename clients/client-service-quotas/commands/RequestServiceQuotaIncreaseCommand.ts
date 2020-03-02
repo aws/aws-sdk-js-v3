@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RequestServiceQuotaIncreaseCommandInput = RequestServiceQuotaIncreaseRequest;
-export type RequestServiceQuotaIncreaseCommandOutput = RequestServiceQuotaIncreaseResponse;
+export type RequestServiceQuotaIncreaseCommandOutput = RequestServiceQuotaIncreaseResponse &
+  __MetadataBearer;
 
 export class RequestServiceQuotaIncreaseCommand extends $Command<
   RequestServiceQuotaIncreaseCommandInput,

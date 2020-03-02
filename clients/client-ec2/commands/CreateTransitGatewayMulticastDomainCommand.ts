@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTransitGatewayMulticastDomainCommandInput = CreateTransitGatewayMulticastDomainRequest;
-export type CreateTransitGatewayMulticastDomainCommandOutput = CreateTransitGatewayMulticastDomainResult;
+export type CreateTransitGatewayMulticastDomainCommandOutput = CreateTransitGatewayMulticastDomainResult &
+  __MetadataBearer;
 
 export class CreateTransitGatewayMulticastDomainCommand extends $Command<
   CreateTransitGatewayMulticastDomainCommandInput,

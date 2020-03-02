@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCampaignsCommandInput = GetCampaignsRequest;
-export type GetCampaignsCommandOutput = GetCampaignsResponse;
+export type GetCampaignsCommandOutput = GetCampaignsResponse & __MetadataBearer;
 
 export class GetCampaignsCommand extends $Command<
   GetCampaignsCommandInput,

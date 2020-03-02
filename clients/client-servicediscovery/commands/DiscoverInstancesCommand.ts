@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DiscoverInstancesCommandInput = DiscoverInstancesRequest;
-export type DiscoverInstancesCommandOutput = DiscoverInstancesResponse;
+export type DiscoverInstancesCommandOutput = DiscoverInstancesResponse &
+  __MetadataBearer;
 
 export class DiscoverInstancesCommand extends $Command<
   DiscoverInstancesCommandInput,

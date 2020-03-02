@@ -97,7 +97,7 @@ export namespace DescribeReportCreationInput {
   }
 }
 
-export interface DescribeReportCreationOutput extends $MetadataBearer {
+export interface DescribeReportCreationOutput {
   __type?: "DescribeReportCreationOutput";
   /**
    * <p>Details of the common errors that all operations return.</p>
@@ -256,7 +256,7 @@ export namespace GetComplianceSummaryInput {
   }
 }
 
-export interface GetComplianceSummaryOutput extends $MetadataBearer {
+export interface GetComplianceSummaryOutput {
   __type?: "GetComplianceSummaryOutput";
   /**
    * <p>A string that indicates that the response contains more data than can be returned in a
@@ -416,7 +416,7 @@ export namespace GetResourcesInput {
   }
 }
 
-export interface GetResourcesOutput extends $MetadataBearer {
+export interface GetResourcesOutput {
   __type?: "GetResourcesOutput";
   /**
    * <p>A string that indicates that the response contains more data than can be returned in a
@@ -454,7 +454,7 @@ export namespace GetTagKeysInput {
   }
 }
 
-export interface GetTagKeysOutput extends $MetadataBearer {
+export interface GetTagKeysOutput {
   __type?: "GetTagKeysOutput";
   /**
    * <p>A string that indicates that the response contains more data than can be returned in a
@@ -498,7 +498,7 @@ export namespace GetTagValuesInput {
   }
 }
 
-export interface GetTagValuesOutput extends $MetadataBearer {
+export interface GetTagValuesOutput {
   __type?: "GetTagValuesOutput";
   /**
    * <p>A string that indicates that the response contains more data than can be returned in a
@@ -646,7 +646,7 @@ export namespace StartReportCreationInput {
   }
 }
 
-export interface StartReportCreationOutput extends $MetadataBearer {
+export interface StartReportCreationOutput {
   __type?: "StartReportCreationOutput";
 }
 
@@ -771,7 +771,7 @@ export namespace TagResourcesInput {
   }
 }
 
-export interface TagResourcesOutput extends $MetadataBearer {
+export interface TagResourcesOutput {
   __type?: "TagResourcesOutput";
   /**
    * <p>Details of resources that could not be tagged. An error code, status code, and error
@@ -830,7 +830,7 @@ export namespace UntagResourcesInput {
   }
 }
 
-export interface UntagResourcesOutput extends $MetadataBearer {
+export interface UntagResourcesOutput {
   __type?: "UntagResourcesOutput";
   /**
    * <p>Details of resources that could not be untagged. An error code, status code, and error

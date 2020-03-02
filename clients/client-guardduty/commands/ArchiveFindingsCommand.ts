@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ArchiveFindingsCommandInput = ArchiveFindingsRequest;
-export type ArchiveFindingsCommandOutput = ArchiveFindingsResponse;
+export type ArchiveFindingsCommandOutput = ArchiveFindingsResponse &
+  __MetadataBearer;
 
 export class ArchiveFindingsCommand extends $Command<
   ArchiveFindingsCommandInput,

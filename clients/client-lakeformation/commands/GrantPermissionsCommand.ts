@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GrantPermissionsCommandInput = GrantPermissionsRequest;
-export type GrantPermissionsCommandOutput = GrantPermissionsResponse;
+export type GrantPermissionsCommandOutput = GrantPermissionsResponse &
+  __MetadataBearer;
 
 export class GrantPermissionsCommand extends $Command<
   GrantPermissionsCommandInput,

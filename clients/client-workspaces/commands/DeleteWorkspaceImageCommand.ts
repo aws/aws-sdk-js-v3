@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteWorkspaceImageCommandInput = DeleteWorkspaceImageRequest;
-export type DeleteWorkspaceImageCommandOutput = DeleteWorkspaceImageResult;
+export type DeleteWorkspaceImageCommandOutput = DeleteWorkspaceImageResult &
+  __MetadataBearer;
 
 export class DeleteWorkspaceImageCommand extends $Command<
   DeleteWorkspaceImageCommandInput,

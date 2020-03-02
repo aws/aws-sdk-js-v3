@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteXssMatchSetCommandInput = DeleteXssMatchSetRequest;
-export type DeleteXssMatchSetCommandOutput = DeleteXssMatchSetResponse;
+export type DeleteXssMatchSetCommandOutput = DeleteXssMatchSetResponse &
+  __MetadataBearer;
 
 export class DeleteXssMatchSetCommand extends $Command<
   DeleteXssMatchSetCommandInput,

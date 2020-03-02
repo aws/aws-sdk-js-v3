@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PurchaseHostReservationCommandInput = PurchaseHostReservationRequest;
-export type PurchaseHostReservationCommandOutput = PurchaseHostReservationResult;
+export type PurchaseHostReservationCommandOutput = PurchaseHostReservationResult &
+  __MetadataBearer;
 
 export class PurchaseHostReservationCommand extends $Command<
   PurchaseHostReservationCommandInput,

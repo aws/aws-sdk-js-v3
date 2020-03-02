@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableUserCommandInput = DisableUserRequest;
-export type DisableUserCommandOutput = DisableUserResult;
+export type DisableUserCommandOutput = DisableUserResult & __MetadataBearer;
 
 export class DisableUserCommand extends $Command<
   DisableUserCommandInput,

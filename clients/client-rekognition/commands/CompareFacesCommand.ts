@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CompareFacesCommandInput = CompareFacesRequest;
-export type CompareFacesCommandOutput = CompareFacesResponse;
+export type CompareFacesCommandOutput = CompareFacesResponse & __MetadataBearer;
 
 export class CompareFacesCommand extends $Command<
   CompareFacesCommandInput,

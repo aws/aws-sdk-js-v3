@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListBackupVaultsCommandInput = ListBackupVaultsInput;
-export type ListBackupVaultsCommandOutput = ListBackupVaultsOutput;
+export type ListBackupVaultsCommandOutput = ListBackupVaultsOutput &
+  __MetadataBearer;
 
 export class ListBackupVaultsCommand extends $Command<
   ListBackupVaultsCommandInput,

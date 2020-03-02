@@ -1,85 +1,161 @@
 import {
-  BatchGetItemInput,
-  BatchGetItemOutput,
-  BatchWriteItemInput,
-  BatchWriteItemOutput,
-  CreateBackupInput,
-  CreateBackupOutput,
-  CreateGlobalTableInput,
-  CreateGlobalTableOutput,
-  CreateTableInput,
-  CreateTableOutput,
-  DeleteBackupInput,
-  DeleteBackupOutput,
-  DeleteItemInput,
-  DeleteItemOutput,
-  DeleteTableInput,
-  DeleteTableOutput,
-  DescribeBackupInput,
-  DescribeBackupOutput,
-  DescribeContinuousBackupsInput,
-  DescribeContinuousBackupsOutput,
-  DescribeContributorInsightsInput,
-  DescribeContributorInsightsOutput,
-  DescribeEndpointsRequest,
-  DescribeEndpointsResponse,
-  DescribeGlobalTableInput,
-  DescribeGlobalTableOutput,
-  DescribeGlobalTableSettingsInput,
-  DescribeGlobalTableSettingsOutput,
-  DescribeLimitsInput,
-  DescribeLimitsOutput,
-  DescribeTableInput,
-  DescribeTableOutput,
-  DescribeTableReplicaAutoScalingInput,
-  DescribeTableReplicaAutoScalingOutput,
-  DescribeTimeToLiveInput,
-  DescribeTimeToLiveOutput,
-  GetItemInput,
-  GetItemOutput,
-  ListBackupsInput,
-  ListBackupsOutput,
-  ListContributorInsightsInput,
-  ListContributorInsightsOutput,
-  ListGlobalTablesInput,
-  ListGlobalTablesOutput,
-  ListTablesInput,
-  ListTablesOutput,
-  ListTagsOfResourceInput,
-  ListTagsOfResourceOutput,
-  PutItemInput,
-  PutItemOutput,
-  QueryInput,
-  QueryOutput,
-  RestoreTableFromBackupInput,
-  RestoreTableFromBackupOutput,
-  RestoreTableToPointInTimeInput,
-  RestoreTableToPointInTimeOutput,
-  ScanInput,
-  ScanOutput,
-  TagResourceInput,
-  TransactGetItemsInput,
-  TransactGetItemsOutput,
-  TransactWriteItemsInput,
-  TransactWriteItemsOutput,
-  UntagResourceInput,
-  UpdateContinuousBackupsInput,
-  UpdateContinuousBackupsOutput,
-  UpdateContributorInsightsInput,
-  UpdateContributorInsightsOutput,
-  UpdateGlobalTableInput,
-  UpdateGlobalTableOutput,
-  UpdateGlobalTableSettingsInput,
-  UpdateGlobalTableSettingsOutput,
-  UpdateItemInput,
-  UpdateItemOutput,
-  UpdateTableInput,
-  UpdateTableOutput,
-  UpdateTableReplicaAutoScalingInput,
-  UpdateTableReplicaAutoScalingOutput,
-  UpdateTimeToLiveInput,
-  UpdateTimeToLiveOutput
-} from "./models/index";
+  BatchGetItemCommandInput,
+  BatchGetItemCommandOutput
+} from "./commands/BatchGetItemCommand";
+import {
+  BatchWriteItemCommandInput,
+  BatchWriteItemCommandOutput
+} from "./commands/BatchWriteItemCommand";
+import {
+  CreateBackupCommandInput,
+  CreateBackupCommandOutput
+} from "./commands/CreateBackupCommand";
+import {
+  CreateGlobalTableCommandInput,
+  CreateGlobalTableCommandOutput
+} from "./commands/CreateGlobalTableCommand";
+import {
+  CreateTableCommandInput,
+  CreateTableCommandOutput
+} from "./commands/CreateTableCommand";
+import {
+  DeleteBackupCommandInput,
+  DeleteBackupCommandOutput
+} from "./commands/DeleteBackupCommand";
+import {
+  DeleteItemCommandInput,
+  DeleteItemCommandOutput
+} from "./commands/DeleteItemCommand";
+import {
+  DeleteTableCommandInput,
+  DeleteTableCommandOutput
+} from "./commands/DeleteTableCommand";
+import {
+  DescribeBackupCommandInput,
+  DescribeBackupCommandOutput
+} from "./commands/DescribeBackupCommand";
+import {
+  DescribeContinuousBackupsCommandInput,
+  DescribeContinuousBackupsCommandOutput
+} from "./commands/DescribeContinuousBackupsCommand";
+import {
+  DescribeContributorInsightsCommandInput,
+  DescribeContributorInsightsCommandOutput
+} from "./commands/DescribeContributorInsightsCommand";
+import {
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput
+} from "./commands/DescribeEndpointsCommand";
+import {
+  DescribeGlobalTableCommandInput,
+  DescribeGlobalTableCommandOutput
+} from "./commands/DescribeGlobalTableCommand";
+import {
+  DescribeGlobalTableSettingsCommandInput,
+  DescribeGlobalTableSettingsCommandOutput
+} from "./commands/DescribeGlobalTableSettingsCommand";
+import {
+  DescribeLimitsCommandInput,
+  DescribeLimitsCommandOutput
+} from "./commands/DescribeLimitsCommand";
+import {
+  DescribeTableCommandInput,
+  DescribeTableCommandOutput
+} from "./commands/DescribeTableCommand";
+import {
+  DescribeTableReplicaAutoScalingCommandInput,
+  DescribeTableReplicaAutoScalingCommandOutput
+} from "./commands/DescribeTableReplicaAutoScalingCommand";
+import {
+  DescribeTimeToLiveCommandInput,
+  DescribeTimeToLiveCommandOutput
+} from "./commands/DescribeTimeToLiveCommand";
+import {
+  GetItemCommandInput,
+  GetItemCommandOutput
+} from "./commands/GetItemCommand";
+import {
+  ListBackupsCommandInput,
+  ListBackupsCommandOutput
+} from "./commands/ListBackupsCommand";
+import {
+  ListContributorInsightsCommandInput,
+  ListContributorInsightsCommandOutput
+} from "./commands/ListContributorInsightsCommand";
+import {
+  ListGlobalTablesCommandInput,
+  ListGlobalTablesCommandOutput
+} from "./commands/ListGlobalTablesCommand";
+import {
+  ListTablesCommandInput,
+  ListTablesCommandOutput
+} from "./commands/ListTablesCommand";
+import {
+  ListTagsOfResourceCommandInput,
+  ListTagsOfResourceCommandOutput
+} from "./commands/ListTagsOfResourceCommand";
+import {
+  PutItemCommandInput,
+  PutItemCommandOutput
+} from "./commands/PutItemCommand";
+import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+import {
+  RestoreTableFromBackupCommandInput,
+  RestoreTableFromBackupCommandOutput
+} from "./commands/RestoreTableFromBackupCommand";
+import {
+  RestoreTableToPointInTimeCommandInput,
+  RestoreTableToPointInTimeCommandOutput
+} from "./commands/RestoreTableToPointInTimeCommand";
+import { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  TransactGetItemsCommandInput,
+  TransactGetItemsCommandOutput
+} from "./commands/TransactGetItemsCommand";
+import {
+  TransactWriteItemsCommandInput,
+  TransactWriteItemsCommandOutput
+} from "./commands/TransactWriteItemsCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateContinuousBackupsCommandInput,
+  UpdateContinuousBackupsCommandOutput
+} from "./commands/UpdateContinuousBackupsCommand";
+import {
+  UpdateContributorInsightsCommandInput,
+  UpdateContributorInsightsCommandOutput
+} from "./commands/UpdateContributorInsightsCommand";
+import {
+  UpdateGlobalTableCommandInput,
+  UpdateGlobalTableCommandOutput
+} from "./commands/UpdateGlobalTableCommand";
+import {
+  UpdateGlobalTableSettingsCommandInput,
+  UpdateGlobalTableSettingsCommandOutput
+} from "./commands/UpdateGlobalTableSettingsCommand";
+import {
+  UpdateItemCommandInput,
+  UpdateItemCommandOutput
+} from "./commands/UpdateItemCommand";
+import {
+  UpdateTableCommandInput,
+  UpdateTableCommandOutput
+} from "./commands/UpdateTableCommand";
+import {
+  UpdateTableReplicaAutoScalingCommandInput,
+  UpdateTableReplicaAutoScalingCommandOutput
+} from "./commands/UpdateTableReplicaAutoScalingCommand";
+import {
+  UpdateTimeToLiveCommandInput,
+  UpdateTimeToLiveCommandOutput
+} from "./commands/UpdateTimeToLiveCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -127,96 +203,96 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchGetItemInput
-  | BatchWriteItemInput
-  | CreateBackupInput
-  | CreateGlobalTableInput
-  | CreateTableInput
-  | DeleteBackupInput
-  | DeleteItemInput
-  | DeleteTableInput
-  | DescribeBackupInput
-  | DescribeContinuousBackupsInput
-  | DescribeContributorInsightsInput
-  | DescribeEndpointsRequest
-  | DescribeGlobalTableInput
-  | DescribeGlobalTableSettingsInput
-  | DescribeLimitsInput
-  | DescribeTableInput
-  | DescribeTableReplicaAutoScalingInput
-  | DescribeTimeToLiveInput
-  | GetItemInput
-  | ListBackupsInput
-  | ListContributorInsightsInput
-  | ListGlobalTablesInput
-  | ListTablesInput
-  | ListTagsOfResourceInput
-  | PutItemInput
-  | QueryInput
-  | RestoreTableFromBackupInput
-  | RestoreTableToPointInTimeInput
-  | ScanInput
-  | TagResourceInput
-  | TransactGetItemsInput
-  | TransactWriteItemsInput
-  | UntagResourceInput
-  | UpdateContinuousBackupsInput
-  | UpdateContributorInsightsInput
-  | UpdateGlobalTableInput
-  | UpdateGlobalTableSettingsInput
-  | UpdateItemInput
-  | UpdateTableInput
-  | UpdateTableReplicaAutoScalingInput
-  | UpdateTimeToLiveInput;
+  | BatchGetItemCommandInput
+  | BatchWriteItemCommandInput
+  | CreateBackupCommandInput
+  | CreateGlobalTableCommandInput
+  | CreateTableCommandInput
+  | DeleteBackupCommandInput
+  | DeleteItemCommandInput
+  | DeleteTableCommandInput
+  | DescribeBackupCommandInput
+  | DescribeContinuousBackupsCommandInput
+  | DescribeContributorInsightsCommandInput
+  | DescribeEndpointsCommandInput
+  | DescribeGlobalTableCommandInput
+  | DescribeGlobalTableSettingsCommandInput
+  | DescribeLimitsCommandInput
+  | DescribeTableCommandInput
+  | DescribeTableReplicaAutoScalingCommandInput
+  | DescribeTimeToLiveCommandInput
+  | GetItemCommandInput
+  | ListBackupsCommandInput
+  | ListContributorInsightsCommandInput
+  | ListGlobalTablesCommandInput
+  | ListTablesCommandInput
+  | ListTagsOfResourceCommandInput
+  | PutItemCommandInput
+  | QueryCommandInput
+  | RestoreTableFromBackupCommandInput
+  | RestoreTableToPointInTimeCommandInput
+  | ScanCommandInput
+  | TagResourceCommandInput
+  | TransactGetItemsCommandInput
+  | TransactWriteItemsCommandInput
+  | UntagResourceCommandInput
+  | UpdateContinuousBackupsCommandInput
+  | UpdateContributorInsightsCommandInput
+  | UpdateGlobalTableCommandInput
+  | UpdateGlobalTableSettingsCommandInput
+  | UpdateItemCommandInput
+  | UpdateTableCommandInput
+  | UpdateTableReplicaAutoScalingCommandInput
+  | UpdateTimeToLiveCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | BatchGetItemOutput
-  | BatchWriteItemOutput
-  | CreateBackupOutput
-  | CreateGlobalTableOutput
-  | CreateTableOutput
-  | DeleteBackupOutput
-  | DeleteItemOutput
-  | DeleteTableOutput
-  | DescribeBackupOutput
-  | DescribeContinuousBackupsOutput
-  | DescribeContributorInsightsOutput
-  | DescribeEndpointsResponse
-  | DescribeGlobalTableOutput
-  | DescribeGlobalTableSettingsOutput
-  | DescribeLimitsOutput
-  | DescribeTableOutput
-  | DescribeTableReplicaAutoScalingOutput
-  | DescribeTimeToLiveOutput
-  | GetItemOutput
-  | ListBackupsOutput
-  | ListContributorInsightsOutput
-  | ListGlobalTablesOutput
-  | ListTablesOutput
-  | ListTagsOfResourceOutput
-  | PutItemOutput
-  | QueryOutput
-  | RestoreTableFromBackupOutput
-  | RestoreTableToPointInTimeOutput
-  | ScanOutput
-  | TransactGetItemsOutput
-  | TransactWriteItemsOutput
-  | UpdateContinuousBackupsOutput
-  | UpdateContributorInsightsOutput
-  | UpdateGlobalTableOutput
-  | UpdateGlobalTableSettingsOutput
-  | UpdateItemOutput
-  | UpdateTableOutput
-  | UpdateTableReplicaAutoScalingOutput
-  | UpdateTimeToLiveOutput;
+  | BatchGetItemCommandOutput
+  | BatchWriteItemCommandOutput
+  | CreateBackupCommandOutput
+  | CreateGlobalTableCommandOutput
+  | CreateTableCommandOutput
+  | DeleteBackupCommandOutput
+  | DeleteItemCommandOutput
+  | DeleteTableCommandOutput
+  | DescribeBackupCommandOutput
+  | DescribeContinuousBackupsCommandOutput
+  | DescribeContributorInsightsCommandOutput
+  | DescribeEndpointsCommandOutput
+  | DescribeGlobalTableCommandOutput
+  | DescribeGlobalTableSettingsCommandOutput
+  | DescribeLimitsCommandOutput
+  | DescribeTableCommandOutput
+  | DescribeTableReplicaAutoScalingCommandOutput
+  | DescribeTimeToLiveCommandOutput
+  | GetItemCommandOutput
+  | ListBackupsCommandOutput
+  | ListContributorInsightsCommandOutput
+  | ListGlobalTablesCommandOutput
+  | ListTablesCommandOutput
+  | ListTagsOfResourceCommandOutput
+  | PutItemCommandOutput
+  | QueryCommandOutput
+  | RestoreTableFromBackupCommandOutput
+  | RestoreTableToPointInTimeCommandOutput
+  | ScanCommandOutput
+  | TagResourceCommandOutput
+  | TransactGetItemsCommandOutput
+  | TransactWriteItemsCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateContinuousBackupsCommandOutput
+  | UpdateContributorInsightsCommandOutput
+  | UpdateGlobalTableCommandOutput
+  | UpdateGlobalTableSettingsCommandOutput
+  | UpdateItemCommandOutput
+  | UpdateTableCommandOutput
+  | UpdateTableReplicaAutoScalingCommandOutput
+  | UpdateTimeToLiveCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

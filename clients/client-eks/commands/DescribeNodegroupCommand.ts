@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeNodegroupCommandInput = DescribeNodegroupRequest;
-export type DescribeNodegroupCommandOutput = DescribeNodegroupResponse;
+export type DescribeNodegroupCommandOutput = DescribeNodegroupResponse &
+  __MetadataBearer;
 
 export class DescribeNodegroupCommand extends $Command<
   DescribeNodegroupCommandInput,

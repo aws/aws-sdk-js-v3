@@ -595,7 +595,7 @@ export namespace CancelJobRequest {
  * <p>The response body contains a JSON object. If the job is successfully canceled, the value
  *             of <code>Success</code> is <code>true</code>.</p>
  */
-export interface CancelJobResponse extends $MetadataBearer {
+export interface CancelJobResponse {
   __type?: "CancelJobResponse";
 }
 
@@ -1160,7 +1160,7 @@ export namespace CreateJobRequest {
 /**
  * <p>The CreateJobResponse structure.</p>
  */
-export interface CreateJobResponse extends $MetadataBearer {
+export interface CreateJobResponse {
   __type?: "CreateJobResponse";
   /**
    * <p>A section of the response body that provides information about the job that is created.</p>
@@ -1488,7 +1488,7 @@ export namespace CreatePipelineRequest {
 /**
  * <p>When you create a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  */
-export interface CreatePipelineResponse extends $MetadataBearer {
+export interface CreatePipelineResponse {
   __type?: "CreatePipelineResponse";
   /**
    * <p>A section of the response body that provides information about the pipeline that is created.</p>
@@ -1559,7 +1559,7 @@ export namespace CreatePresetRequest {
 /**
  * <p>The <code>CreatePresetResponse</code> structure.</p>
  */
-export interface CreatePresetResponse extends $MetadataBearer {
+export interface CreatePresetResponse {
   __type?: "CreatePresetResponse";
   /**
    * <p>A section of the response body that provides information about the preset that is created.</p>
@@ -1601,7 +1601,7 @@ export namespace DeletePipelineRequest {
 /**
  * <p>The <code>DeletePipelineResponse</code> structure.</p>
  */
-export interface DeletePipelineResponse extends $MetadataBearer {
+export interface DeletePipelineResponse {
   __type?: "DeletePipelineResponse";
 }
 
@@ -1631,7 +1631,7 @@ export namespace DeletePresetRequest {
 /**
  * <p>The <code>DeletePresetResponse</code> structure.</p>
  */
-export interface DeletePresetResponse extends $MetadataBearer {
+export interface DeletePresetResponse {
   __type?: "DeletePresetResponse";
 }
 
@@ -2536,7 +2536,7 @@ export namespace ListJobsByPipelineRequest {
 /**
  * <p>The <code>ListJobsByPipelineResponse</code> structure.</p>
  */
-export interface ListJobsByPipelineResponse extends $MetadataBearer {
+export interface ListJobsByPipelineResponse {
   __type?: "ListJobsByPipelineResponse";
   /**
    * <p>An array of <code>Job</code> objects that are in the specified pipeline.</p>
@@ -2595,7 +2595,7 @@ export namespace ListJobsByStatusRequest {
  *             The <code>ListJobsByStatusResponse</code> structure.
  *         </p>
  */
-export interface ListJobsByStatusResponse extends $MetadataBearer {
+export interface ListJobsByStatusResponse {
   __type?: "ListJobsByStatusResponse";
   /**
    * <p>An array of <code>Job</code> objects that have the specified status.</p>
@@ -2644,7 +2644,7 @@ export namespace ListPipelinesRequest {
 /**
  * <p>A list of the pipelines associated with the current AWS account.</p>
  */
-export interface ListPipelinesResponse extends $MetadataBearer {
+export interface ListPipelinesResponse {
   __type?: "ListPipelinesResponse";
   /**
    * <p>A value that you use to access the second and subsequent pages of results, if any. When
@@ -2693,7 +2693,7 @@ export namespace ListPresetsRequest {
 /**
  * <p>The <code>ListPresetsResponse</code> structure.</p>
  */
-export interface ListPresetsResponse extends $MetadataBearer {
+export interface ListPresetsResponse {
   __type?: "ListPresetsResponse";
   /**
    * <p>A value that you use to access the second and subsequent pages of results, if any. When
@@ -3642,7 +3642,7 @@ export namespace ReadJobRequest {
 /**
  * <p>The <code>ReadJobResponse</code> structure.</p>
  */
-export interface ReadJobResponse extends $MetadataBearer {
+export interface ReadJobResponse {
   __type?: "ReadJobResponse";
   /**
    * <p>A section of the response body that provides information about the job.</p>
@@ -3676,7 +3676,7 @@ export namespace ReadPipelineRequest {
 /**
  * <p>The <code>ReadPipelineResponse</code> structure.</p>
  */
-export interface ReadPipelineResponse extends $MetadataBearer {
+export interface ReadPipelineResponse {
   __type?: "ReadPipelineResponse";
   /**
    * <p>A section of the response body that provides information about the pipeline.</p>
@@ -3718,7 +3718,7 @@ export namespace ReadPresetRequest {
 /**
  * <p>The <code>ReadPresetResponse</code> structure.</p>
  */
-export interface ReadPresetResponse extends $MetadataBearer {
+export interface ReadPresetResponse {
   __type?: "ReadPresetResponse";
   /**
    * <p>A section of the response body that provides information about the preset.</p>
@@ -3767,7 +3767,7 @@ export namespace TestRoleRequest {
 /**
  * <p>The <code>TestRoleResponse</code> structure.</p>
  */
-export interface TestRoleResponse extends $MetadataBearer {
+export interface TestRoleResponse {
   __type?: "TestRoleResponse";
   /**
    * <p>If the <code>Success</code> element contains <code>false</code>, this value is an array
@@ -4031,7 +4031,7 @@ export namespace UpdatePipelineNotificationsRequest {
 /**
  * <p>The <code>UpdatePipelineNotificationsResponse</code> structure.</p>
  */
-export interface UpdatePipelineNotificationsResponse extends $MetadataBearer {
+export interface UpdatePipelineNotificationsResponse {
   __type?: "UpdatePipelineNotificationsResponse";
   /**
    * <p>A section of the response body that provides information about the pipeline associated
@@ -4327,7 +4327,7 @@ export namespace UpdatePipelineRequest {
 /**
  * <p>When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  */
-export interface UpdatePipelineResponse extends $MetadataBearer {
+export interface UpdatePipelineResponse {
   __type?: "UpdatePipelineResponse";
   /**
    * <p>The pipeline updated by this <code>UpdatePipelineResponse</code> call.</p>
@@ -4385,7 +4385,7 @@ export namespace UpdatePipelineStatusRequest {
  * <p>When you update status for a pipeline,
  *             Elastic Transcoder returns the values that you specified in the request.</p>
  */
-export interface UpdatePipelineStatusResponse extends $MetadataBearer {
+export interface UpdatePipelineStatusResponse {
   __type?: "UpdatePipelineStatusResponse";
   /**
    * <p>A section of the response body that provides information about the pipeline.</p>

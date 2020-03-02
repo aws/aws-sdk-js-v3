@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopImageBuilderCommandInput = StopImageBuilderRequest;
-export type StopImageBuilderCommandOutput = StopImageBuilderResult;
+export type StopImageBuilderCommandOutput = StopImageBuilderResult &
+  __MetadataBearer;
 
 export class StopImageBuilderCommand extends $Command<
   StopImageBuilderCommandInput,

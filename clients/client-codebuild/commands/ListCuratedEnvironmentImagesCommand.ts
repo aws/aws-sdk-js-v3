@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListCuratedEnvironmentImagesCommandInput = ListCuratedEnvironmentImagesInput;
-export type ListCuratedEnvironmentImagesCommandOutput = ListCuratedEnvironmentImagesOutput;
+export type ListCuratedEnvironmentImagesCommandOutput = ListCuratedEnvironmentImagesOutput &
+  __MetadataBearer;
 
 export class ListCuratedEnvironmentImagesCommand extends $Command<
   ListCuratedEnvironmentImagesCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRunCommandInput = GetRunRequest;
-export type GetRunCommandOutput = GetRunResult;
+export type GetRunCommandOutput = GetRunResult & __MetadataBearer;
 
 export class GetRunCommand extends $Command<
   GetRunCommandInput,

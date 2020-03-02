@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateEndpointGroupCommandInput = UpdateEndpointGroupRequest;
-export type UpdateEndpointGroupCommandOutput = UpdateEndpointGroupResponse;
+export type UpdateEndpointGroupCommandOutput = UpdateEndpointGroupResponse &
+  __MetadataBearer;
 
 export class UpdateEndpointGroupCommand extends $Command<
   UpdateEndpointGroupCommandInput,

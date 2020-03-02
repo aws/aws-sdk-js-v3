@@ -148,7 +148,7 @@ export namespace BatchPutMessageRequest {
   }
 }
 
-export interface BatchPutMessageResponse extends $MetadataBearer {
+export interface BatchPutMessageResponse {
   __type?: "BatchPutMessageResponse";
   /**
    * <p>A list of any errors encountered when sending the messages.</p>
@@ -204,7 +204,7 @@ export namespace BatchUpdateDetectorRequest {
   }
 }
 
-export interface BatchUpdateDetectorResponse extends $MetadataBearer {
+export interface BatchUpdateDetectorResponse {
   __type?: "BatchUpdateDetectorResponse";
   /**
    * <p>A list of those detector updates that resulted in errors. (If an error is listed here, the
@@ -238,7 +238,7 @@ export namespace DescribeDetectorRequest {
   }
 }
 
-export interface DescribeDetectorResponse extends $MetadataBearer {
+export interface DescribeDetectorResponse {
   __type?: "DescribeDetectorResponse";
   /**
    * <p>Information about the detector (instance).</p>
@@ -447,7 +447,7 @@ export namespace ListDetectorsRequest {
   }
 }
 
-export interface ListDetectorsResponse extends $MetadataBearer {
+export interface ListDetectorsResponse {
   __type?: "ListDetectorsResponse";
   /**
    * <p>A list of summary information about the detectors (instances).</p>

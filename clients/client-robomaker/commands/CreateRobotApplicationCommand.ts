@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateRobotApplicationCommandInput = CreateRobotApplicationRequest;
-export type CreateRobotApplicationCommandOutput = CreateRobotApplicationResponse;
+export type CreateRobotApplicationCommandOutput = CreateRobotApplicationResponse &
+  __MetadataBearer;
 
 export class CreateRobotApplicationCommand extends $Command<
   CreateRobotApplicationCommandInput,

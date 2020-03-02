@@ -1,77 +1,159 @@
 import {
-  CreateBatchInferenceJobRequest,
-  CreateBatchInferenceJobResponse,
-  CreateCampaignRequest,
-  CreateCampaignResponse,
-  CreateDatasetGroupRequest,
-  CreateDatasetGroupResponse,
-  CreateDatasetImportJobRequest,
-  CreateDatasetImportJobResponse,
-  CreateDatasetRequest,
-  CreateDatasetResponse,
-  CreateEventTrackerRequest,
-  CreateEventTrackerResponse,
-  CreateSchemaRequest,
-  CreateSchemaResponse,
-  CreateSolutionRequest,
-  CreateSolutionResponse,
-  CreateSolutionVersionRequest,
-  CreateSolutionVersionResponse,
-  DeleteCampaignRequest,
-  DeleteDatasetGroupRequest,
-  DeleteDatasetRequest,
-  DeleteEventTrackerRequest,
-  DeleteSchemaRequest,
-  DeleteSolutionRequest,
-  DescribeAlgorithmRequest,
-  DescribeAlgorithmResponse,
-  DescribeBatchInferenceJobRequest,
-  DescribeBatchInferenceJobResponse,
-  DescribeCampaignRequest,
-  DescribeCampaignResponse,
-  DescribeDatasetGroupRequest,
-  DescribeDatasetGroupResponse,
-  DescribeDatasetImportJobRequest,
-  DescribeDatasetImportJobResponse,
-  DescribeDatasetRequest,
-  DescribeDatasetResponse,
-  DescribeEventTrackerRequest,
-  DescribeEventTrackerResponse,
-  DescribeFeatureTransformationRequest,
-  DescribeFeatureTransformationResponse,
-  DescribeRecipeRequest,
-  DescribeRecipeResponse,
-  DescribeSchemaRequest,
-  DescribeSchemaResponse,
-  DescribeSolutionRequest,
-  DescribeSolutionResponse,
-  DescribeSolutionVersionRequest,
-  DescribeSolutionVersionResponse,
-  GetSolutionMetricsRequest,
-  GetSolutionMetricsResponse,
-  ListBatchInferenceJobsRequest,
-  ListBatchInferenceJobsResponse,
-  ListCampaignsRequest,
-  ListCampaignsResponse,
-  ListDatasetGroupsRequest,
-  ListDatasetGroupsResponse,
-  ListDatasetImportJobsRequest,
-  ListDatasetImportJobsResponse,
-  ListDatasetsRequest,
-  ListDatasetsResponse,
-  ListEventTrackersRequest,
-  ListEventTrackersResponse,
-  ListRecipesRequest,
-  ListRecipesResponse,
-  ListSchemasRequest,
-  ListSchemasResponse,
-  ListSolutionVersionsRequest,
-  ListSolutionVersionsResponse,
-  ListSolutionsRequest,
-  ListSolutionsResponse,
-  UpdateCampaignRequest,
-  UpdateCampaignResponse
-} from "./models/index";
+  CreateBatchInferenceJobCommandInput,
+  CreateBatchInferenceJobCommandOutput
+} from "./commands/CreateBatchInferenceJobCommand";
+import {
+  CreateCampaignCommandInput,
+  CreateCampaignCommandOutput
+} from "./commands/CreateCampaignCommand";
+import {
+  CreateDatasetCommandInput,
+  CreateDatasetCommandOutput
+} from "./commands/CreateDatasetCommand";
+import {
+  CreateDatasetGroupCommandInput,
+  CreateDatasetGroupCommandOutput
+} from "./commands/CreateDatasetGroupCommand";
+import {
+  CreateDatasetImportJobCommandInput,
+  CreateDatasetImportJobCommandOutput
+} from "./commands/CreateDatasetImportJobCommand";
+import {
+  CreateEventTrackerCommandInput,
+  CreateEventTrackerCommandOutput
+} from "./commands/CreateEventTrackerCommand";
+import {
+  CreateSchemaCommandInput,
+  CreateSchemaCommandOutput
+} from "./commands/CreateSchemaCommand";
+import {
+  CreateSolutionCommandInput,
+  CreateSolutionCommandOutput
+} from "./commands/CreateSolutionCommand";
+import {
+  CreateSolutionVersionCommandInput,
+  CreateSolutionVersionCommandOutput
+} from "./commands/CreateSolutionVersionCommand";
+import {
+  DeleteCampaignCommandInput,
+  DeleteCampaignCommandOutput
+} from "./commands/DeleteCampaignCommand";
+import {
+  DeleteDatasetCommandInput,
+  DeleteDatasetCommandOutput
+} from "./commands/DeleteDatasetCommand";
+import {
+  DeleteDatasetGroupCommandInput,
+  DeleteDatasetGroupCommandOutput
+} from "./commands/DeleteDatasetGroupCommand";
+import {
+  DeleteEventTrackerCommandInput,
+  DeleteEventTrackerCommandOutput
+} from "./commands/DeleteEventTrackerCommand";
+import {
+  DeleteSchemaCommandInput,
+  DeleteSchemaCommandOutput
+} from "./commands/DeleteSchemaCommand";
+import {
+  DeleteSolutionCommandInput,
+  DeleteSolutionCommandOutput
+} from "./commands/DeleteSolutionCommand";
+import {
+  DescribeAlgorithmCommandInput,
+  DescribeAlgorithmCommandOutput
+} from "./commands/DescribeAlgorithmCommand";
+import {
+  DescribeBatchInferenceJobCommandInput,
+  DescribeBatchInferenceJobCommandOutput
+} from "./commands/DescribeBatchInferenceJobCommand";
+import {
+  DescribeCampaignCommandInput,
+  DescribeCampaignCommandOutput
+} from "./commands/DescribeCampaignCommand";
+import {
+  DescribeDatasetCommandInput,
+  DescribeDatasetCommandOutput
+} from "./commands/DescribeDatasetCommand";
+import {
+  DescribeDatasetGroupCommandInput,
+  DescribeDatasetGroupCommandOutput
+} from "./commands/DescribeDatasetGroupCommand";
+import {
+  DescribeDatasetImportJobCommandInput,
+  DescribeDatasetImportJobCommandOutput
+} from "./commands/DescribeDatasetImportJobCommand";
+import {
+  DescribeEventTrackerCommandInput,
+  DescribeEventTrackerCommandOutput
+} from "./commands/DescribeEventTrackerCommand";
+import {
+  DescribeFeatureTransformationCommandInput,
+  DescribeFeatureTransformationCommandOutput
+} from "./commands/DescribeFeatureTransformationCommand";
+import {
+  DescribeRecipeCommandInput,
+  DescribeRecipeCommandOutput
+} from "./commands/DescribeRecipeCommand";
+import {
+  DescribeSchemaCommandInput,
+  DescribeSchemaCommandOutput
+} from "./commands/DescribeSchemaCommand";
+import {
+  DescribeSolutionCommandInput,
+  DescribeSolutionCommandOutput
+} from "./commands/DescribeSolutionCommand";
+import {
+  DescribeSolutionVersionCommandInput,
+  DescribeSolutionVersionCommandOutput
+} from "./commands/DescribeSolutionVersionCommand";
+import {
+  GetSolutionMetricsCommandInput,
+  GetSolutionMetricsCommandOutput
+} from "./commands/GetSolutionMetricsCommand";
+import {
+  ListBatchInferenceJobsCommandInput,
+  ListBatchInferenceJobsCommandOutput
+} from "./commands/ListBatchInferenceJobsCommand";
+import {
+  ListCampaignsCommandInput,
+  ListCampaignsCommandOutput
+} from "./commands/ListCampaignsCommand";
+import {
+  ListDatasetGroupsCommandInput,
+  ListDatasetGroupsCommandOutput
+} from "./commands/ListDatasetGroupsCommand";
+import {
+  ListDatasetImportJobsCommandInput,
+  ListDatasetImportJobsCommandOutput
+} from "./commands/ListDatasetImportJobsCommand";
+import {
+  ListDatasetsCommandInput,
+  ListDatasetsCommandOutput
+} from "./commands/ListDatasetsCommand";
+import {
+  ListEventTrackersCommandInput,
+  ListEventTrackersCommandOutput
+} from "./commands/ListEventTrackersCommand";
+import {
+  ListRecipesCommandInput,
+  ListRecipesCommandOutput
+} from "./commands/ListRecipesCommand";
+import {
+  ListSchemasCommandInput,
+  ListSchemasCommandOutput
+} from "./commands/ListSchemasCommand";
+import {
+  ListSolutionVersionsCommandInput,
+  ListSolutionVersionsCommandOutput
+} from "./commands/ListSolutionVersionsCommand";
+import {
+  ListSolutionsCommandInput,
+  ListSolutionsCommandOutput
+} from "./commands/ListSolutionsCommand";
+import {
+  UpdateCampaignCommandInput,
+  UpdateCampaignCommandOutput
+} from "./commands/UpdateCampaignCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -119,88 +201,92 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateBatchInferenceJobRequest
-  | CreateCampaignRequest
-  | CreateDatasetGroupRequest
-  | CreateDatasetImportJobRequest
-  | CreateDatasetRequest
-  | CreateEventTrackerRequest
-  | CreateSchemaRequest
-  | CreateSolutionRequest
-  | CreateSolutionVersionRequest
-  | DeleteCampaignRequest
-  | DeleteDatasetGroupRequest
-  | DeleteDatasetRequest
-  | DeleteEventTrackerRequest
-  | DeleteSchemaRequest
-  | DeleteSolutionRequest
-  | DescribeAlgorithmRequest
-  | DescribeBatchInferenceJobRequest
-  | DescribeCampaignRequest
-  | DescribeDatasetGroupRequest
-  | DescribeDatasetImportJobRequest
-  | DescribeDatasetRequest
-  | DescribeEventTrackerRequest
-  | DescribeFeatureTransformationRequest
-  | DescribeRecipeRequest
-  | DescribeSchemaRequest
-  | DescribeSolutionRequest
-  | DescribeSolutionVersionRequest
-  | GetSolutionMetricsRequest
-  | ListBatchInferenceJobsRequest
-  | ListCampaignsRequest
-  | ListDatasetGroupsRequest
-  | ListDatasetImportJobsRequest
-  | ListDatasetsRequest
-  | ListEventTrackersRequest
-  | ListRecipesRequest
-  | ListSchemasRequest
-  | ListSolutionVersionsRequest
-  | ListSolutionsRequest
-  | UpdateCampaignRequest;
+  | CreateBatchInferenceJobCommandInput
+  | CreateCampaignCommandInput
+  | CreateDatasetCommandInput
+  | CreateDatasetGroupCommandInput
+  | CreateDatasetImportJobCommandInput
+  | CreateEventTrackerCommandInput
+  | CreateSchemaCommandInput
+  | CreateSolutionCommandInput
+  | CreateSolutionVersionCommandInput
+  | DeleteCampaignCommandInput
+  | DeleteDatasetCommandInput
+  | DeleteDatasetGroupCommandInput
+  | DeleteEventTrackerCommandInput
+  | DeleteSchemaCommandInput
+  | DeleteSolutionCommandInput
+  | DescribeAlgorithmCommandInput
+  | DescribeBatchInferenceJobCommandInput
+  | DescribeCampaignCommandInput
+  | DescribeDatasetCommandInput
+  | DescribeDatasetGroupCommandInput
+  | DescribeDatasetImportJobCommandInput
+  | DescribeEventTrackerCommandInput
+  | DescribeFeatureTransformationCommandInput
+  | DescribeRecipeCommandInput
+  | DescribeSchemaCommandInput
+  | DescribeSolutionCommandInput
+  | DescribeSolutionVersionCommandInput
+  | GetSolutionMetricsCommandInput
+  | ListBatchInferenceJobsCommandInput
+  | ListCampaignsCommandInput
+  | ListDatasetGroupsCommandInput
+  | ListDatasetImportJobsCommandInput
+  | ListDatasetsCommandInput
+  | ListEventTrackersCommandInput
+  | ListRecipesCommandInput
+  | ListSchemasCommandInput
+  | ListSolutionVersionsCommandInput
+  | ListSolutionsCommandInput
+  | UpdateCampaignCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateBatchInferenceJobResponse
-  | CreateCampaignResponse
-  | CreateDatasetGroupResponse
-  | CreateDatasetImportJobResponse
-  | CreateDatasetResponse
-  | CreateEventTrackerResponse
-  | CreateSchemaResponse
-  | CreateSolutionResponse
-  | CreateSolutionVersionResponse
-  | DescribeAlgorithmResponse
-  | DescribeBatchInferenceJobResponse
-  | DescribeCampaignResponse
-  | DescribeDatasetGroupResponse
-  | DescribeDatasetImportJobResponse
-  | DescribeDatasetResponse
-  | DescribeEventTrackerResponse
-  | DescribeFeatureTransformationResponse
-  | DescribeRecipeResponse
-  | DescribeSchemaResponse
-  | DescribeSolutionResponse
-  | DescribeSolutionVersionResponse
-  | GetSolutionMetricsResponse
-  | ListBatchInferenceJobsResponse
-  | ListCampaignsResponse
-  | ListDatasetGroupsResponse
-  | ListDatasetImportJobsResponse
-  | ListDatasetsResponse
-  | ListEventTrackersResponse
-  | ListRecipesResponse
-  | ListSchemasResponse
-  | ListSolutionVersionsResponse
-  | ListSolutionsResponse
-  | UpdateCampaignResponse;
+  | CreateBatchInferenceJobCommandOutput
+  | CreateCampaignCommandOutput
+  | CreateDatasetCommandOutput
+  | CreateDatasetGroupCommandOutput
+  | CreateDatasetImportJobCommandOutput
+  | CreateEventTrackerCommandOutput
+  | CreateSchemaCommandOutput
+  | CreateSolutionCommandOutput
+  | CreateSolutionVersionCommandOutput
+  | DeleteCampaignCommandOutput
+  | DeleteDatasetCommandOutput
+  | DeleteDatasetGroupCommandOutput
+  | DeleteEventTrackerCommandOutput
+  | DeleteSchemaCommandOutput
+  | DeleteSolutionCommandOutput
+  | DescribeAlgorithmCommandOutput
+  | DescribeBatchInferenceJobCommandOutput
+  | DescribeCampaignCommandOutput
+  | DescribeDatasetCommandOutput
+  | DescribeDatasetGroupCommandOutput
+  | DescribeDatasetImportJobCommandOutput
+  | DescribeEventTrackerCommandOutput
+  | DescribeFeatureTransformationCommandOutput
+  | DescribeRecipeCommandOutput
+  | DescribeSchemaCommandOutput
+  | DescribeSolutionCommandOutput
+  | DescribeSolutionVersionCommandOutput
+  | GetSolutionMetricsCommandOutput
+  | ListBatchInferenceJobsCommandOutput
+  | ListCampaignsCommandOutput
+  | ListDatasetGroupsCommandOutput
+  | ListDatasetImportJobsCommandOutput
+  | ListDatasetsCommandOutput
+  | ListEventTrackersCommandOutput
+  | ListRecipesCommandOutput
+  | ListSchemasCommandOutput
+  | ListSolutionVersionsCommandOutput
+  | ListSolutionsCommandOutput
+  | UpdateCampaignCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

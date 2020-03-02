@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectPHICommandInput = DetectPHIRequest;
-export type DetectPHICommandOutput = DetectPHIResponse;
+export type DetectPHICommandOutput = DetectPHIResponse & __MetadataBearer;
 
 export class DetectPHICommand extends $Command<
   DetectPHICommandInput,

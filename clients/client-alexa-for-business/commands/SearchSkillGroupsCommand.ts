@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchSkillGroupsCommandInput = SearchSkillGroupsRequest;
-export type SearchSkillGroupsCommandOutput = SearchSkillGroupsResponse;
+export type SearchSkillGroupsCommandOutput = SearchSkillGroupsResponse &
+  __MetadataBearer;
 
 export class SearchSkillGroupsCommand extends $Command<
   SearchSkillGroupsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetGatewayGroupCommandInput = GetGatewayGroupRequest;
-export type GetGatewayGroupCommandOutput = GetGatewayGroupResponse;
+export type GetGatewayGroupCommandOutput = GetGatewayGroupResponse &
+  __MetadataBearer;
 
 export class GetGatewayGroupCommand extends $Command<
   GetGatewayGroupCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreAddressToClassicCommandInput = RestoreAddressToClassicRequest;
-export type RestoreAddressToClassicCommandOutput = RestoreAddressToClassicResult;
+export type RestoreAddressToClassicCommandOutput = RestoreAddressToClassicResult &
+  __MetadataBearer;
 
 export class RestoreAddressToClassicCommand extends $Command<
   RestoreAddressToClassicCommandInput,

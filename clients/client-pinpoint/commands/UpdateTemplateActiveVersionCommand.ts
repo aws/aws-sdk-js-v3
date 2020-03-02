@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateTemplateActiveVersionCommandInput = UpdateTemplateActiveVersionRequest;
-export type UpdateTemplateActiveVersionCommandOutput = UpdateTemplateActiveVersionResponse;
+export type UpdateTemplateActiveVersionCommandOutput = UpdateTemplateActiveVersionResponse &
+  __MetadataBearer;
 
 export class UpdateTemplateActiveVersionCommand extends $Command<
   UpdateTemplateActiveVersionCommandInput,

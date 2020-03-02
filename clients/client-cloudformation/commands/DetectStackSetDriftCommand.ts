@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectStackSetDriftCommandInput = DetectStackSetDriftInput;
-export type DetectStackSetDriftCommandOutput = DetectStackSetDriftOutput;
+export type DetectStackSetDriftCommandOutput = DetectStackSetDriftOutput &
+  __MetadataBearer;
 
 export class DetectStackSetDriftCommand extends $Command<
   DetectStackSetDriftCommandInput,

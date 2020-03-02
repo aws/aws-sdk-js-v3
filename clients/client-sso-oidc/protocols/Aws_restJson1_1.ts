@@ -188,80 +188,113 @@ async function deserializeAws_restJson1_1CreateTokenCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sso.oidc#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationPendingException":
     case "com.amazonaws.sso.oidc#AuthorizationPendingException":
-      response = await deserializeAws_restJson1_1AuthorizationPendingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AuthorizationPendingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ExpiredTokenException":
     case "com.amazonaws.sso.oidc#ExpiredTokenException":
-      response = await deserializeAws_restJson1_1ExpiredTokenExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ExpiredTokenExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.sso.oidc#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClientException":
     case "com.amazonaws.sso.oidc#InvalidClientException":
-      response = await deserializeAws_restJson1_1InvalidClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGrantException":
     case "com.amazonaws.sso.oidc#InvalidGrantException":
-      response = await deserializeAws_restJson1_1InvalidGrantExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidGrantExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.sso.oidc#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidScopeException":
     case "com.amazonaws.sso.oidc#InvalidScopeException":
-      response = await deserializeAws_restJson1_1InvalidScopeExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidScopeExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SlowDownException":
     case "com.amazonaws.sso.oidc#SlowDownException":
-      response = await deserializeAws_restJson1_1SlowDownExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SlowDownExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.sso.oidc#UnauthorizedClientException":
-      response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedGrantTypeException":
     case "com.amazonaws.sso.oidc#UnsupportedGrantTypeException":
-      response = await deserializeAws_restJson1_1UnsupportedGrantTypeExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnsupportedGrantTypeExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -340,31 +373,43 @@ async function deserializeAws_restJson1_1RegisterClientCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.sso.oidc#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClientMetadataException":
     case "com.amazonaws.sso.oidc#InvalidClientMetadataException":
-      response = await deserializeAws_restJson1_1InvalidClientMetadataExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidClientMetadataExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.sso.oidc#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidScopeException":
     case "com.amazonaws.sso.oidc#InvalidScopeException":
-      response = await deserializeAws_restJson1_1InvalidScopeExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidScopeExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -440,38 +485,53 @@ async function deserializeAws_restJson1_1StartDeviceAuthorizationCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.sso.oidc#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClientException":
     case "com.amazonaws.sso.oidc#InvalidClientException":
-      response = await deserializeAws_restJson1_1InvalidClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.sso.oidc#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SlowDownException":
     case "com.amazonaws.sso.oidc#SlowDownException":
-      response = await deserializeAws_restJson1_1SlowDownExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SlowDownExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.sso.oidc#UnauthorizedClientException":
-      response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

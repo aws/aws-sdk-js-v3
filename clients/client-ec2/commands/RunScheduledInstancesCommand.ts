@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RunScheduledInstancesCommandInput = RunScheduledInstancesRequest;
-export type RunScheduledInstancesCommandOutput = RunScheduledInstancesResult;
+export type RunScheduledInstancesCommandOutput = RunScheduledInstancesResult &
+  __MetadataBearer;
 
 export class RunScheduledInstancesCommand extends $Command<
   RunScheduledInstancesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddTagsToResourceCommandInput = AddTagsToResourceRequest;
-export type AddTagsToResourceCommandOutput = AddTagsToResourceResult;
+export type AddTagsToResourceCommandOutput = AddTagsToResourceResult &
+  __MetadataBearer;
 
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,

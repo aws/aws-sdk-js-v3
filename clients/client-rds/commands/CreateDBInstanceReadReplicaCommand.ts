@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDBInstanceReadReplicaCommandInput = CreateDBInstanceReadReplicaMessage;
-export type CreateDBInstanceReadReplicaCommandOutput = CreateDBInstanceReadReplicaResult;
+export type CreateDBInstanceReadReplicaCommandOutput = CreateDBInstanceReadReplicaResult &
+  __MetadataBearer;
 
 export class CreateDBInstanceReadReplicaCommand extends $Command<
   CreateDBInstanceReadReplicaCommandInput,

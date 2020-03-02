@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetStreamingDistributionConfigCommandInput = GetStreamingDistributionConfigRequest;
-export type GetStreamingDistributionConfigCommandOutput = GetStreamingDistributionConfigResult;
+export type GetStreamingDistributionConfigCommandOutput = GetStreamingDistributionConfigResult &
+  __MetadataBearer;
 
 export class GetStreamingDistributionConfigCommand extends $Command<
   GetStreamingDistributionConfigCommandInput,

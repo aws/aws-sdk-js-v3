@@ -1,4 +1,7 @@
-import { QueryForecastRequest, QueryForecastResponse } from "./models/index";
+import {
+  QueryForecastCommandInput,
+  QueryForecastCommandOutput
+} from "./commands/QueryForecastCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -51,9 +54,9 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = QueryForecastRequest;
+export type ServiceInputTypes = QueryForecastCommandInput;
 
-export type ServiceOutputTypes = QueryForecastResponse;
+export type ServiceOutputTypes = QueryForecastCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

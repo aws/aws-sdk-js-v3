@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteFlowCommandInput = DeleteFlowRequest;
-export type DeleteFlowCommandOutput = DeleteFlowResponse;
+export type DeleteFlowCommandOutput = DeleteFlowResponse & __MetadataBearer;
 
 export class DeleteFlowCommand extends $Command<
   DeleteFlowCommandInput,

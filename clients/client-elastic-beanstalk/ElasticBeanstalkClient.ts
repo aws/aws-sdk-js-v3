@@ -1,74 +1,179 @@
 import {
-  AbortEnvironmentUpdateMessage,
-  ApplicationDescriptionMessage,
-  ApplicationDescriptionsMessage,
-  ApplicationResourceLifecycleDescriptionMessage,
-  ApplicationVersionDescriptionMessage,
-  ApplicationVersionDescriptionsMessage,
-  ApplyEnvironmentManagedActionRequest,
-  ApplyEnvironmentManagedActionResult,
-  CheckDNSAvailabilityMessage,
-  CheckDNSAvailabilityResultMessage,
-  ComposeEnvironmentsMessage,
-  ConfigurationOptionsDescription,
-  ConfigurationSettingsDescription,
-  ConfigurationSettingsDescriptions,
-  ConfigurationSettingsValidationMessages,
-  CreateApplicationMessage,
-  CreateApplicationVersionMessage,
-  CreateConfigurationTemplateMessage,
-  CreateEnvironmentMessage,
-  CreatePlatformVersionRequest,
-  CreatePlatformVersionResult,
-  CreateStorageLocationResultMessage,
-  DeleteApplicationMessage,
-  DeleteApplicationVersionMessage,
-  DeleteConfigurationTemplateMessage,
-  DeleteEnvironmentConfigurationMessage,
-  DeletePlatformVersionRequest,
-  DeletePlatformVersionResult,
-  DescribeAccountAttributesResult,
-  DescribeApplicationVersionsMessage,
-  DescribeApplicationsMessage,
-  DescribeConfigurationOptionsMessage,
-  DescribeConfigurationSettingsMessage,
-  DescribeEnvironmentHealthRequest,
-  DescribeEnvironmentHealthResult,
-  DescribeEnvironmentManagedActionHistoryRequest,
-  DescribeEnvironmentManagedActionHistoryResult,
-  DescribeEnvironmentManagedActionsRequest,
-  DescribeEnvironmentManagedActionsResult,
-  DescribeEnvironmentResourcesMessage,
-  DescribeEnvironmentsMessage,
-  DescribeEventsMessage,
-  DescribeInstancesHealthRequest,
-  DescribeInstancesHealthResult,
-  DescribePlatformVersionRequest,
-  DescribePlatformVersionResult,
-  EnvironmentDescription,
-  EnvironmentDescriptionsMessage,
-  EnvironmentResourceDescriptionsMessage,
-  EventDescriptionsMessage,
-  ListAvailableSolutionStacksResultMessage,
-  ListPlatformVersionsRequest,
-  ListPlatformVersionsResult,
-  ListTagsForResourceMessage,
-  RebuildEnvironmentMessage,
-  RequestEnvironmentInfoMessage,
-  ResourceTagsDescriptionMessage,
-  RestartAppServerMessage,
-  RetrieveEnvironmentInfoMessage,
-  RetrieveEnvironmentInfoResultMessage,
-  SwapEnvironmentCNAMEsMessage,
-  TerminateEnvironmentMessage,
-  UpdateApplicationMessage,
-  UpdateApplicationResourceLifecycleMessage,
-  UpdateApplicationVersionMessage,
-  UpdateConfigurationTemplateMessage,
-  UpdateEnvironmentMessage,
-  UpdateTagsForResourceMessage,
-  ValidateConfigurationSettingsMessage
-} from "./models/index";
+  AbortEnvironmentUpdateCommandInput,
+  AbortEnvironmentUpdateCommandOutput
+} from "./commands/AbortEnvironmentUpdateCommand";
+import {
+  ApplyEnvironmentManagedActionCommandInput,
+  ApplyEnvironmentManagedActionCommandOutput
+} from "./commands/ApplyEnvironmentManagedActionCommand";
+import {
+  CheckDNSAvailabilityCommandInput,
+  CheckDNSAvailabilityCommandOutput
+} from "./commands/CheckDNSAvailabilityCommand";
+import {
+  ComposeEnvironmentsCommandInput,
+  ComposeEnvironmentsCommandOutput
+} from "./commands/ComposeEnvironmentsCommand";
+import {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput
+} from "./commands/CreateApplicationCommand";
+import {
+  CreateApplicationVersionCommandInput,
+  CreateApplicationVersionCommandOutput
+} from "./commands/CreateApplicationVersionCommand";
+import {
+  CreateConfigurationTemplateCommandInput,
+  CreateConfigurationTemplateCommandOutput
+} from "./commands/CreateConfigurationTemplateCommand";
+import {
+  CreateEnvironmentCommandInput,
+  CreateEnvironmentCommandOutput
+} from "./commands/CreateEnvironmentCommand";
+import {
+  CreatePlatformVersionCommandInput,
+  CreatePlatformVersionCommandOutput
+} from "./commands/CreatePlatformVersionCommand";
+import {
+  CreateStorageLocationCommandInput,
+  CreateStorageLocationCommandOutput
+} from "./commands/CreateStorageLocationCommand";
+import {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput
+} from "./commands/DeleteApplicationCommand";
+import {
+  DeleteApplicationVersionCommandInput,
+  DeleteApplicationVersionCommandOutput
+} from "./commands/DeleteApplicationVersionCommand";
+import {
+  DeleteConfigurationTemplateCommandInput,
+  DeleteConfigurationTemplateCommandOutput
+} from "./commands/DeleteConfigurationTemplateCommand";
+import {
+  DeleteEnvironmentConfigurationCommandInput,
+  DeleteEnvironmentConfigurationCommandOutput
+} from "./commands/DeleteEnvironmentConfigurationCommand";
+import {
+  DeletePlatformVersionCommandInput,
+  DeletePlatformVersionCommandOutput
+} from "./commands/DeletePlatformVersionCommand";
+import {
+  DescribeAccountAttributesCommandInput,
+  DescribeAccountAttributesCommandOutput
+} from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeApplicationVersionsCommandInput,
+  DescribeApplicationVersionsCommandOutput
+} from "./commands/DescribeApplicationVersionsCommand";
+import {
+  DescribeApplicationsCommandInput,
+  DescribeApplicationsCommandOutput
+} from "./commands/DescribeApplicationsCommand";
+import {
+  DescribeConfigurationOptionsCommandInput,
+  DescribeConfigurationOptionsCommandOutput
+} from "./commands/DescribeConfigurationOptionsCommand";
+import {
+  DescribeConfigurationSettingsCommandInput,
+  DescribeConfigurationSettingsCommandOutput
+} from "./commands/DescribeConfigurationSettingsCommand";
+import {
+  DescribeEnvironmentHealthCommandInput,
+  DescribeEnvironmentHealthCommandOutput
+} from "./commands/DescribeEnvironmentHealthCommand";
+import {
+  DescribeEnvironmentManagedActionHistoryCommandInput,
+  DescribeEnvironmentManagedActionHistoryCommandOutput
+} from "./commands/DescribeEnvironmentManagedActionHistoryCommand";
+import {
+  DescribeEnvironmentManagedActionsCommandInput,
+  DescribeEnvironmentManagedActionsCommandOutput
+} from "./commands/DescribeEnvironmentManagedActionsCommand";
+import {
+  DescribeEnvironmentResourcesCommandInput,
+  DescribeEnvironmentResourcesCommandOutput
+} from "./commands/DescribeEnvironmentResourcesCommand";
+import {
+  DescribeEnvironmentsCommandInput,
+  DescribeEnvironmentsCommandOutput
+} from "./commands/DescribeEnvironmentsCommand";
+import {
+  DescribeEventsCommandInput,
+  DescribeEventsCommandOutput
+} from "./commands/DescribeEventsCommand";
+import {
+  DescribeInstancesHealthCommandInput,
+  DescribeInstancesHealthCommandOutput
+} from "./commands/DescribeInstancesHealthCommand";
+import {
+  DescribePlatformVersionCommandInput,
+  DescribePlatformVersionCommandOutput
+} from "./commands/DescribePlatformVersionCommand";
+import {
+  ListAvailableSolutionStacksCommandInput,
+  ListAvailableSolutionStacksCommandOutput
+} from "./commands/ListAvailableSolutionStacksCommand";
+import {
+  ListPlatformVersionsCommandInput,
+  ListPlatformVersionsCommandOutput
+} from "./commands/ListPlatformVersionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  RebuildEnvironmentCommandInput,
+  RebuildEnvironmentCommandOutput
+} from "./commands/RebuildEnvironmentCommand";
+import {
+  RequestEnvironmentInfoCommandInput,
+  RequestEnvironmentInfoCommandOutput
+} from "./commands/RequestEnvironmentInfoCommand";
+import {
+  RestartAppServerCommandInput,
+  RestartAppServerCommandOutput
+} from "./commands/RestartAppServerCommand";
+import {
+  RetrieveEnvironmentInfoCommandInput,
+  RetrieveEnvironmentInfoCommandOutput
+} from "./commands/RetrieveEnvironmentInfoCommand";
+import {
+  SwapEnvironmentCNAMEsCommandInput,
+  SwapEnvironmentCNAMEsCommandOutput
+} from "./commands/SwapEnvironmentCNAMEsCommand";
+import {
+  TerminateEnvironmentCommandInput,
+  TerminateEnvironmentCommandOutput
+} from "./commands/TerminateEnvironmentCommand";
+import {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput
+} from "./commands/UpdateApplicationCommand";
+import {
+  UpdateApplicationResourceLifecycleCommandInput,
+  UpdateApplicationResourceLifecycleCommandOutput
+} from "./commands/UpdateApplicationResourceLifecycleCommand";
+import {
+  UpdateApplicationVersionCommandInput,
+  UpdateApplicationVersionCommandOutput
+} from "./commands/UpdateApplicationVersionCommand";
+import {
+  UpdateConfigurationTemplateCommandInput,
+  UpdateConfigurationTemplateCommandOutput
+} from "./commands/UpdateConfigurationTemplateCommand";
+import {
+  UpdateEnvironmentCommandInput,
+  UpdateEnvironmentCommandOutput
+} from "./commands/UpdateEnvironmentCommand";
+import {
+  UpdateTagsForResourceCommandInput,
+  UpdateTagsForResourceCommandOutput
+} from "./commands/UpdateTagsForResourceCommand";
+import {
+  ValidateConfigurationSettingsCommandInput,
+  ValidateConfigurationSettingsCommandOutput
+} from "./commands/ValidateConfigurationSettingsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -116,92 +221,102 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AbortEnvironmentUpdateMessage
-  | ApplyEnvironmentManagedActionRequest
-  | CheckDNSAvailabilityMessage
-  | ComposeEnvironmentsMessage
-  | CreateApplicationMessage
-  | CreateApplicationVersionMessage
-  | CreateConfigurationTemplateMessage
-  | CreateEnvironmentMessage
-  | CreatePlatformVersionRequest
-  | DeleteApplicationMessage
-  | DeleteApplicationVersionMessage
-  | DeleteConfigurationTemplateMessage
-  | DeleteEnvironmentConfigurationMessage
-  | DeletePlatformVersionRequest
-  | DescribeApplicationVersionsMessage
-  | DescribeApplicationsMessage
-  | DescribeConfigurationOptionsMessage
-  | DescribeConfigurationSettingsMessage
-  | DescribeEnvironmentHealthRequest
-  | DescribeEnvironmentManagedActionHistoryRequest
-  | DescribeEnvironmentManagedActionsRequest
-  | DescribeEnvironmentResourcesMessage
-  | DescribeEnvironmentsMessage
-  | DescribeEventsMessage
-  | DescribeInstancesHealthRequest
-  | DescribePlatformVersionRequest
-  | ListPlatformVersionsRequest
-  | ListTagsForResourceMessage
-  | RebuildEnvironmentMessage
-  | RequestEnvironmentInfoMessage
-  | RestartAppServerMessage
-  | RetrieveEnvironmentInfoMessage
-  | SwapEnvironmentCNAMEsMessage
-  | TerminateEnvironmentMessage
-  | UpdateApplicationMessage
-  | UpdateApplicationResourceLifecycleMessage
-  | UpdateApplicationVersionMessage
-  | UpdateConfigurationTemplateMessage
-  | UpdateEnvironmentMessage
-  | UpdateTagsForResourceMessage
-  | ValidateConfigurationSettingsMessage;
+  | AbortEnvironmentUpdateCommandInput
+  | ApplyEnvironmentManagedActionCommandInput
+  | CheckDNSAvailabilityCommandInput
+  | ComposeEnvironmentsCommandInput
+  | CreateApplicationCommandInput
+  | CreateApplicationVersionCommandInput
+  | CreateConfigurationTemplateCommandInput
+  | CreateEnvironmentCommandInput
+  | CreatePlatformVersionCommandInput
+  | CreateStorageLocationCommandInput
+  | DeleteApplicationCommandInput
+  | DeleteApplicationVersionCommandInput
+  | DeleteConfigurationTemplateCommandInput
+  | DeleteEnvironmentConfigurationCommandInput
+  | DeletePlatformVersionCommandInput
+  | DescribeAccountAttributesCommandInput
+  | DescribeApplicationVersionsCommandInput
+  | DescribeApplicationsCommandInput
+  | DescribeConfigurationOptionsCommandInput
+  | DescribeConfigurationSettingsCommandInput
+  | DescribeEnvironmentHealthCommandInput
+  | DescribeEnvironmentManagedActionHistoryCommandInput
+  | DescribeEnvironmentManagedActionsCommandInput
+  | DescribeEnvironmentResourcesCommandInput
+  | DescribeEnvironmentsCommandInput
+  | DescribeEventsCommandInput
+  | DescribeInstancesHealthCommandInput
+  | DescribePlatformVersionCommandInput
+  | ListAvailableSolutionStacksCommandInput
+  | ListPlatformVersionsCommandInput
+  | ListTagsForResourceCommandInput
+  | RebuildEnvironmentCommandInput
+  | RequestEnvironmentInfoCommandInput
+  | RestartAppServerCommandInput
+  | RetrieveEnvironmentInfoCommandInput
+  | SwapEnvironmentCNAMEsCommandInput
+  | TerminateEnvironmentCommandInput
+  | UpdateApplicationCommandInput
+  | UpdateApplicationResourceLifecycleCommandInput
+  | UpdateApplicationVersionCommandInput
+  | UpdateConfigurationTemplateCommandInput
+  | UpdateEnvironmentCommandInput
+  | UpdateTagsForResourceCommandInput
+  | ValidateConfigurationSettingsCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | ApplicationDescriptionMessage
-  | ApplicationDescriptionMessage
-  | ApplicationDescriptionsMessage
-  | ApplicationResourceLifecycleDescriptionMessage
-  | ApplicationVersionDescriptionMessage
-  | ApplicationVersionDescriptionMessage
-  | ApplicationVersionDescriptionsMessage
-  | ApplyEnvironmentManagedActionResult
-  | CheckDNSAvailabilityResultMessage
-  | ConfigurationOptionsDescription
-  | ConfigurationSettingsDescription
-  | ConfigurationSettingsDescription
-  | ConfigurationSettingsDescriptions
-  | ConfigurationSettingsValidationMessages
-  | CreatePlatformVersionResult
-  | CreateStorageLocationResultMessage
-  | DeletePlatformVersionResult
-  | DescribeAccountAttributesResult
-  | DescribeEnvironmentHealthResult
-  | DescribeEnvironmentManagedActionHistoryResult
-  | DescribeEnvironmentManagedActionsResult
-  | DescribeInstancesHealthResult
-  | DescribePlatformVersionResult
-  | EnvironmentDescription
-  | EnvironmentDescription
-  | EnvironmentDescription
-  | EnvironmentDescriptionsMessage
-  | EnvironmentDescriptionsMessage
-  | EnvironmentResourceDescriptionsMessage
-  | EventDescriptionsMessage
-  | ListAvailableSolutionStacksResultMessage
-  | ListPlatformVersionsResult
-  | ResourceTagsDescriptionMessage
-  | RetrieveEnvironmentInfoResultMessage;
+  | AbortEnvironmentUpdateCommandOutput
+  | ApplyEnvironmentManagedActionCommandOutput
+  | CheckDNSAvailabilityCommandOutput
+  | ComposeEnvironmentsCommandOutput
+  | CreateApplicationCommandOutput
+  | CreateApplicationVersionCommandOutput
+  | CreateConfigurationTemplateCommandOutput
+  | CreateEnvironmentCommandOutput
+  | CreatePlatformVersionCommandOutput
+  | CreateStorageLocationCommandOutput
+  | DeleteApplicationCommandOutput
+  | DeleteApplicationVersionCommandOutput
+  | DeleteConfigurationTemplateCommandOutput
+  | DeleteEnvironmentConfigurationCommandOutput
+  | DeletePlatformVersionCommandOutput
+  | DescribeAccountAttributesCommandOutput
+  | DescribeApplicationVersionsCommandOutput
+  | DescribeApplicationsCommandOutput
+  | DescribeConfigurationOptionsCommandOutput
+  | DescribeConfigurationSettingsCommandOutput
+  | DescribeEnvironmentHealthCommandOutput
+  | DescribeEnvironmentManagedActionHistoryCommandOutput
+  | DescribeEnvironmentManagedActionsCommandOutput
+  | DescribeEnvironmentResourcesCommandOutput
+  | DescribeEnvironmentsCommandOutput
+  | DescribeEventsCommandOutput
+  | DescribeInstancesHealthCommandOutput
+  | DescribePlatformVersionCommandOutput
+  | ListAvailableSolutionStacksCommandOutput
+  | ListPlatformVersionsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | RebuildEnvironmentCommandOutput
+  | RequestEnvironmentInfoCommandOutput
+  | RestartAppServerCommandOutput
+  | RetrieveEnvironmentInfoCommandOutput
+  | SwapEnvironmentCNAMEsCommandOutput
+  | TerminateEnvironmentCommandOutput
+  | UpdateApplicationCommandOutput
+  | UpdateApplicationResourceLifecycleCommandOutput
+  | UpdateApplicationVersionCommandOutput
+  | UpdateConfigurationTemplateCommandOutput
+  | UpdateEnvironmentCommandOutput
+  | UpdateTagsForResourceCommandOutput
+  | ValidateConfigurationSettingsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

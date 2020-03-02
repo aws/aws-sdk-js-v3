@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInstallationMediaCommandInput = DeleteInstallationMediaMessage;
-export type DeleteInstallationMediaCommandOutput = InstallationMedia;
+export type DeleteInstallationMediaCommandOutput = InstallationMedia &
+  __MetadataBearer;
 
 export class DeleteInstallationMediaCommand extends $Command<
   DeleteInstallationMediaCommandInput,

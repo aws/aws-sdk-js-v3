@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRuntimeConfigurationCommandInput = DescribeRuntimeConfigurationInput;
-export type DescribeRuntimeConfigurationCommandOutput = DescribeRuntimeConfigurationOutput;
+export type DescribeRuntimeConfigurationCommandOutput = DescribeRuntimeConfigurationOutput &
+  __MetadataBearer;
 
 export class DescribeRuntimeConfigurationCommand extends $Command<
   DescribeRuntimeConfigurationCommandInput,

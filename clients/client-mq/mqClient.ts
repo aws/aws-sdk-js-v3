@@ -1,47 +1,91 @@
 import {
-  CreateBrokerRequest,
-  CreateBrokerResponse,
-  CreateConfigurationRequest,
-  CreateConfigurationResponse,
-  CreateTagsRequest,
-  CreateUserRequest,
-  CreateUserResponse,
-  DeleteBrokerRequest,
-  DeleteBrokerResponse,
-  DeleteTagsRequest,
-  DeleteUserRequest,
-  DeleteUserResponse,
-  DescribeBrokerEngineTypesRequest,
-  DescribeBrokerEngineTypesResponse,
-  DescribeBrokerInstanceOptionsRequest,
-  DescribeBrokerInstanceOptionsResponse,
-  DescribeBrokerRequest,
-  DescribeBrokerResponse,
-  DescribeConfigurationRequest,
-  DescribeConfigurationResponse,
-  DescribeConfigurationRevisionRequest,
-  DescribeConfigurationRevisionResponse,
-  DescribeUserRequest,
-  DescribeUserResponse,
-  ListBrokersRequest,
-  ListBrokersResponse,
-  ListConfigurationRevisionsRequest,
-  ListConfigurationRevisionsResponse,
-  ListConfigurationsRequest,
-  ListConfigurationsResponse,
-  ListTagsRequest,
-  ListTagsResponse,
-  ListUsersRequest,
-  ListUsersResponse,
-  RebootBrokerRequest,
-  RebootBrokerResponse,
-  UpdateBrokerRequest,
-  UpdateBrokerResponse,
-  UpdateConfigurationRequest,
-  UpdateConfigurationResponse,
-  UpdateUserRequest,
-  UpdateUserResponse
-} from "./models/index";
+  CreateBrokerCommandInput,
+  CreateBrokerCommandOutput
+} from "./commands/CreateBrokerCommand";
+import {
+  CreateConfigurationCommandInput,
+  CreateConfigurationCommandOutput
+} from "./commands/CreateConfigurationCommand";
+import {
+  CreateTagsCommandInput,
+  CreateTagsCommandOutput
+} from "./commands/CreateTagsCommand";
+import {
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
+import {
+  DeleteBrokerCommandInput,
+  DeleteBrokerCommandOutput
+} from "./commands/DeleteBrokerCommand";
+import {
+  DeleteTagsCommandInput,
+  DeleteTagsCommandOutput
+} from "./commands/DeleteTagsCommand";
+import {
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput
+} from "./commands/DeleteUserCommand";
+import {
+  DescribeBrokerCommandInput,
+  DescribeBrokerCommandOutput
+} from "./commands/DescribeBrokerCommand";
+import {
+  DescribeBrokerEngineTypesCommandInput,
+  DescribeBrokerEngineTypesCommandOutput
+} from "./commands/DescribeBrokerEngineTypesCommand";
+import {
+  DescribeBrokerInstanceOptionsCommandInput,
+  DescribeBrokerInstanceOptionsCommandOutput
+} from "./commands/DescribeBrokerInstanceOptionsCommand";
+import {
+  DescribeConfigurationCommandInput,
+  DescribeConfigurationCommandOutput
+} from "./commands/DescribeConfigurationCommand";
+import {
+  DescribeConfigurationRevisionCommandInput,
+  DescribeConfigurationRevisionCommandOutput
+} from "./commands/DescribeConfigurationRevisionCommand";
+import {
+  DescribeUserCommandInput,
+  DescribeUserCommandOutput
+} from "./commands/DescribeUserCommand";
+import {
+  ListBrokersCommandInput,
+  ListBrokersCommandOutput
+} from "./commands/ListBrokersCommand";
+import {
+  ListConfigurationRevisionsCommandInput,
+  ListConfigurationRevisionsCommandOutput
+} from "./commands/ListConfigurationRevisionsCommand";
+import {
+  ListConfigurationsCommandInput,
+  ListConfigurationsCommandOutput
+} from "./commands/ListConfigurationsCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  ListUsersCommandInput,
+  ListUsersCommandOutput
+} from "./commands/ListUsersCommand";
+import {
+  RebootBrokerCommandInput,
+  RebootBrokerCommandOutput
+} from "./commands/RebootBrokerCommand";
+import {
+  UpdateBrokerCommandInput,
+  UpdateBrokerCommandOutput
+} from "./commands/UpdateBrokerCommand";
+import {
+  UpdateConfigurationCommandInput,
+  UpdateConfigurationCommandOutput
+} from "./commands/UpdateConfigurationCommand";
+import {
+  UpdateUserCommandInput,
+  UpdateUserCommandOutput
+} from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -89,58 +133,58 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateBrokerRequest
-  | CreateConfigurationRequest
-  | CreateTagsRequest
-  | CreateUserRequest
-  | DeleteBrokerRequest
-  | DeleteTagsRequest
-  | DeleteUserRequest
-  | DescribeBrokerEngineTypesRequest
-  | DescribeBrokerInstanceOptionsRequest
-  | DescribeBrokerRequest
-  | DescribeConfigurationRequest
-  | DescribeConfigurationRevisionRequest
-  | DescribeUserRequest
-  | ListBrokersRequest
-  | ListConfigurationRevisionsRequest
-  | ListConfigurationsRequest
-  | ListTagsRequest
-  | ListUsersRequest
-  | RebootBrokerRequest
-  | UpdateBrokerRequest
-  | UpdateConfigurationRequest
-  | UpdateUserRequest;
+  | CreateBrokerCommandInput
+  | CreateConfigurationCommandInput
+  | CreateTagsCommandInput
+  | CreateUserCommandInput
+  | DeleteBrokerCommandInput
+  | DeleteTagsCommandInput
+  | DeleteUserCommandInput
+  | DescribeBrokerCommandInput
+  | DescribeBrokerEngineTypesCommandInput
+  | DescribeBrokerInstanceOptionsCommandInput
+  | DescribeConfigurationCommandInput
+  | DescribeConfigurationRevisionCommandInput
+  | DescribeUserCommandInput
+  | ListBrokersCommandInput
+  | ListConfigurationRevisionsCommandInput
+  | ListConfigurationsCommandInput
+  | ListTagsCommandInput
+  | ListUsersCommandInput
+  | RebootBrokerCommandInput
+  | UpdateBrokerCommandInput
+  | UpdateConfigurationCommandInput
+  | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateBrokerResponse
-  | CreateConfigurationResponse
-  | CreateUserResponse
-  | DeleteBrokerResponse
-  | DeleteUserResponse
-  | DescribeBrokerEngineTypesResponse
-  | DescribeBrokerInstanceOptionsResponse
-  | DescribeBrokerResponse
-  | DescribeConfigurationResponse
-  | DescribeConfigurationRevisionResponse
-  | DescribeUserResponse
-  | ListBrokersResponse
-  | ListConfigurationRevisionsResponse
-  | ListConfigurationsResponse
-  | ListTagsResponse
-  | ListUsersResponse
-  | RebootBrokerResponse
-  | UpdateBrokerResponse
-  | UpdateConfigurationResponse
-  | UpdateUserResponse;
+  | CreateBrokerCommandOutput
+  | CreateConfigurationCommandOutput
+  | CreateTagsCommandOutput
+  | CreateUserCommandOutput
+  | DeleteBrokerCommandOutput
+  | DeleteTagsCommandOutput
+  | DeleteUserCommandOutput
+  | DescribeBrokerCommandOutput
+  | DescribeBrokerEngineTypesCommandOutput
+  | DescribeBrokerInstanceOptionsCommandOutput
+  | DescribeConfigurationCommandOutput
+  | DescribeConfigurationRevisionCommandOutput
+  | DescribeUserCommandOutput
+  | ListBrokersCommandOutput
+  | ListConfigurationRevisionsCommandOutput
+  | ListConfigurationsCommandOutput
+  | ListTagsCommandOutput
+  | ListUsersCommandOutput
+  | RebootBrokerCommandOutput
+  | UpdateBrokerCommandOutput
+  | UpdateConfigurationCommandOutput
+  | UpdateUserCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

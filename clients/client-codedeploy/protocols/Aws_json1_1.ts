@@ -1121,52 +1121,73 @@ async function deserializeAws_json1_1AddTagsToOnPremisesInstancesCommandError(
   switch (errorCode) {
     case "InstanceLimitExceededException":
     case "com.amazonaws.codedeploy#InstanceLimitExceededException":
-      response = await deserializeAws_json1_1InstanceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      response = await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNotRegisteredException":
     case "com.amazonaws.codedeploy#InstanceNotRegisteredException":
-      response = await deserializeAws_json1_1InstanceNotRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      response = await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagException":
     case "com.amazonaws.codedeploy#InvalidTagException":
-      response = await deserializeAws_json1_1InvalidTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededException":
     case "com.amazonaws.codedeploy#TagLimitExceededException":
-      response = await deserializeAws_json1_1TagLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagRequiredException":
     case "com.amazonaws.codedeploy#TagRequiredException":
-      response = await deserializeAws_json1_1TagRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1225,45 +1246,63 @@ async function deserializeAws_json1_1BatchGetApplicationRevisionsCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      response = await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRevisionException":
     case "com.amazonaws.codedeploy#InvalidRevisionException":
-      response = await deserializeAws_json1_1InvalidRevisionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRevisionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionRequiredException":
     case "com.amazonaws.codedeploy#RevisionRequiredException":
-      response = await deserializeAws_json1_1RevisionRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1319,31 +1358,43 @@ async function deserializeAws_json1_1BatchGetApplicationsCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      response = await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1402,52 +1453,73 @@ async function deserializeAws_json1_1BatchGetDeploymentGroupsCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      response = await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1506,52 +1578,73 @@ async function deserializeAws_json1_1BatchGetDeploymentInstancesCommandError(
   switch (errorCode) {
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      response = await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceIdRequiredException":
     case "com.amazonaws.codedeploy#InstanceIdRequiredException":
-      response = await deserializeAws_json1_1InstanceIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      response = await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      response = await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1610,59 +1703,83 @@ async function deserializeAws_json1_1BatchGetDeploymentTargetsCommandError(
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      response = await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentTargetDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentTargetDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentTargetIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentTargetIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentTargetIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentTargetIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentTargetListSizeExceededException":
     case "com.amazonaws.codedeploy#DeploymentTargetListSizeExceededException":
-      response = await deserializeAws_json1_1DeploymentTargetListSizeExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentTargetListSizeExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentTargetIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentTargetIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1718,24 +1835,33 @@ async function deserializeAws_json1_1BatchGetDeploymentsCommandError(
   switch (errorCode) {
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      response = await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1794,24 +1920,33 @@ async function deserializeAws_json1_1BatchGetOnPremisesInstancesCommandError(
   switch (errorCode) {
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      response = await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      response = await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      response = await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1863,59 +1998,83 @@ async function deserializeAws_json1_1ContinueDeploymentCommandError(
   switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
     case "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException":
-      response = await deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIsNotInReadyStateException":
     case "com.amazonaws.codedeploy#DeploymentIsNotInReadyStateException":
-      response = await deserializeAws_json1_1DeploymentIsNotInReadyStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIsNotInReadyStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentStatusException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStatusException":
-      response = await deserializeAws_json1_1InvalidDeploymentStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentWaitTypeException":
     case "com.amazonaws.codedeploy#InvalidDeploymentWaitTypeException":
-      response = await deserializeAws_json1_1InvalidDeploymentWaitTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentWaitTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedActionForDeploymentTypeException":
     case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      response = await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1968,45 +2127,63 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
   switch (errorCode) {
     case "ApplicationAlreadyExistsException":
     case "com.amazonaws.codedeploy#ApplicationAlreadyExistsException":
-      response = await deserializeAws_json1_1ApplicationAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationLimitExceededException":
     case "com.amazonaws.codedeploy#ApplicationLimitExceededException":
-      response = await deserializeAws_json1_1ApplicationLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      response = await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsToAddException":
     case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      response = await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2059,164 +2236,233 @@ async function deserializeAws_json1_1CreateDeploymentCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentLimitExceededException":
     case "com.amazonaws.codedeploy#DeploymentLimitExceededException":
-      response = await deserializeAws_json1_1DeploymentLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DescriptionTooLongException":
     case "com.amazonaws.codedeploy#DescriptionTooLongException":
-      response = await deserializeAws_json1_1DescriptionTooLongExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DescriptionTooLongExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAutoRollbackConfigException":
     case "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException":
-      response = await deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAutoScalingGroupException":
     case "com.amazonaws.codedeploy#InvalidAutoScalingGroupException":
-      response = await deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileExistsBehaviorException":
     case "com.amazonaws.codedeploy#InvalidFileExistsBehaviorException":
-      response = await deserializeAws_json1_1InvalidFileExistsBehaviorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileExistsBehaviorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGitHubAccountTokenException":
     case "com.amazonaws.codedeploy#InvalidGitHubAccountTokenException":
-      response = await deserializeAws_json1_1InvalidGitHubAccountTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGitHubAccountTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIgnoreApplicationStopFailuresValueException":
     case "com.amazonaws.codedeploy#InvalidIgnoreApplicationStopFailuresValueException":
-      response = await deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLoadBalancerInfoException":
     case "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException":
-      response = await deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRevisionException":
     case "com.amazonaws.codedeploy#InvalidRevisionException":
-      response = await deserializeAws_json1_1InvalidRevisionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRevisionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetInstancesException":
     case "com.amazonaws.codedeploy#InvalidTargetInstancesException":
-      response = await deserializeAws_json1_1InvalidTargetInstancesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetInstancesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUpdateOutdatedInstancesOnlyValueException":
     case "com.amazonaws.codedeploy#InvalidUpdateOutdatedInstancesOnlyValueException":
-      response = await deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionDoesNotExistException":
     case "com.amazonaws.codedeploy#RevisionDoesNotExistException":
-      response = await deserializeAws_json1_1RevisionDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionRequiredException":
     case "com.amazonaws.codedeploy#RevisionRequiredException":
-      response = await deserializeAws_json1_1RevisionRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codedeploy#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2272,52 +2518,73 @@ async function deserializeAws_json1_1CreateDeploymentConfigCommandError(
   switch (errorCode) {
     case "DeploymentConfigAlreadyExistsException":
     case "com.amazonaws.codedeploy#DeploymentConfigAlreadyExistsException":
-      response = await deserializeAws_json1_1DeploymentConfigAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigLimitExceededException":
     case "com.amazonaws.codedeploy#DeploymentConfigLimitExceededException":
-      response = await deserializeAws_json1_1DeploymentConfigLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      response = await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMinimumHealthyHostValueException":
     case "com.amazonaws.codedeploy#InvalidMinimumHealthyHostValueException":
-      response = await deserializeAws_json1_1InvalidMinimumHealthyHostValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMinimumHealthyHostValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTrafficRoutingConfigurationException":
     case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
-      response = await deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2373,227 +2640,323 @@ async function deserializeAws_json1_1CreateDeploymentGroupCommandError(
   switch (errorCode) {
     case "AlarmsLimitExceededException":
     case "com.amazonaws.codedeploy#AlarmsLimitExceededException":
-      response = await deserializeAws_json1_1AlarmsLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlarmsLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupAlreadyExistsException":
     case "com.amazonaws.codedeploy#DeploymentGroupAlreadyExistsException":
-      response = await deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupLimitExceededException":
     case "com.amazonaws.codedeploy#DeploymentGroupLimitExceededException":
-      response = await deserializeAws_json1_1DeploymentGroupLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ECSServiceMappingLimitExceededException":
     case "com.amazonaws.codedeploy#ECSServiceMappingLimitExceededException":
-      response = await deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAlarmConfigException":
     case "com.amazonaws.codedeploy#InvalidAlarmConfigException":
-      response = await deserializeAws_json1_1InvalidAlarmConfigExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAlarmConfigExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAutoRollbackConfigException":
     case "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException":
-      response = await deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAutoScalingGroupException":
     case "com.amazonaws.codedeploy#InvalidAutoScalingGroupException":
-      response = await deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBlueGreenDeploymentConfigurationException":
     case "com.amazonaws.codedeploy#InvalidBlueGreenDeploymentConfigurationException":
-      response = await deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentStyleException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStyleException":
-      response = await deserializeAws_json1_1InvalidDeploymentStyleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentStyleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEC2TagCombinationException":
     case "com.amazonaws.codedeploy#InvalidEC2TagCombinationException":
-      response = await deserializeAws_json1_1InvalidEC2TagCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEC2TagCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEC2TagException":
     case "com.amazonaws.codedeploy#InvalidEC2TagException":
-      response = await deserializeAws_json1_1InvalidEC2TagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEC2TagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidECSServiceException":
     case "com.amazonaws.codedeploy#InvalidECSServiceException":
-      response = await deserializeAws_json1_1InvalidECSServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidECSServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.codedeploy#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLoadBalancerInfoException":
     case "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException":
-      response = await deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOnPremisesTagCombinationException":
     case "com.amazonaws.codedeploy#InvalidOnPremisesTagCombinationException":
-      response = await deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagException":
     case "com.amazonaws.codedeploy#InvalidTagException":
-      response = await deserializeAws_json1_1InvalidTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsToAddException":
     case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      response = await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetGroupPairException":
     case "com.amazonaws.codedeploy#InvalidTargetGroupPairException":
-      response = await deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTriggerConfigException":
     case "com.amazonaws.codedeploy#InvalidTriggerConfigException":
-      response = await deserializeAws_json1_1InvalidTriggerConfigExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTriggerConfigExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LifecycleHookLimitExceededException":
     case "com.amazonaws.codedeploy#LifecycleHookLimitExceededException":
-      response = await deserializeAws_json1_1LifecycleHookLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LifecycleHookLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RoleRequiredException":
     case "com.amazonaws.codedeploy#RoleRequiredException":
-      response = await deserializeAws_json1_1RoleRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RoleRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagSetListLimitExceededException":
     case "com.amazonaws.codedeploy#TagSetListLimitExceededException":
-      response = await deserializeAws_json1_1TagSetListLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagSetListLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codedeploy#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TriggerTargetsLimitExceededException":
     case "com.amazonaws.codedeploy#TriggerTargetsLimitExceededException":
-      response = await deserializeAws_json1_1TriggerTargetsLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TriggerTargetsLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2642,24 +3005,33 @@ async function deserializeAws_json1_1DeleteApplicationCommandError(
   switch (errorCode) {
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2711,31 +3083,43 @@ async function deserializeAws_json1_1DeleteDeploymentConfigCommandError(
   switch (errorCode) {
     case "DeploymentConfigInUseException":
     case "com.amazonaws.codedeploy#DeploymentConfigInUseException":
-      response = await deserializeAws_json1_1DeploymentConfigInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOperationException":
     case "com.amazonaws.codedeploy#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2791,38 +3175,53 @@ async function deserializeAws_json1_1DeleteDeploymentGroupCommandError(
   switch (errorCode) {
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2881,38 +3280,53 @@ async function deserializeAws_json1_1DeleteGitHubAccountTokenCommandError(
   switch (errorCode) {
     case "GitHubAccountTokenDoesNotExistException":
     case "com.amazonaws.codedeploy#GitHubAccountTokenDoesNotExistException":
-      response = await deserializeAws_json1_1GitHubAccountTokenDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1GitHubAccountTokenDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "GitHubAccountTokenNameRequiredException":
     case "com.amazonaws.codedeploy#GitHubAccountTokenNameRequiredException":
-      response = await deserializeAws_json1_1GitHubAccountTokenNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1GitHubAccountTokenNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGitHubAccountTokenNameException":
     case "com.amazonaws.codedeploy#InvalidGitHubAccountTokenNameException":
-      response = await deserializeAws_json1_1InvalidGitHubAccountTokenNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidGitHubAccountTokenNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotSupportedException":
     case "com.amazonaws.codedeploy#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceValidationException":
     case "com.amazonaws.codedeploy#ResourceValidationException":
-      response = await deserializeAws_json1_1ResourceValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2964,17 +3378,23 @@ async function deserializeAws_json1_1DeregisterOnPremisesInstanceCommandError(
   switch (errorCode) {
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      response = await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      response = await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3027,24 +3447,33 @@ async function deserializeAws_json1_1GetApplicationCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3100,45 +3529,63 @@ async function deserializeAws_json1_1GetApplicationRevisionCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRevisionException":
     case "com.amazonaws.codedeploy#InvalidRevisionException":
-      response = await deserializeAws_json1_1InvalidRevisionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRevisionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionDoesNotExistException":
     case "com.amazonaws.codedeploy#RevisionDoesNotExistException":
-      response = await deserializeAws_json1_1RevisionDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionRequiredException":
     case "com.amazonaws.codedeploy#RevisionRequiredException":
-      response = await deserializeAws_json1_1RevisionRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3191,24 +3638,33 @@ async function deserializeAws_json1_1GetDeploymentCommandError(
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3264,31 +3720,43 @@ async function deserializeAws_json1_1GetDeploymentConfigCommandError(
   switch (errorCode) {
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      response = await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3344,52 +3812,73 @@ async function deserializeAws_json1_1GetDeploymentGroupCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3445,52 +3934,73 @@ async function deserializeAws_json1_1GetDeploymentInstanceCommandError(
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceDoesNotExistException":
     case "com.amazonaws.codedeploy#InstanceDoesNotExistException":
-      response = await deserializeAws_json1_1InstanceDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceIdRequiredException":
     case "com.amazonaws.codedeploy#InstanceIdRequiredException":
-      response = await deserializeAws_json1_1InstanceIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      response = await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      response = await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3546,59 +4056,83 @@ async function deserializeAws_json1_1GetDeploymentTargetCommandError(
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      response = await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentTargetDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentTargetDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentTargetIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentTargetIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentTargetIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentTargetIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentTargetIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentTargetIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      response = await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3654,24 +4188,33 @@ async function deserializeAws_json1_1GetOnPremisesInstanceCommandError(
   switch (errorCode) {
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      response = await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNotRegisteredException":
     case "com.amazonaws.codedeploy#InstanceNotRegisteredException":
-      response = await deserializeAws_json1_1InstanceNotRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      response = await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3730,73 +4273,103 @@ async function deserializeAws_json1_1ListApplicationRevisionsCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BucketNameFilterRequiredException":
     case "com.amazonaws.codedeploy#BucketNameFilterRequiredException":
-      response = await deserializeAws_json1_1BucketNameFilterRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BucketNameFilterRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBucketNameFilterException":
     case "com.amazonaws.codedeploy#InvalidBucketNameFilterException":
-      response = await deserializeAws_json1_1InvalidBucketNameFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBucketNameFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeployedStateFilterException":
     case "com.amazonaws.codedeploy#InvalidDeployedStateFilterException":
-      response = await deserializeAws_json1_1InvalidDeployedStateFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeployedStateFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKeyPrefixFilterException":
     case "com.amazonaws.codedeploy#InvalidKeyPrefixFilterException":
-      response = await deserializeAws_json1_1InvalidKeyPrefixFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidKeyPrefixFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSortByException":
     case "com.amazonaws.codedeploy#InvalidSortByException":
-      response = await deserializeAws_json1_1InvalidSortByExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSortByExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSortOrderException":
     case "com.amazonaws.codedeploy#InvalidSortOrderException":
-      response = await deserializeAws_json1_1InvalidSortOrderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSortOrderExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3849,10 +4422,13 @@ async function deserializeAws_json1_1ListApplicationsCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3908,10 +4484,13 @@ async function deserializeAws_json1_1ListDeploymentConfigsCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3967,31 +4546,43 @@ async function deserializeAws_json1_1ListDeploymentGroupsCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4047,73 +4638,103 @@ async function deserializeAws_json1_1ListDeploymentInstancesCommandError(
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      response = await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      response = await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidDeploymentInstanceTypeException":
-      response = await deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceStatusException":
     case "com.amazonaws.codedeploy#InvalidInstanceStatusException":
-      response = await deserializeAws_json1_1InvalidInstanceStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidInstanceTypeException":
-      response = await deserializeAws_json1_1InvalidInstanceTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetFilterNameException":
     case "com.amazonaws.codedeploy#InvalidTargetFilterNameException":
-      response = await deserializeAws_json1_1InvalidTargetFilterNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetFilterNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4169,59 +4790,83 @@ async function deserializeAws_json1_1ListDeploymentTargetsCommandError(
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      response = await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidDeploymentInstanceTypeException":
-      response = await deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceStatusException":
     case "com.amazonaws.codedeploy#InvalidInstanceStatusException":
-      response = await deserializeAws_json1_1InvalidInstanceStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidInstanceTypeException":
-      response = await deserializeAws_json1_1InvalidInstanceTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4274,66 +4919,93 @@ async function deserializeAws_json1_1ListDeploymentsCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentStatusException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStatusException":
-      response = await deserializeAws_json1_1InvalidDeploymentStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTimeRangeException":
     case "com.amazonaws.codedeploy#InvalidTimeRangeException":
-      response = await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4392,24 +5064,33 @@ async function deserializeAws_json1_1ListGitHubAccountTokenNamesCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotSupportedException":
     case "com.amazonaws.codedeploy#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceValidationException":
     case "com.amazonaws.codedeploy#ResourceValidationException":
-      response = await deserializeAws_json1_1ResourceValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4465,24 +5146,33 @@ async function deserializeAws_json1_1ListOnPremisesInstancesCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRegistrationStatusException":
     case "com.amazonaws.codedeploy#InvalidRegistrationStatusException":
-      response = await deserializeAws_json1_1InvalidRegistrationStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRegistrationStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagFilterException":
     case "com.amazonaws.codedeploy#InvalidTagFilterException":
-      response = await deserializeAws_json1_1InvalidTagFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4538,24 +5228,33 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "ArnNotSupportedException":
     case "com.amazonaws.codedeploy#ArnNotSupportedException":
-      response = await deserializeAws_json1_1ArnNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ArnNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArnException":
     case "com.amazonaws.codedeploy#InvalidArnException":
-      response = await deserializeAws_json1_1InvalidArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceArnRequiredException":
     case "com.amazonaws.codedeploy#ResourceArnRequiredException":
-      response = await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4614,52 +5313,73 @@ async function deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLifecycleEventHookExecutionIdException":
     case "com.amazonaws.codedeploy#InvalidLifecycleEventHookExecutionIdException":
-      response = await deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLifecycleEventHookExecutionStatusException":
     case "com.amazonaws.codedeploy#InvalidLifecycleEventHookExecutionStatusException":
-      response = await deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LifecycleEventAlreadyCompletedException":
     case "com.amazonaws.codedeploy#LifecycleEventAlreadyCompletedException":
-      response = await deserializeAws_json1_1LifecycleEventAlreadyCompletedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LifecycleEventAlreadyCompletedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedActionForDeploymentTypeException":
     case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      response = await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4711,45 +5431,63 @@ async function deserializeAws_json1_1RegisterApplicationRevisionCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DescriptionTooLongException":
     case "com.amazonaws.codedeploy#DescriptionTooLongException":
-      response = await deserializeAws_json1_1DescriptionTooLongExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DescriptionTooLongExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRevisionException":
     case "com.amazonaws.codedeploy#InvalidRevisionException":
-      response = await deserializeAws_json1_1InvalidRevisionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRevisionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionRequiredException":
     case "com.amazonaws.codedeploy#RevisionRequiredException":
-      response = await deserializeAws_json1_1RevisionRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4801,73 +5539,103 @@ async function deserializeAws_json1_1RegisterOnPremisesInstanceCommandError(
   switch (errorCode) {
     case "IamArnRequiredException":
     case "com.amazonaws.codedeploy#IamArnRequiredException":
-      response = await deserializeAws_json1_1IamArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IamArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IamSessionArnAlreadyRegisteredException":
     case "com.amazonaws.codedeploy#IamSessionArnAlreadyRegisteredException":
-      response = await deserializeAws_json1_1IamSessionArnAlreadyRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IamSessionArnAlreadyRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IamUserArnAlreadyRegisteredException":
     case "com.amazonaws.codedeploy#IamUserArnAlreadyRegisteredException":
-      response = await deserializeAws_json1_1IamUserArnAlreadyRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IamUserArnAlreadyRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IamUserArnRequiredException":
     case "com.amazonaws.codedeploy#IamUserArnRequiredException":
-      response = await deserializeAws_json1_1IamUserArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IamUserArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNameAlreadyRegisteredException":
     case "com.amazonaws.codedeploy#InstanceNameAlreadyRegisteredException":
-      response = await deserializeAws_json1_1InstanceNameAlreadyRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNameAlreadyRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      response = await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIamSessionArnException":
     case "com.amazonaws.codedeploy#InvalidIamSessionArnException":
-      response = await deserializeAws_json1_1InvalidIamSessionArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidIamSessionArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIamUserArnException":
     case "com.amazonaws.codedeploy#InvalidIamUserArnException":
-      response = await deserializeAws_json1_1InvalidIamUserArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidIamUserArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      response = await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MultipleIamArnsProvidedException":
     case "com.amazonaws.codedeploy#MultipleIamArnsProvidedException":
-      response = await deserializeAws_json1_1MultipleIamArnsProvidedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MultipleIamArnsProvidedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4919,52 +5687,73 @@ async function deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommandErr
   switch (errorCode) {
     case "InstanceLimitExceededException":
     case "com.amazonaws.codedeploy#InstanceLimitExceededException":
-      response = await deserializeAws_json1_1InstanceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      response = await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNotRegisteredException":
     case "com.amazonaws.codedeploy#InstanceNotRegisteredException":
-      response = await deserializeAws_json1_1InstanceNotRegisteredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      response = await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagException":
     case "com.amazonaws.codedeploy#InvalidTagException":
-      response = await deserializeAws_json1_1InvalidTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededException":
     case "com.amazonaws.codedeploy#TagLimitExceededException":
-      response = await deserializeAws_json1_1TagLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagRequiredException":
     case "com.amazonaws.codedeploy#TagRequiredException":
-      response = await deserializeAws_json1_1TagRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5016,45 +5805,63 @@ async function deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommandEr
   switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
     case "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException":
-      response = await deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      response = await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedActionForDeploymentTypeException":
     case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      response = await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5107,38 +5914,53 @@ async function deserializeAws_json1_1StopDeploymentCommandError(
   switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
     case "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException":
-      response = await deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5191,59 +6013,83 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ArnNotSupportedException":
     case "com.amazonaws.codedeploy#ArnNotSupportedException":
-      response = await deserializeAws_json1_1ArnNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ArnNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArnException":
     case "com.amazonaws.codedeploy#InvalidArnException":
-      response = await deserializeAws_json1_1InvalidArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsToAddException":
     case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      response = await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceArnRequiredException":
     case "com.amazonaws.codedeploy#ResourceArnRequiredException":
-      response = await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagRequiredException":
     case "com.amazonaws.codedeploy#TagRequiredException":
-      response = await deserializeAws_json1_1TagRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5296,59 +6142,83 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ArnNotSupportedException":
     case "com.amazonaws.codedeploy#ArnNotSupportedException":
-      response = await deserializeAws_json1_1ArnNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ArnNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArnException":
     case "com.amazonaws.codedeploy#InvalidArnException":
-      response = await deserializeAws_json1_1InvalidArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsToAddException":
     case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      response = await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceArnRequiredException":
     case "com.amazonaws.codedeploy#ResourceArnRequiredException":
-      response = await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagRequiredException":
     case "com.amazonaws.codedeploy#TagRequiredException":
-      response = await deserializeAws_json1_1TagRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5397,31 +6267,43 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
   switch (errorCode) {
     case "ApplicationAlreadyExistsException":
     case "com.amazonaws.codedeploy#ApplicationAlreadyExistsException":
-      response = await deserializeAws_json1_1ApplicationAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5477,213 +6359,303 @@ async function deserializeAws_json1_1UpdateDeploymentGroupCommandError(
   switch (errorCode) {
     case "AlarmsLimitExceededException":
     case "com.amazonaws.codedeploy#AlarmsLimitExceededException":
-      response = await deserializeAws_json1_1AlarmsLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlarmsLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      response = await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      response = await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupAlreadyExistsException":
     case "com.amazonaws.codedeploy#DeploymentGroupAlreadyExistsException":
-      response = await deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      response = await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      response = await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ECSServiceMappingLimitExceededException":
     case "com.amazonaws.codedeploy#ECSServiceMappingLimitExceededException":
-      response = await deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAlarmConfigException":
     case "com.amazonaws.codedeploy#InvalidAlarmConfigException":
-      response = await deserializeAws_json1_1InvalidAlarmConfigExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAlarmConfigExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      response = await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAutoRollbackConfigException":
     case "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException":
-      response = await deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAutoScalingGroupException":
     case "com.amazonaws.codedeploy#InvalidAutoScalingGroupException":
-      response = await deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBlueGreenDeploymentConfigurationException":
     case "com.amazonaws.codedeploy#InvalidBlueGreenDeploymentConfigurationException":
-      response = await deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      response = await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeploymentStyleException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStyleException":
-      response = await deserializeAws_json1_1InvalidDeploymentStyleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentStyleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEC2TagCombinationException":
     case "com.amazonaws.codedeploy#InvalidEC2TagCombinationException":
-      response = await deserializeAws_json1_1InvalidEC2TagCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEC2TagCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEC2TagException":
     case "com.amazonaws.codedeploy#InvalidEC2TagException":
-      response = await deserializeAws_json1_1InvalidEC2TagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEC2TagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidECSServiceException":
     case "com.amazonaws.codedeploy#InvalidECSServiceException":
-      response = await deserializeAws_json1_1InvalidECSServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidECSServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.codedeploy#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLoadBalancerInfoException":
     case "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException":
-      response = await deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOnPremisesTagCombinationException":
     case "com.amazonaws.codedeploy#InvalidOnPremisesTagCombinationException":
-      response = await deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagException":
     case "com.amazonaws.codedeploy#InvalidTagException":
-      response = await deserializeAws_json1_1InvalidTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetGroupPairException":
     case "com.amazonaws.codedeploy#InvalidTargetGroupPairException":
-      response = await deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTriggerConfigException":
     case "com.amazonaws.codedeploy#InvalidTriggerConfigException":
-      response = await deserializeAws_json1_1InvalidTriggerConfigExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTriggerConfigExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LifecycleHookLimitExceededException":
     case "com.amazonaws.codedeploy#LifecycleHookLimitExceededException":
-      response = await deserializeAws_json1_1LifecycleHookLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LifecycleHookLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagSetListLimitExceededException":
     case "com.amazonaws.codedeploy#TagSetListLimitExceededException":
-      response = await deserializeAws_json1_1TagSetListLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagSetListLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codedeploy#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TriggerTargetsLimitExceededException":
     case "com.amazonaws.codedeploy#TriggerTargetsLimitExceededException":
-      response = await deserializeAws_json1_1TriggerTargetsLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TriggerTargetsLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

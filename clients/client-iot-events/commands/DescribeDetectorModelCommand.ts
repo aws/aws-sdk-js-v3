@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDetectorModelCommandInput = DescribeDetectorModelRequest;
-export type DescribeDetectorModelCommandOutput = DescribeDetectorModelResponse;
+export type DescribeDetectorModelCommandOutput = DescribeDetectorModelResponse &
+  __MetadataBearer;
 
 export class DescribeDetectorModelCommand extends $Command<
   DescribeDetectorModelCommandInput,

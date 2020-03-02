@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateVPCAssociationAuthorizationCommandInput = CreateVPCAssociationAuthorizationRequest;
-export type CreateVPCAssociationAuthorizationCommandOutput = CreateVPCAssociationAuthorizationResponse;
+export type CreateVPCAssociationAuthorizationCommandOutput = CreateVPCAssociationAuthorizationResponse &
+  __MetadataBearer;
 
 export class CreateVPCAssociationAuthorizationCommand extends $Command<
   CreateVPCAssociationAuthorizationCommandInput,

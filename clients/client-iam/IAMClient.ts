@@ -1,217 +1,563 @@
 import {
-  AddClientIDToOpenIDConnectProviderRequest,
-  AddRoleToInstanceProfileRequest,
-  AddUserToGroupRequest,
-  AttachGroupPolicyRequest,
-  AttachRolePolicyRequest,
-  AttachUserPolicyRequest,
-  ChangePasswordRequest,
-  CreateAccessKeyRequest,
-  CreateAccessKeyResponse,
-  CreateAccountAliasRequest,
-  CreateGroupRequest,
-  CreateGroupResponse,
-  CreateInstanceProfileRequest,
-  CreateInstanceProfileResponse,
-  CreateLoginProfileRequest,
-  CreateLoginProfileResponse,
-  CreateOpenIDConnectProviderRequest,
-  CreateOpenIDConnectProviderResponse,
-  CreatePolicyRequest,
-  CreatePolicyResponse,
-  CreatePolicyVersionRequest,
-  CreatePolicyVersionResponse,
-  CreateRoleRequest,
-  CreateRoleResponse,
-  CreateSAMLProviderRequest,
-  CreateSAMLProviderResponse,
-  CreateServiceLinkedRoleRequest,
-  CreateServiceLinkedRoleResponse,
-  CreateServiceSpecificCredentialRequest,
-  CreateServiceSpecificCredentialResponse,
-  CreateUserRequest,
-  CreateUserResponse,
-  CreateVirtualMFADeviceRequest,
-  CreateVirtualMFADeviceResponse,
-  DeactivateMFADeviceRequest,
-  DeleteAccessKeyRequest,
-  DeleteAccountAliasRequest,
-  DeleteGroupPolicyRequest,
-  DeleteGroupRequest,
-  DeleteInstanceProfileRequest,
-  DeleteLoginProfileRequest,
-  DeleteOpenIDConnectProviderRequest,
-  DeletePolicyRequest,
-  DeletePolicyVersionRequest,
-  DeleteRolePermissionsBoundaryRequest,
-  DeleteRolePolicyRequest,
-  DeleteRoleRequest,
-  DeleteSAMLProviderRequest,
-  DeleteSSHPublicKeyRequest,
-  DeleteServerCertificateRequest,
-  DeleteServiceLinkedRoleRequest,
-  DeleteServiceLinkedRoleResponse,
-  DeleteServiceSpecificCredentialRequest,
-  DeleteSigningCertificateRequest,
-  DeleteUserPermissionsBoundaryRequest,
-  DeleteUserPolicyRequest,
-  DeleteUserRequest,
-  DeleteVirtualMFADeviceRequest,
-  DetachGroupPolicyRequest,
-  DetachRolePolicyRequest,
-  DetachUserPolicyRequest,
-  EnableMFADeviceRequest,
-  GenerateCredentialReportResponse,
-  GenerateOrganizationsAccessReportRequest,
-  GenerateOrganizationsAccessReportResponse,
-  GenerateServiceLastAccessedDetailsRequest,
-  GenerateServiceLastAccessedDetailsResponse,
-  GetAccessKeyLastUsedRequest,
-  GetAccessKeyLastUsedResponse,
-  GetAccountAuthorizationDetailsRequest,
-  GetAccountAuthorizationDetailsResponse,
-  GetAccountPasswordPolicyResponse,
-  GetAccountSummaryResponse,
-  GetContextKeysForCustomPolicyRequest,
-  GetContextKeysForPolicyResponse,
-  GetContextKeysForPrincipalPolicyRequest,
-  GetCredentialReportResponse,
-  GetGroupPolicyRequest,
-  GetGroupPolicyResponse,
-  GetGroupRequest,
-  GetGroupResponse,
-  GetInstanceProfileRequest,
-  GetInstanceProfileResponse,
-  GetLoginProfileRequest,
-  GetLoginProfileResponse,
-  GetOpenIDConnectProviderRequest,
-  GetOpenIDConnectProviderResponse,
-  GetOrganizationsAccessReportRequest,
-  GetOrganizationsAccessReportResponse,
-  GetPolicyRequest,
-  GetPolicyResponse,
-  GetPolicyVersionRequest,
-  GetPolicyVersionResponse,
-  GetRolePolicyRequest,
-  GetRolePolicyResponse,
-  GetRoleRequest,
-  GetRoleResponse,
-  GetSAMLProviderRequest,
-  GetSAMLProviderResponse,
-  GetSSHPublicKeyRequest,
-  GetSSHPublicKeyResponse,
-  GetServerCertificateRequest,
-  GetServerCertificateResponse,
-  GetServiceLastAccessedDetailsRequest,
-  GetServiceLastAccessedDetailsResponse,
-  GetServiceLastAccessedDetailsWithEntitiesRequest,
-  GetServiceLastAccessedDetailsWithEntitiesResponse,
-  GetServiceLinkedRoleDeletionStatusRequest,
-  GetServiceLinkedRoleDeletionStatusResponse,
-  GetUserPolicyRequest,
-  GetUserPolicyResponse,
-  GetUserRequest,
-  GetUserResponse,
-  ListAccessKeysRequest,
-  ListAccessKeysResponse,
-  ListAccountAliasesRequest,
-  ListAccountAliasesResponse,
-  ListAttachedGroupPoliciesRequest,
-  ListAttachedGroupPoliciesResponse,
-  ListAttachedRolePoliciesRequest,
-  ListAttachedRolePoliciesResponse,
-  ListAttachedUserPoliciesRequest,
-  ListAttachedUserPoliciesResponse,
-  ListEntitiesForPolicyRequest,
-  ListEntitiesForPolicyResponse,
-  ListGroupPoliciesRequest,
-  ListGroupPoliciesResponse,
-  ListGroupsForUserRequest,
-  ListGroupsForUserResponse,
-  ListGroupsRequest,
-  ListGroupsResponse,
-  ListInstanceProfilesForRoleRequest,
-  ListInstanceProfilesForRoleResponse,
-  ListInstanceProfilesRequest,
-  ListInstanceProfilesResponse,
-  ListMFADevicesRequest,
-  ListMFADevicesResponse,
-  ListOpenIDConnectProvidersRequest,
-  ListOpenIDConnectProvidersResponse,
-  ListPoliciesGrantingServiceAccessRequest,
-  ListPoliciesGrantingServiceAccessResponse,
-  ListPoliciesRequest,
-  ListPoliciesResponse,
-  ListPolicyVersionsRequest,
-  ListPolicyVersionsResponse,
-  ListRolePoliciesRequest,
-  ListRolePoliciesResponse,
-  ListRoleTagsRequest,
-  ListRoleTagsResponse,
-  ListRolesRequest,
-  ListRolesResponse,
-  ListSAMLProvidersRequest,
-  ListSAMLProvidersResponse,
-  ListSSHPublicKeysRequest,
-  ListSSHPublicKeysResponse,
-  ListServerCertificatesRequest,
-  ListServerCertificatesResponse,
-  ListServiceSpecificCredentialsRequest,
-  ListServiceSpecificCredentialsResponse,
-  ListSigningCertificatesRequest,
-  ListSigningCertificatesResponse,
-  ListUserPoliciesRequest,
-  ListUserPoliciesResponse,
-  ListUserTagsRequest,
-  ListUserTagsResponse,
-  ListUsersRequest,
-  ListUsersResponse,
-  ListVirtualMFADevicesRequest,
-  ListVirtualMFADevicesResponse,
-  PutGroupPolicyRequest,
-  PutRolePermissionsBoundaryRequest,
-  PutRolePolicyRequest,
-  PutUserPermissionsBoundaryRequest,
-  PutUserPolicyRequest,
-  RemoveClientIDFromOpenIDConnectProviderRequest,
-  RemoveRoleFromInstanceProfileRequest,
-  RemoveUserFromGroupRequest,
-  ResetServiceSpecificCredentialRequest,
-  ResetServiceSpecificCredentialResponse,
-  ResyncMFADeviceRequest,
-  SetDefaultPolicyVersionRequest,
-  SetSecurityTokenServicePreferencesRequest,
-  SimulateCustomPolicyRequest,
-  SimulatePolicyResponse,
-  SimulatePrincipalPolicyRequest,
-  TagRoleRequest,
-  TagUserRequest,
-  UntagRoleRequest,
-  UntagUserRequest,
-  UpdateAccessKeyRequest,
-  UpdateAccountPasswordPolicyRequest,
-  UpdateAssumeRolePolicyRequest,
-  UpdateGroupRequest,
-  UpdateLoginProfileRequest,
-  UpdateOpenIDConnectProviderThumbprintRequest,
-  UpdateRoleDescriptionRequest,
-  UpdateRoleDescriptionResponse,
-  UpdateRoleRequest,
-  UpdateRoleResponse,
-  UpdateSAMLProviderRequest,
-  UpdateSAMLProviderResponse,
-  UpdateSSHPublicKeyRequest,
-  UpdateServerCertificateRequest,
-  UpdateServiceSpecificCredentialRequest,
-  UpdateSigningCertificateRequest,
-  UpdateUserRequest,
-  UploadSSHPublicKeyRequest,
-  UploadSSHPublicKeyResponse,
-  UploadServerCertificateRequest,
-  UploadServerCertificateResponse,
-  UploadSigningCertificateRequest,
-  UploadSigningCertificateResponse
-} from "./models/index";
+  AddClientIDToOpenIDConnectProviderCommandInput,
+  AddClientIDToOpenIDConnectProviderCommandOutput
+} from "./commands/AddClientIDToOpenIDConnectProviderCommand";
+import {
+  AddRoleToInstanceProfileCommandInput,
+  AddRoleToInstanceProfileCommandOutput
+} from "./commands/AddRoleToInstanceProfileCommand";
+import {
+  AddUserToGroupCommandInput,
+  AddUserToGroupCommandOutput
+} from "./commands/AddUserToGroupCommand";
+import {
+  AttachGroupPolicyCommandInput,
+  AttachGroupPolicyCommandOutput
+} from "./commands/AttachGroupPolicyCommand";
+import {
+  AttachRolePolicyCommandInput,
+  AttachRolePolicyCommandOutput
+} from "./commands/AttachRolePolicyCommand";
+import {
+  AttachUserPolicyCommandInput,
+  AttachUserPolicyCommandOutput
+} from "./commands/AttachUserPolicyCommand";
+import {
+  ChangePasswordCommandInput,
+  ChangePasswordCommandOutput
+} from "./commands/ChangePasswordCommand";
+import {
+  CreateAccessKeyCommandInput,
+  CreateAccessKeyCommandOutput
+} from "./commands/CreateAccessKeyCommand";
+import {
+  CreateAccountAliasCommandInput,
+  CreateAccountAliasCommandOutput
+} from "./commands/CreateAccountAliasCommand";
+import {
+  CreateGroupCommandInput,
+  CreateGroupCommandOutput
+} from "./commands/CreateGroupCommand";
+import {
+  CreateInstanceProfileCommandInput,
+  CreateInstanceProfileCommandOutput
+} from "./commands/CreateInstanceProfileCommand";
+import {
+  CreateLoginProfileCommandInput,
+  CreateLoginProfileCommandOutput
+} from "./commands/CreateLoginProfileCommand";
+import {
+  CreateOpenIDConnectProviderCommandInput,
+  CreateOpenIDConnectProviderCommandOutput
+} from "./commands/CreateOpenIDConnectProviderCommand";
+import {
+  CreatePolicyCommandInput,
+  CreatePolicyCommandOutput
+} from "./commands/CreatePolicyCommand";
+import {
+  CreatePolicyVersionCommandInput,
+  CreatePolicyVersionCommandOutput
+} from "./commands/CreatePolicyVersionCommand";
+import {
+  CreateRoleCommandInput,
+  CreateRoleCommandOutput
+} from "./commands/CreateRoleCommand";
+import {
+  CreateSAMLProviderCommandInput,
+  CreateSAMLProviderCommandOutput
+} from "./commands/CreateSAMLProviderCommand";
+import {
+  CreateServiceLinkedRoleCommandInput,
+  CreateServiceLinkedRoleCommandOutput
+} from "./commands/CreateServiceLinkedRoleCommand";
+import {
+  CreateServiceSpecificCredentialCommandInput,
+  CreateServiceSpecificCredentialCommandOutput
+} from "./commands/CreateServiceSpecificCredentialCommand";
+import {
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
+import {
+  CreateVirtualMFADeviceCommandInput,
+  CreateVirtualMFADeviceCommandOutput
+} from "./commands/CreateVirtualMFADeviceCommand";
+import {
+  DeactivateMFADeviceCommandInput,
+  DeactivateMFADeviceCommandOutput
+} from "./commands/DeactivateMFADeviceCommand";
+import {
+  DeleteAccessKeyCommandInput,
+  DeleteAccessKeyCommandOutput
+} from "./commands/DeleteAccessKeyCommand";
+import {
+  DeleteAccountAliasCommandInput,
+  DeleteAccountAliasCommandOutput
+} from "./commands/DeleteAccountAliasCommand";
+import {
+  DeleteAccountPasswordPolicyCommandInput,
+  DeleteAccountPasswordPolicyCommandOutput
+} from "./commands/DeleteAccountPasswordPolicyCommand";
+import {
+  DeleteGroupCommandInput,
+  DeleteGroupCommandOutput
+} from "./commands/DeleteGroupCommand";
+import {
+  DeleteGroupPolicyCommandInput,
+  DeleteGroupPolicyCommandOutput
+} from "./commands/DeleteGroupPolicyCommand";
+import {
+  DeleteInstanceProfileCommandInput,
+  DeleteInstanceProfileCommandOutput
+} from "./commands/DeleteInstanceProfileCommand";
+import {
+  DeleteLoginProfileCommandInput,
+  DeleteLoginProfileCommandOutput
+} from "./commands/DeleteLoginProfileCommand";
+import {
+  DeleteOpenIDConnectProviderCommandInput,
+  DeleteOpenIDConnectProviderCommandOutput
+} from "./commands/DeleteOpenIDConnectProviderCommand";
+import {
+  DeletePolicyCommandInput,
+  DeletePolicyCommandOutput
+} from "./commands/DeletePolicyCommand";
+import {
+  DeletePolicyVersionCommandInput,
+  DeletePolicyVersionCommandOutput
+} from "./commands/DeletePolicyVersionCommand";
+import {
+  DeleteRoleCommandInput,
+  DeleteRoleCommandOutput
+} from "./commands/DeleteRoleCommand";
+import {
+  DeleteRolePermissionsBoundaryCommandInput,
+  DeleteRolePermissionsBoundaryCommandOutput
+} from "./commands/DeleteRolePermissionsBoundaryCommand";
+import {
+  DeleteRolePolicyCommandInput,
+  DeleteRolePolicyCommandOutput
+} from "./commands/DeleteRolePolicyCommand";
+import {
+  DeleteSAMLProviderCommandInput,
+  DeleteSAMLProviderCommandOutput
+} from "./commands/DeleteSAMLProviderCommand";
+import {
+  DeleteSSHPublicKeyCommandInput,
+  DeleteSSHPublicKeyCommandOutput
+} from "./commands/DeleteSSHPublicKeyCommand";
+import {
+  DeleteServerCertificateCommandInput,
+  DeleteServerCertificateCommandOutput
+} from "./commands/DeleteServerCertificateCommand";
+import {
+  DeleteServiceLinkedRoleCommandInput,
+  DeleteServiceLinkedRoleCommandOutput
+} from "./commands/DeleteServiceLinkedRoleCommand";
+import {
+  DeleteServiceSpecificCredentialCommandInput,
+  DeleteServiceSpecificCredentialCommandOutput
+} from "./commands/DeleteServiceSpecificCredentialCommand";
+import {
+  DeleteSigningCertificateCommandInput,
+  DeleteSigningCertificateCommandOutput
+} from "./commands/DeleteSigningCertificateCommand";
+import {
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput
+} from "./commands/DeleteUserCommand";
+import {
+  DeleteUserPermissionsBoundaryCommandInput,
+  DeleteUserPermissionsBoundaryCommandOutput
+} from "./commands/DeleteUserPermissionsBoundaryCommand";
+import {
+  DeleteUserPolicyCommandInput,
+  DeleteUserPolicyCommandOutput
+} from "./commands/DeleteUserPolicyCommand";
+import {
+  DeleteVirtualMFADeviceCommandInput,
+  DeleteVirtualMFADeviceCommandOutput
+} from "./commands/DeleteVirtualMFADeviceCommand";
+import {
+  DetachGroupPolicyCommandInput,
+  DetachGroupPolicyCommandOutput
+} from "./commands/DetachGroupPolicyCommand";
+import {
+  DetachRolePolicyCommandInput,
+  DetachRolePolicyCommandOutput
+} from "./commands/DetachRolePolicyCommand";
+import {
+  DetachUserPolicyCommandInput,
+  DetachUserPolicyCommandOutput
+} from "./commands/DetachUserPolicyCommand";
+import {
+  EnableMFADeviceCommandInput,
+  EnableMFADeviceCommandOutput
+} from "./commands/EnableMFADeviceCommand";
+import {
+  GenerateCredentialReportCommandInput,
+  GenerateCredentialReportCommandOutput
+} from "./commands/GenerateCredentialReportCommand";
+import {
+  GenerateOrganizationsAccessReportCommandInput,
+  GenerateOrganizationsAccessReportCommandOutput
+} from "./commands/GenerateOrganizationsAccessReportCommand";
+import {
+  GenerateServiceLastAccessedDetailsCommandInput,
+  GenerateServiceLastAccessedDetailsCommandOutput
+} from "./commands/GenerateServiceLastAccessedDetailsCommand";
+import {
+  GetAccessKeyLastUsedCommandInput,
+  GetAccessKeyLastUsedCommandOutput
+} from "./commands/GetAccessKeyLastUsedCommand";
+import {
+  GetAccountAuthorizationDetailsCommandInput,
+  GetAccountAuthorizationDetailsCommandOutput
+} from "./commands/GetAccountAuthorizationDetailsCommand";
+import {
+  GetAccountPasswordPolicyCommandInput,
+  GetAccountPasswordPolicyCommandOutput
+} from "./commands/GetAccountPasswordPolicyCommand";
+import {
+  GetAccountSummaryCommandInput,
+  GetAccountSummaryCommandOutput
+} from "./commands/GetAccountSummaryCommand";
+import {
+  GetContextKeysForCustomPolicyCommandInput,
+  GetContextKeysForCustomPolicyCommandOutput
+} from "./commands/GetContextKeysForCustomPolicyCommand";
+import {
+  GetContextKeysForPrincipalPolicyCommandInput,
+  GetContextKeysForPrincipalPolicyCommandOutput
+} from "./commands/GetContextKeysForPrincipalPolicyCommand";
+import {
+  GetCredentialReportCommandInput,
+  GetCredentialReportCommandOutput
+} from "./commands/GetCredentialReportCommand";
+import {
+  GetGroupCommandInput,
+  GetGroupCommandOutput
+} from "./commands/GetGroupCommand";
+import {
+  GetGroupPolicyCommandInput,
+  GetGroupPolicyCommandOutput
+} from "./commands/GetGroupPolicyCommand";
+import {
+  GetInstanceProfileCommandInput,
+  GetInstanceProfileCommandOutput
+} from "./commands/GetInstanceProfileCommand";
+import {
+  GetLoginProfileCommandInput,
+  GetLoginProfileCommandOutput
+} from "./commands/GetLoginProfileCommand";
+import {
+  GetOpenIDConnectProviderCommandInput,
+  GetOpenIDConnectProviderCommandOutput
+} from "./commands/GetOpenIDConnectProviderCommand";
+import {
+  GetOrganizationsAccessReportCommandInput,
+  GetOrganizationsAccessReportCommandOutput
+} from "./commands/GetOrganizationsAccessReportCommand";
+import {
+  GetPolicyCommandInput,
+  GetPolicyCommandOutput
+} from "./commands/GetPolicyCommand";
+import {
+  GetPolicyVersionCommandInput,
+  GetPolicyVersionCommandOutput
+} from "./commands/GetPolicyVersionCommand";
+import {
+  GetRoleCommandInput,
+  GetRoleCommandOutput
+} from "./commands/GetRoleCommand";
+import {
+  GetRolePolicyCommandInput,
+  GetRolePolicyCommandOutput
+} from "./commands/GetRolePolicyCommand";
+import {
+  GetSAMLProviderCommandInput,
+  GetSAMLProviderCommandOutput
+} from "./commands/GetSAMLProviderCommand";
+import {
+  GetSSHPublicKeyCommandInput,
+  GetSSHPublicKeyCommandOutput
+} from "./commands/GetSSHPublicKeyCommand";
+import {
+  GetServerCertificateCommandInput,
+  GetServerCertificateCommandOutput
+} from "./commands/GetServerCertificateCommand";
+import {
+  GetServiceLastAccessedDetailsCommandInput,
+  GetServiceLastAccessedDetailsCommandOutput
+} from "./commands/GetServiceLastAccessedDetailsCommand";
+import {
+  GetServiceLastAccessedDetailsWithEntitiesCommandInput,
+  GetServiceLastAccessedDetailsWithEntitiesCommandOutput
+} from "./commands/GetServiceLastAccessedDetailsWithEntitiesCommand";
+import {
+  GetServiceLinkedRoleDeletionStatusCommandInput,
+  GetServiceLinkedRoleDeletionStatusCommandOutput
+} from "./commands/GetServiceLinkedRoleDeletionStatusCommand";
+import {
+  GetUserCommandInput,
+  GetUserCommandOutput
+} from "./commands/GetUserCommand";
+import {
+  GetUserPolicyCommandInput,
+  GetUserPolicyCommandOutput
+} from "./commands/GetUserPolicyCommand";
+import {
+  ListAccessKeysCommandInput,
+  ListAccessKeysCommandOutput
+} from "./commands/ListAccessKeysCommand";
+import {
+  ListAccountAliasesCommandInput,
+  ListAccountAliasesCommandOutput
+} from "./commands/ListAccountAliasesCommand";
+import {
+  ListAttachedGroupPoliciesCommandInput,
+  ListAttachedGroupPoliciesCommandOutput
+} from "./commands/ListAttachedGroupPoliciesCommand";
+import {
+  ListAttachedRolePoliciesCommandInput,
+  ListAttachedRolePoliciesCommandOutput
+} from "./commands/ListAttachedRolePoliciesCommand";
+import {
+  ListAttachedUserPoliciesCommandInput,
+  ListAttachedUserPoliciesCommandOutput
+} from "./commands/ListAttachedUserPoliciesCommand";
+import {
+  ListEntitiesForPolicyCommandInput,
+  ListEntitiesForPolicyCommandOutput
+} from "./commands/ListEntitiesForPolicyCommand";
+import {
+  ListGroupPoliciesCommandInput,
+  ListGroupPoliciesCommandOutput
+} from "./commands/ListGroupPoliciesCommand";
+import {
+  ListGroupsCommandInput,
+  ListGroupsCommandOutput
+} from "./commands/ListGroupsCommand";
+import {
+  ListGroupsForUserCommandInput,
+  ListGroupsForUserCommandOutput
+} from "./commands/ListGroupsForUserCommand";
+import {
+  ListInstanceProfilesCommandInput,
+  ListInstanceProfilesCommandOutput
+} from "./commands/ListInstanceProfilesCommand";
+import {
+  ListInstanceProfilesForRoleCommandInput,
+  ListInstanceProfilesForRoleCommandOutput
+} from "./commands/ListInstanceProfilesForRoleCommand";
+import {
+  ListMFADevicesCommandInput,
+  ListMFADevicesCommandOutput
+} from "./commands/ListMFADevicesCommand";
+import {
+  ListOpenIDConnectProvidersCommandInput,
+  ListOpenIDConnectProvidersCommandOutput
+} from "./commands/ListOpenIDConnectProvidersCommand";
+import {
+  ListPoliciesCommandInput,
+  ListPoliciesCommandOutput
+} from "./commands/ListPoliciesCommand";
+import {
+  ListPoliciesGrantingServiceAccessCommandInput,
+  ListPoliciesGrantingServiceAccessCommandOutput
+} from "./commands/ListPoliciesGrantingServiceAccessCommand";
+import {
+  ListPolicyVersionsCommandInput,
+  ListPolicyVersionsCommandOutput
+} from "./commands/ListPolicyVersionsCommand";
+import {
+  ListRolePoliciesCommandInput,
+  ListRolePoliciesCommandOutput
+} from "./commands/ListRolePoliciesCommand";
+import {
+  ListRoleTagsCommandInput,
+  ListRoleTagsCommandOutput
+} from "./commands/ListRoleTagsCommand";
+import {
+  ListRolesCommandInput,
+  ListRolesCommandOutput
+} from "./commands/ListRolesCommand";
+import {
+  ListSAMLProvidersCommandInput,
+  ListSAMLProvidersCommandOutput
+} from "./commands/ListSAMLProvidersCommand";
+import {
+  ListSSHPublicKeysCommandInput,
+  ListSSHPublicKeysCommandOutput
+} from "./commands/ListSSHPublicKeysCommand";
+import {
+  ListServerCertificatesCommandInput,
+  ListServerCertificatesCommandOutput
+} from "./commands/ListServerCertificatesCommand";
+import {
+  ListServiceSpecificCredentialsCommandInput,
+  ListServiceSpecificCredentialsCommandOutput
+} from "./commands/ListServiceSpecificCredentialsCommand";
+import {
+  ListSigningCertificatesCommandInput,
+  ListSigningCertificatesCommandOutput
+} from "./commands/ListSigningCertificatesCommand";
+import {
+  ListUserPoliciesCommandInput,
+  ListUserPoliciesCommandOutput
+} from "./commands/ListUserPoliciesCommand";
+import {
+  ListUserTagsCommandInput,
+  ListUserTagsCommandOutput
+} from "./commands/ListUserTagsCommand";
+import {
+  ListUsersCommandInput,
+  ListUsersCommandOutput
+} from "./commands/ListUsersCommand";
+import {
+  ListVirtualMFADevicesCommandInput,
+  ListVirtualMFADevicesCommandOutput
+} from "./commands/ListVirtualMFADevicesCommand";
+import {
+  PutGroupPolicyCommandInput,
+  PutGroupPolicyCommandOutput
+} from "./commands/PutGroupPolicyCommand";
+import {
+  PutRolePermissionsBoundaryCommandInput,
+  PutRolePermissionsBoundaryCommandOutput
+} from "./commands/PutRolePermissionsBoundaryCommand";
+import {
+  PutRolePolicyCommandInput,
+  PutRolePolicyCommandOutput
+} from "./commands/PutRolePolicyCommand";
+import {
+  PutUserPermissionsBoundaryCommandInput,
+  PutUserPermissionsBoundaryCommandOutput
+} from "./commands/PutUserPermissionsBoundaryCommand";
+import {
+  PutUserPolicyCommandInput,
+  PutUserPolicyCommandOutput
+} from "./commands/PutUserPolicyCommand";
+import {
+  RemoveClientIDFromOpenIDConnectProviderCommandInput,
+  RemoveClientIDFromOpenIDConnectProviderCommandOutput
+} from "./commands/RemoveClientIDFromOpenIDConnectProviderCommand";
+import {
+  RemoveRoleFromInstanceProfileCommandInput,
+  RemoveRoleFromInstanceProfileCommandOutput
+} from "./commands/RemoveRoleFromInstanceProfileCommand";
+import {
+  RemoveUserFromGroupCommandInput,
+  RemoveUserFromGroupCommandOutput
+} from "./commands/RemoveUserFromGroupCommand";
+import {
+  ResetServiceSpecificCredentialCommandInput,
+  ResetServiceSpecificCredentialCommandOutput
+} from "./commands/ResetServiceSpecificCredentialCommand";
+import {
+  ResyncMFADeviceCommandInput,
+  ResyncMFADeviceCommandOutput
+} from "./commands/ResyncMFADeviceCommand";
+import {
+  SetDefaultPolicyVersionCommandInput,
+  SetDefaultPolicyVersionCommandOutput
+} from "./commands/SetDefaultPolicyVersionCommand";
+import {
+  SetSecurityTokenServicePreferencesCommandInput,
+  SetSecurityTokenServicePreferencesCommandOutput
+} from "./commands/SetSecurityTokenServicePreferencesCommand";
+import {
+  SimulateCustomPolicyCommandInput,
+  SimulateCustomPolicyCommandOutput
+} from "./commands/SimulateCustomPolicyCommand";
+import {
+  SimulatePrincipalPolicyCommandInput,
+  SimulatePrincipalPolicyCommandOutput
+} from "./commands/SimulatePrincipalPolicyCommand";
+import {
+  TagRoleCommandInput,
+  TagRoleCommandOutput
+} from "./commands/TagRoleCommand";
+import {
+  TagUserCommandInput,
+  TagUserCommandOutput
+} from "./commands/TagUserCommand";
+import {
+  UntagRoleCommandInput,
+  UntagRoleCommandOutput
+} from "./commands/UntagRoleCommand";
+import {
+  UntagUserCommandInput,
+  UntagUserCommandOutput
+} from "./commands/UntagUserCommand";
+import {
+  UpdateAccessKeyCommandInput,
+  UpdateAccessKeyCommandOutput
+} from "./commands/UpdateAccessKeyCommand";
+import {
+  UpdateAccountPasswordPolicyCommandInput,
+  UpdateAccountPasswordPolicyCommandOutput
+} from "./commands/UpdateAccountPasswordPolicyCommand";
+import {
+  UpdateAssumeRolePolicyCommandInput,
+  UpdateAssumeRolePolicyCommandOutput
+} from "./commands/UpdateAssumeRolePolicyCommand";
+import {
+  UpdateGroupCommandInput,
+  UpdateGroupCommandOutput
+} from "./commands/UpdateGroupCommand";
+import {
+  UpdateLoginProfileCommandInput,
+  UpdateLoginProfileCommandOutput
+} from "./commands/UpdateLoginProfileCommand";
+import {
+  UpdateOpenIDConnectProviderThumbprintCommandInput,
+  UpdateOpenIDConnectProviderThumbprintCommandOutput
+} from "./commands/UpdateOpenIDConnectProviderThumbprintCommand";
+import {
+  UpdateRoleCommandInput,
+  UpdateRoleCommandOutput
+} from "./commands/UpdateRoleCommand";
+import {
+  UpdateRoleDescriptionCommandInput,
+  UpdateRoleDescriptionCommandOutput
+} from "./commands/UpdateRoleDescriptionCommand";
+import {
+  UpdateSAMLProviderCommandInput,
+  UpdateSAMLProviderCommandOutput
+} from "./commands/UpdateSAMLProviderCommand";
+import {
+  UpdateSSHPublicKeyCommandInput,
+  UpdateSSHPublicKeyCommandOutput
+} from "./commands/UpdateSSHPublicKeyCommand";
+import {
+  UpdateServerCertificateCommandInput,
+  UpdateServerCertificateCommandOutput
+} from "./commands/UpdateServerCertificateCommand";
+import {
+  UpdateServiceSpecificCredentialCommandInput,
+  UpdateServiceSpecificCredentialCommandOutput
+} from "./commands/UpdateServiceSpecificCredentialCommand";
+import {
+  UpdateSigningCertificateCommandInput,
+  UpdateSigningCertificateCommandOutput
+} from "./commands/UpdateSigningCertificateCommand";
+import {
+  UpdateUserCommandInput,
+  UpdateUserCommandOutput
+} from "./commands/UpdateUserCommand";
+import {
+  UploadSSHPublicKeyCommandInput,
+  UploadSSHPublicKeyCommandOutput
+} from "./commands/UploadSSHPublicKeyCommand";
+import {
+  UploadServerCertificateCommandInput,
+  UploadServerCertificateCommandOutput
+} from "./commands/UploadServerCertificateCommand";
+import {
+  UploadSigningCertificateCommandInput,
+  UploadSigningCertificateCommandOutput
+} from "./commands/UploadSigningCertificateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -259,231 +605,294 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AddClientIDToOpenIDConnectProviderRequest
-  | AddRoleToInstanceProfileRequest
-  | AddUserToGroupRequest
-  | AttachGroupPolicyRequest
-  | AttachRolePolicyRequest
-  | AttachUserPolicyRequest
-  | ChangePasswordRequest
-  | CreateAccessKeyRequest
-  | CreateAccountAliasRequest
-  | CreateGroupRequest
-  | CreateInstanceProfileRequest
-  | CreateLoginProfileRequest
-  | CreateOpenIDConnectProviderRequest
-  | CreatePolicyRequest
-  | CreatePolicyVersionRequest
-  | CreateRoleRequest
-  | CreateSAMLProviderRequest
-  | CreateServiceLinkedRoleRequest
-  | CreateServiceSpecificCredentialRequest
-  | CreateUserRequest
-  | CreateVirtualMFADeviceRequest
-  | DeactivateMFADeviceRequest
-  | DeleteAccessKeyRequest
-  | DeleteAccountAliasRequest
-  | DeleteGroupPolicyRequest
-  | DeleteGroupRequest
-  | DeleteInstanceProfileRequest
-  | DeleteLoginProfileRequest
-  | DeleteOpenIDConnectProviderRequest
-  | DeletePolicyRequest
-  | DeletePolicyVersionRequest
-  | DeleteRolePermissionsBoundaryRequest
-  | DeleteRolePolicyRequest
-  | DeleteRoleRequest
-  | DeleteSAMLProviderRequest
-  | DeleteSSHPublicKeyRequest
-  | DeleteServerCertificateRequest
-  | DeleteServiceLinkedRoleRequest
-  | DeleteServiceSpecificCredentialRequest
-  | DeleteSigningCertificateRequest
-  | DeleteUserPermissionsBoundaryRequest
-  | DeleteUserPolicyRequest
-  | DeleteUserRequest
-  | DeleteVirtualMFADeviceRequest
-  | DetachGroupPolicyRequest
-  | DetachRolePolicyRequest
-  | DetachUserPolicyRequest
-  | EnableMFADeviceRequest
-  | GenerateOrganizationsAccessReportRequest
-  | GenerateServiceLastAccessedDetailsRequest
-  | GetAccessKeyLastUsedRequest
-  | GetAccountAuthorizationDetailsRequest
-  | GetContextKeysForCustomPolicyRequest
-  | GetContextKeysForPrincipalPolicyRequest
-  | GetGroupPolicyRequest
-  | GetGroupRequest
-  | GetInstanceProfileRequest
-  | GetLoginProfileRequest
-  | GetOpenIDConnectProviderRequest
-  | GetOrganizationsAccessReportRequest
-  | GetPolicyRequest
-  | GetPolicyVersionRequest
-  | GetRolePolicyRequest
-  | GetRoleRequest
-  | GetSAMLProviderRequest
-  | GetSSHPublicKeyRequest
-  | GetServerCertificateRequest
-  | GetServiceLastAccessedDetailsRequest
-  | GetServiceLastAccessedDetailsWithEntitiesRequest
-  | GetServiceLinkedRoleDeletionStatusRequest
-  | GetUserPolicyRequest
-  | GetUserRequest
-  | ListAccessKeysRequest
-  | ListAccountAliasesRequest
-  | ListAttachedGroupPoliciesRequest
-  | ListAttachedRolePoliciesRequest
-  | ListAttachedUserPoliciesRequest
-  | ListEntitiesForPolicyRequest
-  | ListGroupPoliciesRequest
-  | ListGroupsForUserRequest
-  | ListGroupsRequest
-  | ListInstanceProfilesForRoleRequest
-  | ListInstanceProfilesRequest
-  | ListMFADevicesRequest
-  | ListOpenIDConnectProvidersRequest
-  | ListPoliciesGrantingServiceAccessRequest
-  | ListPoliciesRequest
-  | ListPolicyVersionsRequest
-  | ListRolePoliciesRequest
-  | ListRoleTagsRequest
-  | ListRolesRequest
-  | ListSAMLProvidersRequest
-  | ListSSHPublicKeysRequest
-  | ListServerCertificatesRequest
-  | ListServiceSpecificCredentialsRequest
-  | ListSigningCertificatesRequest
-  | ListUserPoliciesRequest
-  | ListUserTagsRequest
-  | ListUsersRequest
-  | ListVirtualMFADevicesRequest
-  | PutGroupPolicyRequest
-  | PutRolePermissionsBoundaryRequest
-  | PutRolePolicyRequest
-  | PutUserPermissionsBoundaryRequest
-  | PutUserPolicyRequest
-  | RemoveClientIDFromOpenIDConnectProviderRequest
-  | RemoveRoleFromInstanceProfileRequest
-  | RemoveUserFromGroupRequest
-  | ResetServiceSpecificCredentialRequest
-  | ResyncMFADeviceRequest
-  | SetDefaultPolicyVersionRequest
-  | SetSecurityTokenServicePreferencesRequest
-  | SimulateCustomPolicyRequest
-  | SimulatePrincipalPolicyRequest
-  | TagRoleRequest
-  | TagUserRequest
-  | UntagRoleRequest
-  | UntagUserRequest
-  | UpdateAccessKeyRequest
-  | UpdateAccountPasswordPolicyRequest
-  | UpdateAssumeRolePolicyRequest
-  | UpdateGroupRequest
-  | UpdateLoginProfileRequest
-  | UpdateOpenIDConnectProviderThumbprintRequest
-  | UpdateRoleDescriptionRequest
-  | UpdateRoleRequest
-  | UpdateSAMLProviderRequest
-  | UpdateSSHPublicKeyRequest
-  | UpdateServerCertificateRequest
-  | UpdateServiceSpecificCredentialRequest
-  | UpdateSigningCertificateRequest
-  | UpdateUserRequest
-  | UploadSSHPublicKeyRequest
-  | UploadServerCertificateRequest
-  | UploadSigningCertificateRequest;
+  | AddClientIDToOpenIDConnectProviderCommandInput
+  | AddRoleToInstanceProfileCommandInput
+  | AddUserToGroupCommandInput
+  | AttachGroupPolicyCommandInput
+  | AttachRolePolicyCommandInput
+  | AttachUserPolicyCommandInput
+  | ChangePasswordCommandInput
+  | CreateAccessKeyCommandInput
+  | CreateAccountAliasCommandInput
+  | CreateGroupCommandInput
+  | CreateInstanceProfileCommandInput
+  | CreateLoginProfileCommandInput
+  | CreateOpenIDConnectProviderCommandInput
+  | CreatePolicyCommandInput
+  | CreatePolicyVersionCommandInput
+  | CreateRoleCommandInput
+  | CreateSAMLProviderCommandInput
+  | CreateServiceLinkedRoleCommandInput
+  | CreateServiceSpecificCredentialCommandInput
+  | CreateUserCommandInput
+  | CreateVirtualMFADeviceCommandInput
+  | DeactivateMFADeviceCommandInput
+  | DeleteAccessKeyCommandInput
+  | DeleteAccountAliasCommandInput
+  | DeleteAccountPasswordPolicyCommandInput
+  | DeleteGroupCommandInput
+  | DeleteGroupPolicyCommandInput
+  | DeleteInstanceProfileCommandInput
+  | DeleteLoginProfileCommandInput
+  | DeleteOpenIDConnectProviderCommandInput
+  | DeletePolicyCommandInput
+  | DeletePolicyVersionCommandInput
+  | DeleteRoleCommandInput
+  | DeleteRolePermissionsBoundaryCommandInput
+  | DeleteRolePolicyCommandInput
+  | DeleteSAMLProviderCommandInput
+  | DeleteSSHPublicKeyCommandInput
+  | DeleteServerCertificateCommandInput
+  | DeleteServiceLinkedRoleCommandInput
+  | DeleteServiceSpecificCredentialCommandInput
+  | DeleteSigningCertificateCommandInput
+  | DeleteUserCommandInput
+  | DeleteUserPermissionsBoundaryCommandInput
+  | DeleteUserPolicyCommandInput
+  | DeleteVirtualMFADeviceCommandInput
+  | DetachGroupPolicyCommandInput
+  | DetachRolePolicyCommandInput
+  | DetachUserPolicyCommandInput
+  | EnableMFADeviceCommandInput
+  | GenerateCredentialReportCommandInput
+  | GenerateOrganizationsAccessReportCommandInput
+  | GenerateServiceLastAccessedDetailsCommandInput
+  | GetAccessKeyLastUsedCommandInput
+  | GetAccountAuthorizationDetailsCommandInput
+  | GetAccountPasswordPolicyCommandInput
+  | GetAccountSummaryCommandInput
+  | GetContextKeysForCustomPolicyCommandInput
+  | GetContextKeysForPrincipalPolicyCommandInput
+  | GetCredentialReportCommandInput
+  | GetGroupCommandInput
+  | GetGroupPolicyCommandInput
+  | GetInstanceProfileCommandInput
+  | GetLoginProfileCommandInput
+  | GetOpenIDConnectProviderCommandInput
+  | GetOrganizationsAccessReportCommandInput
+  | GetPolicyCommandInput
+  | GetPolicyVersionCommandInput
+  | GetRoleCommandInput
+  | GetRolePolicyCommandInput
+  | GetSAMLProviderCommandInput
+  | GetSSHPublicKeyCommandInput
+  | GetServerCertificateCommandInput
+  | GetServiceLastAccessedDetailsCommandInput
+  | GetServiceLastAccessedDetailsWithEntitiesCommandInput
+  | GetServiceLinkedRoleDeletionStatusCommandInput
+  | GetUserCommandInput
+  | GetUserPolicyCommandInput
+  | ListAccessKeysCommandInput
+  | ListAccountAliasesCommandInput
+  | ListAttachedGroupPoliciesCommandInput
+  | ListAttachedRolePoliciesCommandInput
+  | ListAttachedUserPoliciesCommandInput
+  | ListEntitiesForPolicyCommandInput
+  | ListGroupPoliciesCommandInput
+  | ListGroupsCommandInput
+  | ListGroupsForUserCommandInput
+  | ListInstanceProfilesCommandInput
+  | ListInstanceProfilesForRoleCommandInput
+  | ListMFADevicesCommandInput
+  | ListOpenIDConnectProvidersCommandInput
+  | ListPoliciesCommandInput
+  | ListPoliciesGrantingServiceAccessCommandInput
+  | ListPolicyVersionsCommandInput
+  | ListRolePoliciesCommandInput
+  | ListRoleTagsCommandInput
+  | ListRolesCommandInput
+  | ListSAMLProvidersCommandInput
+  | ListSSHPublicKeysCommandInput
+  | ListServerCertificatesCommandInput
+  | ListServiceSpecificCredentialsCommandInput
+  | ListSigningCertificatesCommandInput
+  | ListUserPoliciesCommandInput
+  | ListUserTagsCommandInput
+  | ListUsersCommandInput
+  | ListVirtualMFADevicesCommandInput
+  | PutGroupPolicyCommandInput
+  | PutRolePermissionsBoundaryCommandInput
+  | PutRolePolicyCommandInput
+  | PutUserPermissionsBoundaryCommandInput
+  | PutUserPolicyCommandInput
+  | RemoveClientIDFromOpenIDConnectProviderCommandInput
+  | RemoveRoleFromInstanceProfileCommandInput
+  | RemoveUserFromGroupCommandInput
+  | ResetServiceSpecificCredentialCommandInput
+  | ResyncMFADeviceCommandInput
+  | SetDefaultPolicyVersionCommandInput
+  | SetSecurityTokenServicePreferencesCommandInput
+  | SimulateCustomPolicyCommandInput
+  | SimulatePrincipalPolicyCommandInput
+  | TagRoleCommandInput
+  | TagUserCommandInput
+  | UntagRoleCommandInput
+  | UntagUserCommandInput
+  | UpdateAccessKeyCommandInput
+  | UpdateAccountPasswordPolicyCommandInput
+  | UpdateAssumeRolePolicyCommandInput
+  | UpdateGroupCommandInput
+  | UpdateLoginProfileCommandInput
+  | UpdateOpenIDConnectProviderThumbprintCommandInput
+  | UpdateRoleCommandInput
+  | UpdateRoleDescriptionCommandInput
+  | UpdateSAMLProviderCommandInput
+  | UpdateSSHPublicKeyCommandInput
+  | UpdateServerCertificateCommandInput
+  | UpdateServiceSpecificCredentialCommandInput
+  | UpdateSigningCertificateCommandInput
+  | UpdateUserCommandInput
+  | UploadSSHPublicKeyCommandInput
+  | UploadServerCertificateCommandInput
+  | UploadSigningCertificateCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateAccessKeyResponse
-  | CreateGroupResponse
-  | CreateInstanceProfileResponse
-  | CreateLoginProfileResponse
-  | CreateOpenIDConnectProviderResponse
-  | CreatePolicyResponse
-  | CreatePolicyVersionResponse
-  | CreateRoleResponse
-  | CreateSAMLProviderResponse
-  | CreateServiceLinkedRoleResponse
-  | CreateServiceSpecificCredentialResponse
-  | CreateUserResponse
-  | CreateVirtualMFADeviceResponse
-  | DeleteServiceLinkedRoleResponse
-  | GenerateCredentialReportResponse
-  | GenerateOrganizationsAccessReportResponse
-  | GenerateServiceLastAccessedDetailsResponse
-  | GetAccessKeyLastUsedResponse
-  | GetAccountAuthorizationDetailsResponse
-  | GetAccountPasswordPolicyResponse
-  | GetAccountSummaryResponse
-  | GetContextKeysForPolicyResponse
-  | GetContextKeysForPolicyResponse
-  | GetCredentialReportResponse
-  | GetGroupPolicyResponse
-  | GetGroupResponse
-  | GetInstanceProfileResponse
-  | GetLoginProfileResponse
-  | GetOpenIDConnectProviderResponse
-  | GetOrganizationsAccessReportResponse
-  | GetPolicyResponse
-  | GetPolicyVersionResponse
-  | GetRolePolicyResponse
-  | GetRoleResponse
-  | GetSAMLProviderResponse
-  | GetSSHPublicKeyResponse
-  | GetServerCertificateResponse
-  | GetServiceLastAccessedDetailsResponse
-  | GetServiceLastAccessedDetailsWithEntitiesResponse
-  | GetServiceLinkedRoleDeletionStatusResponse
-  | GetUserPolicyResponse
-  | GetUserResponse
-  | ListAccessKeysResponse
-  | ListAccountAliasesResponse
-  | ListAttachedGroupPoliciesResponse
-  | ListAttachedRolePoliciesResponse
-  | ListAttachedUserPoliciesResponse
-  | ListEntitiesForPolicyResponse
-  | ListGroupPoliciesResponse
-  | ListGroupsForUserResponse
-  | ListGroupsResponse
-  | ListInstanceProfilesForRoleResponse
-  | ListInstanceProfilesResponse
-  | ListMFADevicesResponse
-  | ListOpenIDConnectProvidersResponse
-  | ListPoliciesGrantingServiceAccessResponse
-  | ListPoliciesResponse
-  | ListPolicyVersionsResponse
-  | ListRolePoliciesResponse
-  | ListRoleTagsResponse
-  | ListRolesResponse
-  | ListSAMLProvidersResponse
-  | ListSSHPublicKeysResponse
-  | ListServerCertificatesResponse
-  | ListServiceSpecificCredentialsResponse
-  | ListSigningCertificatesResponse
-  | ListUserPoliciesResponse
-  | ListUserTagsResponse
-  | ListUsersResponse
-  | ListVirtualMFADevicesResponse
-  | ResetServiceSpecificCredentialResponse
-  | SimulatePolicyResponse
-  | SimulatePolicyResponse
-  | UpdateRoleDescriptionResponse
-  | UpdateRoleResponse
-  | UpdateSAMLProviderResponse
-  | UploadSSHPublicKeyResponse
-  | UploadServerCertificateResponse
-  | UploadSigningCertificateResponse;
+  | AddClientIDToOpenIDConnectProviderCommandOutput
+  | AddRoleToInstanceProfileCommandOutput
+  | AddUserToGroupCommandOutput
+  | AttachGroupPolicyCommandOutput
+  | AttachRolePolicyCommandOutput
+  | AttachUserPolicyCommandOutput
+  | ChangePasswordCommandOutput
+  | CreateAccessKeyCommandOutput
+  | CreateAccountAliasCommandOutput
+  | CreateGroupCommandOutput
+  | CreateInstanceProfileCommandOutput
+  | CreateLoginProfileCommandOutput
+  | CreateOpenIDConnectProviderCommandOutput
+  | CreatePolicyCommandOutput
+  | CreatePolicyVersionCommandOutput
+  | CreateRoleCommandOutput
+  | CreateSAMLProviderCommandOutput
+  | CreateServiceLinkedRoleCommandOutput
+  | CreateServiceSpecificCredentialCommandOutput
+  | CreateUserCommandOutput
+  | CreateVirtualMFADeviceCommandOutput
+  | DeactivateMFADeviceCommandOutput
+  | DeleteAccessKeyCommandOutput
+  | DeleteAccountAliasCommandOutput
+  | DeleteAccountPasswordPolicyCommandOutput
+  | DeleteGroupCommandOutput
+  | DeleteGroupPolicyCommandOutput
+  | DeleteInstanceProfileCommandOutput
+  | DeleteLoginProfileCommandOutput
+  | DeleteOpenIDConnectProviderCommandOutput
+  | DeletePolicyCommandOutput
+  | DeletePolicyVersionCommandOutput
+  | DeleteRoleCommandOutput
+  | DeleteRolePermissionsBoundaryCommandOutput
+  | DeleteRolePolicyCommandOutput
+  | DeleteSAMLProviderCommandOutput
+  | DeleteSSHPublicKeyCommandOutput
+  | DeleteServerCertificateCommandOutput
+  | DeleteServiceLinkedRoleCommandOutput
+  | DeleteServiceSpecificCredentialCommandOutput
+  | DeleteSigningCertificateCommandOutput
+  | DeleteUserCommandOutput
+  | DeleteUserPermissionsBoundaryCommandOutput
+  | DeleteUserPolicyCommandOutput
+  | DeleteVirtualMFADeviceCommandOutput
+  | DetachGroupPolicyCommandOutput
+  | DetachRolePolicyCommandOutput
+  | DetachUserPolicyCommandOutput
+  | EnableMFADeviceCommandOutput
+  | GenerateCredentialReportCommandOutput
+  | GenerateOrganizationsAccessReportCommandOutput
+  | GenerateServiceLastAccessedDetailsCommandOutput
+  | GetAccessKeyLastUsedCommandOutput
+  | GetAccountAuthorizationDetailsCommandOutput
+  | GetAccountPasswordPolicyCommandOutput
+  | GetAccountSummaryCommandOutput
+  | GetContextKeysForCustomPolicyCommandOutput
+  | GetContextKeysForPrincipalPolicyCommandOutput
+  | GetCredentialReportCommandOutput
+  | GetGroupCommandOutput
+  | GetGroupPolicyCommandOutput
+  | GetInstanceProfileCommandOutput
+  | GetLoginProfileCommandOutput
+  | GetOpenIDConnectProviderCommandOutput
+  | GetOrganizationsAccessReportCommandOutput
+  | GetPolicyCommandOutput
+  | GetPolicyVersionCommandOutput
+  | GetRoleCommandOutput
+  | GetRolePolicyCommandOutput
+  | GetSAMLProviderCommandOutput
+  | GetSSHPublicKeyCommandOutput
+  | GetServerCertificateCommandOutput
+  | GetServiceLastAccessedDetailsCommandOutput
+  | GetServiceLastAccessedDetailsWithEntitiesCommandOutput
+  | GetServiceLinkedRoleDeletionStatusCommandOutput
+  | GetUserCommandOutput
+  | GetUserPolicyCommandOutput
+  | ListAccessKeysCommandOutput
+  | ListAccountAliasesCommandOutput
+  | ListAttachedGroupPoliciesCommandOutput
+  | ListAttachedRolePoliciesCommandOutput
+  | ListAttachedUserPoliciesCommandOutput
+  | ListEntitiesForPolicyCommandOutput
+  | ListGroupPoliciesCommandOutput
+  | ListGroupsCommandOutput
+  | ListGroupsForUserCommandOutput
+  | ListInstanceProfilesCommandOutput
+  | ListInstanceProfilesForRoleCommandOutput
+  | ListMFADevicesCommandOutput
+  | ListOpenIDConnectProvidersCommandOutput
+  | ListPoliciesCommandOutput
+  | ListPoliciesGrantingServiceAccessCommandOutput
+  | ListPolicyVersionsCommandOutput
+  | ListRolePoliciesCommandOutput
+  | ListRoleTagsCommandOutput
+  | ListRolesCommandOutput
+  | ListSAMLProvidersCommandOutput
+  | ListSSHPublicKeysCommandOutput
+  | ListServerCertificatesCommandOutput
+  | ListServiceSpecificCredentialsCommandOutput
+  | ListSigningCertificatesCommandOutput
+  | ListUserPoliciesCommandOutput
+  | ListUserTagsCommandOutput
+  | ListUsersCommandOutput
+  | ListVirtualMFADevicesCommandOutput
+  | PutGroupPolicyCommandOutput
+  | PutRolePermissionsBoundaryCommandOutput
+  | PutRolePolicyCommandOutput
+  | PutUserPermissionsBoundaryCommandOutput
+  | PutUserPolicyCommandOutput
+  | RemoveClientIDFromOpenIDConnectProviderCommandOutput
+  | RemoveRoleFromInstanceProfileCommandOutput
+  | RemoveUserFromGroupCommandOutput
+  | ResetServiceSpecificCredentialCommandOutput
+  | ResyncMFADeviceCommandOutput
+  | SetDefaultPolicyVersionCommandOutput
+  | SetSecurityTokenServicePreferencesCommandOutput
+  | SimulateCustomPolicyCommandOutput
+  | SimulatePrincipalPolicyCommandOutput
+  | TagRoleCommandOutput
+  | TagUserCommandOutput
+  | UntagRoleCommandOutput
+  | UntagUserCommandOutput
+  | UpdateAccessKeyCommandOutput
+  | UpdateAccountPasswordPolicyCommandOutput
+  | UpdateAssumeRolePolicyCommandOutput
+  | UpdateGroupCommandOutput
+  | UpdateLoginProfileCommandOutput
+  | UpdateOpenIDConnectProviderThumbprintCommandOutput
+  | UpdateRoleCommandOutput
+  | UpdateRoleDescriptionCommandOutput
+  | UpdateSAMLProviderCommandOutput
+  | UpdateSSHPublicKeyCommandOutput
+  | UpdateServerCertificateCommandOutput
+  | UpdateServiceSpecificCredentialCommandOutput
+  | UpdateSigningCertificateCommandOutput
+  | UpdateUserCommandOutput
+  | UploadSSHPublicKeyCommandOutput
+  | UploadServerCertificateCommandOutput
+  | UploadSigningCertificateCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

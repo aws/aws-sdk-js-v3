@@ -86,38 +86,53 @@ async function deserializeAws_json1_0SendCommandCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.qldb.session#BadRequestException":
-      response = await deserializeAws_json1_0BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0BadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSessionException":
     case "com.amazonaws.qldb.session#InvalidSessionException":
-      response = await deserializeAws_json1_0InvalidSessionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidSessionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.qldb.session#LimitExceededException":
-      response = await deserializeAws_json1_0LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OccConflictException":
     case "com.amazonaws.qldb.session#OccConflictException":
-      response = await deserializeAws_json1_0OccConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OccConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateExceededException":
     case "com.amazonaws.qldb.session#RateExceededException":
-      response = await deserializeAws_json1_0RateExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0RateExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

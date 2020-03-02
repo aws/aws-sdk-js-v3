@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateUserDefinedFunctionCommandInput = UpdateUserDefinedFunctionRequest;
-export type UpdateUserDefinedFunctionCommandOutput = UpdateUserDefinedFunctionResponse;
+export type UpdateUserDefinedFunctionCommandOutput = UpdateUserDefinedFunctionResponse &
+  __MetadataBearer;
 
 export class UpdateUserDefinedFunctionCommand extends $Command<
   UpdateUserDefinedFunctionCommandInput,

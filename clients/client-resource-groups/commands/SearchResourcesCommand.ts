@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchResourcesCommandInput = SearchResourcesInput;
-export type SearchResourcesCommandOutput = SearchResourcesOutput;
+export type SearchResourcesCommandOutput = SearchResourcesOutput &
+  __MetadataBearer;
 
 export class SearchResourcesCommand extends $Command<
   SearchResourcesCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSitesCommandInput = ListSitesInput;
-export type ListSitesCommandOutput = ListSitesOutput;
+export type ListSitesCommandOutput = ListSitesOutput & __MetadataBearer;
 
 export class ListSitesCommand extends $Command<
   ListSitesCommandInput,

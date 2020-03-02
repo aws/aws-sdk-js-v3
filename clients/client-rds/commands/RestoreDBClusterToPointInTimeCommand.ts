@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreDBClusterToPointInTimeCommandInput = RestoreDBClusterToPointInTimeMessage;
-export type RestoreDBClusterToPointInTimeCommandOutput = RestoreDBClusterToPointInTimeResult;
+export type RestoreDBClusterToPointInTimeCommandOutput = RestoreDBClusterToPointInTimeResult &
+  __MetadataBearer;
 
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,

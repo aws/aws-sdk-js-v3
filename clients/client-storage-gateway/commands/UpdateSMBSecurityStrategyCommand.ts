@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateSMBSecurityStrategyCommandInput = UpdateSMBSecurityStrategyInput;
-export type UpdateSMBSecurityStrategyCommandOutput = UpdateSMBSecurityStrategyOutput;
+export type UpdateSMBSecurityStrategyCommandOutput = UpdateSMBSecurityStrategyOutput &
+  __MetadataBearer;
 
 export class UpdateSMBSecurityStrategyCommand extends $Command<
   UpdateSMBSecurityStrategyCommandInput,

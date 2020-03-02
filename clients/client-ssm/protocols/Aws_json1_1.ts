@@ -2781,38 +2781,53 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceType":
     case "com.amazonaws.services.ssm#InvalidResourceType":
-      response = await deserializeAws_json1_1InvalidResourceTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsError":
     case "com.amazonaws.services.ssm#TooManyTagsError":
-      response = await deserializeAws_json1_1TooManyTagsErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2865,31 +2880,43 @@ async function deserializeAws_json1_1CancelCommandCommandError(
   switch (errorCode) {
     case "DuplicateInstanceId":
     case "com.amazonaws.services.ssm#DuplicateInstanceId":
-      response = await deserializeAws_json1_1DuplicateInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommandId":
     case "com.amazonaws.services.ssm#InvalidCommandId":
-      response = await deserializeAws_json1_1InvalidCommandIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommandIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2948,17 +2975,23 @@ async function deserializeAws_json1_1CancelMaintenanceWindowExecutionCommandErro
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3011,10 +3044,13 @@ async function deserializeAws_json1_1CreateActivationCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3067,80 +3103,113 @@ async function deserializeAws_json1_1CreateAssociationCommandError(
   switch (errorCode) {
     case "AssociationAlreadyExists":
     case "com.amazonaws.services.ssm#AssociationAlreadyExists":
-      response = await deserializeAws_json1_1AssociationAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AssociationLimitExceeded":
     case "com.amazonaws.services.ssm#AssociationLimitExceeded":
-      response = await deserializeAws_json1_1AssociationLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentVersion":
-      response = await deserializeAws_json1_1InvalidDocumentVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOutputLocation":
     case "com.amazonaws.services.ssm#InvalidOutputLocation":
-      response = await deserializeAws_json1_1InvalidOutputLocationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOutputLocationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameters":
     case "com.amazonaws.services.ssm#InvalidParameters":
-      response = await deserializeAws_json1_1InvalidParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSchedule":
     case "com.amazonaws.services.ssm#InvalidSchedule":
-      response = await deserializeAws_json1_1InvalidScheduleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidScheduleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTarget":
     case "com.amazonaws.services.ssm#InvalidTarget":
-      response = await deserializeAws_json1_1InvalidTargetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedPlatformType":
     case "com.amazonaws.services.ssm#UnsupportedPlatformType":
-      response = await deserializeAws_json1_1UnsupportedPlatformTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedPlatformTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3196,80 +3265,113 @@ async function deserializeAws_json1_1CreateAssociationBatchCommandError(
   switch (errorCode) {
     case "AssociationLimitExceeded":
     case "com.amazonaws.services.ssm#AssociationLimitExceeded":
-      response = await deserializeAws_json1_1AssociationLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateInstanceId":
     case "com.amazonaws.services.ssm#DuplicateInstanceId":
-      response = await deserializeAws_json1_1DuplicateInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentVersion":
-      response = await deserializeAws_json1_1InvalidDocumentVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOutputLocation":
     case "com.amazonaws.services.ssm#InvalidOutputLocation":
-      response = await deserializeAws_json1_1InvalidOutputLocationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOutputLocationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameters":
     case "com.amazonaws.services.ssm#InvalidParameters":
-      response = await deserializeAws_json1_1InvalidParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSchedule":
     case "com.amazonaws.services.ssm#InvalidSchedule":
-      response = await deserializeAws_json1_1InvalidScheduleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidScheduleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTarget":
     case "com.amazonaws.services.ssm#InvalidTarget":
-      response = await deserializeAws_json1_1InvalidTargetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedPlatformType":
     case "com.amazonaws.services.ssm#UnsupportedPlatformType":
-      response = await deserializeAws_json1_1UnsupportedPlatformTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedPlatformTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3322,45 +3424,63 @@ async function deserializeAws_json1_1CreateDocumentCommandError(
   switch (errorCode) {
     case "DocumentAlreadyExists":
     case "com.amazonaws.services.ssm#DocumentAlreadyExists":
-      response = await deserializeAws_json1_1DocumentAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DocumentAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DocumentLimitExceeded":
     case "com.amazonaws.services.ssm#DocumentLimitExceeded":
-      response = await deserializeAws_json1_1DocumentLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DocumentLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentContent":
     case "com.amazonaws.services.ssm#InvalidDocumentContent":
-      response = await deserializeAws_json1_1InvalidDocumentContentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentContentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentSchemaVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentSchemaVersion":
-      response = await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaxDocumentSizeExceeded":
     case "com.amazonaws.services.ssm#MaxDocumentSizeExceeded":
-      response = await deserializeAws_json1_1MaxDocumentSizeExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaxDocumentSizeExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3416,24 +3536,33 @@ async function deserializeAws_json1_1CreateMaintenanceWindowCommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatch":
     case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.services.ssm#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3486,31 +3615,43 @@ async function deserializeAws_json1_1CreateOpsItemCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OpsItemAlreadyExistsException":
     case "com.amazonaws.services.ssm#OpsItemAlreadyExistsException":
-      response = await deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OpsItemInvalidParameterException":
     case "com.amazonaws.services.ssm#OpsItemInvalidParameterException":
-      response = await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OpsItemLimitExceededException":
     case "com.amazonaws.services.ssm#OpsItemLimitExceededException":
-      response = await deserializeAws_json1_1OpsItemLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OpsItemLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3566,24 +3707,33 @@ async function deserializeAws_json1_1CreatePatchBaselineCommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatch":
     case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.services.ssm#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3639,31 +3789,43 @@ async function deserializeAws_json1_1CreateResourceDataSyncCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncAlreadyExistsException":
     case "com.amazonaws.services.ssm#ResourceDataSyncAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceDataSyncAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncCountExceededException":
     case "com.amazonaws.services.ssm#ResourceDataSyncCountExceededException":
-      response = await deserializeAws_json1_1ResourceDataSyncCountExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncCountExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncInvalidConfigurationException":
     case "com.amazonaws.services.ssm#ResourceDataSyncInvalidConfigurationException":
-      response = await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3716,31 +3878,43 @@ async function deserializeAws_json1_1DeleteActivationCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidActivation":
     case "com.amazonaws.services.ssm#InvalidActivation":
-      response = await deserializeAws_json1_1InvalidActivationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidActivationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidActivationId":
     case "com.amazonaws.services.ssm#InvalidActivationId":
-      response = await deserializeAws_json1_1InvalidActivationIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidActivationIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3793,38 +3967,53 @@ async function deserializeAws_json1_1DeleteAssociationCommandError(
   switch (errorCode) {
     case "AssociationDoesNotExist":
     case "com.amazonaws.services.ssm#AssociationDoesNotExist":
-      response = await deserializeAws_json1_1AssociationDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3877,31 +4066,43 @@ async function deserializeAws_json1_1DeleteDocumentCommandError(
   switch (errorCode) {
     case "AssociatedInstances":
     case "com.amazonaws.services.ssm#AssociatedInstances":
-      response = await deserializeAws_json1_1AssociatedInstancesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociatedInstancesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentOperation":
     case "com.amazonaws.services.ssm#InvalidDocumentOperation":
-      response = await deserializeAws_json1_1InvalidDocumentOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3954,38 +4155,53 @@ async function deserializeAws_json1_1DeleteInventoryCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeleteInventoryParametersException":
     case "com.amazonaws.services.ssm#InvalidDeleteInventoryParametersException":
-      response = await deserializeAws_json1_1InvalidDeleteInventoryParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeleteInventoryParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInventoryRequestException":
     case "com.amazonaws.services.ssm#InvalidInventoryRequestException":
-      response = await deserializeAws_json1_1InvalidInventoryRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInventoryRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOptionException":
     case "com.amazonaws.services.ssm#InvalidOptionException":
-      response = await deserializeAws_json1_1InvalidOptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTypeNameException":
     case "com.amazonaws.services.ssm#InvalidTypeNameException":
-      response = await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4041,10 +4257,13 @@ async function deserializeAws_json1_1DeleteMaintenanceWindowCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4097,17 +4316,23 @@ async function deserializeAws_json1_1DeleteParameterCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterNotFound":
     case "com.amazonaws.services.ssm#ParameterNotFound":
-      response = await deserializeAws_json1_1ParameterNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4160,10 +4385,13 @@ async function deserializeAws_json1_1DeleteParametersCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4219,17 +4447,23 @@ async function deserializeAws_json1_1DeletePatchBaselineCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.ssm#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4285,24 +4519,33 @@ async function deserializeAws_json1_1DeleteResourceDataSyncCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncInvalidConfigurationException":
     case "com.amazonaws.services.ssm#ResourceDataSyncInvalidConfigurationException":
-      response = await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncNotFoundException":
     case "com.amazonaws.services.ssm#ResourceDataSyncNotFoundException":
-      response = await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4361,17 +4604,23 @@ async function deserializeAws_json1_1DeregisterManagedInstanceCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4430,17 +4679,23 @@ async function deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4499,24 +4754,33 @@ async function deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowComman
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetInUseException":
     case "com.amazonaws.services.ssm#TargetInUseException":
-      response = await deserializeAws_json1_1TargetInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TargetInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4575,17 +4839,23 @@ async function deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommandE
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4641,24 +4911,33 @@ async function deserializeAws_json1_1DescribeActivationsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilter":
     case "com.amazonaws.services.ssm#InvalidFilter":
-      response = await deserializeAws_json1_1InvalidFilterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4714,38 +4993,53 @@ async function deserializeAws_json1_1DescribeAssociationCommandError(
   switch (errorCode) {
     case "AssociationDoesNotExist":
     case "com.amazonaws.services.ssm#AssociationDoesNotExist":
-      response = await deserializeAws_json1_1AssociationDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAssociationVersion":
     case "com.amazonaws.services.ssm#InvalidAssociationVersion":
-      response = await deserializeAws_json1_1InvalidAssociationVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAssociationVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4804,31 +5098,43 @@ async function deserializeAws_json1_1DescribeAssociationExecutionTargetsCommandE
   switch (errorCode) {
     case "AssociationDoesNotExist":
     case "com.amazonaws.services.ssm#AssociationDoesNotExist":
-      response = await deserializeAws_json1_1AssociationDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AssociationExecutionDoesNotExist":
     case "com.amazonaws.services.ssm#AssociationExecutionDoesNotExist":
-      response = await deserializeAws_json1_1AssociationExecutionDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationExecutionDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4887,24 +5193,33 @@ async function deserializeAws_json1_1DescribeAssociationExecutionsCommandError(
   switch (errorCode) {
     case "AssociationDoesNotExist":
     case "com.amazonaws.services.ssm#AssociationDoesNotExist":
-      response = await deserializeAws_json1_1AssociationDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4963,31 +5278,43 @@ async function deserializeAws_json1_1DescribeAutomationExecutionsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterKey":
     case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = await deserializeAws_json1_1InvalidFilterKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterValue":
     case "com.amazonaws.services.ssm#InvalidFilterValue":
-      response = await deserializeAws_json1_1InvalidFilterValueResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterValueResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5046,38 +5373,53 @@ async function deserializeAws_json1_1DescribeAutomationStepExecutionsCommandErro
   switch (errorCode) {
     case "AutomationExecutionNotFoundException":
     case "com.amazonaws.services.ssm#AutomationExecutionNotFoundException":
-      response = await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterKey":
     case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = await deserializeAws_json1_1InvalidFilterKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterValue":
     case "com.amazonaws.services.ssm#InvalidFilterValue":
-      response = await deserializeAws_json1_1InvalidFilterValueResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterValueResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5136,10 +5478,13 @@ async function deserializeAws_json1_1DescribeAvailablePatchesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5192,24 +5537,33 @@ async function deserializeAws_json1_1DescribeDocumentCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentVersion":
-      response = await deserializeAws_json1_1InvalidDocumentVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5268,24 +5622,33 @@ async function deserializeAws_json1_1DescribeDocumentPermissionCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPermissionType":
     case "com.amazonaws.services.ssm#InvalidPermissionType":
-      response = await deserializeAws_json1_1InvalidPermissionTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPermissionTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5344,24 +5707,33 @@ async function deserializeAws_json1_1DescribeEffectiveInstanceAssociationsComman
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5420,31 +5792,43 @@ async function deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCom
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperatingSystem":
     case "com.amazonaws.services.ssm#UnsupportedOperatingSystem":
-      response = await deserializeAws_json1_1UnsupportedOperatingSystemResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperatingSystemResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5503,24 +5887,33 @@ async function deserializeAws_json1_1DescribeInstanceAssociationsStatusCommandEr
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5579,38 +5972,53 @@ async function deserializeAws_json1_1DescribeInstanceInformationCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterKey":
     case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = await deserializeAws_json1_1InvalidFilterKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceInformationFilterValue":
     case "com.amazonaws.services.ssm#InvalidInstanceInformationFilterValue":
-      response = await deserializeAws_json1_1InvalidInstanceInformationFilterValueResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceInformationFilterValueResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5669,17 +6077,23 @@ async function deserializeAws_json1_1DescribeInstancePatchStatesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5738,24 +6152,33 @@ async function deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCom
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilter":
     case "com.amazonaws.services.ssm#InvalidFilter":
-      response = await deserializeAws_json1_1InvalidFilterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5811,31 +6234,43 @@ async function deserializeAws_json1_1DescribeInstancePatchesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilter":
     case "com.amazonaws.services.ssm#InvalidFilter":
-      response = await deserializeAws_json1_1InvalidFilterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5894,24 +6329,33 @@ async function deserializeAws_json1_1DescribeInventoryDeletionsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeletionIdException":
     case "com.amazonaws.services.ssm#InvalidDeletionIdException":
-      response = await deserializeAws_json1_1InvalidDeletionIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeletionIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5970,17 +6414,23 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvoc
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6039,17 +6489,23 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksComm
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6108,10 +6564,13 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommandE
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6170,17 +6629,23 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommandErr
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6239,17 +6704,23 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommandErro
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6308,17 +6779,23 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowTasksCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6377,10 +6854,13 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6439,10 +6919,13 @@ async function deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommandE
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6495,10 +6978,13 @@ async function deserializeAws_json1_1DescribeOpsItemsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6554,38 +7040,53 @@ async function deserializeAws_json1_1DescribeParametersCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterKey":
     case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = await deserializeAws_json1_1InvalidFilterKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterOption":
     case "com.amazonaws.services.ssm#InvalidFilterOption":
-      response = await deserializeAws_json1_1InvalidFilterOptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterOptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterValue":
     case "com.amazonaws.services.ssm#InvalidFilterValue":
-      response = await deserializeAws_json1_1InvalidFilterValueResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterValueResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6641,10 +7142,13 @@ async function deserializeAws_json1_1DescribePatchBaselinesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6700,17 +7204,23 @@ async function deserializeAws_json1_1DescribePatchGroupStateCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6766,10 +7276,13 @@ async function deserializeAws_json1_1DescribePatchGroupsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6825,10 +7338,13 @@ async function deserializeAws_json1_1DescribePatchPropertiesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6881,24 +7397,33 @@ async function deserializeAws_json1_1DescribeSessionsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterKey":
     case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = await deserializeAws_json1_1InvalidFilterKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6954,17 +7479,23 @@ async function deserializeAws_json1_1GetAutomationExecutionCommandError(
   switch (errorCode) {
     case "AutomationExecutionNotFoundException":
     case "com.amazonaws.services.ssm#AutomationExecutionNotFoundException":
-      response = await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7017,31 +7548,43 @@ async function deserializeAws_json1_1GetCalendarStateCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentType":
     case "com.amazonaws.services.ssm#InvalidDocumentType":
-      response = await deserializeAws_json1_1InvalidDocumentTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedCalendarException":
     case "com.amazonaws.services.ssm#UnsupportedCalendarException":
-      response = await deserializeAws_json1_1UnsupportedCalendarExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedCalendarExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7097,38 +7640,53 @@ async function deserializeAws_json1_1GetCommandInvocationCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommandId":
     case "com.amazonaws.services.ssm#InvalidCommandId":
-      response = await deserializeAws_json1_1InvalidCommandIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommandIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPluginName":
     case "com.amazonaws.services.ssm#InvalidPluginName":
-      response = await deserializeAws_json1_1InvalidPluginNameResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPluginNameResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvocationDoesNotExist":
     case "com.amazonaws.services.ssm#InvocationDoesNotExist":
-      response = await deserializeAws_json1_1InvocationDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvocationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7184,10 +7742,13 @@ async function deserializeAws_json1_1GetConnectionStatusCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7243,10 +7804,13 @@ async function deserializeAws_json1_1GetDefaultPatchBaselineCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7305,24 +7869,33 @@ async function deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceComman
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedFeatureRequiredException":
     case "com.amazonaws.services.ssm#UnsupportedFeatureRequiredException":
-      response = await deserializeAws_json1_1UnsupportedFeatureRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedFeatureRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperatingSystem":
     case "com.amazonaws.services.ssm#UnsupportedOperatingSystem":
-      response = await deserializeAws_json1_1UnsupportedOperatingSystemResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperatingSystemResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7375,24 +7948,33 @@ async function deserializeAws_json1_1GetDocumentCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentVersion":
-      response = await deserializeAws_json1_1InvalidDocumentVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7445,52 +8027,73 @@ async function deserializeAws_json1_1GetInventoryCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAggregatorException":
     case "com.amazonaws.services.ssm#InvalidAggregatorException":
-      response = await deserializeAws_json1_1InvalidAggregatorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAggregatorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilter":
     case "com.amazonaws.services.ssm#InvalidFilter":
-      response = await deserializeAws_json1_1InvalidFilterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInventoryGroupException":
     case "com.amazonaws.services.ssm#InvalidInventoryGroupException":
-      response = await deserializeAws_json1_1InvalidInventoryGroupExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInventoryGroupExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResultAttributeException":
     case "com.amazonaws.services.ssm#InvalidResultAttributeException":
-      response = await deserializeAws_json1_1InvalidResultAttributeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResultAttributeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTypeNameException":
     case "com.amazonaws.services.ssm#InvalidTypeNameException":
-      response = await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7546,24 +8149,33 @@ async function deserializeAws_json1_1GetInventorySchemaCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTypeNameException":
     case "com.amazonaws.services.ssm#InvalidTypeNameException":
-      response = await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7619,17 +8231,23 @@ async function deserializeAws_json1_1GetMaintenanceWindowCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7688,17 +8306,23 @@ async function deserializeAws_json1_1GetMaintenanceWindowExecutionCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7757,17 +8381,23 @@ async function deserializeAws_json1_1GetMaintenanceWindowExecutionTaskCommandErr
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7826,17 +8456,23 @@ async function deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocation
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7895,17 +8531,23 @@ async function deserializeAws_json1_1GetMaintenanceWindowTaskCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7958,17 +8600,23 @@ async function deserializeAws_json1_1GetOpsItemCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OpsItemNotFoundException":
     case "com.amazonaws.services.ssm#OpsItemNotFoundException":
-      response = await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8021,45 +8669,63 @@ async function deserializeAws_json1_1GetOpsSummaryCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAggregatorException":
     case "com.amazonaws.services.ssm#InvalidAggregatorException":
-      response = await deserializeAws_json1_1InvalidAggregatorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAggregatorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilter":
     case "com.amazonaws.services.ssm#InvalidFilter":
-      response = await deserializeAws_json1_1InvalidFilterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTypeNameException":
     case "com.amazonaws.services.ssm#InvalidTypeNameException":
-      response = await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncNotFoundException":
     case "com.amazonaws.services.ssm#ResourceDataSyncNotFoundException":
-      response = await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8112,31 +8778,43 @@ async function deserializeAws_json1_1GetParameterCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKeyId":
     case "com.amazonaws.services.ssm#InvalidKeyId":
-      response = await deserializeAws_json1_1InvalidKeyIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidKeyIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterNotFound":
     case "com.amazonaws.services.ssm#ParameterNotFound":
-      response = await deserializeAws_json1_1ParameterNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterVersionNotFound":
     case "com.amazonaws.services.ssm#ParameterVersionNotFound":
-      response = await deserializeAws_json1_1ParameterVersionNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterVersionNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8192,31 +8870,43 @@ async function deserializeAws_json1_1GetParameterHistoryCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKeyId":
     case "com.amazonaws.services.ssm#InvalidKeyId":
-      response = await deserializeAws_json1_1InvalidKeyIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidKeyIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterNotFound":
     case "com.amazonaws.services.ssm#ParameterNotFound":
-      response = await deserializeAws_json1_1ParameterNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8269,17 +8959,23 @@ async function deserializeAws_json1_1GetParametersCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKeyId":
     case "com.amazonaws.services.ssm#InvalidKeyId":
-      response = await deserializeAws_json1_1InvalidKeyIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidKeyIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8335,45 +9031,63 @@ async function deserializeAws_json1_1GetParametersByPathCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterKey":
     case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = await deserializeAws_json1_1InvalidFilterKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterOption":
     case "com.amazonaws.services.ssm#InvalidFilterOption":
-      response = await deserializeAws_json1_1InvalidFilterOptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterOptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterValue":
     case "com.amazonaws.services.ssm#InvalidFilterValue":
-      response = await deserializeAws_json1_1InvalidFilterValueResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterValueResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKeyId":
     case "com.amazonaws.services.ssm#InvalidKeyId":
-      response = await deserializeAws_json1_1InvalidKeyIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidKeyIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8426,24 +9140,33 @@ async function deserializeAws_json1_1GetPatchBaselineCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8502,10 +9225,13 @@ async function deserializeAws_json1_1GetPatchBaselineForPatchGroupCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8558,17 +9284,23 @@ async function deserializeAws_json1_1GetServiceSettingCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceSettingNotFound":
     case "com.amazonaws.services.ssm#ServiceSettingNotFound":
-      response = await deserializeAws_json1_1ServiceSettingNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceSettingNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8624,38 +9356,53 @@ async function deserializeAws_json1_1LabelParameterVersionCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterNotFound":
     case "com.amazonaws.services.ssm#ParameterNotFound":
-      response = await deserializeAws_json1_1ParameterNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterVersionLabelLimitExceeded":
     case "com.amazonaws.services.ssm#ParameterVersionLabelLimitExceeded":
-      response = await deserializeAws_json1_1ParameterVersionLabelLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterVersionLabelLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterVersionNotFound":
     case "com.amazonaws.services.ssm#ParameterVersionNotFound":
-      response = await deserializeAws_json1_1ParameterVersionNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterVersionNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8711,24 +9458,33 @@ async function deserializeAws_json1_1ListAssociationVersionsCommandError(
   switch (errorCode) {
     case "AssociationDoesNotExist":
     case "com.amazonaws.services.ssm#AssociationDoesNotExist":
-      response = await deserializeAws_json1_1AssociationDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8781,17 +9537,23 @@ async function deserializeAws_json1_1ListAssociationsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8847,38 +9609,53 @@ async function deserializeAws_json1_1ListCommandInvocationsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommandId":
     case "com.amazonaws.services.ssm#InvalidCommandId":
-      response = await deserializeAws_json1_1InvalidCommandIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommandIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterKey":
     case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = await deserializeAws_json1_1InvalidFilterKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8931,38 +9708,53 @@ async function deserializeAws_json1_1ListCommandsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommandId":
     case "com.amazonaws.services.ssm#InvalidCommandId":
-      response = await deserializeAws_json1_1InvalidCommandIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommandIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterKey":
     case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = await deserializeAws_json1_1InvalidFilterKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9018,38 +9810,53 @@ async function deserializeAws_json1_1ListComplianceItemsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilter":
     case "com.amazonaws.services.ssm#InvalidFilter":
-      response = await deserializeAws_json1_1InvalidFilterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceType":
     case "com.amazonaws.services.ssm#InvalidResourceType":
-      response = await deserializeAws_json1_1InvalidResourceTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9105,24 +9912,33 @@ async function deserializeAws_json1_1ListComplianceSummariesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilter":
     case "com.amazonaws.services.ssm#InvalidFilter":
-      response = await deserializeAws_json1_1InvalidFilterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9178,24 +9994,33 @@ async function deserializeAws_json1_1ListDocumentVersionsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9248,24 +10073,33 @@ async function deserializeAws_json1_1ListDocumentsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterKey":
     case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = await deserializeAws_json1_1InvalidFilterKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9321,38 +10155,53 @@ async function deserializeAws_json1_1ListInventoryEntriesCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilter":
     case "com.amazonaws.services.ssm#InvalidFilter":
-      response = await deserializeAws_json1_1InvalidFilterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTypeNameException":
     case "com.amazonaws.services.ssm#InvalidTypeNameException":
-      response = await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9411,24 +10260,33 @@ async function deserializeAws_json1_1ListResourceComplianceSummariesCommandError
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilter":
     case "com.amazonaws.services.ssm#InvalidFilter":
-      response = await deserializeAws_json1_1InvalidFilterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9484,24 +10342,33 @@ async function deserializeAws_json1_1ListResourceDataSyncCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextToken":
     case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = await deserializeAws_json1_1InvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncInvalidConfigurationException":
     case "com.amazonaws.services.ssm#ResourceDataSyncInvalidConfigurationException":
-      response = await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9557,24 +10424,33 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceType":
     case "com.amazonaws.services.ssm#InvalidResourceType":
-      response = await deserializeAws_json1_1InvalidResourceTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9633,38 +10509,53 @@ async function deserializeAws_json1_1ModifyDocumentPermissionCommandError(
   switch (errorCode) {
     case "DocumentLimitExceeded":
     case "com.amazonaws.services.ssm#DocumentLimitExceeded":
-      response = await deserializeAws_json1_1DocumentLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DocumentLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DocumentPermissionLimit":
     case "com.amazonaws.services.ssm#DocumentPermissionLimit":
-      response = await deserializeAws_json1_1DocumentPermissionLimitResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DocumentPermissionLimitResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPermissionType":
     case "com.amazonaws.services.ssm#InvalidPermissionType":
-      response = await deserializeAws_json1_1InvalidPermissionTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPermissionTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9720,52 +10611,73 @@ async function deserializeAws_json1_1PutComplianceItemsCommandError(
   switch (errorCode) {
     case "ComplianceTypeCountLimitExceededException":
     case "com.amazonaws.services.ssm#ComplianceTypeCountLimitExceededException":
-      response = await deserializeAws_json1_1ComplianceTypeCountLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ComplianceTypeCountLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidItemContentException":
     case "com.amazonaws.services.ssm#InvalidItemContentException":
-      response = await deserializeAws_json1_1InvalidItemContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidItemContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceType":
     case "com.amazonaws.services.ssm#InvalidResourceType":
-      response = await deserializeAws_json1_1InvalidResourceTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ItemSizeLimitExceededException":
     case "com.amazonaws.services.ssm#ItemSizeLimitExceededException":
-      response = await deserializeAws_json1_1ItemSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ItemSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TotalSizeLimitExceededException":
     case "com.amazonaws.services.ssm#TotalSizeLimitExceededException":
-      response = await deserializeAws_json1_1TotalSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TotalSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9818,87 +10730,123 @@ async function deserializeAws_json1_1PutInventoryCommandError(
   switch (errorCode) {
     case "CustomSchemaCountLimitExceededException":
     case "com.amazonaws.services.ssm#CustomSchemaCountLimitExceededException":
-      response = await deserializeAws_json1_1CustomSchemaCountLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CustomSchemaCountLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInventoryItemContextException":
     case "com.amazonaws.services.ssm#InvalidInventoryItemContextException":
-      response = await deserializeAws_json1_1InvalidInventoryItemContextExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInventoryItemContextExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidItemContentException":
     case "com.amazonaws.services.ssm#InvalidItemContentException":
-      response = await deserializeAws_json1_1InvalidItemContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidItemContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTypeNameException":
     case "com.amazonaws.services.ssm#InvalidTypeNameException":
-      response = await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ItemContentMismatchException":
     case "com.amazonaws.services.ssm#ItemContentMismatchException":
-      response = await deserializeAws_json1_1ItemContentMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ItemContentMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ItemSizeLimitExceededException":
     case "com.amazonaws.services.ssm#ItemSizeLimitExceededException":
-      response = await deserializeAws_json1_1ItemSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ItemSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubTypeCountLimitExceededException":
     case "com.amazonaws.services.ssm#SubTypeCountLimitExceededException":
-      response = await deserializeAws_json1_1SubTypeCountLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SubTypeCountLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TotalSizeLimitExceededException":
     case "com.amazonaws.services.ssm#TotalSizeLimitExceededException":
-      response = await deserializeAws_json1_1TotalSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TotalSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedInventoryItemContextException":
     case "com.amazonaws.services.ssm#UnsupportedInventoryItemContextException":
-      response = await deserializeAws_json1_1UnsupportedInventoryItemContextExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedInventoryItemContextExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedInventorySchemaVersionException":
     case "com.amazonaws.services.ssm#UnsupportedInventorySchemaVersionException":
-      response = await deserializeAws_json1_1UnsupportedInventorySchemaVersionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedInventorySchemaVersionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9951,108 +10899,153 @@ async function deserializeAws_json1_1PutParameterCommandError(
   switch (errorCode) {
     case "HierarchyLevelLimitExceededException":
     case "com.amazonaws.services.ssm#HierarchyLevelLimitExceededException":
-      response = await deserializeAws_json1_1HierarchyLevelLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HierarchyLevelLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HierarchyTypeMismatchException":
     case "com.amazonaws.services.ssm#HierarchyTypeMismatchException":
-      response = await deserializeAws_json1_1HierarchyTypeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HierarchyTypeMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatiblePolicyException":
     case "com.amazonaws.services.ssm#IncompatiblePolicyException":
-      response = await deserializeAws_json1_1IncompatiblePolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IncompatiblePolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAllowedPatternException":
     case "com.amazonaws.services.ssm#InvalidAllowedPatternException":
-      response = await deserializeAws_json1_1InvalidAllowedPatternExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAllowedPatternExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidKeyId":
     case "com.amazonaws.services.ssm#InvalidKeyId":
-      response = await deserializeAws_json1_1InvalidKeyIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidKeyIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPolicyAttributeException":
     case "com.amazonaws.services.ssm#InvalidPolicyAttributeException":
-      response = await deserializeAws_json1_1InvalidPolicyAttributeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPolicyAttributeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPolicyTypeException":
     case "com.amazonaws.services.ssm#InvalidPolicyTypeException":
-      response = await deserializeAws_json1_1InvalidPolicyTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPolicyTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterAlreadyExists":
     case "com.amazonaws.services.ssm#ParameterAlreadyExists":
-      response = await deserializeAws_json1_1ParameterAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterLimitExceeded":
     case "com.amazonaws.services.ssm#ParameterLimitExceeded":
-      response = await deserializeAws_json1_1ParameterLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterMaxVersionLimitExceeded":
     case "com.amazonaws.services.ssm#ParameterMaxVersionLimitExceeded":
-      response = await deserializeAws_json1_1ParameterMaxVersionLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterMaxVersionLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParameterPatternMismatchException":
     case "com.amazonaws.services.ssm#ParameterPatternMismatchException":
-      response = await deserializeAws_json1_1ParameterPatternMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParameterPatternMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PoliciesLimitExceededException":
     case "com.amazonaws.services.ssm#PoliciesLimitExceededException":
-      response = await deserializeAws_json1_1PoliciesLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PoliciesLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedParameterType":
     case "com.amazonaws.services.ssm#UnsupportedParameterType":
-      response = await deserializeAws_json1_1UnsupportedParameterTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedParameterTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10111,24 +11104,33 @@ async function deserializeAws_json1_1RegisterDefaultPatchBaselineCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10187,38 +11189,53 @@ async function deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommandEr
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.ssm#AlreadyExistsException":
-      response = await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.services.ssm#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10277,31 +11294,43 @@ async function deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommandE
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotentParameterMismatch":
     case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.services.ssm#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10360,38 +11389,53 @@ async function deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommandErr
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FeatureNotAvailableException":
     case "com.amazonaws.services.ssm#FeatureNotAvailableException":
-      response = await deserializeAws_json1_1FeatureNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FeatureNotAvailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotentParameterMismatch":
     case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.services.ssm#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10447,31 +11491,43 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceId":
     case "com.amazonaws.services.ssm#InvalidResourceId":
-      response = await deserializeAws_json1_1InvalidResourceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceType":
     case "com.amazonaws.services.ssm#InvalidResourceType":
-      response = await deserializeAws_json1_1InvalidResourceTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10527,24 +11583,33 @@ async function deserializeAws_json1_1ResetServiceSettingCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceSettingNotFound":
     case "com.amazonaws.services.ssm#ServiceSettingNotFound":
-      response = await deserializeAws_json1_1ServiceSettingNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceSettingNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10597,17 +11662,23 @@ async function deserializeAws_json1_1ResumeSessionCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10663,31 +11734,43 @@ async function deserializeAws_json1_1SendAutomationSignalCommandError(
   switch (errorCode) {
     case "AutomationExecutionNotFoundException":
     case "com.amazonaws.services.ssm#AutomationExecutionNotFoundException":
-      response = await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AutomationStepNotFoundException":
     case "com.amazonaws.services.ssm#AutomationStepNotFoundException":
-      response = await deserializeAws_json1_1AutomationStepNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AutomationStepNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAutomationSignalException":
     case "com.amazonaws.services.ssm#InvalidAutomationSignalException":
-      response = await deserializeAws_json1_1InvalidAutomationSignalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutomationSignalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10740,80 +11823,113 @@ async function deserializeAws_json1_1SendCommandCommandError(
   switch (errorCode) {
     case "DuplicateInstanceId":
     case "com.amazonaws.services.ssm#DuplicateInstanceId":
-      response = await deserializeAws_json1_1DuplicateInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentVersion":
-      response = await deserializeAws_json1_1InvalidDocumentVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNotificationConfig":
     case "com.amazonaws.services.ssm#InvalidNotificationConfig":
-      response = await deserializeAws_json1_1InvalidNotificationConfigResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNotificationConfigResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOutputFolder":
     case "com.amazonaws.services.ssm#InvalidOutputFolder":
-      response = await deserializeAws_json1_1InvalidOutputFolderResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOutputFolderResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameters":
     case "com.amazonaws.services.ssm#InvalidParameters":
-      response = await deserializeAws_json1_1InvalidParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRole":
     case "com.amazonaws.services.ssm#InvalidRole":
-      response = await deserializeAws_json1_1InvalidRoleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaxDocumentSizeExceeded":
     case "com.amazonaws.services.ssm#MaxDocumentSizeExceeded":
-      response = await deserializeAws_json1_1MaxDocumentSizeExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaxDocumentSizeExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedPlatformType":
     case "com.amazonaws.services.ssm#UnsupportedPlatformType":
-      response = await deserializeAws_json1_1UnsupportedPlatformTypeResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedPlatformTypeResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10869,17 +11985,23 @@ async function deserializeAws_json1_1StartAssociationsOnceCommandError(
   switch (errorCode) {
     case "AssociationDoesNotExist":
     case "com.amazonaws.services.ssm#AssociationDoesNotExist":
-      response = await deserializeAws_json1_1AssociationDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAssociation":
     case "com.amazonaws.services.ssm#InvalidAssociation":
-      response = await deserializeAws_json1_1InvalidAssociationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAssociationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10938,52 +12060,73 @@ async function deserializeAws_json1_1StartAutomationExecutionCommandError(
   switch (errorCode) {
     case "AutomationDefinitionNotFoundException":
     case "com.amazonaws.services.ssm#AutomationDefinitionNotFoundException":
-      response = await deserializeAws_json1_1AutomationDefinitionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AutomationDefinitionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AutomationDefinitionVersionNotFoundException":
     case "com.amazonaws.services.ssm#AutomationDefinitionVersionNotFoundException":
-      response = await deserializeAws_json1_1AutomationDefinitionVersionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AutomationDefinitionVersionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AutomationExecutionLimitExceededException":
     case "com.amazonaws.services.ssm#AutomationExecutionLimitExceededException":
-      response = await deserializeAws_json1_1AutomationExecutionLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AutomationExecutionLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotentParameterMismatch":
     case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAutomationExecutionParametersException":
     case "com.amazonaws.services.ssm#InvalidAutomationExecutionParametersException":
-      response = await deserializeAws_json1_1InvalidAutomationExecutionParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutomationExecutionParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTarget":
     case "com.amazonaws.services.ssm#InvalidTarget":
-      response = await deserializeAws_json1_1InvalidTargetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11036,24 +12179,33 @@ async function deserializeAws_json1_1StartSessionCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetNotConnected":
     case "com.amazonaws.services.ssm#TargetNotConnected":
-      response = await deserializeAws_json1_1TargetNotConnectedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TargetNotConnectedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11109,24 +12261,33 @@ async function deserializeAws_json1_1StopAutomationExecutionCommandError(
   switch (errorCode) {
     case "AutomationExecutionNotFoundException":
     case "com.amazonaws.services.ssm#AutomationExecutionNotFoundException":
-      response = await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAutomationStatusUpdateException":
     case "com.amazonaws.services.ssm#InvalidAutomationStatusUpdateException":
-      response = await deserializeAws_json1_1InvalidAutomationStatusUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutomationStatusUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11179,17 +12340,23 @@ async function deserializeAws_json1_1TerminateSessionCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11242,87 +12409,123 @@ async function deserializeAws_json1_1UpdateAssociationCommandError(
   switch (errorCode) {
     case "AssociationDoesNotExist":
     case "com.amazonaws.services.ssm#AssociationDoesNotExist":
-      response = await deserializeAws_json1_1AssociationDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AssociationVersionLimitExceeded":
     case "com.amazonaws.services.ssm#AssociationVersionLimitExceeded":
-      response = await deserializeAws_json1_1AssociationVersionLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationVersionLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAssociationVersion":
     case "com.amazonaws.services.ssm#InvalidAssociationVersion":
-      response = await deserializeAws_json1_1InvalidAssociationVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAssociationVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentVersion":
-      response = await deserializeAws_json1_1InvalidDocumentVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOutputLocation":
     case "com.amazonaws.services.ssm#InvalidOutputLocation":
-      response = await deserializeAws_json1_1InvalidOutputLocationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOutputLocationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameters":
     case "com.amazonaws.services.ssm#InvalidParameters":
-      response = await deserializeAws_json1_1InvalidParametersResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSchedule":
     case "com.amazonaws.services.ssm#InvalidSchedule":
-      response = await deserializeAws_json1_1InvalidScheduleResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidScheduleResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTarget":
     case "com.amazonaws.services.ssm#InvalidTarget":
-      response = await deserializeAws_json1_1InvalidTargetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUpdate":
     case "com.amazonaws.services.ssm#InvalidUpdate":
-      response = await deserializeAws_json1_1InvalidUpdateResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUpdateResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11378,45 +12581,63 @@ async function deserializeAws_json1_1UpdateAssociationStatusCommandError(
   switch (errorCode) {
     case "AssociationDoesNotExist":
     case "com.amazonaws.services.ssm#AssociationDoesNotExist":
-      response = await deserializeAws_json1_1AssociationDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StatusUnchanged":
     case "com.amazonaws.services.ssm#StatusUnchanged":
-      response = await deserializeAws_json1_1StatusUnchangedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1StatusUnchangedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11469,73 +12690,103 @@ async function deserializeAws_json1_1UpdateDocumentCommandError(
   switch (errorCode) {
     case "DocumentVersionLimitExceeded":
     case "com.amazonaws.services.ssm#DocumentVersionLimitExceeded":
-      response = await deserializeAws_json1_1DocumentVersionLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DocumentVersionLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateDocumentContent":
     case "com.amazonaws.services.ssm#DuplicateDocumentContent":
-      response = await deserializeAws_json1_1DuplicateDocumentContentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateDocumentContentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateDocumentVersionName":
     case "com.amazonaws.services.ssm#DuplicateDocumentVersionName":
-      response = await deserializeAws_json1_1DuplicateDocumentVersionNameResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateDocumentVersionNameResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentContent":
     case "com.amazonaws.services.ssm#InvalidDocumentContent":
-      response = await deserializeAws_json1_1InvalidDocumentContentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentContentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentOperation":
     case "com.amazonaws.services.ssm#InvalidDocumentOperation":
-      response = await deserializeAws_json1_1InvalidDocumentOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentSchemaVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentSchemaVersion":
-      response = await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentVersion":
-      response = await deserializeAws_json1_1InvalidDocumentVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaxDocumentSizeExceeded":
     case "com.amazonaws.services.ssm#MaxDocumentSizeExceeded":
-      response = await deserializeAws_json1_1MaxDocumentSizeExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaxDocumentSizeExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11594,31 +12845,43 @@ async function deserializeAws_json1_1UpdateDocumentDefaultVersionCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocument":
     case "com.amazonaws.services.ssm#InvalidDocument":
-      response = await deserializeAws_json1_1InvalidDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentSchemaVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentSchemaVersion":
-      response = await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDocumentVersion":
     case "com.amazonaws.services.ssm#InvalidDocumentVersion":
-      response = await deserializeAws_json1_1InvalidDocumentVersionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11674,17 +12937,23 @@ async function deserializeAws_json1_1UpdateMaintenanceWindowCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11743,17 +13012,23 @@ async function deserializeAws_json1_1UpdateMaintenanceWindowTargetCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11812,17 +13087,23 @@ async function deserializeAws_json1_1UpdateMaintenanceWindowTaskCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11881,17 +13162,23 @@ async function deserializeAws_json1_1UpdateManagedInstanceRoleCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInstanceId":
     case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = await deserializeAws_json1_1InvalidInstanceIdResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11944,38 +13231,53 @@ async function deserializeAws_json1_1UpdateOpsItemCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OpsItemAlreadyExistsException":
     case "com.amazonaws.services.ssm#OpsItemAlreadyExistsException":
-      response = await deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OpsItemInvalidParameterException":
     case "com.amazonaws.services.ssm#OpsItemInvalidParameterException":
-      response = await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OpsItemLimitExceededException":
     case "com.amazonaws.services.ssm#OpsItemLimitExceededException":
-      response = await deserializeAws_json1_1OpsItemLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OpsItemLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OpsItemNotFoundException":
     case "com.amazonaws.services.ssm#OpsItemNotFoundException":
-      response = await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12031,17 +13333,23 @@ async function deserializeAws_json1_1UpdatePatchBaselineCommandError(
   switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = await deserializeAws_json1_1DoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12097,31 +13405,43 @@ async function deserializeAws_json1_1UpdateResourceDataSyncCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncConflictException":
     case "com.amazonaws.services.ssm#ResourceDataSyncConflictException":
-      response = await deserializeAws_json1_1ResourceDataSyncConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncInvalidConfigurationException":
     case "com.amazonaws.services.ssm#ResourceDataSyncInvalidConfigurationException":
-      response = await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDataSyncNotFoundException":
     case "com.amazonaws.services.ssm#ResourceDataSyncNotFoundException":
-      response = await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12177,24 +13497,33 @@ async function deserializeAws_json1_1UpdateServiceSettingCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceSettingNotFound":
     case "com.amazonaws.services.ssm#ServiceSettingNotFound":
-      response = await deserializeAws_json1_1ServiceSettingNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceSettingNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUpdates":
     case "com.amazonaws.services.ssm#TooManyUpdates":
-      response = await deserializeAws_json1_1TooManyUpdatesResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

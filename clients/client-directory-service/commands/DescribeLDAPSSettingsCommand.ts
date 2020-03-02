@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLDAPSSettingsCommandInput = DescribeLDAPSSettingsRequest;
-export type DescribeLDAPSSettingsCommandOutput = DescribeLDAPSSettingsResult;
+export type DescribeLDAPSSettingsCommandOutput = DescribeLDAPSSettingsResult &
+  __MetadataBearer;
 
 export class DescribeLDAPSSettingsCommand extends $Command<
   DescribeLDAPSSettingsCommandInput,

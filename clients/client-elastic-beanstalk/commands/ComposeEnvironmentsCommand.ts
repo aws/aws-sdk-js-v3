@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ComposeEnvironmentsCommandInput = ComposeEnvironmentsMessage;
-export type ComposeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage;
+export type ComposeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage &
+  __MetadataBearer;
 
 export class ComposeEnvironmentsCommand extends $Command<
   ComposeEnvironmentsCommandInput,

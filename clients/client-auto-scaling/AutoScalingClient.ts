@@ -1,85 +1,219 @@
 import {
-  ActivitiesType,
-  ActivityType,
-  AttachInstancesQuery,
-  AttachLoadBalancerTargetGroupsResultType,
-  AttachLoadBalancerTargetGroupsType,
-  AttachLoadBalancersResultType,
-  AttachLoadBalancersType,
-  AutoScalingGroupNamesType,
-  AutoScalingGroupsType,
-  AutoScalingInstancesType,
-  BatchDeleteScheduledActionAnswer,
-  BatchDeleteScheduledActionType,
-  BatchPutScheduledUpdateGroupActionAnswer,
-  BatchPutScheduledUpdateGroupActionType,
-  CompleteLifecycleActionAnswer,
-  CompleteLifecycleActionType,
-  CreateAutoScalingGroupType,
-  CreateLaunchConfigurationType,
-  CreateOrUpdateTagsType,
-  DeleteAutoScalingGroupType,
-  DeleteLifecycleHookAnswer,
-  DeleteLifecycleHookType,
-  DeleteNotificationConfigurationType,
-  DeletePolicyType,
-  DeleteScheduledActionType,
-  DeleteTagsType,
-  DescribeAccountLimitsAnswer,
-  DescribeAdjustmentTypesAnswer,
-  DescribeAutoScalingInstancesType,
-  DescribeAutoScalingNotificationTypesAnswer,
-  DescribeLifecycleHookTypesAnswer,
-  DescribeLifecycleHooksAnswer,
-  DescribeLifecycleHooksType,
-  DescribeLoadBalancerTargetGroupsRequest,
-  DescribeLoadBalancerTargetGroupsResponse,
-  DescribeLoadBalancersRequest,
-  DescribeLoadBalancersResponse,
-  DescribeMetricCollectionTypesAnswer,
-  DescribeNotificationConfigurationsAnswer,
-  DescribeNotificationConfigurationsType,
-  DescribePoliciesType,
-  DescribeScalingActivitiesType,
-  DescribeScheduledActionsType,
-  DescribeTagsType,
-  DescribeTerminationPolicyTypesAnswer,
-  DetachInstancesAnswer,
-  DetachInstancesQuery,
-  DetachLoadBalancerTargetGroupsResultType,
-  DetachLoadBalancerTargetGroupsType,
-  DetachLoadBalancersResultType,
-  DetachLoadBalancersType,
-  DisableMetricsCollectionQuery,
-  EnableMetricsCollectionQuery,
-  EnterStandbyAnswer,
-  EnterStandbyQuery,
-  ExecutePolicyType,
-  ExitStandbyAnswer,
-  ExitStandbyQuery,
-  LaunchConfigurationNameType,
-  LaunchConfigurationNamesType,
-  LaunchConfigurationsType,
-  PoliciesType,
-  PolicyARNType,
-  ProcessesType,
-  PutLifecycleHookAnswer,
-  PutLifecycleHookType,
-  PutNotificationConfigurationType,
-  PutScalingPolicyType,
-  PutScheduledUpdateGroupActionType,
-  RecordLifecycleActionHeartbeatAnswer,
-  RecordLifecycleActionHeartbeatType,
-  ScalingProcessQuery,
-  ScheduledActionsType,
-  SetDesiredCapacityType,
-  SetInstanceHealthQuery,
-  SetInstanceProtectionAnswer,
-  SetInstanceProtectionQuery,
-  TagsType,
-  TerminateInstanceInAutoScalingGroupType,
-  UpdateAutoScalingGroupType
-} from "./models/index";
+  AttachInstancesCommandInput,
+  AttachInstancesCommandOutput
+} from "./commands/AttachInstancesCommand";
+import {
+  AttachLoadBalancerTargetGroupsCommandInput,
+  AttachLoadBalancerTargetGroupsCommandOutput
+} from "./commands/AttachLoadBalancerTargetGroupsCommand";
+import {
+  AttachLoadBalancersCommandInput,
+  AttachLoadBalancersCommandOutput
+} from "./commands/AttachLoadBalancersCommand";
+import {
+  BatchDeleteScheduledActionCommandInput,
+  BatchDeleteScheduledActionCommandOutput
+} from "./commands/BatchDeleteScheduledActionCommand";
+import {
+  BatchPutScheduledUpdateGroupActionCommandInput,
+  BatchPutScheduledUpdateGroupActionCommandOutput
+} from "./commands/BatchPutScheduledUpdateGroupActionCommand";
+import {
+  CompleteLifecycleActionCommandInput,
+  CompleteLifecycleActionCommandOutput
+} from "./commands/CompleteLifecycleActionCommand";
+import {
+  CreateAutoScalingGroupCommandInput,
+  CreateAutoScalingGroupCommandOutput
+} from "./commands/CreateAutoScalingGroupCommand";
+import {
+  CreateLaunchConfigurationCommandInput,
+  CreateLaunchConfigurationCommandOutput
+} from "./commands/CreateLaunchConfigurationCommand";
+import {
+  CreateOrUpdateTagsCommandInput,
+  CreateOrUpdateTagsCommandOutput
+} from "./commands/CreateOrUpdateTagsCommand";
+import {
+  DeleteAutoScalingGroupCommandInput,
+  DeleteAutoScalingGroupCommandOutput
+} from "./commands/DeleteAutoScalingGroupCommand";
+import {
+  DeleteLaunchConfigurationCommandInput,
+  DeleteLaunchConfigurationCommandOutput
+} from "./commands/DeleteLaunchConfigurationCommand";
+import {
+  DeleteLifecycleHookCommandInput,
+  DeleteLifecycleHookCommandOutput
+} from "./commands/DeleteLifecycleHookCommand";
+import {
+  DeleteNotificationConfigurationCommandInput,
+  DeleteNotificationConfigurationCommandOutput
+} from "./commands/DeleteNotificationConfigurationCommand";
+import {
+  DeletePolicyCommandInput,
+  DeletePolicyCommandOutput
+} from "./commands/DeletePolicyCommand";
+import {
+  DeleteScheduledActionCommandInput,
+  DeleteScheduledActionCommandOutput
+} from "./commands/DeleteScheduledActionCommand";
+import {
+  DeleteTagsCommandInput,
+  DeleteTagsCommandOutput
+} from "./commands/DeleteTagsCommand";
+import {
+  DescribeAccountLimitsCommandInput,
+  DescribeAccountLimitsCommandOutput
+} from "./commands/DescribeAccountLimitsCommand";
+import {
+  DescribeAdjustmentTypesCommandInput,
+  DescribeAdjustmentTypesCommandOutput
+} from "./commands/DescribeAdjustmentTypesCommand";
+import {
+  DescribeAutoScalingGroupsCommandInput,
+  DescribeAutoScalingGroupsCommandOutput
+} from "./commands/DescribeAutoScalingGroupsCommand";
+import {
+  DescribeAutoScalingInstancesCommandInput,
+  DescribeAutoScalingInstancesCommandOutput
+} from "./commands/DescribeAutoScalingInstancesCommand";
+import {
+  DescribeAutoScalingNotificationTypesCommandInput,
+  DescribeAutoScalingNotificationTypesCommandOutput
+} from "./commands/DescribeAutoScalingNotificationTypesCommand";
+import {
+  DescribeLaunchConfigurationsCommandInput,
+  DescribeLaunchConfigurationsCommandOutput
+} from "./commands/DescribeLaunchConfigurationsCommand";
+import {
+  DescribeLifecycleHookTypesCommandInput,
+  DescribeLifecycleHookTypesCommandOutput
+} from "./commands/DescribeLifecycleHookTypesCommand";
+import {
+  DescribeLifecycleHooksCommandInput,
+  DescribeLifecycleHooksCommandOutput
+} from "./commands/DescribeLifecycleHooksCommand";
+import {
+  DescribeLoadBalancerTargetGroupsCommandInput,
+  DescribeLoadBalancerTargetGroupsCommandOutput
+} from "./commands/DescribeLoadBalancerTargetGroupsCommand";
+import {
+  DescribeLoadBalancersCommandInput,
+  DescribeLoadBalancersCommandOutput
+} from "./commands/DescribeLoadBalancersCommand";
+import {
+  DescribeMetricCollectionTypesCommandInput,
+  DescribeMetricCollectionTypesCommandOutput
+} from "./commands/DescribeMetricCollectionTypesCommand";
+import {
+  DescribeNotificationConfigurationsCommandInput,
+  DescribeNotificationConfigurationsCommandOutput
+} from "./commands/DescribeNotificationConfigurationsCommand";
+import {
+  DescribePoliciesCommandInput,
+  DescribePoliciesCommandOutput
+} from "./commands/DescribePoliciesCommand";
+import {
+  DescribeScalingActivitiesCommandInput,
+  DescribeScalingActivitiesCommandOutput
+} from "./commands/DescribeScalingActivitiesCommand";
+import {
+  DescribeScalingProcessTypesCommandInput,
+  DescribeScalingProcessTypesCommandOutput
+} from "./commands/DescribeScalingProcessTypesCommand";
+import {
+  DescribeScheduledActionsCommandInput,
+  DescribeScheduledActionsCommandOutput
+} from "./commands/DescribeScheduledActionsCommand";
+import {
+  DescribeTagsCommandInput,
+  DescribeTagsCommandOutput
+} from "./commands/DescribeTagsCommand";
+import {
+  DescribeTerminationPolicyTypesCommandInput,
+  DescribeTerminationPolicyTypesCommandOutput
+} from "./commands/DescribeTerminationPolicyTypesCommand";
+import {
+  DetachInstancesCommandInput,
+  DetachInstancesCommandOutput
+} from "./commands/DetachInstancesCommand";
+import {
+  DetachLoadBalancerTargetGroupsCommandInput,
+  DetachLoadBalancerTargetGroupsCommandOutput
+} from "./commands/DetachLoadBalancerTargetGroupsCommand";
+import {
+  DetachLoadBalancersCommandInput,
+  DetachLoadBalancersCommandOutput
+} from "./commands/DetachLoadBalancersCommand";
+import {
+  DisableMetricsCollectionCommandInput,
+  DisableMetricsCollectionCommandOutput
+} from "./commands/DisableMetricsCollectionCommand";
+import {
+  EnableMetricsCollectionCommandInput,
+  EnableMetricsCollectionCommandOutput
+} from "./commands/EnableMetricsCollectionCommand";
+import {
+  EnterStandbyCommandInput,
+  EnterStandbyCommandOutput
+} from "./commands/EnterStandbyCommand";
+import {
+  ExecutePolicyCommandInput,
+  ExecutePolicyCommandOutput
+} from "./commands/ExecutePolicyCommand";
+import {
+  ExitStandbyCommandInput,
+  ExitStandbyCommandOutput
+} from "./commands/ExitStandbyCommand";
+import {
+  PutLifecycleHookCommandInput,
+  PutLifecycleHookCommandOutput
+} from "./commands/PutLifecycleHookCommand";
+import {
+  PutNotificationConfigurationCommandInput,
+  PutNotificationConfigurationCommandOutput
+} from "./commands/PutNotificationConfigurationCommand";
+import {
+  PutScalingPolicyCommandInput,
+  PutScalingPolicyCommandOutput
+} from "./commands/PutScalingPolicyCommand";
+import {
+  PutScheduledUpdateGroupActionCommandInput,
+  PutScheduledUpdateGroupActionCommandOutput
+} from "./commands/PutScheduledUpdateGroupActionCommand";
+import {
+  RecordLifecycleActionHeartbeatCommandInput,
+  RecordLifecycleActionHeartbeatCommandOutput
+} from "./commands/RecordLifecycleActionHeartbeatCommand";
+import {
+  ResumeProcessesCommandInput,
+  ResumeProcessesCommandOutput
+} from "./commands/ResumeProcessesCommand";
+import {
+  SetDesiredCapacityCommandInput,
+  SetDesiredCapacityCommandOutput
+} from "./commands/SetDesiredCapacityCommand";
+import {
+  SetInstanceHealthCommandInput,
+  SetInstanceHealthCommandOutput
+} from "./commands/SetInstanceHealthCommand";
+import {
+  SetInstanceProtectionCommandInput,
+  SetInstanceProtectionCommandOutput
+} from "./commands/SetInstanceProtectionCommand";
+import {
+  SuspendProcessesCommandInput,
+  SuspendProcessesCommandOutput
+} from "./commands/SuspendProcessesCommand";
+import {
+  TerminateInstanceInAutoScalingGroupCommandInput,
+  TerminateInstanceInAutoScalingGroupCommandOutput
+} from "./commands/TerminateInstanceInAutoScalingGroupCommand";
+import {
+  UpdateAutoScalingGroupCommandInput,
+  UpdateAutoScalingGroupCommandOutput
+} from "./commands/UpdateAutoScalingGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -127,98 +261,122 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AttachInstancesQuery
-  | AttachLoadBalancerTargetGroupsType
-  | AttachLoadBalancersType
-  | AutoScalingGroupNamesType
-  | BatchDeleteScheduledActionType
-  | BatchPutScheduledUpdateGroupActionType
-  | CompleteLifecycleActionType
-  | CreateAutoScalingGroupType
-  | CreateLaunchConfigurationType
-  | CreateOrUpdateTagsType
-  | DeleteAutoScalingGroupType
-  | DeleteLifecycleHookType
-  | DeleteNotificationConfigurationType
-  | DeletePolicyType
-  | DeleteScheduledActionType
-  | DeleteTagsType
-  | DescribeAutoScalingInstancesType
-  | DescribeLifecycleHooksType
-  | DescribeLoadBalancerTargetGroupsRequest
-  | DescribeLoadBalancersRequest
-  | DescribeNotificationConfigurationsType
-  | DescribePoliciesType
-  | DescribeScalingActivitiesType
-  | DescribeScheduledActionsType
-  | DescribeTagsType
-  | DetachInstancesQuery
-  | DetachLoadBalancerTargetGroupsType
-  | DetachLoadBalancersType
-  | DisableMetricsCollectionQuery
-  | EnableMetricsCollectionQuery
-  | EnterStandbyQuery
-  | ExecutePolicyType
-  | ExitStandbyQuery
-  | LaunchConfigurationNameType
-  | LaunchConfigurationNamesType
-  | PutLifecycleHookType
-  | PutNotificationConfigurationType
-  | PutScalingPolicyType
-  | PutScheduledUpdateGroupActionType
-  | RecordLifecycleActionHeartbeatType
-  | ScalingProcessQuery
-  | ScalingProcessQuery
-  | SetDesiredCapacityType
-  | SetInstanceHealthQuery
-  | SetInstanceProtectionQuery
-  | TerminateInstanceInAutoScalingGroupType
-  | UpdateAutoScalingGroupType;
+  | AttachInstancesCommandInput
+  | AttachLoadBalancerTargetGroupsCommandInput
+  | AttachLoadBalancersCommandInput
+  | BatchDeleteScheduledActionCommandInput
+  | BatchPutScheduledUpdateGroupActionCommandInput
+  | CompleteLifecycleActionCommandInput
+  | CreateAutoScalingGroupCommandInput
+  | CreateLaunchConfigurationCommandInput
+  | CreateOrUpdateTagsCommandInput
+  | DeleteAutoScalingGroupCommandInput
+  | DeleteLaunchConfigurationCommandInput
+  | DeleteLifecycleHookCommandInput
+  | DeleteNotificationConfigurationCommandInput
+  | DeletePolicyCommandInput
+  | DeleteScheduledActionCommandInput
+  | DeleteTagsCommandInput
+  | DescribeAccountLimitsCommandInput
+  | DescribeAdjustmentTypesCommandInput
+  | DescribeAutoScalingGroupsCommandInput
+  | DescribeAutoScalingInstancesCommandInput
+  | DescribeAutoScalingNotificationTypesCommandInput
+  | DescribeLaunchConfigurationsCommandInput
+  | DescribeLifecycleHookTypesCommandInput
+  | DescribeLifecycleHooksCommandInput
+  | DescribeLoadBalancerTargetGroupsCommandInput
+  | DescribeLoadBalancersCommandInput
+  | DescribeMetricCollectionTypesCommandInput
+  | DescribeNotificationConfigurationsCommandInput
+  | DescribePoliciesCommandInput
+  | DescribeScalingActivitiesCommandInput
+  | DescribeScalingProcessTypesCommandInput
+  | DescribeScheduledActionsCommandInput
+  | DescribeTagsCommandInput
+  | DescribeTerminationPolicyTypesCommandInput
+  | DetachInstancesCommandInput
+  | DetachLoadBalancerTargetGroupsCommandInput
+  | DetachLoadBalancersCommandInput
+  | DisableMetricsCollectionCommandInput
+  | EnableMetricsCollectionCommandInput
+  | EnterStandbyCommandInput
+  | ExecutePolicyCommandInput
+  | ExitStandbyCommandInput
+  | PutLifecycleHookCommandInput
+  | PutNotificationConfigurationCommandInput
+  | PutScalingPolicyCommandInput
+  | PutScheduledUpdateGroupActionCommandInput
+  | RecordLifecycleActionHeartbeatCommandInput
+  | ResumeProcessesCommandInput
+  | SetDesiredCapacityCommandInput
+  | SetInstanceHealthCommandInput
+  | SetInstanceProtectionCommandInput
+  | SuspendProcessesCommandInput
+  | TerminateInstanceInAutoScalingGroupCommandInput
+  | UpdateAutoScalingGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | ActivitiesType
-  | ActivityType
-  | AttachLoadBalancerTargetGroupsResultType
-  | AttachLoadBalancersResultType
-  | AutoScalingGroupsType
-  | AutoScalingInstancesType
-  | BatchDeleteScheduledActionAnswer
-  | BatchPutScheduledUpdateGroupActionAnswer
-  | CompleteLifecycleActionAnswer
-  | DeleteLifecycleHookAnswer
-  | DescribeAccountLimitsAnswer
-  | DescribeAdjustmentTypesAnswer
-  | DescribeAutoScalingNotificationTypesAnswer
-  | DescribeLifecycleHookTypesAnswer
-  | DescribeLifecycleHooksAnswer
-  | DescribeLoadBalancerTargetGroupsResponse
-  | DescribeLoadBalancersResponse
-  | DescribeMetricCollectionTypesAnswer
-  | DescribeNotificationConfigurationsAnswer
-  | DescribeTerminationPolicyTypesAnswer
-  | DetachInstancesAnswer
-  | DetachLoadBalancerTargetGroupsResultType
-  | DetachLoadBalancersResultType
-  | EnterStandbyAnswer
-  | ExitStandbyAnswer
-  | LaunchConfigurationsType
-  | PoliciesType
-  | PolicyARNType
-  | ProcessesType
-  | PutLifecycleHookAnswer
-  | RecordLifecycleActionHeartbeatAnswer
-  | ScheduledActionsType
-  | SetInstanceProtectionAnswer
-  | TagsType;
+  | AttachInstancesCommandOutput
+  | AttachLoadBalancerTargetGroupsCommandOutput
+  | AttachLoadBalancersCommandOutput
+  | BatchDeleteScheduledActionCommandOutput
+  | BatchPutScheduledUpdateGroupActionCommandOutput
+  | CompleteLifecycleActionCommandOutput
+  | CreateAutoScalingGroupCommandOutput
+  | CreateLaunchConfigurationCommandOutput
+  | CreateOrUpdateTagsCommandOutput
+  | DeleteAutoScalingGroupCommandOutput
+  | DeleteLaunchConfigurationCommandOutput
+  | DeleteLifecycleHookCommandOutput
+  | DeleteNotificationConfigurationCommandOutput
+  | DeletePolicyCommandOutput
+  | DeleteScheduledActionCommandOutput
+  | DeleteTagsCommandOutput
+  | DescribeAccountLimitsCommandOutput
+  | DescribeAdjustmentTypesCommandOutput
+  | DescribeAutoScalingGroupsCommandOutput
+  | DescribeAutoScalingInstancesCommandOutput
+  | DescribeAutoScalingNotificationTypesCommandOutput
+  | DescribeLaunchConfigurationsCommandOutput
+  | DescribeLifecycleHookTypesCommandOutput
+  | DescribeLifecycleHooksCommandOutput
+  | DescribeLoadBalancerTargetGroupsCommandOutput
+  | DescribeLoadBalancersCommandOutput
+  | DescribeMetricCollectionTypesCommandOutput
+  | DescribeNotificationConfigurationsCommandOutput
+  | DescribePoliciesCommandOutput
+  | DescribeScalingActivitiesCommandOutput
+  | DescribeScalingProcessTypesCommandOutput
+  | DescribeScheduledActionsCommandOutput
+  | DescribeTagsCommandOutput
+  | DescribeTerminationPolicyTypesCommandOutput
+  | DetachInstancesCommandOutput
+  | DetachLoadBalancerTargetGroupsCommandOutput
+  | DetachLoadBalancersCommandOutput
+  | DisableMetricsCollectionCommandOutput
+  | EnableMetricsCollectionCommandOutput
+  | EnterStandbyCommandOutput
+  | ExecutePolicyCommandOutput
+  | ExitStandbyCommandOutput
+  | PutLifecycleHookCommandOutput
+  | PutNotificationConfigurationCommandOutput
+  | PutScalingPolicyCommandOutput
+  | PutScheduledUpdateGroupActionCommandOutput
+  | RecordLifecycleActionHeartbeatCommandOutput
+  | ResumeProcessesCommandOutput
+  | SetDesiredCapacityCommandOutput
+  | SetInstanceHealthCommandOutput
+  | SetInstanceProtectionCommandOutput
+  | SuspendProcessesCommandOutput
+  | TerminateInstanceInAutoScalingGroupCommandOutput
+  | UpdateAutoScalingGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTapeWithBarcodeCommandInput = CreateTapeWithBarcodeInput;
-export type CreateTapeWithBarcodeCommandOutput = CreateTapeWithBarcodeOutput;
+export type CreateTapeWithBarcodeCommandOutput = CreateTapeWithBarcodeOutput &
+  __MetadataBearer;
 
 export class CreateTapeWithBarcodeCommand extends $Command<
   CreateTapeWithBarcodeCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DiscoverPollEndpointCommandInput = DiscoverPollEndpointRequest;
-export type DiscoverPollEndpointCommandOutput = DiscoverPollEndpointResponse;
+export type DiscoverPollEndpointCommandOutput = DiscoverPollEndpointResponse &
+  __MetadataBearer;
 
 export class DiscoverPollEndpointCommand extends $Command<
   DiscoverPollEndpointCommandInput,

@@ -346,7 +346,7 @@ export namespace CreateApiMappingRequest {
   }
 }
 
-export interface CreateApiMappingResponse extends $MetadataBearer {
+export interface CreateApiMappingResponse {
   __type?: "CreateApiMappingResponse";
   /**
    * <p>The API identifier.</p>
@@ -447,7 +447,7 @@ export namespace CreateApiRequest {
   }
 }
 
-export interface CreateApiResponse extends $MetadataBearer {
+export interface CreateApiResponse {
   __type?: "CreateApiResponse";
   /**
    * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
@@ -584,7 +584,7 @@ export namespace CreateAuthorizerRequest {
   }
 }
 
-export interface CreateAuthorizerResponse extends $MetadataBearer {
+export interface CreateAuthorizerResponse {
   __type?: "CreateAuthorizerResponse";
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for REQUEST authorizers.</p>
@@ -666,7 +666,7 @@ export namespace CreateDeploymentRequest {
   }
 }
 
-export interface CreateDeploymentResponse extends $MetadataBearer {
+export interface CreateDeploymentResponse {
   __type?: "CreateDeploymentResponse";
   /**
    * <p>Specifies whether a deployment was automatically released.</p>
@@ -732,7 +732,7 @@ export namespace CreateDomainNameRequest {
   }
 }
 
-export interface CreateDomainNameResponse extends $MetadataBearer {
+export interface CreateDomainNameResponse {
   __type?: "CreateDomainNameResponse";
   /**
    * <p>The API mapping selection expression.</p>
@@ -900,7 +900,7 @@ export namespace CreateIntegrationResponseRequest {
   }
 }
 
-export interface CreateIntegrationResponseResponse extends $MetadataBearer {
+export interface CreateIntegrationResponseResponse {
   __type?: "CreateIntegrationResponseResponse";
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -939,7 +939,7 @@ export namespace CreateIntegrationResponseResponse {
   }
 }
 
-export interface CreateIntegrationResult extends $MetadataBearer {
+export interface CreateIntegrationResult {
   __type?: "CreateIntegrationResult";
   /**
    * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
@@ -1075,7 +1075,7 @@ export namespace CreateModelRequest {
   }
 }
 
-export interface CreateModelResponse extends $MetadataBearer {
+export interface CreateModelResponse {
   __type?: "CreateModelResponse";
   /**
    * <p>The content-type for the model, for example, "application/json".</p>
@@ -1223,7 +1223,7 @@ export namespace CreateRouteResponseRequest {
   }
 }
 
-export interface CreateRouteResponseResponse extends $MetadataBearer {
+export interface CreateRouteResponseResponse {
   __type?: "CreateRouteResponseResponse";
   /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
@@ -1257,7 +1257,7 @@ export namespace CreateRouteResponseResponse {
   }
 }
 
-export interface CreateRouteResult extends $MetadataBearer {
+export interface CreateRouteResult {
   __type?: "CreateRouteResult";
   /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
@@ -1398,7 +1398,7 @@ export namespace CreateStageRequest {
   }
 }
 
-export interface CreateStageResponse extends $MetadataBearer {
+export interface CreateStageResponse {
   __type?: "CreateStageResponse";
   /**
    * <p>Settings for logging access in this stage.</p>
@@ -1890,7 +1890,7 @@ export namespace GetApiMappingRequest {
   }
 }
 
-export interface GetApiMappingResponse extends $MetadataBearer {
+export interface GetApiMappingResponse {
   __type?: "GetApiMappingResponse";
   /**
    * <p>The API identifier.</p>
@@ -1943,7 +1943,7 @@ export namespace GetApiMappingsRequest {
   }
 }
 
-export interface GetApiMappingsResponse extends $MetadataBearer {
+export interface GetApiMappingsResponse {
   __type?: "GetApiMappingsResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -1976,7 +1976,7 @@ export namespace GetApiRequest {
   }
 }
 
-export interface GetApiResponse extends $MetadataBearer {
+export interface GetApiResponse {
   __type?: "GetApiResponse";
   /**
    * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
@@ -2074,7 +2074,7 @@ export namespace GetApisRequest {
   }
 }
 
-export interface GetApisResponse extends $MetadataBearer {
+export interface GetApisResponse {
   __type?: "GetApisResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -2112,7 +2112,7 @@ export namespace GetAuthorizerRequest {
   }
 }
 
-export interface GetAuthorizerResponse extends $MetadataBearer {
+export interface GetAuthorizerResponse {
   __type?: "GetAuthorizerResponse";
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for REQUEST authorizers.</p>
@@ -2191,7 +2191,7 @@ export namespace GetAuthorizersRequest {
   }
 }
 
-export interface GetAuthorizersResponse extends $MetadataBearer {
+export interface GetAuthorizersResponse {
   __type?: "GetAuthorizersResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -2229,7 +2229,7 @@ export namespace GetDeploymentRequest {
   }
 }
 
-export interface GetDeploymentResponse extends $MetadataBearer {
+export interface GetDeploymentResponse {
   __type?: "GetDeploymentResponse";
   /**
    * <p>Specifies whether a deployment was automatically released.</p>
@@ -2292,7 +2292,7 @@ export namespace GetDeploymentsRequest {
   }
 }
 
-export interface GetDeploymentsResponse extends $MetadataBearer {
+export interface GetDeploymentsResponse {
   __type?: "GetDeploymentsResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -2325,7 +2325,7 @@ export namespace GetDomainNameRequest {
   }
 }
 
-export interface GetDomainNameResponse extends $MetadataBearer {
+export interface GetDomainNameResponse {
   __type?: "GetDomainNameResponse";
   /**
    * <p>The API mapping selection expression.</p>
@@ -2373,7 +2373,7 @@ export namespace GetDomainNamesRequest {
   }
 }
 
-export interface GetDomainNamesResponse extends $MetadataBearer {
+export interface GetDomainNamesResponse {
   __type?: "GetDomainNamesResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -2435,7 +2435,7 @@ export namespace GetIntegrationResponseRequest {
   }
 }
 
-export interface GetIntegrationResponseResponse extends $MetadataBearer {
+export interface GetIntegrationResponseResponse {
   __type?: "GetIntegrationResponseResponse";
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -2503,7 +2503,7 @@ export namespace GetIntegrationResponsesRequest {
   }
 }
 
-export interface GetIntegrationResponsesResponse extends $MetadataBearer {
+export interface GetIntegrationResponsesResponse {
   __type?: "GetIntegrationResponsesResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -2522,7 +2522,7 @@ export namespace GetIntegrationResponsesResponse {
   }
 }
 
-export interface GetIntegrationResult extends $MetadataBearer {
+export interface GetIntegrationResult {
   __type?: "GetIntegrationResult";
   /**
    * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
@@ -2645,7 +2645,7 @@ export namespace GetIntegrationsRequest {
   }
 }
 
-export interface GetIntegrationsResponse extends $MetadataBearer {
+export interface GetIntegrationsResponse {
   __type?: "GetIntegrationsResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -2683,7 +2683,7 @@ export namespace GetModelRequest {
   }
 }
 
-export interface GetModelResponse extends $MetadataBearer {
+export interface GetModelResponse {
   __type?: "GetModelResponse";
   /**
    * <p>The content-type for the model, for example, "application/json".</p>
@@ -2736,7 +2736,7 @@ export namespace GetModelTemplateRequest {
   }
 }
 
-export interface GetModelTemplateResponse extends $MetadataBearer {
+export interface GetModelTemplateResponse {
   __type?: "GetModelTemplateResponse";
   /**
    * <p>The template value.</p>
@@ -2774,7 +2774,7 @@ export namespace GetModelsRequest {
   }
 }
 
-export interface GetModelsResponse extends $MetadataBearer {
+export interface GetModelsResponse {
   __type?: "GetModelsResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -2836,7 +2836,7 @@ export namespace GetRouteResponseRequest {
   }
 }
 
-export interface GetRouteResponseResponse extends $MetadataBearer {
+export interface GetRouteResponseResponse {
   __type?: "GetRouteResponseResponse";
   /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
@@ -2899,7 +2899,7 @@ export namespace GetRouteResponsesRequest {
   }
 }
 
-export interface GetRouteResponsesResponse extends $MetadataBearer {
+export interface GetRouteResponsesResponse {
   __type?: "GetRouteResponsesResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -2918,7 +2918,7 @@ export namespace GetRouteResponsesResponse {
   }
 }
 
-export interface GetRouteResult extends $MetadataBearer {
+export interface GetRouteResult {
   __type?: "GetRouteResult";
   /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
@@ -3016,7 +3016,7 @@ export namespace GetRoutesRequest {
   }
 }
 
-export interface GetRoutesResponse extends $MetadataBearer {
+export interface GetRoutesResponse {
   __type?: "GetRoutesResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -3054,7 +3054,7 @@ export namespace GetStageRequest {
   }
 }
 
-export interface GetStageResponse extends $MetadataBearer {
+export interface GetStageResponse {
   __type?: "GetStageResponse";
   /**
    * <p>Settings for logging access in this stage.</p>
@@ -3157,7 +3157,7 @@ export namespace GetStagesRequest {
   }
 }
 
-export interface GetStagesResponse extends $MetadataBearer {
+export interface GetStagesResponse {
   __type?: "GetStagesResponse";
   /**
    * <p>The elements from this collection.</p>
@@ -3190,7 +3190,7 @@ export namespace GetTagsRequest {
   }
 }
 
-export interface GetTagsResponse extends $MetadataBearer {
+export interface GetTagsResponse {
   __type?: "GetTagsResponse";
   /**
    * <p>Represents a collection of tags associated with the resource.</p>
@@ -3231,7 +3231,7 @@ export namespace ImportApiRequest {
   }
 }
 
-export interface ImportApiResponse extends $MetadataBearer {
+export interface ImportApiResponse {
   __type?: "ImportApiResponse";
   /**
    * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
@@ -3611,7 +3611,7 @@ export namespace ReimportApiRequest {
   }
 }
 
-export interface ReimportApiResponse extends $MetadataBearer {
+export interface ReimportApiResponse {
   __type?: "ReimportApiResponse";
   /**
    * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
@@ -3950,7 +3950,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -4041,7 +4041,7 @@ export namespace UpdateApiMappingRequest {
   }
 }
 
-export interface UpdateApiMappingResponse extends $MetadataBearer {
+export interface UpdateApiMappingResponse {
   __type?: "UpdateApiMappingResponse";
   /**
    * <p>The API identifier.</p>
@@ -4137,7 +4137,7 @@ export namespace UpdateApiRequest {
   }
 }
 
-export interface UpdateApiResponse extends $MetadataBearer {
+export interface UpdateApiResponse {
   __type?: "UpdateApiResponse";
   /**
    * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
@@ -4279,7 +4279,7 @@ export namespace UpdateAuthorizerRequest {
   }
 }
 
-export interface UpdateAuthorizerResponse extends $MetadataBearer {
+export interface UpdateAuthorizerResponse {
   __type?: "UpdateAuthorizerResponse";
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for REQUEST authorizers.</p>
@@ -4361,7 +4361,7 @@ export namespace UpdateDeploymentRequest {
   }
 }
 
-export interface UpdateDeploymentResponse extends $MetadataBearer {
+export interface UpdateDeploymentResponse {
   __type?: "UpdateDeploymentResponse";
   /**
    * <p>Specifies whether a deployment was automatically released.</p>
@@ -4422,7 +4422,7 @@ export namespace UpdateDomainNameRequest {
   }
 }
 
-export interface UpdateDomainNameResponse extends $MetadataBearer {
+export interface UpdateDomainNameResponse {
   __type?: "UpdateDomainNameResponse";
   /**
    * <p>The API mapping selection expression.</p>
@@ -4607,7 +4607,7 @@ export namespace UpdateIntegrationResponseRequest {
   }
 }
 
-export interface UpdateIntegrationResponseResponse extends $MetadataBearer {
+export interface UpdateIntegrationResponseResponse {
   __type?: "UpdateIntegrationResponseResponse";
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -4646,7 +4646,7 @@ export namespace UpdateIntegrationResponseResponse {
   }
 }
 
-export interface UpdateIntegrationResult extends $MetadataBearer {
+export interface UpdateIntegrationResult {
   __type?: "UpdateIntegrationResult";
   /**
    * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
@@ -4787,7 +4787,7 @@ export namespace UpdateModelRequest {
   }
 }
 
-export interface UpdateModelResponse extends $MetadataBearer {
+export interface UpdateModelResponse {
   __type?: "UpdateModelResponse";
   /**
    * <p>The content-type for the model, for example, "application/json".</p>
@@ -4945,7 +4945,7 @@ export namespace UpdateRouteResponseRequest {
   }
 }
 
-export interface UpdateRouteResponseResponse extends $MetadataBearer {
+export interface UpdateRouteResponseResponse {
   __type?: "UpdateRouteResponseResponse";
   /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
@@ -4979,7 +4979,7 @@ export namespace UpdateRouteResponseResponse {
   }
 }
 
-export interface UpdateRouteResult extends $MetadataBearer {
+export interface UpdateRouteResult {
   __type?: "UpdateRouteResult";
   /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
@@ -5115,7 +5115,7 @@ export namespace UpdateStageRequest {
   }
 }
 
-export interface UpdateStageResponse extends $MetadataBearer {
+export interface UpdateStageResponse {
   __type?: "UpdateStageResponse";
   /**
    * <p>Settings for logging access in this stage.</p>

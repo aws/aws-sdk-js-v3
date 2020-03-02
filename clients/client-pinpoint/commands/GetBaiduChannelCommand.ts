@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBaiduChannelCommandInput = GetBaiduChannelRequest;
-export type GetBaiduChannelCommandOutput = GetBaiduChannelResponse;
+export type GetBaiduChannelCommandOutput = GetBaiduChannelResponse &
+  __MetadataBearer;
 
 export class GetBaiduChannelCommand extends $Command<
   GetBaiduChannelCommandInput,

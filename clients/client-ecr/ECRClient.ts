@@ -1,63 +1,119 @@
 import {
-  BatchCheckLayerAvailabilityRequest,
-  BatchCheckLayerAvailabilityResponse,
-  BatchDeleteImageRequest,
-  BatchDeleteImageResponse,
-  BatchGetImageRequest,
-  BatchGetImageResponse,
-  CompleteLayerUploadRequest,
-  CompleteLayerUploadResponse,
-  CreateRepositoryRequest,
-  CreateRepositoryResponse,
-  DeleteLifecyclePolicyRequest,
-  DeleteLifecyclePolicyResponse,
-  DeleteRepositoryPolicyRequest,
-  DeleteRepositoryPolicyResponse,
-  DeleteRepositoryRequest,
-  DeleteRepositoryResponse,
-  DescribeImageScanFindingsRequest,
-  DescribeImageScanFindingsResponse,
-  DescribeImagesRequest,
-  DescribeImagesResponse,
-  DescribeRepositoriesRequest,
-  DescribeRepositoriesResponse,
-  GetAuthorizationTokenRequest,
-  GetAuthorizationTokenResponse,
-  GetDownloadUrlForLayerRequest,
-  GetDownloadUrlForLayerResponse,
-  GetLifecyclePolicyPreviewRequest,
-  GetLifecyclePolicyPreviewResponse,
-  GetLifecyclePolicyRequest,
-  GetLifecyclePolicyResponse,
-  GetRepositoryPolicyRequest,
-  GetRepositoryPolicyResponse,
-  InitiateLayerUploadRequest,
-  InitiateLayerUploadResponse,
-  ListImagesRequest,
-  ListImagesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutImageRequest,
-  PutImageResponse,
-  PutImageScanningConfigurationRequest,
-  PutImageScanningConfigurationResponse,
-  PutImageTagMutabilityRequest,
-  PutImageTagMutabilityResponse,
-  PutLifecyclePolicyRequest,
-  PutLifecyclePolicyResponse,
-  SetRepositoryPolicyRequest,
-  SetRepositoryPolicyResponse,
-  StartImageScanRequest,
-  StartImageScanResponse,
-  StartLifecyclePolicyPreviewRequest,
-  StartLifecyclePolicyPreviewResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UploadLayerPartRequest,
-  UploadLayerPartResponse
-} from "./models/index";
+  BatchCheckLayerAvailabilityCommandInput,
+  BatchCheckLayerAvailabilityCommandOutput
+} from "./commands/BatchCheckLayerAvailabilityCommand";
+import {
+  BatchDeleteImageCommandInput,
+  BatchDeleteImageCommandOutput
+} from "./commands/BatchDeleteImageCommand";
+import {
+  BatchGetImageCommandInput,
+  BatchGetImageCommandOutput
+} from "./commands/BatchGetImageCommand";
+import {
+  CompleteLayerUploadCommandInput,
+  CompleteLayerUploadCommandOutput
+} from "./commands/CompleteLayerUploadCommand";
+import {
+  CreateRepositoryCommandInput,
+  CreateRepositoryCommandOutput
+} from "./commands/CreateRepositoryCommand";
+import {
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput
+} from "./commands/DeleteLifecyclePolicyCommand";
+import {
+  DeleteRepositoryCommandInput,
+  DeleteRepositoryCommandOutput
+} from "./commands/DeleteRepositoryCommand";
+import {
+  DeleteRepositoryPolicyCommandInput,
+  DeleteRepositoryPolicyCommandOutput
+} from "./commands/DeleteRepositoryPolicyCommand";
+import {
+  DescribeImageScanFindingsCommandInput,
+  DescribeImageScanFindingsCommandOutput
+} from "./commands/DescribeImageScanFindingsCommand";
+import {
+  DescribeImagesCommandInput,
+  DescribeImagesCommandOutput
+} from "./commands/DescribeImagesCommand";
+import {
+  DescribeRepositoriesCommandInput,
+  DescribeRepositoriesCommandOutput
+} from "./commands/DescribeRepositoriesCommand";
+import {
+  GetAuthorizationTokenCommandInput,
+  GetAuthorizationTokenCommandOutput
+} from "./commands/GetAuthorizationTokenCommand";
+import {
+  GetDownloadUrlForLayerCommandInput,
+  GetDownloadUrlForLayerCommandOutput
+} from "./commands/GetDownloadUrlForLayerCommand";
+import {
+  GetLifecyclePolicyCommandInput,
+  GetLifecyclePolicyCommandOutput
+} from "./commands/GetLifecyclePolicyCommand";
+import {
+  GetLifecyclePolicyPreviewCommandInput,
+  GetLifecyclePolicyPreviewCommandOutput
+} from "./commands/GetLifecyclePolicyPreviewCommand";
+import {
+  GetRepositoryPolicyCommandInput,
+  GetRepositoryPolicyCommandOutput
+} from "./commands/GetRepositoryPolicyCommand";
+import {
+  InitiateLayerUploadCommandInput,
+  InitiateLayerUploadCommandOutput
+} from "./commands/InitiateLayerUploadCommand";
+import {
+  ListImagesCommandInput,
+  ListImagesCommandOutput
+} from "./commands/ListImagesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutImageCommandInput,
+  PutImageCommandOutput
+} from "./commands/PutImageCommand";
+import {
+  PutImageScanningConfigurationCommandInput,
+  PutImageScanningConfigurationCommandOutput
+} from "./commands/PutImageScanningConfigurationCommand";
+import {
+  PutImageTagMutabilityCommandInput,
+  PutImageTagMutabilityCommandOutput
+} from "./commands/PutImageTagMutabilityCommand";
+import {
+  PutLifecyclePolicyCommandInput,
+  PutLifecyclePolicyCommandOutput
+} from "./commands/PutLifecyclePolicyCommand";
+import {
+  SetRepositoryPolicyCommandInput,
+  SetRepositoryPolicyCommandOutput
+} from "./commands/SetRepositoryPolicyCommand";
+import {
+  StartImageScanCommandInput,
+  StartImageScanCommandOutput
+} from "./commands/StartImageScanCommand";
+import {
+  StartLifecyclePolicyPreviewCommandInput,
+  StartLifecyclePolicyPreviewCommandOutput
+} from "./commands/StartLifecyclePolicyPreviewCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UploadLayerPartCommandInput,
+  UploadLayerPartCommandOutput
+} from "./commands/UploadLayerPartCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -111,66 +167,66 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchCheckLayerAvailabilityRequest
-  | BatchDeleteImageRequest
-  | BatchGetImageRequest
-  | CompleteLayerUploadRequest
-  | CreateRepositoryRequest
-  | DeleteLifecyclePolicyRequest
-  | DeleteRepositoryPolicyRequest
-  | DeleteRepositoryRequest
-  | DescribeImageScanFindingsRequest
-  | DescribeImagesRequest
-  | DescribeRepositoriesRequest
-  | GetAuthorizationTokenRequest
-  | GetDownloadUrlForLayerRequest
-  | GetLifecyclePolicyPreviewRequest
-  | GetLifecyclePolicyRequest
-  | GetRepositoryPolicyRequest
-  | InitiateLayerUploadRequest
-  | ListImagesRequest
-  | ListTagsForResourceRequest
-  | PutImageRequest
-  | PutImageScanningConfigurationRequest
-  | PutImageTagMutabilityRequest
-  | PutLifecyclePolicyRequest
-  | SetRepositoryPolicyRequest
-  | StartImageScanRequest
-  | StartLifecyclePolicyPreviewRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UploadLayerPartRequest;
+  | BatchCheckLayerAvailabilityCommandInput
+  | BatchDeleteImageCommandInput
+  | BatchGetImageCommandInput
+  | CompleteLayerUploadCommandInput
+  | CreateRepositoryCommandInput
+  | DeleteLifecyclePolicyCommandInput
+  | DeleteRepositoryCommandInput
+  | DeleteRepositoryPolicyCommandInput
+  | DescribeImageScanFindingsCommandInput
+  | DescribeImagesCommandInput
+  | DescribeRepositoriesCommandInput
+  | GetAuthorizationTokenCommandInput
+  | GetDownloadUrlForLayerCommandInput
+  | GetLifecyclePolicyCommandInput
+  | GetLifecyclePolicyPreviewCommandInput
+  | GetRepositoryPolicyCommandInput
+  | InitiateLayerUploadCommandInput
+  | ListImagesCommandInput
+  | ListTagsForResourceCommandInput
+  | PutImageCommandInput
+  | PutImageScanningConfigurationCommandInput
+  | PutImageTagMutabilityCommandInput
+  | PutLifecyclePolicyCommandInput
+  | SetRepositoryPolicyCommandInput
+  | StartImageScanCommandInput
+  | StartLifecyclePolicyPreviewCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UploadLayerPartCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchCheckLayerAvailabilityResponse
-  | BatchDeleteImageResponse
-  | BatchGetImageResponse
-  | CompleteLayerUploadResponse
-  | CreateRepositoryResponse
-  | DeleteLifecyclePolicyResponse
-  | DeleteRepositoryPolicyResponse
-  | DeleteRepositoryResponse
-  | DescribeImageScanFindingsResponse
-  | DescribeImagesResponse
-  | DescribeRepositoriesResponse
-  | GetAuthorizationTokenResponse
-  | GetDownloadUrlForLayerResponse
-  | GetLifecyclePolicyPreviewResponse
-  | GetLifecyclePolicyResponse
-  | GetRepositoryPolicyResponse
-  | InitiateLayerUploadResponse
-  | ListImagesResponse
-  | ListTagsForResourceResponse
-  | PutImageResponse
-  | PutImageScanningConfigurationResponse
-  | PutImageTagMutabilityResponse
-  | PutLifecyclePolicyResponse
-  | SetRepositoryPolicyResponse
-  | StartImageScanResponse
-  | StartLifecyclePolicyPreviewResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UploadLayerPartResponse;
+  | BatchCheckLayerAvailabilityCommandOutput
+  | BatchDeleteImageCommandOutput
+  | BatchGetImageCommandOutput
+  | CompleteLayerUploadCommandOutput
+  | CreateRepositoryCommandOutput
+  | DeleteLifecyclePolicyCommandOutput
+  | DeleteRepositoryCommandOutput
+  | DeleteRepositoryPolicyCommandOutput
+  | DescribeImageScanFindingsCommandOutput
+  | DescribeImagesCommandOutput
+  | DescribeRepositoriesCommandOutput
+  | GetAuthorizationTokenCommandOutput
+  | GetDownloadUrlForLayerCommandOutput
+  | GetLifecyclePolicyCommandOutput
+  | GetLifecyclePolicyPreviewCommandOutput
+  | GetRepositoryPolicyCommandOutput
+  | InitiateLayerUploadCommandOutput
+  | ListImagesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutImageCommandOutput
+  | PutImageScanningConfigurationCommandOutput
+  | PutImageTagMutabilityCommandOutput
+  | PutLifecyclePolicyCommandOutput
+  | SetRepositoryPolicyCommandOutput
+  | StartImageScanCommandOutput
+  | StartLifecyclePolicyPreviewCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UploadLayerPartCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

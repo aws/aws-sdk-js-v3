@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVirtualInterfacesCommandInput = DescribeVirtualInterfacesRequest;
-export type DescribeVirtualInterfacesCommandOutput = VirtualInterfaces;
+export type DescribeVirtualInterfacesCommandOutput = VirtualInterfaces &
+  __MetadataBearer;
 
 export class DescribeVirtualInterfacesCommand extends $Command<
   DescribeVirtualInterfacesCommandInput,

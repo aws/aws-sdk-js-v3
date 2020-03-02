@@ -82,7 +82,7 @@ export namespace SendSSHPublicKeyRequest {
   }
 }
 
-export interface SendSSHPublicKeyResponse extends $MetadataBearer {
+export interface SendSSHPublicKeyResponse {
   __type?: "SendSSHPublicKeyResponse";
   /**
    * <p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>
