@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVpcEndpointServicesCommandInput = DescribeVpcEndpointServicesRequest;
-export type DescribeVpcEndpointServicesCommandOutput = DescribeVpcEndpointServicesResult;
+export type DescribeVpcEndpointServicesCommandOutput = DescribeVpcEndpointServicesResult &
+  __MetadataBearer;
 
 export class DescribeVpcEndpointServicesCommand extends $Command<
   DescribeVpcEndpointServicesCommandInput,

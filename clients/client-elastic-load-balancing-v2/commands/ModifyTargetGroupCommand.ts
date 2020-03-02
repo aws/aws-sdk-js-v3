@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyTargetGroupCommandInput = ModifyTargetGroupInput;
-export type ModifyTargetGroupCommandOutput = ModifyTargetGroupOutput;
+export type ModifyTargetGroupCommandOutput = ModifyTargetGroupOutput &
+  __MetadataBearer;
 
 export class ModifyTargetGroupCommand extends $Command<
   ModifyTargetGroupCommandInput,

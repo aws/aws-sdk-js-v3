@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutInventoryCommandInput = PutInventoryRequest;
-export type PutInventoryCommandOutput = PutInventoryResult;
+export type PutInventoryCommandOutput = PutInventoryResult & __MetadataBearer;
 
 export class PutInventoryCommand extends $Command<
   PutInventoryCommandInput,

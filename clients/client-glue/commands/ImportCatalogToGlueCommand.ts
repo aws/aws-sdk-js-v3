@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportCatalogToGlueCommandInput = ImportCatalogToGlueRequest;
-export type ImportCatalogToGlueCommandOutput = ImportCatalogToGlueResponse;
+export type ImportCatalogToGlueCommandOutput = ImportCatalogToGlueResponse &
+  __MetadataBearer;
 
 export class ImportCatalogToGlueCommand extends $Command<
   ImportCatalogToGlueCommandInput,

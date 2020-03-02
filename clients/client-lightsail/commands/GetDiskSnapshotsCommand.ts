@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDiskSnapshotsCommandInput = GetDiskSnapshotsRequest;
-export type GetDiskSnapshotsCommandOutput = GetDiskSnapshotsResult;
+export type GetDiskSnapshotsCommandOutput = GetDiskSnapshotsResult &
+  __MetadataBearer;
 
 export class GetDiskSnapshotsCommand extends $Command<
   GetDiskSnapshotsCommandInput,

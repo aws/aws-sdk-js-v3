@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListVocabularyFiltersCommandInput = ListVocabularyFiltersRequest;
-export type ListVocabularyFiltersCommandOutput = ListVocabularyFiltersResponse;
+export type ListVocabularyFiltersCommandOutput = ListVocabularyFiltersResponse &
+  __MetadataBearer;
 
 export class ListVocabularyFiltersCommand extends $Command<
   ListVocabularyFiltersCommandInput,

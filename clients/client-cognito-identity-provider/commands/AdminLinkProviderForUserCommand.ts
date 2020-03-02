@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminLinkProviderForUserCommandInput = AdminLinkProviderForUserRequest;
-export type AdminLinkProviderForUserCommandOutput = AdminLinkProviderForUserResponse;
+export type AdminLinkProviderForUserCommandOutput = AdminLinkProviderForUserResponse &
+  __MetadataBearer;
 
 export class AdminLinkProviderForUserCommand extends $Command<
   AdminLinkProviderForUserCommandInput,

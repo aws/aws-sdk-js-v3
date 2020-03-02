@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCompilationJobCommandInput = CreateCompilationJobRequest;
-export type CreateCompilationJobCommandOutput = CreateCompilationJobResponse;
+export type CreateCompilationJobCommandOutput = CreateCompilationJobResponse &
+  __MetadataBearer;
 
 export class CreateCompilationJobCommand extends $Command<
   CreateCompilationJobCommandInput,

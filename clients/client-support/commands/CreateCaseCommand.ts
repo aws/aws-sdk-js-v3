@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCaseCommandInput = CreateCaseRequest;
-export type CreateCaseCommandOutput = CreateCaseResponse;
+export type CreateCaseCommandOutput = CreateCaseResponse & __MetadataBearer;
 
 export class CreateCaseCommand extends $Command<
   CreateCaseCommandInput,

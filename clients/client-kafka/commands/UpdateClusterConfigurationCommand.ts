@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateClusterConfigurationCommandInput = UpdateClusterConfigurationRequest;
-export type UpdateClusterConfigurationCommandOutput = UpdateClusterConfigurationResponse;
+export type UpdateClusterConfigurationCommandOutput = UpdateClusterConfigurationResponse &
+  __MetadataBearer;
 
 export class UpdateClusterConfigurationCommand extends $Command<
   UpdateClusterConfigurationCommandInput,

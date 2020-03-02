@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDomainAssociationCommandInput = DeleteDomainAssociationRequest;
-export type DeleteDomainAssociationCommandOutput = DeleteDomainAssociationResult;
+export type DeleteDomainAssociationCommandOutput = DeleteDomainAssociationResult &
+  __MetadataBearer;
 
 export class DeleteDomainAssociationCommand extends $Command<
   DeleteDomainAssociationCommandInput,

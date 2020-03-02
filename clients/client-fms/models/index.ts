@@ -180,7 +180,7 @@ export namespace GetAdminAccountRequest {
   }
 }
 
-export interface GetAdminAccountResponse extends $MetadataBearer {
+export interface GetAdminAccountResponse {
   __type?: "GetAdminAccountResponse";
   /**
    * <p>The AWS account that is set as the AWS Firewall Manager administrator.</p>
@@ -220,7 +220,7 @@ export namespace GetComplianceDetailRequest {
   }
 }
 
-export interface GetComplianceDetailResponse extends $MetadataBearer {
+export interface GetComplianceDetailResponse {
   __type?: "GetComplianceDetailResponse";
   /**
    * <p>Information about the resources and the policy that you specified in the
@@ -245,7 +245,7 @@ export namespace GetNotificationChannelRequest {
   }
 }
 
-export interface GetNotificationChannelResponse extends $MetadataBearer {
+export interface GetNotificationChannelResponse {
   __type?: "GetNotificationChannelResponse";
   /**
    * <p>The IAM role that is used by AWS Firewall Manager to record activity to SNS.</p>
@@ -278,7 +278,7 @@ export namespace GetPolicyRequest {
   }
 }
 
-export interface GetPolicyResponse extends $MetadataBearer {
+export interface GetPolicyResponse {
   __type?: "GetPolicyResponse";
   /**
    * <p>Information about the specified AWS Firewall Manager policy.</p>
@@ -348,7 +348,7 @@ export namespace GetProtectionStatusRequest {
   }
 }
 
-export interface GetProtectionStatusResponse extends $MetadataBearer {
+export interface GetProtectionStatusResponse {
   __type?: "GetProtectionStatusResponse";
   /**
    * <p>The ID of the AWS Firewall administrator account for this policy.</p>
@@ -528,7 +528,7 @@ export namespace ListComplianceStatusRequest {
   }
 }
 
-export interface ListComplianceStatusResponse extends $MetadataBearer {
+export interface ListComplianceStatusResponse {
   __type?: "ListComplianceStatusResponse";
   /**
    * <p>If you have more <code>PolicyComplianceStatus</code> objects than the number that you
@@ -579,7 +579,7 @@ export namespace ListMemberAccountsRequest {
   }
 }
 
-export interface ListMemberAccountsResponse extends $MetadataBearer {
+export interface ListMemberAccountsResponse {
   __type?: "ListMemberAccountsResponse";
   /**
    * <p>An array of account IDs.</p>
@@ -631,7 +631,7 @@ export namespace ListPoliciesRequest {
   }
 }
 
-export interface ListPoliciesResponse extends $MetadataBearer {
+export interface ListPoliciesResponse {
   __type?: "ListPoliciesResponse";
   /**
    * <p>If you have more <code>PolicySummary</code> objects than the number that you specified for
@@ -668,7 +668,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags associated with the resource.</p>
@@ -976,7 +976,7 @@ export namespace PutPolicyRequest {
   }
 }
 
-export interface PutPolicyResponse extends $MetadataBearer {
+export interface PutPolicyResponse {
   __type?: "PutPolicyResponse";
   /**
    * <p>The details of the AWS Firewall Manager policy that was created.</p>
@@ -1157,7 +1157,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1186,7 +1186,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

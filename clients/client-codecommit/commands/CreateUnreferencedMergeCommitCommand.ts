@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateUnreferencedMergeCommitCommandInput = CreateUnreferencedMergeCommitInput;
-export type CreateUnreferencedMergeCommitCommandOutput = CreateUnreferencedMergeCommitOutput;
+export type CreateUnreferencedMergeCommitCommandOutput = CreateUnreferencedMergeCommitOutput &
+  __MetadataBearer;
 
 export class CreateUnreferencedMergeCommitCommand extends $Command<
   CreateUnreferencedMergeCommitCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDeviceCommandInput = CreateDeviceRequest;
-export type CreateDeviceCommandOutput = CreateDeviceResponse;
+export type CreateDeviceCommandOutput = CreateDeviceResponse & __MetadataBearer;
 
 export class CreateDeviceCommand extends $Command<
   CreateDeviceCommandInput,

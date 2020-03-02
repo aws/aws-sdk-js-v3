@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLoadBalancersCommandInput = DescribeLoadBalancersInput;
-export type DescribeLoadBalancersCommandOutput = DescribeLoadBalancersOutput;
+export type DescribeLoadBalancersCommandOutput = DescribeLoadBalancersOutput &
+  __MetadataBearer;
 
 export class DescribeLoadBalancersCommand extends $Command<
   DescribeLoadBalancersCommandInput,

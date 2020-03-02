@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartDeviceAuthorizationCommandInput = StartDeviceAuthorizationRequest;
-export type StartDeviceAuthorizationCommandOutput = StartDeviceAuthorizationResponse;
+export type StartDeviceAuthorizationCommandOutput = StartDeviceAuthorizationResponse &
+  __MetadataBearer;
 
 export class StartDeviceAuthorizationCommand extends $Command<
   StartDeviceAuthorizationCommandInput,

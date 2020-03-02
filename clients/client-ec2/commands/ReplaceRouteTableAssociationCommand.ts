@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReplaceRouteTableAssociationCommandInput = ReplaceRouteTableAssociationRequest;
-export type ReplaceRouteTableAssociationCommandOutput = ReplaceRouteTableAssociationResult;
+export type ReplaceRouteTableAssociationCommandOutput = ReplaceRouteTableAssociationResult &
+  __MetadataBearer;
 
 export class ReplaceRouteTableAssociationCommand extends $Command<
   ReplaceRouteTableAssociationCommandInput,

@@ -254,7 +254,7 @@ export namespace CreateAppRequest {
   }
 }
 
-export interface CreateAppResponse extends $MetadataBearer {
+export interface CreateAppResponse {
   __type?: "CreateAppResponse";
   /**
    * <p>Summary description of the application.</p>
@@ -357,7 +357,7 @@ export namespace CreateReplicationJobRequest {
   }
 }
 
-export interface CreateReplicationJobResponse extends $MetadataBearer {
+export interface CreateReplicationJobResponse {
   __type?: "CreateReplicationJobResponse";
   /**
    * <p>The unique identifier of the replication job.</p>
@@ -385,7 +385,7 @@ export namespace DeleteAppLaunchConfigurationRequest {
   }
 }
 
-export interface DeleteAppLaunchConfigurationResponse extends $MetadataBearer {
+export interface DeleteAppLaunchConfigurationResponse {
   __type?: "DeleteAppLaunchConfigurationResponse";
 }
 
@@ -409,8 +409,7 @@ export namespace DeleteAppReplicationConfigurationRequest {
   }
 }
 
-export interface DeleteAppReplicationConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteAppReplicationConfigurationResponse {
   __type?: "DeleteAppReplicationConfigurationResponse";
 }
 
@@ -446,7 +445,7 @@ export namespace DeleteAppRequest {
   }
 }
 
-export interface DeleteAppResponse extends $MetadataBearer {
+export interface DeleteAppResponse {
   __type?: "DeleteAppResponse";
 }
 
@@ -470,7 +469,7 @@ export namespace DeleteReplicationJobRequest {
   }
 }
 
-export interface DeleteReplicationJobResponse extends $MetadataBearer {
+export interface DeleteReplicationJobResponse {
   __type?: "DeleteReplicationJobResponse";
 }
 
@@ -490,7 +489,7 @@ export namespace DeleteServerCatalogRequest {
   }
 }
 
-export interface DeleteServerCatalogResponse extends $MetadataBearer {
+export interface DeleteServerCatalogResponse {
   __type?: "DeleteServerCatalogResponse";
 }
 
@@ -514,7 +513,7 @@ export namespace DisassociateConnectorRequest {
   }
 }
 
-export interface DisassociateConnectorResponse extends $MetadataBearer {
+export interface DisassociateConnectorResponse {
   __type?: "DisassociateConnectorResponse";
 }
 
@@ -543,7 +542,7 @@ export namespace GenerateChangeSetRequest {
   }
 }
 
-export interface GenerateChangeSetResponse extends $MetadataBearer {
+export interface GenerateChangeSetResponse {
   __type?: "GenerateChangeSetResponse";
   /**
    * <p>Location of the Amazon S3 object.</p>
@@ -576,7 +575,7 @@ export namespace GenerateTemplateRequest {
   }
 }
 
-export interface GenerateTemplateResponse extends $MetadataBearer {
+export interface GenerateTemplateResponse {
   __type?: "GenerateTemplateResponse";
   /**
    * <p>Location of the Amazon S3 object.</p>
@@ -604,7 +603,7 @@ export namespace GetAppLaunchConfigurationRequest {
   }
 }
 
-export interface GetAppLaunchConfigurationResponse extends $MetadataBearer {
+export interface GetAppLaunchConfigurationResponse {
   __type?: "GetAppLaunchConfigurationResponse";
   /**
    * <p>ID of the application associated with the launch configuration.</p>
@@ -643,8 +642,7 @@ export namespace GetAppReplicationConfigurationRequest {
   }
 }
 
-export interface GetAppReplicationConfigurationResponse
-  extends $MetadataBearer {
+export interface GetAppReplicationConfigurationResponse {
   __type?: "GetAppReplicationConfigurationResponse";
   /**
    * <p>Replication configurations associated with server groups in this application.</p>
@@ -674,7 +672,7 @@ export namespace GetAppRequest {
   }
 }
 
-export interface GetAppResponse extends $MetadataBearer {
+export interface GetAppResponse {
   __type?: "GetAppResponse";
   /**
    * <p>Information about the application.</p>
@@ -719,7 +717,7 @@ export namespace GetConnectorsRequest {
   }
 }
 
-export interface GetConnectorsResponse extends $MetadataBearer {
+export interface GetConnectorsResponse {
   __type?: "GetConnectorsResponse";
   /**
    * <p>Information about the registered connectors.</p>
@@ -765,7 +763,7 @@ export namespace GetReplicationJobsRequest {
   }
 }
 
-export interface GetReplicationJobsResponse extends $MetadataBearer {
+export interface GetReplicationJobsResponse {
   __type?: "GetReplicationJobsResponse";
   /**
    * <p>The token required to retrieve the next set of results. This value is null when
@@ -811,7 +809,7 @@ export namespace GetReplicationRunsRequest {
   }
 }
 
-export interface GetReplicationRunsResponse extends $MetadataBearer {
+export interface GetReplicationRunsResponse {
   __type?: "GetReplicationRunsResponse";
   /**
    * <p>The token required to retrieve the next set of results. This value is null when
@@ -862,7 +860,7 @@ export namespace GetServersRequest {
   }
 }
 
-export interface GetServersResponse extends $MetadataBearer {
+export interface GetServersResponse {
   __type?: "GetServersResponse";
   /**
    * <p>The time when the server was last modified.</p>
@@ -902,7 +900,7 @@ export namespace ImportServerCatalogRequest {
   }
 }
 
-export interface ImportServerCatalogResponse extends $MetadataBearer {
+export interface ImportServerCatalogResponse {
   __type?: "ImportServerCatalogResponse";
 }
 
@@ -958,7 +956,7 @@ export namespace LaunchAppRequest {
   }
 }
 
-export interface LaunchAppResponse extends $MetadataBearer {
+export interface LaunchAppResponse {
   __type?: "LaunchAppResponse";
 }
 
@@ -1027,7 +1025,7 @@ export namespace ListAppsRequest {
   }
 }
 
-export interface ListAppsResponse extends $MetadataBearer {
+export interface ListAppsResponse {
   __type?: "ListAppsResponse";
   /**
    * <p>A list of application summaries.</p>
@@ -1128,7 +1126,7 @@ export namespace PutAppLaunchConfigurationRequest {
   }
 }
 
-export interface PutAppLaunchConfigurationResponse extends $MetadataBearer {
+export interface PutAppLaunchConfigurationResponse {
   __type?: "PutAppLaunchConfigurationResponse";
 }
 
@@ -1159,8 +1157,7 @@ export namespace PutAppReplicationConfigurationRequest {
   }
 }
 
-export interface PutAppReplicationConfigurationResponse
-  extends $MetadataBearer {
+export interface PutAppReplicationConfigurationResponse {
   __type?: "PutAppReplicationConfigurationResponse";
 }
 
@@ -1802,7 +1799,7 @@ export namespace StartAppReplicationRequest {
   }
 }
 
-export interface StartAppReplicationResponse extends $MetadataBearer {
+export interface StartAppReplicationResponse {
   __type?: "StartAppReplicationResponse";
 }
 
@@ -1831,7 +1828,7 @@ export namespace StartOnDemandReplicationRunRequest {
   }
 }
 
-export interface StartOnDemandReplicationRunResponse extends $MetadataBearer {
+export interface StartOnDemandReplicationRunResponse {
   __type?: "StartOnDemandReplicationRunResponse";
   /**
    * <p>The identifier of the replication run.</p>
@@ -1859,7 +1856,7 @@ export namespace StopAppReplicationRequest {
   }
 }
 
-export interface StopAppReplicationResponse extends $MetadataBearer {
+export interface StopAppReplicationResponse {
   __type?: "StopAppReplicationResponse";
 }
 
@@ -1921,7 +1918,7 @@ export namespace TerminateAppRequest {
   }
 }
 
-export interface TerminateAppResponse extends $MetadataBearer {
+export interface TerminateAppResponse {
   __type?: "TerminateAppResponse";
 }
 
@@ -1988,7 +1985,7 @@ export namespace UpdateAppRequest {
   }
 }
 
-export interface UpdateAppResponse extends $MetadataBearer {
+export interface UpdateAppResponse {
   __type?: "UpdateAppResponse";
   /**
    * <p>Summary description of the application.</p>
@@ -2087,7 +2084,7 @@ export namespace UpdateReplicationJobRequest {
   }
 }
 
-export interface UpdateReplicationJobResponse extends $MetadataBearer {
+export interface UpdateReplicationJobResponse {
   __type?: "UpdateReplicationJobResponse";
 }
 

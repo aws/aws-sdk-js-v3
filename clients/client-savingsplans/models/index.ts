@@ -64,8 +64,7 @@ export namespace DescribeSavingsPlansOfferingRatesRequest {
   }
 }
 
-export interface DescribeSavingsPlansOfferingRatesResponse
-  extends $MetadataBearer {
+export interface DescribeSavingsPlansOfferingRatesResponse {
   __type?: "DescribeSavingsPlansOfferingRatesResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
@@ -160,7 +159,7 @@ export namespace DescribeSavingsPlansOfferingsRequest {
   }
 }
 
-export interface DescribeSavingsPlansOfferingsResponse extends $MetadataBearer {
+export interface DescribeSavingsPlansOfferingsResponse {
   __type?: "DescribeSavingsPlansOfferingsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
@@ -541,7 +540,7 @@ export namespace CreateSavingsPlanRequest {
   }
 }
 
-export interface CreateSavingsPlanResponse extends $MetadataBearer {
+export interface CreateSavingsPlanResponse {
   __type?: "CreateSavingsPlanResponse";
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -585,7 +584,7 @@ export namespace DescribeSavingsPlanRatesRequest {
   }
 }
 
-export interface DescribeSavingsPlanRatesResponse extends $MetadataBearer {
+export interface DescribeSavingsPlanRatesResponse {
   __type?: "DescribeSavingsPlanRatesResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
@@ -650,7 +649,7 @@ export namespace DescribeSavingsPlansRequest {
   }
 }
 
-export interface DescribeSavingsPlansResponse extends $MetadataBearer {
+export interface DescribeSavingsPlansResponse {
   __type?: "DescribeSavingsPlansResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
@@ -701,7 +700,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>Information about the tags.</p>
@@ -996,7 +995,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1025,7 +1024,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyTransitGatewayVpcAttachmentCommandInput = ModifyTransitGatewayVpcAttachmentRequest;
-export type ModifyTransitGatewayVpcAttachmentCommandOutput = ModifyTransitGatewayVpcAttachmentResult;
+export type ModifyTransitGatewayVpcAttachmentCommandOutput = ModifyTransitGatewayVpcAttachmentResult &
+  __MetadataBearer;
 
 export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
   ModifyTransitGatewayVpcAttachmentCommandInput,

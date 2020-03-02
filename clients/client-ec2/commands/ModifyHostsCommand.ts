@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyHostsCommandInput = ModifyHostsRequest;
-export type ModifyHostsCommandOutput = ModifyHostsResult;
+export type ModifyHostsCommandOutput = ModifyHostsResult & __MetadataBearer;
 
 export class ModifyHostsCommand extends $Command<
   ModifyHostsCommandInput,

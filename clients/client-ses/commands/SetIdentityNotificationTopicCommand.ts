@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetIdentityNotificationTopicCommandInput = SetIdentityNotificationTopicRequest;
-export type SetIdentityNotificationTopicCommandOutput = SetIdentityNotificationTopicResponse;
+export type SetIdentityNotificationTopicCommandOutput = SetIdentityNotificationTopicResponse &
+  __MetadataBearer;
 
 export class SetIdentityNotificationTopicCommand extends $Command<
   SetIdentityNotificationTopicCommandInput,

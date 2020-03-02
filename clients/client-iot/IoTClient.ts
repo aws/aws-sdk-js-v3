@@ -1,381 +1,807 @@
 import {
-  AcceptCertificateTransferRequest,
-  AddThingToBillingGroupRequest,
-  AddThingToBillingGroupResponse,
-  AddThingToThingGroupRequest,
-  AddThingToThingGroupResponse,
-  AssociateTargetsWithJobRequest,
-  AssociateTargetsWithJobResponse,
-  AttachPolicyRequest,
-  AttachPrincipalPolicyRequest,
-  AttachSecurityProfileRequest,
-  AttachSecurityProfileResponse,
-  AttachThingPrincipalRequest,
-  AttachThingPrincipalResponse,
-  CancelAuditMitigationActionsTaskRequest,
-  CancelAuditMitigationActionsTaskResponse,
-  CancelAuditTaskRequest,
-  CancelAuditTaskResponse,
-  CancelCertificateTransferRequest,
-  CancelJobExecutionRequest,
-  CancelJobRequest,
-  CancelJobResponse,
-  ClearDefaultAuthorizerRequest,
-  ClearDefaultAuthorizerResponse,
-  ConfirmTopicRuleDestinationRequest,
-  ConfirmTopicRuleDestinationResponse,
-  CreateAuthorizerRequest,
-  CreateAuthorizerResponse,
-  CreateBillingGroupRequest,
-  CreateBillingGroupResponse,
-  CreateCertificateFromCsrRequest,
-  CreateCertificateFromCsrResponse,
-  CreateDomainConfigurationRequest,
-  CreateDomainConfigurationResponse,
-  CreateDynamicThingGroupRequest,
-  CreateDynamicThingGroupResponse,
-  CreateJobRequest,
-  CreateJobResponse,
-  CreateKeysAndCertificateRequest,
-  CreateKeysAndCertificateResponse,
-  CreateMitigationActionRequest,
-  CreateMitigationActionResponse,
-  CreateOTAUpdateRequest,
-  CreateOTAUpdateResponse,
-  CreatePolicyRequest,
-  CreatePolicyResponse,
-  CreatePolicyVersionRequest,
-  CreatePolicyVersionResponse,
-  CreateProvisioningClaimRequest,
-  CreateProvisioningClaimResponse,
-  CreateProvisioningTemplateRequest,
-  CreateProvisioningTemplateResponse,
-  CreateProvisioningTemplateVersionRequest,
-  CreateProvisioningTemplateVersionResponse,
-  CreateRoleAliasRequest,
-  CreateRoleAliasResponse,
-  CreateScheduledAuditRequest,
-  CreateScheduledAuditResponse,
-  CreateSecurityProfileRequest,
-  CreateSecurityProfileResponse,
-  CreateStreamRequest,
-  CreateStreamResponse,
-  CreateThingGroupRequest,
-  CreateThingGroupResponse,
-  CreateThingRequest,
-  CreateThingResponse,
-  CreateThingTypeRequest,
-  CreateThingTypeResponse,
-  CreateTopicRuleDestinationRequest,
-  CreateTopicRuleDestinationResponse,
-  CreateTopicRuleRequest,
-  DeleteAccountAuditConfigurationRequest,
-  DeleteAccountAuditConfigurationResponse,
-  DeleteAuthorizerRequest,
-  DeleteAuthorizerResponse,
-  DeleteBillingGroupRequest,
-  DeleteBillingGroupResponse,
-  DeleteCACertificateRequest,
-  DeleteCACertificateResponse,
-  DeleteCertificateRequest,
-  DeleteDomainConfigurationRequest,
-  DeleteDomainConfigurationResponse,
-  DeleteDynamicThingGroupRequest,
-  DeleteDynamicThingGroupResponse,
-  DeleteJobExecutionRequest,
-  DeleteJobRequest,
-  DeleteMitigationActionRequest,
-  DeleteMitigationActionResponse,
-  DeleteOTAUpdateRequest,
-  DeleteOTAUpdateResponse,
-  DeletePolicyRequest,
-  DeletePolicyVersionRequest,
-  DeleteProvisioningTemplateRequest,
-  DeleteProvisioningTemplateResponse,
-  DeleteProvisioningTemplateVersionRequest,
-  DeleteProvisioningTemplateVersionResponse,
-  DeleteRegistrationCodeRequest,
-  DeleteRegistrationCodeResponse,
-  DeleteRoleAliasRequest,
-  DeleteRoleAliasResponse,
-  DeleteScheduledAuditRequest,
-  DeleteScheduledAuditResponse,
-  DeleteSecurityProfileRequest,
-  DeleteSecurityProfileResponse,
-  DeleteStreamRequest,
-  DeleteStreamResponse,
-  DeleteThingGroupRequest,
-  DeleteThingGroupResponse,
-  DeleteThingRequest,
-  DeleteThingResponse,
-  DeleteThingTypeRequest,
-  DeleteThingTypeResponse,
-  DeleteTopicRuleDestinationRequest,
-  DeleteTopicRuleDestinationResponse,
-  DeleteTopicRuleRequest,
-  DeleteV2LoggingLevelRequest,
-  DeprecateThingTypeRequest,
-  DeprecateThingTypeResponse,
-  DescribeAccountAuditConfigurationRequest,
-  DescribeAccountAuditConfigurationResponse,
-  DescribeAuditFindingRequest,
-  DescribeAuditFindingResponse,
-  DescribeAuditMitigationActionsTaskRequest,
-  DescribeAuditMitigationActionsTaskResponse,
-  DescribeAuditTaskRequest,
-  DescribeAuditTaskResponse,
-  DescribeAuthorizerRequest,
-  DescribeAuthorizerResponse,
-  DescribeBillingGroupRequest,
-  DescribeBillingGroupResponse,
-  DescribeCACertificateRequest,
-  DescribeCACertificateResponse,
-  DescribeCertificateRequest,
-  DescribeCertificateResponse,
-  DescribeDefaultAuthorizerRequest,
-  DescribeDefaultAuthorizerResponse,
-  DescribeDomainConfigurationRequest,
-  DescribeDomainConfigurationResponse,
-  DescribeEndpointRequest,
-  DescribeEndpointResponse,
-  DescribeEventConfigurationsRequest,
-  DescribeEventConfigurationsResponse,
-  DescribeIndexRequest,
-  DescribeIndexResponse,
-  DescribeJobExecutionRequest,
-  DescribeJobExecutionResponse,
-  DescribeJobRequest,
-  DescribeJobResponse,
-  DescribeMitigationActionRequest,
-  DescribeMitigationActionResponse,
-  DescribeProvisioningTemplateRequest,
-  DescribeProvisioningTemplateResponse,
-  DescribeProvisioningTemplateVersionRequest,
-  DescribeProvisioningTemplateVersionResponse,
-  DescribeRoleAliasRequest,
-  DescribeRoleAliasResponse,
-  DescribeScheduledAuditRequest,
-  DescribeScheduledAuditResponse,
-  DescribeSecurityProfileRequest,
-  DescribeSecurityProfileResponse,
-  DescribeStreamRequest,
-  DescribeStreamResponse,
-  DescribeThingGroupRequest,
-  DescribeThingGroupResponse,
-  DescribeThingRegistrationTaskRequest,
-  DescribeThingRegistrationTaskResponse,
-  DescribeThingRequest,
-  DescribeThingResponse,
-  DescribeThingTypeRequest,
-  DescribeThingTypeResponse,
-  DetachPolicyRequest,
-  DetachPrincipalPolicyRequest,
-  DetachSecurityProfileRequest,
-  DetachSecurityProfileResponse,
-  DetachThingPrincipalRequest,
-  DetachThingPrincipalResponse,
-  DisableTopicRuleRequest,
-  EnableTopicRuleRequest,
-  GetCardinalityRequest,
-  GetCardinalityResponse,
-  GetEffectivePoliciesRequest,
-  GetEffectivePoliciesResponse,
-  GetIndexingConfigurationRequest,
-  GetIndexingConfigurationResponse,
-  GetJobDocumentRequest,
-  GetJobDocumentResponse,
-  GetLoggingOptionsRequest,
-  GetLoggingOptionsResponse,
-  GetOTAUpdateRequest,
-  GetOTAUpdateResponse,
-  GetPercentilesRequest,
-  GetPercentilesResponse,
-  GetPolicyRequest,
-  GetPolicyResponse,
-  GetPolicyVersionRequest,
-  GetPolicyVersionResponse,
-  GetRegistrationCodeRequest,
-  GetRegistrationCodeResponse,
-  GetStatisticsRequest,
-  GetStatisticsResponse,
-  GetTopicRuleDestinationRequest,
-  GetTopicRuleDestinationResponse,
-  GetTopicRuleRequest,
-  GetTopicRuleResponse,
-  GetV2LoggingOptionsRequest,
-  GetV2LoggingOptionsResponse,
-  ListActiveViolationsRequest,
-  ListActiveViolationsResponse,
-  ListAttachedPoliciesRequest,
-  ListAttachedPoliciesResponse,
-  ListAuditFindingsRequest,
-  ListAuditFindingsResponse,
-  ListAuditMitigationActionsExecutionsRequest,
-  ListAuditMitigationActionsExecutionsResponse,
-  ListAuditMitigationActionsTasksRequest,
-  ListAuditMitigationActionsTasksResponse,
-  ListAuditTasksRequest,
-  ListAuditTasksResponse,
-  ListAuthorizersRequest,
-  ListAuthorizersResponse,
-  ListBillingGroupsRequest,
-  ListBillingGroupsResponse,
-  ListCACertificatesRequest,
-  ListCACertificatesResponse,
-  ListCertificatesByCARequest,
-  ListCertificatesByCAResponse,
-  ListCertificatesRequest,
-  ListCertificatesResponse,
-  ListDomainConfigurationsRequest,
-  ListDomainConfigurationsResponse,
-  ListIndicesRequest,
-  ListIndicesResponse,
-  ListJobExecutionsForJobRequest,
-  ListJobExecutionsForJobResponse,
-  ListJobExecutionsForThingRequest,
-  ListJobExecutionsForThingResponse,
-  ListJobsRequest,
-  ListJobsResponse,
-  ListMitigationActionsRequest,
-  ListMitigationActionsResponse,
-  ListOTAUpdatesRequest,
-  ListOTAUpdatesResponse,
-  ListOutgoingCertificatesRequest,
-  ListOutgoingCertificatesResponse,
-  ListPoliciesRequest,
-  ListPoliciesResponse,
-  ListPolicyPrincipalsRequest,
-  ListPolicyPrincipalsResponse,
-  ListPolicyVersionsRequest,
-  ListPolicyVersionsResponse,
-  ListPrincipalPoliciesRequest,
-  ListPrincipalPoliciesResponse,
-  ListPrincipalThingsRequest,
-  ListPrincipalThingsResponse,
-  ListProvisioningTemplateVersionsRequest,
-  ListProvisioningTemplateVersionsResponse,
-  ListProvisioningTemplatesRequest,
-  ListProvisioningTemplatesResponse,
-  ListRoleAliasesRequest,
-  ListRoleAliasesResponse,
-  ListScheduledAuditsRequest,
-  ListScheduledAuditsResponse,
-  ListSecurityProfilesForTargetRequest,
-  ListSecurityProfilesForTargetResponse,
-  ListSecurityProfilesRequest,
-  ListSecurityProfilesResponse,
-  ListStreamsRequest,
-  ListStreamsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTargetsForPolicyRequest,
-  ListTargetsForPolicyResponse,
-  ListTargetsForSecurityProfileRequest,
-  ListTargetsForSecurityProfileResponse,
-  ListThingGroupsForThingRequest,
-  ListThingGroupsForThingResponse,
-  ListThingGroupsRequest,
-  ListThingGroupsResponse,
-  ListThingPrincipalsRequest,
-  ListThingPrincipalsResponse,
-  ListThingRegistrationTaskReportsRequest,
-  ListThingRegistrationTaskReportsResponse,
-  ListThingRegistrationTasksRequest,
-  ListThingRegistrationTasksResponse,
-  ListThingTypesRequest,
-  ListThingTypesResponse,
-  ListThingsInBillingGroupRequest,
-  ListThingsInBillingGroupResponse,
-  ListThingsInThingGroupRequest,
-  ListThingsInThingGroupResponse,
-  ListThingsRequest,
-  ListThingsResponse,
-  ListTopicRuleDestinationsRequest,
-  ListTopicRuleDestinationsResponse,
-  ListTopicRulesRequest,
-  ListTopicRulesResponse,
-  ListV2LoggingLevelsRequest,
-  ListV2LoggingLevelsResponse,
-  ListViolationEventsRequest,
-  ListViolationEventsResponse,
-  RegisterCACertificateRequest,
-  RegisterCACertificateResponse,
-  RegisterCertificateRequest,
-  RegisterCertificateResponse,
-  RegisterThingRequest,
-  RegisterThingResponse,
-  RejectCertificateTransferRequest,
-  RemoveThingFromBillingGroupRequest,
-  RemoveThingFromBillingGroupResponse,
-  RemoveThingFromThingGroupRequest,
-  RemoveThingFromThingGroupResponse,
-  ReplaceTopicRuleRequest,
-  SearchIndexRequest,
-  SearchIndexResponse,
-  SetDefaultAuthorizerRequest,
-  SetDefaultAuthorizerResponse,
-  SetDefaultPolicyVersionRequest,
-  SetLoggingOptionsRequest,
-  SetV2LoggingLevelRequest,
-  SetV2LoggingOptionsRequest,
-  StartAuditMitigationActionsTaskRequest,
-  StartAuditMitigationActionsTaskResponse,
-  StartOnDemandAuditTaskRequest,
-  StartOnDemandAuditTaskResponse,
-  StartThingRegistrationTaskRequest,
-  StartThingRegistrationTaskResponse,
-  StopThingRegistrationTaskRequest,
-  StopThingRegistrationTaskResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  TestAuthorizationRequest,
-  TestAuthorizationResponse,
-  TestInvokeAuthorizerRequest,
-  TestInvokeAuthorizerResponse,
-  TransferCertificateRequest,
-  TransferCertificateResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateAccountAuditConfigurationRequest,
-  UpdateAccountAuditConfigurationResponse,
-  UpdateAuthorizerRequest,
-  UpdateAuthorizerResponse,
-  UpdateBillingGroupRequest,
-  UpdateBillingGroupResponse,
-  UpdateCACertificateRequest,
-  UpdateCertificateRequest,
-  UpdateDomainConfigurationRequest,
-  UpdateDomainConfigurationResponse,
-  UpdateDynamicThingGroupRequest,
-  UpdateDynamicThingGroupResponse,
-  UpdateEventConfigurationsRequest,
-  UpdateEventConfigurationsResponse,
-  UpdateIndexingConfigurationRequest,
-  UpdateIndexingConfigurationResponse,
-  UpdateJobRequest,
-  UpdateMitigationActionRequest,
-  UpdateMitigationActionResponse,
-  UpdateProvisioningTemplateRequest,
-  UpdateProvisioningTemplateResponse,
-  UpdateRoleAliasRequest,
-  UpdateRoleAliasResponse,
-  UpdateScheduledAuditRequest,
-  UpdateScheduledAuditResponse,
-  UpdateSecurityProfileRequest,
-  UpdateSecurityProfileResponse,
-  UpdateStreamRequest,
-  UpdateStreamResponse,
-  UpdateThingGroupRequest,
-  UpdateThingGroupResponse,
-  UpdateThingGroupsForThingRequest,
-  UpdateThingGroupsForThingResponse,
-  UpdateThingRequest,
-  UpdateThingResponse,
-  UpdateTopicRuleDestinationRequest,
-  UpdateTopicRuleDestinationResponse,
-  ValidateSecurityProfileBehaviorsRequest,
-  ValidateSecurityProfileBehaviorsResponse
-} from "./models/index";
+  AcceptCertificateTransferCommandInput,
+  AcceptCertificateTransferCommandOutput
+} from "./commands/AcceptCertificateTransferCommand";
+import {
+  AddThingToBillingGroupCommandInput,
+  AddThingToBillingGroupCommandOutput
+} from "./commands/AddThingToBillingGroupCommand";
+import {
+  AddThingToThingGroupCommandInput,
+  AddThingToThingGroupCommandOutput
+} from "./commands/AddThingToThingGroupCommand";
+import {
+  AssociateTargetsWithJobCommandInput,
+  AssociateTargetsWithJobCommandOutput
+} from "./commands/AssociateTargetsWithJobCommand";
+import {
+  AttachPolicyCommandInput,
+  AttachPolicyCommandOutput
+} from "./commands/AttachPolicyCommand";
+import {
+  AttachPrincipalPolicyCommandInput,
+  AttachPrincipalPolicyCommandOutput
+} from "./commands/AttachPrincipalPolicyCommand";
+import {
+  AttachSecurityProfileCommandInput,
+  AttachSecurityProfileCommandOutput
+} from "./commands/AttachSecurityProfileCommand";
+import {
+  AttachThingPrincipalCommandInput,
+  AttachThingPrincipalCommandOutput
+} from "./commands/AttachThingPrincipalCommand";
+import {
+  CancelAuditMitigationActionsTaskCommandInput,
+  CancelAuditMitigationActionsTaskCommandOutput
+} from "./commands/CancelAuditMitigationActionsTaskCommand";
+import {
+  CancelAuditTaskCommandInput,
+  CancelAuditTaskCommandOutput
+} from "./commands/CancelAuditTaskCommand";
+import {
+  CancelCertificateTransferCommandInput,
+  CancelCertificateTransferCommandOutput
+} from "./commands/CancelCertificateTransferCommand";
+import {
+  CancelJobCommandInput,
+  CancelJobCommandOutput
+} from "./commands/CancelJobCommand";
+import {
+  CancelJobExecutionCommandInput,
+  CancelJobExecutionCommandOutput
+} from "./commands/CancelJobExecutionCommand";
+import {
+  ClearDefaultAuthorizerCommandInput,
+  ClearDefaultAuthorizerCommandOutput
+} from "./commands/ClearDefaultAuthorizerCommand";
+import {
+  ConfirmTopicRuleDestinationCommandInput,
+  ConfirmTopicRuleDestinationCommandOutput
+} from "./commands/ConfirmTopicRuleDestinationCommand";
+import {
+  CreateAuthorizerCommandInput,
+  CreateAuthorizerCommandOutput
+} from "./commands/CreateAuthorizerCommand";
+import {
+  CreateBillingGroupCommandInput,
+  CreateBillingGroupCommandOutput
+} from "./commands/CreateBillingGroupCommand";
+import {
+  CreateCertificateFromCsrCommandInput,
+  CreateCertificateFromCsrCommandOutput
+} from "./commands/CreateCertificateFromCsrCommand";
+import {
+  CreateDomainConfigurationCommandInput,
+  CreateDomainConfigurationCommandOutput
+} from "./commands/CreateDomainConfigurationCommand";
+import {
+  CreateDynamicThingGroupCommandInput,
+  CreateDynamicThingGroupCommandOutput
+} from "./commands/CreateDynamicThingGroupCommand";
+import {
+  CreateJobCommandInput,
+  CreateJobCommandOutput
+} from "./commands/CreateJobCommand";
+import {
+  CreateKeysAndCertificateCommandInput,
+  CreateKeysAndCertificateCommandOutput
+} from "./commands/CreateKeysAndCertificateCommand";
+import {
+  CreateMitigationActionCommandInput,
+  CreateMitigationActionCommandOutput
+} from "./commands/CreateMitigationActionCommand";
+import {
+  CreateOTAUpdateCommandInput,
+  CreateOTAUpdateCommandOutput
+} from "./commands/CreateOTAUpdateCommand";
+import {
+  CreatePolicyCommandInput,
+  CreatePolicyCommandOutput
+} from "./commands/CreatePolicyCommand";
+import {
+  CreatePolicyVersionCommandInput,
+  CreatePolicyVersionCommandOutput
+} from "./commands/CreatePolicyVersionCommand";
+import {
+  CreateProvisioningClaimCommandInput,
+  CreateProvisioningClaimCommandOutput
+} from "./commands/CreateProvisioningClaimCommand";
+import {
+  CreateProvisioningTemplateCommandInput,
+  CreateProvisioningTemplateCommandOutput
+} from "./commands/CreateProvisioningTemplateCommand";
+import {
+  CreateProvisioningTemplateVersionCommandInput,
+  CreateProvisioningTemplateVersionCommandOutput
+} from "./commands/CreateProvisioningTemplateVersionCommand";
+import {
+  CreateRoleAliasCommandInput,
+  CreateRoleAliasCommandOutput
+} from "./commands/CreateRoleAliasCommand";
+import {
+  CreateScheduledAuditCommandInput,
+  CreateScheduledAuditCommandOutput
+} from "./commands/CreateScheduledAuditCommand";
+import {
+  CreateSecurityProfileCommandInput,
+  CreateSecurityProfileCommandOutput
+} from "./commands/CreateSecurityProfileCommand";
+import {
+  CreateStreamCommandInput,
+  CreateStreamCommandOutput
+} from "./commands/CreateStreamCommand";
+import {
+  CreateThingCommandInput,
+  CreateThingCommandOutput
+} from "./commands/CreateThingCommand";
+import {
+  CreateThingGroupCommandInput,
+  CreateThingGroupCommandOutput
+} from "./commands/CreateThingGroupCommand";
+import {
+  CreateThingTypeCommandInput,
+  CreateThingTypeCommandOutput
+} from "./commands/CreateThingTypeCommand";
+import {
+  CreateTopicRuleCommandInput,
+  CreateTopicRuleCommandOutput
+} from "./commands/CreateTopicRuleCommand";
+import {
+  CreateTopicRuleDestinationCommandInput,
+  CreateTopicRuleDestinationCommandOutput
+} from "./commands/CreateTopicRuleDestinationCommand";
+import {
+  DeleteAccountAuditConfigurationCommandInput,
+  DeleteAccountAuditConfigurationCommandOutput
+} from "./commands/DeleteAccountAuditConfigurationCommand";
+import {
+  DeleteAuthorizerCommandInput,
+  DeleteAuthorizerCommandOutput
+} from "./commands/DeleteAuthorizerCommand";
+import {
+  DeleteBillingGroupCommandInput,
+  DeleteBillingGroupCommandOutput
+} from "./commands/DeleteBillingGroupCommand";
+import {
+  DeleteCACertificateCommandInput,
+  DeleteCACertificateCommandOutput
+} from "./commands/DeleteCACertificateCommand";
+import {
+  DeleteCertificateCommandInput,
+  DeleteCertificateCommandOutput
+} from "./commands/DeleteCertificateCommand";
+import {
+  DeleteDomainConfigurationCommandInput,
+  DeleteDomainConfigurationCommandOutput
+} from "./commands/DeleteDomainConfigurationCommand";
+import {
+  DeleteDynamicThingGroupCommandInput,
+  DeleteDynamicThingGroupCommandOutput
+} from "./commands/DeleteDynamicThingGroupCommand";
+import {
+  DeleteJobCommandInput,
+  DeleteJobCommandOutput
+} from "./commands/DeleteJobCommand";
+import {
+  DeleteJobExecutionCommandInput,
+  DeleteJobExecutionCommandOutput
+} from "./commands/DeleteJobExecutionCommand";
+import {
+  DeleteMitigationActionCommandInput,
+  DeleteMitigationActionCommandOutput
+} from "./commands/DeleteMitigationActionCommand";
+import {
+  DeleteOTAUpdateCommandInput,
+  DeleteOTAUpdateCommandOutput
+} from "./commands/DeleteOTAUpdateCommand";
+import {
+  DeletePolicyCommandInput,
+  DeletePolicyCommandOutput
+} from "./commands/DeletePolicyCommand";
+import {
+  DeletePolicyVersionCommandInput,
+  DeletePolicyVersionCommandOutput
+} from "./commands/DeletePolicyVersionCommand";
+import {
+  DeleteProvisioningTemplateCommandInput,
+  DeleteProvisioningTemplateCommandOutput
+} from "./commands/DeleteProvisioningTemplateCommand";
+import {
+  DeleteProvisioningTemplateVersionCommandInput,
+  DeleteProvisioningTemplateVersionCommandOutput
+} from "./commands/DeleteProvisioningTemplateVersionCommand";
+import {
+  DeleteRegistrationCodeCommandInput,
+  DeleteRegistrationCodeCommandOutput
+} from "./commands/DeleteRegistrationCodeCommand";
+import {
+  DeleteRoleAliasCommandInput,
+  DeleteRoleAliasCommandOutput
+} from "./commands/DeleteRoleAliasCommand";
+import {
+  DeleteScheduledAuditCommandInput,
+  DeleteScheduledAuditCommandOutput
+} from "./commands/DeleteScheduledAuditCommand";
+import {
+  DeleteSecurityProfileCommandInput,
+  DeleteSecurityProfileCommandOutput
+} from "./commands/DeleteSecurityProfileCommand";
+import {
+  DeleteStreamCommandInput,
+  DeleteStreamCommandOutput
+} from "./commands/DeleteStreamCommand";
+import {
+  DeleteThingCommandInput,
+  DeleteThingCommandOutput
+} from "./commands/DeleteThingCommand";
+import {
+  DeleteThingGroupCommandInput,
+  DeleteThingGroupCommandOutput
+} from "./commands/DeleteThingGroupCommand";
+import {
+  DeleteThingTypeCommandInput,
+  DeleteThingTypeCommandOutput
+} from "./commands/DeleteThingTypeCommand";
+import {
+  DeleteTopicRuleCommandInput,
+  DeleteTopicRuleCommandOutput
+} from "./commands/DeleteTopicRuleCommand";
+import {
+  DeleteTopicRuleDestinationCommandInput,
+  DeleteTopicRuleDestinationCommandOutput
+} from "./commands/DeleteTopicRuleDestinationCommand";
+import {
+  DeleteV2LoggingLevelCommandInput,
+  DeleteV2LoggingLevelCommandOutput
+} from "./commands/DeleteV2LoggingLevelCommand";
+import {
+  DeprecateThingTypeCommandInput,
+  DeprecateThingTypeCommandOutput
+} from "./commands/DeprecateThingTypeCommand";
+import {
+  DescribeAccountAuditConfigurationCommandInput,
+  DescribeAccountAuditConfigurationCommandOutput
+} from "./commands/DescribeAccountAuditConfigurationCommand";
+import {
+  DescribeAuditFindingCommandInput,
+  DescribeAuditFindingCommandOutput
+} from "./commands/DescribeAuditFindingCommand";
+import {
+  DescribeAuditMitigationActionsTaskCommandInput,
+  DescribeAuditMitigationActionsTaskCommandOutput
+} from "./commands/DescribeAuditMitigationActionsTaskCommand";
+import {
+  DescribeAuditTaskCommandInput,
+  DescribeAuditTaskCommandOutput
+} from "./commands/DescribeAuditTaskCommand";
+import {
+  DescribeAuthorizerCommandInput,
+  DescribeAuthorizerCommandOutput
+} from "./commands/DescribeAuthorizerCommand";
+import {
+  DescribeBillingGroupCommandInput,
+  DescribeBillingGroupCommandOutput
+} from "./commands/DescribeBillingGroupCommand";
+import {
+  DescribeCACertificateCommandInput,
+  DescribeCACertificateCommandOutput
+} from "./commands/DescribeCACertificateCommand";
+import {
+  DescribeCertificateCommandInput,
+  DescribeCertificateCommandOutput
+} from "./commands/DescribeCertificateCommand";
+import {
+  DescribeDefaultAuthorizerCommandInput,
+  DescribeDefaultAuthorizerCommandOutput
+} from "./commands/DescribeDefaultAuthorizerCommand";
+import {
+  DescribeDomainConfigurationCommandInput,
+  DescribeDomainConfigurationCommandOutput
+} from "./commands/DescribeDomainConfigurationCommand";
+import {
+  DescribeEndpointCommandInput,
+  DescribeEndpointCommandOutput
+} from "./commands/DescribeEndpointCommand";
+import {
+  DescribeEventConfigurationsCommandInput,
+  DescribeEventConfigurationsCommandOutput
+} from "./commands/DescribeEventConfigurationsCommand";
+import {
+  DescribeIndexCommandInput,
+  DescribeIndexCommandOutput
+} from "./commands/DescribeIndexCommand";
+import {
+  DescribeJobCommandInput,
+  DescribeJobCommandOutput
+} from "./commands/DescribeJobCommand";
+import {
+  DescribeJobExecutionCommandInput,
+  DescribeJobExecutionCommandOutput
+} from "./commands/DescribeJobExecutionCommand";
+import {
+  DescribeMitigationActionCommandInput,
+  DescribeMitigationActionCommandOutput
+} from "./commands/DescribeMitigationActionCommand";
+import {
+  DescribeProvisioningTemplateCommandInput,
+  DescribeProvisioningTemplateCommandOutput
+} from "./commands/DescribeProvisioningTemplateCommand";
+import {
+  DescribeProvisioningTemplateVersionCommandInput,
+  DescribeProvisioningTemplateVersionCommandOutput
+} from "./commands/DescribeProvisioningTemplateVersionCommand";
+import {
+  DescribeRoleAliasCommandInput,
+  DescribeRoleAliasCommandOutput
+} from "./commands/DescribeRoleAliasCommand";
+import {
+  DescribeScheduledAuditCommandInput,
+  DescribeScheduledAuditCommandOutput
+} from "./commands/DescribeScheduledAuditCommand";
+import {
+  DescribeSecurityProfileCommandInput,
+  DescribeSecurityProfileCommandOutput
+} from "./commands/DescribeSecurityProfileCommand";
+import {
+  DescribeStreamCommandInput,
+  DescribeStreamCommandOutput
+} from "./commands/DescribeStreamCommand";
+import {
+  DescribeThingCommandInput,
+  DescribeThingCommandOutput
+} from "./commands/DescribeThingCommand";
+import {
+  DescribeThingGroupCommandInput,
+  DescribeThingGroupCommandOutput
+} from "./commands/DescribeThingGroupCommand";
+import {
+  DescribeThingRegistrationTaskCommandInput,
+  DescribeThingRegistrationTaskCommandOutput
+} from "./commands/DescribeThingRegistrationTaskCommand";
+import {
+  DescribeThingTypeCommandInput,
+  DescribeThingTypeCommandOutput
+} from "./commands/DescribeThingTypeCommand";
+import {
+  DetachPolicyCommandInput,
+  DetachPolicyCommandOutput
+} from "./commands/DetachPolicyCommand";
+import {
+  DetachPrincipalPolicyCommandInput,
+  DetachPrincipalPolicyCommandOutput
+} from "./commands/DetachPrincipalPolicyCommand";
+import {
+  DetachSecurityProfileCommandInput,
+  DetachSecurityProfileCommandOutput
+} from "./commands/DetachSecurityProfileCommand";
+import {
+  DetachThingPrincipalCommandInput,
+  DetachThingPrincipalCommandOutput
+} from "./commands/DetachThingPrincipalCommand";
+import {
+  DisableTopicRuleCommandInput,
+  DisableTopicRuleCommandOutput
+} from "./commands/DisableTopicRuleCommand";
+import {
+  EnableTopicRuleCommandInput,
+  EnableTopicRuleCommandOutput
+} from "./commands/EnableTopicRuleCommand";
+import {
+  GetCardinalityCommandInput,
+  GetCardinalityCommandOutput
+} from "./commands/GetCardinalityCommand";
+import {
+  GetEffectivePoliciesCommandInput,
+  GetEffectivePoliciesCommandOutput
+} from "./commands/GetEffectivePoliciesCommand";
+import {
+  GetIndexingConfigurationCommandInput,
+  GetIndexingConfigurationCommandOutput
+} from "./commands/GetIndexingConfigurationCommand";
+import {
+  GetJobDocumentCommandInput,
+  GetJobDocumentCommandOutput
+} from "./commands/GetJobDocumentCommand";
+import {
+  GetLoggingOptionsCommandInput,
+  GetLoggingOptionsCommandOutput
+} from "./commands/GetLoggingOptionsCommand";
+import {
+  GetOTAUpdateCommandInput,
+  GetOTAUpdateCommandOutput
+} from "./commands/GetOTAUpdateCommand";
+import {
+  GetPercentilesCommandInput,
+  GetPercentilesCommandOutput
+} from "./commands/GetPercentilesCommand";
+import {
+  GetPolicyCommandInput,
+  GetPolicyCommandOutput
+} from "./commands/GetPolicyCommand";
+import {
+  GetPolicyVersionCommandInput,
+  GetPolicyVersionCommandOutput
+} from "./commands/GetPolicyVersionCommand";
+import {
+  GetRegistrationCodeCommandInput,
+  GetRegistrationCodeCommandOutput
+} from "./commands/GetRegistrationCodeCommand";
+import {
+  GetStatisticsCommandInput,
+  GetStatisticsCommandOutput
+} from "./commands/GetStatisticsCommand";
+import {
+  GetTopicRuleCommandInput,
+  GetTopicRuleCommandOutput
+} from "./commands/GetTopicRuleCommand";
+import {
+  GetTopicRuleDestinationCommandInput,
+  GetTopicRuleDestinationCommandOutput
+} from "./commands/GetTopicRuleDestinationCommand";
+import {
+  GetV2LoggingOptionsCommandInput,
+  GetV2LoggingOptionsCommandOutput
+} from "./commands/GetV2LoggingOptionsCommand";
+import {
+  ListActiveViolationsCommandInput,
+  ListActiveViolationsCommandOutput
+} from "./commands/ListActiveViolationsCommand";
+import {
+  ListAttachedPoliciesCommandInput,
+  ListAttachedPoliciesCommandOutput
+} from "./commands/ListAttachedPoliciesCommand";
+import {
+  ListAuditFindingsCommandInput,
+  ListAuditFindingsCommandOutput
+} from "./commands/ListAuditFindingsCommand";
+import {
+  ListAuditMitigationActionsExecutionsCommandInput,
+  ListAuditMitigationActionsExecutionsCommandOutput
+} from "./commands/ListAuditMitigationActionsExecutionsCommand";
+import {
+  ListAuditMitigationActionsTasksCommandInput,
+  ListAuditMitigationActionsTasksCommandOutput
+} from "./commands/ListAuditMitigationActionsTasksCommand";
+import {
+  ListAuditTasksCommandInput,
+  ListAuditTasksCommandOutput
+} from "./commands/ListAuditTasksCommand";
+import {
+  ListAuthorizersCommandInput,
+  ListAuthorizersCommandOutput
+} from "./commands/ListAuthorizersCommand";
+import {
+  ListBillingGroupsCommandInput,
+  ListBillingGroupsCommandOutput
+} from "./commands/ListBillingGroupsCommand";
+import {
+  ListCACertificatesCommandInput,
+  ListCACertificatesCommandOutput
+} from "./commands/ListCACertificatesCommand";
+import {
+  ListCertificatesByCACommandInput,
+  ListCertificatesByCACommandOutput
+} from "./commands/ListCertificatesByCACommand";
+import {
+  ListCertificatesCommandInput,
+  ListCertificatesCommandOutput
+} from "./commands/ListCertificatesCommand";
+import {
+  ListDomainConfigurationsCommandInput,
+  ListDomainConfigurationsCommandOutput
+} from "./commands/ListDomainConfigurationsCommand";
+import {
+  ListIndicesCommandInput,
+  ListIndicesCommandOutput
+} from "./commands/ListIndicesCommand";
+import {
+  ListJobExecutionsForJobCommandInput,
+  ListJobExecutionsForJobCommandOutput
+} from "./commands/ListJobExecutionsForJobCommand";
+import {
+  ListJobExecutionsForThingCommandInput,
+  ListJobExecutionsForThingCommandOutput
+} from "./commands/ListJobExecutionsForThingCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  ListMitigationActionsCommandInput,
+  ListMitigationActionsCommandOutput
+} from "./commands/ListMitigationActionsCommand";
+import {
+  ListOTAUpdatesCommandInput,
+  ListOTAUpdatesCommandOutput
+} from "./commands/ListOTAUpdatesCommand";
+import {
+  ListOutgoingCertificatesCommandInput,
+  ListOutgoingCertificatesCommandOutput
+} from "./commands/ListOutgoingCertificatesCommand";
+import {
+  ListPoliciesCommandInput,
+  ListPoliciesCommandOutput
+} from "./commands/ListPoliciesCommand";
+import {
+  ListPolicyPrincipalsCommandInput,
+  ListPolicyPrincipalsCommandOutput
+} from "./commands/ListPolicyPrincipalsCommand";
+import {
+  ListPolicyVersionsCommandInput,
+  ListPolicyVersionsCommandOutput
+} from "./commands/ListPolicyVersionsCommand";
+import {
+  ListPrincipalPoliciesCommandInput,
+  ListPrincipalPoliciesCommandOutput
+} from "./commands/ListPrincipalPoliciesCommand";
+import {
+  ListPrincipalThingsCommandInput,
+  ListPrincipalThingsCommandOutput
+} from "./commands/ListPrincipalThingsCommand";
+import {
+  ListProvisioningTemplateVersionsCommandInput,
+  ListProvisioningTemplateVersionsCommandOutput
+} from "./commands/ListProvisioningTemplateVersionsCommand";
+import {
+  ListProvisioningTemplatesCommandInput,
+  ListProvisioningTemplatesCommandOutput
+} from "./commands/ListProvisioningTemplatesCommand";
+import {
+  ListRoleAliasesCommandInput,
+  ListRoleAliasesCommandOutput
+} from "./commands/ListRoleAliasesCommand";
+import {
+  ListScheduledAuditsCommandInput,
+  ListScheduledAuditsCommandOutput
+} from "./commands/ListScheduledAuditsCommand";
+import {
+  ListSecurityProfilesCommandInput,
+  ListSecurityProfilesCommandOutput
+} from "./commands/ListSecurityProfilesCommand";
+import {
+  ListSecurityProfilesForTargetCommandInput,
+  ListSecurityProfilesForTargetCommandOutput
+} from "./commands/ListSecurityProfilesForTargetCommand";
+import {
+  ListStreamsCommandInput,
+  ListStreamsCommandOutput
+} from "./commands/ListStreamsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTargetsForPolicyCommandInput,
+  ListTargetsForPolicyCommandOutput
+} from "./commands/ListTargetsForPolicyCommand";
+import {
+  ListTargetsForSecurityProfileCommandInput,
+  ListTargetsForSecurityProfileCommandOutput
+} from "./commands/ListTargetsForSecurityProfileCommand";
+import {
+  ListThingGroupsCommandInput,
+  ListThingGroupsCommandOutput
+} from "./commands/ListThingGroupsCommand";
+import {
+  ListThingGroupsForThingCommandInput,
+  ListThingGroupsForThingCommandOutput
+} from "./commands/ListThingGroupsForThingCommand";
+import {
+  ListThingPrincipalsCommandInput,
+  ListThingPrincipalsCommandOutput
+} from "./commands/ListThingPrincipalsCommand";
+import {
+  ListThingRegistrationTaskReportsCommandInput,
+  ListThingRegistrationTaskReportsCommandOutput
+} from "./commands/ListThingRegistrationTaskReportsCommand";
+import {
+  ListThingRegistrationTasksCommandInput,
+  ListThingRegistrationTasksCommandOutput
+} from "./commands/ListThingRegistrationTasksCommand";
+import {
+  ListThingTypesCommandInput,
+  ListThingTypesCommandOutput
+} from "./commands/ListThingTypesCommand";
+import {
+  ListThingsCommandInput,
+  ListThingsCommandOutput
+} from "./commands/ListThingsCommand";
+import {
+  ListThingsInBillingGroupCommandInput,
+  ListThingsInBillingGroupCommandOutput
+} from "./commands/ListThingsInBillingGroupCommand";
+import {
+  ListThingsInThingGroupCommandInput,
+  ListThingsInThingGroupCommandOutput
+} from "./commands/ListThingsInThingGroupCommand";
+import {
+  ListTopicRuleDestinationsCommandInput,
+  ListTopicRuleDestinationsCommandOutput
+} from "./commands/ListTopicRuleDestinationsCommand";
+import {
+  ListTopicRulesCommandInput,
+  ListTopicRulesCommandOutput
+} from "./commands/ListTopicRulesCommand";
+import {
+  ListV2LoggingLevelsCommandInput,
+  ListV2LoggingLevelsCommandOutput
+} from "./commands/ListV2LoggingLevelsCommand";
+import {
+  ListViolationEventsCommandInput,
+  ListViolationEventsCommandOutput
+} from "./commands/ListViolationEventsCommand";
+import {
+  RegisterCACertificateCommandInput,
+  RegisterCACertificateCommandOutput
+} from "./commands/RegisterCACertificateCommand";
+import {
+  RegisterCertificateCommandInput,
+  RegisterCertificateCommandOutput
+} from "./commands/RegisterCertificateCommand";
+import {
+  RegisterThingCommandInput,
+  RegisterThingCommandOutput
+} from "./commands/RegisterThingCommand";
+import {
+  RejectCertificateTransferCommandInput,
+  RejectCertificateTransferCommandOutput
+} from "./commands/RejectCertificateTransferCommand";
+import {
+  RemoveThingFromBillingGroupCommandInput,
+  RemoveThingFromBillingGroupCommandOutput
+} from "./commands/RemoveThingFromBillingGroupCommand";
+import {
+  RemoveThingFromThingGroupCommandInput,
+  RemoveThingFromThingGroupCommandOutput
+} from "./commands/RemoveThingFromThingGroupCommand";
+import {
+  ReplaceTopicRuleCommandInput,
+  ReplaceTopicRuleCommandOutput
+} from "./commands/ReplaceTopicRuleCommand";
+import {
+  SearchIndexCommandInput,
+  SearchIndexCommandOutput
+} from "./commands/SearchIndexCommand";
+import {
+  SetDefaultAuthorizerCommandInput,
+  SetDefaultAuthorizerCommandOutput
+} from "./commands/SetDefaultAuthorizerCommand";
+import {
+  SetDefaultPolicyVersionCommandInput,
+  SetDefaultPolicyVersionCommandOutput
+} from "./commands/SetDefaultPolicyVersionCommand";
+import {
+  SetLoggingOptionsCommandInput,
+  SetLoggingOptionsCommandOutput
+} from "./commands/SetLoggingOptionsCommand";
+import {
+  SetV2LoggingLevelCommandInput,
+  SetV2LoggingLevelCommandOutput
+} from "./commands/SetV2LoggingLevelCommand";
+import {
+  SetV2LoggingOptionsCommandInput,
+  SetV2LoggingOptionsCommandOutput
+} from "./commands/SetV2LoggingOptionsCommand";
+import {
+  StartAuditMitigationActionsTaskCommandInput,
+  StartAuditMitigationActionsTaskCommandOutput
+} from "./commands/StartAuditMitigationActionsTaskCommand";
+import {
+  StartOnDemandAuditTaskCommandInput,
+  StartOnDemandAuditTaskCommandOutput
+} from "./commands/StartOnDemandAuditTaskCommand";
+import {
+  StartThingRegistrationTaskCommandInput,
+  StartThingRegistrationTaskCommandOutput
+} from "./commands/StartThingRegistrationTaskCommand";
+import {
+  StopThingRegistrationTaskCommandInput,
+  StopThingRegistrationTaskCommandOutput
+} from "./commands/StopThingRegistrationTaskCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  TestAuthorizationCommandInput,
+  TestAuthorizationCommandOutput
+} from "./commands/TestAuthorizationCommand";
+import {
+  TestInvokeAuthorizerCommandInput,
+  TestInvokeAuthorizerCommandOutput
+} from "./commands/TestInvokeAuthorizerCommand";
+import {
+  TransferCertificateCommandInput,
+  TransferCertificateCommandOutput
+} from "./commands/TransferCertificateCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAccountAuditConfigurationCommandInput,
+  UpdateAccountAuditConfigurationCommandOutput
+} from "./commands/UpdateAccountAuditConfigurationCommand";
+import {
+  UpdateAuthorizerCommandInput,
+  UpdateAuthorizerCommandOutput
+} from "./commands/UpdateAuthorizerCommand";
+import {
+  UpdateBillingGroupCommandInput,
+  UpdateBillingGroupCommandOutput
+} from "./commands/UpdateBillingGroupCommand";
+import {
+  UpdateCACertificateCommandInput,
+  UpdateCACertificateCommandOutput
+} from "./commands/UpdateCACertificateCommand";
+import {
+  UpdateCertificateCommandInput,
+  UpdateCertificateCommandOutput
+} from "./commands/UpdateCertificateCommand";
+import {
+  UpdateDomainConfigurationCommandInput,
+  UpdateDomainConfigurationCommandOutput
+} from "./commands/UpdateDomainConfigurationCommand";
+import {
+  UpdateDynamicThingGroupCommandInput,
+  UpdateDynamicThingGroupCommandOutput
+} from "./commands/UpdateDynamicThingGroupCommand";
+import {
+  UpdateEventConfigurationsCommandInput,
+  UpdateEventConfigurationsCommandOutput
+} from "./commands/UpdateEventConfigurationsCommand";
+import {
+  UpdateIndexingConfigurationCommandInput,
+  UpdateIndexingConfigurationCommandOutput
+} from "./commands/UpdateIndexingConfigurationCommand";
+import {
+  UpdateJobCommandInput,
+  UpdateJobCommandOutput
+} from "./commands/UpdateJobCommand";
+import {
+  UpdateMitigationActionCommandInput,
+  UpdateMitigationActionCommandOutput
+} from "./commands/UpdateMitigationActionCommand";
+import {
+  UpdateProvisioningTemplateCommandInput,
+  UpdateProvisioningTemplateCommandOutput
+} from "./commands/UpdateProvisioningTemplateCommand";
+import {
+  UpdateRoleAliasCommandInput,
+  UpdateRoleAliasCommandOutput
+} from "./commands/UpdateRoleAliasCommand";
+import {
+  UpdateScheduledAuditCommandInput,
+  UpdateScheduledAuditCommandOutput
+} from "./commands/UpdateScheduledAuditCommand";
+import {
+  UpdateSecurityProfileCommandInput,
+  UpdateSecurityProfileCommandOutput
+} from "./commands/UpdateSecurityProfileCommand";
+import {
+  UpdateStreamCommandInput,
+  UpdateStreamCommandOutput
+} from "./commands/UpdateStreamCommand";
+import {
+  UpdateThingCommandInput,
+  UpdateThingCommandOutput
+} from "./commands/UpdateThingCommand";
+import {
+  UpdateThingGroupCommandInput,
+  UpdateThingGroupCommandOutput
+} from "./commands/UpdateThingGroupCommand";
+import {
+  UpdateThingGroupsForThingCommandInput,
+  UpdateThingGroupsForThingCommandOutput
+} from "./commands/UpdateThingGroupsForThingCommand";
+import {
+  UpdateTopicRuleDestinationCommandInput,
+  UpdateTopicRuleDestinationCommandOutput
+} from "./commands/UpdateTopicRuleDestinationCommand";
+import {
+  ValidateSecurityProfileBehaviorsCommandInput,
+  ValidateSecurityProfileBehaviorsCommandOutput
+} from "./commands/ValidateSecurityProfileBehaviorsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -423,392 +849,416 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AcceptCertificateTransferRequest
-  | AddThingToBillingGroupRequest
-  | AddThingToThingGroupRequest
-  | AssociateTargetsWithJobRequest
-  | AttachPolicyRequest
-  | AttachPrincipalPolicyRequest
-  | AttachSecurityProfileRequest
-  | AttachThingPrincipalRequest
-  | CancelAuditMitigationActionsTaskRequest
-  | CancelAuditTaskRequest
-  | CancelCertificateTransferRequest
-  | CancelJobExecutionRequest
-  | CancelJobRequest
-  | ClearDefaultAuthorizerRequest
-  | ConfirmTopicRuleDestinationRequest
-  | CreateAuthorizerRequest
-  | CreateBillingGroupRequest
-  | CreateCertificateFromCsrRequest
-  | CreateDomainConfigurationRequest
-  | CreateDynamicThingGroupRequest
-  | CreateJobRequest
-  | CreateKeysAndCertificateRequest
-  | CreateMitigationActionRequest
-  | CreateOTAUpdateRequest
-  | CreatePolicyRequest
-  | CreatePolicyVersionRequest
-  | CreateProvisioningClaimRequest
-  | CreateProvisioningTemplateRequest
-  | CreateProvisioningTemplateVersionRequest
-  | CreateRoleAliasRequest
-  | CreateScheduledAuditRequest
-  | CreateSecurityProfileRequest
-  | CreateStreamRequest
-  | CreateThingGroupRequest
-  | CreateThingRequest
-  | CreateThingTypeRequest
-  | CreateTopicRuleDestinationRequest
-  | CreateTopicRuleRequest
-  | DeleteAccountAuditConfigurationRequest
-  | DeleteAuthorizerRequest
-  | DeleteBillingGroupRequest
-  | DeleteCACertificateRequest
-  | DeleteCertificateRequest
-  | DeleteDomainConfigurationRequest
-  | DeleteDynamicThingGroupRequest
-  | DeleteJobExecutionRequest
-  | DeleteJobRequest
-  | DeleteMitigationActionRequest
-  | DeleteOTAUpdateRequest
-  | DeletePolicyRequest
-  | DeletePolicyVersionRequest
-  | DeleteProvisioningTemplateRequest
-  | DeleteProvisioningTemplateVersionRequest
-  | DeleteRegistrationCodeRequest
-  | DeleteRoleAliasRequest
-  | DeleteScheduledAuditRequest
-  | DeleteSecurityProfileRequest
-  | DeleteStreamRequest
-  | DeleteThingGroupRequest
-  | DeleteThingRequest
-  | DeleteThingTypeRequest
-  | DeleteTopicRuleDestinationRequest
-  | DeleteTopicRuleRequest
-  | DeleteV2LoggingLevelRequest
-  | DeprecateThingTypeRequest
-  | DescribeAccountAuditConfigurationRequest
-  | DescribeAuditFindingRequest
-  | DescribeAuditMitigationActionsTaskRequest
-  | DescribeAuditTaskRequest
-  | DescribeAuthorizerRequest
-  | DescribeBillingGroupRequest
-  | DescribeCACertificateRequest
-  | DescribeCertificateRequest
-  | DescribeDefaultAuthorizerRequest
-  | DescribeDomainConfigurationRequest
-  | DescribeEndpointRequest
-  | DescribeEventConfigurationsRequest
-  | DescribeIndexRequest
-  | DescribeJobExecutionRequest
-  | DescribeJobRequest
-  | DescribeMitigationActionRequest
-  | DescribeProvisioningTemplateRequest
-  | DescribeProvisioningTemplateVersionRequest
-  | DescribeRoleAliasRequest
-  | DescribeScheduledAuditRequest
-  | DescribeSecurityProfileRequest
-  | DescribeStreamRequest
-  | DescribeThingGroupRequest
-  | DescribeThingRegistrationTaskRequest
-  | DescribeThingRequest
-  | DescribeThingTypeRequest
-  | DetachPolicyRequest
-  | DetachPrincipalPolicyRequest
-  | DetachSecurityProfileRequest
-  | DetachThingPrincipalRequest
-  | DisableTopicRuleRequest
-  | EnableTopicRuleRequest
-  | GetCardinalityRequest
-  | GetEffectivePoliciesRequest
-  | GetIndexingConfigurationRequest
-  | GetJobDocumentRequest
-  | GetLoggingOptionsRequest
-  | GetOTAUpdateRequest
-  | GetPercentilesRequest
-  | GetPolicyRequest
-  | GetPolicyVersionRequest
-  | GetRegistrationCodeRequest
-  | GetStatisticsRequest
-  | GetTopicRuleDestinationRequest
-  | GetTopicRuleRequest
-  | GetV2LoggingOptionsRequest
-  | ListActiveViolationsRequest
-  | ListAttachedPoliciesRequest
-  | ListAuditFindingsRequest
-  | ListAuditMitigationActionsExecutionsRequest
-  | ListAuditMitigationActionsTasksRequest
-  | ListAuditTasksRequest
-  | ListAuthorizersRequest
-  | ListBillingGroupsRequest
-  | ListCACertificatesRequest
-  | ListCertificatesByCARequest
-  | ListCertificatesRequest
-  | ListDomainConfigurationsRequest
-  | ListIndicesRequest
-  | ListJobExecutionsForJobRequest
-  | ListJobExecutionsForThingRequest
-  | ListJobsRequest
-  | ListMitigationActionsRequest
-  | ListOTAUpdatesRequest
-  | ListOutgoingCertificatesRequest
-  | ListPoliciesRequest
-  | ListPolicyPrincipalsRequest
-  | ListPolicyVersionsRequest
-  | ListPrincipalPoliciesRequest
-  | ListPrincipalThingsRequest
-  | ListProvisioningTemplateVersionsRequest
-  | ListProvisioningTemplatesRequest
-  | ListRoleAliasesRequest
-  | ListScheduledAuditsRequest
-  | ListSecurityProfilesForTargetRequest
-  | ListSecurityProfilesRequest
-  | ListStreamsRequest
-  | ListTagsForResourceRequest
-  | ListTargetsForPolicyRequest
-  | ListTargetsForSecurityProfileRequest
-  | ListThingGroupsForThingRequest
-  | ListThingGroupsRequest
-  | ListThingPrincipalsRequest
-  | ListThingRegistrationTaskReportsRequest
-  | ListThingRegistrationTasksRequest
-  | ListThingTypesRequest
-  | ListThingsInBillingGroupRequest
-  | ListThingsInThingGroupRequest
-  | ListThingsRequest
-  | ListTopicRuleDestinationsRequest
-  | ListTopicRulesRequest
-  | ListV2LoggingLevelsRequest
-  | ListViolationEventsRequest
-  | RegisterCACertificateRequest
-  | RegisterCertificateRequest
-  | RegisterThingRequest
-  | RejectCertificateTransferRequest
-  | RemoveThingFromBillingGroupRequest
-  | RemoveThingFromThingGroupRequest
-  | ReplaceTopicRuleRequest
-  | SearchIndexRequest
-  | SetDefaultAuthorizerRequest
-  | SetDefaultPolicyVersionRequest
-  | SetLoggingOptionsRequest
-  | SetV2LoggingLevelRequest
-  | SetV2LoggingOptionsRequest
-  | StartAuditMitigationActionsTaskRequest
-  | StartOnDemandAuditTaskRequest
-  | StartThingRegistrationTaskRequest
-  | StopThingRegistrationTaskRequest
-  | TagResourceRequest
-  | TestAuthorizationRequest
-  | TestInvokeAuthorizerRequest
-  | TransferCertificateRequest
-  | UntagResourceRequest
-  | UpdateAccountAuditConfigurationRequest
-  | UpdateAuthorizerRequest
-  | UpdateBillingGroupRequest
-  | UpdateCACertificateRequest
-  | UpdateCertificateRequest
-  | UpdateDomainConfigurationRequest
-  | UpdateDynamicThingGroupRequest
-  | UpdateEventConfigurationsRequest
-  | UpdateIndexingConfigurationRequest
-  | UpdateJobRequest
-  | UpdateMitigationActionRequest
-  | UpdateProvisioningTemplateRequest
-  | UpdateRoleAliasRequest
-  | UpdateScheduledAuditRequest
-  | UpdateSecurityProfileRequest
-  | UpdateStreamRequest
-  | UpdateThingGroupRequest
-  | UpdateThingGroupsForThingRequest
-  | UpdateThingRequest
-  | UpdateTopicRuleDestinationRequest
-  | ValidateSecurityProfileBehaviorsRequest;
+  | AcceptCertificateTransferCommandInput
+  | AddThingToBillingGroupCommandInput
+  | AddThingToThingGroupCommandInput
+  | AssociateTargetsWithJobCommandInput
+  | AttachPolicyCommandInput
+  | AttachPrincipalPolicyCommandInput
+  | AttachSecurityProfileCommandInput
+  | AttachThingPrincipalCommandInput
+  | CancelAuditMitigationActionsTaskCommandInput
+  | CancelAuditTaskCommandInput
+  | CancelCertificateTransferCommandInput
+  | CancelJobCommandInput
+  | CancelJobExecutionCommandInput
+  | ClearDefaultAuthorizerCommandInput
+  | ConfirmTopicRuleDestinationCommandInput
+  | CreateAuthorizerCommandInput
+  | CreateBillingGroupCommandInput
+  | CreateCertificateFromCsrCommandInput
+  | CreateDomainConfigurationCommandInput
+  | CreateDynamicThingGroupCommandInput
+  | CreateJobCommandInput
+  | CreateKeysAndCertificateCommandInput
+  | CreateMitigationActionCommandInput
+  | CreateOTAUpdateCommandInput
+  | CreatePolicyCommandInput
+  | CreatePolicyVersionCommandInput
+  | CreateProvisioningClaimCommandInput
+  | CreateProvisioningTemplateCommandInput
+  | CreateProvisioningTemplateVersionCommandInput
+  | CreateRoleAliasCommandInput
+  | CreateScheduledAuditCommandInput
+  | CreateSecurityProfileCommandInput
+  | CreateStreamCommandInput
+  | CreateThingCommandInput
+  | CreateThingGroupCommandInput
+  | CreateThingTypeCommandInput
+  | CreateTopicRuleCommandInput
+  | CreateTopicRuleDestinationCommandInput
+  | DeleteAccountAuditConfigurationCommandInput
+  | DeleteAuthorizerCommandInput
+  | DeleteBillingGroupCommandInput
+  | DeleteCACertificateCommandInput
+  | DeleteCertificateCommandInput
+  | DeleteDomainConfigurationCommandInput
+  | DeleteDynamicThingGroupCommandInput
+  | DeleteJobCommandInput
+  | DeleteJobExecutionCommandInput
+  | DeleteMitigationActionCommandInput
+  | DeleteOTAUpdateCommandInput
+  | DeletePolicyCommandInput
+  | DeletePolicyVersionCommandInput
+  | DeleteProvisioningTemplateCommandInput
+  | DeleteProvisioningTemplateVersionCommandInput
+  | DeleteRegistrationCodeCommandInput
+  | DeleteRoleAliasCommandInput
+  | DeleteScheduledAuditCommandInput
+  | DeleteSecurityProfileCommandInput
+  | DeleteStreamCommandInput
+  | DeleteThingCommandInput
+  | DeleteThingGroupCommandInput
+  | DeleteThingTypeCommandInput
+  | DeleteTopicRuleCommandInput
+  | DeleteTopicRuleDestinationCommandInput
+  | DeleteV2LoggingLevelCommandInput
+  | DeprecateThingTypeCommandInput
+  | DescribeAccountAuditConfigurationCommandInput
+  | DescribeAuditFindingCommandInput
+  | DescribeAuditMitigationActionsTaskCommandInput
+  | DescribeAuditTaskCommandInput
+  | DescribeAuthorizerCommandInput
+  | DescribeBillingGroupCommandInput
+  | DescribeCACertificateCommandInput
+  | DescribeCertificateCommandInput
+  | DescribeDefaultAuthorizerCommandInput
+  | DescribeDomainConfigurationCommandInput
+  | DescribeEndpointCommandInput
+  | DescribeEventConfigurationsCommandInput
+  | DescribeIndexCommandInput
+  | DescribeJobCommandInput
+  | DescribeJobExecutionCommandInput
+  | DescribeMitigationActionCommandInput
+  | DescribeProvisioningTemplateCommandInput
+  | DescribeProvisioningTemplateVersionCommandInput
+  | DescribeRoleAliasCommandInput
+  | DescribeScheduledAuditCommandInput
+  | DescribeSecurityProfileCommandInput
+  | DescribeStreamCommandInput
+  | DescribeThingCommandInput
+  | DescribeThingGroupCommandInput
+  | DescribeThingRegistrationTaskCommandInput
+  | DescribeThingTypeCommandInput
+  | DetachPolicyCommandInput
+  | DetachPrincipalPolicyCommandInput
+  | DetachSecurityProfileCommandInput
+  | DetachThingPrincipalCommandInput
+  | DisableTopicRuleCommandInput
+  | EnableTopicRuleCommandInput
+  | GetCardinalityCommandInput
+  | GetEffectivePoliciesCommandInput
+  | GetIndexingConfigurationCommandInput
+  | GetJobDocumentCommandInput
+  | GetLoggingOptionsCommandInput
+  | GetOTAUpdateCommandInput
+  | GetPercentilesCommandInput
+  | GetPolicyCommandInput
+  | GetPolicyVersionCommandInput
+  | GetRegistrationCodeCommandInput
+  | GetStatisticsCommandInput
+  | GetTopicRuleCommandInput
+  | GetTopicRuleDestinationCommandInput
+  | GetV2LoggingOptionsCommandInput
+  | ListActiveViolationsCommandInput
+  | ListAttachedPoliciesCommandInput
+  | ListAuditFindingsCommandInput
+  | ListAuditMitigationActionsExecutionsCommandInput
+  | ListAuditMitigationActionsTasksCommandInput
+  | ListAuditTasksCommandInput
+  | ListAuthorizersCommandInput
+  | ListBillingGroupsCommandInput
+  | ListCACertificatesCommandInput
+  | ListCertificatesByCACommandInput
+  | ListCertificatesCommandInput
+  | ListDomainConfigurationsCommandInput
+  | ListIndicesCommandInput
+  | ListJobExecutionsForJobCommandInput
+  | ListJobExecutionsForThingCommandInput
+  | ListJobsCommandInput
+  | ListMitigationActionsCommandInput
+  | ListOTAUpdatesCommandInput
+  | ListOutgoingCertificatesCommandInput
+  | ListPoliciesCommandInput
+  | ListPolicyPrincipalsCommandInput
+  | ListPolicyVersionsCommandInput
+  | ListPrincipalPoliciesCommandInput
+  | ListPrincipalThingsCommandInput
+  | ListProvisioningTemplateVersionsCommandInput
+  | ListProvisioningTemplatesCommandInput
+  | ListRoleAliasesCommandInput
+  | ListScheduledAuditsCommandInput
+  | ListSecurityProfilesCommandInput
+  | ListSecurityProfilesForTargetCommandInput
+  | ListStreamsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTargetsForPolicyCommandInput
+  | ListTargetsForSecurityProfileCommandInput
+  | ListThingGroupsCommandInput
+  | ListThingGroupsForThingCommandInput
+  | ListThingPrincipalsCommandInput
+  | ListThingRegistrationTaskReportsCommandInput
+  | ListThingRegistrationTasksCommandInput
+  | ListThingTypesCommandInput
+  | ListThingsCommandInput
+  | ListThingsInBillingGroupCommandInput
+  | ListThingsInThingGroupCommandInput
+  | ListTopicRuleDestinationsCommandInput
+  | ListTopicRulesCommandInput
+  | ListV2LoggingLevelsCommandInput
+  | ListViolationEventsCommandInput
+  | RegisterCACertificateCommandInput
+  | RegisterCertificateCommandInput
+  | RegisterThingCommandInput
+  | RejectCertificateTransferCommandInput
+  | RemoveThingFromBillingGroupCommandInput
+  | RemoveThingFromThingGroupCommandInput
+  | ReplaceTopicRuleCommandInput
+  | SearchIndexCommandInput
+  | SetDefaultAuthorizerCommandInput
+  | SetDefaultPolicyVersionCommandInput
+  | SetLoggingOptionsCommandInput
+  | SetV2LoggingLevelCommandInput
+  | SetV2LoggingOptionsCommandInput
+  | StartAuditMitigationActionsTaskCommandInput
+  | StartOnDemandAuditTaskCommandInput
+  | StartThingRegistrationTaskCommandInput
+  | StopThingRegistrationTaskCommandInput
+  | TagResourceCommandInput
+  | TestAuthorizationCommandInput
+  | TestInvokeAuthorizerCommandInput
+  | TransferCertificateCommandInput
+  | UntagResourceCommandInput
+  | UpdateAccountAuditConfigurationCommandInput
+  | UpdateAuthorizerCommandInput
+  | UpdateBillingGroupCommandInput
+  | UpdateCACertificateCommandInput
+  | UpdateCertificateCommandInput
+  | UpdateDomainConfigurationCommandInput
+  | UpdateDynamicThingGroupCommandInput
+  | UpdateEventConfigurationsCommandInput
+  | UpdateIndexingConfigurationCommandInput
+  | UpdateJobCommandInput
+  | UpdateMitigationActionCommandInput
+  | UpdateProvisioningTemplateCommandInput
+  | UpdateRoleAliasCommandInput
+  | UpdateScheduledAuditCommandInput
+  | UpdateSecurityProfileCommandInput
+  | UpdateStreamCommandInput
+  | UpdateThingCommandInput
+  | UpdateThingGroupCommandInput
+  | UpdateThingGroupsForThingCommandInput
+  | UpdateTopicRuleDestinationCommandInput
+  | ValidateSecurityProfileBehaviorsCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AddThingToBillingGroupResponse
-  | AddThingToThingGroupResponse
-  | AssociateTargetsWithJobResponse
-  | AttachSecurityProfileResponse
-  | AttachThingPrincipalResponse
-  | CancelAuditMitigationActionsTaskResponse
-  | CancelAuditTaskResponse
-  | CancelJobResponse
-  | ClearDefaultAuthorizerResponse
-  | ConfirmTopicRuleDestinationResponse
-  | CreateAuthorizerResponse
-  | CreateBillingGroupResponse
-  | CreateCertificateFromCsrResponse
-  | CreateDomainConfigurationResponse
-  | CreateDynamicThingGroupResponse
-  | CreateJobResponse
-  | CreateKeysAndCertificateResponse
-  | CreateMitigationActionResponse
-  | CreateOTAUpdateResponse
-  | CreatePolicyResponse
-  | CreatePolicyVersionResponse
-  | CreateProvisioningClaimResponse
-  | CreateProvisioningTemplateResponse
-  | CreateProvisioningTemplateVersionResponse
-  | CreateRoleAliasResponse
-  | CreateScheduledAuditResponse
-  | CreateSecurityProfileResponse
-  | CreateStreamResponse
-  | CreateThingGroupResponse
-  | CreateThingResponse
-  | CreateThingTypeResponse
-  | CreateTopicRuleDestinationResponse
-  | DeleteAccountAuditConfigurationResponse
-  | DeleteAuthorizerResponse
-  | DeleteBillingGroupResponse
-  | DeleteCACertificateResponse
-  | DeleteDomainConfigurationResponse
-  | DeleteDynamicThingGroupResponse
-  | DeleteMitigationActionResponse
-  | DeleteOTAUpdateResponse
-  | DeleteProvisioningTemplateResponse
-  | DeleteProvisioningTemplateVersionResponse
-  | DeleteRegistrationCodeResponse
-  | DeleteRoleAliasResponse
-  | DeleteScheduledAuditResponse
-  | DeleteSecurityProfileResponse
-  | DeleteStreamResponse
-  | DeleteThingGroupResponse
-  | DeleteThingResponse
-  | DeleteThingTypeResponse
-  | DeleteTopicRuleDestinationResponse
-  | DeprecateThingTypeResponse
-  | DescribeAccountAuditConfigurationResponse
-  | DescribeAuditFindingResponse
-  | DescribeAuditMitigationActionsTaskResponse
-  | DescribeAuditTaskResponse
-  | DescribeAuthorizerResponse
-  | DescribeBillingGroupResponse
-  | DescribeCACertificateResponse
-  | DescribeCertificateResponse
-  | DescribeDefaultAuthorizerResponse
-  | DescribeDomainConfigurationResponse
-  | DescribeEndpointResponse
-  | DescribeEventConfigurationsResponse
-  | DescribeIndexResponse
-  | DescribeJobExecutionResponse
-  | DescribeJobResponse
-  | DescribeMitigationActionResponse
-  | DescribeProvisioningTemplateResponse
-  | DescribeProvisioningTemplateVersionResponse
-  | DescribeRoleAliasResponse
-  | DescribeScheduledAuditResponse
-  | DescribeSecurityProfileResponse
-  | DescribeStreamResponse
-  | DescribeThingGroupResponse
-  | DescribeThingRegistrationTaskResponse
-  | DescribeThingResponse
-  | DescribeThingTypeResponse
-  | DetachSecurityProfileResponse
-  | DetachThingPrincipalResponse
-  | GetCardinalityResponse
-  | GetEffectivePoliciesResponse
-  | GetIndexingConfigurationResponse
-  | GetJobDocumentResponse
-  | GetLoggingOptionsResponse
-  | GetOTAUpdateResponse
-  | GetPercentilesResponse
-  | GetPolicyResponse
-  | GetPolicyVersionResponse
-  | GetRegistrationCodeResponse
-  | GetStatisticsResponse
-  | GetTopicRuleDestinationResponse
-  | GetTopicRuleResponse
-  | GetV2LoggingOptionsResponse
-  | ListActiveViolationsResponse
-  | ListAttachedPoliciesResponse
-  | ListAuditFindingsResponse
-  | ListAuditMitigationActionsExecutionsResponse
-  | ListAuditMitigationActionsTasksResponse
-  | ListAuditTasksResponse
-  | ListAuthorizersResponse
-  | ListBillingGroupsResponse
-  | ListCACertificatesResponse
-  | ListCertificatesByCAResponse
-  | ListCertificatesResponse
-  | ListDomainConfigurationsResponse
-  | ListIndicesResponse
-  | ListJobExecutionsForJobResponse
-  | ListJobExecutionsForThingResponse
-  | ListJobsResponse
-  | ListMitigationActionsResponse
-  | ListOTAUpdatesResponse
-  | ListOutgoingCertificatesResponse
-  | ListPoliciesResponse
-  | ListPolicyPrincipalsResponse
-  | ListPolicyVersionsResponse
-  | ListPrincipalPoliciesResponse
-  | ListPrincipalThingsResponse
-  | ListProvisioningTemplateVersionsResponse
-  | ListProvisioningTemplatesResponse
-  | ListRoleAliasesResponse
-  | ListScheduledAuditsResponse
-  | ListSecurityProfilesForTargetResponse
-  | ListSecurityProfilesResponse
-  | ListStreamsResponse
-  | ListTagsForResourceResponse
-  | ListTargetsForPolicyResponse
-  | ListTargetsForSecurityProfileResponse
-  | ListThingGroupsForThingResponse
-  | ListThingGroupsResponse
-  | ListThingPrincipalsResponse
-  | ListThingRegistrationTaskReportsResponse
-  | ListThingRegistrationTasksResponse
-  | ListThingTypesResponse
-  | ListThingsInBillingGroupResponse
-  | ListThingsInThingGroupResponse
-  | ListThingsResponse
-  | ListTopicRuleDestinationsResponse
-  | ListTopicRulesResponse
-  | ListV2LoggingLevelsResponse
-  | ListViolationEventsResponse
-  | RegisterCACertificateResponse
-  | RegisterCertificateResponse
-  | RegisterThingResponse
-  | RemoveThingFromBillingGroupResponse
-  | RemoveThingFromThingGroupResponse
-  | SearchIndexResponse
-  | SetDefaultAuthorizerResponse
-  | StartAuditMitigationActionsTaskResponse
-  | StartOnDemandAuditTaskResponse
-  | StartThingRegistrationTaskResponse
-  | StopThingRegistrationTaskResponse
-  | TagResourceResponse
-  | TestAuthorizationResponse
-  | TestInvokeAuthorizerResponse
-  | TransferCertificateResponse
-  | UntagResourceResponse
-  | UpdateAccountAuditConfigurationResponse
-  | UpdateAuthorizerResponse
-  | UpdateBillingGroupResponse
-  | UpdateDomainConfigurationResponse
-  | UpdateDynamicThingGroupResponse
-  | UpdateEventConfigurationsResponse
-  | UpdateIndexingConfigurationResponse
-  | UpdateMitigationActionResponse
-  | UpdateProvisioningTemplateResponse
-  | UpdateRoleAliasResponse
-  | UpdateScheduledAuditResponse
-  | UpdateSecurityProfileResponse
-  | UpdateStreamResponse
-  | UpdateThingGroupResponse
-  | UpdateThingGroupsForThingResponse
-  | UpdateThingResponse
-  | UpdateTopicRuleDestinationResponse
-  | ValidateSecurityProfileBehaviorsResponse;
+  | AcceptCertificateTransferCommandOutput
+  | AddThingToBillingGroupCommandOutput
+  | AddThingToThingGroupCommandOutput
+  | AssociateTargetsWithJobCommandOutput
+  | AttachPolicyCommandOutput
+  | AttachPrincipalPolicyCommandOutput
+  | AttachSecurityProfileCommandOutput
+  | AttachThingPrincipalCommandOutput
+  | CancelAuditMitigationActionsTaskCommandOutput
+  | CancelAuditTaskCommandOutput
+  | CancelCertificateTransferCommandOutput
+  | CancelJobCommandOutput
+  | CancelJobExecutionCommandOutput
+  | ClearDefaultAuthorizerCommandOutput
+  | ConfirmTopicRuleDestinationCommandOutput
+  | CreateAuthorizerCommandOutput
+  | CreateBillingGroupCommandOutput
+  | CreateCertificateFromCsrCommandOutput
+  | CreateDomainConfigurationCommandOutput
+  | CreateDynamicThingGroupCommandOutput
+  | CreateJobCommandOutput
+  | CreateKeysAndCertificateCommandOutput
+  | CreateMitigationActionCommandOutput
+  | CreateOTAUpdateCommandOutput
+  | CreatePolicyCommandOutput
+  | CreatePolicyVersionCommandOutput
+  | CreateProvisioningClaimCommandOutput
+  | CreateProvisioningTemplateCommandOutput
+  | CreateProvisioningTemplateVersionCommandOutput
+  | CreateRoleAliasCommandOutput
+  | CreateScheduledAuditCommandOutput
+  | CreateSecurityProfileCommandOutput
+  | CreateStreamCommandOutput
+  | CreateThingCommandOutput
+  | CreateThingGroupCommandOutput
+  | CreateThingTypeCommandOutput
+  | CreateTopicRuleCommandOutput
+  | CreateTopicRuleDestinationCommandOutput
+  | DeleteAccountAuditConfigurationCommandOutput
+  | DeleteAuthorizerCommandOutput
+  | DeleteBillingGroupCommandOutput
+  | DeleteCACertificateCommandOutput
+  | DeleteCertificateCommandOutput
+  | DeleteDomainConfigurationCommandOutput
+  | DeleteDynamicThingGroupCommandOutput
+  | DeleteJobCommandOutput
+  | DeleteJobExecutionCommandOutput
+  | DeleteMitigationActionCommandOutput
+  | DeleteOTAUpdateCommandOutput
+  | DeletePolicyCommandOutput
+  | DeletePolicyVersionCommandOutput
+  | DeleteProvisioningTemplateCommandOutput
+  | DeleteProvisioningTemplateVersionCommandOutput
+  | DeleteRegistrationCodeCommandOutput
+  | DeleteRoleAliasCommandOutput
+  | DeleteScheduledAuditCommandOutput
+  | DeleteSecurityProfileCommandOutput
+  | DeleteStreamCommandOutput
+  | DeleteThingCommandOutput
+  | DeleteThingGroupCommandOutput
+  | DeleteThingTypeCommandOutput
+  | DeleteTopicRuleCommandOutput
+  | DeleteTopicRuleDestinationCommandOutput
+  | DeleteV2LoggingLevelCommandOutput
+  | DeprecateThingTypeCommandOutput
+  | DescribeAccountAuditConfigurationCommandOutput
+  | DescribeAuditFindingCommandOutput
+  | DescribeAuditMitigationActionsTaskCommandOutput
+  | DescribeAuditTaskCommandOutput
+  | DescribeAuthorizerCommandOutput
+  | DescribeBillingGroupCommandOutput
+  | DescribeCACertificateCommandOutput
+  | DescribeCertificateCommandOutput
+  | DescribeDefaultAuthorizerCommandOutput
+  | DescribeDomainConfigurationCommandOutput
+  | DescribeEndpointCommandOutput
+  | DescribeEventConfigurationsCommandOutput
+  | DescribeIndexCommandOutput
+  | DescribeJobCommandOutput
+  | DescribeJobExecutionCommandOutput
+  | DescribeMitigationActionCommandOutput
+  | DescribeProvisioningTemplateCommandOutput
+  | DescribeProvisioningTemplateVersionCommandOutput
+  | DescribeRoleAliasCommandOutput
+  | DescribeScheduledAuditCommandOutput
+  | DescribeSecurityProfileCommandOutput
+  | DescribeStreamCommandOutput
+  | DescribeThingCommandOutput
+  | DescribeThingGroupCommandOutput
+  | DescribeThingRegistrationTaskCommandOutput
+  | DescribeThingTypeCommandOutput
+  | DetachPolicyCommandOutput
+  | DetachPrincipalPolicyCommandOutput
+  | DetachSecurityProfileCommandOutput
+  | DetachThingPrincipalCommandOutput
+  | DisableTopicRuleCommandOutput
+  | EnableTopicRuleCommandOutput
+  | GetCardinalityCommandOutput
+  | GetEffectivePoliciesCommandOutput
+  | GetIndexingConfigurationCommandOutput
+  | GetJobDocumentCommandOutput
+  | GetLoggingOptionsCommandOutput
+  | GetOTAUpdateCommandOutput
+  | GetPercentilesCommandOutput
+  | GetPolicyCommandOutput
+  | GetPolicyVersionCommandOutput
+  | GetRegistrationCodeCommandOutput
+  | GetStatisticsCommandOutput
+  | GetTopicRuleCommandOutput
+  | GetTopicRuleDestinationCommandOutput
+  | GetV2LoggingOptionsCommandOutput
+  | ListActiveViolationsCommandOutput
+  | ListAttachedPoliciesCommandOutput
+  | ListAuditFindingsCommandOutput
+  | ListAuditMitigationActionsExecutionsCommandOutput
+  | ListAuditMitigationActionsTasksCommandOutput
+  | ListAuditTasksCommandOutput
+  | ListAuthorizersCommandOutput
+  | ListBillingGroupsCommandOutput
+  | ListCACertificatesCommandOutput
+  | ListCertificatesByCACommandOutput
+  | ListCertificatesCommandOutput
+  | ListDomainConfigurationsCommandOutput
+  | ListIndicesCommandOutput
+  | ListJobExecutionsForJobCommandOutput
+  | ListJobExecutionsForThingCommandOutput
+  | ListJobsCommandOutput
+  | ListMitigationActionsCommandOutput
+  | ListOTAUpdatesCommandOutput
+  | ListOutgoingCertificatesCommandOutput
+  | ListPoliciesCommandOutput
+  | ListPolicyPrincipalsCommandOutput
+  | ListPolicyVersionsCommandOutput
+  | ListPrincipalPoliciesCommandOutput
+  | ListPrincipalThingsCommandOutput
+  | ListProvisioningTemplateVersionsCommandOutput
+  | ListProvisioningTemplatesCommandOutput
+  | ListRoleAliasesCommandOutput
+  | ListScheduledAuditsCommandOutput
+  | ListSecurityProfilesCommandOutput
+  | ListSecurityProfilesForTargetCommandOutput
+  | ListStreamsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTargetsForPolicyCommandOutput
+  | ListTargetsForSecurityProfileCommandOutput
+  | ListThingGroupsCommandOutput
+  | ListThingGroupsForThingCommandOutput
+  | ListThingPrincipalsCommandOutput
+  | ListThingRegistrationTaskReportsCommandOutput
+  | ListThingRegistrationTasksCommandOutput
+  | ListThingTypesCommandOutput
+  | ListThingsCommandOutput
+  | ListThingsInBillingGroupCommandOutput
+  | ListThingsInThingGroupCommandOutput
+  | ListTopicRuleDestinationsCommandOutput
+  | ListTopicRulesCommandOutput
+  | ListV2LoggingLevelsCommandOutput
+  | ListViolationEventsCommandOutput
+  | RegisterCACertificateCommandOutput
+  | RegisterCertificateCommandOutput
+  | RegisterThingCommandOutput
+  | RejectCertificateTransferCommandOutput
+  | RemoveThingFromBillingGroupCommandOutput
+  | RemoveThingFromThingGroupCommandOutput
+  | ReplaceTopicRuleCommandOutput
+  | SearchIndexCommandOutput
+  | SetDefaultAuthorizerCommandOutput
+  | SetDefaultPolicyVersionCommandOutput
+  | SetLoggingOptionsCommandOutput
+  | SetV2LoggingLevelCommandOutput
+  | SetV2LoggingOptionsCommandOutput
+  | StartAuditMitigationActionsTaskCommandOutput
+  | StartOnDemandAuditTaskCommandOutput
+  | StartThingRegistrationTaskCommandOutput
+  | StopThingRegistrationTaskCommandOutput
+  | TagResourceCommandOutput
+  | TestAuthorizationCommandOutput
+  | TestInvokeAuthorizerCommandOutput
+  | TransferCertificateCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAccountAuditConfigurationCommandOutput
+  | UpdateAuthorizerCommandOutput
+  | UpdateBillingGroupCommandOutput
+  | UpdateCACertificateCommandOutput
+  | UpdateCertificateCommandOutput
+  | UpdateDomainConfigurationCommandOutput
+  | UpdateDynamicThingGroupCommandOutput
+  | UpdateEventConfigurationsCommandOutput
+  | UpdateIndexingConfigurationCommandOutput
+  | UpdateJobCommandOutput
+  | UpdateMitigationActionCommandOutput
+  | UpdateProvisioningTemplateCommandOutput
+  | UpdateRoleAliasCommandOutput
+  | UpdateScheduledAuditCommandOutput
+  | UpdateSecurityProfileCommandOutput
+  | UpdateStreamCommandOutput
+  | UpdateThingCommandOutput
+  | UpdateThingGroupCommandOutput
+  | UpdateThingGroupsForThingCommandOutput
+  | UpdateTopicRuleDestinationCommandOutput
+  | ValidateSecurityProfileBehaviorsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

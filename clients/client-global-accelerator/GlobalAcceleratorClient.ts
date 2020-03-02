@@ -1,36 +1,71 @@
 import {
-  CreateAcceleratorRequest,
-  CreateAcceleratorResponse,
-  CreateEndpointGroupRequest,
-  CreateEndpointGroupResponse,
-  CreateListenerRequest,
-  CreateListenerResponse,
-  DeleteAcceleratorRequest,
-  DeleteEndpointGroupRequest,
-  DeleteListenerRequest,
-  DescribeAcceleratorAttributesRequest,
-  DescribeAcceleratorAttributesResponse,
-  DescribeAcceleratorRequest,
-  DescribeAcceleratorResponse,
-  DescribeEndpointGroupRequest,
-  DescribeEndpointGroupResponse,
-  DescribeListenerRequest,
-  DescribeListenerResponse,
-  ListAcceleratorsRequest,
-  ListAcceleratorsResponse,
-  ListEndpointGroupsRequest,
-  ListEndpointGroupsResponse,
-  ListListenersRequest,
-  ListListenersResponse,
-  UpdateAcceleratorAttributesRequest,
-  UpdateAcceleratorAttributesResponse,
-  UpdateAcceleratorRequest,
-  UpdateAcceleratorResponse,
-  UpdateEndpointGroupRequest,
-  UpdateEndpointGroupResponse,
-  UpdateListenerRequest,
-  UpdateListenerResponse
-} from "./models/index";
+  CreateAcceleratorCommandInput,
+  CreateAcceleratorCommandOutput
+} from "./commands/CreateAcceleratorCommand";
+import {
+  CreateEndpointGroupCommandInput,
+  CreateEndpointGroupCommandOutput
+} from "./commands/CreateEndpointGroupCommand";
+import {
+  CreateListenerCommandInput,
+  CreateListenerCommandOutput
+} from "./commands/CreateListenerCommand";
+import {
+  DeleteAcceleratorCommandInput,
+  DeleteAcceleratorCommandOutput
+} from "./commands/DeleteAcceleratorCommand";
+import {
+  DeleteEndpointGroupCommandInput,
+  DeleteEndpointGroupCommandOutput
+} from "./commands/DeleteEndpointGroupCommand";
+import {
+  DeleteListenerCommandInput,
+  DeleteListenerCommandOutput
+} from "./commands/DeleteListenerCommand";
+import {
+  DescribeAcceleratorAttributesCommandInput,
+  DescribeAcceleratorAttributesCommandOutput
+} from "./commands/DescribeAcceleratorAttributesCommand";
+import {
+  DescribeAcceleratorCommandInput,
+  DescribeAcceleratorCommandOutput
+} from "./commands/DescribeAcceleratorCommand";
+import {
+  DescribeEndpointGroupCommandInput,
+  DescribeEndpointGroupCommandOutput
+} from "./commands/DescribeEndpointGroupCommand";
+import {
+  DescribeListenerCommandInput,
+  DescribeListenerCommandOutput
+} from "./commands/DescribeListenerCommand";
+import {
+  ListAcceleratorsCommandInput,
+  ListAcceleratorsCommandOutput
+} from "./commands/ListAcceleratorsCommand";
+import {
+  ListEndpointGroupsCommandInput,
+  ListEndpointGroupsCommandOutput
+} from "./commands/ListEndpointGroupsCommand";
+import {
+  ListListenersCommandInput,
+  ListListenersCommandOutput
+} from "./commands/ListListenersCommand";
+import {
+  UpdateAcceleratorAttributesCommandInput,
+  UpdateAcceleratorAttributesCommandOutput
+} from "./commands/UpdateAcceleratorAttributesCommand";
+import {
+  UpdateAcceleratorCommandInput,
+  UpdateAcceleratorCommandOutput
+} from "./commands/UpdateAcceleratorCommand";
+import {
+  UpdateEndpointGroupCommandInput,
+  UpdateEndpointGroupCommandOutput
+} from "./commands/UpdateEndpointGroupCommand";
+import {
+  UpdateListenerCommandInput,
+  UpdateListenerCommandOutput
+} from "./commands/UpdateListenerCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -78,47 +113,48 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateAcceleratorRequest
-  | CreateEndpointGroupRequest
-  | CreateListenerRequest
-  | DeleteAcceleratorRequest
-  | DeleteEndpointGroupRequest
-  | DeleteListenerRequest
-  | DescribeAcceleratorAttributesRequest
-  | DescribeAcceleratorRequest
-  | DescribeEndpointGroupRequest
-  | DescribeListenerRequest
-  | ListAcceleratorsRequest
-  | ListEndpointGroupsRequest
-  | ListListenersRequest
-  | UpdateAcceleratorAttributesRequest
-  | UpdateAcceleratorRequest
-  | UpdateEndpointGroupRequest
-  | UpdateListenerRequest;
+  | CreateAcceleratorCommandInput
+  | CreateEndpointGroupCommandInput
+  | CreateListenerCommandInput
+  | DeleteAcceleratorCommandInput
+  | DeleteEndpointGroupCommandInput
+  | DeleteListenerCommandInput
+  | DescribeAcceleratorAttributesCommandInput
+  | DescribeAcceleratorCommandInput
+  | DescribeEndpointGroupCommandInput
+  | DescribeListenerCommandInput
+  | ListAcceleratorsCommandInput
+  | ListEndpointGroupsCommandInput
+  | ListListenersCommandInput
+  | UpdateAcceleratorAttributesCommandInput
+  | UpdateAcceleratorCommandInput
+  | UpdateEndpointGroupCommandInput
+  | UpdateListenerCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateAcceleratorResponse
-  | CreateEndpointGroupResponse
-  | CreateListenerResponse
-  | DescribeAcceleratorAttributesResponse
-  | DescribeAcceleratorResponse
-  | DescribeEndpointGroupResponse
-  | DescribeListenerResponse
-  | ListAcceleratorsResponse
-  | ListEndpointGroupsResponse
-  | ListListenersResponse
-  | UpdateAcceleratorAttributesResponse
-  | UpdateAcceleratorResponse
-  | UpdateEndpointGroupResponse
-  | UpdateListenerResponse;
+  | CreateAcceleratorCommandOutput
+  | CreateEndpointGroupCommandOutput
+  | CreateListenerCommandOutput
+  | DeleteAcceleratorCommandOutput
+  | DeleteEndpointGroupCommandOutput
+  | DeleteListenerCommandOutput
+  | DescribeAcceleratorAttributesCommandOutput
+  | DescribeAcceleratorCommandOutput
+  | DescribeEndpointGroupCommandOutput
+  | DescribeListenerCommandOutput
+  | ListAcceleratorsCommandOutput
+  | ListEndpointGroupsCommandOutput
+  | ListListenersCommandOutput
+  | UpdateAcceleratorAttributesCommandOutput
+  | UpdateAcceleratorCommandOutput
+  | UpdateEndpointGroupCommandOutput
+  | UpdateListenerCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

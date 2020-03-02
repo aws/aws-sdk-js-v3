@@ -78,10 +78,13 @@ async function deserializeAws_restJson1_1GetRawMessageContentCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.workmailmessageflow.service#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

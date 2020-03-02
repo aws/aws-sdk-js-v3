@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AuthorizeSnapshotAccessCommandInput = AuthorizeSnapshotAccessMessage;
-export type AuthorizeSnapshotAccessCommandOutput = AuthorizeSnapshotAccessResult;
+export type AuthorizeSnapshotAccessCommandOutput = AuthorizeSnapshotAccessResult &
+  __MetadataBearer;
 
 export class AuthorizeSnapshotAccessCommand extends $Command<
   AuthorizeSnapshotAccessCommandInput,

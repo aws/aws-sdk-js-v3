@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeIpv6PoolsCommandInput = DescribeIpv6PoolsRequest;
-export type DescribeIpv6PoolsCommandOutput = DescribeIpv6PoolsResult;
+export type DescribeIpv6PoolsCommandOutput = DescribeIpv6PoolsResult &
+  __MetadataBearer;
 
 export class DescribeIpv6PoolsCommand extends $Command<
   DescribeIpv6PoolsCommandInput,

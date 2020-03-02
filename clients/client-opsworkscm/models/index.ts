@@ -105,7 +105,7 @@ export namespace AssociateNodeRequest {
   }
 }
 
-export interface AssociateNodeResponse extends $MetadataBearer {
+export interface AssociateNodeResponse {
   __type?: "AssociateNodeResponse";
   /**
    * <p>Contains a token which can be passed to the <code>DescribeNodeAssociationStatus</code> API call to get the status of the association request.
@@ -358,7 +358,7 @@ export namespace CreateBackupRequest {
   }
 }
 
-export interface CreateBackupResponse extends $MetadataBearer {
+export interface CreateBackupResponse {
   __type?: "CreateBackupResponse";
   /**
    * <p>Backup created by request.</p>
@@ -651,7 +651,7 @@ export namespace CreateServerRequest {
   }
 }
 
-export interface CreateServerResponse extends $MetadataBearer {
+export interface CreateServerResponse {
   __type?: "CreateServerResponse";
   /**
    * <p>The server that is created by the request.
@@ -682,7 +682,7 @@ export namespace DeleteBackupRequest {
   }
 }
 
-export interface DeleteBackupResponse extends $MetadataBearer {
+export interface DeleteBackupResponse {
   __type?: "DeleteBackupResponse";
 }
 
@@ -706,7 +706,7 @@ export namespace DeleteServerRequest {
   }
 }
 
-export interface DeleteServerResponse extends $MetadataBearer {
+export interface DeleteServerResponse {
   __type?: "DeleteServerResponse";
 }
 
@@ -726,7 +726,7 @@ export namespace DescribeAccountAttributesRequest {
   }
 }
 
-export interface DescribeAccountAttributesResponse extends $MetadataBearer {
+export interface DescribeAccountAttributesResponse {
   __type?: "DescribeAccountAttributesResponse";
   /**
    * <p>
@@ -773,7 +773,7 @@ export namespace DescribeBackupsRequest {
   }
 }
 
-export interface DescribeBackupsResponse extends $MetadataBearer {
+export interface DescribeBackupsResponse {
   __type?: "DescribeBackupsResponse";
   /**
    * <p>Contains the response to a <code>DescribeBackups</code> request.
@@ -828,7 +828,7 @@ export namespace DescribeEventsRequest {
   }
 }
 
-export interface DescribeEventsResponse extends $MetadataBearer {
+export interface DescribeEventsResponse {
   __type?: "DescribeEventsResponse";
   /**
    * <p>NextToken is a string that is returned in some command responses. It indicates that
@@ -876,7 +876,7 @@ export namespace DescribeNodeAssociationStatusRequest {
   }
 }
 
-export interface DescribeNodeAssociationStatusResponse extends $MetadataBearer {
+export interface DescribeNodeAssociationStatusResponse {
   __type?: "DescribeNodeAssociationStatusResponse";
   /**
    * <p>Attributes specific to the node association.
@@ -944,7 +944,7 @@ export namespace DescribeServersRequest {
   }
 }
 
-export interface DescribeServersResponse extends $MetadataBearer {
+export interface DescribeServersResponse {
   __type?: "DescribeServersResponse";
   /**
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
@@ -1009,7 +1009,7 @@ export namespace DisassociateNodeRequest {
   }
 }
 
-export interface DisassociateNodeResponse extends $MetadataBearer {
+export interface DisassociateNodeResponse {
   __type?: "DisassociateNodeResponse";
   /**
    * <p>Contains a token which can be passed to the
@@ -1101,7 +1101,7 @@ export namespace ExportServerEngineAttributeRequest {
   }
 }
 
-export interface ExportServerEngineAttributeResponse extends $MetadataBearer {
+export interface ExportServerEngineAttributeResponse {
   __type?: "ExportServerEngineAttributeResponse";
   /**
    * <p>The requested engine attribute pair with attribute name and value.</p>
@@ -1221,7 +1221,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>A token that you can use as the value of <code>NextToken</code> in subsequent calls to the API to show more results.</p>
@@ -1331,7 +1331,7 @@ export namespace RestoreServerRequest {
   }
 }
 
-export interface RestoreServerResponse extends $MetadataBearer {
+export interface RestoreServerResponse {
   __type?: "RestoreServerResponse";
 }
 
@@ -1616,7 +1616,7 @@ export namespace StartMaintenanceRequest {
   }
 }
 
-export interface StartMaintenanceResponse extends $MetadataBearer {
+export interface StartMaintenanceResponse {
   __type?: "StartMaintenanceResponse";
   /**
    * <p>Contains the response to a <code>StartMaintenance</code> request.
@@ -1698,7 +1698,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1728,7 +1728,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1765,7 +1765,7 @@ export namespace UpdateServerEngineAttributesRequest {
   }
 }
 
-export interface UpdateServerEngineAttributesResponse extends $MetadataBearer {
+export interface UpdateServerEngineAttributesResponse {
   __type?: "UpdateServerEngineAttributesResponse";
   /**
    * <p>Contains the response to an <code>UpdateServerEngineAttributes</code> request.
@@ -1829,7 +1829,7 @@ export namespace UpdateServerRequest {
   }
 }
 
-export interface UpdateServerResponse extends $MetadataBearer {
+export interface UpdateServerResponse {
   __type?: "UpdateServerResponse";
   /**
    * <p>Contains the response to a <code>UpdateServer</code> request.

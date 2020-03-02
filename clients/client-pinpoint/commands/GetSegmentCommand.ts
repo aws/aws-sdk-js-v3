@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSegmentCommandInput = GetSegmentRequest;
-export type GetSegmentCommandOutput = GetSegmentResponse;
+export type GetSegmentCommandOutput = GetSegmentResponse & __MetadataBearer;
 
 export class GetSegmentCommand extends $Command<
   GetSegmentCommandInput,

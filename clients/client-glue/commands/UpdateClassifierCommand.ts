@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateClassifierCommandInput = UpdateClassifierRequest;
-export type UpdateClassifierCommandOutput = UpdateClassifierResponse;
+export type UpdateClassifierCommandOutput = UpdateClassifierResponse &
+  __MetadataBearer;
 
 export class UpdateClassifierCommand extends $Command<
   UpdateClassifierCommandInput,

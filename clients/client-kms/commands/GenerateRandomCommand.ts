@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GenerateRandomCommandInput = GenerateRandomRequest;
-export type GenerateRandomCommandOutput = GenerateRandomResponse;
+export type GenerateRandomCommandOutput = GenerateRandomResponse &
+  __MetadataBearer;
 
 export class GenerateRandomCommand extends $Command<
   GenerateRandomCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateBandwidthRateLimitCommandInput = UpdateBandwidthRateLimitInput;
-export type UpdateBandwidthRateLimitCommandOutput = UpdateBandwidthRateLimitOutput;
+export type UpdateBandwidthRateLimitCommandOutput = UpdateBandwidthRateLimitOutput &
+  __MetadataBearer;
 
 export class UpdateBandwidthRateLimitCommand extends $Command<
   UpdateBandwidthRateLimitCommandInput,

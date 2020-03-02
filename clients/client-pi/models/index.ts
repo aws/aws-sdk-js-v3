@@ -221,7 +221,7 @@ export namespace DescribeDimensionKeysRequest {
   }
 }
 
-export interface DescribeDimensionKeysResponse extends $MetadataBearer {
+export interface DescribeDimensionKeysResponse {
   __type?: "DescribeDimensionKeysResponse";
   /**
    * <p>The end time for the returned dimension keys, after alignment to a granular boundary (as
@@ -495,7 +495,7 @@ export namespace GetResourceMetricsRequest {
   }
 }
 
-export interface GetResourceMetricsResponse extends $MetadataBearer {
+export interface GetResourceMetricsResponse {
   __type?: "GetResourceMetricsResponse";
   /**
    * <p>The end time for the returned metrics, after alignment to a granular boundary (as

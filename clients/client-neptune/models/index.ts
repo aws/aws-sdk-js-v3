@@ -1264,8 +1264,7 @@ export namespace AddSourceIdentifierToSubscriptionMessage {
   }
 }
 
-export interface AddSourceIdentifierToSubscriptionResult
-  extends $MetadataBearer {
+export interface AddSourceIdentifierToSubscriptionResult {
   __type?: "AddSourceIdentifierToSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
@@ -1348,7 +1347,7 @@ export namespace ApplyPendingMaintenanceActionMessage {
   }
 }
 
-export interface ApplyPendingMaintenanceActionResult extends $MetadataBearer {
+export interface ApplyPendingMaintenanceActionResult {
   __type?: "ApplyPendingMaintenanceActionResult";
   /**
    * <p>Describes the pending maintenance actions for a resource.</p>
@@ -1491,7 +1490,7 @@ export namespace CopyDBClusterParameterGroupMessage {
   }
 }
 
-export interface CopyDBClusterParameterGroupResult extends $MetadataBearer {
+export interface CopyDBClusterParameterGroupResult {
   __type?: "CopyDBClusterParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster parameter group.</p>
@@ -1589,7 +1588,7 @@ export namespace CopyDBClusterSnapshotMessage {
   }
 }
 
-export interface CopyDBClusterSnapshotResult extends $MetadataBearer {
+export interface CopyDBClusterSnapshotResult {
   __type?: "CopyDBClusterSnapshotResult";
   /**
    * <p>Contains the details for an Amazon Neptune DB cluster snapshot</p>
@@ -1665,7 +1664,7 @@ export namespace CopyDBParameterGroupMessage {
   }
 }
 
-export interface CopyDBParameterGroupResult extends $MetadataBearer {
+export interface CopyDBParameterGroupResult {
   __type?: "CopyDBParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB parameter group.</p>
@@ -1968,7 +1967,7 @@ export namespace CreateDBClusterParameterGroupMessage {
   }
 }
 
-export interface CreateDBClusterParameterGroupResult extends $MetadataBearer {
+export interface CreateDBClusterParameterGroupResult {
   __type?: "CreateDBClusterParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster parameter group.</p>
@@ -1983,7 +1982,7 @@ export namespace CreateDBClusterParameterGroupResult {
   }
 }
 
-export interface CreateDBClusterResult extends $MetadataBearer {
+export interface CreateDBClusterResult {
   __type?: "CreateDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
@@ -2046,7 +2045,7 @@ export namespace CreateDBClusterSnapshotMessage {
   }
 }
 
-export interface CreateDBClusterSnapshotResult extends $MetadataBearer {
+export interface CreateDBClusterSnapshotResult {
   __type?: "CreateDBClusterSnapshotResult";
   /**
    * <p>Contains the details for an Amazon Neptune DB cluster snapshot</p>
@@ -2417,7 +2416,7 @@ export namespace CreateDBInstanceMessage {
   }
 }
 
-export interface CreateDBInstanceResult extends $MetadataBearer {
+export interface CreateDBInstanceResult {
   __type?: "CreateDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB instance.</p>
@@ -2478,7 +2477,7 @@ export namespace CreateDBParameterGroupMessage {
   }
 }
 
-export interface CreateDBParameterGroupResult extends $MetadataBearer {
+export interface CreateDBParameterGroupResult {
   __type?: "CreateDBParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB parameter group.</p>
@@ -2526,7 +2525,7 @@ export namespace CreateDBSubnetGroupMessage {
   }
 }
 
-export interface CreateDBSubnetGroupResult extends $MetadataBearer {
+export interface CreateDBSubnetGroupResult {
   __type?: "CreateDBSubnetGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB subnet group.</p>
@@ -2622,7 +2621,7 @@ export namespace CreateEventSubscriptionMessage {
   }
 }
 
-export interface CreateEventSubscriptionResult extends $MetadataBearer {
+export interface CreateEventSubscriptionResult {
   __type?: "CreateEventSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
@@ -2900,7 +2899,7 @@ export namespace DBClusterMember {
   }
 }
 
-export interface DBClusterMessage extends $MetadataBearer {
+export interface DBClusterMessage {
   __type?: "DBClusterMessage";
   /**
    * <p>Contains a list of DB clusters for the user.</p>
@@ -2975,7 +2974,7 @@ export namespace DBClusterParameterGroup {
   }
 }
 
-export interface DBClusterParameterGroupDetails extends $MetadataBearer {
+export interface DBClusterParameterGroupDetails {
   __type?: "DBClusterParameterGroupDetails";
   /**
    * <p> An optional pagination token provided by a previous DescribeDBClusterParameters request.
@@ -2996,7 +2995,7 @@ export namespace DBClusterParameterGroupDetails {
   }
 }
 
-export interface DBClusterParameterGroupNameMessage extends $MetadataBearer {
+export interface DBClusterParameterGroupNameMessage {
   __type?: "DBClusterParameterGroupNameMessage";
   /**
    * <p>The name of the DB cluster parameter group.</p>
@@ -3025,7 +3024,7 @@ export namespace DBClusterParameterGroupNameMessage {
   }
 }
 
-export interface DBClusterParameterGroupsMessage extends $MetadataBearer {
+export interface DBClusterParameterGroupsMessage {
   __type?: "DBClusterParameterGroupsMessage";
   /**
    * <p>A list of DB cluster parameter groups.</p>
@@ -3265,7 +3264,7 @@ export namespace DBClusterSnapshotAttributesResult {
   }
 }
 
-export interface DBClusterSnapshotMessage extends $MetadataBearer {
+export interface DBClusterSnapshotMessage {
   __type?: "DBClusterSnapshotMessage";
   /**
    * <p>Provides a list of DB cluster snapshots for the user.</p>
@@ -3365,7 +3364,7 @@ export namespace DBEngineVersion {
   }
 }
 
-export interface DBEngineVersionMessage extends $MetadataBearer {
+export interface DBEngineVersionMessage {
   __type?: "DBEngineVersionMessage";
   /**
    * <p> A list of <code>DBEngineVersion</code> elements.</p>
@@ -3698,7 +3697,7 @@ export namespace DBInstance {
   }
 }
 
-export interface DBInstanceMessage extends $MetadataBearer {
+export interface DBInstanceMessage {
   __type?: "DBInstanceMessage";
   /**
    * <p> A list of <a>DBInstance</a> instances.</p>
@@ -3788,7 +3787,7 @@ export namespace DBParameterGroup {
   }
 }
 
-export interface DBParameterGroupDetails extends $MetadataBearer {
+export interface DBParameterGroupDetails {
   __type?: "DBParameterGroupDetails";
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is
@@ -3809,7 +3808,7 @@ export namespace DBParameterGroupDetails {
   }
 }
 
-export interface DBParameterGroupNameMessage extends $MetadataBearer {
+export interface DBParameterGroupNameMessage {
   __type?: "DBParameterGroupNameMessage";
   /**
    * <p>Provides the name of the DB parameter group.</p>
@@ -3868,7 +3867,7 @@ export namespace DBParameterGroupStatus {
   }
 }
 
-export interface DBParameterGroupsMessage extends $MetadataBearer {
+export interface DBParameterGroupsMessage {
   __type?: "DBParameterGroupsMessage";
   /**
    * <p>A list of <a>DBParameterGroup</a> instances.</p>
@@ -3954,7 +3953,7 @@ export namespace DBSubnetGroup {
   }
 }
 
-export interface DBSubnetGroupMessage extends $MetadataBearer {
+export interface DBSubnetGroupMessage {
   __type?: "DBSubnetGroupMessage";
   /**
    * <p> A list of <a>DBSubnetGroup</a> instances.</p>
@@ -4058,7 +4057,7 @@ export namespace DeleteDBClusterParameterGroupMessage {
   }
 }
 
-export interface DeleteDBClusterResult extends $MetadataBearer {
+export interface DeleteDBClusterResult {
   __type?: "DeleteDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
@@ -4089,7 +4088,7 @@ export namespace DeleteDBClusterSnapshotMessage {
   }
 }
 
-export interface DeleteDBClusterSnapshotResult extends $MetadataBearer {
+export interface DeleteDBClusterSnapshotResult {
   __type?: "DeleteDBClusterSnapshotResult";
   /**
    * <p>Contains the details for an Amazon Neptune DB cluster snapshot</p>
@@ -4167,7 +4166,7 @@ export namespace DeleteDBInstanceMessage {
   }
 }
 
-export interface DeleteDBInstanceResult extends $MetadataBearer {
+export interface DeleteDBInstanceResult {
   __type?: "DeleteDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB instance.</p>
@@ -4243,7 +4242,7 @@ export namespace DeleteEventSubscriptionMessage {
   }
 }
 
-export interface DeleteEventSubscriptionResult extends $MetadataBearer {
+export interface DeleteEventSubscriptionResult {
   __type?: "DeleteEventSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
@@ -4361,8 +4360,7 @@ export namespace DescribeDBClusterSnapshotAttributesMessage {
   }
 }
 
-export interface DescribeDBClusterSnapshotAttributesResult
-  extends $MetadataBearer {
+export interface DescribeDBClusterSnapshotAttributesResult {
   __type?: "DescribeDBClusterSnapshotAttributesResult";
   /**
    * <p>Contains the results of a successful call to the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
@@ -4840,8 +4838,7 @@ export namespace DescribeEngineDefaultClusterParametersMessage {
   }
 }
 
-export interface DescribeEngineDefaultClusterParametersResult
-  extends $MetadataBearer {
+export interface DescribeEngineDefaultClusterParametersResult {
   __type?: "DescribeEngineDefaultClusterParametersResult";
   /**
    * <p> Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action.</p>
@@ -4893,7 +4890,7 @@ export namespace DescribeEngineDefaultParametersMessage {
   }
 }
 
-export interface DescribeEngineDefaultParametersResult extends $MetadataBearer {
+export interface DescribeEngineDefaultParametersResult {
   __type?: "DescribeEngineDefaultParametersResult";
   /**
    * <p> Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action.</p>
@@ -5184,8 +5181,7 @@ export namespace DescribeValidDBInstanceModificationsMessage {
   }
 }
 
-export interface DescribeValidDBInstanceModificationsResult
-  extends $MetadataBearer {
+export interface DescribeValidDBInstanceModificationsResult {
   __type?: "DescribeValidDBInstanceModificationsResult";
   /**
    * <p>Information about valid modifications that you can make to your DB instance. Contains the
@@ -5379,7 +5375,7 @@ export namespace EventCategoriesMap {
   }
 }
 
-export interface EventCategoriesMessage extends $MetadataBearer {
+export interface EventCategoriesMessage {
   __type?: "EventCategoriesMessage";
   /**
    * <p>A list of EventCategoriesMap data types.</p>
@@ -5462,7 +5458,7 @@ export namespace EventSubscription {
   }
 }
 
-export interface EventSubscriptionsMessage extends $MetadataBearer {
+export interface EventSubscriptionsMessage {
   __type?: "EventSubscriptionsMessage";
   /**
    * <p>A list of EventSubscriptions data types.</p>
@@ -5483,7 +5479,7 @@ export namespace EventSubscriptionsMessage {
   }
 }
 
-export interface EventsMessage extends $MetadataBearer {
+export interface EventsMessage {
   __type?: "EventsMessage";
   /**
    * <p> A list of <a>Event</a> instances.</p>
@@ -5532,7 +5528,7 @@ export namespace FailoverDBClusterMessage {
   }
 }
 
-export interface FailoverDBClusterResult extends $MetadataBearer {
+export interface FailoverDBClusterResult {
   __type?: "FailoverDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
@@ -5780,7 +5776,7 @@ export namespace ModifyDBClusterParameterGroupMessage {
   }
 }
 
-export interface ModifyDBClusterResult extends $MetadataBearer {
+export interface ModifyDBClusterResult {
   __type?: "ModifyDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
@@ -5838,8 +5834,7 @@ export namespace ModifyDBClusterSnapshotAttributeMessage {
   }
 }
 
-export interface ModifyDBClusterSnapshotAttributeResult
-  extends $MetadataBearer {
+export interface ModifyDBClusterSnapshotAttributeResult {
   __type?: "ModifyDBClusterSnapshotAttributeResult";
   /**
    * <p>Contains the results of a successful call to the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
@@ -6198,7 +6193,7 @@ export namespace ModifyDBInstanceMessage {
   }
 }
 
-export interface ModifyDBInstanceResult extends $MetadataBearer {
+export interface ModifyDBInstanceResult {
   __type?: "ModifyDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB instance.</p>
@@ -6275,7 +6270,7 @@ export namespace ModifyDBSubnetGroupMessage {
   }
 }
 
-export interface ModifyDBSubnetGroupResult extends $MetadataBearer {
+export interface ModifyDBSubnetGroupResult {
   __type?: "ModifyDBSubnetGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB subnet group.</p>
@@ -6332,7 +6327,7 @@ export namespace ModifyEventSubscriptionMessage {
   }
 }
 
-export interface ModifyEventSubscriptionResult extends $MetadataBearer {
+export interface ModifyEventSubscriptionResult {
   __type?: "ModifyEventSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
@@ -6487,7 +6482,7 @@ export namespace OrderableDBInstanceOption {
   }
 }
 
-export interface OrderableDBInstanceOptionsMessage extends $MetadataBearer {
+export interface OrderableDBInstanceOptionsMessage {
   __type?: "OrderableDBInstanceOptionsMessage";
   /**
    * <p> An optional pagination token provided by a previous OrderableDBInstanceOptions request.
@@ -6648,7 +6643,7 @@ export namespace PendingMaintenanceAction {
   }
 }
 
-export interface PendingMaintenanceActionsMessage extends $MetadataBearer {
+export interface PendingMaintenanceActionsMessage {
   __type?: "PendingMaintenanceActionsMessage";
   /**
    * <p> An optional pagination token provided by a previous
@@ -6776,7 +6771,7 @@ export namespace PromoteReadReplicaDBClusterMessage {
   }
 }
 
-export interface PromoteReadReplicaDBClusterResult extends $MetadataBearer {
+export interface PromoteReadReplicaDBClusterResult {
   __type?: "PromoteReadReplicaDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
@@ -6848,7 +6843,7 @@ export namespace RebootDBInstanceMessage {
   }
 }
 
-export interface RebootDBInstanceResult extends $MetadataBearer {
+export interface RebootDBInstanceResult {
   __type?: "RebootDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB instance.</p>
@@ -6906,8 +6901,7 @@ export namespace RemoveSourceIdentifierFromSubscriptionMessage {
   }
 }
 
-export interface RemoveSourceIdentifierFromSubscriptionResult
-  extends $MetadataBearer {
+export interface RemoveSourceIdentifierFromSubscriptionResult {
   __type?: "RemoveSourceIdentifierFromSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
@@ -7187,7 +7181,7 @@ export namespace RestoreDBClusterFromSnapshotMessage {
   }
 }
 
-export interface RestoreDBClusterFromSnapshotResult extends $MetadataBearer {
+export interface RestoreDBClusterFromSnapshotResult {
   __type?: "RestoreDBClusterFromSnapshotResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
@@ -7386,7 +7380,7 @@ export namespace RestoreDBClusterToPointInTimeMessage {
   }
 }
 
-export interface RestoreDBClusterToPointInTimeResult extends $MetadataBearer {
+export interface RestoreDBClusterToPointInTimeResult {
   __type?: "RestoreDBClusterToPointInTimeResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
@@ -7465,7 +7459,7 @@ export namespace Tag {
   }
 }
 
-export interface TagListMessage extends $MetadataBearer {
+export interface TagListMessage {
   __type?: "TagListMessage";
   /**
    * <p>List of tags returned by the ListTagsForResource operation.</p>

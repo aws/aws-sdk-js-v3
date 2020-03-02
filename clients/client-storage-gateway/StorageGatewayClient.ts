@@ -1,155 +1,303 @@
 import {
-  ActivateGatewayInput,
-  ActivateGatewayOutput,
-  AddCacheInput,
-  AddCacheOutput,
-  AddTagsToResourceInput,
-  AddTagsToResourceOutput,
-  AddUploadBufferInput,
-  AddUploadBufferOutput,
-  AddWorkingStorageInput,
-  AddWorkingStorageOutput,
-  AssignTapePoolInput,
-  AssignTapePoolOutput,
-  AttachVolumeInput,
-  AttachVolumeOutput,
-  CancelArchivalInput,
-  CancelArchivalOutput,
-  CancelRetrievalInput,
-  CancelRetrievalOutput,
-  CreateCachediSCSIVolumeInput,
-  CreateCachediSCSIVolumeOutput,
-  CreateNFSFileShareInput,
-  CreateNFSFileShareOutput,
-  CreateSMBFileShareInput,
-  CreateSMBFileShareOutput,
-  CreateSnapshotFromVolumeRecoveryPointInput,
-  CreateSnapshotFromVolumeRecoveryPointOutput,
-  CreateSnapshotInput,
-  CreateSnapshotOutput,
-  CreateStorediSCSIVolumeInput,
-  CreateStorediSCSIVolumeOutput,
-  CreateTapeWithBarcodeInput,
-  CreateTapeWithBarcodeOutput,
-  CreateTapesInput,
-  CreateTapesOutput,
-  DeleteBandwidthRateLimitInput,
-  DeleteBandwidthRateLimitOutput,
-  DeleteChapCredentialsInput,
-  DeleteChapCredentialsOutput,
-  DeleteFileShareInput,
-  DeleteFileShareOutput,
-  DeleteGatewayInput,
-  DeleteGatewayOutput,
-  DeleteSnapshotScheduleInput,
-  DeleteSnapshotScheduleOutput,
-  DeleteTapeArchiveInput,
-  DeleteTapeArchiveOutput,
-  DeleteTapeInput,
-  DeleteTapeOutput,
-  DeleteVolumeInput,
-  DeleteVolumeOutput,
-  DescribeAvailabilityMonitorTestInput,
-  DescribeAvailabilityMonitorTestOutput,
-  DescribeBandwidthRateLimitInput,
-  DescribeBandwidthRateLimitOutput,
-  DescribeCacheInput,
-  DescribeCacheOutput,
-  DescribeCachediSCSIVolumesInput,
-  DescribeCachediSCSIVolumesOutput,
-  DescribeChapCredentialsInput,
-  DescribeChapCredentialsOutput,
-  DescribeGatewayInformationInput,
-  DescribeGatewayInformationOutput,
-  DescribeMaintenanceStartTimeInput,
-  DescribeMaintenanceStartTimeOutput,
-  DescribeNFSFileSharesInput,
-  DescribeNFSFileSharesOutput,
-  DescribeSMBFileSharesInput,
-  DescribeSMBFileSharesOutput,
-  DescribeSMBSettingsInput,
-  DescribeSMBSettingsOutput,
-  DescribeSnapshotScheduleInput,
-  DescribeSnapshotScheduleOutput,
-  DescribeStorediSCSIVolumesInput,
-  DescribeStorediSCSIVolumesOutput,
-  DescribeTapeArchivesInput,
-  DescribeTapeArchivesOutput,
-  DescribeTapeRecoveryPointsInput,
-  DescribeTapeRecoveryPointsOutput,
-  DescribeTapesInput,
-  DescribeTapesOutput,
-  DescribeUploadBufferInput,
-  DescribeUploadBufferOutput,
-  DescribeVTLDevicesInput,
-  DescribeVTLDevicesOutput,
-  DescribeWorkingStorageInput,
-  DescribeWorkingStorageOutput,
-  DetachVolumeInput,
-  DetachVolumeOutput,
-  DisableGatewayInput,
-  DisableGatewayOutput,
-  JoinDomainInput,
-  JoinDomainOutput,
-  ListFileSharesInput,
-  ListFileSharesOutput,
-  ListGatewaysInput,
-  ListGatewaysOutput,
-  ListLocalDisksInput,
-  ListLocalDisksOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  ListTapesInput,
-  ListTapesOutput,
-  ListVolumeInitiatorsInput,
-  ListVolumeInitiatorsOutput,
-  ListVolumeRecoveryPointsInput,
-  ListVolumeRecoveryPointsOutput,
-  ListVolumesInput,
-  ListVolumesOutput,
-  NotifyWhenUploadedInput,
-  NotifyWhenUploadedOutput,
-  RefreshCacheInput,
-  RefreshCacheOutput,
-  RemoveTagsFromResourceInput,
-  RemoveTagsFromResourceOutput,
-  ResetCacheInput,
-  ResetCacheOutput,
-  RetrieveTapeArchiveInput,
-  RetrieveTapeArchiveOutput,
-  RetrieveTapeRecoveryPointInput,
-  RetrieveTapeRecoveryPointOutput,
-  SetLocalConsolePasswordInput,
-  SetLocalConsolePasswordOutput,
-  SetSMBGuestPasswordInput,
-  SetSMBGuestPasswordOutput,
-  ShutdownGatewayInput,
-  ShutdownGatewayOutput,
-  StartAvailabilityMonitorTestInput,
-  StartAvailabilityMonitorTestOutput,
-  StartGatewayInput,
-  StartGatewayOutput,
-  UpdateBandwidthRateLimitInput,
-  UpdateBandwidthRateLimitOutput,
-  UpdateChapCredentialsInput,
-  UpdateChapCredentialsOutput,
-  UpdateGatewayInformationInput,
-  UpdateGatewayInformationOutput,
-  UpdateGatewaySoftwareNowInput,
-  UpdateGatewaySoftwareNowOutput,
-  UpdateMaintenanceStartTimeInput,
-  UpdateMaintenanceStartTimeOutput,
-  UpdateNFSFileShareInput,
-  UpdateNFSFileShareOutput,
-  UpdateSMBFileShareInput,
-  UpdateSMBFileShareOutput,
-  UpdateSMBSecurityStrategyInput,
-  UpdateSMBSecurityStrategyOutput,
-  UpdateSnapshotScheduleInput,
-  UpdateSnapshotScheduleOutput,
-  UpdateVTLDeviceTypeInput,
-  UpdateVTLDeviceTypeOutput
-} from "./models/index";
+  ActivateGatewayCommandInput,
+  ActivateGatewayCommandOutput
+} from "./commands/ActivateGatewayCommand";
+import {
+  AddCacheCommandInput,
+  AddCacheCommandOutput
+} from "./commands/AddCacheCommand";
+import {
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput
+} from "./commands/AddTagsToResourceCommand";
+import {
+  AddUploadBufferCommandInput,
+  AddUploadBufferCommandOutput
+} from "./commands/AddUploadBufferCommand";
+import {
+  AddWorkingStorageCommandInput,
+  AddWorkingStorageCommandOutput
+} from "./commands/AddWorkingStorageCommand";
+import {
+  AssignTapePoolCommandInput,
+  AssignTapePoolCommandOutput
+} from "./commands/AssignTapePoolCommand";
+import {
+  AttachVolumeCommandInput,
+  AttachVolumeCommandOutput
+} from "./commands/AttachVolumeCommand";
+import {
+  CancelArchivalCommandInput,
+  CancelArchivalCommandOutput
+} from "./commands/CancelArchivalCommand";
+import {
+  CancelRetrievalCommandInput,
+  CancelRetrievalCommandOutput
+} from "./commands/CancelRetrievalCommand";
+import {
+  CreateCachediSCSIVolumeCommandInput,
+  CreateCachediSCSIVolumeCommandOutput
+} from "./commands/CreateCachediSCSIVolumeCommand";
+import {
+  CreateNFSFileShareCommandInput,
+  CreateNFSFileShareCommandOutput
+} from "./commands/CreateNFSFileShareCommand";
+import {
+  CreateSMBFileShareCommandInput,
+  CreateSMBFileShareCommandOutput
+} from "./commands/CreateSMBFileShareCommand";
+import {
+  CreateSnapshotCommandInput,
+  CreateSnapshotCommandOutput
+} from "./commands/CreateSnapshotCommand";
+import {
+  CreateSnapshotFromVolumeRecoveryPointCommandInput,
+  CreateSnapshotFromVolumeRecoveryPointCommandOutput
+} from "./commands/CreateSnapshotFromVolumeRecoveryPointCommand";
+import {
+  CreateStorediSCSIVolumeCommandInput,
+  CreateStorediSCSIVolumeCommandOutput
+} from "./commands/CreateStorediSCSIVolumeCommand";
+import {
+  CreateTapeWithBarcodeCommandInput,
+  CreateTapeWithBarcodeCommandOutput
+} from "./commands/CreateTapeWithBarcodeCommand";
+import {
+  CreateTapesCommandInput,
+  CreateTapesCommandOutput
+} from "./commands/CreateTapesCommand";
+import {
+  DeleteBandwidthRateLimitCommandInput,
+  DeleteBandwidthRateLimitCommandOutput
+} from "./commands/DeleteBandwidthRateLimitCommand";
+import {
+  DeleteChapCredentialsCommandInput,
+  DeleteChapCredentialsCommandOutput
+} from "./commands/DeleteChapCredentialsCommand";
+import {
+  DeleteFileShareCommandInput,
+  DeleteFileShareCommandOutput
+} from "./commands/DeleteFileShareCommand";
+import {
+  DeleteGatewayCommandInput,
+  DeleteGatewayCommandOutput
+} from "./commands/DeleteGatewayCommand";
+import {
+  DeleteSnapshotScheduleCommandInput,
+  DeleteSnapshotScheduleCommandOutput
+} from "./commands/DeleteSnapshotScheduleCommand";
+import {
+  DeleteTapeArchiveCommandInput,
+  DeleteTapeArchiveCommandOutput
+} from "./commands/DeleteTapeArchiveCommand";
+import {
+  DeleteTapeCommandInput,
+  DeleteTapeCommandOutput
+} from "./commands/DeleteTapeCommand";
+import {
+  DeleteVolumeCommandInput,
+  DeleteVolumeCommandOutput
+} from "./commands/DeleteVolumeCommand";
+import {
+  DescribeAvailabilityMonitorTestCommandInput,
+  DescribeAvailabilityMonitorTestCommandOutput
+} from "./commands/DescribeAvailabilityMonitorTestCommand";
+import {
+  DescribeBandwidthRateLimitCommandInput,
+  DescribeBandwidthRateLimitCommandOutput
+} from "./commands/DescribeBandwidthRateLimitCommand";
+import {
+  DescribeCacheCommandInput,
+  DescribeCacheCommandOutput
+} from "./commands/DescribeCacheCommand";
+import {
+  DescribeCachediSCSIVolumesCommandInput,
+  DescribeCachediSCSIVolumesCommandOutput
+} from "./commands/DescribeCachediSCSIVolumesCommand";
+import {
+  DescribeChapCredentialsCommandInput,
+  DescribeChapCredentialsCommandOutput
+} from "./commands/DescribeChapCredentialsCommand";
+import {
+  DescribeGatewayInformationCommandInput,
+  DescribeGatewayInformationCommandOutput
+} from "./commands/DescribeGatewayInformationCommand";
+import {
+  DescribeMaintenanceStartTimeCommandInput,
+  DescribeMaintenanceStartTimeCommandOutput
+} from "./commands/DescribeMaintenanceStartTimeCommand";
+import {
+  DescribeNFSFileSharesCommandInput,
+  DescribeNFSFileSharesCommandOutput
+} from "./commands/DescribeNFSFileSharesCommand";
+import {
+  DescribeSMBFileSharesCommandInput,
+  DescribeSMBFileSharesCommandOutput
+} from "./commands/DescribeSMBFileSharesCommand";
+import {
+  DescribeSMBSettingsCommandInput,
+  DescribeSMBSettingsCommandOutput
+} from "./commands/DescribeSMBSettingsCommand";
+import {
+  DescribeSnapshotScheduleCommandInput,
+  DescribeSnapshotScheduleCommandOutput
+} from "./commands/DescribeSnapshotScheduleCommand";
+import {
+  DescribeStorediSCSIVolumesCommandInput,
+  DescribeStorediSCSIVolumesCommandOutput
+} from "./commands/DescribeStorediSCSIVolumesCommand";
+import {
+  DescribeTapeArchivesCommandInput,
+  DescribeTapeArchivesCommandOutput
+} from "./commands/DescribeTapeArchivesCommand";
+import {
+  DescribeTapeRecoveryPointsCommandInput,
+  DescribeTapeRecoveryPointsCommandOutput
+} from "./commands/DescribeTapeRecoveryPointsCommand";
+import {
+  DescribeTapesCommandInput,
+  DescribeTapesCommandOutput
+} from "./commands/DescribeTapesCommand";
+import {
+  DescribeUploadBufferCommandInput,
+  DescribeUploadBufferCommandOutput
+} from "./commands/DescribeUploadBufferCommand";
+import {
+  DescribeVTLDevicesCommandInput,
+  DescribeVTLDevicesCommandOutput
+} from "./commands/DescribeVTLDevicesCommand";
+import {
+  DescribeWorkingStorageCommandInput,
+  DescribeWorkingStorageCommandOutput
+} from "./commands/DescribeWorkingStorageCommand";
+import {
+  DetachVolumeCommandInput,
+  DetachVolumeCommandOutput
+} from "./commands/DetachVolumeCommand";
+import {
+  DisableGatewayCommandInput,
+  DisableGatewayCommandOutput
+} from "./commands/DisableGatewayCommand";
+import {
+  JoinDomainCommandInput,
+  JoinDomainCommandOutput
+} from "./commands/JoinDomainCommand";
+import {
+  ListFileSharesCommandInput,
+  ListFileSharesCommandOutput
+} from "./commands/ListFileSharesCommand";
+import {
+  ListGatewaysCommandInput,
+  ListGatewaysCommandOutput
+} from "./commands/ListGatewaysCommand";
+import {
+  ListLocalDisksCommandInput,
+  ListLocalDisksCommandOutput
+} from "./commands/ListLocalDisksCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTapesCommandInput,
+  ListTapesCommandOutput
+} from "./commands/ListTapesCommand";
+import {
+  ListVolumeInitiatorsCommandInput,
+  ListVolumeInitiatorsCommandOutput
+} from "./commands/ListVolumeInitiatorsCommand";
+import {
+  ListVolumeRecoveryPointsCommandInput,
+  ListVolumeRecoveryPointsCommandOutput
+} from "./commands/ListVolumeRecoveryPointsCommand";
+import {
+  ListVolumesCommandInput,
+  ListVolumesCommandOutput
+} from "./commands/ListVolumesCommand";
+import {
+  NotifyWhenUploadedCommandInput,
+  NotifyWhenUploadedCommandOutput
+} from "./commands/NotifyWhenUploadedCommand";
+import {
+  RefreshCacheCommandInput,
+  RefreshCacheCommandOutput
+} from "./commands/RefreshCacheCommand";
+import {
+  RemoveTagsFromResourceCommandInput,
+  RemoveTagsFromResourceCommandOutput
+} from "./commands/RemoveTagsFromResourceCommand";
+import {
+  ResetCacheCommandInput,
+  ResetCacheCommandOutput
+} from "./commands/ResetCacheCommand";
+import {
+  RetrieveTapeArchiveCommandInput,
+  RetrieveTapeArchiveCommandOutput
+} from "./commands/RetrieveTapeArchiveCommand";
+import {
+  RetrieveTapeRecoveryPointCommandInput,
+  RetrieveTapeRecoveryPointCommandOutput
+} from "./commands/RetrieveTapeRecoveryPointCommand";
+import {
+  SetLocalConsolePasswordCommandInput,
+  SetLocalConsolePasswordCommandOutput
+} from "./commands/SetLocalConsolePasswordCommand";
+import {
+  SetSMBGuestPasswordCommandInput,
+  SetSMBGuestPasswordCommandOutput
+} from "./commands/SetSMBGuestPasswordCommand";
+import {
+  ShutdownGatewayCommandInput,
+  ShutdownGatewayCommandOutput
+} from "./commands/ShutdownGatewayCommand";
+import {
+  StartAvailabilityMonitorTestCommandInput,
+  StartAvailabilityMonitorTestCommandOutput
+} from "./commands/StartAvailabilityMonitorTestCommand";
+import {
+  StartGatewayCommandInput,
+  StartGatewayCommandOutput
+} from "./commands/StartGatewayCommand";
+import {
+  UpdateBandwidthRateLimitCommandInput,
+  UpdateBandwidthRateLimitCommandOutput
+} from "./commands/UpdateBandwidthRateLimitCommand";
+import {
+  UpdateChapCredentialsCommandInput,
+  UpdateChapCredentialsCommandOutput
+} from "./commands/UpdateChapCredentialsCommand";
+import {
+  UpdateGatewayInformationCommandInput,
+  UpdateGatewayInformationCommandOutput
+} from "./commands/UpdateGatewayInformationCommand";
+import {
+  UpdateGatewaySoftwareNowCommandInput,
+  UpdateGatewaySoftwareNowCommandOutput
+} from "./commands/UpdateGatewaySoftwareNowCommand";
+import {
+  UpdateMaintenanceStartTimeCommandInput,
+  UpdateMaintenanceStartTimeCommandOutput
+} from "./commands/UpdateMaintenanceStartTimeCommand";
+import {
+  UpdateNFSFileShareCommandInput,
+  UpdateNFSFileShareCommandOutput
+} from "./commands/UpdateNFSFileShareCommand";
+import {
+  UpdateSMBFileShareCommandInput,
+  UpdateSMBFileShareCommandOutput
+} from "./commands/UpdateSMBFileShareCommand";
+import {
+  UpdateSMBSecurityStrategyCommandInput,
+  UpdateSMBSecurityStrategyCommandOutput
+} from "./commands/UpdateSMBSecurityStrategyCommand";
+import {
+  UpdateSnapshotScheduleCommandInput,
+  UpdateSnapshotScheduleCommandOutput
+} from "./commands/UpdateSnapshotScheduleCommand";
+import {
+  UpdateVTLDeviceTypeCommandInput,
+  UpdateVTLDeviceTypeCommandOutput
+} from "./commands/UpdateVTLDeviceTypeCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -203,158 +351,158 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | ActivateGatewayInput
-  | AddCacheInput
-  | AddTagsToResourceInput
-  | AddUploadBufferInput
-  | AddWorkingStorageInput
-  | AssignTapePoolInput
-  | AttachVolumeInput
-  | CancelArchivalInput
-  | CancelRetrievalInput
-  | CreateCachediSCSIVolumeInput
-  | CreateNFSFileShareInput
-  | CreateSMBFileShareInput
-  | CreateSnapshotFromVolumeRecoveryPointInput
-  | CreateSnapshotInput
-  | CreateStorediSCSIVolumeInput
-  | CreateTapeWithBarcodeInput
-  | CreateTapesInput
-  | DeleteBandwidthRateLimitInput
-  | DeleteChapCredentialsInput
-  | DeleteFileShareInput
-  | DeleteGatewayInput
-  | DeleteSnapshotScheduleInput
-  | DeleteTapeArchiveInput
-  | DeleteTapeInput
-  | DeleteVolumeInput
-  | DescribeAvailabilityMonitorTestInput
-  | DescribeBandwidthRateLimitInput
-  | DescribeCacheInput
-  | DescribeCachediSCSIVolumesInput
-  | DescribeChapCredentialsInput
-  | DescribeGatewayInformationInput
-  | DescribeMaintenanceStartTimeInput
-  | DescribeNFSFileSharesInput
-  | DescribeSMBFileSharesInput
-  | DescribeSMBSettingsInput
-  | DescribeSnapshotScheduleInput
-  | DescribeStorediSCSIVolumesInput
-  | DescribeTapeArchivesInput
-  | DescribeTapeRecoveryPointsInput
-  | DescribeTapesInput
-  | DescribeUploadBufferInput
-  | DescribeVTLDevicesInput
-  | DescribeWorkingStorageInput
-  | DetachVolumeInput
-  | DisableGatewayInput
-  | JoinDomainInput
-  | ListFileSharesInput
-  | ListGatewaysInput
-  | ListLocalDisksInput
-  | ListTagsForResourceInput
-  | ListTapesInput
-  | ListVolumeInitiatorsInput
-  | ListVolumeRecoveryPointsInput
-  | ListVolumesInput
-  | NotifyWhenUploadedInput
-  | RefreshCacheInput
-  | RemoveTagsFromResourceInput
-  | ResetCacheInput
-  | RetrieveTapeArchiveInput
-  | RetrieveTapeRecoveryPointInput
-  | SetLocalConsolePasswordInput
-  | SetSMBGuestPasswordInput
-  | ShutdownGatewayInput
-  | StartAvailabilityMonitorTestInput
-  | StartGatewayInput
-  | UpdateBandwidthRateLimitInput
-  | UpdateChapCredentialsInput
-  | UpdateGatewayInformationInput
-  | UpdateGatewaySoftwareNowInput
-  | UpdateMaintenanceStartTimeInput
-  | UpdateNFSFileShareInput
-  | UpdateSMBFileShareInput
-  | UpdateSMBSecurityStrategyInput
-  | UpdateSnapshotScheduleInput
-  | UpdateVTLDeviceTypeInput;
+  | ActivateGatewayCommandInput
+  | AddCacheCommandInput
+  | AddTagsToResourceCommandInput
+  | AddUploadBufferCommandInput
+  | AddWorkingStorageCommandInput
+  | AssignTapePoolCommandInput
+  | AttachVolumeCommandInput
+  | CancelArchivalCommandInput
+  | CancelRetrievalCommandInput
+  | CreateCachediSCSIVolumeCommandInput
+  | CreateNFSFileShareCommandInput
+  | CreateSMBFileShareCommandInput
+  | CreateSnapshotCommandInput
+  | CreateSnapshotFromVolumeRecoveryPointCommandInput
+  | CreateStorediSCSIVolumeCommandInput
+  | CreateTapeWithBarcodeCommandInput
+  | CreateTapesCommandInput
+  | DeleteBandwidthRateLimitCommandInput
+  | DeleteChapCredentialsCommandInput
+  | DeleteFileShareCommandInput
+  | DeleteGatewayCommandInput
+  | DeleteSnapshotScheduleCommandInput
+  | DeleteTapeArchiveCommandInput
+  | DeleteTapeCommandInput
+  | DeleteVolumeCommandInput
+  | DescribeAvailabilityMonitorTestCommandInput
+  | DescribeBandwidthRateLimitCommandInput
+  | DescribeCacheCommandInput
+  | DescribeCachediSCSIVolumesCommandInput
+  | DescribeChapCredentialsCommandInput
+  | DescribeGatewayInformationCommandInput
+  | DescribeMaintenanceStartTimeCommandInput
+  | DescribeNFSFileSharesCommandInput
+  | DescribeSMBFileSharesCommandInput
+  | DescribeSMBSettingsCommandInput
+  | DescribeSnapshotScheduleCommandInput
+  | DescribeStorediSCSIVolumesCommandInput
+  | DescribeTapeArchivesCommandInput
+  | DescribeTapeRecoveryPointsCommandInput
+  | DescribeTapesCommandInput
+  | DescribeUploadBufferCommandInput
+  | DescribeVTLDevicesCommandInput
+  | DescribeWorkingStorageCommandInput
+  | DetachVolumeCommandInput
+  | DisableGatewayCommandInput
+  | JoinDomainCommandInput
+  | ListFileSharesCommandInput
+  | ListGatewaysCommandInput
+  | ListLocalDisksCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTapesCommandInput
+  | ListVolumeInitiatorsCommandInput
+  | ListVolumeRecoveryPointsCommandInput
+  | ListVolumesCommandInput
+  | NotifyWhenUploadedCommandInput
+  | RefreshCacheCommandInput
+  | RemoveTagsFromResourceCommandInput
+  | ResetCacheCommandInput
+  | RetrieveTapeArchiveCommandInput
+  | RetrieveTapeRecoveryPointCommandInput
+  | SetLocalConsolePasswordCommandInput
+  | SetSMBGuestPasswordCommandInput
+  | ShutdownGatewayCommandInput
+  | StartAvailabilityMonitorTestCommandInput
+  | StartGatewayCommandInput
+  | UpdateBandwidthRateLimitCommandInput
+  | UpdateChapCredentialsCommandInput
+  | UpdateGatewayInformationCommandInput
+  | UpdateGatewaySoftwareNowCommandInput
+  | UpdateMaintenanceStartTimeCommandInput
+  | UpdateNFSFileShareCommandInput
+  | UpdateSMBFileShareCommandInput
+  | UpdateSMBSecurityStrategyCommandInput
+  | UpdateSnapshotScheduleCommandInput
+  | UpdateVTLDeviceTypeCommandInput;
 
 export type ServiceOutputTypes =
-  | ActivateGatewayOutput
-  | AddCacheOutput
-  | AddTagsToResourceOutput
-  | AddUploadBufferOutput
-  | AddWorkingStorageOutput
-  | AssignTapePoolOutput
-  | AttachVolumeOutput
-  | CancelArchivalOutput
-  | CancelRetrievalOutput
-  | CreateCachediSCSIVolumeOutput
-  | CreateNFSFileShareOutput
-  | CreateSMBFileShareOutput
-  | CreateSnapshotFromVolumeRecoveryPointOutput
-  | CreateSnapshotOutput
-  | CreateStorediSCSIVolumeOutput
-  | CreateTapeWithBarcodeOutput
-  | CreateTapesOutput
-  | DeleteBandwidthRateLimitOutput
-  | DeleteChapCredentialsOutput
-  | DeleteFileShareOutput
-  | DeleteGatewayOutput
-  | DeleteSnapshotScheduleOutput
-  | DeleteTapeArchiveOutput
-  | DeleteTapeOutput
-  | DeleteVolumeOutput
-  | DescribeAvailabilityMonitorTestOutput
-  | DescribeBandwidthRateLimitOutput
-  | DescribeCacheOutput
-  | DescribeCachediSCSIVolumesOutput
-  | DescribeChapCredentialsOutput
-  | DescribeGatewayInformationOutput
-  | DescribeMaintenanceStartTimeOutput
-  | DescribeNFSFileSharesOutput
-  | DescribeSMBFileSharesOutput
-  | DescribeSMBSettingsOutput
-  | DescribeSnapshotScheduleOutput
-  | DescribeStorediSCSIVolumesOutput
-  | DescribeTapeArchivesOutput
-  | DescribeTapeRecoveryPointsOutput
-  | DescribeTapesOutput
-  | DescribeUploadBufferOutput
-  | DescribeVTLDevicesOutput
-  | DescribeWorkingStorageOutput
-  | DetachVolumeOutput
-  | DisableGatewayOutput
-  | JoinDomainOutput
-  | ListFileSharesOutput
-  | ListGatewaysOutput
-  | ListLocalDisksOutput
-  | ListTagsForResourceOutput
-  | ListTapesOutput
-  | ListVolumeInitiatorsOutput
-  | ListVolumeRecoveryPointsOutput
-  | ListVolumesOutput
-  | NotifyWhenUploadedOutput
-  | RefreshCacheOutput
-  | RemoveTagsFromResourceOutput
-  | ResetCacheOutput
-  | RetrieveTapeArchiveOutput
-  | RetrieveTapeRecoveryPointOutput
-  | SetLocalConsolePasswordOutput
-  | SetSMBGuestPasswordOutput
-  | ShutdownGatewayOutput
-  | StartAvailabilityMonitorTestOutput
-  | StartGatewayOutput
-  | UpdateBandwidthRateLimitOutput
-  | UpdateChapCredentialsOutput
-  | UpdateGatewayInformationOutput
-  | UpdateGatewaySoftwareNowOutput
-  | UpdateMaintenanceStartTimeOutput
-  | UpdateNFSFileShareOutput
-  | UpdateSMBFileShareOutput
-  | UpdateSMBSecurityStrategyOutput
-  | UpdateSnapshotScheduleOutput
-  | UpdateVTLDeviceTypeOutput;
+  | ActivateGatewayCommandOutput
+  | AddCacheCommandOutput
+  | AddTagsToResourceCommandOutput
+  | AddUploadBufferCommandOutput
+  | AddWorkingStorageCommandOutput
+  | AssignTapePoolCommandOutput
+  | AttachVolumeCommandOutput
+  | CancelArchivalCommandOutput
+  | CancelRetrievalCommandOutput
+  | CreateCachediSCSIVolumeCommandOutput
+  | CreateNFSFileShareCommandOutput
+  | CreateSMBFileShareCommandOutput
+  | CreateSnapshotCommandOutput
+  | CreateSnapshotFromVolumeRecoveryPointCommandOutput
+  | CreateStorediSCSIVolumeCommandOutput
+  | CreateTapeWithBarcodeCommandOutput
+  | CreateTapesCommandOutput
+  | DeleteBandwidthRateLimitCommandOutput
+  | DeleteChapCredentialsCommandOutput
+  | DeleteFileShareCommandOutput
+  | DeleteGatewayCommandOutput
+  | DeleteSnapshotScheduleCommandOutput
+  | DeleteTapeArchiveCommandOutput
+  | DeleteTapeCommandOutput
+  | DeleteVolumeCommandOutput
+  | DescribeAvailabilityMonitorTestCommandOutput
+  | DescribeBandwidthRateLimitCommandOutput
+  | DescribeCacheCommandOutput
+  | DescribeCachediSCSIVolumesCommandOutput
+  | DescribeChapCredentialsCommandOutput
+  | DescribeGatewayInformationCommandOutput
+  | DescribeMaintenanceStartTimeCommandOutput
+  | DescribeNFSFileSharesCommandOutput
+  | DescribeSMBFileSharesCommandOutput
+  | DescribeSMBSettingsCommandOutput
+  | DescribeSnapshotScheduleCommandOutput
+  | DescribeStorediSCSIVolumesCommandOutput
+  | DescribeTapeArchivesCommandOutput
+  | DescribeTapeRecoveryPointsCommandOutput
+  | DescribeTapesCommandOutput
+  | DescribeUploadBufferCommandOutput
+  | DescribeVTLDevicesCommandOutput
+  | DescribeWorkingStorageCommandOutput
+  | DetachVolumeCommandOutput
+  | DisableGatewayCommandOutput
+  | JoinDomainCommandOutput
+  | ListFileSharesCommandOutput
+  | ListGatewaysCommandOutput
+  | ListLocalDisksCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTapesCommandOutput
+  | ListVolumeInitiatorsCommandOutput
+  | ListVolumeRecoveryPointsCommandOutput
+  | ListVolumesCommandOutput
+  | NotifyWhenUploadedCommandOutput
+  | RefreshCacheCommandOutput
+  | RemoveTagsFromResourceCommandOutput
+  | ResetCacheCommandOutput
+  | RetrieveTapeArchiveCommandOutput
+  | RetrieveTapeRecoveryPointCommandOutput
+  | SetLocalConsolePasswordCommandOutput
+  | SetSMBGuestPasswordCommandOutput
+  | ShutdownGatewayCommandOutput
+  | StartAvailabilityMonitorTestCommandOutput
+  | StartGatewayCommandOutput
+  | UpdateBandwidthRateLimitCommandOutput
+  | UpdateChapCredentialsCommandOutput
+  | UpdateGatewayInformationCommandOutput
+  | UpdateGatewaySoftwareNowCommandOutput
+  | UpdateMaintenanceStartTimeCommandOutput
+  | UpdateNFSFileShareCommandOutput
+  | UpdateSMBFileShareCommandOutput
+  | UpdateSMBSecurityStrategyCommandOutput
+  | UpdateSnapshotScheduleCommandOutput
+  | UpdateVTLDeviceTypeCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

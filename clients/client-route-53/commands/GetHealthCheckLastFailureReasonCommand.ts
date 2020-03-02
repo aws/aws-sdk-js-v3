@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetHealthCheckLastFailureReasonCommandInput = GetHealthCheckLastFailureReasonRequest;
-export type GetHealthCheckLastFailureReasonCommandOutput = GetHealthCheckLastFailureReasonResponse;
+export type GetHealthCheckLastFailureReasonCommandOutput = GetHealthCheckLastFailureReasonResponse &
+  __MetadataBearer;
 
 export class GetHealthCheckLastFailureReasonCommand extends $Command<
   GetHealthCheckLastFailureReasonCommandInput,

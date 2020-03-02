@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePullRequestEventsCommandInput = DescribePullRequestEventsInput;
-export type DescribePullRequestEventsCommandOutput = DescribePullRequestEventsOutput;
+export type DescribePullRequestEventsCommandOutput = DescribePullRequestEventsOutput &
+  __MetadataBearer;
 
 export class DescribePullRequestEventsCommand extends $Command<
   DescribePullRequestEventsCommandInput,

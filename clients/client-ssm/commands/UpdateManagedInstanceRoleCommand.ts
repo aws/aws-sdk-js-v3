@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateManagedInstanceRoleCommandInput = UpdateManagedInstanceRoleRequest;
-export type UpdateManagedInstanceRoleCommandOutput = UpdateManagedInstanceRoleResult;
+export type UpdateManagedInstanceRoleCommandOutput = UpdateManagedInstanceRoleResult &
+  __MetadataBearer;
 
 export class UpdateManagedInstanceRoleCommand extends $Command<
   UpdateManagedInstanceRoleCommandInput,

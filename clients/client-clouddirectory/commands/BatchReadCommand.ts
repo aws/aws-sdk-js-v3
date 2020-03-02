@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchReadCommandInput = BatchReadRequest;
-export type BatchReadCommandOutput = BatchReadResponse;
+export type BatchReadCommandOutput = BatchReadResponse & __MetadataBearer;
 
 export class BatchReadCommand extends $Command<
   BatchReadCommandInput,

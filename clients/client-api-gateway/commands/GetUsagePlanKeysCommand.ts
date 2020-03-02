@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUsagePlanKeysCommandInput = GetUsagePlanKeysRequest;
-export type GetUsagePlanKeysCommandOutput = UsagePlanKeys;
+export type GetUsagePlanKeysCommandOutput = UsagePlanKeys & __MetadataBearer;
 
 export class GetUsagePlanKeysCommand extends $Command<
   GetUsagePlanKeysCommandInput,

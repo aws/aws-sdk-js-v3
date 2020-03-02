@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeUserHierarchyGroupCommandInput = DescribeUserHierarchyGroupRequest;
-export type DescribeUserHierarchyGroupCommandOutput = DescribeUserHierarchyGroupResponse;
+export type DescribeUserHierarchyGroupCommandOutput = DescribeUserHierarchyGroupResponse &
+  __MetadataBearer;
 
 export class DescribeUserHierarchyGroupCommand extends $Command<
   DescribeUserHierarchyGroupCommandInput,

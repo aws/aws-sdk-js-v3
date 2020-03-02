@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetVaultNotificationsCommandInput = GetVaultNotificationsInput;
-export type GetVaultNotificationsCommandOutput = GetVaultNotificationsOutput;
+export type GetVaultNotificationsCommandOutput = GetVaultNotificationsOutput &
+  __MetadataBearer;
 
 export class GetVaultNotificationsCommand extends $Command<
   GetVaultNotificationsCommandInput,

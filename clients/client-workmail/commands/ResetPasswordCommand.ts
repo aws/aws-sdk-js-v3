@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetPasswordCommandInput = ResetPasswordRequest;
-export type ResetPasswordCommandOutput = ResetPasswordResponse;
+export type ResetPasswordCommandOutput = ResetPasswordResponse &
+  __MetadataBearer;
 
 export class ResetPasswordCommand extends $Command<
   ResetPasswordCommandInput,

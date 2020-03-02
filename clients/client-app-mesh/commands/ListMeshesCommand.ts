@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListMeshesCommandInput = ListMeshesInput;
-export type ListMeshesCommandOutput = ListMeshesOutput;
+export type ListMeshesCommandOutput = ListMeshesOutput & __MetadataBearer;
 
 export class ListMeshesCommand extends $Command<
   ListMeshesCommandInput,

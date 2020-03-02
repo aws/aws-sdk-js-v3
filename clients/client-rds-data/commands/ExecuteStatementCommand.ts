@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExecuteStatementCommandInput = ExecuteStatementRequest;
-export type ExecuteStatementCommandOutput = ExecuteStatementResponse;
+export type ExecuteStatementCommandOutput = ExecuteStatementResponse &
+  __MetadataBearer;
 
 export class ExecuteStatementCommand extends $Command<
   ExecuteStatementCommandInput,

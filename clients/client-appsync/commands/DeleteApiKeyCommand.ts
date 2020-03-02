@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteApiKeyCommandInput = DeleteApiKeyRequest;
-export type DeleteApiKeyCommandOutput = DeleteApiKeyResponse;
+export type DeleteApiKeyCommandOutput = DeleteApiKeyResponse & __MetadataBearer;
 
 export class DeleteApiKeyCommand extends $Command<
   DeleteApiKeyCommandInput,

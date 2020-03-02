@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateJobQueueCommandInput = UpdateJobQueueRequest;
-export type UpdateJobQueueCommandOutput = UpdateJobQueueResponse;
+export type UpdateJobQueueCommandOutput = UpdateJobQueueResponse &
+  __MetadataBearer;
 
 export class UpdateJobQueueCommand extends $Command<
   UpdateJobQueueCommandInput,

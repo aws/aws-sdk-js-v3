@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutResourcePolicyCommandInput = PutResourcePolicyRequest;
-export type PutResourcePolicyCommandOutput = PutResourcePolicyResponse;
+export type PutResourcePolicyCommandOutput = PutResourcePolicyResponse &
+  __MetadataBearer;
 
 export class PutResourcePolicyCommand extends $Command<
   PutResourcePolicyCommandInput,

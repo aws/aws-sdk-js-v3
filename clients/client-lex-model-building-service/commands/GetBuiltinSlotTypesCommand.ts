@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBuiltinSlotTypesCommandInput = GetBuiltinSlotTypesRequest;
-export type GetBuiltinSlotTypesCommandOutput = GetBuiltinSlotTypesResponse;
+export type GetBuiltinSlotTypesCommandOutput = GetBuiltinSlotTypesResponse &
+  __MetadataBearer;
 
 export class GetBuiltinSlotTypesCommand extends $Command<
   GetBuiltinSlotTypesCommandInput,

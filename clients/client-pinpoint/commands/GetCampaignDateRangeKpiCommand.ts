@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCampaignDateRangeKpiCommandInput = GetCampaignDateRangeKpiRequest;
-export type GetCampaignDateRangeKpiCommandOutput = GetCampaignDateRangeKpiResponse;
+export type GetCampaignDateRangeKpiCommandOutput = GetCampaignDateRangeKpiResponse &
+  __MetadataBearer;
 
 export class GetCampaignDateRangeKpiCommand extends $Command<
   GetCampaignDateRangeKpiCommandInput,

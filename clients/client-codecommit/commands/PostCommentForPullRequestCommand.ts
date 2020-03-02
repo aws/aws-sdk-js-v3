@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PostCommentForPullRequestCommandInput = PostCommentForPullRequestInput;
-export type PostCommentForPullRequestCommandOutput = PostCommentForPullRequestOutput;
+export type PostCommentForPullRequestCommandOutput = PostCommentForPullRequestOutput &
+  __MetadataBearer;
 
 export class PostCommentForPullRequestCommand extends $Command<
   PostCommentForPullRequestCommandInput,

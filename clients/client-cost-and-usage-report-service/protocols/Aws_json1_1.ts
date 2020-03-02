@@ -144,17 +144,23 @@ async function deserializeAws_json1_1DeleteReportDefinitionCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.awsorigamiservicegateway#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.awsorigamiservicegateway#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -213,10 +219,13 @@ async function deserializeAws_json1_1DescribeReportDefinitionsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.awsorigamiservicegateway#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -275,17 +284,23 @@ async function deserializeAws_json1_1ModifyReportDefinitionCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.awsorigamiservicegateway#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.awsorigamiservicegateway#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -341,31 +356,43 @@ async function deserializeAws_json1_1PutReportDefinitionCommandError(
   switch (errorCode) {
     case "DuplicateReportNameException":
     case "com.amazonaws.awsorigamiservicegateway#DuplicateReportNameException":
-      response = await deserializeAws_json1_1DuplicateReportNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateReportNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.awsorigamiservicegateway#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReportLimitReachedException":
     case "com.amazonaws.awsorigamiservicegateway#ReportLimitReachedException":
-      response = await deserializeAws_json1_1ReportLimitReachedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReportLimitReachedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.awsorigamiservicegateway#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

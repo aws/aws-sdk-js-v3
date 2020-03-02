@@ -1,31 +1,55 @@
 import {
-  CopyBackupToRegionRequest,
-  CopyBackupToRegionResponse,
-  CreateClusterRequest,
-  CreateClusterResponse,
-  CreateHsmRequest,
-  CreateHsmResponse,
-  DeleteBackupRequest,
-  DeleteBackupResponse,
-  DeleteClusterRequest,
-  DeleteClusterResponse,
-  DeleteHsmRequest,
-  DeleteHsmResponse,
-  DescribeBackupsRequest,
-  DescribeBackupsResponse,
-  DescribeClustersRequest,
-  DescribeClustersResponse,
-  InitializeClusterRequest,
-  InitializeClusterResponse,
-  ListTagsRequest,
-  ListTagsResponse,
-  RestoreBackupRequest,
-  RestoreBackupResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse
-} from "./models/index";
+  CopyBackupToRegionCommandInput,
+  CopyBackupToRegionCommandOutput
+} from "./commands/CopyBackupToRegionCommand";
+import {
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput
+} from "./commands/CreateClusterCommand";
+import {
+  CreateHsmCommandInput,
+  CreateHsmCommandOutput
+} from "./commands/CreateHsmCommand";
+import {
+  DeleteBackupCommandInput,
+  DeleteBackupCommandOutput
+} from "./commands/DeleteBackupCommand";
+import {
+  DeleteClusterCommandInput,
+  DeleteClusterCommandOutput
+} from "./commands/DeleteClusterCommand";
+import {
+  DeleteHsmCommandInput,
+  DeleteHsmCommandOutput
+} from "./commands/DeleteHsmCommand";
+import {
+  DescribeBackupsCommandInput,
+  DescribeBackupsCommandOutput
+} from "./commands/DescribeBackupsCommand";
+import {
+  DescribeClustersCommandInput,
+  DescribeClustersCommandOutput
+} from "./commands/DescribeClustersCommand";
+import {
+  InitializeClusterCommandInput,
+  InitializeClusterCommandOutput
+} from "./commands/InitializeClusterCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  RestoreBackupCommandInput,
+  RestoreBackupCommandOutput
+} from "./commands/RestoreBackupCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -79,34 +103,34 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CopyBackupToRegionRequest
-  | CreateClusterRequest
-  | CreateHsmRequest
-  | DeleteBackupRequest
-  | DeleteClusterRequest
-  | DeleteHsmRequest
-  | DescribeBackupsRequest
-  | DescribeClustersRequest
-  | InitializeClusterRequest
-  | ListTagsRequest
-  | RestoreBackupRequest
-  | TagResourceRequest
-  | UntagResourceRequest;
+  | CopyBackupToRegionCommandInput
+  | CreateClusterCommandInput
+  | CreateHsmCommandInput
+  | DeleteBackupCommandInput
+  | DeleteClusterCommandInput
+  | DeleteHsmCommandInput
+  | DescribeBackupsCommandInput
+  | DescribeClustersCommandInput
+  | InitializeClusterCommandInput
+  | ListTagsCommandInput
+  | RestoreBackupCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | CopyBackupToRegionResponse
-  | CreateClusterResponse
-  | CreateHsmResponse
-  | DeleteBackupResponse
-  | DeleteClusterResponse
-  | DeleteHsmResponse
-  | DescribeBackupsResponse
-  | DescribeClustersResponse
-  | InitializeClusterResponse
-  | ListTagsResponse
-  | RestoreBackupResponse
-  | TagResourceResponse
-  | UntagResourceResponse;
+  | CopyBackupToRegionCommandOutput
+  | CreateClusterCommandOutput
+  | CreateHsmCommandOutput
+  | DeleteBackupCommandOutput
+  | DeleteClusterCommandOutput
+  | DeleteHsmCommandOutput
+  | DescribeBackupsCommandOutput
+  | DescribeClustersCommandOutput
+  | InitializeClusterCommandOutput
+  | ListTagsCommandOutput
+  | RestoreBackupCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

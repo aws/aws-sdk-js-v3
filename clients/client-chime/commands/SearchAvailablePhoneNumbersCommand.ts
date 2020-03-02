@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchAvailablePhoneNumbersCommandInput = SearchAvailablePhoneNumbersRequest;
-export type SearchAvailablePhoneNumbersCommandOutput = SearchAvailablePhoneNumbersResponse;
+export type SearchAvailablePhoneNumbersCommandOutput = SearchAvailablePhoneNumbersResponse &
+  __MetadataBearer;
 
 export class SearchAvailablePhoneNumbersCommand extends $Command<
   SearchAvailablePhoneNumbersCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListWebhooksCommandInput = ListWebhooksInput;
-export type ListWebhooksCommandOutput = ListWebhooksOutput;
+export type ListWebhooksCommandOutput = ListWebhooksOutput & __MetadataBearer;
 
 export class ListWebhooksCommand extends $Command<
   ListWebhooksCommandInput,

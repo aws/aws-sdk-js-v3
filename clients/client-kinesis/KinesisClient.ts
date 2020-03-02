@@ -1,49 +1,115 @@
 import {
-  AddTagsToStreamInput,
-  CreateStreamInput,
-  DecreaseStreamRetentionPeriodInput,
-  DeleteStreamInput,
-  DeregisterStreamConsumerInput,
-  DescribeLimitsInput,
-  DescribeLimitsOutput,
-  DescribeStreamConsumerInput,
-  DescribeStreamConsumerOutput,
-  DescribeStreamInput,
-  DescribeStreamOutput,
-  DescribeStreamSummaryInput,
-  DescribeStreamSummaryOutput,
-  DisableEnhancedMonitoringInput,
-  EnableEnhancedMonitoringInput,
-  EnhancedMonitoringOutput,
-  GetRecordsInput,
-  GetRecordsOutput,
-  GetShardIteratorInput,
-  GetShardIteratorOutput,
-  IncreaseStreamRetentionPeriodInput,
-  ListShardsInput,
-  ListShardsOutput,
-  ListStreamConsumersInput,
-  ListStreamConsumersOutput,
-  ListStreamsInput,
-  ListStreamsOutput,
-  ListTagsForStreamInput,
-  ListTagsForStreamOutput,
-  MergeShardsInput,
-  PutRecordInput,
-  PutRecordOutput,
-  PutRecordsInput,
-  PutRecordsOutput,
-  RegisterStreamConsumerInput,
-  RegisterStreamConsumerOutput,
-  RemoveTagsFromStreamInput,
-  SplitShardInput,
-  StartStreamEncryptionInput,
-  StopStreamEncryptionInput,
-  SubscribeToShardInput,
-  SubscribeToShardOutput,
-  UpdateShardCountInput,
-  UpdateShardCountOutput
-} from "./models/index";
+  AddTagsToStreamCommandInput,
+  AddTagsToStreamCommandOutput
+} from "./commands/AddTagsToStreamCommand";
+import {
+  CreateStreamCommandInput,
+  CreateStreamCommandOutput
+} from "./commands/CreateStreamCommand";
+import {
+  DecreaseStreamRetentionPeriodCommandInput,
+  DecreaseStreamRetentionPeriodCommandOutput
+} from "./commands/DecreaseStreamRetentionPeriodCommand";
+import {
+  DeleteStreamCommandInput,
+  DeleteStreamCommandOutput
+} from "./commands/DeleteStreamCommand";
+import {
+  DeregisterStreamConsumerCommandInput,
+  DeregisterStreamConsumerCommandOutput
+} from "./commands/DeregisterStreamConsumerCommand";
+import {
+  DescribeLimitsCommandInput,
+  DescribeLimitsCommandOutput
+} from "./commands/DescribeLimitsCommand";
+import {
+  DescribeStreamCommandInput,
+  DescribeStreamCommandOutput
+} from "./commands/DescribeStreamCommand";
+import {
+  DescribeStreamConsumerCommandInput,
+  DescribeStreamConsumerCommandOutput
+} from "./commands/DescribeStreamConsumerCommand";
+import {
+  DescribeStreamSummaryCommandInput,
+  DescribeStreamSummaryCommandOutput
+} from "./commands/DescribeStreamSummaryCommand";
+import {
+  DisableEnhancedMonitoringCommandInput,
+  DisableEnhancedMonitoringCommandOutput
+} from "./commands/DisableEnhancedMonitoringCommand";
+import {
+  EnableEnhancedMonitoringCommandInput,
+  EnableEnhancedMonitoringCommandOutput
+} from "./commands/EnableEnhancedMonitoringCommand";
+import {
+  GetRecordsCommandInput,
+  GetRecordsCommandOutput
+} from "./commands/GetRecordsCommand";
+import {
+  GetShardIteratorCommandInput,
+  GetShardIteratorCommandOutput
+} from "./commands/GetShardIteratorCommand";
+import {
+  IncreaseStreamRetentionPeriodCommandInput,
+  IncreaseStreamRetentionPeriodCommandOutput
+} from "./commands/IncreaseStreamRetentionPeriodCommand";
+import {
+  ListShardsCommandInput,
+  ListShardsCommandOutput
+} from "./commands/ListShardsCommand";
+import {
+  ListStreamConsumersCommandInput,
+  ListStreamConsumersCommandOutput
+} from "./commands/ListStreamConsumersCommand";
+import {
+  ListStreamsCommandInput,
+  ListStreamsCommandOutput
+} from "./commands/ListStreamsCommand";
+import {
+  ListTagsForStreamCommandInput,
+  ListTagsForStreamCommandOutput
+} from "./commands/ListTagsForStreamCommand";
+import {
+  MergeShardsCommandInput,
+  MergeShardsCommandOutput
+} from "./commands/MergeShardsCommand";
+import {
+  PutRecordCommandInput,
+  PutRecordCommandOutput
+} from "./commands/PutRecordCommand";
+import {
+  PutRecordsCommandInput,
+  PutRecordsCommandOutput
+} from "./commands/PutRecordsCommand";
+import {
+  RegisterStreamConsumerCommandInput,
+  RegisterStreamConsumerCommandOutput
+} from "./commands/RegisterStreamConsumerCommand";
+import {
+  RemoveTagsFromStreamCommandInput,
+  RemoveTagsFromStreamCommandOutput
+} from "./commands/RemoveTagsFromStreamCommand";
+import {
+  SplitShardCommandInput,
+  SplitShardCommandOutput
+} from "./commands/SplitShardCommand";
+import {
+  StartStreamEncryptionCommandInput,
+  StartStreamEncryptionCommandOutput
+} from "./commands/StartStreamEncryptionCommand";
+import {
+  StopStreamEncryptionCommandInput,
+  StopStreamEncryptionCommandOutput
+} from "./commands/StopStreamEncryptionCommand";
+import {
+  SubscribeToShardCommandInput,
+  SubscribeToShardCommandOutput
+} from "./commands/SubscribeToShardCommand";
+import {
+  UpdateShardCountCommandInput,
+  UpdateShardCountCommandOutput
+} from "./commands/UpdateShardCountCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -97,61 +163,70 @@ import {
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsToStreamInput
-  | CreateStreamInput
-  | DecreaseStreamRetentionPeriodInput
-  | DeleteStreamInput
-  | DeregisterStreamConsumerInput
-  | DescribeLimitsInput
-  | DescribeStreamConsumerInput
-  | DescribeStreamInput
-  | DescribeStreamSummaryInput
-  | DisableEnhancedMonitoringInput
-  | EnableEnhancedMonitoringInput
-  | GetRecordsInput
-  | GetShardIteratorInput
-  | IncreaseStreamRetentionPeriodInput
-  | ListShardsInput
-  | ListStreamConsumersInput
-  | ListStreamsInput
-  | ListTagsForStreamInput
-  | MergeShardsInput
-  | PutRecordInput
-  | PutRecordsInput
-  | RegisterStreamConsumerInput
-  | RemoveTagsFromStreamInput
-  | SplitShardInput
-  | StartStreamEncryptionInput
-  | StopStreamEncryptionInput
-  | SubscribeToShardInput
-  | UpdateShardCountInput;
+  | AddTagsToStreamCommandInput
+  | CreateStreamCommandInput
+  | DecreaseStreamRetentionPeriodCommandInput
+  | DeleteStreamCommandInput
+  | DeregisterStreamConsumerCommandInput
+  | DescribeLimitsCommandInput
+  | DescribeStreamCommandInput
+  | DescribeStreamConsumerCommandInput
+  | DescribeStreamSummaryCommandInput
+  | DisableEnhancedMonitoringCommandInput
+  | EnableEnhancedMonitoringCommandInput
+  | GetRecordsCommandInput
+  | GetShardIteratorCommandInput
+  | IncreaseStreamRetentionPeriodCommandInput
+  | ListShardsCommandInput
+  | ListStreamConsumersCommandInput
+  | ListStreamsCommandInput
+  | ListTagsForStreamCommandInput
+  | MergeShardsCommandInput
+  | PutRecordCommandInput
+  | PutRecordsCommandInput
+  | RegisterStreamConsumerCommandInput
+  | RemoveTagsFromStreamCommandInput
+  | SplitShardCommandInput
+  | StartStreamEncryptionCommandInput
+  | StopStreamEncryptionCommandInput
+  | SubscribeToShardCommandInput
+  | UpdateShardCountCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | DescribeLimitsOutput
-  | DescribeStreamConsumerOutput
-  | DescribeStreamOutput
-  | DescribeStreamSummaryOutput
-  | EnhancedMonitoringOutput
-  | EnhancedMonitoringOutput
-  | GetRecordsOutput
-  | GetShardIteratorOutput
-  | ListShardsOutput
-  | ListStreamConsumersOutput
-  | ListStreamsOutput
-  | ListTagsForStreamOutput
-  | PutRecordOutput
-  | PutRecordsOutput
-  | RegisterStreamConsumerOutput
-  | SubscribeToShardOutput
-  | UpdateShardCountOutput;
+  | AddTagsToStreamCommandOutput
+  | CreateStreamCommandOutput
+  | DecreaseStreamRetentionPeriodCommandOutput
+  | DeleteStreamCommandOutput
+  | DeregisterStreamConsumerCommandOutput
+  | DescribeLimitsCommandOutput
+  | DescribeStreamCommandOutput
+  | DescribeStreamConsumerCommandOutput
+  | DescribeStreamSummaryCommandOutput
+  | DisableEnhancedMonitoringCommandOutput
+  | EnableEnhancedMonitoringCommandOutput
+  | GetRecordsCommandOutput
+  | GetShardIteratorCommandOutput
+  | IncreaseStreamRetentionPeriodCommandOutput
+  | ListShardsCommandOutput
+  | ListStreamConsumersCommandOutput
+  | ListStreamsCommandOutput
+  | ListTagsForStreamCommandOutput
+  | MergeShardsCommandOutput
+  | PutRecordCommandOutput
+  | PutRecordsCommandOutput
+  | RegisterStreamConsumerCommandOutput
+  | RemoveTagsFromStreamCommandOutput
+  | SplitShardCommandOutput
+  | StartStreamEncryptionCommandOutput
+  | StopStreamEncryptionCommandOutput
+  | SubscribeToShardCommandOutput
+  | UpdateShardCountCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

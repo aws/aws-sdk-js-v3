@@ -1,43 +1,79 @@
 import {
-  CreateCostCategoryDefinitionRequest,
-  CreateCostCategoryDefinitionResponse,
-  DeleteCostCategoryDefinitionRequest,
-  DeleteCostCategoryDefinitionResponse,
-  DescribeCostCategoryDefinitionRequest,
-  DescribeCostCategoryDefinitionResponse,
-  GetCostAndUsageRequest,
-  GetCostAndUsageResponse,
-  GetCostAndUsageWithResourcesRequest,
-  GetCostAndUsageWithResourcesResponse,
-  GetCostForecastRequest,
-  GetCostForecastResponse,
-  GetDimensionValuesRequest,
-  GetDimensionValuesResponse,
-  GetReservationCoverageRequest,
-  GetReservationCoverageResponse,
-  GetReservationPurchaseRecommendationRequest,
-  GetReservationPurchaseRecommendationResponse,
-  GetReservationUtilizationRequest,
-  GetReservationUtilizationResponse,
-  GetRightsizingRecommendationRequest,
-  GetRightsizingRecommendationResponse,
-  GetSavingsPlansCoverageRequest,
-  GetSavingsPlansCoverageResponse,
-  GetSavingsPlansPurchaseRecommendationRequest,
-  GetSavingsPlansPurchaseRecommendationResponse,
-  GetSavingsPlansUtilizationDetailsRequest,
-  GetSavingsPlansUtilizationDetailsResponse,
-  GetSavingsPlansUtilizationRequest,
-  GetSavingsPlansUtilizationResponse,
-  GetTagsRequest,
-  GetTagsResponse,
-  GetUsageForecastRequest,
-  GetUsageForecastResponse,
-  ListCostCategoryDefinitionsRequest,
-  ListCostCategoryDefinitionsResponse,
-  UpdateCostCategoryDefinitionRequest,
-  UpdateCostCategoryDefinitionResponse
-} from "./models/index";
+  CreateCostCategoryDefinitionCommandInput,
+  CreateCostCategoryDefinitionCommandOutput
+} from "./commands/CreateCostCategoryDefinitionCommand";
+import {
+  DeleteCostCategoryDefinitionCommandInput,
+  DeleteCostCategoryDefinitionCommandOutput
+} from "./commands/DeleteCostCategoryDefinitionCommand";
+import {
+  DescribeCostCategoryDefinitionCommandInput,
+  DescribeCostCategoryDefinitionCommandOutput
+} from "./commands/DescribeCostCategoryDefinitionCommand";
+import {
+  GetCostAndUsageCommandInput,
+  GetCostAndUsageCommandOutput
+} from "./commands/GetCostAndUsageCommand";
+import {
+  GetCostAndUsageWithResourcesCommandInput,
+  GetCostAndUsageWithResourcesCommandOutput
+} from "./commands/GetCostAndUsageWithResourcesCommand";
+import {
+  GetCostForecastCommandInput,
+  GetCostForecastCommandOutput
+} from "./commands/GetCostForecastCommand";
+import {
+  GetDimensionValuesCommandInput,
+  GetDimensionValuesCommandOutput
+} from "./commands/GetDimensionValuesCommand";
+import {
+  GetReservationCoverageCommandInput,
+  GetReservationCoverageCommandOutput
+} from "./commands/GetReservationCoverageCommand";
+import {
+  GetReservationPurchaseRecommendationCommandInput,
+  GetReservationPurchaseRecommendationCommandOutput
+} from "./commands/GetReservationPurchaseRecommendationCommand";
+import {
+  GetReservationUtilizationCommandInput,
+  GetReservationUtilizationCommandOutput
+} from "./commands/GetReservationUtilizationCommand";
+import {
+  GetRightsizingRecommendationCommandInput,
+  GetRightsizingRecommendationCommandOutput
+} from "./commands/GetRightsizingRecommendationCommand";
+import {
+  GetSavingsPlansCoverageCommandInput,
+  GetSavingsPlansCoverageCommandOutput
+} from "./commands/GetSavingsPlansCoverageCommand";
+import {
+  GetSavingsPlansPurchaseRecommendationCommandInput,
+  GetSavingsPlansPurchaseRecommendationCommandOutput
+} from "./commands/GetSavingsPlansPurchaseRecommendationCommand";
+import {
+  GetSavingsPlansUtilizationCommandInput,
+  GetSavingsPlansUtilizationCommandOutput
+} from "./commands/GetSavingsPlansUtilizationCommand";
+import {
+  GetSavingsPlansUtilizationDetailsCommandInput,
+  GetSavingsPlansUtilizationDetailsCommandOutput
+} from "./commands/GetSavingsPlansUtilizationDetailsCommand";
+import {
+  GetTagsCommandInput,
+  GetTagsCommandOutput
+} from "./commands/GetTagsCommand";
+import {
+  GetUsageForecastCommandInput,
+  GetUsageForecastCommandOutput
+} from "./commands/GetUsageForecastCommand";
+import {
+  ListCostCategoryDefinitionsCommandInput,
+  ListCostCategoryDefinitionsCommandOutput
+} from "./commands/ListCostCategoryDefinitionsCommand";
+import {
+  UpdateCostCategoryDefinitionCommandInput,
+  UpdateCostCategoryDefinitionCommandOutput
+} from "./commands/UpdateCostCategoryDefinitionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -91,46 +127,46 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateCostCategoryDefinitionRequest
-  | DeleteCostCategoryDefinitionRequest
-  | DescribeCostCategoryDefinitionRequest
-  | GetCostAndUsageRequest
-  | GetCostAndUsageWithResourcesRequest
-  | GetCostForecastRequest
-  | GetDimensionValuesRequest
-  | GetReservationCoverageRequest
-  | GetReservationPurchaseRecommendationRequest
-  | GetReservationUtilizationRequest
-  | GetRightsizingRecommendationRequest
-  | GetSavingsPlansCoverageRequest
-  | GetSavingsPlansPurchaseRecommendationRequest
-  | GetSavingsPlansUtilizationDetailsRequest
-  | GetSavingsPlansUtilizationRequest
-  | GetTagsRequest
-  | GetUsageForecastRequest
-  | ListCostCategoryDefinitionsRequest
-  | UpdateCostCategoryDefinitionRequest;
+  | CreateCostCategoryDefinitionCommandInput
+  | DeleteCostCategoryDefinitionCommandInput
+  | DescribeCostCategoryDefinitionCommandInput
+  | GetCostAndUsageCommandInput
+  | GetCostAndUsageWithResourcesCommandInput
+  | GetCostForecastCommandInput
+  | GetDimensionValuesCommandInput
+  | GetReservationCoverageCommandInput
+  | GetReservationPurchaseRecommendationCommandInput
+  | GetReservationUtilizationCommandInput
+  | GetRightsizingRecommendationCommandInput
+  | GetSavingsPlansCoverageCommandInput
+  | GetSavingsPlansPurchaseRecommendationCommandInput
+  | GetSavingsPlansUtilizationCommandInput
+  | GetSavingsPlansUtilizationDetailsCommandInput
+  | GetTagsCommandInput
+  | GetUsageForecastCommandInput
+  | ListCostCategoryDefinitionsCommandInput
+  | UpdateCostCategoryDefinitionCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateCostCategoryDefinitionResponse
-  | DeleteCostCategoryDefinitionResponse
-  | DescribeCostCategoryDefinitionResponse
-  | GetCostAndUsageResponse
-  | GetCostAndUsageWithResourcesResponse
-  | GetCostForecastResponse
-  | GetDimensionValuesResponse
-  | GetReservationCoverageResponse
-  | GetReservationPurchaseRecommendationResponse
-  | GetReservationUtilizationResponse
-  | GetRightsizingRecommendationResponse
-  | GetSavingsPlansCoverageResponse
-  | GetSavingsPlansPurchaseRecommendationResponse
-  | GetSavingsPlansUtilizationDetailsResponse
-  | GetSavingsPlansUtilizationResponse
-  | GetTagsResponse
-  | GetUsageForecastResponse
-  | ListCostCategoryDefinitionsResponse
-  | UpdateCostCategoryDefinitionResponse;
+  | CreateCostCategoryDefinitionCommandOutput
+  | DeleteCostCategoryDefinitionCommandOutput
+  | DescribeCostCategoryDefinitionCommandOutput
+  | GetCostAndUsageCommandOutput
+  | GetCostAndUsageWithResourcesCommandOutput
+  | GetCostForecastCommandOutput
+  | GetDimensionValuesCommandOutput
+  | GetReservationCoverageCommandOutput
+  | GetReservationPurchaseRecommendationCommandOutput
+  | GetReservationUtilizationCommandOutput
+  | GetRightsizingRecommendationCommandOutput
+  | GetSavingsPlansCoverageCommandOutput
+  | GetSavingsPlansPurchaseRecommendationCommandOutput
+  | GetSavingsPlansUtilizationCommandOutput
+  | GetSavingsPlansUtilizationDetailsCommandOutput
+  | GetTagsCommandOutput
+  | GetUsageForecastCommandOutput
+  | ListCostCategoryDefinitionsCommandOutput
+  | UpdateCostCategoryDefinitionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

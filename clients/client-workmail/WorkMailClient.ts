@@ -1,71 +1,135 @@
 import {
-  AssociateDelegateToResourceRequest,
-  AssociateDelegateToResourceResponse,
-  AssociateMemberToGroupRequest,
-  AssociateMemberToGroupResponse,
-  CreateAliasRequest,
-  CreateAliasResponse,
-  CreateGroupRequest,
-  CreateGroupResponse,
-  CreateResourceRequest,
-  CreateResourceResponse,
-  CreateUserRequest,
-  CreateUserResponse,
-  DeleteAliasRequest,
-  DeleteAliasResponse,
-  DeleteGroupRequest,
-  DeleteGroupResponse,
-  DeleteMailboxPermissionsRequest,
-  DeleteMailboxPermissionsResponse,
-  DeleteResourceRequest,
-  DeleteResourceResponse,
-  DeleteUserRequest,
-  DeleteUserResponse,
-  DeregisterFromWorkMailRequest,
-  DeregisterFromWorkMailResponse,
-  DescribeGroupRequest,
-  DescribeGroupResponse,
-  DescribeOrganizationRequest,
-  DescribeOrganizationResponse,
-  DescribeResourceRequest,
-  DescribeResourceResponse,
-  DescribeUserRequest,
-  DescribeUserResponse,
-  DisassociateDelegateFromResourceRequest,
-  DisassociateDelegateFromResourceResponse,
-  DisassociateMemberFromGroupRequest,
-  DisassociateMemberFromGroupResponse,
-  GetMailboxDetailsRequest,
-  GetMailboxDetailsResponse,
-  ListAliasesRequest,
-  ListAliasesResponse,
-  ListGroupMembersRequest,
-  ListGroupMembersResponse,
-  ListGroupsRequest,
-  ListGroupsResponse,
-  ListMailboxPermissionsRequest,
-  ListMailboxPermissionsResponse,
-  ListOrganizationsRequest,
-  ListOrganizationsResponse,
-  ListResourceDelegatesRequest,
-  ListResourceDelegatesResponse,
-  ListResourcesRequest,
-  ListResourcesResponse,
-  ListUsersRequest,
-  ListUsersResponse,
-  PutMailboxPermissionsRequest,
-  PutMailboxPermissionsResponse,
-  RegisterToWorkMailRequest,
-  RegisterToWorkMailResponse,
-  ResetPasswordRequest,
-  ResetPasswordResponse,
-  UpdateMailboxQuotaRequest,
-  UpdateMailboxQuotaResponse,
-  UpdatePrimaryEmailAddressRequest,
-  UpdatePrimaryEmailAddressResponse,
-  UpdateResourceRequest,
-  UpdateResourceResponse
-} from "./models/index";
+  AssociateDelegateToResourceCommandInput,
+  AssociateDelegateToResourceCommandOutput
+} from "./commands/AssociateDelegateToResourceCommand";
+import {
+  AssociateMemberToGroupCommandInput,
+  AssociateMemberToGroupCommandOutput
+} from "./commands/AssociateMemberToGroupCommand";
+import {
+  CreateAliasCommandInput,
+  CreateAliasCommandOutput
+} from "./commands/CreateAliasCommand";
+import {
+  CreateGroupCommandInput,
+  CreateGroupCommandOutput
+} from "./commands/CreateGroupCommand";
+import {
+  CreateResourceCommandInput,
+  CreateResourceCommandOutput
+} from "./commands/CreateResourceCommand";
+import {
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
+import {
+  DeleteAliasCommandInput,
+  DeleteAliasCommandOutput
+} from "./commands/DeleteAliasCommand";
+import {
+  DeleteGroupCommandInput,
+  DeleteGroupCommandOutput
+} from "./commands/DeleteGroupCommand";
+import {
+  DeleteMailboxPermissionsCommandInput,
+  DeleteMailboxPermissionsCommandOutput
+} from "./commands/DeleteMailboxPermissionsCommand";
+import {
+  DeleteResourceCommandInput,
+  DeleteResourceCommandOutput
+} from "./commands/DeleteResourceCommand";
+import {
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput
+} from "./commands/DeleteUserCommand";
+import {
+  DeregisterFromWorkMailCommandInput,
+  DeregisterFromWorkMailCommandOutput
+} from "./commands/DeregisterFromWorkMailCommand";
+import {
+  DescribeGroupCommandInput,
+  DescribeGroupCommandOutput
+} from "./commands/DescribeGroupCommand";
+import {
+  DescribeOrganizationCommandInput,
+  DescribeOrganizationCommandOutput
+} from "./commands/DescribeOrganizationCommand";
+import {
+  DescribeResourceCommandInput,
+  DescribeResourceCommandOutput
+} from "./commands/DescribeResourceCommand";
+import {
+  DescribeUserCommandInput,
+  DescribeUserCommandOutput
+} from "./commands/DescribeUserCommand";
+import {
+  DisassociateDelegateFromResourceCommandInput,
+  DisassociateDelegateFromResourceCommandOutput
+} from "./commands/DisassociateDelegateFromResourceCommand";
+import {
+  DisassociateMemberFromGroupCommandInput,
+  DisassociateMemberFromGroupCommandOutput
+} from "./commands/DisassociateMemberFromGroupCommand";
+import {
+  GetMailboxDetailsCommandInput,
+  GetMailboxDetailsCommandOutput
+} from "./commands/GetMailboxDetailsCommand";
+import {
+  ListAliasesCommandInput,
+  ListAliasesCommandOutput
+} from "./commands/ListAliasesCommand";
+import {
+  ListGroupMembersCommandInput,
+  ListGroupMembersCommandOutput
+} from "./commands/ListGroupMembersCommand";
+import {
+  ListGroupsCommandInput,
+  ListGroupsCommandOutput
+} from "./commands/ListGroupsCommand";
+import {
+  ListMailboxPermissionsCommandInput,
+  ListMailboxPermissionsCommandOutput
+} from "./commands/ListMailboxPermissionsCommand";
+import {
+  ListOrganizationsCommandInput,
+  ListOrganizationsCommandOutput
+} from "./commands/ListOrganizationsCommand";
+import {
+  ListResourceDelegatesCommandInput,
+  ListResourceDelegatesCommandOutput
+} from "./commands/ListResourceDelegatesCommand";
+import {
+  ListResourcesCommandInput,
+  ListResourcesCommandOutput
+} from "./commands/ListResourcesCommand";
+import {
+  ListUsersCommandInput,
+  ListUsersCommandOutput
+} from "./commands/ListUsersCommand";
+import {
+  PutMailboxPermissionsCommandInput,
+  PutMailboxPermissionsCommandOutput
+} from "./commands/PutMailboxPermissionsCommand";
+import {
+  RegisterToWorkMailCommandInput,
+  RegisterToWorkMailCommandOutput
+} from "./commands/RegisterToWorkMailCommand";
+import {
+  ResetPasswordCommandInput,
+  ResetPasswordCommandOutput
+} from "./commands/ResetPasswordCommand";
+import {
+  UpdateMailboxQuotaCommandInput,
+  UpdateMailboxQuotaCommandOutput
+} from "./commands/UpdateMailboxQuotaCommand";
+import {
+  UpdatePrimaryEmailAddressCommandInput,
+  UpdatePrimaryEmailAddressCommandOutput
+} from "./commands/UpdatePrimaryEmailAddressCommand";
+import {
+  UpdateResourceCommandInput,
+  UpdateResourceCommandOutput
+} from "./commands/UpdateResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -119,74 +183,74 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateDelegateToResourceRequest
-  | AssociateMemberToGroupRequest
-  | CreateAliasRequest
-  | CreateGroupRequest
-  | CreateResourceRequest
-  | CreateUserRequest
-  | DeleteAliasRequest
-  | DeleteGroupRequest
-  | DeleteMailboxPermissionsRequest
-  | DeleteResourceRequest
-  | DeleteUserRequest
-  | DeregisterFromWorkMailRequest
-  | DescribeGroupRequest
-  | DescribeOrganizationRequest
-  | DescribeResourceRequest
-  | DescribeUserRequest
-  | DisassociateDelegateFromResourceRequest
-  | DisassociateMemberFromGroupRequest
-  | GetMailboxDetailsRequest
-  | ListAliasesRequest
-  | ListGroupMembersRequest
-  | ListGroupsRequest
-  | ListMailboxPermissionsRequest
-  | ListOrganizationsRequest
-  | ListResourceDelegatesRequest
-  | ListResourcesRequest
-  | ListUsersRequest
-  | PutMailboxPermissionsRequest
-  | RegisterToWorkMailRequest
-  | ResetPasswordRequest
-  | UpdateMailboxQuotaRequest
-  | UpdatePrimaryEmailAddressRequest
-  | UpdateResourceRequest;
+  | AssociateDelegateToResourceCommandInput
+  | AssociateMemberToGroupCommandInput
+  | CreateAliasCommandInput
+  | CreateGroupCommandInput
+  | CreateResourceCommandInput
+  | CreateUserCommandInput
+  | DeleteAliasCommandInput
+  | DeleteGroupCommandInput
+  | DeleteMailboxPermissionsCommandInput
+  | DeleteResourceCommandInput
+  | DeleteUserCommandInput
+  | DeregisterFromWorkMailCommandInput
+  | DescribeGroupCommandInput
+  | DescribeOrganizationCommandInput
+  | DescribeResourceCommandInput
+  | DescribeUserCommandInput
+  | DisassociateDelegateFromResourceCommandInput
+  | DisassociateMemberFromGroupCommandInput
+  | GetMailboxDetailsCommandInput
+  | ListAliasesCommandInput
+  | ListGroupMembersCommandInput
+  | ListGroupsCommandInput
+  | ListMailboxPermissionsCommandInput
+  | ListOrganizationsCommandInput
+  | ListResourceDelegatesCommandInput
+  | ListResourcesCommandInput
+  | ListUsersCommandInput
+  | PutMailboxPermissionsCommandInput
+  | RegisterToWorkMailCommandInput
+  | ResetPasswordCommandInput
+  | UpdateMailboxQuotaCommandInput
+  | UpdatePrimaryEmailAddressCommandInput
+  | UpdateResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateDelegateToResourceResponse
-  | AssociateMemberToGroupResponse
-  | CreateAliasResponse
-  | CreateGroupResponse
-  | CreateResourceResponse
-  | CreateUserResponse
-  | DeleteAliasResponse
-  | DeleteGroupResponse
-  | DeleteMailboxPermissionsResponse
-  | DeleteResourceResponse
-  | DeleteUserResponse
-  | DeregisterFromWorkMailResponse
-  | DescribeGroupResponse
-  | DescribeOrganizationResponse
-  | DescribeResourceResponse
-  | DescribeUserResponse
-  | DisassociateDelegateFromResourceResponse
-  | DisassociateMemberFromGroupResponse
-  | GetMailboxDetailsResponse
-  | ListAliasesResponse
-  | ListGroupMembersResponse
-  | ListGroupsResponse
-  | ListMailboxPermissionsResponse
-  | ListOrganizationsResponse
-  | ListResourceDelegatesResponse
-  | ListResourcesResponse
-  | ListUsersResponse
-  | PutMailboxPermissionsResponse
-  | RegisterToWorkMailResponse
-  | ResetPasswordResponse
-  | UpdateMailboxQuotaResponse
-  | UpdatePrimaryEmailAddressResponse
-  | UpdateResourceResponse;
+  | AssociateDelegateToResourceCommandOutput
+  | AssociateMemberToGroupCommandOutput
+  | CreateAliasCommandOutput
+  | CreateGroupCommandOutput
+  | CreateResourceCommandOutput
+  | CreateUserCommandOutput
+  | DeleteAliasCommandOutput
+  | DeleteGroupCommandOutput
+  | DeleteMailboxPermissionsCommandOutput
+  | DeleteResourceCommandOutput
+  | DeleteUserCommandOutput
+  | DeregisterFromWorkMailCommandOutput
+  | DescribeGroupCommandOutput
+  | DescribeOrganizationCommandOutput
+  | DescribeResourceCommandOutput
+  | DescribeUserCommandOutput
+  | DisassociateDelegateFromResourceCommandOutput
+  | DisassociateMemberFromGroupCommandOutput
+  | GetMailboxDetailsCommandOutput
+  | ListAliasesCommandOutput
+  | ListGroupMembersCommandOutput
+  | ListGroupsCommandOutput
+  | ListMailboxPermissionsCommandOutput
+  | ListOrganizationsCommandOutput
+  | ListResourceDelegatesCommandOutput
+  | ListResourcesCommandOutput
+  | ListUsersCommandOutput
+  | PutMailboxPermissionsCommandOutput
+  | RegisterToWorkMailCommandOutput
+  | ResetPasswordCommandOutput
+  | UpdateMailboxQuotaCommandOutput
+  | UpdatePrimaryEmailAddressCommandOutput
+  | UpdateResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

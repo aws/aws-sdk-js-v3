@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateWorkerBlockCommandInput = CreateWorkerBlockRequest;
-export type CreateWorkerBlockCommandOutput = CreateWorkerBlockResponse;
+export type CreateWorkerBlockCommandOutput = CreateWorkerBlockResponse &
+  __MetadataBearer;
 
 export class CreateWorkerBlockCommand extends $Command<
   CreateWorkerBlockCommandInput,

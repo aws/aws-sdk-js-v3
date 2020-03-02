@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelResizeCommandInput = CancelResizeMessage;
-export type CancelResizeCommandOutput = ResizeProgressMessage;
+export type CancelResizeCommandOutput = ResizeProgressMessage &
+  __MetadataBearer;
 
 export class CancelResizeCommand extends $Command<
   CancelResizeCommandInput,

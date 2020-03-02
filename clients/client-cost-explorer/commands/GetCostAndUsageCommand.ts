@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCostAndUsageCommandInput = GetCostAndUsageRequest;
-export type GetCostAndUsageCommandOutput = GetCostAndUsageResponse;
+export type GetCostAndUsageCommandOutput = GetCostAndUsageResponse &
+  __MetadataBearer;
 
 export class GetCostAndUsageCommand extends $Command<
   GetCostAndUsageCommandInput,

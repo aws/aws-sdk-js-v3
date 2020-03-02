@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExportBundleCommandInput = ExportBundleRequest;
-export type ExportBundleCommandOutput = ExportBundleResult;
+export type ExportBundleCommandOutput = ExportBundleResult & __MetadataBearer;
 
 export class ExportBundleCommand extends $Command<
   ExportBundleCommandInput,

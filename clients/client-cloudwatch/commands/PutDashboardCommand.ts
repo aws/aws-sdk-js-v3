@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutDashboardCommandInput = PutDashboardInput;
-export type PutDashboardCommandOutput = PutDashboardOutput;
+export type PutDashboardCommandOutput = PutDashboardOutput & __MetadataBearer;
 
 export class PutDashboardCommand extends $Command<
   PutDashboardCommandInput,

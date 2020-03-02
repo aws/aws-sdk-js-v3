@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeStateMachineForExecutionCommandInput = DescribeStateMachineForExecutionInput;
-export type DescribeStateMachineForExecutionCommandOutput = DescribeStateMachineForExecutionOutput;
+export type DescribeStateMachineForExecutionCommandOutput = DescribeStateMachineForExecutionOutput &
+  __MetadataBearer;
 
 export class DescribeStateMachineForExecutionCommand extends $Command<
   DescribeStateMachineForExecutionCommandInput,

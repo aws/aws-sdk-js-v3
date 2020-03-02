@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateVirtualMFADeviceCommandInput = CreateVirtualMFADeviceRequest;
-export type CreateVirtualMFADeviceCommandOutput = CreateVirtualMFADeviceResponse;
+export type CreateVirtualMFADeviceCommandOutput = CreateVirtualMFADeviceResponse &
+  __MetadataBearer;
 
 export class CreateVirtualMFADeviceCommand extends $Command<
   CreateVirtualMFADeviceCommandInput,

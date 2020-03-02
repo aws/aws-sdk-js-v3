@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteProvisioningArtifactCommandInput = DeleteProvisioningArtifactInput;
-export type DeleteProvisioningArtifactCommandOutput = DeleteProvisioningArtifactOutput;
+export type DeleteProvisioningArtifactCommandOutput = DeleteProvisioningArtifactOutput &
+  __MetadataBearer;
 
 export class DeleteProvisioningArtifactCommand extends $Command<
   DeleteProvisioningArtifactCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableSecurityHubCommandInput = DisableSecurityHubRequest;
-export type DisableSecurityHubCommandOutput = DisableSecurityHubResponse;
+export type DisableSecurityHubCommandOutput = DisableSecurityHubResponse &
+  __MetadataBearer;
 
 export class DisableSecurityHubCommand extends $Command<
   DisableSecurityHubCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestartSimulationJobCommandInput = RestartSimulationJobRequest;
-export type RestartSimulationJobCommandOutput = RestartSimulationJobResponse;
+export type RestartSimulationJobCommandOutput = RestartSimulationJobResponse &
+  __MetadataBearer;
 
 export class RestartSimulationJobCommand extends $Command<
   RestartSimulationJobCommandInput,

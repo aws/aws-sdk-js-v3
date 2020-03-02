@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 /**
  * <p>A block of data in an Amazon Elastic Block Store snapshot.</p>
@@ -93,12 +94,12 @@ export namespace GetSnapshotBlockRequest {
   }
 }
 
-export interface GetSnapshotBlockResponse extends $MetadataBearer {
+export interface GetSnapshotBlockResponse {
   __type?: "GetSnapshotBlockResponse";
   /**
    * <p>The data content of the block.</p>
    */
-  BlockData?: Uint8Array;
+  BlockData?: Readable | ReadableStream | Blob;
 
   /**
    * <p>The checksum generated for the block.</p>
@@ -160,7 +161,7 @@ export namespace ListChangedBlocksRequest {
   }
 }
 
-export interface ListChangedBlocksResponse extends $MetadataBearer {
+export interface ListChangedBlocksResponse {
   __type?: "ListChangedBlocksResponse";
   /**
    * <p>The size of the block.</p>
@@ -225,7 +226,7 @@ export namespace ListSnapshotBlocksRequest {
   }
 }
 
-export interface ListSnapshotBlocksResponse extends $MetadataBearer {
+export interface ListSnapshotBlocksResponse {
   __type?: "ListSnapshotBlocksResponse";
   /**
    * <p>The size of the block.</p>

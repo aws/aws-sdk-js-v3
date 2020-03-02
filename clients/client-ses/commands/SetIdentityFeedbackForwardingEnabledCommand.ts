@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetIdentityFeedbackForwardingEnabledCommandInput = SetIdentityFeedbackForwardingEnabledRequest;
-export type SetIdentityFeedbackForwardingEnabledCommandOutput = SetIdentityFeedbackForwardingEnabledResponse;
+export type SetIdentityFeedbackForwardingEnabledCommandOutput = SetIdentityFeedbackForwardingEnabledResponse &
+  __MetadataBearer;
 
 export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
   SetIdentityFeedbackForwardingEnabledCommandInput,

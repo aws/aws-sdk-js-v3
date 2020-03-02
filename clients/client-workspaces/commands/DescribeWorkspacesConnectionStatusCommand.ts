@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeWorkspacesConnectionStatusCommandInput = DescribeWorkspacesConnectionStatusRequest;
-export type DescribeWorkspacesConnectionStatusCommandOutput = DescribeWorkspacesConnectionStatusResult;
+export type DescribeWorkspacesConnectionStatusCommandOutput = DescribeWorkspacesConnectionStatusResult &
+  __MetadataBearer;
 
 export class DescribeWorkspacesConnectionStatusCommand extends $Command<
   DescribeWorkspacesConnectionStatusCommandInput,

@@ -4,6 +4,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 /**
  * <p> Request validation failed, there is no usable message in the context, or the bot build
@@ -188,7 +189,7 @@ export namespace DeleteSessionRequest {
   }
 }
 
-export interface DeleteSessionResponse extends $MetadataBearer {
+export interface DeleteSessionResponse {
   __type?: "DeleteSessionResponse";
   /**
    * <p>The alias in use for the bot associated with the session data.</p>
@@ -418,7 +419,7 @@ export namespace GetSessionRequest {
   }
 }
 
-export interface GetSessionResponse extends $MetadataBearer {
+export interface GetSessionResponse {
   __type?: "GetSessionResponse";
   /**
    * <p>Describes the current state of the bot.</p>
@@ -695,7 +696,7 @@ export interface PostContentRequest {
    *       the audio data before sending. In general, you get better performance if you stream audio data
    *       rather than buffering the data locally.</p>
    */
-  inputStream: Uint8Array | undefined;
+  inputStream: Readable | ReadableStream | Blob | undefined;
 
   /**
    * <p>You pass this value as the <code>x-amz-lex-request-attributes</code> HTTP header.</p>
@@ -757,7 +758,7 @@ export namespace PostContentRequest {
   }
 }
 
-export interface PostContentResponse extends $MetadataBearer {
+export interface PostContentResponse {
   __type?: "PostContentResponse";
   /**
    * <p>The prompt (or statement) to convey to the user. This is based on the bot configuration
@@ -767,7 +768,7 @@ export interface PostContentResponse extends $MetadataBearer {
    *       example: Suppose that the Lambda function successfully fulfilled the intent, and sent a message
    *       to convey to the user. Then Amazon Lex sends that message in the response. </p>
    */
-  audioStream?: Uint8Array;
+  audioStream?: Readable | ReadableStream | Blob;
 
   /**
    * <p>Content type as specified in the <code>Accept</code> HTTP header in the request.</p>
@@ -995,7 +996,7 @@ export namespace PostTextRequest {
   }
 }
 
-export interface PostTextResponse extends $MetadataBearer {
+export interface PostTextResponse {
   __type?: "PostTextResponse";
   /**
    * <p> Identifies the current state of the user interaction. Amazon Lex returns one of the following
@@ -1262,12 +1263,12 @@ export namespace PutSessionRequest {
   }
 }
 
-export interface PutSessionResponse extends $MetadataBearer {
+export interface PutSessionResponse {
   __type?: "PutSessionResponse";
   /**
    * <p>The audio version of the message to convey to the user.</p>
    */
-  audioStream?: Uint8Array;
+  audioStream?: Readable | ReadableStream | Blob;
 
   /**
    * <p>Content type as specified in the <code>Accept</code> HTTP header in the request.</p>

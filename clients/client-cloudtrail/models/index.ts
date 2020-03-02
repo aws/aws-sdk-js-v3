@@ -32,7 +32,7 @@ export namespace AddTagsRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface AddTagsResponse extends $MetadataBearer {
+export interface AddTagsResponse {
   __type?: "AddTagsResponse";
 }
 
@@ -225,7 +225,7 @@ export namespace CreateTrailRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface CreateTrailResponse extends $MetadataBearer {
+export interface CreateTrailResponse {
   __type?: "CreateTrailResponse";
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>
@@ -440,7 +440,7 @@ export namespace DeleteTrailRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface DeleteTrailResponse extends $MetadataBearer {
+export interface DeleteTrailResponse {
   __type?: "DeleteTrailResponse";
 }
 
@@ -494,7 +494,7 @@ export namespace DescribeTrailsRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface DescribeTrailsResponse extends $MetadataBearer {
+export interface DescribeTrailsResponse {
   __type?: "DescribeTrailsResponse";
   /**
    * <p>The list of trail objects. Trail objects with string values are only returned if values for the objects exist in a trail's configuration.
@@ -659,7 +659,7 @@ export namespace GetEventSelectorsRequest {
   }
 }
 
-export interface GetEventSelectorsResponse extends $MetadataBearer {
+export interface GetEventSelectorsResponse {
   __type?: "GetEventSelectorsResponse";
   /**
    * <p>The event selectors that are configured for the trail.</p>
@@ -715,7 +715,7 @@ export namespace GetInsightSelectorsRequest {
   }
 }
 
-export interface GetInsightSelectorsResponse extends $MetadataBearer {
+export interface GetInsightSelectorsResponse {
   __type?: "GetInsightSelectorsResponse";
   /**
    * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
@@ -748,7 +748,7 @@ export namespace GetTrailRequest {
   }
 }
 
-export interface GetTrailResponse extends $MetadataBearer {
+export interface GetTrailResponse {
   __type?: "GetTrailResponse";
   /**
    * <p>The settings for a trail.</p>
@@ -785,7 +785,7 @@ export namespace GetTrailStatusRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface GetTrailStatusResponse extends $MetadataBearer {
+export interface GetTrailStatusResponse {
   __type?: "GetTrailStatusResponse";
   /**
    * <p>Whether the CloudTrail is currently logging AWS API calls.</p>
@@ -1508,7 +1508,7 @@ export namespace ListPublicKeysRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface ListPublicKeysResponse extends $MetadataBearer {
+export interface ListPublicKeysResponse {
   __type?: "ListPublicKeysResponse";
   /**
    * <p>Reserved for future use.</p>
@@ -1558,7 +1558,7 @@ export namespace ListTagsRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface ListTagsResponse extends $MetadataBearer {
+export interface ListTagsResponse {
   __type?: "ListTagsResponse";
   /**
    * <p>Reserved for future use.</p>
@@ -1594,7 +1594,7 @@ export namespace ListTrailsRequest {
   }
 }
 
-export interface ListTrailsResponse extends $MetadataBearer {
+export interface ListTrailsResponse {
   __type?: "ListTrailsResponse";
   /**
    * <p>The token to use to get the next page of results after a previous API call. If the token does not appear,
@@ -1696,7 +1696,7 @@ export namespace LookupEventsRequest {
 /**
  * <p>Contains a response to a LookupEvents action.</p>
  */
-export interface LookupEventsResponse extends $MetadataBearer {
+export interface LookupEventsResponse {
   __type?: "LookupEventsResponse";
   /**
    * <p>A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.</p>
@@ -1897,7 +1897,7 @@ export namespace PutEventSelectorsRequest {
   }
 }
 
-export interface PutEventSelectorsResponse extends $MetadataBearer {
+export interface PutEventSelectorsResponse {
   __type?: "PutEventSelectorsResponse";
   /**
    * <p>Specifies the event selectors configured for your trail.</p>
@@ -1939,7 +1939,7 @@ export namespace PutInsightSelectorsRequest {
   }
 }
 
-export interface PutInsightSelectorsResponse extends $MetadataBearer {
+export interface PutInsightSelectorsResponse {
   __type?: "PutInsightSelectorsResponse";
   /**
    * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
@@ -1992,7 +1992,7 @@ export namespace RemoveTagsRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface RemoveTagsResponse extends $MetadataBearer {
+export interface RemoveTagsResponse {
   __type?: "RemoveTagsResponse";
 }
 
@@ -2132,7 +2132,7 @@ export namespace StartLoggingRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface StartLoggingResponse extends $MetadataBearer {
+export interface StartLoggingResponse {
   __type?: "StartLoggingResponse";
 }
 
@@ -2165,7 +2165,7 @@ export namespace StopLoggingRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface StopLoggingResponse extends $MetadataBearer {
+export interface StopLoggingResponse {
   __type?: "StopLoggingResponse";
 }
 
@@ -2550,7 +2550,7 @@ export namespace UpdateTrailRequest {
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface UpdateTrailResponse extends $MetadataBearer {
+export interface UpdateTrailResponse {
   __type?: "UpdateTrailResponse";
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AuthorizeDBSecurityGroupIngressCommandInput = AuthorizeDBSecurityGroupIngressMessage;
-export type AuthorizeDBSecurityGroupIngressCommandOutput = AuthorizeDBSecurityGroupIngressResult;
+export type AuthorizeDBSecurityGroupIngressCommandOutput = AuthorizeDBSecurityGroupIngressResult &
+  __MetadataBearer;
 
 export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
   AuthorizeDBSecurityGroupIngressCommandInput,

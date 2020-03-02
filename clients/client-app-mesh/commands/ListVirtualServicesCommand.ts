@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListVirtualServicesCommandInput = ListVirtualServicesInput;
-export type ListVirtualServicesCommandOutput = ListVirtualServicesOutput;
+export type ListVirtualServicesCommandOutput = ListVirtualServicesOutput &
+  __MetadataBearer;
 
 export class ListVirtualServicesCommand extends $Command<
   ListVirtualServicesCommandInput,

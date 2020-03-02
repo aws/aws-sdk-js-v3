@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PromoteReadReplicaCommandInput = PromoteReadReplicaMessage;
-export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult;
+export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult &
+  __MetadataBearer;
 
 export class PromoteReadReplicaCommand extends $Command<
   PromoteReadReplicaCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminListDevicesCommandInput = AdminListDevicesRequest;
-export type AdminListDevicesCommandOutput = AdminListDevicesResponse;
+export type AdminListDevicesCommandOutput = AdminListDevicesResponse &
+  __MetadataBearer;
 
 export class AdminListDevicesCommand extends $Command<
   AdminListDevicesCommandInput,

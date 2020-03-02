@@ -1,41 +1,75 @@
 import {
-  AssociateTeamMemberRequest,
-  AssociateTeamMemberResult,
-  CreateProjectRequest,
-  CreateProjectResult,
-  CreateUserProfileRequest,
-  CreateUserProfileResult,
-  DeleteProjectRequest,
-  DeleteProjectResult,
-  DeleteUserProfileRequest,
-  DeleteUserProfileResult,
-  DescribeProjectRequest,
-  DescribeProjectResult,
-  DescribeUserProfileRequest,
-  DescribeUserProfileResult,
-  DisassociateTeamMemberRequest,
-  DisassociateTeamMemberResult,
-  ListProjectsRequest,
-  ListProjectsResult,
-  ListResourcesRequest,
-  ListResourcesResult,
-  ListTagsForProjectRequest,
-  ListTagsForProjectResult,
-  ListTeamMembersRequest,
-  ListTeamMembersResult,
-  ListUserProfilesRequest,
-  ListUserProfilesResult,
-  TagProjectRequest,
-  TagProjectResult,
-  UntagProjectRequest,
-  UntagProjectResult,
-  UpdateProjectRequest,
-  UpdateProjectResult,
-  UpdateTeamMemberRequest,
-  UpdateTeamMemberResult,
-  UpdateUserProfileRequest,
-  UpdateUserProfileResult
-} from "./models/index";
+  AssociateTeamMemberCommandInput,
+  AssociateTeamMemberCommandOutput
+} from "./commands/AssociateTeamMemberCommand";
+import {
+  CreateProjectCommandInput,
+  CreateProjectCommandOutput
+} from "./commands/CreateProjectCommand";
+import {
+  CreateUserProfileCommandInput,
+  CreateUserProfileCommandOutput
+} from "./commands/CreateUserProfileCommand";
+import {
+  DeleteProjectCommandInput,
+  DeleteProjectCommandOutput
+} from "./commands/DeleteProjectCommand";
+import {
+  DeleteUserProfileCommandInput,
+  DeleteUserProfileCommandOutput
+} from "./commands/DeleteUserProfileCommand";
+import {
+  DescribeProjectCommandInput,
+  DescribeProjectCommandOutput
+} from "./commands/DescribeProjectCommand";
+import {
+  DescribeUserProfileCommandInput,
+  DescribeUserProfileCommandOutput
+} from "./commands/DescribeUserProfileCommand";
+import {
+  DisassociateTeamMemberCommandInput,
+  DisassociateTeamMemberCommandOutput
+} from "./commands/DisassociateTeamMemberCommand";
+import {
+  ListProjectsCommandInput,
+  ListProjectsCommandOutput
+} from "./commands/ListProjectsCommand";
+import {
+  ListResourcesCommandInput,
+  ListResourcesCommandOutput
+} from "./commands/ListResourcesCommand";
+import {
+  ListTagsForProjectCommandInput,
+  ListTagsForProjectCommandOutput
+} from "./commands/ListTagsForProjectCommand";
+import {
+  ListTeamMembersCommandInput,
+  ListTeamMembersCommandOutput
+} from "./commands/ListTeamMembersCommand";
+import {
+  ListUserProfilesCommandInput,
+  ListUserProfilesCommandOutput
+} from "./commands/ListUserProfilesCommand";
+import {
+  TagProjectCommandInput,
+  TagProjectCommandOutput
+} from "./commands/TagProjectCommand";
+import {
+  UntagProjectCommandInput,
+  UntagProjectCommandOutput
+} from "./commands/UntagProjectCommand";
+import {
+  UpdateProjectCommandInput,
+  UpdateProjectCommandOutput
+} from "./commands/UpdateProjectCommand";
+import {
+  UpdateTeamMemberCommandInput,
+  UpdateTeamMemberCommandOutput
+} from "./commands/UpdateTeamMemberCommand";
+import {
+  UpdateUserProfileCommandInput,
+  UpdateUserProfileCommandOutput
+} from "./commands/UpdateUserProfileCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -89,44 +123,44 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateTeamMemberRequest
-  | CreateProjectRequest
-  | CreateUserProfileRequest
-  | DeleteProjectRequest
-  | DeleteUserProfileRequest
-  | DescribeProjectRequest
-  | DescribeUserProfileRequest
-  | DisassociateTeamMemberRequest
-  | ListProjectsRequest
-  | ListResourcesRequest
-  | ListTagsForProjectRequest
-  | ListTeamMembersRequest
-  | ListUserProfilesRequest
-  | TagProjectRequest
-  | UntagProjectRequest
-  | UpdateProjectRequest
-  | UpdateTeamMemberRequest
-  | UpdateUserProfileRequest;
+  | AssociateTeamMemberCommandInput
+  | CreateProjectCommandInput
+  | CreateUserProfileCommandInput
+  | DeleteProjectCommandInput
+  | DeleteUserProfileCommandInput
+  | DescribeProjectCommandInput
+  | DescribeUserProfileCommandInput
+  | DisassociateTeamMemberCommandInput
+  | ListProjectsCommandInput
+  | ListResourcesCommandInput
+  | ListTagsForProjectCommandInput
+  | ListTeamMembersCommandInput
+  | ListUserProfilesCommandInput
+  | TagProjectCommandInput
+  | UntagProjectCommandInput
+  | UpdateProjectCommandInput
+  | UpdateTeamMemberCommandInput
+  | UpdateUserProfileCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateTeamMemberResult
-  | CreateProjectResult
-  | CreateUserProfileResult
-  | DeleteProjectResult
-  | DeleteUserProfileResult
-  | DescribeProjectResult
-  | DescribeUserProfileResult
-  | DisassociateTeamMemberResult
-  | ListProjectsResult
-  | ListResourcesResult
-  | ListTagsForProjectResult
-  | ListTeamMembersResult
-  | ListUserProfilesResult
-  | TagProjectResult
-  | UntagProjectResult
-  | UpdateProjectResult
-  | UpdateTeamMemberResult
-  | UpdateUserProfileResult;
+  | AssociateTeamMemberCommandOutput
+  | CreateProjectCommandOutput
+  | CreateUserProfileCommandOutput
+  | DeleteProjectCommandOutput
+  | DeleteUserProfileCommandOutput
+  | DescribeProjectCommandOutput
+  | DescribeUserProfileCommandOutput
+  | DisassociateTeamMemberCommandOutput
+  | ListProjectsCommandOutput
+  | ListResourcesCommandOutput
+  | ListTagsForProjectCommandOutput
+  | ListTeamMembersCommandOutput
+  | ListUserProfilesCommandOutput
+  | TagProjectCommandOutput
+  | UntagProjectCommandOutput
+  | UpdateProjectCommandOutput
+  | UpdateTeamMemberCommandOutput
+  | UpdateUserProfileCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

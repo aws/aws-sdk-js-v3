@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCertificateCommandInput = DeleteCertificateMessage;
-export type DeleteCertificateCommandOutput = DeleteCertificateResponse;
+export type DeleteCertificateCommandOutput = DeleteCertificateResponse &
+  __MetadataBearer;
 
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,

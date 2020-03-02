@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateExclusionsPreviewCommandInput = CreateExclusionsPreviewRequest;
-export type CreateExclusionsPreviewCommandOutput = CreateExclusionsPreviewResponse;
+export type CreateExclusionsPreviewCommandOutput = CreateExclusionsPreviewResponse &
+  __MetadataBearer;
 
 export class CreateExclusionsPreviewCommand extends $Command<
   CreateExclusionsPreviewCommandInput,

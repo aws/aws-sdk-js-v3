@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CountOpenWorkflowExecutionsCommandInput = CountOpenWorkflowExecutionsInput;
-export type CountOpenWorkflowExecutionsCommandOutput = WorkflowExecutionCount;
+export type CountOpenWorkflowExecutionsCommandOutput = WorkflowExecutionCount &
+  __MetadataBearer;
 
 export class CountOpenWorkflowExecutionsCommand extends $Command<
   CountOpenWorkflowExecutionsCommandInput,

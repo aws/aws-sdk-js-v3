@@ -1,31 +1,55 @@
 import {
-  DescribeEntitiesDetectionV2JobRequest,
-  DescribeEntitiesDetectionV2JobResponse,
-  DescribePHIDetectionJobRequest,
-  DescribePHIDetectionJobResponse,
-  DetectEntitiesRequest,
-  DetectEntitiesResponse,
-  DetectEntitiesV2Request,
-  DetectEntitiesV2Response,
-  DetectPHIRequest,
-  DetectPHIResponse,
-  InferICD10CMRequest,
-  InferICD10CMResponse,
-  InferRxNormRequest,
-  InferRxNormResponse,
-  ListEntitiesDetectionV2JobsRequest,
-  ListEntitiesDetectionV2JobsResponse,
-  ListPHIDetectionJobsRequest,
-  ListPHIDetectionJobsResponse,
-  StartEntitiesDetectionV2JobRequest,
-  StartEntitiesDetectionV2JobResponse,
-  StartPHIDetectionJobRequest,
-  StartPHIDetectionJobResponse,
-  StopEntitiesDetectionV2JobRequest,
-  StopEntitiesDetectionV2JobResponse,
-  StopPHIDetectionJobRequest,
-  StopPHIDetectionJobResponse
-} from "./models/index";
+  DescribeEntitiesDetectionV2JobCommandInput,
+  DescribeEntitiesDetectionV2JobCommandOutput
+} from "./commands/DescribeEntitiesDetectionV2JobCommand";
+import {
+  DescribePHIDetectionJobCommandInput,
+  DescribePHIDetectionJobCommandOutput
+} from "./commands/DescribePHIDetectionJobCommand";
+import {
+  DetectEntitiesCommandInput,
+  DetectEntitiesCommandOutput
+} from "./commands/DetectEntitiesCommand";
+import {
+  DetectEntitiesV2CommandInput,
+  DetectEntitiesV2CommandOutput
+} from "./commands/DetectEntitiesV2Command";
+import {
+  DetectPHICommandInput,
+  DetectPHICommandOutput
+} from "./commands/DetectPHICommand";
+import {
+  InferICD10CMCommandInput,
+  InferICD10CMCommandOutput
+} from "./commands/InferICD10CMCommand";
+import {
+  InferRxNormCommandInput,
+  InferRxNormCommandOutput
+} from "./commands/InferRxNormCommand";
+import {
+  ListEntitiesDetectionV2JobsCommandInput,
+  ListEntitiesDetectionV2JobsCommandOutput
+} from "./commands/ListEntitiesDetectionV2JobsCommand";
+import {
+  ListPHIDetectionJobsCommandInput,
+  ListPHIDetectionJobsCommandOutput
+} from "./commands/ListPHIDetectionJobsCommand";
+import {
+  StartEntitiesDetectionV2JobCommandInput,
+  StartEntitiesDetectionV2JobCommandOutput
+} from "./commands/StartEntitiesDetectionV2JobCommand";
+import {
+  StartPHIDetectionJobCommandInput,
+  StartPHIDetectionJobCommandOutput
+} from "./commands/StartPHIDetectionJobCommand";
+import {
+  StopEntitiesDetectionV2JobCommandInput,
+  StopEntitiesDetectionV2JobCommandOutput
+} from "./commands/StopEntitiesDetectionV2JobCommand";
+import {
+  StopPHIDetectionJobCommandInput,
+  StopPHIDetectionJobCommandOutput
+} from "./commands/StopPHIDetectionJobCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -79,34 +103,34 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DescribeEntitiesDetectionV2JobRequest
-  | DescribePHIDetectionJobRequest
-  | DetectEntitiesRequest
-  | DetectEntitiesV2Request
-  | DetectPHIRequest
-  | InferICD10CMRequest
-  | InferRxNormRequest
-  | ListEntitiesDetectionV2JobsRequest
-  | ListPHIDetectionJobsRequest
-  | StartEntitiesDetectionV2JobRequest
-  | StartPHIDetectionJobRequest
-  | StopEntitiesDetectionV2JobRequest
-  | StopPHIDetectionJobRequest;
+  | DescribeEntitiesDetectionV2JobCommandInput
+  | DescribePHIDetectionJobCommandInput
+  | DetectEntitiesCommandInput
+  | DetectEntitiesV2CommandInput
+  | DetectPHICommandInput
+  | InferICD10CMCommandInput
+  | InferRxNormCommandInput
+  | ListEntitiesDetectionV2JobsCommandInput
+  | ListPHIDetectionJobsCommandInput
+  | StartEntitiesDetectionV2JobCommandInput
+  | StartPHIDetectionJobCommandInput
+  | StopEntitiesDetectionV2JobCommandInput
+  | StopPHIDetectionJobCommandInput;
 
 export type ServiceOutputTypes =
-  | DescribeEntitiesDetectionV2JobResponse
-  | DescribePHIDetectionJobResponse
-  | DetectEntitiesResponse
-  | DetectEntitiesV2Response
-  | DetectPHIResponse
-  | InferICD10CMResponse
-  | InferRxNormResponse
-  | ListEntitiesDetectionV2JobsResponse
-  | ListPHIDetectionJobsResponse
-  | StartEntitiesDetectionV2JobResponse
-  | StartPHIDetectionJobResponse
-  | StopEntitiesDetectionV2JobResponse
-  | StopPHIDetectionJobResponse;
+  | DescribeEntitiesDetectionV2JobCommandOutput
+  | DescribePHIDetectionJobCommandOutput
+  | DetectEntitiesCommandOutput
+  | DetectEntitiesV2CommandOutput
+  | DetectPHICommandOutput
+  | InferICD10CMCommandOutput
+  | InferRxNormCommandOutput
+  | ListEntitiesDetectionV2JobsCommandOutput
+  | ListPHIDetectionJobsCommandOutput
+  | StartEntitiesDetectionV2JobCommandOutput
+  | StartPHIDetectionJobCommandOutput
+  | StopEntitiesDetectionV2JobCommandOutput
+  | StopPHIDetectionJobCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

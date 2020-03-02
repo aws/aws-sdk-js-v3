@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDeleteTableCommandInput = BatchDeleteTableRequest;
-export type BatchDeleteTableCommandOutput = BatchDeleteTableResponse;
+export type BatchDeleteTableCommandOutput = BatchDeleteTableResponse &
+  __MetadataBearer;
 
 export class BatchDeleteTableCommand extends $Command<
   BatchDeleteTableCommandInput,

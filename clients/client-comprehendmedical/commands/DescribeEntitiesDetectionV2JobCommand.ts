@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEntitiesDetectionV2JobCommandInput = DescribeEntitiesDetectionV2JobRequest;
-export type DescribeEntitiesDetectionV2JobCommandOutput = DescribeEntitiesDetectionV2JobResponse;
+export type DescribeEntitiesDetectionV2JobCommandOutput = DescribeEntitiesDetectionV2JobResponse &
+  __MetadataBearer;
 
 export class DescribeEntitiesDetectionV2JobCommand extends $Command<
   DescribeEntitiesDetectionV2JobCommandInput,

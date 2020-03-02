@@ -1,68 +1,147 @@
 import {
-  CreateBotVersionRequest,
-  CreateBotVersionResponse,
-  CreateIntentVersionRequest,
-  CreateIntentVersionResponse,
-  CreateSlotTypeVersionRequest,
-  CreateSlotTypeVersionResponse,
-  DeleteBotAliasRequest,
-  DeleteBotChannelAssociationRequest,
-  DeleteBotRequest,
-  DeleteBotVersionRequest,
-  DeleteIntentRequest,
-  DeleteIntentVersionRequest,
-  DeleteSlotTypeRequest,
-  DeleteSlotTypeVersionRequest,
-  DeleteUtterancesRequest,
-  GetBotAliasRequest,
-  GetBotAliasResponse,
-  GetBotAliasesRequest,
-  GetBotAliasesResponse,
-  GetBotChannelAssociationRequest,
-  GetBotChannelAssociationResponse,
-  GetBotChannelAssociationsRequest,
-  GetBotChannelAssociationsResponse,
-  GetBotRequest,
-  GetBotResponse,
-  GetBotVersionsRequest,
-  GetBotVersionsResponse,
-  GetBotsRequest,
-  GetBotsResponse,
-  GetBuiltinIntentRequest,
-  GetBuiltinIntentResponse,
-  GetBuiltinIntentsRequest,
-  GetBuiltinIntentsResponse,
-  GetBuiltinSlotTypesRequest,
-  GetBuiltinSlotTypesResponse,
-  GetExportRequest,
-  GetExportResponse,
-  GetImportRequest,
-  GetImportResponse,
-  GetIntentRequest,
-  GetIntentResponse,
-  GetIntentVersionsRequest,
-  GetIntentVersionsResponse,
-  GetIntentsRequest,
-  GetIntentsResponse,
-  GetSlotTypeRequest,
-  GetSlotTypeResponse,
-  GetSlotTypeVersionsRequest,
-  GetSlotTypeVersionsResponse,
-  GetSlotTypesRequest,
-  GetSlotTypesResponse,
-  GetUtterancesViewRequest,
-  GetUtterancesViewResponse,
-  PutBotAliasRequest,
-  PutBotAliasResponse,
-  PutBotRequest,
-  PutBotResponse,
-  PutIntentRequest,
-  PutIntentResponse,
-  PutSlotTypeRequest,
-  PutSlotTypeResponse,
-  StartImportRequest,
-  StartImportResponse
-} from "./models/index";
+  CreateBotVersionCommandInput,
+  CreateBotVersionCommandOutput
+} from "./commands/CreateBotVersionCommand";
+import {
+  CreateIntentVersionCommandInput,
+  CreateIntentVersionCommandOutput
+} from "./commands/CreateIntentVersionCommand";
+import {
+  CreateSlotTypeVersionCommandInput,
+  CreateSlotTypeVersionCommandOutput
+} from "./commands/CreateSlotTypeVersionCommand";
+import {
+  DeleteBotAliasCommandInput,
+  DeleteBotAliasCommandOutput
+} from "./commands/DeleteBotAliasCommand";
+import {
+  DeleteBotChannelAssociationCommandInput,
+  DeleteBotChannelAssociationCommandOutput
+} from "./commands/DeleteBotChannelAssociationCommand";
+import {
+  DeleteBotCommandInput,
+  DeleteBotCommandOutput
+} from "./commands/DeleteBotCommand";
+import {
+  DeleteBotVersionCommandInput,
+  DeleteBotVersionCommandOutput
+} from "./commands/DeleteBotVersionCommand";
+import {
+  DeleteIntentCommandInput,
+  DeleteIntentCommandOutput
+} from "./commands/DeleteIntentCommand";
+import {
+  DeleteIntentVersionCommandInput,
+  DeleteIntentVersionCommandOutput
+} from "./commands/DeleteIntentVersionCommand";
+import {
+  DeleteSlotTypeCommandInput,
+  DeleteSlotTypeCommandOutput
+} from "./commands/DeleteSlotTypeCommand";
+import {
+  DeleteSlotTypeVersionCommandInput,
+  DeleteSlotTypeVersionCommandOutput
+} from "./commands/DeleteSlotTypeVersionCommand";
+import {
+  DeleteUtterancesCommandInput,
+  DeleteUtterancesCommandOutput
+} from "./commands/DeleteUtterancesCommand";
+import {
+  GetBotAliasCommandInput,
+  GetBotAliasCommandOutput
+} from "./commands/GetBotAliasCommand";
+import {
+  GetBotAliasesCommandInput,
+  GetBotAliasesCommandOutput
+} from "./commands/GetBotAliasesCommand";
+import {
+  GetBotChannelAssociationCommandInput,
+  GetBotChannelAssociationCommandOutput
+} from "./commands/GetBotChannelAssociationCommand";
+import {
+  GetBotChannelAssociationsCommandInput,
+  GetBotChannelAssociationsCommandOutput
+} from "./commands/GetBotChannelAssociationsCommand";
+import {
+  GetBotCommandInput,
+  GetBotCommandOutput
+} from "./commands/GetBotCommand";
+import {
+  GetBotVersionsCommandInput,
+  GetBotVersionsCommandOutput
+} from "./commands/GetBotVersionsCommand";
+import {
+  GetBotsCommandInput,
+  GetBotsCommandOutput
+} from "./commands/GetBotsCommand";
+import {
+  GetBuiltinIntentCommandInput,
+  GetBuiltinIntentCommandOutput
+} from "./commands/GetBuiltinIntentCommand";
+import {
+  GetBuiltinIntentsCommandInput,
+  GetBuiltinIntentsCommandOutput
+} from "./commands/GetBuiltinIntentsCommand";
+import {
+  GetBuiltinSlotTypesCommandInput,
+  GetBuiltinSlotTypesCommandOutput
+} from "./commands/GetBuiltinSlotTypesCommand";
+import {
+  GetExportCommandInput,
+  GetExportCommandOutput
+} from "./commands/GetExportCommand";
+import {
+  GetImportCommandInput,
+  GetImportCommandOutput
+} from "./commands/GetImportCommand";
+import {
+  GetIntentCommandInput,
+  GetIntentCommandOutput
+} from "./commands/GetIntentCommand";
+import {
+  GetIntentVersionsCommandInput,
+  GetIntentVersionsCommandOutput
+} from "./commands/GetIntentVersionsCommand";
+import {
+  GetIntentsCommandInput,
+  GetIntentsCommandOutput
+} from "./commands/GetIntentsCommand";
+import {
+  GetSlotTypeCommandInput,
+  GetSlotTypeCommandOutput
+} from "./commands/GetSlotTypeCommand";
+import {
+  GetSlotTypeVersionsCommandInput,
+  GetSlotTypeVersionsCommandOutput
+} from "./commands/GetSlotTypeVersionsCommand";
+import {
+  GetSlotTypesCommandInput,
+  GetSlotTypesCommandOutput
+} from "./commands/GetSlotTypesCommand";
+import {
+  GetUtterancesViewCommandInput,
+  GetUtterancesViewCommandOutput
+} from "./commands/GetUtterancesViewCommand";
+import {
+  PutBotAliasCommandInput,
+  PutBotAliasCommandOutput
+} from "./commands/PutBotAliasCommand";
+import {
+  PutBotCommandInput,
+  PutBotCommandOutput
+} from "./commands/PutBotCommand";
+import {
+  PutIntentCommandInput,
+  PutIntentCommandOutput
+} from "./commands/PutIntentCommand";
+import {
+  PutSlotTypeCommandInput,
+  PutSlotTypeCommandOutput
+} from "./commands/PutSlotTypeCommand";
+import {
+  StartImportCommandInput,
+  StartImportCommandOutput
+} from "./commands/StartImportCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -110,79 +189,86 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateBotVersionRequest
-  | CreateIntentVersionRequest
-  | CreateSlotTypeVersionRequest
-  | DeleteBotAliasRequest
-  | DeleteBotChannelAssociationRequest
-  | DeleteBotRequest
-  | DeleteBotVersionRequest
-  | DeleteIntentRequest
-  | DeleteIntentVersionRequest
-  | DeleteSlotTypeRequest
-  | DeleteSlotTypeVersionRequest
-  | DeleteUtterancesRequest
-  | GetBotAliasRequest
-  | GetBotAliasesRequest
-  | GetBotChannelAssociationRequest
-  | GetBotChannelAssociationsRequest
-  | GetBotRequest
-  | GetBotVersionsRequest
-  | GetBotsRequest
-  | GetBuiltinIntentRequest
-  | GetBuiltinIntentsRequest
-  | GetBuiltinSlotTypesRequest
-  | GetExportRequest
-  | GetImportRequest
-  | GetIntentRequest
-  | GetIntentVersionsRequest
-  | GetIntentsRequest
-  | GetSlotTypeRequest
-  | GetSlotTypeVersionsRequest
-  | GetSlotTypesRequest
-  | GetUtterancesViewRequest
-  | PutBotAliasRequest
-  | PutBotRequest
-  | PutIntentRequest
-  | PutSlotTypeRequest
-  | StartImportRequest;
+  | CreateBotVersionCommandInput
+  | CreateIntentVersionCommandInput
+  | CreateSlotTypeVersionCommandInput
+  | DeleteBotAliasCommandInput
+  | DeleteBotChannelAssociationCommandInput
+  | DeleteBotCommandInput
+  | DeleteBotVersionCommandInput
+  | DeleteIntentCommandInput
+  | DeleteIntentVersionCommandInput
+  | DeleteSlotTypeCommandInput
+  | DeleteSlotTypeVersionCommandInput
+  | DeleteUtterancesCommandInput
+  | GetBotAliasCommandInput
+  | GetBotAliasesCommandInput
+  | GetBotChannelAssociationCommandInput
+  | GetBotChannelAssociationsCommandInput
+  | GetBotCommandInput
+  | GetBotVersionsCommandInput
+  | GetBotsCommandInput
+  | GetBuiltinIntentCommandInput
+  | GetBuiltinIntentsCommandInput
+  | GetBuiltinSlotTypesCommandInput
+  | GetExportCommandInput
+  | GetImportCommandInput
+  | GetIntentCommandInput
+  | GetIntentVersionsCommandInput
+  | GetIntentsCommandInput
+  | GetSlotTypeCommandInput
+  | GetSlotTypeVersionsCommandInput
+  | GetSlotTypesCommandInput
+  | GetUtterancesViewCommandInput
+  | PutBotAliasCommandInput
+  | PutBotCommandInput
+  | PutIntentCommandInput
+  | PutSlotTypeCommandInput
+  | StartImportCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateBotVersionResponse
-  | CreateIntentVersionResponse
-  | CreateSlotTypeVersionResponse
-  | GetBotAliasResponse
-  | GetBotAliasesResponse
-  | GetBotChannelAssociationResponse
-  | GetBotChannelAssociationsResponse
-  | GetBotResponse
-  | GetBotVersionsResponse
-  | GetBotsResponse
-  | GetBuiltinIntentResponse
-  | GetBuiltinIntentsResponse
-  | GetBuiltinSlotTypesResponse
-  | GetExportResponse
-  | GetImportResponse
-  | GetIntentResponse
-  | GetIntentVersionsResponse
-  | GetIntentsResponse
-  | GetSlotTypeResponse
-  | GetSlotTypeVersionsResponse
-  | GetSlotTypesResponse
-  | GetUtterancesViewResponse
-  | PutBotAliasResponse
-  | PutBotResponse
-  | PutIntentResponse
-  | PutSlotTypeResponse
-  | StartImportResponse;
+  | CreateBotVersionCommandOutput
+  | CreateIntentVersionCommandOutput
+  | CreateSlotTypeVersionCommandOutput
+  | DeleteBotAliasCommandOutput
+  | DeleteBotChannelAssociationCommandOutput
+  | DeleteBotCommandOutput
+  | DeleteBotVersionCommandOutput
+  | DeleteIntentCommandOutput
+  | DeleteIntentVersionCommandOutput
+  | DeleteSlotTypeCommandOutput
+  | DeleteSlotTypeVersionCommandOutput
+  | DeleteUtterancesCommandOutput
+  | GetBotAliasCommandOutput
+  | GetBotAliasesCommandOutput
+  | GetBotChannelAssociationCommandOutput
+  | GetBotChannelAssociationsCommandOutput
+  | GetBotCommandOutput
+  | GetBotVersionsCommandOutput
+  | GetBotsCommandOutput
+  | GetBuiltinIntentCommandOutput
+  | GetBuiltinIntentsCommandOutput
+  | GetBuiltinSlotTypesCommandOutput
+  | GetExportCommandOutput
+  | GetImportCommandOutput
+  | GetIntentCommandOutput
+  | GetIntentVersionsCommandOutput
+  | GetIntentsCommandOutput
+  | GetSlotTypeCommandOutput
+  | GetSlotTypeVersionsCommandOutput
+  | GetSlotTypesCommandOutput
+  | GetUtterancesViewCommandOutput
+  | PutBotAliasCommandOutput
+  | PutBotCommandOutput
+  | PutIntentCommandOutput
+  | PutSlotTypeCommandOutput
+  | StartImportCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

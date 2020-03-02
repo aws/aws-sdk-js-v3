@@ -1,58 +1,151 @@
 import {
-  ActivityTask,
-  ActivityTaskStatus,
-  ActivityTypeDetail,
-  ActivityTypeInfos,
-  CountClosedWorkflowExecutionsInput,
-  CountOpenWorkflowExecutionsInput,
-  CountPendingActivityTasksInput,
-  CountPendingDecisionTasksInput,
-  DecisionTask,
-  DeprecateActivityTypeInput,
-  DeprecateDomainInput,
-  DeprecateWorkflowTypeInput,
-  DescribeActivityTypeInput,
-  DescribeDomainInput,
-  DescribeWorkflowExecutionInput,
-  DescribeWorkflowTypeInput,
-  DomainDetail,
-  DomainInfos,
-  GetWorkflowExecutionHistoryInput,
-  History,
-  ListActivityTypesInput,
-  ListClosedWorkflowExecutionsInput,
-  ListDomainsInput,
-  ListOpenWorkflowExecutionsInput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  ListWorkflowTypesInput,
-  PendingTaskCount,
-  PollForActivityTaskInput,
-  PollForDecisionTaskInput,
-  RecordActivityTaskHeartbeatInput,
-  RegisterActivityTypeInput,
-  RegisterDomainInput,
-  RegisterWorkflowTypeInput,
-  RequestCancelWorkflowExecutionInput,
-  RespondActivityTaskCanceledInput,
-  RespondActivityTaskCompletedInput,
-  RespondActivityTaskFailedInput,
-  RespondDecisionTaskCompletedInput,
-  Run,
-  SignalWorkflowExecutionInput,
-  StartWorkflowExecutionInput,
-  TagResourceInput,
-  TerminateWorkflowExecutionInput,
-  UndeprecateActivityTypeInput,
-  UndeprecateDomainInput,
-  UndeprecateWorkflowTypeInput,
-  UntagResourceInput,
-  WorkflowExecutionCount,
-  WorkflowExecutionDetail,
-  WorkflowExecutionInfos,
-  WorkflowTypeDetail,
-  WorkflowTypeInfos
-} from "./models/index";
+  CountClosedWorkflowExecutionsCommandInput,
+  CountClosedWorkflowExecutionsCommandOutput
+} from "./commands/CountClosedWorkflowExecutionsCommand";
+import {
+  CountOpenWorkflowExecutionsCommandInput,
+  CountOpenWorkflowExecutionsCommandOutput
+} from "./commands/CountOpenWorkflowExecutionsCommand";
+import {
+  CountPendingActivityTasksCommandInput,
+  CountPendingActivityTasksCommandOutput
+} from "./commands/CountPendingActivityTasksCommand";
+import {
+  CountPendingDecisionTasksCommandInput,
+  CountPendingDecisionTasksCommandOutput
+} from "./commands/CountPendingDecisionTasksCommand";
+import {
+  DeprecateActivityTypeCommandInput,
+  DeprecateActivityTypeCommandOutput
+} from "./commands/DeprecateActivityTypeCommand";
+import {
+  DeprecateDomainCommandInput,
+  DeprecateDomainCommandOutput
+} from "./commands/DeprecateDomainCommand";
+import {
+  DeprecateWorkflowTypeCommandInput,
+  DeprecateWorkflowTypeCommandOutput
+} from "./commands/DeprecateWorkflowTypeCommand";
+import {
+  DescribeActivityTypeCommandInput,
+  DescribeActivityTypeCommandOutput
+} from "./commands/DescribeActivityTypeCommand";
+import {
+  DescribeDomainCommandInput,
+  DescribeDomainCommandOutput
+} from "./commands/DescribeDomainCommand";
+import {
+  DescribeWorkflowExecutionCommandInput,
+  DescribeWorkflowExecutionCommandOutput
+} from "./commands/DescribeWorkflowExecutionCommand";
+import {
+  DescribeWorkflowTypeCommandInput,
+  DescribeWorkflowTypeCommandOutput
+} from "./commands/DescribeWorkflowTypeCommand";
+import {
+  GetWorkflowExecutionHistoryCommandInput,
+  GetWorkflowExecutionHistoryCommandOutput
+} from "./commands/GetWorkflowExecutionHistoryCommand";
+import {
+  ListActivityTypesCommandInput,
+  ListActivityTypesCommandOutput
+} from "./commands/ListActivityTypesCommand";
+import {
+  ListClosedWorkflowExecutionsCommandInput,
+  ListClosedWorkflowExecutionsCommandOutput
+} from "./commands/ListClosedWorkflowExecutionsCommand";
+import {
+  ListDomainsCommandInput,
+  ListDomainsCommandOutput
+} from "./commands/ListDomainsCommand";
+import {
+  ListOpenWorkflowExecutionsCommandInput,
+  ListOpenWorkflowExecutionsCommandOutput
+} from "./commands/ListOpenWorkflowExecutionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListWorkflowTypesCommandInput,
+  ListWorkflowTypesCommandOutput
+} from "./commands/ListWorkflowTypesCommand";
+import {
+  PollForActivityTaskCommandInput,
+  PollForActivityTaskCommandOutput
+} from "./commands/PollForActivityTaskCommand";
+import {
+  PollForDecisionTaskCommandInput,
+  PollForDecisionTaskCommandOutput
+} from "./commands/PollForDecisionTaskCommand";
+import {
+  RecordActivityTaskHeartbeatCommandInput,
+  RecordActivityTaskHeartbeatCommandOutput
+} from "./commands/RecordActivityTaskHeartbeatCommand";
+import {
+  RegisterActivityTypeCommandInput,
+  RegisterActivityTypeCommandOutput
+} from "./commands/RegisterActivityTypeCommand";
+import {
+  RegisterDomainCommandInput,
+  RegisterDomainCommandOutput
+} from "./commands/RegisterDomainCommand";
+import {
+  RegisterWorkflowTypeCommandInput,
+  RegisterWorkflowTypeCommandOutput
+} from "./commands/RegisterWorkflowTypeCommand";
+import {
+  RequestCancelWorkflowExecutionCommandInput,
+  RequestCancelWorkflowExecutionCommandOutput
+} from "./commands/RequestCancelWorkflowExecutionCommand";
+import {
+  RespondActivityTaskCanceledCommandInput,
+  RespondActivityTaskCanceledCommandOutput
+} from "./commands/RespondActivityTaskCanceledCommand";
+import {
+  RespondActivityTaskCompletedCommandInput,
+  RespondActivityTaskCompletedCommandOutput
+} from "./commands/RespondActivityTaskCompletedCommand";
+import {
+  RespondActivityTaskFailedCommandInput,
+  RespondActivityTaskFailedCommandOutput
+} from "./commands/RespondActivityTaskFailedCommand";
+import {
+  RespondDecisionTaskCompletedCommandInput,
+  RespondDecisionTaskCompletedCommandOutput
+} from "./commands/RespondDecisionTaskCompletedCommand";
+import {
+  SignalWorkflowExecutionCommandInput,
+  SignalWorkflowExecutionCommandOutput
+} from "./commands/SignalWorkflowExecutionCommand";
+import {
+  StartWorkflowExecutionCommandInput,
+  StartWorkflowExecutionCommandOutput
+} from "./commands/StartWorkflowExecutionCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  TerminateWorkflowExecutionCommandInput,
+  TerminateWorkflowExecutionCommandOutput
+} from "./commands/TerminateWorkflowExecutionCommand";
+import {
+  UndeprecateActivityTypeCommandInput,
+  UndeprecateActivityTypeCommandOutput
+} from "./commands/UndeprecateActivityTypeCommand";
+import {
+  UndeprecateDomainCommandInput,
+  UndeprecateDomainCommandOutput
+} from "./commands/UndeprecateDomainCommand";
+import {
+  UndeprecateWorkflowTypeCommandInput,
+  UndeprecateWorkflowTypeCommandOutput
+} from "./commands/UndeprecateWorkflowTypeCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -100,72 +193,88 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CountClosedWorkflowExecutionsInput
-  | CountOpenWorkflowExecutionsInput
-  | CountPendingActivityTasksInput
-  | CountPendingDecisionTasksInput
-  | DeprecateActivityTypeInput
-  | DeprecateDomainInput
-  | DeprecateWorkflowTypeInput
-  | DescribeActivityTypeInput
-  | DescribeDomainInput
-  | DescribeWorkflowExecutionInput
-  | DescribeWorkflowTypeInput
-  | GetWorkflowExecutionHistoryInput
-  | ListActivityTypesInput
-  | ListClosedWorkflowExecutionsInput
-  | ListDomainsInput
-  | ListOpenWorkflowExecutionsInput
-  | ListTagsForResourceInput
-  | ListWorkflowTypesInput
-  | PollForActivityTaskInput
-  | PollForDecisionTaskInput
-  | RecordActivityTaskHeartbeatInput
-  | RegisterActivityTypeInput
-  | RegisterDomainInput
-  | RegisterWorkflowTypeInput
-  | RequestCancelWorkflowExecutionInput
-  | RespondActivityTaskCanceledInput
-  | RespondActivityTaskCompletedInput
-  | RespondActivityTaskFailedInput
-  | RespondDecisionTaskCompletedInput
-  | SignalWorkflowExecutionInput
-  | StartWorkflowExecutionInput
-  | TagResourceInput
-  | TerminateWorkflowExecutionInput
-  | UndeprecateActivityTypeInput
-  | UndeprecateDomainInput
-  | UndeprecateWorkflowTypeInput
-  | UntagResourceInput;
+  | CountClosedWorkflowExecutionsCommandInput
+  | CountOpenWorkflowExecutionsCommandInput
+  | CountPendingActivityTasksCommandInput
+  | CountPendingDecisionTasksCommandInput
+  | DeprecateActivityTypeCommandInput
+  | DeprecateDomainCommandInput
+  | DeprecateWorkflowTypeCommandInput
+  | DescribeActivityTypeCommandInput
+  | DescribeDomainCommandInput
+  | DescribeWorkflowExecutionCommandInput
+  | DescribeWorkflowTypeCommandInput
+  | GetWorkflowExecutionHistoryCommandInput
+  | ListActivityTypesCommandInput
+  | ListClosedWorkflowExecutionsCommandInput
+  | ListDomainsCommandInput
+  | ListOpenWorkflowExecutionsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListWorkflowTypesCommandInput
+  | PollForActivityTaskCommandInput
+  | PollForDecisionTaskCommandInput
+  | RecordActivityTaskHeartbeatCommandInput
+  | RegisterActivityTypeCommandInput
+  | RegisterDomainCommandInput
+  | RegisterWorkflowTypeCommandInput
+  | RequestCancelWorkflowExecutionCommandInput
+  | RespondActivityTaskCanceledCommandInput
+  | RespondActivityTaskCompletedCommandInput
+  | RespondActivityTaskFailedCommandInput
+  | RespondDecisionTaskCompletedCommandInput
+  | SignalWorkflowExecutionCommandInput
+  | StartWorkflowExecutionCommandInput
+  | TagResourceCommandInput
+  | TerminateWorkflowExecutionCommandInput
+  | UndeprecateActivityTypeCommandInput
+  | UndeprecateDomainCommandInput
+  | UndeprecateWorkflowTypeCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | ActivityTask
-  | ActivityTaskStatus
-  | ActivityTypeDetail
-  | ActivityTypeInfos
-  | DecisionTask
-  | DomainDetail
-  | DomainInfos
-  | History
-  | ListTagsForResourceOutput
-  | PendingTaskCount
-  | PendingTaskCount
-  | Run
-  | WorkflowExecutionCount
-  | WorkflowExecutionCount
-  | WorkflowExecutionDetail
-  | WorkflowExecutionInfos
-  | WorkflowExecutionInfos
-  | WorkflowTypeDetail
-  | WorkflowTypeInfos;
+  | CountClosedWorkflowExecutionsCommandOutput
+  | CountOpenWorkflowExecutionsCommandOutput
+  | CountPendingActivityTasksCommandOutput
+  | CountPendingDecisionTasksCommandOutput
+  | DeprecateActivityTypeCommandOutput
+  | DeprecateDomainCommandOutput
+  | DeprecateWorkflowTypeCommandOutput
+  | DescribeActivityTypeCommandOutput
+  | DescribeDomainCommandOutput
+  | DescribeWorkflowExecutionCommandOutput
+  | DescribeWorkflowTypeCommandOutput
+  | GetWorkflowExecutionHistoryCommandOutput
+  | ListActivityTypesCommandOutput
+  | ListClosedWorkflowExecutionsCommandOutput
+  | ListDomainsCommandOutput
+  | ListOpenWorkflowExecutionsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListWorkflowTypesCommandOutput
+  | PollForActivityTaskCommandOutput
+  | PollForDecisionTaskCommandOutput
+  | RecordActivityTaskHeartbeatCommandOutput
+  | RegisterActivityTypeCommandOutput
+  | RegisterDomainCommandOutput
+  | RegisterWorkflowTypeCommandOutput
+  | RequestCancelWorkflowExecutionCommandOutput
+  | RespondActivityTaskCanceledCommandOutput
+  | RespondActivityTaskCompletedCommandOutput
+  | RespondActivityTaskFailedCommandOutput
+  | RespondDecisionTaskCompletedCommandOutput
+  | SignalWorkflowExecutionCommandOutput
+  | StartWorkflowExecutionCommandOutput
+  | TagResourceCommandOutput
+  | TerminateWorkflowExecutionCommandOutput
+  | UndeprecateActivityTypeCommandOutput
+  | UndeprecateDomainCommandOutput
+  | UndeprecateWorkflowTypeCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

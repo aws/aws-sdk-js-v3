@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMetricWidgetImageCommandInput = GetMetricWidgetImageInput;
-export type GetMetricWidgetImageCommandOutput = GetMetricWidgetImageOutput;
+export type GetMetricWidgetImageCommandOutput = GetMetricWidgetImageOutput &
+  __MetadataBearer;
 
 export class GetMetricWidgetImageCommand extends $Command<
   GetMetricWidgetImageCommandInput,

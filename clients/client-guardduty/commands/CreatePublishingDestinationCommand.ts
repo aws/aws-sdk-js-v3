@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePublishingDestinationCommandInput = CreatePublishingDestinationRequest;
-export type CreatePublishingDestinationCommandOutput = CreatePublishingDestinationResponse;
+export type CreatePublishingDestinationCommandOutput = CreatePublishingDestinationResponse &
+  __MetadataBearer;
 
 export class CreatePublishingDestinationCommand extends $Command<
   CreatePublishingDestinationCommandInput,

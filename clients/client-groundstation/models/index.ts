@@ -91,7 +91,7 @@ export namespace CancelContactRequest {
 /**
  * <p/>
  */
-export interface ConfigIdResponse extends $MetadataBearer {
+export interface ConfigIdResponse {
   __type?: "ConfigIdResponse";
   /**
    * <p>ARN of a <code>Config</code>.</p>
@@ -351,7 +351,7 @@ export namespace ContactData {
 /**
  * <p/>
  */
-export interface ContactIdResponse extends $MetadataBearer {
+export interface ContactIdResponse {
   __type?: "ContactIdResponse";
   /**
    * <p>UUID of a contact.</p>
@@ -509,7 +509,7 @@ export namespace DataflowEndpointConfig {
 /**
  * <p/>
  */
-export interface DataflowEndpointGroupIdResponse extends $MetadataBearer {
+export interface DataflowEndpointGroupIdResponse {
   __type?: "DataflowEndpointGroupIdResponse";
   /**
    * <p>ID of a dataflow endpoint group.</p>
@@ -655,7 +655,7 @@ export namespace DescribeContactRequest {
 /**
  * <p/>
  */
-export interface DescribeContactResponse extends $MetadataBearer {
+export interface DescribeContactResponse {
   __type?: "DescribeContactResponse";
   /**
    * <p>UUID of a contact.</p>
@@ -779,7 +779,7 @@ export namespace GetConfigRequest {
 /**
  * <p/>
  */
-export interface GetConfigResponse extends $MetadataBearer {
+export interface GetConfigResponse {
   __type?: "GetConfigResponse";
   /**
    * <p>ARN of a <code>Config</code>
@@ -839,7 +839,7 @@ export namespace GetDataflowEndpointGroupRequest {
 /**
  * <p/>
  */
-export interface GetDataflowEndpointGroupResponse extends $MetadataBearer {
+export interface GetDataflowEndpointGroupResponse {
   __type?: "GetDataflowEndpointGroupResponse";
   /**
    * <p>ARN of a dataflow endpoint group.</p>
@@ -888,7 +888,7 @@ export namespace GetMissionProfileRequest {
 /**
  * <p/>
  */
-export interface GetMissionProfileResponse extends $MetadataBearer {
+export interface GetMissionProfileResponse {
   __type?: "GetMissionProfileResponse";
   /**
    * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
@@ -973,7 +973,7 @@ export namespace ListConfigsRequest {
 /**
  * <p/>
  */
-export interface ListConfigsResponse extends $MetadataBearer {
+export interface ListConfigsResponse {
   __type?: "ListConfigsResponse";
   /**
    * <p>List of <code>Config</code> items.</p>
@@ -1047,7 +1047,7 @@ export namespace ListContactsRequest {
 /**
  * <p/>
  */
-export interface ListContactsResponse extends $MetadataBearer {
+export interface ListContactsResponse {
   __type?: "ListContactsResponse";
   /**
    * <p>List of contacts.</p>
@@ -1091,7 +1091,7 @@ export namespace ListDataflowEndpointGroupsRequest {
 /**
  * <p/>
  */
-export interface ListDataflowEndpointGroupsResponse extends $MetadataBearer {
+export interface ListDataflowEndpointGroupsResponse {
   __type?: "ListDataflowEndpointGroupsResponse";
   /**
    * <p>A list of dataflow endpoint groups.</p>
@@ -1135,7 +1135,7 @@ export namespace ListMissionProfilesRequest {
 /**
  * <p/>
  */
-export interface ListMissionProfilesResponse extends $MetadataBearer {
+export interface ListMissionProfilesResponse {
   __type?: "ListMissionProfilesResponse";
   /**
    * <p>List of mission profiles</p>
@@ -1157,7 +1157,7 @@ export namespace ListMissionProfilesResponse {
 /**
  * <p/>
  */
-export interface MissionProfileIdResponse extends $MetadataBearer {
+export interface MissionProfileIdResponse {
   __type?: "MissionProfileIdResponse";
   /**
    * <p>ID of a mission profile.</p>
@@ -1552,7 +1552,7 @@ export namespace GetMinuteUsageRequest {
 /**
  * <p/>
  */
-export interface GetMinuteUsageResponse extends $MetadataBearer {
+export interface GetMinuteUsageResponse {
   __type?: "GetMinuteUsageResponse";
   /**
    * <p>Estimated number of minutes remaining for an account, specific to the month being requested.</p>
@@ -1606,7 +1606,7 @@ export namespace GetSatelliteRequest {
 /**
  * <p/>
  */
-export interface GetSatelliteResponse extends $MetadataBearer {
+export interface GetSatelliteResponse {
   __type?: "GetSatelliteResponse";
   /**
    * <p>When a satellite was created.</p>
@@ -1718,7 +1718,7 @@ export namespace ListGroundStationsRequest {
 /**
  * <p/>
  */
-export interface ListGroundStationsResponse extends $MetadataBearer {
+export interface ListGroundStationsResponse {
   __type?: "ListGroundStationsResponse";
   /**
    * <p>List of ground stations.</p>
@@ -1762,7 +1762,7 @@ export namespace ListSatellitesRequest {
 /**
  * <p/>
  */
-export interface ListSatellitesResponse extends $MetadataBearer {
+export interface ListSatellitesResponse {
   __type?: "ListSatellitesResponse";
   /**
    * <p>Next token that can be supplied in the next call to get the next page of satellites.</p>
@@ -1801,7 +1801,7 @@ export namespace ListTagsForResourceRequest {
 /**
  * <p/>
  */
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>Tags assigned to a resource.</p>
@@ -1966,7 +1966,7 @@ export namespace TagResourceRequest {
 /**
  * <p/>
  */
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -2001,7 +2001,7 @@ export namespace UntagResourceRequest {
 /**
  * <p/>
  */
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

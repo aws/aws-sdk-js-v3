@@ -24,7 +24,7 @@ export namespace BatchDescribeSimulationJobRequest {
   }
 }
 
-export interface BatchDescribeSimulationJobResponse extends $MetadataBearer {
+export interface BatchDescribeSimulationJobResponse {
   __type?: "BatchDescribeSimulationJobResponse";
   /**
    * <p>A list of simulation jobs.</p>
@@ -57,7 +57,7 @@ export namespace CancelDeploymentJobRequest {
   }
 }
 
-export interface CancelDeploymentJobResponse extends $MetadataBearer {
+export interface CancelDeploymentJobResponse {
   __type?: "CancelDeploymentJobResponse";
 }
 
@@ -81,7 +81,7 @@ export namespace CancelSimulationJobRequest {
   }
 }
 
-export interface CancelSimulationJobResponse extends $MetadataBearer {
+export interface CancelSimulationJobResponse {
   __type?: "CancelSimulationJobResponse";
 }
 
@@ -142,7 +142,7 @@ export namespace CreateDeploymentJobRequest {
   }
 }
 
-export interface CreateDeploymentJobResponse extends $MetadataBearer {
+export interface CreateDeploymentJobResponse {
   __type?: "CreateDeploymentJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
@@ -276,7 +276,7 @@ export namespace CreateFleetRequest {
   }
 }
 
-export interface CreateFleetResponse extends $MetadataBearer {
+export interface CreateFleetResponse {
   __type?: "CreateFleetResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -334,7 +334,7 @@ export namespace CreateRobotApplicationRequest {
   }
 }
 
-export interface CreateRobotApplicationResponse extends $MetadataBearer {
+export interface CreateRobotApplicationResponse {
   __type?: "CreateRobotApplicationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -403,7 +403,7 @@ export namespace CreateRobotApplicationVersionRequest {
   }
 }
 
-export interface CreateRobotApplicationVersionResponse extends $MetadataBearer {
+export interface CreateRobotApplicationVersionResponse {
   __type?: "CreateRobotApplicationVersionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -476,7 +476,7 @@ export namespace CreateRobotRequest {
   }
 }
 
-export interface CreateRobotResponse extends $MetadataBearer {
+export interface CreateRobotResponse {
   __type?: "CreateRobotResponse";
   /**
    * <p>The target architecture of the robot.</p>
@@ -554,7 +554,7 @@ export namespace CreateSimulationApplicationRequest {
   }
 }
 
-export interface CreateSimulationApplicationResponse extends $MetadataBearer {
+export interface CreateSimulationApplicationResponse {
   __type?: "CreateSimulationApplicationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
@@ -633,8 +633,7 @@ export namespace CreateSimulationApplicationVersionRequest {
   }
 }
 
-export interface CreateSimulationApplicationVersionResponse
-  extends $MetadataBearer {
+export interface CreateSimulationApplicationVersionResponse {
   __type?: "CreateSimulationApplicationVersionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
@@ -773,7 +772,7 @@ export namespace CreateSimulationJobRequest {
   }
 }
 
-export interface CreateSimulationJobResponse extends $MetadataBearer {
+export interface CreateSimulationJobResponse {
   __type?: "CreateSimulationJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
@@ -995,7 +994,7 @@ export namespace DeleteFleetRequest {
   }
 }
 
-export interface DeleteFleetResponse extends $MetadataBearer {
+export interface DeleteFleetResponse {
   __type?: "DeleteFleetResponse";
 }
 
@@ -1024,7 +1023,7 @@ export namespace DeleteRobotApplicationRequest {
   }
 }
 
-export interface DeleteRobotApplicationResponse extends $MetadataBearer {
+export interface DeleteRobotApplicationResponse {
   __type?: "DeleteRobotApplicationResponse";
 }
 
@@ -1048,7 +1047,7 @@ export namespace DeleteRobotRequest {
   }
 }
 
-export interface DeleteRobotResponse extends $MetadataBearer {
+export interface DeleteRobotResponse {
   __type?: "DeleteRobotResponse";
 }
 
@@ -1077,7 +1076,7 @@ export namespace DeleteSimulationApplicationRequest {
   }
 }
 
-export interface DeleteSimulationApplicationResponse extends $MetadataBearer {
+export interface DeleteSimulationApplicationResponse {
   __type?: "DeleteSimulationApplicationResponse";
 }
 
@@ -1285,7 +1284,7 @@ export namespace DeregisterRobotRequest {
   }
 }
 
-export interface DeregisterRobotResponse extends $MetadataBearer {
+export interface DeregisterRobotResponse {
   __type?: "DeregisterRobotResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -1318,7 +1317,7 @@ export namespace DescribeDeploymentJobRequest {
   }
 }
 
-export interface DescribeDeploymentJobResponse extends $MetadataBearer {
+export interface DescribeDeploymentJobResponse {
   __type?: "DescribeDeploymentJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
@@ -1391,7 +1390,7 @@ export namespace DescribeFleetRequest {
   }
 }
 
-export interface DescribeFleetResponse extends $MetadataBearer {
+export interface DescribeFleetResponse {
   __type?: "DescribeFleetResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -1459,7 +1458,7 @@ export namespace DescribeRobotApplicationRequest {
   }
 }
 
-export interface DescribeRobotApplicationResponse extends $MetadataBearer {
+export interface DescribeRobotApplicationResponse {
   __type?: "DescribeRobotApplicationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -1522,7 +1521,7 @@ export namespace DescribeRobotRequest {
   }
 }
 
-export interface DescribeRobotResponse extends $MetadataBearer {
+export interface DescribeRobotResponse {
   __type?: "DescribeRobotResponse";
   /**
    * <p>The target architecture of the robot application.</p>
@@ -1600,7 +1599,7 @@ export namespace DescribeSimulationApplicationRequest {
   }
 }
 
-export interface DescribeSimulationApplicationResponse extends $MetadataBearer {
+export interface DescribeSimulationApplicationResponse {
   __type?: "DescribeSimulationApplicationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the robot simulation application.</p>
@@ -1673,7 +1672,7 @@ export namespace DescribeSimulationJobRequest {
   }
 }
 
-export interface DescribeSimulationJobResponse extends $MetadataBearer {
+export interface DescribeSimulationJobResponse {
   __type?: "DescribeSimulationJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
@@ -2057,7 +2056,7 @@ export namespace ListDeploymentJobsRequest {
   }
 }
 
-export interface ListDeploymentJobsResponse extends $MetadataBearer {
+export interface ListDeploymentJobsResponse {
   __type?: "ListDeploymentJobsResponse";
   /**
    * <p>A list of deployment jobs that meet the criteria of the request.</p>
@@ -2120,7 +2119,7 @@ export namespace ListFleetsRequest {
   }
 }
 
-export interface ListFleetsResponse extends $MetadataBearer {
+export interface ListFleetsResponse {
   __type?: "ListFleetsResponse";
   /**
    * <p>A list of fleet details meeting the request criteria.</p>
@@ -2188,7 +2187,7 @@ export namespace ListRobotApplicationsRequest {
   }
 }
 
-export interface ListRobotApplicationsResponse extends $MetadataBearer {
+export interface ListRobotApplicationsResponse {
   __type?: "ListRobotApplicationsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRobotApplications</code> request.
@@ -2253,7 +2252,7 @@ export namespace ListRobotsRequest {
   }
 }
 
-export interface ListRobotsResponse extends $MetadataBearer {
+export interface ListRobotsResponse {
   __type?: "ListRobotsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRobots</code> request.
@@ -2321,7 +2320,7 @@ export namespace ListSimulationApplicationsRequest {
   }
 }
 
-export interface ListSimulationApplicationsResponse extends $MetadataBearer {
+export interface ListSimulationApplicationsResponse {
   __type?: "ListSimulationApplicationsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListSimulationApplications</code> request.
@@ -2387,7 +2386,7 @@ export namespace ListSimulationJobsRequest {
   }
 }
 
-export interface ListSimulationJobsResponse extends $MetadataBearer {
+export interface ListSimulationJobsResponse {
   __type?: "ListSimulationJobsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListSimulationJobs</code> request.
@@ -2423,7 +2422,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of all tags added to the specified resource.</p>
@@ -2626,7 +2625,7 @@ export namespace RegisterRobotRequest {
   }
 }
 
-export interface RegisterRobotResponse extends $MetadataBearer {
+export interface RegisterRobotResponse {
   __type?: "RegisterRobotResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet that the robot will join.</p>
@@ -2719,7 +2718,7 @@ export namespace RestartSimulationJobRequest {
   }
 }
 
-export interface RestartSimulationJobResponse extends $MetadataBearer {
+export interface RestartSimulationJobResponse {
   __type?: "RestartSimulationJobResponse";
 }
 
@@ -3401,7 +3400,7 @@ export namespace SyncDeploymentJobRequest {
   }
 }
 
-export interface SyncDeploymentJobResponse extends $MetadataBearer {
+export interface SyncDeploymentJobResponse {
   __type?: "SyncDeploymentJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the synchronization request.</p>
@@ -3527,7 +3526,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -3573,7 +3572,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -3612,7 +3611,7 @@ export namespace UpdateRobotApplicationRequest {
   }
 }
 
-export interface UpdateRobotApplicationResponse extends $MetadataBearer {
+export interface UpdateRobotApplicationResponse {
   __type?: "UpdateRobotApplicationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the updated robot application.</p>
@@ -3695,7 +3694,7 @@ export namespace UpdateSimulationApplicationRequest {
   }
 }
 
-export interface UpdateSimulationApplicationResponse extends $MetadataBearer {
+export interface UpdateSimulationApplicationResponse {
   __type?: "UpdateSimulationApplicationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the updated simulation application.</p>

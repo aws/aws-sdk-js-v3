@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDirectConnectGatewayCommandInput = DeleteDirectConnectGatewayRequest;
-export type DeleteDirectConnectGatewayCommandOutput = DeleteDirectConnectGatewayResult;
+export type DeleteDirectConnectGatewayCommandOutput = DeleteDirectConnectGatewayResult &
+  __MetadataBearer;
 
 export class DeleteDirectConnectGatewayCommand extends $Command<
   DeleteDirectConnectGatewayCommandInput,

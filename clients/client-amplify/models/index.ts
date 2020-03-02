@@ -676,7 +676,7 @@ export namespace CreateAppRequest {
   }
 }
 
-export interface CreateAppResult extends $MetadataBearer {
+export interface CreateAppResult {
   __type?: "CreateAppResult";
   /**
    * <p>
@@ -739,7 +739,7 @@ export namespace CreateBackendEnvironmentRequest {
  *             Result structure for create backend environment.
  *         </p>
  */
-export interface CreateBackendEnvironmentResult extends $MetadataBearer {
+export interface CreateBackendEnvironmentResult {
   __type?: "CreateBackendEnvironmentResult";
   /**
    * <p>
@@ -893,7 +893,7 @@ export namespace CreateBranchRequest {
  *             Result structure for create branch request.
  *         </p>
  */
-export interface CreateBranchResult extends $MetadataBearer {
+export interface CreateBranchResult {
   __type?: "CreateBranchResult";
   /**
    * <p>
@@ -951,7 +951,7 @@ export namespace CreateDeploymentRequest {
  *             Result structure for create a new deployment.
  *         </p>
  */
-export interface CreateDeploymentResult extends $MetadataBearer {
+export interface CreateDeploymentResult {
   __type?: "CreateDeploymentResult";
   /**
    * <p>
@@ -1029,7 +1029,7 @@ export namespace CreateDomainAssociationRequest {
  *             Result structure for the create Domain Association request.
  *         </p>
  */
-export interface CreateDomainAssociationResult extends $MetadataBearer {
+export interface CreateDomainAssociationResult {
   __type?: "CreateDomainAssociationResult";
   /**
    * <p>
@@ -1085,7 +1085,7 @@ export namespace CreateWebhookRequest {
  *             Result structure for the create webhook request.
  *         </p>
  */
-export interface CreateWebhookResult extends $MetadataBearer {
+export interface CreateWebhookResult {
   __type?: "CreateWebhookResult";
   /**
    * <p>
@@ -1169,7 +1169,7 @@ export namespace DeleteAppRequest {
  *             Result structure for an Amplify App delete request.
  *         </p>
  */
-export interface DeleteAppResult extends $MetadataBearer {
+export interface DeleteAppResult {
   __type?: "DeleteAppResult";
   /**
    * <p>
@@ -1218,7 +1218,7 @@ export namespace DeleteBackendEnvironmentRequest {
  *             Result structure of a delete backend environment result.
  *         </p>
  */
-export interface DeleteBackendEnvironmentResult extends $MetadataBearer {
+export interface DeleteBackendEnvironmentResult {
   __type?: "DeleteBackendEnvironmentResult";
   /**
    * <p>
@@ -1267,7 +1267,7 @@ export namespace DeleteBranchRequest {
  *             Result structure for delete branch request.
  *         </p>
  */
-export interface DeleteBranchResult extends $MetadataBearer {
+export interface DeleteBranchResult {
   __type?: "DeleteBranchResult";
   /**
    * <p>
@@ -1311,7 +1311,7 @@ export namespace DeleteDomainAssociationRequest {
   }
 }
 
-export interface DeleteDomainAssociationResult extends $MetadataBearer {
+export interface DeleteDomainAssociationResult {
   __type?: "DeleteDomainAssociationResult";
   /**
    * <p>
@@ -1367,7 +1367,7 @@ export namespace DeleteJobRequest {
  *             Result structure for the delete job request.
  *         </p>
  */
-export interface DeleteJobResult extends $MetadataBearer {
+export interface DeleteJobResult {
   __type?: "DeleteJobResult";
   /**
    * <p>
@@ -1409,7 +1409,7 @@ export namespace DeleteWebhookRequest {
  *             Result structure for the delete webhook request.
  *         </p>
  */
-export interface DeleteWebhookResult extends $MetadataBearer {
+export interface DeleteWebhookResult {
   __type?: "DeleteWebhookResult";
   /**
    * <p>
@@ -1565,7 +1565,7 @@ export namespace GenerateAccessLogsRequest {
  *             Result structure for the generate access logs request.
  *         </p>
  */
-export interface GenerateAccessLogsResult extends $MetadataBearer {
+export interface GenerateAccessLogsResult {
   __type?: "GenerateAccessLogsResult";
   /**
    * <p>
@@ -1602,7 +1602,7 @@ export namespace GetAppRequest {
   }
 }
 
-export interface GetAppResult extends $MetadataBearer {
+export interface GetAppResult {
   __type?: "GetAppResult";
   /**
    * <p>
@@ -1644,7 +1644,7 @@ export namespace GetArtifactUrlRequest {
  *             Result structure for the get artifact request.
  *         </p>
  */
-export interface GetArtifactUrlResult extends $MetadataBearer {
+export interface GetArtifactUrlResult {
   __type?: "GetArtifactUrlResult";
   /**
    * <p>
@@ -1700,7 +1700,7 @@ export namespace GetBackendEnvironmentRequest {
  *             Result structure for get backend environment result.
  *         </p>
  */
-export interface GetBackendEnvironmentResult extends $MetadataBearer {
+export interface GetBackendEnvironmentResult {
   __type?: "GetBackendEnvironmentResult";
   /**
    * <p>
@@ -1744,7 +1744,7 @@ export namespace GetBranchRequest {
   }
 }
 
-export interface GetBranchResult extends $MetadataBearer {
+export interface GetBranchResult {
   __type?: "GetBranchResult";
   /**
    * <p>
@@ -1793,7 +1793,7 @@ export namespace GetDomainAssociationRequest {
  *             Result structure for the get Domain Association request.
  *         </p>
  */
-export interface GetDomainAssociationResult extends $MetadataBearer {
+export interface GetDomainAssociationResult {
   __type?: "GetDomainAssociationResult";
   /**
    * <p>
@@ -1844,7 +1844,7 @@ export namespace GetJobRequest {
   }
 }
 
-export interface GetJobResult extends $MetadataBearer {
+export interface GetJobResult {
   __type?: "GetJobResult";
   /**
    * <p>
@@ -1886,7 +1886,7 @@ export namespace GetWebhookRequest {
  *             Result structure for the get webhook request.
  *         </p>
  */
-export interface GetWebhookResult extends $MetadataBearer {
+export interface GetWebhookResult {
   __type?: "GetWebhookResult";
   /**
    * <p>
@@ -2099,7 +2099,7 @@ export namespace ListAppsRequest {
  *             Result structure for an Amplify App list request.
  *         </p>
  */
-export interface ListAppsResult extends $MetadataBearer {
+export interface ListAppsResult {
   __type?: "ListAppsResult";
   /**
    * <p>
@@ -2180,7 +2180,7 @@ export namespace ListArtifactsRequest {
  *             Result structure for the list artifacts request.
  *         </p>
  */
-export interface ListArtifactsResult extends $MetadataBearer {
+export interface ListArtifactsResult {
   __type?: "ListArtifactsResult";
   /**
    * <p>
@@ -2253,7 +2253,7 @@ export namespace ListBackendEnvironmentsRequest {
  *             Result structure for list backend environments result.
  *         </p>
  */
-export interface ListBackendEnvironmentsResult extends $MetadataBearer {
+export interface ListBackendEnvironmentsResult {
   __type?: "ListBackendEnvironmentsResult";
   /**
    * <p>
@@ -2319,7 +2319,7 @@ export namespace ListBranchesRequest {
  *             Result structure for list branches request.
  *         </p>
  */
-export interface ListBranchesResult extends $MetadataBearer {
+export interface ListBranchesResult {
   __type?: "ListBranchesResult";
   /**
    * <p>
@@ -2385,7 +2385,7 @@ export namespace ListDomainAssociationsRequest {
  *             Result structure for the list Domain Association request.
  *         </p>
  */
-export interface ListDomainAssociationsResult extends $MetadataBearer {
+export interface ListDomainAssociationsResult {
   __type?: "ListDomainAssociationsResult";
   /**
    * <p>
@@ -2458,7 +2458,7 @@ export namespace ListJobsRequest {
  *             Maximum number of records to list in a single response.
  *         </p>
  */
-export interface ListJobsResult extends $MetadataBearer {
+export interface ListJobsResult {
   __type?: "ListJobsResult";
   /**
    * <p>
@@ -2508,7 +2508,7 @@ export namespace ListTagsForResourceRequest {
  *             Response for list tags.
  *         </p>
  */
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>
@@ -2566,7 +2566,7 @@ export namespace ListWebhooksRequest {
  *             Result structure for the list webhooks request.
  *         </p>
  */
-export interface ListWebhooksResult extends $MetadataBearer {
+export interface ListWebhooksResult {
   __type?: "ListWebhooksResult";
   /**
    * <p>
@@ -2729,7 +2729,7 @@ export namespace StartDeploymentRequest {
  *             Result structure for start a deployment.
  *         </p>
  */
-export interface StartDeploymentResult extends $MetadataBearer {
+export interface StartDeploymentResult {
   __type?: "StartDeploymentResult";
   /**
    * <p>
@@ -2822,7 +2822,7 @@ export namespace StartJobRequest {
  *             Result structure for run job request.
  *         </p>
  */
-export interface StartJobResult extends $MetadataBearer {
+export interface StartJobResult {
   __type?: "StartJobResult";
   /**
    * <p>
@@ -2969,7 +2969,7 @@ export namespace StopJobRequest {
  *             Result structure for the stop job request.
  *         </p>
  */
-export interface StopJobResult extends $MetadataBearer {
+export interface StopJobResult {
   __type?: "StopJobResult";
   /**
    * <p>
@@ -3081,7 +3081,7 @@ export namespace TagResourceRequest {
  *             Response for tag resource.
  *         </p>
  */
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -3143,7 +3143,7 @@ export namespace UntagResourceRequest {
  *             Response for untag resource.
  *         </p>
  */
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -3293,7 +3293,7 @@ export namespace UpdateAppRequest {
  *             Result structure for an Amplify App update request.
  *         </p>
  */
-export interface UpdateAppResult extends $MetadataBearer {
+export interface UpdateAppResult {
   __type?: "UpdateAppResult";
   /**
    * <p>
@@ -3440,7 +3440,7 @@ export namespace UpdateBranchRequest {
  *             Result structure for update branch request.
  *         </p>
  */
-export interface UpdateBranchResult extends $MetadataBearer {
+export interface UpdateBranchResult {
   __type?: "UpdateBranchResult";
   /**
    * <p>
@@ -3503,7 +3503,7 @@ export namespace UpdateDomainAssociationRequest {
  *             Result structure for the update Domain Association request.
  *         </p>
  */
-export interface UpdateDomainAssociationResult extends $MetadataBearer {
+export interface UpdateDomainAssociationResult {
   __type?: "UpdateDomainAssociationResult";
   /**
    * <p>
@@ -3559,7 +3559,7 @@ export namespace UpdateWebhookRequest {
  *             Result structure for the update webhook request.
  *         </p>
  */
-export interface UpdateWebhookResult extends $MetadataBearer {
+export interface UpdateWebhookResult {
   __type?: "UpdateWebhookResult";
   /**
    * <p>

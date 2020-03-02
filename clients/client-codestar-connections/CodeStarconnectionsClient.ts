@@ -1,13 +1,19 @@
 import {
-  CreateConnectionInput,
-  CreateConnectionOutput,
-  DeleteConnectionInput,
-  DeleteConnectionOutput,
-  GetConnectionInput,
-  GetConnectionOutput,
-  ListConnectionsInput,
-  ListConnectionsOutput
-} from "./models/index";
+  CreateConnectionCommandInput,
+  CreateConnectionCommandOutput
+} from "./commands/CreateConnectionCommand";
+import {
+  DeleteConnectionCommandInput,
+  DeleteConnectionCommandOutput
+} from "./commands/DeleteConnectionCommand";
+import {
+  GetConnectionCommandInput,
+  GetConnectionCommandOutput
+} from "./commands/GetConnectionCommand";
+import {
+  ListConnectionsCommandInput,
+  ListConnectionsCommandOutput
+} from "./commands/ListConnectionsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,16 +67,16 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateConnectionInput
-  | DeleteConnectionInput
-  | GetConnectionInput
-  | ListConnectionsInput;
+  | CreateConnectionCommandInput
+  | DeleteConnectionCommandInput
+  | GetConnectionCommandInput
+  | ListConnectionsCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateConnectionOutput
-  | DeleteConnectionOutput
-  | GetConnectionOutput
-  | ListConnectionsOutput;
+  | CreateConnectionCommandOutput
+  | DeleteConnectionCommandOutput
+  | GetConnectionCommandOutput
+  | ListConnectionsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

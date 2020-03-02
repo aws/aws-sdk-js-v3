@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EncryptCommandInput = EncryptRequest;
-export type EncryptCommandOutput = EncryptResponse;
+export type EncryptCommandOutput = EncryptResponse & __MetadataBearer;
 
 export class EncryptCommand extends $Command<
   EncryptCommandInput,

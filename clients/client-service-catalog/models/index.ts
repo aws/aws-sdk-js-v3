@@ -23,7 +23,7 @@ export namespace AssociateTagOptionWithResourceInput {
   }
 }
 
-export interface AssociateTagOptionWithResourceOutput extends $MetadataBearer {
+export interface AssociateTagOptionWithResourceOutput {
   __type?: "AssociateTagOptionWithResourceOutput";
 }
 
@@ -52,7 +52,7 @@ export namespace CreateTagOptionInput {
   }
 }
 
-export interface CreateTagOptionOutput extends $MetadataBearer {
+export interface CreateTagOptionOutput {
   __type?: "CreateTagOptionOutput";
   /**
    * <p>Information about the TagOption.</p>
@@ -80,7 +80,7 @@ export namespace DeleteTagOptionInput {
   }
 }
 
-export interface DeleteTagOptionOutput extends $MetadataBearer {
+export interface DeleteTagOptionOutput {
   __type?: "DeleteTagOptionOutput";
 }
 
@@ -104,7 +104,7 @@ export namespace DescribeTagOptionInput {
   }
 }
 
-export interface DescribeTagOptionOutput extends $MetadataBearer {
+export interface DescribeTagOptionOutput {
   __type?: "DescribeTagOptionOutput";
   /**
    * <p>Information about the TagOption.</p>
@@ -137,8 +137,7 @@ export namespace DisassociateTagOptionFromResourceInput {
   }
 }
 
-export interface DisassociateTagOptionFromResourceOutput
-  extends $MetadataBearer {
+export interface DisassociateTagOptionFromResourceOutput {
   __type?: "DisassociateTagOptionFromResourceOutput";
 }
 
@@ -189,7 +188,7 @@ export namespace ListResourcesForTagOptionInput {
   }
 }
 
-export interface ListResourcesForTagOptionOutput extends $MetadataBearer {
+export interface ListResourcesForTagOptionOutput {
   __type?: "ListResourcesForTagOptionOutput";
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
@@ -259,7 +258,7 @@ export namespace ListTagOptionsInput {
   }
 }
 
-export interface ListTagOptionsOutput extends $MetadataBearer {
+export interface ListTagOptionsOutput {
   __type?: "ListTagOptionsOutput";
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
@@ -371,7 +370,7 @@ export namespace UpdateTagOptionInput {
   }
 }
 
-export interface UpdateTagOptionOutput extends $MetadataBearer {
+export interface UpdateTagOptionOutput {
   __type?: "UpdateTagOptionOutput";
   /**
    * <p>Information about the TagOption.</p>
@@ -439,7 +438,7 @@ export namespace AcceptPortfolioShareInput {
   }
 }
 
-export interface AcceptPortfolioShareOutput extends $MetadataBearer {
+export interface AcceptPortfolioShareOutput {
   __type?: "AcceptPortfolioShareOutput";
 }
 
@@ -516,7 +515,7 @@ export namespace AssociateBudgetWithResourceInput {
   }
 }
 
-export interface AssociateBudgetWithResourceOutput extends $MetadataBearer {
+export interface AssociateBudgetWithResourceOutput {
   __type?: "AssociateBudgetWithResourceOutput";
 }
 
@@ -569,7 +568,7 @@ export namespace AssociatePrincipalWithPortfolioInput {
   }
 }
 
-export interface AssociatePrincipalWithPortfolioOutput extends $MetadataBearer {
+export interface AssociatePrincipalWithPortfolioOutput {
   __type?: "AssociatePrincipalWithPortfolioOutput";
 }
 
@@ -622,7 +621,7 @@ export namespace AssociateProductWithPortfolioInput {
   }
 }
 
-export interface AssociateProductWithPortfolioOutput extends $MetadataBearer {
+export interface AssociateProductWithPortfolioOutput {
   __type?: "AssociateProductWithPortfolioOutput";
 }
 
@@ -677,8 +676,7 @@ export namespace AssociateServiceActionWithProvisioningArtifactInput {
   }
 }
 
-export interface AssociateServiceActionWithProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface AssociateServiceActionWithProvisioningArtifactOutput {
   __type?: "AssociateServiceActionWithProvisioningArtifactOutput";
 }
 
@@ -725,8 +723,7 @@ export namespace BatchAssociateServiceActionWithProvisioningArtifactInput {
   }
 }
 
-export interface BatchAssociateServiceActionWithProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
   __type?: "BatchAssociateServiceActionWithProvisioningArtifactOutput";
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
@@ -783,8 +780,7 @@ export namespace BatchDisassociateServiceActionFromProvisioningArtifactInput {
   }
 }
 
-export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   __type?: "BatchDisassociateServiceActionFromProvisioningArtifactOutput";
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
@@ -1002,7 +998,7 @@ export namespace CopyProductInput {
   }
 }
 
-export interface CopyProductOutput extends $MetadataBearer {
+export interface CopyProductOutput {
   __type?: "CopyProductOutput";
   /**
    * <p>The token to use to track the progress of the operation.</p>
@@ -1149,7 +1145,7 @@ export namespace CreateConstraintInput {
   }
 }
 
-export interface CreateConstraintOutput extends $MetadataBearer {
+export interface CreateConstraintOutput {
   __type?: "CreateConstraintOutput";
   /**
    * <p>Information about the constraint.</p>
@@ -1227,7 +1223,7 @@ export namespace CreatePortfolioInput {
   }
 }
 
-export interface CreatePortfolioOutput extends $MetadataBearer {
+export interface CreatePortfolioOutput {
   __type?: "CreatePortfolioOutput";
   /**
    * <p>Information about the portfolio.</p>
@@ -1289,7 +1285,7 @@ export namespace CreatePortfolioShareInput {
   }
 }
 
-export interface CreatePortfolioShareOutput extends $MetadataBearer {
+export interface CreatePortfolioShareOutput {
   __type?: "CreatePortfolioShareOutput";
   /**
    * <p>The portfolio share unique identifier. This will only be returned if portfolio is shared to an organization node.</p>
@@ -1387,7 +1383,7 @@ export namespace CreateProductInput {
   }
 }
 
-export interface CreateProductOutput extends $MetadataBearer {
+export interface CreateProductOutput {
   __type?: "CreateProductOutput";
   /**
    * <p>Information about the product view.</p>
@@ -1496,7 +1492,7 @@ export namespace CreateProvisionedProductPlanInput {
   }
 }
 
-export interface CreateProvisionedProductPlanOutput extends $MetadataBearer {
+export interface CreateProvisionedProductPlanOutput {
   __type?: "CreateProvisionedProductPlanOutput";
   /**
    * <p>The plan identifier.</p>
@@ -1574,7 +1570,7 @@ export namespace CreateProvisioningArtifactInput {
   }
 }
 
-export interface CreateProvisioningArtifactOutput extends $MetadataBearer {
+export interface CreateProvisioningArtifactOutput {
   __type?: "CreateProvisioningArtifactOutput";
   /**
    * <p>The URL of the CloudFormation template in Amazon S3, in JSON format.</p>
@@ -1673,7 +1669,7 @@ export namespace CreateServiceActionInput {
   }
 }
 
-export interface CreateServiceActionOutput extends $MetadataBearer {
+export interface CreateServiceActionOutput {
   __type?: "CreateServiceActionOutput";
   /**
    * <p>An object containing information about the self-service action.</p>
@@ -1720,7 +1716,7 @@ export namespace DeleteConstraintInput {
   }
 }
 
-export interface DeleteConstraintOutput extends $MetadataBearer {
+export interface DeleteConstraintOutput {
   __type?: "DeleteConstraintOutput";
 }
 
@@ -1763,7 +1759,7 @@ export namespace DeletePortfolioInput {
   }
 }
 
-export interface DeletePortfolioOutput extends $MetadataBearer {
+export interface DeletePortfolioOutput {
   __type?: "DeletePortfolioOutput";
 }
 
@@ -1816,7 +1812,7 @@ export namespace DeletePortfolioShareInput {
   }
 }
 
-export interface DeletePortfolioShareOutput extends $MetadataBearer {
+export interface DeletePortfolioShareOutput {
   __type?: "DeletePortfolioShareOutput";
   /**
    * <p>The portfolio share unique identifier. This will only be returned if delete is made to an organization node.</p>
@@ -1863,7 +1859,7 @@ export namespace DeleteProductInput {
   }
 }
 
-export interface DeleteProductOutput extends $MetadataBearer {
+export interface DeleteProductOutput {
   __type?: "DeleteProductOutput";
 }
 
@@ -1912,7 +1908,7 @@ export namespace DeleteProvisionedProductPlanInput {
   }
 }
 
-export interface DeleteProvisionedProductPlanOutput extends $MetadataBearer {
+export interface DeleteProvisionedProductPlanOutput {
   __type?: "DeleteProvisionedProductPlanOutput";
 }
 
@@ -1960,7 +1956,7 @@ export namespace DeleteProvisioningArtifactInput {
   }
 }
 
-export interface DeleteProvisioningArtifactOutput extends $MetadataBearer {
+export interface DeleteProvisioningArtifactOutput {
   __type?: "DeleteProvisioningArtifactOutput";
 }
 
@@ -2003,7 +1999,7 @@ export namespace DeleteServiceActionInput {
   }
 }
 
-export interface DeleteServiceActionOutput extends $MetadataBearer {
+export interface DeleteServiceActionOutput {
   __type?: "DeleteServiceActionOutput";
 }
 
@@ -2046,7 +2042,7 @@ export namespace DescribeConstraintInput {
   }
 }
 
-export interface DescribeConstraintOutput extends $MetadataBearer {
+export interface DescribeConstraintOutput {
   __type?: "DescribeConstraintOutput";
   /**
    * <p>Information about the constraint.</p>
@@ -2103,7 +2099,7 @@ export namespace DescribeCopyProductStatusInput {
   }
 }
 
-export interface DescribeCopyProductStatusOutput extends $MetadataBearer {
+export interface DescribeCopyProductStatusOutput {
   __type?: "DescribeCopyProductStatusOutput";
   /**
    * <p>The status of the copy product operation.</p>
@@ -2160,7 +2156,7 @@ export namespace DescribePortfolioInput {
   }
 }
 
-export interface DescribePortfolioOutput extends $MetadataBearer {
+export interface DescribePortfolioOutput {
   __type?: "DescribePortfolioOutput";
   /**
    * <p>Information about the associated budgets.</p>
@@ -2203,7 +2199,7 @@ export namespace DescribePortfolioShareStatusInput {
   }
 }
 
-export interface DescribePortfolioShareStatusOutput extends $MetadataBearer {
+export interface DescribePortfolioShareStatusOutput {
   __type?: "DescribePortfolioShareStatusOutput";
   /**
    * <p>Organization node identifier. It can be either account id, organizational unit id or organization id.</p>
@@ -2270,7 +2266,7 @@ export namespace DescribeProductAsAdminInput {
   }
 }
 
-export interface DescribeProductAsAdminOutput extends $MetadataBearer {
+export interface DescribeProductAsAdminOutput {
   __type?: "DescribeProductAsAdminOutput";
   /**
    * <p>Information about the associated budgets.</p>
@@ -2337,7 +2333,7 @@ export namespace DescribeProductInput {
   }
 }
 
-export interface DescribeProductOutput extends $MetadataBearer {
+export interface DescribeProductOutput {
   __type?: "DescribeProductOutput";
   /**
    * <p>Information about the associated budgets.</p>
@@ -2394,7 +2390,7 @@ export namespace DescribeProductViewInput {
   }
 }
 
-export interface DescribeProductViewOutput extends $MetadataBearer {
+export interface DescribeProductViewOutput {
   __type?: "DescribeProductViewOutput";
   /**
    * <p>Summary information about the product.</p>
@@ -2446,7 +2442,7 @@ export namespace DescribeProvisionedProductInput {
   }
 }
 
-export interface DescribeProvisionedProductOutput extends $MetadataBearer {
+export interface DescribeProvisionedProductOutput {
   __type?: "DescribeProvisionedProductOutput";
   /**
    * <p>Any CloudWatch dashboards that were created when provisioning the product.</p>
@@ -2508,7 +2504,7 @@ export namespace DescribeProvisionedProductPlanInput {
   }
 }
 
-export interface DescribeProvisionedProductPlanOutput extends $MetadataBearer {
+export interface DescribeProvisionedProductPlanOutput {
   __type?: "DescribeProvisionedProductPlanOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -2575,7 +2571,7 @@ export namespace DescribeProvisioningArtifactInput {
   }
 }
 
-export interface DescribeProvisioningArtifactOutput extends $MetadataBearer {
+export interface DescribeProvisioningArtifactOutput {
   __type?: "DescribeProvisioningArtifactOutput";
   /**
    * <p>The URL of the CloudFormation template in Amazon S3.</p>
@@ -2644,7 +2640,7 @@ export namespace DescribeProvisioningParametersInput {
   }
 }
 
-export interface DescribeProvisioningParametersOutput extends $MetadataBearer {
+export interface DescribeProvisioningParametersOutput {
   __type?: "DescribeProvisioningParametersOutput";
   /**
    * <p>Information about the constraints used to provision the product.</p>
@@ -2723,7 +2719,7 @@ export namespace DescribeRecordInput {
   }
 }
 
-export interface DescribeRecordOutput extends $MetadataBearer {
+export interface DescribeRecordOutput {
   __type?: "DescribeRecordOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -2763,8 +2759,7 @@ export namespace DescribeServiceActionExecutionParametersInput {
   }
 }
 
-export interface DescribeServiceActionExecutionParametersOutput
-  extends $MetadataBearer {
+export interface DescribeServiceActionExecutionParametersOutput {
   __type?: "DescribeServiceActionExecutionParametersOutput";
   ServiceActionParameters?: Array<ExecutionParameter>;
 }
@@ -2810,7 +2805,7 @@ export namespace DescribeServiceActionInput {
   }
 }
 
-export interface DescribeServiceActionOutput extends $MetadataBearer {
+export interface DescribeServiceActionOutput {
   __type?: "DescribeServiceActionOutput";
   /**
    * <p>Detailed information about the self-service action.</p>
@@ -2834,7 +2829,7 @@ export namespace DisableAWSOrganizationsAccessInput {
   }
 }
 
-export interface DisableAWSOrganizationsAccessOutput extends $MetadataBearer {
+export interface DisableAWSOrganizationsAccessOutput {
   __type?: "DisableAWSOrganizationsAccessOutput";
 }
 
@@ -2863,7 +2858,7 @@ export namespace DisassociateBudgetFromResourceInput {
   }
 }
 
-export interface DisassociateBudgetFromResourceOutput extends $MetadataBearer {
+export interface DisassociateBudgetFromResourceOutput {
   __type?: "DisassociateBudgetFromResourceOutput";
 }
 
@@ -2911,8 +2906,7 @@ export namespace DisassociatePrincipalFromPortfolioInput {
   }
 }
 
-export interface DisassociatePrincipalFromPortfolioOutput
-  extends $MetadataBearer {
+export interface DisassociatePrincipalFromPortfolioOutput {
   __type?: "DisassociatePrincipalFromPortfolioOutput";
 }
 
@@ -2960,8 +2954,7 @@ export namespace DisassociateProductFromPortfolioInput {
   }
 }
 
-export interface DisassociateProductFromPortfolioOutput
-  extends $MetadataBearer {
+export interface DisassociateProductFromPortfolioOutput {
   __type?: "DisassociateProductFromPortfolioOutput";
 }
 
@@ -3016,8 +3009,7 @@ export namespace DisassociateServiceActionFromProvisioningArtifactInput {
   }
 }
 
-export interface DisassociateServiceActionFromProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface DisassociateServiceActionFromProvisioningArtifactOutput {
   __type?: "DisassociateServiceActionFromProvisioningArtifactOutput";
 }
 
@@ -3056,7 +3048,7 @@ export namespace EnableAWSOrganizationsAccessInput {
   }
 }
 
-export interface EnableAWSOrganizationsAccessOutput extends $MetadataBearer {
+export interface EnableAWSOrganizationsAccessOutput {
   __type?: "EnableAWSOrganizationsAccessOutput";
 }
 
@@ -3110,7 +3102,7 @@ export namespace ExecuteProvisionedProductPlanInput {
   }
 }
 
-export interface ExecuteProvisionedProductPlanOutput extends $MetadataBearer {
+export interface ExecuteProvisionedProductPlanOutput {
   __type?: "ExecuteProvisionedProductPlanOutput";
   /**
    * <p>Information about the result of provisioning the product.</p>
@@ -3170,8 +3162,7 @@ export namespace ExecuteProvisionedProductServiceActionInput {
   }
 }
 
-export interface ExecuteProvisionedProductServiceActionOutput
-  extends $MetadataBearer {
+export interface ExecuteProvisionedProductServiceActionOutput {
   __type?: "ExecuteProvisionedProductServiceActionOutput";
   /**
    * <p>An object containing detailed information about the result of provisioning the product.</p>
@@ -3247,7 +3238,7 @@ export namespace GetAWSOrganizationsAccessStatusInput {
   }
 }
 
-export interface GetAWSOrganizationsAccessStatusOutput extends $MetadataBearer {
+export interface GetAWSOrganizationsAccessStatusOutput {
   __type?: "GetAWSOrganizationsAccessStatusOutput";
   /**
    * <p>The status of the portfolio share feature.</p>
@@ -3403,7 +3394,7 @@ export namespace ListAcceptedPortfolioSharesInput {
   }
 }
 
-export interface ListAcceptedPortfolioSharesOutput extends $MetadataBearer {
+export interface ListAcceptedPortfolioSharesOutput {
   __type?: "ListAcceptedPortfolioSharesOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -3465,7 +3456,7 @@ export namespace ListBudgetsForResourceInput {
   }
 }
 
-export interface ListBudgetsForResourceOutput extends $MetadataBearer {
+export interface ListBudgetsForResourceOutput {
   __type?: "ListBudgetsForResourceOutput";
   /**
    * <p>Information about the associated budgets.</p>
@@ -3532,7 +3523,7 @@ export namespace ListConstraintsForPortfolioInput {
   }
 }
 
-export interface ListConstraintsForPortfolioOutput extends $MetadataBearer {
+export interface ListConstraintsForPortfolioOutput {
   __type?: "ListConstraintsForPortfolioOutput";
   /**
    * <p>Information about the constraints.</p>
@@ -3594,7 +3585,7 @@ export namespace ListLaunchPathsInput {
   }
 }
 
-export interface ListLaunchPathsOutput extends $MetadataBearer {
+export interface ListLaunchPathsOutput {
   __type?: "ListLaunchPathsOutput";
   /**
    * <p>Information about the launch path.</p>
@@ -3675,7 +3666,7 @@ export namespace ListOrganizationPortfolioAccessInput {
   }
 }
 
-export interface ListOrganizationPortfolioAccessOutput extends $MetadataBearer {
+export interface ListOrganizationPortfolioAccessOutput {
   __type?: "ListOrganizationPortfolioAccessOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -3727,7 +3718,7 @@ export namespace ListPortfolioAccessInput {
   }
 }
 
-export interface ListPortfolioAccessOutput extends $MetadataBearer {
+export interface ListPortfolioAccessOutput {
   __type?: "ListPortfolioAccessOutput";
   /**
    * <p>Information about the AWS accounts with access to the portfolio.</p>
@@ -3789,7 +3780,7 @@ export namespace ListPortfoliosForProductInput {
   }
 }
 
-export interface ListPortfoliosForProductOutput extends $MetadataBearer {
+export interface ListPortfoliosForProductOutput {
   __type?: "ListPortfoliosForProductOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -3846,7 +3837,7 @@ export namespace ListPortfoliosInput {
   }
 }
 
-export interface ListPortfoliosOutput extends $MetadataBearer {
+export interface ListPortfoliosOutput {
   __type?: "ListPortfoliosOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -3908,7 +3899,7 @@ export namespace ListPrincipalsForPortfolioInput {
   }
 }
 
-export interface ListPrincipalsForPortfolioOutput extends $MetadataBearer {
+export interface ListPrincipalsForPortfolioOutput {
   __type?: "ListPrincipalsForPortfolioOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -3975,7 +3966,7 @@ export namespace ListProvisionedProductPlansInput {
   }
 }
 
-export interface ListProvisionedProductPlansOutput extends $MetadataBearer {
+export interface ListProvisionedProductPlansOutput {
   __type?: "ListProvisionedProductPlansOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -4039,8 +4030,7 @@ export namespace ListProvisioningArtifactsForServiceActionInput {
   }
 }
 
-export interface ListProvisioningArtifactsForServiceActionOutput
-  extends $MetadataBearer {
+export interface ListProvisioningArtifactsForServiceActionOutput {
   __type?: "ListProvisioningArtifactsForServiceActionOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -4094,7 +4084,7 @@ export namespace ListProvisioningArtifactsInput {
   }
 }
 
-export interface ListProvisioningArtifactsOutput extends $MetadataBearer {
+export interface ListProvisioningArtifactsOutput {
   __type?: "ListProvisioningArtifactsOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -4161,7 +4151,7 @@ export namespace ListRecordHistoryInput {
   }
 }
 
-export interface ListRecordHistoryOutput extends $MetadataBearer {
+export interface ListRecordHistoryOutput {
   __type?: "ListRecordHistoryOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -4262,8 +4252,7 @@ export namespace ListServiceActionsForProvisioningArtifactInput {
   }
 }
 
-export interface ListServiceActionsForProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface ListServiceActionsForProvisioningArtifactOutput {
   __type?: "ListServiceActionsForProvisioningArtifactOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -4322,7 +4311,7 @@ export namespace ListServiceActionsInput {
   }
 }
 
-export interface ListServiceActionsOutput extends $MetadataBearer {
+export interface ListServiceActionsOutput {
   __type?: "ListServiceActionsOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -4386,8 +4375,7 @@ export namespace ListStackInstancesForProvisionedProductInput {
   }
 }
 
-export interface ListStackInstancesForProvisionedProductOutput
-  extends $MetadataBearer {
+export interface ListStackInstancesForProvisionedProductOutput {
   __type?: "ListStackInstancesForProvisionedProductOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -4792,7 +4780,7 @@ export namespace ProvisionProductInput {
   }
 }
 
-export interface ProvisionProductOutput extends $MetadataBearer {
+export interface ProvisionProductOutput {
   __type?: "ProvisionProductOutput";
   /**
    * <p>Information about the result of provisioning the product.</p>
@@ -5805,7 +5793,7 @@ export namespace RejectPortfolioShareInput {
   }
 }
 
-export interface RejectPortfolioShareOutput extends $MetadataBearer {
+export interface RejectPortfolioShareOutput {
   __type?: "RejectPortfolioShareOutput";
 }
 
@@ -6018,7 +6006,7 @@ export namespace ScanProvisionedProductsInput {
   }
 }
 
-export interface ScanProvisionedProductsOutput extends $MetadataBearer {
+export interface ScanProvisionedProductsOutput {
   __type?: "ScanProvisionedProductsOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -6101,7 +6089,7 @@ export namespace SearchProductsAsAdminInput {
   }
 }
 
-export interface SearchProductsAsAdminOutput extends $MetadataBearer {
+export interface SearchProductsAsAdminOutput {
   __type?: "SearchProductsAsAdminOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -6174,7 +6162,7 @@ export namespace SearchProductsInput {
   }
 }
 
-export interface SearchProductsOutput extends $MetadataBearer {
+export interface SearchProductsOutput {
   __type?: "SearchProductsOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -6266,7 +6254,7 @@ export namespace SearchProvisionedProductsInput {
   }
 }
 
-export interface SearchProvisionedProductsOutput extends $MetadataBearer {
+export interface SearchProvisionedProductsOutput {
   __type?: "SearchProvisionedProductsOutput";
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -6627,7 +6615,7 @@ export namespace TerminateProvisionedProductInput {
   }
 }
 
-export interface TerminateProvisionedProductOutput extends $MetadataBearer {
+export interface TerminateProvisionedProductOutput {
   __type?: "TerminateProvisionedProductOutput";
   /**
    * <p>Information about the result of this request.</p>
@@ -6725,7 +6713,7 @@ export namespace UpdateConstraintInput {
   }
 }
 
-export interface UpdateConstraintOutput extends $MetadataBearer {
+export interface UpdateConstraintOutput {
   __type?: "UpdateConstraintOutput";
   /**
    * <p>Information about the constraint.</p>
@@ -6807,7 +6795,7 @@ export namespace UpdatePortfolioInput {
   }
 }
 
-export interface UpdatePortfolioOutput extends $MetadataBearer {
+export interface UpdatePortfolioOutput {
   __type?: "UpdatePortfolioOutput";
   /**
    * <p>Information about the portfolio.</p>
@@ -6904,7 +6892,7 @@ export namespace UpdateProductInput {
   }
 }
 
-export interface UpdateProductOutput extends $MetadataBearer {
+export interface UpdateProductOutput {
   __type?: "UpdateProductOutput";
   /**
    * <p>Information about the product view.</p>
@@ -6999,7 +6987,7 @@ export namespace UpdateProvisionedProductInput {
   }
 }
 
-export interface UpdateProvisionedProductOutput extends $MetadataBearer {
+export interface UpdateProvisionedProductOutput {
   __type?: "UpdateProvisionedProductOutput";
   /**
    * <p>Information about the result of the request.</p>
@@ -7066,8 +7054,7 @@ export namespace UpdateProvisionedProductPropertiesInput {
   }
 }
 
-export interface UpdateProvisionedProductPropertiesOutput
-  extends $MetadataBearer {
+export interface UpdateProvisionedProductPropertiesOutput {
   __type?: "UpdateProvisionedProductPropertiesOutput";
   /**
    * <p>The provisioned product identifier.</p>
@@ -7158,7 +7145,7 @@ export namespace UpdateProvisioningArtifactInput {
   }
 }
 
-export interface UpdateProvisioningArtifactOutput extends $MetadataBearer {
+export interface UpdateProvisioningArtifactOutput {
   __type?: "UpdateProvisioningArtifactOutput";
   /**
    * <p>The URL of the CloudFormation template in Amazon S3.</p>
@@ -7338,7 +7325,7 @@ export namespace UpdateServiceActionInput {
   }
 }
 
-export interface UpdateServiceActionOutput extends $MetadataBearer {
+export interface UpdateServiceActionOutput {
   __type?: "UpdateServiceActionOutput";
   /**
    * <p>Detailed information about the self-service action.</p>

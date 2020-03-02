@@ -24,11 +24,13 @@ import {
   MiddlewareStack,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartStreamTranscriptionCommandInput = StartStreamTranscriptionRequest;
-export type StartStreamTranscriptionCommandOutput = StartStreamTranscriptionResponse;
+export type StartStreamTranscriptionCommandOutput = StartStreamTranscriptionResponse &
+  __MetadataBearer;
 
 export class StartStreamTranscriptionCommand extends $Command<
   StartStreamTranscriptionCommandInput,

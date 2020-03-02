@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type FailoverDBClusterCommandInput = FailoverDBClusterMessage;
-export type FailoverDBClusterCommandOutput = FailoverDBClusterResult;
+export type FailoverDBClusterCommandOutput = FailoverDBClusterResult &
+  __MetadataBearer;
 
 export class FailoverDBClusterCommand extends $Command<
   FailoverDBClusterCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDetectDominantLanguageCommandInput = BatchDetectDominantLanguageRequest;
-export type BatchDetectDominantLanguageCommandOutput = BatchDetectDominantLanguageResponse;
+export type BatchDetectDominantLanguageCommandOutput = BatchDetectDominantLanguageResponse &
+  __MetadataBearer;
 
 export class BatchDetectDominantLanguageCommand extends $Command<
   BatchDetectDominantLanguageCommandInput,

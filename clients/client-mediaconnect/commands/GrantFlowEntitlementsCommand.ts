@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GrantFlowEntitlementsCommandInput = GrantFlowEntitlementsRequest;
-export type GrantFlowEntitlementsCommandOutput = GrantFlowEntitlementsResponse;
+export type GrantFlowEntitlementsCommandOutput = GrantFlowEntitlementsResponse &
+  __MetadataBearer;
 
 export class GrantFlowEntitlementsCommand extends $Command<
   GrantFlowEntitlementsCommandInput,

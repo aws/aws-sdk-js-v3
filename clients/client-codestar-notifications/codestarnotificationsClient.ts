@@ -1,31 +1,55 @@
 import {
-  CreateNotificationRuleRequest,
-  CreateNotificationRuleResult,
-  DeleteNotificationRuleRequest,
-  DeleteNotificationRuleResult,
-  DeleteTargetRequest,
-  DeleteTargetResult,
-  DescribeNotificationRuleRequest,
-  DescribeNotificationRuleResult,
-  ListEventTypesRequest,
-  ListEventTypesResult,
-  ListNotificationRulesRequest,
-  ListNotificationRulesResult,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResult,
-  ListTargetsRequest,
-  ListTargetsResult,
-  SubscribeRequest,
-  SubscribeResult,
-  TagResourceRequest,
-  TagResourceResult,
-  UnsubscribeRequest,
-  UnsubscribeResult,
-  UntagResourceRequest,
-  UntagResourceResult,
-  UpdateNotificationRuleRequest,
-  UpdateNotificationRuleResult
-} from "./models/index";
+  CreateNotificationRuleCommandInput,
+  CreateNotificationRuleCommandOutput
+} from "./commands/CreateNotificationRuleCommand";
+import {
+  DeleteNotificationRuleCommandInput,
+  DeleteNotificationRuleCommandOutput
+} from "./commands/DeleteNotificationRuleCommand";
+import {
+  DeleteTargetCommandInput,
+  DeleteTargetCommandOutput
+} from "./commands/DeleteTargetCommand";
+import {
+  DescribeNotificationRuleCommandInput,
+  DescribeNotificationRuleCommandOutput
+} from "./commands/DescribeNotificationRuleCommand";
+import {
+  ListEventTypesCommandInput,
+  ListEventTypesCommandOutput
+} from "./commands/ListEventTypesCommand";
+import {
+  ListNotificationRulesCommandInput,
+  ListNotificationRulesCommandOutput
+} from "./commands/ListNotificationRulesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTargetsCommandInput,
+  ListTargetsCommandOutput
+} from "./commands/ListTargetsCommand";
+import {
+  SubscribeCommandInput,
+  SubscribeCommandOutput
+} from "./commands/SubscribeCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UnsubscribeCommandInput,
+  UnsubscribeCommandOutput
+} from "./commands/UnsubscribeCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateNotificationRuleCommandInput,
+  UpdateNotificationRuleCommandOutput
+} from "./commands/UpdateNotificationRuleCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -79,34 +103,34 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateNotificationRuleRequest
-  | DeleteNotificationRuleRequest
-  | DeleteTargetRequest
-  | DescribeNotificationRuleRequest
-  | ListEventTypesRequest
-  | ListNotificationRulesRequest
-  | ListTagsForResourceRequest
-  | ListTargetsRequest
-  | SubscribeRequest
-  | TagResourceRequest
-  | UnsubscribeRequest
-  | UntagResourceRequest
-  | UpdateNotificationRuleRequest;
+  | CreateNotificationRuleCommandInput
+  | DeleteNotificationRuleCommandInput
+  | DeleteTargetCommandInput
+  | DescribeNotificationRuleCommandInput
+  | ListEventTypesCommandInput
+  | ListNotificationRulesCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTargetsCommandInput
+  | SubscribeCommandInput
+  | TagResourceCommandInput
+  | UnsubscribeCommandInput
+  | UntagResourceCommandInput
+  | UpdateNotificationRuleCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateNotificationRuleResult
-  | DeleteNotificationRuleResult
-  | DeleteTargetResult
-  | DescribeNotificationRuleResult
-  | ListEventTypesResult
-  | ListNotificationRulesResult
-  | ListTagsForResourceResult
-  | ListTargetsResult
-  | SubscribeResult
-  | TagResourceResult
-  | UnsubscribeResult
-  | UntagResourceResult
-  | UpdateNotificationRuleResult;
+  | CreateNotificationRuleCommandOutput
+  | DeleteNotificationRuleCommandOutput
+  | DeleteTargetCommandOutput
+  | DescribeNotificationRuleCommandOutput
+  | ListEventTypesCommandOutput
+  | ListNotificationRulesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTargetsCommandOutput
+  | SubscribeCommandOutput
+  | TagResourceCommandOutput
+  | UnsubscribeCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateNotificationRuleCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

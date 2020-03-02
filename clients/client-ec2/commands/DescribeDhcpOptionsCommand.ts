@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDhcpOptionsCommandInput = DescribeDhcpOptionsRequest;
-export type DescribeDhcpOptionsCommandOutput = DescribeDhcpOptionsResult;
+export type DescribeDhcpOptionsCommandOutput = DescribeDhcpOptionsResult &
+  __MetadataBearer;
 
 export class DescribeDhcpOptionsCommand extends $Command<
   DescribeDhcpOptionsCommandInput,

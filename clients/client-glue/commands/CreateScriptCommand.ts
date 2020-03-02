@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateScriptCommandInput = CreateScriptRequest;
-export type CreateScriptCommandOutput = CreateScriptResponse;
+export type CreateScriptCommandOutput = CreateScriptResponse & __MetadataBearer;
 
 export class CreateScriptCommand extends $Command<
   CreateScriptCommandInput,

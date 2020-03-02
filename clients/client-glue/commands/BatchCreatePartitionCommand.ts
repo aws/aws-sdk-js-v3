@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchCreatePartitionCommandInput = BatchCreatePartitionRequest;
-export type BatchCreatePartitionCommandOutput = BatchCreatePartitionResponse;
+export type BatchCreatePartitionCommandOutput = BatchCreatePartitionResponse &
+  __MetadataBearer;
 
 export class BatchCreatePartitionCommand extends $Command<
   BatchCreatePartitionCommandInput,

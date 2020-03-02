@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLocationEfsCommandInput = DescribeLocationEfsRequest;
-export type DescribeLocationEfsCommandOutput = DescribeLocationEfsResponse;
+export type DescribeLocationEfsCommandOutput = DescribeLocationEfsResponse &
+  __MetadataBearer;
 
 export class DescribeLocationEfsCommand extends $Command<
   DescribeLocationEfsCommandInput,

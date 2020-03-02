@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIdentityDkimAttributesCommandInput = GetIdentityDkimAttributesRequest;
-export type GetIdentityDkimAttributesCommandOutput = GetIdentityDkimAttributesResponse;
+export type GetIdentityDkimAttributesCommandOutput = GetIdentityDkimAttributesResponse &
+  __MetadataBearer;
 
 export class GetIdentityDkimAttributesCommand extends $Command<
   GetIdentityDkimAttributesCommandInput,

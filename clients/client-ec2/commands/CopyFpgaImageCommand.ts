@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyFpgaImageCommandInput = CopyFpgaImageRequest;
-export type CopyFpgaImageCommandOutput = CopyFpgaImageResult;
+export type CopyFpgaImageCommandOutput = CopyFpgaImageResult & __MetadataBearer;
 
 export class CopyFpgaImageCommand extends $Command<
   CopyFpgaImageCommandInput,

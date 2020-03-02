@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddIpRoutesCommandInput = AddIpRoutesRequest;
-export type AddIpRoutesCommandOutput = AddIpRoutesResult;
+export type AddIpRoutesCommandOutput = AddIpRoutesResult & __MetadataBearer;
 
 export class AddIpRoutesCommand extends $Command<
   AddIpRoutesCommandInput,

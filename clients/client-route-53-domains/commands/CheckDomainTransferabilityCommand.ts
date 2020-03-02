@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CheckDomainTransferabilityCommandInput = CheckDomainTransferabilityRequest;
-export type CheckDomainTransferabilityCommandOutput = CheckDomainTransferabilityResponse;
+export type CheckDomainTransferabilityCommandOutput = CheckDomainTransferabilityResponse &
+  __MetadataBearer;
 
 export class CheckDomainTransferabilityCommand extends $Command<
   CheckDomainTransferabilityCommandInput,

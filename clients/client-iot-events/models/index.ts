@@ -160,7 +160,7 @@ export namespace CreateDetectorModelRequest {
   }
 }
 
-export interface CreateDetectorModelResponse extends $MetadataBearer {
+export interface CreateDetectorModelResponse {
   __type?: "CreateDetectorModelResponse";
   /**
    * <p>Information about how the detector model is configured.</p>
@@ -203,7 +203,7 @@ export namespace CreateInputRequest {
   }
 }
 
-export interface CreateInputResponse extends $MetadataBearer {
+export interface CreateInputResponse {
   __type?: "CreateInputResponse";
   /**
    * <p>Information about the configuration of the input.</p>
@@ -231,7 +231,7 @@ export namespace DeleteDetectorModelRequest {
   }
 }
 
-export interface DeleteDetectorModelResponse extends $MetadataBearer {
+export interface DeleteDetectorModelResponse {
   __type?: "DeleteDetectorModelResponse";
 }
 
@@ -255,7 +255,7 @@ export namespace DeleteInputRequest {
   }
 }
 
-export interface DeleteInputResponse extends $MetadataBearer {
+export interface DeleteInputResponse {
   __type?: "DeleteInputResponse";
 }
 
@@ -284,7 +284,7 @@ export namespace DescribeDetectorModelRequest {
   }
 }
 
-export interface DescribeDetectorModelResponse extends $MetadataBearer {
+export interface DescribeDetectorModelResponse {
   __type?: "DescribeDetectorModelResponse";
   /**
    * <p>Information about the detector model.</p>
@@ -312,7 +312,7 @@ export namespace DescribeInputRequest {
   }
 }
 
-export interface DescribeInputResponse extends $MetadataBearer {
+export interface DescribeInputResponse {
   __type?: "DescribeInputResponse";
   /**
    * <p>Information about the input.</p>
@@ -336,7 +336,7 @@ export namespace DescribeLoggingOptionsRequest {
   }
 }
 
-export interface DescribeLoggingOptionsResponse extends $MetadataBearer {
+export interface DescribeLoggingOptionsResponse {
   __type?: "DescribeLoggingOptionsResponse";
   /**
    * <p>The current settings of the AWS IoT Events logging options.</p>
@@ -842,7 +842,7 @@ export namespace ListDetectorModelVersionsRequest {
   }
 }
 
-export interface ListDetectorModelVersionsResponse extends $MetadataBearer {
+export interface ListDetectorModelVersionsResponse {
   __type?: "ListDetectorModelVersionsResponse";
   /**
    * <p>Summary information about the detector model versions.</p>
@@ -881,7 +881,7 @@ export namespace ListDetectorModelsRequest {
   }
 }
 
-export interface ListDetectorModelsResponse extends $MetadataBearer {
+export interface ListDetectorModelsResponse {
   __type?: "ListDetectorModelsResponse";
   /**
    * <p>Summary information about the detector models.</p>
@@ -920,7 +920,7 @@ export namespace ListInputsRequest {
   }
 }
 
-export interface ListInputsResponse extends $MetadataBearer {
+export interface ListInputsResponse {
   __type?: "ListInputsResponse";
   /**
    * <p>Summary information about the inputs.</p>
@@ -954,7 +954,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of tags assigned to the resource.</p>
@@ -1260,7 +1260,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1323,7 +1323,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1368,7 +1368,7 @@ export namespace UpdateDetectorModelRequest {
   }
 }
 
-export interface UpdateDetectorModelResponse extends $MetadataBearer {
+export interface UpdateDetectorModelResponse {
   __type?: "UpdateDetectorModelResponse";
   /**
    * <p>Information about how the detector model is configured.</p>
@@ -1406,7 +1406,7 @@ export namespace UpdateInputRequest {
   }
 }
 
-export interface UpdateInputResponse extends $MetadataBearer {
+export interface UpdateInputResponse {
   __type?: "UpdateInputResponse";
   /**
    * <p>Information about the configuration of the input.</p>

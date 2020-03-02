@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetImageCommandInput = GetImageRequest;
-export type GetImageCommandOutput = GetImageResponse;
+export type GetImageCommandOutput = GetImageResponse & __MetadataBearer;
 
 export class GetImageCommand extends $Command<
   GetImageCommandInput,

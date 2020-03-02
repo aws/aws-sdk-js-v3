@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInsightRulesCommandInput = DeleteInsightRulesInput;
-export type DeleteInsightRulesCommandOutput = DeleteInsightRulesOutput;
+export type DeleteInsightRulesCommandOutput = DeleteInsightRulesOutput &
+  __MetadataBearer;
 
 export class DeleteInsightRulesCommand extends $Command<
   DeleteInsightRulesCommandInput,

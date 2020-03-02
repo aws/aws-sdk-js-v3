@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RetrieveEnvironmentInfoCommandInput = RetrieveEnvironmentInfoMessage;
-export type RetrieveEnvironmentInfoCommandOutput = RetrieveEnvironmentInfoResultMessage;
+export type RetrieveEnvironmentInfoCommandOutput = RetrieveEnvironmentInfoResultMessage &
+  __MetadataBearer;
 
 export class RetrieveEnvironmentInfoCommand extends $Command<
   RetrieveEnvironmentInfoCommandInput,

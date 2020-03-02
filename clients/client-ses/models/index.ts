@@ -470,7 +470,7 @@ export namespace CloneReceiptRuleSetRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CloneReceiptRuleSetResponse extends $MetadataBearer {
+export interface CloneReceiptRuleSetResponse {
   __type?: "CloneReceiptRuleSetResponse";
 }
 
@@ -719,8 +719,7 @@ export namespace CreateConfigurationSetEventDestinationRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface CreateConfigurationSetEventDestinationResponse {
   __type?: "CreateConfigurationSetEventDestinationResponse";
 }
 
@@ -755,7 +754,7 @@ export namespace CreateConfigurationSetRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateConfigurationSetResponse extends $MetadataBearer {
+export interface CreateConfigurationSetResponse {
   __type?: "CreateConfigurationSetResponse";
 }
 
@@ -798,8 +797,7 @@ export namespace CreateConfigurationSetTrackingOptionsRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateConfigurationSetTrackingOptionsResponse
-  extends $MetadataBearer {
+export interface CreateConfigurationSetTrackingOptionsResponse {
   __type?: "CreateConfigurationSetTrackingOptionsResponse";
 }
 
@@ -882,7 +880,7 @@ export namespace CreateReceiptFilterRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateReceiptFilterResponse extends $MetadataBearer {
+export interface CreateReceiptFilterResponse {
   __type?: "CreateReceiptFilterResponse";
 }
 
@@ -927,7 +925,7 @@ export namespace CreateReceiptRuleRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateReceiptRuleResponse extends $MetadataBearer {
+export interface CreateReceiptRuleResponse {
   __type?: "CreateReceiptRuleResponse";
 }
 
@@ -971,7 +969,7 @@ export namespace CreateReceiptRuleSetRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateReceiptRuleSetResponse extends $MetadataBearer {
+export interface CreateReceiptRuleSetResponse {
   __type?: "CreateReceiptRuleSetResponse";
 }
 
@@ -1000,7 +998,7 @@ export namespace CreateTemplateRequest {
   }
 }
 
-export interface CreateTemplateResponse extends $MetadataBearer {
+export interface CreateTemplateResponse {
   __type?: "CreateTemplateResponse";
 }
 
@@ -1157,8 +1155,7 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface DeleteConfigurationSetEventDestinationResponse {
   __type?: "DeleteConfigurationSetEventDestinationResponse";
 }
 
@@ -1193,7 +1190,7 @@ export namespace DeleteConfigurationSetRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteConfigurationSetResponse extends $MetadataBearer {
+export interface DeleteConfigurationSetResponse {
   __type?: "DeleteConfigurationSetResponse";
 }
 
@@ -1227,8 +1224,7 @@ export namespace DeleteConfigurationSetTrackingOptionsRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteConfigurationSetTrackingOptionsResponse
-  extends $MetadataBearer {
+export interface DeleteConfigurationSetTrackingOptionsResponse {
   __type?: "DeleteConfigurationSetTrackingOptionsResponse";
 }
 
@@ -1291,7 +1287,7 @@ export namespace DeleteIdentityPolicyRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteIdentityPolicyResponse extends $MetadataBearer {
+export interface DeleteIdentityPolicyResponse {
   __type?: "DeleteIdentityPolicyResponse";
 }
 
@@ -1322,7 +1318,7 @@ export namespace DeleteIdentityRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteIdentityResponse extends $MetadataBearer {
+export interface DeleteIdentityResponse {
   __type?: "DeleteIdentityResponse";
 }
 
@@ -1354,7 +1350,7 @@ export namespace DeleteReceiptFilterRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteReceiptFilterResponse extends $MetadataBearer {
+export interface DeleteReceiptFilterResponse {
   __type?: "DeleteReceiptFilterResponse";
 }
 
@@ -1391,7 +1387,7 @@ export namespace DeleteReceiptRuleRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteReceiptRuleResponse extends $MetadataBearer {
+export interface DeleteReceiptRuleResponse {
   __type?: "DeleteReceiptRuleResponse";
 }
 
@@ -1424,7 +1420,7 @@ export namespace DeleteReceiptRuleSetRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteReceiptRuleSetResponse extends $MetadataBearer {
+export interface DeleteReceiptRuleSetResponse {
   __type?: "DeleteReceiptRuleSetResponse";
 }
 
@@ -1452,7 +1448,7 @@ export namespace DeleteTemplateRequest {
   }
 }
 
-export interface DeleteTemplateResponse extends $MetadataBearer {
+export interface DeleteTemplateResponse {
   __type?: "DeleteTemplateResponse";
 }
 
@@ -1521,7 +1517,7 @@ export namespace DescribeActiveReceiptRuleSetRequest {
  * <p>Represents the metadata and receipt rules for the receipt rule set that is currently
  *             active.</p>
  */
-export interface DescribeActiveReceiptRuleSetResponse extends $MetadataBearer {
+export interface DescribeActiveReceiptRuleSetResponse {
   __type?: "DescribeActiveReceiptRuleSetResponse";
   /**
    * <p>The metadata for the currently active receipt rule set. The metadata consists of the
@@ -1572,7 +1568,7 @@ export namespace DescribeConfigurationSetRequest {
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
-export interface DescribeConfigurationSetResponse extends $MetadataBearer {
+export interface DescribeConfigurationSetResponse {
   __type?: "DescribeConfigurationSetResponse";
   /**
    * <p>The configuration set object associated with the specified configuration set.</p>
@@ -1635,7 +1631,7 @@ export namespace DescribeReceiptRuleRequest {
 /**
  * <p>Represents the details of a receipt rule.</p>
  */
-export interface DescribeReceiptRuleResponse extends $MetadataBearer {
+export interface DescribeReceiptRuleResponse {
   __type?: "DescribeReceiptRuleResponse";
   /**
    * <p>A data structure that contains the specified receipt rule's name, actions, recipients,
@@ -1671,7 +1667,7 @@ export namespace DescribeReceiptRuleSetRequest {
 /**
  * <p>Represents the details of the specified receipt rule set.</p>
  */
-export interface DescribeReceiptRuleSetResponse extends $MetadataBearer {
+export interface DescribeReceiptRuleSetResponse {
   __type?: "DescribeReceiptRuleSetResponse";
   /**
    * <p>The metadata for the receipt rule set, which consists of the rule set name and the
@@ -1928,7 +1924,7 @@ export namespace FromEmailAddressNotVerifiedException {
  * <p>Represents a request to return the email sending status for your Amazon SES account in the
  *             current AWS Region.</p>
  */
-export interface GetAccountSendingEnabledResponse extends $MetadataBearer {
+export interface GetAccountSendingEnabledResponse {
   __type?: "GetAccountSendingEnabledResponse";
   /**
    * <p>Describes whether email sending is enabled or disabled for your Amazon SES account in the
@@ -1964,8 +1960,7 @@ export namespace GetCustomVerificationEmailTemplateRequest {
 /**
  * <p>The content of the custom verification email template.</p>
  */
-export interface GetCustomVerificationEmailTemplateResponse
-  extends $MetadataBearer {
+export interface GetCustomVerificationEmailTemplateResponse {
   __type?: "GetCustomVerificationEmailTemplateResponse";
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
@@ -2032,7 +2027,7 @@ export namespace GetIdentityDkimAttributesRequest {
  *             signing, and whether Amazon SES successfully verified that these tokens were
  *             published.</p>
  */
-export interface GetIdentityDkimAttributesResponse extends $MetadataBearer {
+export interface GetIdentityDkimAttributesResponse {
   __type?: "GetIdentityDkimAttributesResponse";
   /**
    * <p>The DKIM attributes for an email address or a domain.</p>
@@ -2068,8 +2063,7 @@ export namespace GetIdentityMailFromDomainAttributesRequest {
 /**
  * <p>Represents the custom MAIL FROM attributes for a list of identities.</p>
  */
-export interface GetIdentityMailFromDomainAttributesResponse
-  extends $MetadataBearer {
+export interface GetIdentityMailFromDomainAttributesResponse {
   __type?: "GetIdentityMailFromDomainAttributesResponse";
   /**
    * <p>A map of identities to custom MAIL FROM attributes.</p>
@@ -2112,8 +2106,7 @@ export namespace GetIdentityNotificationAttributesRequest {
 /**
  * <p>Represents the notification attributes for a list of identities.</p>
  */
-export interface GetIdentityNotificationAttributesResponse
-  extends $MetadataBearer {
+export interface GetIdentityNotificationAttributesResponse {
   __type?: "GetIdentityNotificationAttributesResponse";
   /**
    * <p>A map of Identity to IdentityNotificationAttributes.</p>
@@ -2163,7 +2156,7 @@ export namespace GetIdentityPoliciesRequest {
 /**
  * <p>Represents the requested sending authorization policies.</p>
  */
-export interface GetIdentityPoliciesResponse extends $MetadataBearer {
+export interface GetIdentityPoliciesResponse {
   __type?: "GetIdentityPoliciesResponse";
   /**
    * <p>A map of policy names to policies.</p>
@@ -2201,8 +2194,7 @@ export namespace GetIdentityVerificationAttributesRequest {
  * <p>The Amazon SES verification status of a list of identities. For domain identities, this
  *             response also contains the verification token.</p>
  */
-export interface GetIdentityVerificationAttributesResponse
-  extends $MetadataBearer {
+export interface GetIdentityVerificationAttributesResponse {
   __type?: "GetIdentityVerificationAttributesResponse";
   /**
    * <p>A map of Identities to IdentityVerificationAttributes objects.</p>
@@ -2222,7 +2214,7 @@ export namespace GetIdentityVerificationAttributesResponse {
  * <p>Represents your Amazon SES daily sending quota, maximum send rate, and the number of emails
  *             you have sent in the last 24 hours.</p>
  */
-export interface GetSendQuotaResponse extends $MetadataBearer {
+export interface GetSendQuotaResponse {
   __type?: "GetSendQuotaResponse";
   /**
    * <p>The maximum number of emails the user is allowed to send in a 24-hour interval. A
@@ -2256,7 +2248,7 @@ export namespace GetSendQuotaResponse {
  * <p>Represents a list of data points. This list contains aggregated data from the previous
  *             two weeks of your sending activity with Amazon SES.</p>
  */
-export interface GetSendStatisticsResponse extends $MetadataBearer {
+export interface GetSendStatisticsResponse {
   __type?: "GetSendStatisticsResponse";
   /**
    * <p>A list of data points, each of which represents 15 minutes of activity.</p>
@@ -2284,7 +2276,7 @@ export namespace GetTemplateRequest {
   }
 }
 
-export interface GetTemplateResponse extends $MetadataBearer {
+export interface GetTemplateResponse {
   __type?: "GetTemplateResponse";
   /**
    * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
@@ -2874,7 +2866,7 @@ export namespace ListConfigurationSetsRequest {
  *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
-export interface ListConfigurationSetsResponse extends $MetadataBearer {
+export interface ListConfigurationSetsResponse {
   __type?: "ListConfigurationSetsResponse";
   /**
    * <p>A list of configuration sets.</p>
@@ -2930,8 +2922,7 @@ export namespace ListCustomVerificationEmailTemplatesRequest {
 /**
  * <p>A paginated list of custom verification email templates.</p>
  */
-export interface ListCustomVerificationEmailTemplatesResponse
-  extends $MetadataBearer {
+export interface ListCustomVerificationEmailTemplatesResponse {
   __type?: "ListCustomVerificationEmailTemplatesResponse";
   /**
    * <p>A list of the custom verification email templates that exist in your account.</p>
@@ -2990,7 +2981,7 @@ export namespace ListIdentitiesRequest {
  * <p>A list of all identities that you have attempted to verify under your AWS account,
  *             regardless of verification status.</p>
  */
-export interface ListIdentitiesResponse extends $MetadataBearer {
+export interface ListIdentitiesResponse {
   __type?: "ListIdentitiesResponse";
   /**
    * <p>A list of identities.</p>
@@ -3035,7 +3026,7 @@ export namespace ListIdentityPoliciesRequest {
 /**
  * <p>A list of names of sending authorization policies that apply to an identity.</p>
  */
-export interface ListIdentityPoliciesResponse extends $MetadataBearer {
+export interface ListIdentityPoliciesResponse {
   __type?: "ListIdentityPoliciesResponse";
   /**
    * <p>A list of names of policies that apply to the specified identity.</p>
@@ -3068,7 +3059,7 @@ export namespace ListReceiptFiltersRequest {
 /**
  * <p>A list of IP address filters that exist under your AWS account.</p>
  */
-export interface ListReceiptFiltersResponse extends $MetadataBearer {
+export interface ListReceiptFiltersResponse {
   __type?: "ListReceiptFiltersResponse";
   /**
    * <p>A list of IP address filter data structures, which each consist of a name, an IP
@@ -3107,7 +3098,7 @@ export namespace ListReceiptRuleSetsRequest {
 /**
  * <p>A list of receipt rule sets that exist under your AWS account.</p>
  */
-export interface ListReceiptRuleSetsResponse extends $MetadataBearer {
+export interface ListReceiptRuleSetsResponse {
   __type?: "ListReceiptRuleSetsResponse";
   /**
    * <p>A token indicating that there are additional receipt rule sets available to be listed.
@@ -3151,7 +3142,7 @@ export namespace ListTemplatesRequest {
   }
 }
 
-export interface ListTemplatesResponse extends $MetadataBearer {
+export interface ListTemplatesResponse {
   __type?: "ListTemplatesResponse";
   /**
    * <p>A token indicating that there are additional email templates available to be listed.
@@ -3177,7 +3168,7 @@ export namespace ListTemplatesResponse {
  * <p>A list of email addresses that you have verified with Amazon SES under your AWS
  *             account.</p>
  */
-export interface ListVerifiedEmailAddressesResponse extends $MetadataBearer {
+export interface ListVerifiedEmailAddressesResponse {
   __type?: "ListVerifiedEmailAddressesResponse";
   /**
    * <p>A list of email addresses that have been verified.</p>
@@ -3350,8 +3341,7 @@ export namespace PutConfigurationSetDeliveryOptionsRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetDeliveryOptionsResponse
-  extends $MetadataBearer {
+export interface PutConfigurationSetDeliveryOptionsResponse {
   __type?: "PutConfigurationSetDeliveryOptionsResponse";
 }
 
@@ -3402,7 +3392,7 @@ export namespace PutIdentityPolicyRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface PutIdentityPolicyResponse extends $MetadataBearer {
+export interface PutIdentityPolicyResponse {
   __type?: "PutIdentityPolicyResponse";
 }
 
@@ -3766,7 +3756,7 @@ export namespace ReorderReceiptRuleSetRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface ReorderReceiptRuleSetResponse extends $MetadataBearer {
+export interface ReorderReceiptRuleSetResponse {
   __type?: "ReorderReceiptRuleSetResponse";
 }
 
@@ -4063,7 +4053,7 @@ export namespace SendBounceRequest {
 /**
  * <p>Represents a unique message ID.</p>
  */
-export interface SendBounceResponse extends $MetadataBearer {
+export interface SendBounceResponse {
   __type?: "SendBounceResponse";
   /**
    * <p>The message ID of the bounce message.</p>
@@ -4200,7 +4190,7 @@ export namespace SendBulkTemplatedEmailRequest {
   }
 }
 
-export interface SendBulkTemplatedEmailResponse extends $MetadataBearer {
+export interface SendBulkTemplatedEmailResponse {
   __type?: "SendBulkTemplatedEmailResponse";
   /**
    * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
@@ -4247,7 +4237,7 @@ export namespace SendCustomVerificationEmailRequest {
 /**
  * <p>The response received when attempting to send the custom verification email.</p>
  */
-export interface SendCustomVerificationEmailResponse extends $MetadataBearer {
+export interface SendCustomVerificationEmailResponse {
   __type?: "SendCustomVerificationEmailResponse";
   /**
    * <p>The unique message identifier returned from the
@@ -4410,7 +4400,7 @@ export namespace SendEmailRequest {
 /**
  * <p>Represents a unique message ID.</p>
  */
-export interface SendEmailResponse extends $MetadataBearer {
+export interface SendEmailResponse {
   __type?: "SendEmailResponse";
   /**
    * <p>The unique message identifier returned from the <code>SendEmail</code> action. </p>
@@ -4576,7 +4566,7 @@ export namespace SendRawEmailRequest {
 /**
  * <p>Represents a unique message ID.</p>
  */
-export interface SendRawEmailResponse extends $MetadataBearer {
+export interface SendRawEmailResponse {
   __type?: "SendRawEmailResponse";
   /**
    * <p>The unique message identifier returned from the <code>SendRawEmail</code> action.
@@ -4711,7 +4701,7 @@ export namespace SendTemplatedEmailRequest {
   }
 }
 
-export interface SendTemplatedEmailResponse extends $MetadataBearer {
+export interface SendTemplatedEmailResponse {
   __type?: "SendTemplatedEmailResponse";
   /**
    * <p>The unique message identifier returned from the <code>SendTemplatedEmail</code>
@@ -4748,7 +4738,7 @@ export namespace SetActiveReceiptRuleSetRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetActiveReceiptRuleSetResponse extends $MetadataBearer {
+export interface SetActiveReceiptRuleSetResponse {
   __type?: "SetActiveReceiptRuleSetResponse";
 }
 
@@ -4785,7 +4775,7 @@ export namespace SetIdentityDkimEnabledRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityDkimEnabledResponse extends $MetadataBearer {
+export interface SetIdentityDkimEnabledResponse {
   __type?: "SetIdentityDkimEnabledResponse";
 }
 
@@ -4832,8 +4822,7 @@ export namespace SetIdentityFeedbackForwardingEnabledRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityFeedbackForwardingEnabledResponse
-  extends $MetadataBearer {
+export interface SetIdentityFeedbackForwardingEnabledResponse {
   __type?: "SetIdentityFeedbackForwardingEnabledResponse";
 }
 
@@ -4886,8 +4875,7 @@ export namespace SetIdentityHeadersInNotificationsEnabledRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityHeadersInNotificationsEnabledResponse
-  extends $MetadataBearer {
+export interface SetIdentityHeadersInNotificationsEnabledResponse {
   __type?: "SetIdentityHeadersInNotificationsEnabledResponse";
 }
 
@@ -4945,7 +4933,7 @@ export namespace SetIdentityMailFromDomainRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityMailFromDomainResponse extends $MetadataBearer {
+export interface SetIdentityMailFromDomainResponse {
   __type?: "SetIdentityMailFromDomainResponse";
 }
 
@@ -4998,7 +4986,7 @@ export namespace SetIdentityNotificationTopicRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityNotificationTopicResponse extends $MetadataBearer {
+export interface SetIdentityNotificationTopicResponse {
   __type?: "SetIdentityNotificationTopicResponse";
 }
 
@@ -5039,7 +5027,7 @@ export namespace SetReceiptRulePositionRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetReceiptRulePositionResponse extends $MetadataBearer {
+export interface SetReceiptRulePositionResponse {
   __type?: "SetReceiptRulePositionResponse";
 }
 
@@ -5179,7 +5167,7 @@ export namespace TestRenderTemplateRequest {
   }
 }
 
-export interface TestRenderTemplateResponse extends $MetadataBearer {
+export interface TestRenderTemplateResponse {
   __type?: "TestRenderTemplateResponse";
   /**
    * <p>The complete MIME message rendered by applying the data in the TemplateData parameter
@@ -5319,8 +5307,7 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface UpdateConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface UpdateConfigurationSetEventDestinationResponse {
   __type?: "UpdateConfigurationSetEventDestinationResponse";
 }
 
@@ -5416,8 +5403,7 @@ export namespace UpdateConfigurationSetTrackingOptionsRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface UpdateConfigurationSetTrackingOptionsResponse
-  extends $MetadataBearer {
+export interface UpdateConfigurationSetTrackingOptionsResponse {
   __type?: "UpdateConfigurationSetTrackingOptionsResponse";
 }
 
@@ -5505,7 +5491,7 @@ export namespace UpdateReceiptRuleRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface UpdateReceiptRuleResponse extends $MetadataBearer {
+export interface UpdateReceiptRuleResponse {
   __type?: "UpdateReceiptRuleResponse";
 }
 
@@ -5530,7 +5516,7 @@ export namespace UpdateTemplateRequest {
   }
 }
 
-export interface UpdateTemplateResponse extends $MetadataBearer {
+export interface UpdateTemplateResponse {
   __type?: "UpdateTemplateResponse";
 }
 
@@ -5570,7 +5556,7 @@ export namespace VerifyDomainDkimRequest {
  * <p>Returns CNAME records that you must publish to the DNS server of your domain to set up
  *             Easy DKIM with Amazon SES.</p>
  */
-export interface VerifyDomainDkimResponse extends $MetadataBearer {
+export interface VerifyDomainDkimResponse {
   __type?: "VerifyDomainDkimResponse";
   /**
    * <p>A set of character strings that represent the domain's identity. If the identity is an
@@ -5616,7 +5602,7 @@ export namespace VerifyDomainIdentityRequest {
  * <p>Returns a TXT record that you must publish to the DNS server of your domain to
  *             complete domain verification with Amazon SES.</p>
  */
-export interface VerifyDomainIdentityResponse extends $MetadataBearer {
+export interface VerifyDomainIdentityResponse {
   __type?: "VerifyDomainIdentityResponse";
   /**
    * <p>A TXT record that you must place in the DNS settings of the domain to complete domain
@@ -5677,7 +5663,7 @@ export namespace VerifyEmailIdentityRequest {
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface VerifyEmailIdentityResponse extends $MetadataBearer {
+export interface VerifyEmailIdentityResponse {
   __type?: "VerifyEmailIdentityResponse";
 }
 

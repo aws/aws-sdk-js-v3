@@ -14,7 +14,7 @@ export namespace DescribeEndpointsRequest {
   }
 }
 
-export interface DescribeEndpointsResponse extends $MetadataBearer {
+export interface DescribeEndpointsResponse {
   __type?: "DescribeEndpointsResponse";
   /**
    * <p>List of endpoints.</p>
@@ -922,7 +922,7 @@ export namespace BatchGetItemInput {
 /**
  * <p>Represents the output of a <code>BatchGetItem</code> operation.</p>
  */
-export interface BatchGetItemOutput extends $MetadataBearer {
+export interface BatchGetItemOutput {
   __type?: "BatchGetItemOutput";
   /**
    * <p>The read capacity units consumed by the entire <code>BatchGetItem</code> operation.</p>
@@ -1065,7 +1065,7 @@ export namespace BatchWriteItemInput {
 /**
  * <p>Represents the output of a <code>BatchWriteItem</code> operation.</p>
  */
-export interface BatchWriteItemOutput extends $MetadataBearer {
+export interface BatchWriteItemOutput {
   __type?: "BatchWriteItemOutput";
   /**
    * <p>The capacity units consumed by the entire <code>BatchWriteItem</code> operation.</p>
@@ -1676,7 +1676,7 @@ export namespace CreateBackupInput {
   }
 }
 
-export interface CreateBackupOutput extends $MetadataBearer {
+export interface CreateBackupOutput {
   __type?: "CreateBackupOutput";
   /**
    * <p>Contains the details of the backup created for the table.</p>
@@ -1744,7 +1744,7 @@ export namespace CreateGlobalTableInput {
   }
 }
 
-export interface CreateGlobalTableOutput extends $MetadataBearer {
+export interface CreateGlobalTableOutput {
   __type?: "CreateGlobalTableOutput";
   /**
    * <p>Contains the details of the global table.</p>
@@ -2079,7 +2079,7 @@ export namespace CreateTableInput {
 /**
  * <p>Represents the output of a <code>CreateTable</code> operation.</p>
  */
-export interface CreateTableOutput extends $MetadataBearer {
+export interface CreateTableOutput {
   __type?: "CreateTableOutput";
   /**
    * <p>Represents the properties of the table.</p>
@@ -2155,7 +2155,7 @@ export namespace DeleteBackupInput {
   }
 }
 
-export interface DeleteBackupOutput extends $MetadataBearer {
+export interface DeleteBackupOutput {
   __type?: "DeleteBackupOutput";
   /**
    * <p>Contains the description of the backup created for the table.</p>
@@ -2364,7 +2364,7 @@ export namespace DeleteItemInput {
 /**
  * <p>Represents the output of a <code>DeleteItem</code> operation.</p>
  */
-export interface DeleteItemOutput extends $MetadataBearer {
+export interface DeleteItemOutput {
   __type?: "DeleteItemOutput";
   /**
    * <p>A map of attribute names to <code>AttributeValue</code> objects, representing the item as it
@@ -2491,7 +2491,7 @@ export namespace DeleteTableInput {
 /**
  * <p>Represents the output of a <code>DeleteTable</code> operation.</p>
  */
-export interface DeleteTableOutput extends $MetadataBearer {
+export interface DeleteTableOutput {
   __type?: "DeleteTableOutput";
   /**
    * <p>Represents the properties of a table.</p>
@@ -2519,7 +2519,7 @@ export namespace DescribeBackupInput {
   }
 }
 
-export interface DescribeBackupOutput extends $MetadataBearer {
+export interface DescribeBackupOutput {
   __type?: "DescribeBackupOutput";
   /**
    * <p>Contains the description of the backup created for the table.</p>
@@ -2547,7 +2547,7 @@ export namespace DescribeContinuousBackupsInput {
   }
 }
 
-export interface DescribeContinuousBackupsOutput extends $MetadataBearer {
+export interface DescribeContinuousBackupsOutput {
   __type?: "DescribeContinuousBackupsOutput";
   /**
    * <p>Represents the continuous backups and point in time recovery settings on the table.</p>
@@ -2580,7 +2580,7 @@ export namespace DescribeContributorInsightsInput {
   }
 }
 
-export interface DescribeContributorInsightsOutput extends $MetadataBearer {
+export interface DescribeContributorInsightsOutput {
   __type?: "DescribeContributorInsightsOutput";
   /**
    * <p>List of names of the associated Alpine rules.</p>
@@ -2649,7 +2649,7 @@ export namespace DescribeGlobalTableInput {
   }
 }
 
-export interface DescribeGlobalTableOutput extends $MetadataBearer {
+export interface DescribeGlobalTableOutput {
   __type?: "DescribeGlobalTableOutput";
   /**
    * <p>Contains the details of the global table.</p>
@@ -2677,7 +2677,7 @@ export namespace DescribeGlobalTableSettingsInput {
   }
 }
 
-export interface DescribeGlobalTableSettingsOutput extends $MetadataBearer {
+export interface DescribeGlobalTableSettingsOutput {
   __type?: "DescribeGlobalTableSettingsOutput";
   /**
    * <p>The name of the global table.</p>
@@ -2712,7 +2712,7 @@ export namespace DescribeLimitsInput {
 /**
  * <p>Represents the output of a <code>DescribeLimits</code> operation.</p>
  */
-export interface DescribeLimitsOutput extends $MetadataBearer {
+export interface DescribeLimitsOutput {
   __type?: "DescribeLimitsOutput";
   /**
    * <p>The maximum total read capacity units that your account allows you to provision across
@@ -2767,7 +2767,7 @@ export namespace DescribeTableInput {
 /**
  * <p>Represents the output of a <code>DescribeTable</code> operation.</p>
  */
-export interface DescribeTableOutput extends $MetadataBearer {
+export interface DescribeTableOutput {
   __type?: "DescribeTableOutput";
   /**
    * <p>The properties of the table.</p>
@@ -2795,7 +2795,7 @@ export namespace DescribeTableReplicaAutoScalingInput {
   }
 }
 
-export interface DescribeTableReplicaAutoScalingOutput extends $MetadataBearer {
+export interface DescribeTableReplicaAutoScalingOutput {
   __type?: "DescribeTableReplicaAutoScalingOutput";
   /**
    * <p>Represents the auto scaling properties of the table.</p>
@@ -2823,7 +2823,7 @@ export namespace DescribeTimeToLiveInput {
   }
 }
 
-export interface DescribeTimeToLiveOutput extends $MetadataBearer {
+export interface DescribeTimeToLiveOutput {
   __type?: "DescribeTimeToLiveOutput";
   /**
    * <p></p>
@@ -3249,7 +3249,7 @@ export namespace GetItemInput {
 /**
  * <p>Represents the output of a <code>GetItem</code> operation.</p>
  */
-export interface GetItemOutput extends $MetadataBearer {
+export interface GetItemOutput {
   __type?: "GetItemOutput";
   /**
    * <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned
@@ -4076,7 +4076,7 @@ export namespace ListBackupsInput {
   }
 }
 
-export interface ListBackupsOutput extends $MetadataBearer {
+export interface ListBackupsOutput {
   __type?: "ListBackupsOutput";
   /**
    * <p>List of <code>BackupSummary</code> objects.</p>
@@ -4130,7 +4130,7 @@ export namespace ListContributorInsightsInput {
   }
 }
 
-export interface ListContributorInsightsOutput extends $MetadataBearer {
+export interface ListContributorInsightsOutput {
   __type?: "ListContributorInsightsOutput";
   /**
    * <p>A list of ContributorInsightsSummary.</p>
@@ -4173,7 +4173,7 @@ export namespace ListGlobalTablesInput {
   }
 }
 
-export interface ListGlobalTablesOutput extends $MetadataBearer {
+export interface ListGlobalTablesOutput {
   __type?: "ListGlobalTablesOutput";
   /**
    * <p>List of global table names.</p>
@@ -4219,7 +4219,7 @@ export namespace ListTablesInput {
 /**
  * <p>Represents the output of a <code>ListTables</code> operation.</p>
  */
-export interface ListTablesOutput extends $MetadataBearer {
+export interface ListTablesOutput {
   __type?: "ListTablesOutput";
   /**
    * <p>The name of the last table in the current page of results. Use this value as the
@@ -4265,7 +4265,7 @@ export namespace ListTagsOfResourceInput {
   }
 }
 
-export interface ListTagsOfResourceOutput extends $MetadataBearer {
+export interface ListTagsOfResourceOutput {
   __type?: "ListTagsOfResourceOutput";
   /**
    * <p>If this value is returned, there are additional results to be displayed. To retrieve them,
@@ -4911,7 +4911,7 @@ export namespace PutItemInput {
 /**
  * <p>Represents the output of a <code>PutItem</code> operation.</p>
  */
-export interface PutItemOutput extends $MetadataBearer {
+export interface PutItemOutput {
   __type?: "PutItemOutput";
   /**
    * <p>The attribute values as they appeared before the <code>PutItem</code> operation, but only if
@@ -5356,7 +5356,7 @@ export namespace QueryInput {
 /**
  * <p>Represents the output of a <code>Query</code> operation.</p>
  */
-export interface QueryOutput extends $MetadataBearer {
+export interface QueryOutput {
   __type?: "QueryOutput";
   /**
    * <p>The capacity units consumed by the <code>Query</code> operation. The data returned
@@ -6165,7 +6165,7 @@ export namespace RestoreTableFromBackupInput {
   }
 }
 
-export interface RestoreTableFromBackupOutput extends $MetadataBearer {
+export interface RestoreTableFromBackupOutput {
   __type?: "RestoreTableFromBackupOutput";
   /**
    * <p>The description of the table created from an existing backup.</p>
@@ -6233,7 +6233,7 @@ export namespace RestoreTableToPointInTimeInput {
   }
 }
 
-export interface RestoreTableToPointInTimeOutput extends $MetadataBearer {
+export interface RestoreTableToPointInTimeOutput {
   __type?: "RestoreTableToPointInTimeOutput";
   /**
    * <p>Represents the properties of a table.</p>
@@ -6644,7 +6644,7 @@ export namespace ScanInput {
 /**
  * <p>Represents the output of a <code>Scan</code> operation.</p>
  */
-export interface ScanOutput extends $MetadataBearer {
+export interface ScanOutput {
   __type?: "ScanOutput";
   /**
    * <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total
@@ -7497,7 +7497,7 @@ export namespace TransactGetItemsInput {
   }
 }
 
-export interface TransactGetItemsOutput extends $MetadataBearer {
+export interface TransactGetItemsOutput {
   __type?: "TransactGetItemsOutput";
   /**
    * <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>,
@@ -7626,7 +7626,7 @@ export namespace TransactWriteItemsInput {
   }
 }
 
-export interface TransactWriteItemsOutput extends $MetadataBearer {
+export interface TransactWriteItemsOutput {
   __type?: "TransactWriteItemsOutput";
   /**
    * <p>The capacity units consumed by the entire <code>TransactWriteItems</code>
@@ -8006,7 +8006,7 @@ export namespace UpdateContinuousBackupsInput {
   }
 }
 
-export interface UpdateContinuousBackupsOutput extends $MetadataBearer {
+export interface UpdateContinuousBackupsOutput {
   __type?: "UpdateContinuousBackupsOutput";
   /**
    * <p>Represents the continuous backups and point in time recovery settings on the table.</p>
@@ -8044,7 +8044,7 @@ export namespace UpdateContributorInsightsInput {
   }
 }
 
-export interface UpdateContributorInsightsOutput extends $MetadataBearer {
+export interface UpdateContributorInsightsOutput {
   __type?: "UpdateContributorInsightsOutput";
   /**
    * <p>The status of contributor insights</p>
@@ -8110,7 +8110,7 @@ export namespace UpdateGlobalTableInput {
   }
 }
 
-export interface UpdateGlobalTableOutput extends $MetadataBearer {
+export interface UpdateGlobalTableOutput {
   __type?: "UpdateGlobalTableOutput";
   /**
    * <p>Contains the details of the global table.</p>
@@ -8178,7 +8178,7 @@ export namespace UpdateGlobalTableSettingsInput {
   }
 }
 
-export interface UpdateGlobalTableSettingsOutput extends $MetadataBearer {
+export interface UpdateGlobalTableSettingsOutput {
   __type?: "UpdateGlobalTableSettingsOutput";
   /**
    * <p>The name of the global table.</p>
@@ -8489,7 +8489,7 @@ export namespace UpdateItemInput {
 /**
  * <p>Represents the output of an <code>UpdateItem</code> operation.</p>
  */
-export interface UpdateItemOutput extends $MetadataBearer {
+export interface UpdateItemOutput {
   __type?: "UpdateItemOutput";
   /**
    * <p>A map of attribute values as they appear before or after the <code>UpdateItem</code>
@@ -8675,7 +8675,7 @@ export namespace UpdateTableInput {
 /**
  * <p>Represents the output of an <code>UpdateTable</code> operation.</p>
  */
-export interface UpdateTableOutput extends $MetadataBearer {
+export interface UpdateTableOutput {
   __type?: "UpdateTableOutput";
   /**
    * <p>Represents the properties of the table.</p>
@@ -8721,7 +8721,7 @@ export namespace UpdateTableReplicaAutoScalingInput {
   }
 }
 
-export interface UpdateTableReplicaAutoScalingOutput extends $MetadataBearer {
+export interface UpdateTableReplicaAutoScalingOutput {
   __type?: "UpdateTableReplicaAutoScalingOutput";
   /**
    * <p>Returns information about the auto scaling settings of a table with replicas.</p>
@@ -8757,7 +8757,7 @@ export namespace UpdateTimeToLiveInput {
   }
 }
 
-export interface UpdateTimeToLiveOutput extends $MetadataBearer {
+export interface UpdateTimeToLiveOutput {
   __type?: "UpdateTimeToLiveOutput";
   /**
    * <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>

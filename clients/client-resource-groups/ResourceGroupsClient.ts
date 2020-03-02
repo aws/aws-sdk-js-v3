@@ -1,29 +1,45 @@
 import {
-  CreateGroupInput,
-  CreateGroupOutput,
-  DeleteGroupInput,
-  DeleteGroupOutput,
-  GetGroupInput,
-  GetGroupOutput,
-  GetGroupQueryInput,
-  GetGroupQueryOutput,
-  GetTagsInput,
-  GetTagsOutput,
-  ListGroupResourcesInput,
-  ListGroupResourcesOutput,
-  ListGroupsInput,
-  ListGroupsOutput,
-  SearchResourcesInput,
-  SearchResourcesOutput,
-  TagInput,
-  TagOutput,
-  UntagInput,
-  UntagOutput,
-  UpdateGroupInput,
-  UpdateGroupOutput,
-  UpdateGroupQueryInput,
-  UpdateGroupQueryOutput
-} from "./models/index";
+  CreateGroupCommandInput,
+  CreateGroupCommandOutput
+} from "./commands/CreateGroupCommand";
+import {
+  DeleteGroupCommandInput,
+  DeleteGroupCommandOutput
+} from "./commands/DeleteGroupCommand";
+import {
+  GetGroupCommandInput,
+  GetGroupCommandOutput
+} from "./commands/GetGroupCommand";
+import {
+  GetGroupQueryCommandInput,
+  GetGroupQueryCommandOutput
+} from "./commands/GetGroupQueryCommand";
+import {
+  GetTagsCommandInput,
+  GetTagsCommandOutput
+} from "./commands/GetTagsCommand";
+import {
+  ListGroupResourcesCommandInput,
+  ListGroupResourcesCommandOutput
+} from "./commands/ListGroupResourcesCommand";
+import {
+  ListGroupsCommandInput,
+  ListGroupsCommandOutput
+} from "./commands/ListGroupsCommand";
+import {
+  SearchResourcesCommandInput,
+  SearchResourcesCommandOutput
+} from "./commands/SearchResourcesCommand";
+import { TagCommandInput, TagCommandOutput } from "./commands/TagCommand";
+import { UntagCommandInput, UntagCommandOutput } from "./commands/UntagCommand";
+import {
+  UpdateGroupCommandInput,
+  UpdateGroupCommandOutput
+} from "./commands/UpdateGroupCommand";
+import {
+  UpdateGroupQueryCommandInput,
+  UpdateGroupQueryCommandOutput
+} from "./commands/UpdateGroupQueryCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -77,32 +93,32 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateGroupInput
-  | DeleteGroupInput
-  | GetGroupInput
-  | GetGroupQueryInput
-  | GetTagsInput
-  | ListGroupResourcesInput
-  | ListGroupsInput
-  | SearchResourcesInput
-  | TagInput
-  | UntagInput
-  | UpdateGroupInput
-  | UpdateGroupQueryInput;
+  | CreateGroupCommandInput
+  | DeleteGroupCommandInput
+  | GetGroupCommandInput
+  | GetGroupQueryCommandInput
+  | GetTagsCommandInput
+  | ListGroupResourcesCommandInput
+  | ListGroupsCommandInput
+  | SearchResourcesCommandInput
+  | TagCommandInput
+  | UntagCommandInput
+  | UpdateGroupCommandInput
+  | UpdateGroupQueryCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateGroupOutput
-  | DeleteGroupOutput
-  | GetGroupOutput
-  | GetGroupQueryOutput
-  | GetTagsOutput
-  | ListGroupResourcesOutput
-  | ListGroupsOutput
-  | SearchResourcesOutput
-  | TagOutput
-  | UntagOutput
-  | UpdateGroupOutput
-  | UpdateGroupQueryOutput;
+  | CreateGroupCommandOutput
+  | DeleteGroupCommandOutput
+  | GetGroupCommandOutput
+  | GetGroupQueryCommandOutput
+  | GetTagsCommandOutput
+  | ListGroupResourcesCommandOutput
+  | ListGroupsCommandOutput
+  | SearchResourcesCommandOutput
+  | TagCommandOutput
+  | UntagCommandOutput
+  | UpdateGroupCommandOutput
+  | UpdateGroupQueryCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

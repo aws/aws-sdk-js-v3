@@ -1,158 +1,347 @@
 import {
-  AcceptReservedNodeExchangeInputMessage,
-  AcceptReservedNodeExchangeOutputMessage,
-  AccountAttributeList,
-  AuthorizeClusterSecurityGroupIngressMessage,
-  AuthorizeClusterSecurityGroupIngressResult,
-  AuthorizeSnapshotAccessMessage,
-  AuthorizeSnapshotAccessResult,
-  BatchDeleteClusterSnapshotsRequest,
-  BatchDeleteClusterSnapshotsResult,
-  BatchModifyClusterSnapshotsMessage,
-  BatchModifyClusterSnapshotsOutputMessage,
-  CancelResizeMessage,
-  ClusterCredentials,
-  ClusterDbRevisionsMessage,
-  ClusterParameterGroupDetails,
-  ClusterParameterGroupNameMessage,
-  ClusterParameterGroupsMessage,
-  ClusterSecurityGroupMessage,
-  ClusterSubnetGroupMessage,
-  ClusterVersionsMessage,
-  ClustersMessage,
-  CopyClusterSnapshotMessage,
-  CopyClusterSnapshotResult,
-  CreateClusterMessage,
-  CreateClusterParameterGroupMessage,
-  CreateClusterParameterGroupResult,
-  CreateClusterResult,
-  CreateClusterSecurityGroupMessage,
-  CreateClusterSecurityGroupResult,
-  CreateClusterSnapshotMessage,
-  CreateClusterSnapshotResult,
-  CreateClusterSubnetGroupMessage,
-  CreateClusterSubnetGroupResult,
-  CreateEventSubscriptionMessage,
-  CreateEventSubscriptionResult,
-  CreateHsmClientCertificateMessage,
-  CreateHsmClientCertificateResult,
-  CreateHsmConfigurationMessage,
-  CreateHsmConfigurationResult,
-  CreateScheduledActionMessage,
-  CreateSnapshotCopyGrantMessage,
-  CreateSnapshotCopyGrantResult,
-  CreateSnapshotScheduleMessage,
-  CreateTagsMessage,
-  CustomerStorageMessage,
-  DeleteClusterMessage,
-  DeleteClusterParameterGroupMessage,
-  DeleteClusterResult,
-  DeleteClusterSecurityGroupMessage,
-  DeleteClusterSnapshotMessage,
-  DeleteClusterSnapshotResult,
-  DeleteClusterSubnetGroupMessage,
-  DeleteEventSubscriptionMessage,
-  DeleteHsmClientCertificateMessage,
-  DeleteHsmConfigurationMessage,
-  DeleteScheduledActionMessage,
-  DeleteSnapshotCopyGrantMessage,
-  DeleteSnapshotScheduleMessage,
-  DeleteTagsMessage,
-  DescribeAccountAttributesMessage,
-  DescribeClusterDbRevisionsMessage,
-  DescribeClusterParameterGroupsMessage,
-  DescribeClusterParametersMessage,
-  DescribeClusterSecurityGroupsMessage,
-  DescribeClusterSnapshotsMessage,
-  DescribeClusterSubnetGroupsMessage,
-  DescribeClusterTracksMessage,
-  DescribeClusterVersionsMessage,
-  DescribeClustersMessage,
-  DescribeDefaultClusterParametersMessage,
-  DescribeDefaultClusterParametersResult,
-  DescribeEventCategoriesMessage,
-  DescribeEventSubscriptionsMessage,
-  DescribeEventsMessage,
-  DescribeHsmClientCertificatesMessage,
-  DescribeHsmConfigurationsMessage,
-  DescribeLoggingStatusMessage,
-  DescribeNodeConfigurationOptionsMessage,
-  DescribeOrderableClusterOptionsMessage,
-  DescribeReservedNodeOfferingsMessage,
-  DescribeReservedNodesMessage,
-  DescribeResizeMessage,
-  DescribeScheduledActionsMessage,
-  DescribeSnapshotCopyGrantsMessage,
-  DescribeSnapshotSchedulesMessage,
-  DescribeSnapshotSchedulesOutputMessage,
-  DescribeTableRestoreStatusMessage,
-  DescribeTagsMessage,
-  DisableLoggingMessage,
-  DisableSnapshotCopyMessage,
-  DisableSnapshotCopyResult,
-  EnableLoggingMessage,
-  EnableSnapshotCopyMessage,
-  EnableSnapshotCopyResult,
-  EventCategoriesMessage,
-  EventSubscriptionsMessage,
-  EventsMessage,
-  GetClusterCredentialsMessage,
-  GetReservedNodeExchangeOfferingsInputMessage,
-  GetReservedNodeExchangeOfferingsOutputMessage,
-  HsmClientCertificateMessage,
-  HsmConfigurationMessage,
-  LoggingStatus,
-  ModifyClusterDbRevisionMessage,
-  ModifyClusterDbRevisionResult,
-  ModifyClusterIamRolesMessage,
-  ModifyClusterIamRolesResult,
-  ModifyClusterMaintenanceMessage,
-  ModifyClusterMaintenanceResult,
-  ModifyClusterMessage,
-  ModifyClusterParameterGroupMessage,
-  ModifyClusterResult,
-  ModifyClusterSnapshotMessage,
-  ModifyClusterSnapshotResult,
-  ModifyClusterSnapshotScheduleMessage,
-  ModifyClusterSubnetGroupMessage,
-  ModifyClusterSubnetGroupResult,
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionResult,
-  ModifyScheduledActionMessage,
-  ModifySnapshotCopyRetentionPeriodMessage,
-  ModifySnapshotCopyRetentionPeriodResult,
-  ModifySnapshotScheduleMessage,
-  NodeConfigurationOptionsMessage,
-  OrderableClusterOptionsMessage,
-  PurchaseReservedNodeOfferingMessage,
-  PurchaseReservedNodeOfferingResult,
-  RebootClusterMessage,
-  RebootClusterResult,
-  ReservedNodeOfferingsMessage,
-  ReservedNodesMessage,
-  ResetClusterParameterGroupMessage,
-  ResizeClusterMessage,
-  ResizeClusterResult,
-  ResizeProgressMessage,
-  RestoreFromClusterSnapshotMessage,
-  RestoreFromClusterSnapshotResult,
-  RestoreTableFromClusterSnapshotMessage,
-  RestoreTableFromClusterSnapshotResult,
-  RevokeClusterSecurityGroupIngressMessage,
-  RevokeClusterSecurityGroupIngressResult,
-  RevokeSnapshotAccessMessage,
-  RevokeSnapshotAccessResult,
-  RotateEncryptionKeyMessage,
-  RotateEncryptionKeyResult,
-  ScheduledAction,
-  ScheduledActionsMessage,
-  SnapshotCopyGrantMessage,
-  SnapshotMessage,
-  SnapshotSchedule,
-  TableRestoreStatusMessage,
-  TaggedResourceListMessage,
-  TrackListMessage
-} from "./models/index";
+  AcceptReservedNodeExchangeCommandInput,
+  AcceptReservedNodeExchangeCommandOutput
+} from "./commands/AcceptReservedNodeExchangeCommand";
+import {
+  AuthorizeClusterSecurityGroupIngressCommandInput,
+  AuthorizeClusterSecurityGroupIngressCommandOutput
+} from "./commands/AuthorizeClusterSecurityGroupIngressCommand";
+import {
+  AuthorizeSnapshotAccessCommandInput,
+  AuthorizeSnapshotAccessCommandOutput
+} from "./commands/AuthorizeSnapshotAccessCommand";
+import {
+  BatchDeleteClusterSnapshotsCommandInput,
+  BatchDeleteClusterSnapshotsCommandOutput
+} from "./commands/BatchDeleteClusterSnapshotsCommand";
+import {
+  BatchModifyClusterSnapshotsCommandInput,
+  BatchModifyClusterSnapshotsCommandOutput
+} from "./commands/BatchModifyClusterSnapshotsCommand";
+import {
+  CancelResizeCommandInput,
+  CancelResizeCommandOutput
+} from "./commands/CancelResizeCommand";
+import {
+  CopyClusterSnapshotCommandInput,
+  CopyClusterSnapshotCommandOutput
+} from "./commands/CopyClusterSnapshotCommand";
+import {
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput
+} from "./commands/CreateClusterCommand";
+import {
+  CreateClusterParameterGroupCommandInput,
+  CreateClusterParameterGroupCommandOutput
+} from "./commands/CreateClusterParameterGroupCommand";
+import {
+  CreateClusterSecurityGroupCommandInput,
+  CreateClusterSecurityGroupCommandOutput
+} from "./commands/CreateClusterSecurityGroupCommand";
+import {
+  CreateClusterSnapshotCommandInput,
+  CreateClusterSnapshotCommandOutput
+} from "./commands/CreateClusterSnapshotCommand";
+import {
+  CreateClusterSubnetGroupCommandInput,
+  CreateClusterSubnetGroupCommandOutput
+} from "./commands/CreateClusterSubnetGroupCommand";
+import {
+  CreateEventSubscriptionCommandInput,
+  CreateEventSubscriptionCommandOutput
+} from "./commands/CreateEventSubscriptionCommand";
+import {
+  CreateHsmClientCertificateCommandInput,
+  CreateHsmClientCertificateCommandOutput
+} from "./commands/CreateHsmClientCertificateCommand";
+import {
+  CreateHsmConfigurationCommandInput,
+  CreateHsmConfigurationCommandOutput
+} from "./commands/CreateHsmConfigurationCommand";
+import {
+  CreateScheduledActionCommandInput,
+  CreateScheduledActionCommandOutput
+} from "./commands/CreateScheduledActionCommand";
+import {
+  CreateSnapshotCopyGrantCommandInput,
+  CreateSnapshotCopyGrantCommandOutput
+} from "./commands/CreateSnapshotCopyGrantCommand";
+import {
+  CreateSnapshotScheduleCommandInput,
+  CreateSnapshotScheduleCommandOutput
+} from "./commands/CreateSnapshotScheduleCommand";
+import {
+  CreateTagsCommandInput,
+  CreateTagsCommandOutput
+} from "./commands/CreateTagsCommand";
+import {
+  DeleteClusterCommandInput,
+  DeleteClusterCommandOutput
+} from "./commands/DeleteClusterCommand";
+import {
+  DeleteClusterParameterGroupCommandInput,
+  DeleteClusterParameterGroupCommandOutput
+} from "./commands/DeleteClusterParameterGroupCommand";
+import {
+  DeleteClusterSecurityGroupCommandInput,
+  DeleteClusterSecurityGroupCommandOutput
+} from "./commands/DeleteClusterSecurityGroupCommand";
+import {
+  DeleteClusterSnapshotCommandInput,
+  DeleteClusterSnapshotCommandOutput
+} from "./commands/DeleteClusterSnapshotCommand";
+import {
+  DeleteClusterSubnetGroupCommandInput,
+  DeleteClusterSubnetGroupCommandOutput
+} from "./commands/DeleteClusterSubnetGroupCommand";
+import {
+  DeleteEventSubscriptionCommandInput,
+  DeleteEventSubscriptionCommandOutput
+} from "./commands/DeleteEventSubscriptionCommand";
+import {
+  DeleteHsmClientCertificateCommandInput,
+  DeleteHsmClientCertificateCommandOutput
+} from "./commands/DeleteHsmClientCertificateCommand";
+import {
+  DeleteHsmConfigurationCommandInput,
+  DeleteHsmConfigurationCommandOutput
+} from "./commands/DeleteHsmConfigurationCommand";
+import {
+  DeleteScheduledActionCommandInput,
+  DeleteScheduledActionCommandOutput
+} from "./commands/DeleteScheduledActionCommand";
+import {
+  DeleteSnapshotCopyGrantCommandInput,
+  DeleteSnapshotCopyGrantCommandOutput
+} from "./commands/DeleteSnapshotCopyGrantCommand";
+import {
+  DeleteSnapshotScheduleCommandInput,
+  DeleteSnapshotScheduleCommandOutput
+} from "./commands/DeleteSnapshotScheduleCommand";
+import {
+  DeleteTagsCommandInput,
+  DeleteTagsCommandOutput
+} from "./commands/DeleteTagsCommand";
+import {
+  DescribeAccountAttributesCommandInput,
+  DescribeAccountAttributesCommandOutput
+} from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeClusterDbRevisionsCommandInput,
+  DescribeClusterDbRevisionsCommandOutput
+} from "./commands/DescribeClusterDbRevisionsCommand";
+import {
+  DescribeClusterParameterGroupsCommandInput,
+  DescribeClusterParameterGroupsCommandOutput
+} from "./commands/DescribeClusterParameterGroupsCommand";
+import {
+  DescribeClusterParametersCommandInput,
+  DescribeClusterParametersCommandOutput
+} from "./commands/DescribeClusterParametersCommand";
+import {
+  DescribeClusterSecurityGroupsCommandInput,
+  DescribeClusterSecurityGroupsCommandOutput
+} from "./commands/DescribeClusterSecurityGroupsCommand";
+import {
+  DescribeClusterSnapshotsCommandInput,
+  DescribeClusterSnapshotsCommandOutput
+} from "./commands/DescribeClusterSnapshotsCommand";
+import {
+  DescribeClusterSubnetGroupsCommandInput,
+  DescribeClusterSubnetGroupsCommandOutput
+} from "./commands/DescribeClusterSubnetGroupsCommand";
+import {
+  DescribeClusterTracksCommandInput,
+  DescribeClusterTracksCommandOutput
+} from "./commands/DescribeClusterTracksCommand";
+import {
+  DescribeClusterVersionsCommandInput,
+  DescribeClusterVersionsCommandOutput
+} from "./commands/DescribeClusterVersionsCommand";
+import {
+  DescribeClustersCommandInput,
+  DescribeClustersCommandOutput
+} from "./commands/DescribeClustersCommand";
+import {
+  DescribeDefaultClusterParametersCommandInput,
+  DescribeDefaultClusterParametersCommandOutput
+} from "./commands/DescribeDefaultClusterParametersCommand";
+import {
+  DescribeEventCategoriesCommandInput,
+  DescribeEventCategoriesCommandOutput
+} from "./commands/DescribeEventCategoriesCommand";
+import {
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput
+} from "./commands/DescribeEventSubscriptionsCommand";
+import {
+  DescribeEventsCommandInput,
+  DescribeEventsCommandOutput
+} from "./commands/DescribeEventsCommand";
+import {
+  DescribeHsmClientCertificatesCommandInput,
+  DescribeHsmClientCertificatesCommandOutput
+} from "./commands/DescribeHsmClientCertificatesCommand";
+import {
+  DescribeHsmConfigurationsCommandInput,
+  DescribeHsmConfigurationsCommandOutput
+} from "./commands/DescribeHsmConfigurationsCommand";
+import {
+  DescribeLoggingStatusCommandInput,
+  DescribeLoggingStatusCommandOutput
+} from "./commands/DescribeLoggingStatusCommand";
+import {
+  DescribeNodeConfigurationOptionsCommandInput,
+  DescribeNodeConfigurationOptionsCommandOutput
+} from "./commands/DescribeNodeConfigurationOptionsCommand";
+import {
+  DescribeOrderableClusterOptionsCommandInput,
+  DescribeOrderableClusterOptionsCommandOutput
+} from "./commands/DescribeOrderableClusterOptionsCommand";
+import {
+  DescribeReservedNodeOfferingsCommandInput,
+  DescribeReservedNodeOfferingsCommandOutput
+} from "./commands/DescribeReservedNodeOfferingsCommand";
+import {
+  DescribeReservedNodesCommandInput,
+  DescribeReservedNodesCommandOutput
+} from "./commands/DescribeReservedNodesCommand";
+import {
+  DescribeResizeCommandInput,
+  DescribeResizeCommandOutput
+} from "./commands/DescribeResizeCommand";
+import {
+  DescribeScheduledActionsCommandInput,
+  DescribeScheduledActionsCommandOutput
+} from "./commands/DescribeScheduledActionsCommand";
+import {
+  DescribeSnapshotCopyGrantsCommandInput,
+  DescribeSnapshotCopyGrantsCommandOutput
+} from "./commands/DescribeSnapshotCopyGrantsCommand";
+import {
+  DescribeSnapshotSchedulesCommandInput,
+  DescribeSnapshotSchedulesCommandOutput
+} from "./commands/DescribeSnapshotSchedulesCommand";
+import {
+  DescribeStorageCommandInput,
+  DescribeStorageCommandOutput
+} from "./commands/DescribeStorageCommand";
+import {
+  DescribeTableRestoreStatusCommandInput,
+  DescribeTableRestoreStatusCommandOutput
+} from "./commands/DescribeTableRestoreStatusCommand";
+import {
+  DescribeTagsCommandInput,
+  DescribeTagsCommandOutput
+} from "./commands/DescribeTagsCommand";
+import {
+  DisableLoggingCommandInput,
+  DisableLoggingCommandOutput
+} from "./commands/DisableLoggingCommand";
+import {
+  DisableSnapshotCopyCommandInput,
+  DisableSnapshotCopyCommandOutput
+} from "./commands/DisableSnapshotCopyCommand";
+import {
+  EnableLoggingCommandInput,
+  EnableLoggingCommandOutput
+} from "./commands/EnableLoggingCommand";
+import {
+  EnableSnapshotCopyCommandInput,
+  EnableSnapshotCopyCommandOutput
+} from "./commands/EnableSnapshotCopyCommand";
+import {
+  GetClusterCredentialsCommandInput,
+  GetClusterCredentialsCommandOutput
+} from "./commands/GetClusterCredentialsCommand";
+import {
+  GetReservedNodeExchangeOfferingsCommandInput,
+  GetReservedNodeExchangeOfferingsCommandOutput
+} from "./commands/GetReservedNodeExchangeOfferingsCommand";
+import {
+  ModifyClusterCommandInput,
+  ModifyClusterCommandOutput
+} from "./commands/ModifyClusterCommand";
+import {
+  ModifyClusterDbRevisionCommandInput,
+  ModifyClusterDbRevisionCommandOutput
+} from "./commands/ModifyClusterDbRevisionCommand";
+import {
+  ModifyClusterIamRolesCommandInput,
+  ModifyClusterIamRolesCommandOutput
+} from "./commands/ModifyClusterIamRolesCommand";
+import {
+  ModifyClusterMaintenanceCommandInput,
+  ModifyClusterMaintenanceCommandOutput
+} from "./commands/ModifyClusterMaintenanceCommand";
+import {
+  ModifyClusterParameterGroupCommandInput,
+  ModifyClusterParameterGroupCommandOutput
+} from "./commands/ModifyClusterParameterGroupCommand";
+import {
+  ModifyClusterSnapshotCommandInput,
+  ModifyClusterSnapshotCommandOutput
+} from "./commands/ModifyClusterSnapshotCommand";
+import {
+  ModifyClusterSnapshotScheduleCommandInput,
+  ModifyClusterSnapshotScheduleCommandOutput
+} from "./commands/ModifyClusterSnapshotScheduleCommand";
+import {
+  ModifyClusterSubnetGroupCommandInput,
+  ModifyClusterSubnetGroupCommandOutput
+} from "./commands/ModifyClusterSubnetGroupCommand";
+import {
+  ModifyEventSubscriptionCommandInput,
+  ModifyEventSubscriptionCommandOutput
+} from "./commands/ModifyEventSubscriptionCommand";
+import {
+  ModifyScheduledActionCommandInput,
+  ModifyScheduledActionCommandOutput
+} from "./commands/ModifyScheduledActionCommand";
+import {
+  ModifySnapshotCopyRetentionPeriodCommandInput,
+  ModifySnapshotCopyRetentionPeriodCommandOutput
+} from "./commands/ModifySnapshotCopyRetentionPeriodCommand";
+import {
+  ModifySnapshotScheduleCommandInput,
+  ModifySnapshotScheduleCommandOutput
+} from "./commands/ModifySnapshotScheduleCommand";
+import {
+  PurchaseReservedNodeOfferingCommandInput,
+  PurchaseReservedNodeOfferingCommandOutput
+} from "./commands/PurchaseReservedNodeOfferingCommand";
+import {
+  RebootClusterCommandInput,
+  RebootClusterCommandOutput
+} from "./commands/RebootClusterCommand";
+import {
+  ResetClusterParameterGroupCommandInput,
+  ResetClusterParameterGroupCommandOutput
+} from "./commands/ResetClusterParameterGroupCommand";
+import {
+  ResizeClusterCommandInput,
+  ResizeClusterCommandOutput
+} from "./commands/ResizeClusterCommand";
+import {
+  RestoreFromClusterSnapshotCommandInput,
+  RestoreFromClusterSnapshotCommandOutput
+} from "./commands/RestoreFromClusterSnapshotCommand";
+import {
+  RestoreTableFromClusterSnapshotCommandInput,
+  RestoreTableFromClusterSnapshotCommandOutput
+} from "./commands/RestoreTableFromClusterSnapshotCommand";
+import {
+  RevokeClusterSecurityGroupIngressCommandInput,
+  RevokeClusterSecurityGroupIngressCommandOutput
+} from "./commands/RevokeClusterSecurityGroupIngressCommand";
+import {
+  RevokeSnapshotAccessCommandInput,
+  RevokeSnapshotAccessCommandOutput
+} from "./commands/RevokeSnapshotAccessCommand";
+import {
+  RotateEncryptionKeyCommandInput,
+  RotateEncryptionKeyCommandOutput
+} from "./commands/RotateEncryptionKeyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -200,176 +389,186 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AcceptReservedNodeExchangeInputMessage
-  | AuthorizeClusterSecurityGroupIngressMessage
-  | AuthorizeSnapshotAccessMessage
-  | BatchDeleteClusterSnapshotsRequest
-  | BatchModifyClusterSnapshotsMessage
-  | CancelResizeMessage
-  | CopyClusterSnapshotMessage
-  | CreateClusterMessage
-  | CreateClusterParameterGroupMessage
-  | CreateClusterSecurityGroupMessage
-  | CreateClusterSnapshotMessage
-  | CreateClusterSubnetGroupMessage
-  | CreateEventSubscriptionMessage
-  | CreateHsmClientCertificateMessage
-  | CreateHsmConfigurationMessage
-  | CreateScheduledActionMessage
-  | CreateSnapshotCopyGrantMessage
-  | CreateSnapshotScheduleMessage
-  | CreateTagsMessage
-  | DeleteClusterMessage
-  | DeleteClusterParameterGroupMessage
-  | DeleteClusterSecurityGroupMessage
-  | DeleteClusterSnapshotMessage
-  | DeleteClusterSubnetGroupMessage
-  | DeleteEventSubscriptionMessage
-  | DeleteHsmClientCertificateMessage
-  | DeleteHsmConfigurationMessage
-  | DeleteScheduledActionMessage
-  | DeleteSnapshotCopyGrantMessage
-  | DeleteSnapshotScheduleMessage
-  | DeleteTagsMessage
-  | DescribeAccountAttributesMessage
-  | DescribeClusterDbRevisionsMessage
-  | DescribeClusterParameterGroupsMessage
-  | DescribeClusterParametersMessage
-  | DescribeClusterSecurityGroupsMessage
-  | DescribeClusterSnapshotsMessage
-  | DescribeClusterSubnetGroupsMessage
-  | DescribeClusterTracksMessage
-  | DescribeClusterVersionsMessage
-  | DescribeClustersMessage
-  | DescribeDefaultClusterParametersMessage
-  | DescribeEventCategoriesMessage
-  | DescribeEventSubscriptionsMessage
-  | DescribeEventsMessage
-  | DescribeHsmClientCertificatesMessage
-  | DescribeHsmConfigurationsMessage
-  | DescribeLoggingStatusMessage
-  | DescribeNodeConfigurationOptionsMessage
-  | DescribeOrderableClusterOptionsMessage
-  | DescribeReservedNodeOfferingsMessage
-  | DescribeReservedNodesMessage
-  | DescribeResizeMessage
-  | DescribeScheduledActionsMessage
-  | DescribeSnapshotCopyGrantsMessage
-  | DescribeSnapshotSchedulesMessage
-  | DescribeTableRestoreStatusMessage
-  | DescribeTagsMessage
-  | DisableLoggingMessage
-  | DisableSnapshotCopyMessage
-  | EnableLoggingMessage
-  | EnableSnapshotCopyMessage
-  | GetClusterCredentialsMessage
-  | GetReservedNodeExchangeOfferingsInputMessage
-  | ModifyClusterDbRevisionMessage
-  | ModifyClusterIamRolesMessage
-  | ModifyClusterMaintenanceMessage
-  | ModifyClusterMessage
-  | ModifyClusterParameterGroupMessage
-  | ModifyClusterSnapshotMessage
-  | ModifyClusterSnapshotScheduleMessage
-  | ModifyClusterSubnetGroupMessage
-  | ModifyEventSubscriptionMessage
-  | ModifyScheduledActionMessage
-  | ModifySnapshotCopyRetentionPeriodMessage
-  | ModifySnapshotScheduleMessage
-  | PurchaseReservedNodeOfferingMessage
-  | RebootClusterMessage
-  | ResetClusterParameterGroupMessage
-  | ResizeClusterMessage
-  | RestoreFromClusterSnapshotMessage
-  | RestoreTableFromClusterSnapshotMessage
-  | RevokeClusterSecurityGroupIngressMessage
-  | RevokeSnapshotAccessMessage
-  | RotateEncryptionKeyMessage;
+  | AcceptReservedNodeExchangeCommandInput
+  | AuthorizeClusterSecurityGroupIngressCommandInput
+  | AuthorizeSnapshotAccessCommandInput
+  | BatchDeleteClusterSnapshotsCommandInput
+  | BatchModifyClusterSnapshotsCommandInput
+  | CancelResizeCommandInput
+  | CopyClusterSnapshotCommandInput
+  | CreateClusterCommandInput
+  | CreateClusterParameterGroupCommandInput
+  | CreateClusterSecurityGroupCommandInput
+  | CreateClusterSnapshotCommandInput
+  | CreateClusterSubnetGroupCommandInput
+  | CreateEventSubscriptionCommandInput
+  | CreateHsmClientCertificateCommandInput
+  | CreateHsmConfigurationCommandInput
+  | CreateScheduledActionCommandInput
+  | CreateSnapshotCopyGrantCommandInput
+  | CreateSnapshotScheduleCommandInput
+  | CreateTagsCommandInput
+  | DeleteClusterCommandInput
+  | DeleteClusterParameterGroupCommandInput
+  | DeleteClusterSecurityGroupCommandInput
+  | DeleteClusterSnapshotCommandInput
+  | DeleteClusterSubnetGroupCommandInput
+  | DeleteEventSubscriptionCommandInput
+  | DeleteHsmClientCertificateCommandInput
+  | DeleteHsmConfigurationCommandInput
+  | DeleteScheduledActionCommandInput
+  | DeleteSnapshotCopyGrantCommandInput
+  | DeleteSnapshotScheduleCommandInput
+  | DeleteTagsCommandInput
+  | DescribeAccountAttributesCommandInput
+  | DescribeClusterDbRevisionsCommandInput
+  | DescribeClusterParameterGroupsCommandInput
+  | DescribeClusterParametersCommandInput
+  | DescribeClusterSecurityGroupsCommandInput
+  | DescribeClusterSnapshotsCommandInput
+  | DescribeClusterSubnetGroupsCommandInput
+  | DescribeClusterTracksCommandInput
+  | DescribeClusterVersionsCommandInput
+  | DescribeClustersCommandInput
+  | DescribeDefaultClusterParametersCommandInput
+  | DescribeEventCategoriesCommandInput
+  | DescribeEventSubscriptionsCommandInput
+  | DescribeEventsCommandInput
+  | DescribeHsmClientCertificatesCommandInput
+  | DescribeHsmConfigurationsCommandInput
+  | DescribeLoggingStatusCommandInput
+  | DescribeNodeConfigurationOptionsCommandInput
+  | DescribeOrderableClusterOptionsCommandInput
+  | DescribeReservedNodeOfferingsCommandInput
+  | DescribeReservedNodesCommandInput
+  | DescribeResizeCommandInput
+  | DescribeScheduledActionsCommandInput
+  | DescribeSnapshotCopyGrantsCommandInput
+  | DescribeSnapshotSchedulesCommandInput
+  | DescribeStorageCommandInput
+  | DescribeTableRestoreStatusCommandInput
+  | DescribeTagsCommandInput
+  | DisableLoggingCommandInput
+  | DisableSnapshotCopyCommandInput
+  | EnableLoggingCommandInput
+  | EnableSnapshotCopyCommandInput
+  | GetClusterCredentialsCommandInput
+  | GetReservedNodeExchangeOfferingsCommandInput
+  | ModifyClusterCommandInput
+  | ModifyClusterDbRevisionCommandInput
+  | ModifyClusterIamRolesCommandInput
+  | ModifyClusterMaintenanceCommandInput
+  | ModifyClusterParameterGroupCommandInput
+  | ModifyClusterSnapshotCommandInput
+  | ModifyClusterSnapshotScheduleCommandInput
+  | ModifyClusterSubnetGroupCommandInput
+  | ModifyEventSubscriptionCommandInput
+  | ModifyScheduledActionCommandInput
+  | ModifySnapshotCopyRetentionPeriodCommandInput
+  | ModifySnapshotScheduleCommandInput
+  | PurchaseReservedNodeOfferingCommandInput
+  | RebootClusterCommandInput
+  | ResetClusterParameterGroupCommandInput
+  | ResizeClusterCommandInput
+  | RestoreFromClusterSnapshotCommandInput
+  | RestoreTableFromClusterSnapshotCommandInput
+  | RevokeClusterSecurityGroupIngressCommandInput
+  | RevokeSnapshotAccessCommandInput
+  | RotateEncryptionKeyCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AcceptReservedNodeExchangeOutputMessage
-  | AccountAttributeList
-  | AuthorizeClusterSecurityGroupIngressResult
-  | AuthorizeSnapshotAccessResult
-  | BatchDeleteClusterSnapshotsResult
-  | BatchModifyClusterSnapshotsOutputMessage
-  | ClusterCredentials
-  | ClusterDbRevisionsMessage
-  | ClusterParameterGroupDetails
-  | ClusterParameterGroupNameMessage
-  | ClusterParameterGroupNameMessage
-  | ClusterParameterGroupsMessage
-  | ClusterSecurityGroupMessage
-  | ClusterSubnetGroupMessage
-  | ClusterVersionsMessage
-  | ClustersMessage
-  | CopyClusterSnapshotResult
-  | CreateClusterParameterGroupResult
-  | CreateClusterResult
-  | CreateClusterSecurityGroupResult
-  | CreateClusterSnapshotResult
-  | CreateClusterSubnetGroupResult
-  | CreateEventSubscriptionResult
-  | CreateHsmClientCertificateResult
-  | CreateHsmConfigurationResult
-  | CreateSnapshotCopyGrantResult
-  | CustomerStorageMessage
-  | DeleteClusterResult
-  | DeleteClusterSnapshotResult
-  | DescribeDefaultClusterParametersResult
-  | DescribeSnapshotSchedulesOutputMessage
-  | DisableSnapshotCopyResult
-  | EnableSnapshotCopyResult
-  | EventCategoriesMessage
-  | EventSubscriptionsMessage
-  | EventsMessage
-  | GetReservedNodeExchangeOfferingsOutputMessage
-  | HsmClientCertificateMessage
-  | HsmConfigurationMessage
-  | LoggingStatus
-  | LoggingStatus
-  | LoggingStatus
-  | ModifyClusterDbRevisionResult
-  | ModifyClusterIamRolesResult
-  | ModifyClusterMaintenanceResult
-  | ModifyClusterResult
-  | ModifyClusterSnapshotResult
-  | ModifyClusterSubnetGroupResult
-  | ModifyEventSubscriptionResult
-  | ModifySnapshotCopyRetentionPeriodResult
-  | NodeConfigurationOptionsMessage
-  | OrderableClusterOptionsMessage
-  | PurchaseReservedNodeOfferingResult
-  | RebootClusterResult
-  | ReservedNodeOfferingsMessage
-  | ReservedNodesMessage
-  | ResizeClusterResult
-  | ResizeProgressMessage
-  | ResizeProgressMessage
-  | RestoreFromClusterSnapshotResult
-  | RestoreTableFromClusterSnapshotResult
-  | RevokeClusterSecurityGroupIngressResult
-  | RevokeSnapshotAccessResult
-  | RotateEncryptionKeyResult
-  | ScheduledAction
-  | ScheduledAction
-  | ScheduledActionsMessage
-  | SnapshotCopyGrantMessage
-  | SnapshotMessage
-  | SnapshotSchedule
-  | SnapshotSchedule
-  | TableRestoreStatusMessage
-  | TaggedResourceListMessage
-  | TrackListMessage;
+  | AcceptReservedNodeExchangeCommandOutput
+  | AuthorizeClusterSecurityGroupIngressCommandOutput
+  | AuthorizeSnapshotAccessCommandOutput
+  | BatchDeleteClusterSnapshotsCommandOutput
+  | BatchModifyClusterSnapshotsCommandOutput
+  | CancelResizeCommandOutput
+  | CopyClusterSnapshotCommandOutput
+  | CreateClusterCommandOutput
+  | CreateClusterParameterGroupCommandOutput
+  | CreateClusterSecurityGroupCommandOutput
+  | CreateClusterSnapshotCommandOutput
+  | CreateClusterSubnetGroupCommandOutput
+  | CreateEventSubscriptionCommandOutput
+  | CreateHsmClientCertificateCommandOutput
+  | CreateHsmConfigurationCommandOutput
+  | CreateScheduledActionCommandOutput
+  | CreateSnapshotCopyGrantCommandOutput
+  | CreateSnapshotScheduleCommandOutput
+  | CreateTagsCommandOutput
+  | DeleteClusterCommandOutput
+  | DeleteClusterParameterGroupCommandOutput
+  | DeleteClusterSecurityGroupCommandOutput
+  | DeleteClusterSnapshotCommandOutput
+  | DeleteClusterSubnetGroupCommandOutput
+  | DeleteEventSubscriptionCommandOutput
+  | DeleteHsmClientCertificateCommandOutput
+  | DeleteHsmConfigurationCommandOutput
+  | DeleteScheduledActionCommandOutput
+  | DeleteSnapshotCopyGrantCommandOutput
+  | DeleteSnapshotScheduleCommandOutput
+  | DeleteTagsCommandOutput
+  | DescribeAccountAttributesCommandOutput
+  | DescribeClusterDbRevisionsCommandOutput
+  | DescribeClusterParameterGroupsCommandOutput
+  | DescribeClusterParametersCommandOutput
+  | DescribeClusterSecurityGroupsCommandOutput
+  | DescribeClusterSnapshotsCommandOutput
+  | DescribeClusterSubnetGroupsCommandOutput
+  | DescribeClusterTracksCommandOutput
+  | DescribeClusterVersionsCommandOutput
+  | DescribeClustersCommandOutput
+  | DescribeDefaultClusterParametersCommandOutput
+  | DescribeEventCategoriesCommandOutput
+  | DescribeEventSubscriptionsCommandOutput
+  | DescribeEventsCommandOutput
+  | DescribeHsmClientCertificatesCommandOutput
+  | DescribeHsmConfigurationsCommandOutput
+  | DescribeLoggingStatusCommandOutput
+  | DescribeNodeConfigurationOptionsCommandOutput
+  | DescribeOrderableClusterOptionsCommandOutput
+  | DescribeReservedNodeOfferingsCommandOutput
+  | DescribeReservedNodesCommandOutput
+  | DescribeResizeCommandOutput
+  | DescribeScheduledActionsCommandOutput
+  | DescribeSnapshotCopyGrantsCommandOutput
+  | DescribeSnapshotSchedulesCommandOutput
+  | DescribeStorageCommandOutput
+  | DescribeTableRestoreStatusCommandOutput
+  | DescribeTagsCommandOutput
+  | DisableLoggingCommandOutput
+  | DisableSnapshotCopyCommandOutput
+  | EnableLoggingCommandOutput
+  | EnableSnapshotCopyCommandOutput
+  | GetClusterCredentialsCommandOutput
+  | GetReservedNodeExchangeOfferingsCommandOutput
+  | ModifyClusterCommandOutput
+  | ModifyClusterDbRevisionCommandOutput
+  | ModifyClusterIamRolesCommandOutput
+  | ModifyClusterMaintenanceCommandOutput
+  | ModifyClusterParameterGroupCommandOutput
+  | ModifyClusterSnapshotCommandOutput
+  | ModifyClusterSnapshotScheduleCommandOutput
+  | ModifyClusterSubnetGroupCommandOutput
+  | ModifyEventSubscriptionCommandOutput
+  | ModifyScheduledActionCommandOutput
+  | ModifySnapshotCopyRetentionPeriodCommandOutput
+  | ModifySnapshotScheduleCommandOutput
+  | PurchaseReservedNodeOfferingCommandOutput
+  | RebootClusterCommandOutput
+  | ResetClusterParameterGroupCommandOutput
+  | ResizeClusterCommandOutput
+  | RestoreFromClusterSnapshotCommandOutput
+  | RestoreTableFromClusterSnapshotCommandOutput
+  | RevokeClusterSecurityGroupIngressCommandOutput
+  | RevokeSnapshotAccessCommandOutput
+  | RotateEncryptionKeyCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

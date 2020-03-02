@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateFpgaImageCommandInput = CreateFpgaImageRequest;
-export type CreateFpgaImageCommandOutput = CreateFpgaImageResult;
+export type CreateFpgaImageCommandOutput = CreateFpgaImageResult &
+  __MetadataBearer;
 
 export class CreateFpgaImageCommand extends $Command<
   CreateFpgaImageCommandInput,

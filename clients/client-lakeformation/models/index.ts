@@ -23,7 +23,7 @@ export namespace BatchGrantPermissionsRequest {
   }
 }
 
-export interface BatchGrantPermissionsResponse extends $MetadataBearer {
+export interface BatchGrantPermissionsResponse {
   __type?: "BatchGrantPermissionsResponse";
   /**
    * <p>A list of failures to grant permissions to the resources.</p>
@@ -115,7 +115,7 @@ export namespace BatchRevokePermissionsRequest {
   }
 }
 
-export interface BatchRevokePermissionsResponse extends $MetadataBearer {
+export interface BatchRevokePermissionsResponse {
   __type?: "BatchRevokePermissionsResponse";
   /**
    * <p>A list of failures to revoke permissions to the resources.</p>
@@ -258,7 +258,7 @@ export namespace DeregisterResourceRequest {
   }
 }
 
-export interface DeregisterResourceResponse extends $MetadataBearer {
+export interface DeregisterResourceResponse {
   __type?: "DeregisterResourceResponse";
 }
 
@@ -282,7 +282,7 @@ export namespace DescribeResourceRequest {
   }
 }
 
-export interface DescribeResourceResponse extends $MetadataBearer {
+export interface DescribeResourceResponse {
   __type?: "DescribeResourceResponse";
   /**
    * <p>A structure containing information about an AWS Lake Formation resource.</p>
@@ -310,7 +310,7 @@ export namespace GetDataLakeSettingsRequest {
   }
 }
 
-export interface GetDataLakeSettingsResponse extends $MetadataBearer {
+export interface GetDataLakeSettingsResponse {
   __type?: "GetDataLakeSettingsResponse";
   /**
    * <p>A list of AWS Lake Formation principals. </p>
@@ -353,8 +353,7 @@ export namespace GetEffectivePermissionsForPathRequest {
   }
 }
 
-export interface GetEffectivePermissionsForPathResponse
-  extends $MetadataBearer {
+export interface GetEffectivePermissionsForPathResponse {
   __type?: "GetEffectivePermissionsForPathResponse";
   /**
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
@@ -408,7 +407,7 @@ export namespace GrantPermissionsRequest {
   }
 }
 
-export interface GrantPermissionsResponse extends $MetadataBearer {
+export interface GrantPermissionsResponse {
   __type?: "GrantPermissionsResponse";
 }
 
@@ -458,7 +457,7 @@ export namespace ListPermissionsRequest {
   }
 }
 
-export interface ListPermissionsResponse extends $MetadataBearer {
+export interface ListPermissionsResponse {
   __type?: "ListPermissionsResponse";
   /**
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
@@ -501,7 +500,7 @@ export namespace ListResourcesRequest {
   }
 }
 
-export interface ListResourcesResponse extends $MetadataBearer {
+export interface ListResourcesResponse {
   __type?: "ListResourcesResponse";
   /**
    * <p>A continuation token, if this is not the first call to retrieve these resources.</p>
@@ -605,7 +604,7 @@ export namespace PutDataLakeSettingsRequest {
   }
 }
 
-export interface PutDataLakeSettingsResponse extends $MetadataBearer {
+export interface PutDataLakeSettingsResponse {
   __type?: "PutDataLakeSettingsResponse";
 }
 
@@ -639,7 +638,7 @@ export namespace RegisterResourceRequest {
   }
 }
 
-export interface RegisterResourceResponse extends $MetadataBearer {
+export interface RegisterResourceResponse {
   __type?: "RegisterResourceResponse";
 }
 
@@ -721,7 +720,7 @@ export namespace RevokePermissionsRequest {
   }
 }
 
-export interface RevokePermissionsResponse extends $MetadataBearer {
+export interface RevokePermissionsResponse {
   __type?: "RevokePermissionsResponse";
 }
 
@@ -805,7 +804,7 @@ export namespace UpdateResourceRequest {
   }
 }
 
-export interface UpdateResourceResponse extends $MetadataBearer {
+export interface UpdateResourceResponse {
   __type?: "UpdateResourceResponse";
 }
 

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMatchmakingConfigurationCommandInput = DeleteMatchmakingConfigurationInput;
-export type DeleteMatchmakingConfigurationCommandOutput = DeleteMatchmakingConfigurationOutput;
+export type DeleteMatchmakingConfigurationCommandOutput = DeleteMatchmakingConfigurationOutput &
+  __MetadataBearer;
 
 export class DeleteMatchmakingConfigurationCommand extends $Command<
   DeleteMatchmakingConfigurationCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RetryStageExecutionCommandInput = RetryStageExecutionInput;
-export type RetryStageExecutionCommandOutput = RetryStageExecutionOutput;
+export type RetryStageExecutionCommandOutput = RetryStageExecutionOutput &
+  __MetadataBearer;
 
 export class RetryStageExecutionCommand extends $Command<
   RetryStageExecutionCommandInput,

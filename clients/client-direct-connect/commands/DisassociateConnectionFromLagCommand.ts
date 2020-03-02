@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateConnectionFromLagCommandInput = DisassociateConnectionFromLagRequest;
-export type DisassociateConnectionFromLagCommandOutput = Connection;
+export type DisassociateConnectionFromLagCommandOutput = Connection &
+  __MetadataBearer;
 
 export class DisassociateConnectionFromLagCommand extends $Command<
   DisassociateConnectionFromLagCommandInput,

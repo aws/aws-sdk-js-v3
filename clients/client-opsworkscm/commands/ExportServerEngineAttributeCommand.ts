@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExportServerEngineAttributeCommandInput = ExportServerEngineAttributeRequest;
-export type ExportServerEngineAttributeCommandOutput = ExportServerEngineAttributeResponse;
+export type ExportServerEngineAttributeCommandOutput = ExportServerEngineAttributeResponse &
+  __MetadataBearer;
 
 export class ExportServerEngineAttributeCommand extends $Command<
   ExportServerEngineAttributeCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateApplicationResourceLifecycleCommandInput = UpdateApplicationResourceLifecycleMessage;
-export type UpdateApplicationResourceLifecycleCommandOutput = ApplicationResourceLifecycleDescriptionMessage;
+export type UpdateApplicationResourceLifecycleCommandOutput = ApplicationResourceLifecycleDescriptionMessage &
+  __MetadataBearer;
 
 export class UpdateApplicationResourceLifecycleCommand extends $Command<
   UpdateApplicationResourceLifecycleCommandInput,

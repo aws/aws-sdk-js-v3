@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeBatchInferenceJobCommandInput = DescribeBatchInferenceJobRequest;
-export type DescribeBatchInferenceJobCommandOutput = DescribeBatchInferenceJobResponse;
+export type DescribeBatchInferenceJobCommandOutput = DescribeBatchInferenceJobResponse &
+  __MetadataBearer;
 
 export class DescribeBatchInferenceJobCommand extends $Command<
   DescribeBatchInferenceJobCommandInput,

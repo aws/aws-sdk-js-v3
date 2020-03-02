@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSentimentDetectionJobsCommandInput = ListSentimentDetectionJobsRequest;
-export type ListSentimentDetectionJobsCommandOutput = ListSentimentDetectionJobsResponse;
+export type ListSentimentDetectionJobsCommandOutput = ListSentimentDetectionJobsResponse &
+  __MetadataBearer;
 
 export class ListSentimentDetectionJobsCommand extends $Command<
   ListSentimentDetectionJobsCommandInput,

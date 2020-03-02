@@ -1837,24 +1837,33 @@ async function deserializeAws_json1_1AcceptPortfolioShareCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1913,31 +1922,43 @@ async function deserializeAws_json1_1AssociateBudgetWithResourceCommandError(
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
-      response = await deserializeAws_json1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1996,24 +2017,33 @@ async function deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2072,24 +2102,33 @@ async function deserializeAws_json1_1AssociateProductWithPortfolioCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2148,24 +2187,33 @@ async function deserializeAws_json1_1AssociateServiceActionWithProvisioningArtif
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
-      response = await deserializeAws_json1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2224,45 +2272,63 @@ async function deserializeAws_json1_1AssociateTagOptionWithResourceCommandError(
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
-      response = await deserializeAws_json1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
-      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2321,10 +2387,13 @@ async function deserializeAws_json1_1BatchAssociateServiceActionWithProvisioning
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2387,10 +2456,13 @@ async function deserializeAws_json1_1BatchDisassociateServiceActionFromProvision
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2443,17 +2515,23 @@ async function deserializeAws_json1_1CopyProductCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2506,31 +2584,43 @@ async function deserializeAws_json1_1CreateConstraintCommandError(
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
-      response = await deserializeAws_json1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2583,24 +2673,33 @@ async function deserializeAws_json1_1CreatePortfolioCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2656,38 +2755,53 @@ async function deserializeAws_json1_1CreatePortfolioShareCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
-      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotSupportedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2740,24 +2854,33 @@ async function deserializeAws_json1_1CreateProductCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2816,24 +2939,33 @@ async function deserializeAws_json1_1CreateProvisionedProductPlanCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
-      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2892,24 +3024,33 @@ async function deserializeAws_json1_1CreateProvisioningArtifactCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2965,17 +3106,23 @@ async function deserializeAws_json1_1CreateServiceActionCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3028,24 +3175,33 @@ async function deserializeAws_json1_1CreateTagOptionCommandError(
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
-      response = await deserializeAws_json1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3098,17 +3254,23 @@ async function deserializeAws_json1_1DeleteConstraintCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3161,31 +3323,43 @@ async function deserializeAws_json1_1DeletePortfolioCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3241,31 +3415,43 @@ async function deserializeAws_json1_1DeletePortfolioShareCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
-      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotSupportedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3318,31 +3504,43 @@ async function deserializeAws_json1_1DeleteProductCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3401,17 +3599,23 @@ async function deserializeAws_json1_1DeleteProvisionedProductPlanCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3470,24 +3674,33 @@ async function deserializeAws_json1_1DeleteProvisioningArtifactCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3543,17 +3756,23 @@ async function deserializeAws_json1_1DeleteServiceActionCommandError(
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3606,24 +3825,33 @@ async function deserializeAws_json1_1DeleteTagOptionCommandError(
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3679,10 +3907,13 @@ async function deserializeAws_json1_1DescribeConstraintCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3741,10 +3972,13 @@ async function deserializeAws_json1_1DescribeCopyProductStatusCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3797,10 +4031,13 @@ async function deserializeAws_json1_1DescribePortfolioCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3859,24 +4096,33 @@ async function deserializeAws_json1_1DescribePortfolioShareStatusCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotSupportedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3929,17 +4175,23 @@ async function deserializeAws_json1_1DescribeProductCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3995,10 +4247,13 @@ async function deserializeAws_json1_1DescribeProductAsAdminCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4054,17 +4309,23 @@ async function deserializeAws_json1_1DescribeProductViewCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4123,10 +4384,13 @@ async function deserializeAws_json1_1DescribeProvisionedProductCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4185,17 +4449,23 @@ async function deserializeAws_json1_1DescribeProvisionedProductPlanCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4254,10 +4524,13 @@ async function deserializeAws_json1_1DescribeProvisioningArtifactCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4316,17 +4589,23 @@ async function deserializeAws_json1_1DescribeProvisioningParametersCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4379,10 +4658,13 @@ async function deserializeAws_json1_1DescribeRecordCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4438,10 +4720,13 @@ async function deserializeAws_json1_1DescribeServiceActionCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4500,17 +4785,23 @@ async function deserializeAws_json1_1DescribeServiceActionExecutionParametersCom
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4563,17 +4854,23 @@ async function deserializeAws_json1_1DescribeTagOptionCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4632,24 +4929,33 @@ async function deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError(
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
-      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotSupportedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4708,10 +5014,13 @@ async function deserializeAws_json1_1DisassociateBudgetFromResourceCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4770,17 +5079,23 @@ async function deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandEr
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4839,24 +5154,33 @@ async function deserializeAws_json1_1DisassociateProductFromPortfolioCommandErro
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4915,10 +5239,13 @@ async function deserializeAws_json1_1DisassociateServiceActionFromProvisioningAr
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4977,17 +5304,23 @@ async function deserializeAws_json1_1DisassociateTagOptionFromResourceCommandErr
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5046,24 +5379,33 @@ async function deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError(
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
-      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotSupportedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5122,24 +5464,33 @@ async function deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
-      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5198,24 +5549,33 @@ async function deserializeAws_json1_1ExecuteProvisionedProductServiceActionComma
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
-      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5274,17 +5634,23 @@ async function deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError
   switch (errorCode) {
     case "OperationNotSupportedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5343,17 +5709,23 @@ async function deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotSupportedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5409,17 +5781,23 @@ async function deserializeAws_json1_1ListBudgetsForResourceCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5478,17 +5856,23 @@ async function deserializeAws_json1_1ListConstraintsForPortfolioCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5541,17 +5925,23 @@ async function deserializeAws_json1_1ListLaunchPathsCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5610,24 +6000,33 @@ async function deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotSupportedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
-      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5683,10 +6082,13 @@ async function deserializeAws_json1_1ListPortfolioAccessCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5739,10 +6141,13 @@ async function deserializeAws_json1_1ListPortfoliosCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5801,17 +6206,23 @@ async function deserializeAws_json1_1ListPortfoliosForProductCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5870,17 +6281,23 @@ async function deserializeAws_json1_1ListPrincipalsForPortfolioCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5939,17 +6356,23 @@ async function deserializeAws_json1_1ListProvisionedProductPlansCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6008,17 +6431,23 @@ async function deserializeAws_json1_1ListProvisioningArtifactsCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6077,17 +6506,23 @@ async function deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCo
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6140,10 +6575,13 @@ async function deserializeAws_json1_1ListRecordHistoryCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6202,24 +6640,33 @@ async function deserializeAws_json1_1ListResourcesForTagOptionCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6275,10 +6722,13 @@ async function deserializeAws_json1_1ListServiceActionsCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6337,17 +6787,23 @@ async function deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCo
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6406,17 +6862,23 @@ async function deserializeAws_json1_1ListStackInstancesForProvisionedProductComm
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6469,17 +6931,23 @@ async function deserializeAws_json1_1ListTagOptionsCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6532,24 +7000,33 @@ async function deserializeAws_json1_1ProvisionProductCommandError(
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
-      response = await deserializeAws_json1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6605,10 +7082,13 @@ async function deserializeAws_json1_1RejectPortfolioShareCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6664,10 +7144,13 @@ async function deserializeAws_json1_1ScanProvisionedProductsCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6720,10 +7203,13 @@ async function deserializeAws_json1_1SearchProductsCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6779,17 +7265,23 @@ async function deserializeAws_json1_1SearchProductsAsAdminCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6848,10 +7340,13 @@ async function deserializeAws_json1_1SearchProvisionedProductsCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6910,10 +7405,13 @@ async function deserializeAws_json1_1TerminateProvisionedProductCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6966,17 +7464,23 @@ async function deserializeAws_json1_1UpdateConstraintCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7029,31 +7533,43 @@ async function deserializeAws_json1_1UpdatePortfolioCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7106,24 +7622,33 @@ async function deserializeAws_json1_1UpdateProductCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7182,17 +7707,23 @@ async function deserializeAws_json1_1UpdateProvisionedProductCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7251,24 +7782,33 @@ async function deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandEr
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
-      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7327,17 +7867,23 @@ async function deserializeAws_json1_1UpdateProvisioningArtifactCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7393,17 +7939,23 @@ async function deserializeAws_json1_1UpdateServiceActionCommandError(
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7456,31 +8008,43 @@ async function deserializeAws_json1_1UpdateTagOptionCommandError(
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
-      response = await deserializeAws_json1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParametersException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
-      response = await deserializeAws_json1_1InvalidParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagOptionNotMigratedException":
     case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
-      response = await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

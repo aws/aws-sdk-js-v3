@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutImageTagMutabilityCommandInput = PutImageTagMutabilityRequest;
-export type PutImageTagMutabilityCommandOutput = PutImageTagMutabilityResponse;
+export type PutImageTagMutabilityCommandOutput = PutImageTagMutabilityResponse &
+  __MetadataBearer;
 
 export class PutImageTagMutabilityCommand extends $Command<
   PutImageTagMutabilityCommandInput,

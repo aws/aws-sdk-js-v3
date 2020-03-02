@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListGraphqlApisCommandInput = ListGraphqlApisRequest;
-export type ListGraphqlApisCommandOutput = ListGraphqlApisResponse;
+export type ListGraphqlApisCommandOutput = ListGraphqlApisResponse &
+  __MetadataBearer;
 
 export class ListGraphqlApisCommand extends $Command<
   ListGraphqlApisCommandInput,

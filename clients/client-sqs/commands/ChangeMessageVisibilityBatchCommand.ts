@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ChangeMessageVisibilityBatchCommandInput = ChangeMessageVisibilityBatchRequest;
-export type ChangeMessageVisibilityBatchCommandOutput = ChangeMessageVisibilityBatchResult;
+export type ChangeMessageVisibilityBatchCommandOutput = ChangeMessageVisibilityBatchResult &
+  __MetadataBearer;
 
 export class ChangeMessageVisibilityBatchCommand extends $Command<
   ChangeMessageVisibilityBatchCommandInput,

@@ -1,29 +1,51 @@
 import {
-  CreateAssetRequest,
-  CreateAssetResponse,
-  CreatePackagingConfigurationRequest,
-  CreatePackagingConfigurationResponse,
-  CreatePackagingGroupRequest,
-  CreatePackagingGroupResponse,
-  DeleteAssetRequest,
-  DeleteAssetResponse,
-  DeletePackagingConfigurationRequest,
-  DeletePackagingConfigurationResponse,
-  DeletePackagingGroupRequest,
-  DeletePackagingGroupResponse,
-  DescribeAssetRequest,
-  DescribeAssetResponse,
-  DescribePackagingConfigurationRequest,
-  DescribePackagingConfigurationResponse,
-  DescribePackagingGroupRequest,
-  DescribePackagingGroupResponse,
-  ListAssetsRequest,
-  ListAssetsResponse,
-  ListPackagingConfigurationsRequest,
-  ListPackagingConfigurationsResponse,
-  ListPackagingGroupsRequest,
-  ListPackagingGroupsResponse
-} from "./models/index";
+  CreateAssetCommandInput,
+  CreateAssetCommandOutput
+} from "./commands/CreateAssetCommand";
+import {
+  CreatePackagingConfigurationCommandInput,
+  CreatePackagingConfigurationCommandOutput
+} from "./commands/CreatePackagingConfigurationCommand";
+import {
+  CreatePackagingGroupCommandInput,
+  CreatePackagingGroupCommandOutput
+} from "./commands/CreatePackagingGroupCommand";
+import {
+  DeleteAssetCommandInput,
+  DeleteAssetCommandOutput
+} from "./commands/DeleteAssetCommand";
+import {
+  DeletePackagingConfigurationCommandInput,
+  DeletePackagingConfigurationCommandOutput
+} from "./commands/DeletePackagingConfigurationCommand";
+import {
+  DeletePackagingGroupCommandInput,
+  DeletePackagingGroupCommandOutput
+} from "./commands/DeletePackagingGroupCommand";
+import {
+  DescribeAssetCommandInput,
+  DescribeAssetCommandOutput
+} from "./commands/DescribeAssetCommand";
+import {
+  DescribePackagingConfigurationCommandInput,
+  DescribePackagingConfigurationCommandOutput
+} from "./commands/DescribePackagingConfigurationCommand";
+import {
+  DescribePackagingGroupCommandInput,
+  DescribePackagingGroupCommandOutput
+} from "./commands/DescribePackagingGroupCommand";
+import {
+  ListAssetsCommandInput,
+  ListAssetsCommandOutput
+} from "./commands/ListAssetsCommand";
+import {
+  ListPackagingConfigurationsCommandInput,
+  ListPackagingConfigurationsCommandOutput
+} from "./commands/ListPackagingConfigurationsCommand";
+import {
+  ListPackagingGroupsCommandInput,
+  ListPackagingGroupsCommandOutput
+} from "./commands/ListPackagingGroupsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -77,32 +99,32 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateAssetRequest
-  | CreatePackagingConfigurationRequest
-  | CreatePackagingGroupRequest
-  | DeleteAssetRequest
-  | DeletePackagingConfigurationRequest
-  | DeletePackagingGroupRequest
-  | DescribeAssetRequest
-  | DescribePackagingConfigurationRequest
-  | DescribePackagingGroupRequest
-  | ListAssetsRequest
-  | ListPackagingConfigurationsRequest
-  | ListPackagingGroupsRequest;
+  | CreateAssetCommandInput
+  | CreatePackagingConfigurationCommandInput
+  | CreatePackagingGroupCommandInput
+  | DeleteAssetCommandInput
+  | DeletePackagingConfigurationCommandInput
+  | DeletePackagingGroupCommandInput
+  | DescribeAssetCommandInput
+  | DescribePackagingConfigurationCommandInput
+  | DescribePackagingGroupCommandInput
+  | ListAssetsCommandInput
+  | ListPackagingConfigurationsCommandInput
+  | ListPackagingGroupsCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateAssetResponse
-  | CreatePackagingConfigurationResponse
-  | CreatePackagingGroupResponse
-  | DeleteAssetResponse
-  | DeletePackagingConfigurationResponse
-  | DeletePackagingGroupResponse
-  | DescribeAssetResponse
-  | DescribePackagingConfigurationResponse
-  | DescribePackagingGroupResponse
-  | ListAssetsResponse
-  | ListPackagingConfigurationsResponse
-  | ListPackagingGroupsResponse;
+  | CreateAssetCommandOutput
+  | CreatePackagingConfigurationCommandOutput
+  | CreatePackagingGroupCommandOutput
+  | DeleteAssetCommandOutput
+  | DeletePackagingConfigurationCommandOutput
+  | DeletePackagingGroupCommandOutput
+  | DescribeAssetCommandOutput
+  | DescribePackagingConfigurationCommandOutput
+  | DescribePackagingGroupCommandOutput
+  | ListAssetsCommandOutput
+  | ListPackagingConfigurationsCommandOutput
+  | ListPackagingGroupsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

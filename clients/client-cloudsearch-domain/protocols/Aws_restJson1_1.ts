@@ -206,10 +206,13 @@ async function deserializeAws_restJson1_1SearchCommandError(
   switch (errorCode) {
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
-      response = await deserializeAws_restJson1_1SearchExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SearchExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -269,10 +272,13 @@ async function deserializeAws_restJson1_1SuggestCommandError(
   switch (errorCode) {
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
-      response = await deserializeAws_restJson1_1SearchExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SearchExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -340,10 +346,13 @@ async function deserializeAws_restJson1_1UploadDocumentsCommandError(
   switch (errorCode) {
     case "DocumentServiceException":
     case "com.a9.cloudsearch.service2013#DocumentServiceException":
-      response = await deserializeAws_restJson1_1DocumentServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DocumentServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

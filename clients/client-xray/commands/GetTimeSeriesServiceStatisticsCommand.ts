@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTimeSeriesServiceStatisticsCommandInput = GetTimeSeriesServiceStatisticsRequest;
-export type GetTimeSeriesServiceStatisticsCommandOutput = GetTimeSeriesServiceStatisticsResult;
+export type GetTimeSeriesServiceStatisticsCommandOutput = GetTimeSeriesServiceStatisticsResult &
+  __MetadataBearer;
 
 export class GetTimeSeriesServiceStatisticsCommand extends $Command<
   GetTimeSeriesServiceStatisticsCommandInput,

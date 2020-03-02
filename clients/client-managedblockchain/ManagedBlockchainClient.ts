@@ -1,41 +1,75 @@
 import {
-  CreateMemberInput,
-  CreateMemberOutput,
-  CreateNetworkInput,
-  CreateNetworkOutput,
-  CreateNodeInput,
-  CreateNodeOutput,
-  CreateProposalInput,
-  CreateProposalOutput,
-  DeleteMemberInput,
-  DeleteMemberOutput,
-  DeleteNodeInput,
-  DeleteNodeOutput,
-  GetMemberInput,
-  GetMemberOutput,
-  GetNetworkInput,
-  GetNetworkOutput,
-  GetNodeInput,
-  GetNodeOutput,
-  GetProposalInput,
-  GetProposalOutput,
-  ListInvitationsInput,
-  ListInvitationsOutput,
-  ListMembersInput,
-  ListMembersOutput,
-  ListNetworksInput,
-  ListNetworksOutput,
-  ListNodesInput,
-  ListNodesOutput,
-  ListProposalVotesInput,
-  ListProposalVotesOutput,
-  ListProposalsInput,
-  ListProposalsOutput,
-  RejectInvitationInput,
-  RejectInvitationOutput,
-  VoteOnProposalInput,
-  VoteOnProposalOutput
-} from "./models/index";
+  CreateMemberCommandInput,
+  CreateMemberCommandOutput
+} from "./commands/CreateMemberCommand";
+import {
+  CreateNetworkCommandInput,
+  CreateNetworkCommandOutput
+} from "./commands/CreateNetworkCommand";
+import {
+  CreateNodeCommandInput,
+  CreateNodeCommandOutput
+} from "./commands/CreateNodeCommand";
+import {
+  CreateProposalCommandInput,
+  CreateProposalCommandOutput
+} from "./commands/CreateProposalCommand";
+import {
+  DeleteMemberCommandInput,
+  DeleteMemberCommandOutput
+} from "./commands/DeleteMemberCommand";
+import {
+  DeleteNodeCommandInput,
+  DeleteNodeCommandOutput
+} from "./commands/DeleteNodeCommand";
+import {
+  GetMemberCommandInput,
+  GetMemberCommandOutput
+} from "./commands/GetMemberCommand";
+import {
+  GetNetworkCommandInput,
+  GetNetworkCommandOutput
+} from "./commands/GetNetworkCommand";
+import {
+  GetNodeCommandInput,
+  GetNodeCommandOutput
+} from "./commands/GetNodeCommand";
+import {
+  GetProposalCommandInput,
+  GetProposalCommandOutput
+} from "./commands/GetProposalCommand";
+import {
+  ListInvitationsCommandInput,
+  ListInvitationsCommandOutput
+} from "./commands/ListInvitationsCommand";
+import {
+  ListMembersCommandInput,
+  ListMembersCommandOutput
+} from "./commands/ListMembersCommand";
+import {
+  ListNetworksCommandInput,
+  ListNetworksCommandOutput
+} from "./commands/ListNetworksCommand";
+import {
+  ListNodesCommandInput,
+  ListNodesCommandOutput
+} from "./commands/ListNodesCommand";
+import {
+  ListProposalVotesCommandInput,
+  ListProposalVotesCommandOutput
+} from "./commands/ListProposalVotesCommand";
+import {
+  ListProposalsCommandInput,
+  ListProposalsCommandOutput
+} from "./commands/ListProposalsCommand";
+import {
+  RejectInvitationCommandInput,
+  RejectInvitationCommandOutput
+} from "./commands/RejectInvitationCommand";
+import {
+  VoteOnProposalCommandInput,
+  VoteOnProposalCommandOutput
+} from "./commands/VoteOnProposalCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -89,44 +123,44 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateMemberInput
-  | CreateNetworkInput
-  | CreateNodeInput
-  | CreateProposalInput
-  | DeleteMemberInput
-  | DeleteNodeInput
-  | GetMemberInput
-  | GetNetworkInput
-  | GetNodeInput
-  | GetProposalInput
-  | ListInvitationsInput
-  | ListMembersInput
-  | ListNetworksInput
-  | ListNodesInput
-  | ListProposalVotesInput
-  | ListProposalsInput
-  | RejectInvitationInput
-  | VoteOnProposalInput;
+  | CreateMemberCommandInput
+  | CreateNetworkCommandInput
+  | CreateNodeCommandInput
+  | CreateProposalCommandInput
+  | DeleteMemberCommandInput
+  | DeleteNodeCommandInput
+  | GetMemberCommandInput
+  | GetNetworkCommandInput
+  | GetNodeCommandInput
+  | GetProposalCommandInput
+  | ListInvitationsCommandInput
+  | ListMembersCommandInput
+  | ListNetworksCommandInput
+  | ListNodesCommandInput
+  | ListProposalVotesCommandInput
+  | ListProposalsCommandInput
+  | RejectInvitationCommandInput
+  | VoteOnProposalCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateMemberOutput
-  | CreateNetworkOutput
-  | CreateNodeOutput
-  | CreateProposalOutput
-  | DeleteMemberOutput
-  | DeleteNodeOutput
-  | GetMemberOutput
-  | GetNetworkOutput
-  | GetNodeOutput
-  | GetProposalOutput
-  | ListInvitationsOutput
-  | ListMembersOutput
-  | ListNetworksOutput
-  | ListNodesOutput
-  | ListProposalVotesOutput
-  | ListProposalsOutput
-  | RejectInvitationOutput
-  | VoteOnProposalOutput;
+  | CreateMemberCommandOutput
+  | CreateNetworkCommandOutput
+  | CreateNodeCommandOutput
+  | CreateProposalCommandOutput
+  | DeleteMemberCommandOutput
+  | DeleteNodeCommandOutput
+  | GetMemberCommandOutput
+  | GetNetworkCommandOutput
+  | GetNodeCommandOutput
+  | GetProposalCommandOutput
+  | ListInvitationsCommandOutput
+  | ListMembersCommandOutput
+  | ListNetworksCommandOutput
+  | ListNodesCommandOutput
+  | ListProposalVotesCommandOutput
+  | ListProposalsCommandOutput
+  | RejectInvitationCommandOutput
+  | VoteOnProposalCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

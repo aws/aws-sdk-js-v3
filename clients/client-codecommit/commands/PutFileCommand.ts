@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutFileCommandInput = PutFileInput;
-export type PutFileCommandOutput = PutFileOutput;
+export type PutFileCommandOutput = PutFileOutput & __MetadataBearer;
 
 export class PutFileCommand extends $Command<
   PutFileCommandInput,

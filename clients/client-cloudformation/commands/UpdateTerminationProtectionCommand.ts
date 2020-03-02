@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateTerminationProtectionCommandInput = UpdateTerminationProtectionInput;
-export type UpdateTerminationProtectionCommandOutput = UpdateTerminationProtectionOutput;
+export type UpdateTerminationProtectionCommandOutput = UpdateTerminationProtectionOutput &
+  __MetadataBearer;
 
 export class UpdateTerminationProtectionCommand extends $Command<
   UpdateTerminationProtectionCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMissionProfileCommandInput = DeleteMissionProfileRequest;
-export type DeleteMissionProfileCommandOutput = MissionProfileIdResponse;
+export type DeleteMissionProfileCommandOutput = MissionProfileIdResponse &
+  __MetadataBearer;
 
 export class DeleteMissionProfileCommand extends $Command<
   DeleteMissionProfileCommandInput,

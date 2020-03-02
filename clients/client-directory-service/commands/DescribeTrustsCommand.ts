@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTrustsCommandInput = DescribeTrustsRequest;
-export type DescribeTrustsCommandOutput = DescribeTrustsResult;
+export type DescribeTrustsCommandOutput = DescribeTrustsResult &
+  __MetadataBearer;
 
 export class DescribeTrustsCommand extends $Command<
   DescribeTrustsCommandInput,

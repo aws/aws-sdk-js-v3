@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopStackSetOperationCommandInput = StopStackSetOperationInput;
-export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput;
+export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput &
+  __MetadataBearer;
 
 export class StopStackSetOperationCommand extends $Command<
   StopStackSetOperationCommandInput,

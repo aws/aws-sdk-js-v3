@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutImageRecipePolicyCommandInput = PutImageRecipePolicyRequest;
-export type PutImageRecipePolicyCommandOutput = PutImageRecipePolicyResponse;
+export type PutImageRecipePolicyCommandOutput = PutImageRecipePolicyResponse &
+  __MetadataBearer;
 
 export class PutImageRecipePolicyCommand extends $Command<
   PutImageRecipePolicyCommandInput,

@@ -1,73 +1,139 @@
 import {
-  AddListenerCertificatesInput,
-  AddListenerCertificatesOutput,
-  AddTagsInput,
-  AddTagsOutput,
-  CreateListenerInput,
-  CreateListenerOutput,
-  CreateLoadBalancerInput,
-  CreateLoadBalancerOutput,
-  CreateRuleInput,
-  CreateRuleOutput,
-  CreateTargetGroupInput,
-  CreateTargetGroupOutput,
-  DeleteListenerInput,
-  DeleteListenerOutput,
-  DeleteLoadBalancerInput,
-  DeleteLoadBalancerOutput,
-  DeleteRuleInput,
-  DeleteRuleOutput,
-  DeleteTargetGroupInput,
-  DeleteTargetGroupOutput,
-  DeregisterTargetsInput,
-  DeregisterTargetsOutput,
-  DescribeAccountLimitsInput,
-  DescribeAccountLimitsOutput,
-  DescribeListenerCertificatesInput,
-  DescribeListenerCertificatesOutput,
-  DescribeListenersInput,
-  DescribeListenersOutput,
-  DescribeLoadBalancerAttributesInput,
-  DescribeLoadBalancerAttributesOutput,
-  DescribeLoadBalancersInput,
-  DescribeLoadBalancersOutput,
-  DescribeRulesInput,
-  DescribeRulesOutput,
-  DescribeSSLPoliciesInput,
-  DescribeSSLPoliciesOutput,
-  DescribeTagsInput,
-  DescribeTagsOutput,
-  DescribeTargetGroupAttributesInput,
-  DescribeTargetGroupAttributesOutput,
-  DescribeTargetGroupsInput,
-  DescribeTargetGroupsOutput,
-  DescribeTargetHealthInput,
-  DescribeTargetHealthOutput,
-  ModifyListenerInput,
-  ModifyListenerOutput,
-  ModifyLoadBalancerAttributesInput,
-  ModifyLoadBalancerAttributesOutput,
-  ModifyRuleInput,
-  ModifyRuleOutput,
-  ModifyTargetGroupAttributesInput,
-  ModifyTargetGroupAttributesOutput,
-  ModifyTargetGroupInput,
-  ModifyTargetGroupOutput,
-  RegisterTargetsInput,
-  RegisterTargetsOutput,
-  RemoveListenerCertificatesInput,
-  RemoveListenerCertificatesOutput,
-  RemoveTagsInput,
-  RemoveTagsOutput,
-  SetIpAddressTypeInput,
-  SetIpAddressTypeOutput,
-  SetRulePrioritiesInput,
-  SetRulePrioritiesOutput,
-  SetSecurityGroupsInput,
-  SetSecurityGroupsOutput,
-  SetSubnetsInput,
-  SetSubnetsOutput
-} from "./models/index";
+  AddListenerCertificatesCommandInput,
+  AddListenerCertificatesCommandOutput
+} from "./commands/AddListenerCertificatesCommand";
+import {
+  AddTagsCommandInput,
+  AddTagsCommandOutput
+} from "./commands/AddTagsCommand";
+import {
+  CreateListenerCommandInput,
+  CreateListenerCommandOutput
+} from "./commands/CreateListenerCommand";
+import {
+  CreateLoadBalancerCommandInput,
+  CreateLoadBalancerCommandOutput
+} from "./commands/CreateLoadBalancerCommand";
+import {
+  CreateRuleCommandInput,
+  CreateRuleCommandOutput
+} from "./commands/CreateRuleCommand";
+import {
+  CreateTargetGroupCommandInput,
+  CreateTargetGroupCommandOutput
+} from "./commands/CreateTargetGroupCommand";
+import {
+  DeleteListenerCommandInput,
+  DeleteListenerCommandOutput
+} from "./commands/DeleteListenerCommand";
+import {
+  DeleteLoadBalancerCommandInput,
+  DeleteLoadBalancerCommandOutput
+} from "./commands/DeleteLoadBalancerCommand";
+import {
+  DeleteRuleCommandInput,
+  DeleteRuleCommandOutput
+} from "./commands/DeleteRuleCommand";
+import {
+  DeleteTargetGroupCommandInput,
+  DeleteTargetGroupCommandOutput
+} from "./commands/DeleteTargetGroupCommand";
+import {
+  DeregisterTargetsCommandInput,
+  DeregisterTargetsCommandOutput
+} from "./commands/DeregisterTargetsCommand";
+import {
+  DescribeAccountLimitsCommandInput,
+  DescribeAccountLimitsCommandOutput
+} from "./commands/DescribeAccountLimitsCommand";
+import {
+  DescribeListenerCertificatesCommandInput,
+  DescribeListenerCertificatesCommandOutput
+} from "./commands/DescribeListenerCertificatesCommand";
+import {
+  DescribeListenersCommandInput,
+  DescribeListenersCommandOutput
+} from "./commands/DescribeListenersCommand";
+import {
+  DescribeLoadBalancerAttributesCommandInput,
+  DescribeLoadBalancerAttributesCommandOutput
+} from "./commands/DescribeLoadBalancerAttributesCommand";
+import {
+  DescribeLoadBalancersCommandInput,
+  DescribeLoadBalancersCommandOutput
+} from "./commands/DescribeLoadBalancersCommand";
+import {
+  DescribeRulesCommandInput,
+  DescribeRulesCommandOutput
+} from "./commands/DescribeRulesCommand";
+import {
+  DescribeSSLPoliciesCommandInput,
+  DescribeSSLPoliciesCommandOutput
+} from "./commands/DescribeSSLPoliciesCommand";
+import {
+  DescribeTagsCommandInput,
+  DescribeTagsCommandOutput
+} from "./commands/DescribeTagsCommand";
+import {
+  DescribeTargetGroupAttributesCommandInput,
+  DescribeTargetGroupAttributesCommandOutput
+} from "./commands/DescribeTargetGroupAttributesCommand";
+import {
+  DescribeTargetGroupsCommandInput,
+  DescribeTargetGroupsCommandOutput
+} from "./commands/DescribeTargetGroupsCommand";
+import {
+  DescribeTargetHealthCommandInput,
+  DescribeTargetHealthCommandOutput
+} from "./commands/DescribeTargetHealthCommand";
+import {
+  ModifyListenerCommandInput,
+  ModifyListenerCommandOutput
+} from "./commands/ModifyListenerCommand";
+import {
+  ModifyLoadBalancerAttributesCommandInput,
+  ModifyLoadBalancerAttributesCommandOutput
+} from "./commands/ModifyLoadBalancerAttributesCommand";
+import {
+  ModifyRuleCommandInput,
+  ModifyRuleCommandOutput
+} from "./commands/ModifyRuleCommand";
+import {
+  ModifyTargetGroupAttributesCommandInput,
+  ModifyTargetGroupAttributesCommandOutput
+} from "./commands/ModifyTargetGroupAttributesCommand";
+import {
+  ModifyTargetGroupCommandInput,
+  ModifyTargetGroupCommandOutput
+} from "./commands/ModifyTargetGroupCommand";
+import {
+  RegisterTargetsCommandInput,
+  RegisterTargetsCommandOutput
+} from "./commands/RegisterTargetsCommand";
+import {
+  RemoveListenerCertificatesCommandInput,
+  RemoveListenerCertificatesCommandOutput
+} from "./commands/RemoveListenerCertificatesCommand";
+import {
+  RemoveTagsCommandInput,
+  RemoveTagsCommandOutput
+} from "./commands/RemoveTagsCommand";
+import {
+  SetIpAddressTypeCommandInput,
+  SetIpAddressTypeCommandOutput
+} from "./commands/SetIpAddressTypeCommand";
+import {
+  SetRulePrioritiesCommandInput,
+  SetRulePrioritiesCommandOutput
+} from "./commands/SetRulePrioritiesCommand";
+import {
+  SetSecurityGroupsCommandInput,
+  SetSecurityGroupsCommandOutput
+} from "./commands/SetSecurityGroupsCommand";
+import {
+  SetSubnetsCommandInput,
+  SetSubnetsCommandOutput
+} from "./commands/SetSubnetsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -121,76 +187,76 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddListenerCertificatesInput
-  | AddTagsInput
-  | CreateListenerInput
-  | CreateLoadBalancerInput
-  | CreateRuleInput
-  | CreateTargetGroupInput
-  | DeleteListenerInput
-  | DeleteLoadBalancerInput
-  | DeleteRuleInput
-  | DeleteTargetGroupInput
-  | DeregisterTargetsInput
-  | DescribeAccountLimitsInput
-  | DescribeListenerCertificatesInput
-  | DescribeListenersInput
-  | DescribeLoadBalancerAttributesInput
-  | DescribeLoadBalancersInput
-  | DescribeRulesInput
-  | DescribeSSLPoliciesInput
-  | DescribeTagsInput
-  | DescribeTargetGroupAttributesInput
-  | DescribeTargetGroupsInput
-  | DescribeTargetHealthInput
-  | ModifyListenerInput
-  | ModifyLoadBalancerAttributesInput
-  | ModifyRuleInput
-  | ModifyTargetGroupAttributesInput
-  | ModifyTargetGroupInput
-  | RegisterTargetsInput
-  | RemoveListenerCertificatesInput
-  | RemoveTagsInput
-  | SetIpAddressTypeInput
-  | SetRulePrioritiesInput
-  | SetSecurityGroupsInput
-  | SetSubnetsInput;
+  | AddListenerCertificatesCommandInput
+  | AddTagsCommandInput
+  | CreateListenerCommandInput
+  | CreateLoadBalancerCommandInput
+  | CreateRuleCommandInput
+  | CreateTargetGroupCommandInput
+  | DeleteListenerCommandInput
+  | DeleteLoadBalancerCommandInput
+  | DeleteRuleCommandInput
+  | DeleteTargetGroupCommandInput
+  | DeregisterTargetsCommandInput
+  | DescribeAccountLimitsCommandInput
+  | DescribeListenerCertificatesCommandInput
+  | DescribeListenersCommandInput
+  | DescribeLoadBalancerAttributesCommandInput
+  | DescribeLoadBalancersCommandInput
+  | DescribeRulesCommandInput
+  | DescribeSSLPoliciesCommandInput
+  | DescribeTagsCommandInput
+  | DescribeTargetGroupAttributesCommandInput
+  | DescribeTargetGroupsCommandInput
+  | DescribeTargetHealthCommandInput
+  | ModifyListenerCommandInput
+  | ModifyLoadBalancerAttributesCommandInput
+  | ModifyRuleCommandInput
+  | ModifyTargetGroupAttributesCommandInput
+  | ModifyTargetGroupCommandInput
+  | RegisterTargetsCommandInput
+  | RemoveListenerCertificatesCommandInput
+  | RemoveTagsCommandInput
+  | SetIpAddressTypeCommandInput
+  | SetRulePrioritiesCommandInput
+  | SetSecurityGroupsCommandInput
+  | SetSubnetsCommandInput;
 
 export type ServiceOutputTypes =
-  | AddListenerCertificatesOutput
-  | AddTagsOutput
-  | CreateListenerOutput
-  | CreateLoadBalancerOutput
-  | CreateRuleOutput
-  | CreateTargetGroupOutput
-  | DeleteListenerOutput
-  | DeleteLoadBalancerOutput
-  | DeleteRuleOutput
-  | DeleteTargetGroupOutput
-  | DeregisterTargetsOutput
-  | DescribeAccountLimitsOutput
-  | DescribeListenerCertificatesOutput
-  | DescribeListenersOutput
-  | DescribeLoadBalancerAttributesOutput
-  | DescribeLoadBalancersOutput
-  | DescribeRulesOutput
-  | DescribeSSLPoliciesOutput
-  | DescribeTagsOutput
-  | DescribeTargetGroupAttributesOutput
-  | DescribeTargetGroupsOutput
-  | DescribeTargetHealthOutput
-  | ModifyListenerOutput
-  | ModifyLoadBalancerAttributesOutput
-  | ModifyRuleOutput
-  | ModifyTargetGroupAttributesOutput
-  | ModifyTargetGroupOutput
-  | RegisterTargetsOutput
-  | RemoveListenerCertificatesOutput
-  | RemoveTagsOutput
-  | SetIpAddressTypeOutput
-  | SetRulePrioritiesOutput
-  | SetSecurityGroupsOutput
-  | SetSubnetsOutput;
+  | AddListenerCertificatesCommandOutput
+  | AddTagsCommandOutput
+  | CreateListenerCommandOutput
+  | CreateLoadBalancerCommandOutput
+  | CreateRuleCommandOutput
+  | CreateTargetGroupCommandOutput
+  | DeleteListenerCommandOutput
+  | DeleteLoadBalancerCommandOutput
+  | DeleteRuleCommandOutput
+  | DeleteTargetGroupCommandOutput
+  | DeregisterTargetsCommandOutput
+  | DescribeAccountLimitsCommandOutput
+  | DescribeListenerCertificatesCommandOutput
+  | DescribeListenersCommandOutput
+  | DescribeLoadBalancerAttributesCommandOutput
+  | DescribeLoadBalancersCommandOutput
+  | DescribeRulesCommandOutput
+  | DescribeSSLPoliciesCommandOutput
+  | DescribeTagsCommandOutput
+  | DescribeTargetGroupAttributesCommandOutput
+  | DescribeTargetGroupsCommandOutput
+  | DescribeTargetHealthCommandOutput
+  | ModifyListenerCommandOutput
+  | ModifyLoadBalancerAttributesCommandOutput
+  | ModifyRuleCommandOutput
+  | ModifyTargetGroupAttributesCommandOutput
+  | ModifyTargetGroupCommandOutput
+  | RegisterTargetsCommandOutput
+  | RemoveListenerCertificatesCommandOutput
+  | RemoveTagsCommandOutput
+  | SetIpAddressTypeCommandOutput
+  | SetRulePrioritiesCommandOutput
+  | SetSecurityGroupsCommandOutput
+  | SetSubnetsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

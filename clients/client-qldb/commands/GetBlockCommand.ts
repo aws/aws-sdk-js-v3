@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBlockCommandInput = GetBlockRequest;
-export type GetBlockCommandOutput = GetBlockResponse;
+export type GetBlockCommandOutput = GetBlockResponse & __MetadataBearer;
 
 export class GetBlockCommand extends $Command<
   GetBlockCommandInput,

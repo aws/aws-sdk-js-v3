@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput = AssociatePhoneNumbersWithVoiceConnectorGroupRequest;
-export type AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput = AssociatePhoneNumbersWithVoiceConnectorGroupResponse;
+export type AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput = AssociatePhoneNumbersWithVoiceConnectorGroupResponse &
+  __MetadataBearer;
 
 export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Command<
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,

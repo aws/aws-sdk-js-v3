@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyWorkspacePropertiesCommandInput = ModifyWorkspacePropertiesRequest;
-export type ModifyWorkspacePropertiesCommandOutput = ModifyWorkspacePropertiesResult;
+export type ModifyWorkspacePropertiesCommandOutput = ModifyWorkspacePropertiesResult &
+  __MetadataBearer;
 
 export class ModifyWorkspacePropertiesCommand extends $Command<
   ModifyWorkspacePropertiesCommandInput,

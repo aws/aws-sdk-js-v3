@@ -225,7 +225,7 @@ export namespace CreateDeliveryStreamInput {
   }
 }
 
-export interface CreateDeliveryStreamOutput extends $MetadataBearer {
+export interface CreateDeliveryStreamOutput {
   __type?: "CreateDeliveryStreamOutput";
   /**
    * <p>The ARN of the delivery stream.</p>
@@ -302,7 +302,7 @@ export namespace DeleteDeliveryStreamInput {
   }
 }
 
-export interface DeleteDeliveryStreamOutput extends $MetadataBearer {
+export interface DeleteDeliveryStreamOutput {
   __type?: "DeleteDeliveryStreamOutput";
 }
 
@@ -533,7 +533,7 @@ export namespace DescribeDeliveryStreamInput {
   }
 }
 
-export interface DescribeDeliveryStreamOutput extends $MetadataBearer {
+export interface DescribeDeliveryStreamOutput {
   __type?: "DescribeDeliveryStreamOutput";
   /**
    * <p>Information about the delivery stream.</p>
@@ -1451,7 +1451,7 @@ export namespace ListDeliveryStreamsInput {
   }
 }
 
-export interface ListDeliveryStreamsOutput extends $MetadataBearer {
+export interface ListDeliveryStreamsOutput {
   __type?: "ListDeliveryStreamsOutput";
   /**
    * <p>The names of the delivery streams.</p>
@@ -1498,7 +1498,7 @@ export namespace ListTagsForDeliveryStreamInput {
   }
 }
 
-export interface ListTagsForDeliveryStreamOutput extends $MetadataBearer {
+export interface ListTagsForDeliveryStreamOutput {
   __type?: "ListTagsForDeliveryStreamOutput";
   /**
    * <p>If this is <code>true</code> in the response, more tags are available.
@@ -1826,7 +1826,7 @@ export namespace PutRecordBatchInput {
   }
 }
 
-export interface PutRecordBatchOutput extends $MetadataBearer {
+export interface PutRecordBatchOutput {
   __type?: "PutRecordBatchOutput";
   /**
    * <p>Indicates whether server-side encryption (SSE) was enabled during this operation.</p>
@@ -1903,7 +1903,7 @@ export namespace PutRecordInput {
   }
 }
 
-export interface PutRecordOutput extends $MetadataBearer {
+export interface PutRecordOutput {
   __type?: "PutRecordOutput";
   /**
    * <p>Indicates whether server-side encryption (SSE) was enabled during this operation.</p>
@@ -2774,7 +2774,7 @@ export namespace StartDeliveryStreamEncryptionInput {
   }
 }
 
-export interface StartDeliveryStreamEncryptionOutput extends $MetadataBearer {
+export interface StartDeliveryStreamEncryptionOutput {
   __type?: "StartDeliveryStreamEncryptionOutput";
 }
 
@@ -2799,7 +2799,7 @@ export namespace StopDeliveryStreamEncryptionInput {
   }
 }
 
-export interface StopDeliveryStreamEncryptionOutput extends $MetadataBearer {
+export interface StopDeliveryStreamEncryptionOutput {
   __type?: "StopDeliveryStreamEncryptionOutput";
 }
 
@@ -2850,7 +2850,7 @@ export namespace TagDeliveryStreamInput {
   }
 }
 
-export interface TagDeliveryStreamOutput extends $MetadataBearer {
+export interface TagDeliveryStreamOutput {
   __type?: "TagDeliveryStreamOutput";
 }
 
@@ -2879,7 +2879,7 @@ export namespace UntagDeliveryStreamInput {
   }
 }
 
-export interface UntagDeliveryStreamOutput extends $MetadataBearer {
+export interface UntagDeliveryStreamOutput {
   __type?: "UntagDeliveryStreamOutput";
 }
 
@@ -2942,7 +2942,7 @@ export namespace UpdateDestinationInput {
   }
 }
 
-export interface UpdateDestinationOutput extends $MetadataBearer {
+export interface UpdateDestinationOutput {
   __type?: "UpdateDestinationOutput";
 }
 

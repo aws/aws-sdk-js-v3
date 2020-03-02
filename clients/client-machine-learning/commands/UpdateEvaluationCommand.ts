@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateEvaluationCommandInput = UpdateEvaluationInput;
-export type UpdateEvaluationCommandOutput = UpdateEvaluationOutput;
+export type UpdateEvaluationCommandOutput = UpdateEvaluationOutput &
+  __MetadataBearer;
 
 export class UpdateEvaluationCommand extends $Command<
   UpdateEvaluationCommandInput,

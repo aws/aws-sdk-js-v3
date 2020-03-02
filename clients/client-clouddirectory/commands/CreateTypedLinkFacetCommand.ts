@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTypedLinkFacetCommandInput = CreateTypedLinkFacetRequest;
-export type CreateTypedLinkFacetCommandOutput = CreateTypedLinkFacetResponse;
+export type CreateTypedLinkFacetCommandOutput = CreateTypedLinkFacetResponse &
+  __MetadataBearer;
 
 export class CreateTypedLinkFacetCommand extends $Command<
   CreateTypedLinkFacetCommandInput,

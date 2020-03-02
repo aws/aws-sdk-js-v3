@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGrantPermissionsCommandInput = BatchGrantPermissionsRequest;
-export type BatchGrantPermissionsCommandOutput = BatchGrantPermissionsResponse;
+export type BatchGrantPermissionsCommandOutput = BatchGrantPermissionsResponse &
+  __MetadataBearer;
 
 export class BatchGrantPermissionsCommand extends $Command<
   BatchGrantPermissionsCommandInput,

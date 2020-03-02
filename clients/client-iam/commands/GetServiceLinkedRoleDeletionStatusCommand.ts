@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetServiceLinkedRoleDeletionStatusCommandInput = GetServiceLinkedRoleDeletionStatusRequest;
-export type GetServiceLinkedRoleDeletionStatusCommandOutput = GetServiceLinkedRoleDeletionStatusResponse;
+export type GetServiceLinkedRoleDeletionStatusCommandOutput = GetServiceLinkedRoleDeletionStatusResponse &
+  __MetadataBearer;
 
 export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
   GetServiceLinkedRoleDeletionStatusCommandInput,

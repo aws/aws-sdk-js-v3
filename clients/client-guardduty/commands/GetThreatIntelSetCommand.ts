@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetThreatIntelSetCommandInput = GetThreatIntelSetRequest;
-export type GetThreatIntelSetCommandOutput = GetThreatIntelSetResponse;
+export type GetThreatIntelSetCommandOutput = GetThreatIntelSetResponse &
+  __MetadataBearer;
 
 export class GetThreatIntelSetCommand extends $Command<
   GetThreatIntelSetCommandInput,

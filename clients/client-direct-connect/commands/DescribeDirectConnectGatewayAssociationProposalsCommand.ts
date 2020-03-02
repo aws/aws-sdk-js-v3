@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDirectConnectGatewayAssociationProposalsCommandInput = DescribeDirectConnectGatewayAssociationProposalsRequest;
-export type DescribeDirectConnectGatewayAssociationProposalsCommandOutput = DescribeDirectConnectGatewayAssociationProposalsResult;
+export type DescribeDirectConnectGatewayAssociationProposalsCommandOutput = DescribeDirectConnectGatewayAssociationProposalsResult &
+  __MetadataBearer;
 
 export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Command<
   DescribeDirectConnectGatewayAssociationProposalsCommandInput,

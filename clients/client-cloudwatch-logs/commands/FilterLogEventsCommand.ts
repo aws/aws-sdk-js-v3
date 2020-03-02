@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type FilterLogEventsCommandInput = FilterLogEventsRequest;
-export type FilterLogEventsCommandOutput = FilterLogEventsResponse;
+export type FilterLogEventsCommandOutput = FilterLogEventsResponse &
+  __MetadataBearer;
 
 export class FilterLogEventsCommand extends $Command<
   FilterLogEventsCommandInput,

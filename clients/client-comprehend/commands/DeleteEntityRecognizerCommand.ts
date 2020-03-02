@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteEntityRecognizerCommandInput = DeleteEntityRecognizerRequest;
-export type DeleteEntityRecognizerCommandOutput = DeleteEntityRecognizerResponse;
+export type DeleteEntityRecognizerCommandOutput = DeleteEntityRecognizerResponse &
+  __MetadataBearer;
 
 export class DeleteEntityRecognizerCommand extends $Command<
   DeleteEntityRecognizerCommandInput,

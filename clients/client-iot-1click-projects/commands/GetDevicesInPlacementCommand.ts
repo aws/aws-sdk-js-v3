@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDevicesInPlacementCommandInput = GetDevicesInPlacementRequest;
-export type GetDevicesInPlacementCommandOutput = GetDevicesInPlacementResponse;
+export type GetDevicesInPlacementCommandOutput = GetDevicesInPlacementResponse &
+  __MetadataBearer;
 
 export class GetDevicesInPlacementCommand extends $Command<
   GetDevicesInPlacementCommandInput,

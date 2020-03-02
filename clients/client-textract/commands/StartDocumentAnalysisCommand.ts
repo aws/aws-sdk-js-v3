@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartDocumentAnalysisCommandInput = StartDocumentAnalysisRequest;
-export type StartDocumentAnalysisCommandOutput = StartDocumentAnalysisResponse;
+export type StartDocumentAnalysisCommandOutput = StartDocumentAnalysisResponse &
+  __MetadataBearer;
 
 export class StartDocumentAnalysisCommand extends $Command<
   StartDocumentAnalysisCommandInput,

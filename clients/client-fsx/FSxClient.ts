@@ -1,33 +1,59 @@
 import {
-  CancelDataRepositoryTaskRequest,
-  CancelDataRepositoryTaskResponse,
-  CreateBackupRequest,
-  CreateBackupResponse,
-  CreateDataRepositoryTaskRequest,
-  CreateDataRepositoryTaskResponse,
-  CreateFileSystemFromBackupRequest,
-  CreateFileSystemFromBackupResponse,
-  CreateFileSystemRequest,
-  CreateFileSystemResponse,
-  DeleteBackupRequest,
-  DeleteBackupResponse,
-  DeleteFileSystemRequest,
-  DeleteFileSystemResponse,
-  DescribeBackupsRequest,
-  DescribeBackupsResponse,
-  DescribeDataRepositoryTasksRequest,
-  DescribeDataRepositoryTasksResponse,
-  DescribeFileSystemsRequest,
-  DescribeFileSystemsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateFileSystemRequest,
-  UpdateFileSystemResponse
-} from "./models/index";
+  CancelDataRepositoryTaskCommandInput,
+  CancelDataRepositoryTaskCommandOutput
+} from "./commands/CancelDataRepositoryTaskCommand";
+import {
+  CreateBackupCommandInput,
+  CreateBackupCommandOutput
+} from "./commands/CreateBackupCommand";
+import {
+  CreateDataRepositoryTaskCommandInput,
+  CreateDataRepositoryTaskCommandOutput
+} from "./commands/CreateDataRepositoryTaskCommand";
+import {
+  CreateFileSystemCommandInput,
+  CreateFileSystemCommandOutput
+} from "./commands/CreateFileSystemCommand";
+import {
+  CreateFileSystemFromBackupCommandInput,
+  CreateFileSystemFromBackupCommandOutput
+} from "./commands/CreateFileSystemFromBackupCommand";
+import {
+  DeleteBackupCommandInput,
+  DeleteBackupCommandOutput
+} from "./commands/DeleteBackupCommand";
+import {
+  DeleteFileSystemCommandInput,
+  DeleteFileSystemCommandOutput
+} from "./commands/DeleteFileSystemCommand";
+import {
+  DescribeBackupsCommandInput,
+  DescribeBackupsCommandOutput
+} from "./commands/DescribeBackupsCommand";
+import {
+  DescribeDataRepositoryTasksCommandInput,
+  DescribeDataRepositoryTasksCommandOutput
+} from "./commands/DescribeDataRepositoryTasksCommand";
+import {
+  DescribeFileSystemsCommandInput,
+  DescribeFileSystemsCommandOutput
+} from "./commands/DescribeFileSystemsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateFileSystemCommandInput,
+  UpdateFileSystemCommandOutput
+} from "./commands/UpdateFileSystemCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,36 +107,36 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelDataRepositoryTaskRequest
-  | CreateBackupRequest
-  | CreateDataRepositoryTaskRequest
-  | CreateFileSystemFromBackupRequest
-  | CreateFileSystemRequest
-  | DeleteBackupRequest
-  | DeleteFileSystemRequest
-  | DescribeBackupsRequest
-  | DescribeDataRepositoryTasksRequest
-  | DescribeFileSystemsRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateFileSystemRequest;
+  | CancelDataRepositoryTaskCommandInput
+  | CreateBackupCommandInput
+  | CreateDataRepositoryTaskCommandInput
+  | CreateFileSystemCommandInput
+  | CreateFileSystemFromBackupCommandInput
+  | DeleteBackupCommandInput
+  | DeleteFileSystemCommandInput
+  | DescribeBackupsCommandInput
+  | DescribeDataRepositoryTasksCommandInput
+  | DescribeFileSystemsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateFileSystemCommandInput;
 
 export type ServiceOutputTypes =
-  | CancelDataRepositoryTaskResponse
-  | CreateBackupResponse
-  | CreateDataRepositoryTaskResponse
-  | CreateFileSystemFromBackupResponse
-  | CreateFileSystemResponse
-  | DeleteBackupResponse
-  | DeleteFileSystemResponse
-  | DescribeBackupsResponse
-  | DescribeDataRepositoryTasksResponse
-  | DescribeFileSystemsResponse
-  | ListTagsForResourceResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateFileSystemResponse;
+  | CancelDataRepositoryTaskCommandOutput
+  | CreateBackupCommandOutput
+  | CreateDataRepositoryTaskCommandOutput
+  | CreateFileSystemCommandOutput
+  | CreateFileSystemFromBackupCommandOutput
+  | DeleteBackupCommandOutput
+  | DeleteFileSystemCommandOutput
+  | DescribeBackupsCommandOutput
+  | DescribeDataRepositoryTasksCommandOutput
+  | DescribeFileSystemsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateFileSystemCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

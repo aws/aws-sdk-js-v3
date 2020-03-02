@@ -756,17 +756,23 @@ async function deserializeAws_restJson1_1BatchGetTracesCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -816,17 +822,23 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -885,24 +897,33 @@ async function deserializeAws_restJson1_1CreateSamplingRuleCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RuleLimitExceededException":
     case "com.amazonaws.tracing#RuleLimitExceededException":
-      response = await deserializeAws_restJson1_1RuleLimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1RuleLimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -948,17 +969,23 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1017,17 +1044,23 @@ async function deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1083,17 +1116,23 @@ async function deserializeAws_restJson1_1GetEncryptionConfigCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1143,17 +1182,23 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1210,17 +1255,23 @@ async function deserializeAws_restJson1_1GetGroupsCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1283,17 +1334,23 @@ async function deserializeAws_restJson1_1GetSamplingRulesCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1356,17 +1413,23 @@ async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandErr
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1444,17 +1507,23 @@ async function deserializeAws_restJson1_1GetSamplingTargetsCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1529,17 +1598,23 @@ async function deserializeAws_restJson1_1GetServiceGraphCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1609,17 +1684,23 @@ async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandEr
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1676,17 +1757,23 @@ async function deserializeAws_restJson1_1GetTraceGraphCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1759,17 +1846,23 @@ async function deserializeAws_restJson1_1GetTraceSummariesCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1825,17 +1918,23 @@ async function deserializeAws_restJson1_1PutEncryptionConfigCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1884,17 +1983,23 @@ async function deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1953,17 +2058,23 @@ async function deserializeAws_restJson1_1PutTraceSegmentsCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2013,17 +2124,23 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2082,17 +2199,23 @@ async function deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

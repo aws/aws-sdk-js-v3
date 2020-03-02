@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPullRequestCommandInput = GetPullRequestInput;
-export type GetPullRequestCommandOutput = GetPullRequestOutput;
+export type GetPullRequestCommandOutput = GetPullRequestOutput &
+  __MetadataBearer;
 
 export class GetPullRequestCommand extends $Command<
   GetPullRequestCommandInput,

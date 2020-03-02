@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PostAgentProfileCommandInput = PostAgentProfileRequest;
-export type PostAgentProfileCommandOutput = PostAgentProfileResponse;
+export type PostAgentProfileCommandOutput = PostAgentProfileResponse &
+  __MetadataBearer;
 
 export class PostAgentProfileCommand extends $Command<
   PostAgentProfileCommandInput,

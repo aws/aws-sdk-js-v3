@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateOutpostCommandInput = CreateOutpostInput;
-export type CreateOutpostCommandOutput = CreateOutpostOutput;
+export type CreateOutpostCommandOutput = CreateOutpostOutput & __MetadataBearer;
 
 export class CreateOutpostCommand extends $Command<
   CreateOutpostCommandInput,

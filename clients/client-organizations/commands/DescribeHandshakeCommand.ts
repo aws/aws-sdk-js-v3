@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeHandshakeCommandInput = DescribeHandshakeRequest;
-export type DescribeHandshakeCommandOutput = DescribeHandshakeResponse;
+export type DescribeHandshakeCommandOutput = DescribeHandshakeResponse &
+  __MetadataBearer;
 
 export class DescribeHandshakeCommand extends $Command<
   DescribeHandshakeCommandInput,

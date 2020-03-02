@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTrailsCommandInput = ListTrailsRequest;
-export type ListTrailsCommandOutput = ListTrailsResponse;
+export type ListTrailsCommandOutput = ListTrailsResponse & __MetadataBearer;
 
 export class ListTrailsCommand extends $Command<
   ListTrailsCommandInput,

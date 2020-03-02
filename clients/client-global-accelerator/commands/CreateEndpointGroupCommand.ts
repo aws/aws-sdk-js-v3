@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateEndpointGroupCommandInput = CreateEndpointGroupRequest;
-export type CreateEndpointGroupCommandOutput = CreateEndpointGroupResponse;
+export type CreateEndpointGroupCommandOutput = CreateEndpointGroupResponse &
+  __MetadataBearer;
 
 export class CreateEndpointGroupCommand extends $Command<
   CreateEndpointGroupCommandInput,

@@ -1861,7 +1861,7 @@ export namespace SubscriptionNotFoundFault {
 /**
  * <p>Data returned by the <b>DescribeAccountAttributes</b> action.</p>
  */
-export interface AccountAttributesMessage extends $MetadataBearer {
+export interface AccountAttributesMessage {
   __type?: "AccountAttributesMessage";
   /**
    * <p>A list of <code>AccountQuota</code> objects. Within this list, each quota has a name,
@@ -2104,8 +2104,7 @@ export namespace AddSourceIdentifierToSubscriptionMessage {
   }
 }
 
-export interface AddSourceIdentifierToSubscriptionResult
-  extends $MetadataBearer {
+export interface AddSourceIdentifierToSubscriptionResult {
   __type?: "AddSourceIdentifierToSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
@@ -2198,7 +2197,7 @@ export namespace ApplyPendingMaintenanceActionMessage {
   }
 }
 
-export interface ApplyPendingMaintenanceActionResult extends $MetadataBearer {
+export interface ApplyPendingMaintenanceActionResult {
   __type?: "ApplyPendingMaintenanceActionResult";
   /**
    * <p>Describes the pending maintenance actions for a resource.</p>
@@ -2268,7 +2267,7 @@ export namespace AuthorizeDBSecurityGroupIngressMessage {
   }
 }
 
-export interface AuthorizeDBSecurityGroupIngressResult extends $MetadataBearer {
+export interface AuthorizeDBSecurityGroupIngressResult {
   __type?: "AuthorizeDBSecurityGroupIngressResult";
   /**
    * <p>Contains the details for an Amazon RDS DB security group.
@@ -2462,7 +2461,7 @@ export namespace Certificate {
 /**
  * <p>Data returned by the <b>DescribeCertificates</b> action.</p>
  */
-export interface CertificateMessage extends $MetadataBearer {
+export interface CertificateMessage {
   __type?: "CertificateMessage";
   /**
    * <p>The list of <code>Certificate</code> objects for the AWS account.</p>
@@ -2731,7 +2730,7 @@ export namespace CopyDBClusterParameterGroupMessage {
   }
 }
 
-export interface CopyDBClusterParameterGroupResult extends $MetadataBearer {
+export interface CopyDBClusterParameterGroupResult {
   __type?: "CopyDBClusterParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon RDS DB cluster parameter group.
@@ -2878,7 +2877,7 @@ export namespace CopyDBClusterSnapshotMessage {
   }
 }
 
-export interface CopyDBClusterSnapshotResult extends $MetadataBearer {
+export interface CopyDBClusterSnapshotResult {
   __type?: "CopyDBClusterSnapshotResult";
   /**
    * <p>Contains the details for an Amazon RDS DB cluster snapshot
@@ -2963,7 +2962,7 @@ export namespace CopyDBParameterGroupMessage {
   }
 }
 
-export interface CopyDBParameterGroupResult extends $MetadataBearer {
+export interface CopyDBParameterGroupResult {
   __type?: "CopyDBParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon RDS DB parameter group.
@@ -3164,7 +3163,7 @@ export namespace CopyDBSnapshotMessage {
   }
 }
 
-export interface CopyDBSnapshotResult extends $MetadataBearer {
+export interface CopyDBSnapshotResult {
   __type?: "CopyDBSnapshotResult";
   /**
    * <p>Contains the details of an Amazon RDS DB snapshot.
@@ -3253,7 +3252,7 @@ export namespace CopyOptionGroupMessage {
   }
 }
 
-export interface CopyOptionGroupResult extends $MetadataBearer {
+export interface CopyOptionGroupResult {
   __type?: "CopyOptionGroupResult";
   /**
    * <p></p>
@@ -3302,7 +3301,7 @@ export namespace CreateCustomAvailabilityZoneMessage {
   }
 }
 
-export interface CreateCustomAvailabilityZoneResult extends $MetadataBearer {
+export interface CreateCustomAvailabilityZoneResult {
   __type?: "CreateCustomAvailabilityZoneResult";
   /**
    * <p>A custom Availability Zone (AZ) is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
@@ -3807,7 +3806,7 @@ export namespace CreateDBClusterParameterGroupMessage {
   }
 }
 
-export interface CreateDBClusterParameterGroupResult extends $MetadataBearer {
+export interface CreateDBClusterParameterGroupResult {
   __type?: "CreateDBClusterParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon RDS DB cluster parameter group.
@@ -3824,7 +3823,7 @@ export namespace CreateDBClusterParameterGroupResult {
   }
 }
 
-export interface CreateDBClusterResult extends $MetadataBearer {
+export interface CreateDBClusterResult {
   __type?: "CreateDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -3891,7 +3890,7 @@ export namespace CreateDBClusterSnapshotMessage {
   }
 }
 
-export interface CreateDBClusterSnapshotResult extends $MetadataBearer {
+export interface CreateDBClusterSnapshotResult {
   __type?: "CreateDBClusterSnapshotResult";
   /**
    * <p>Contains the details for an Amazon RDS DB cluster snapshot
@@ -5332,7 +5331,7 @@ export namespace CreateDBInstanceReadReplicaMessage {
   }
 }
 
-export interface CreateDBInstanceReadReplicaResult extends $MetadataBearer {
+export interface CreateDBInstanceReadReplicaResult {
   __type?: "CreateDBInstanceReadReplicaResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -5349,7 +5348,7 @@ export namespace CreateDBInstanceReadReplicaResult {
   }
 }
 
-export interface CreateDBInstanceResult extends $MetadataBearer {
+export interface CreateDBInstanceResult {
   __type?: "CreateDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -5420,7 +5419,7 @@ export namespace CreateDBParameterGroupMessage {
   }
 }
 
-export interface CreateDBParameterGroupResult extends $MetadataBearer {
+export interface CreateDBParameterGroupResult {
   __type?: "CreateDBParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon RDS DB parameter group.
@@ -5505,7 +5504,7 @@ export namespace CreateDBProxyRequest {
   }
 }
 
-export interface CreateDBProxyResponse extends $MetadataBearer {
+export interface CreateDBProxyResponse {
   __type?: "CreateDBProxyResponse";
   /**
    * <p>The <code>DBProxy</code> structure corresponding to the new proxy.</p>
@@ -5563,7 +5562,7 @@ export namespace CreateDBSecurityGroupMessage {
   }
 }
 
-export interface CreateDBSecurityGroupResult extends $MetadataBearer {
+export interface CreateDBSecurityGroupResult {
   __type?: "CreateDBSecurityGroupResult";
   /**
    * <p>Contains the details for an Amazon RDS DB security group.
@@ -5633,7 +5632,7 @@ export namespace CreateDBSnapshotMessage {
   }
 }
 
-export interface CreateDBSnapshotResult extends $MetadataBearer {
+export interface CreateDBSnapshotResult {
   __type?: "CreateDBSnapshotResult";
   /**
    * <p>Contains the details of an Amazon RDS DB snapshot.
@@ -5686,7 +5685,7 @@ export namespace CreateDBSubnetGroupMessage {
   }
 }
 
-export interface CreateDBSubnetGroupResult extends $MetadataBearer {
+export interface CreateDBSubnetGroupResult {
   __type?: "CreateDBSubnetGroupResult";
   /**
    * <p>Contains the details of an Amazon RDS DB subnet group.
@@ -5783,7 +5782,7 @@ export namespace CreateEventSubscriptionMessage {
   }
 }
 
-export interface CreateEventSubscriptionResult extends $MetadataBearer {
+export interface CreateEventSubscriptionResult {
   __type?: "CreateEventSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
@@ -5852,7 +5851,7 @@ export namespace CreateGlobalClusterMessage {
   }
 }
 
-export interface CreateGlobalClusterResult extends $MetadataBearer {
+export interface CreateGlobalClusterResult {
   __type?: "CreateGlobalClusterResult";
   /**
    * <p>A data type representing an Aurora global database.</p>
@@ -5917,7 +5916,7 @@ export namespace CreateOptionGroupMessage {
   }
 }
 
-export interface CreateOptionGroupResult extends $MetadataBearer {
+export interface CreateOptionGroupResult {
   __type?: "CreateOptionGroupResult";
   /**
    * <p></p>
@@ -5970,7 +5969,7 @@ export namespace CustomAvailabilityZone {
   }
 }
 
-export interface CustomAvailabilityZoneMessage extends $MetadataBearer {
+export interface CustomAvailabilityZoneMessage {
   __type?: "CustomAvailabilityZoneMessage";
   /**
    * <p>The list of <a>CustomAvailabilityZone</a> objects for the AWS account.</p>
@@ -6302,7 +6301,7 @@ export namespace DBCluster {
 /**
  * <p>This data type is used as a response element in the <code>DescribeDBClusterBacktracks</code> action.</p>
  */
-export interface DBClusterBacktrack extends $MetadataBearer {
+export interface DBClusterBacktrack {
   __type?: "DBClusterBacktrack";
   /**
    * <p>Contains the backtrack identifier.</p>
@@ -6363,7 +6362,7 @@ export namespace DBClusterBacktrack {
 /**
  * <p>Contains the result of a successful invocation of the <code>DescribeDBClusterBacktracks</code> action.</p>
  */
-export interface DBClusterBacktrackMessage extends $MetadataBearer {
+export interface DBClusterBacktrackMessage {
   __type?: "DBClusterBacktrackMessage";
   /**
    * <p>Contains a list of backtracks for the user.</p>
@@ -6382,7 +6381,7 @@ export namespace DBClusterBacktrackMessage {
   }
 }
 
-export interface DBClusterCapacityInfo extends $MetadataBearer {
+export interface DBClusterCapacityInfo {
   __type?: "DBClusterCapacityInfo";
   /**
    * <p>The current capacity of the DB cluster.</p>
@@ -6446,7 +6445,7 @@ export namespace DBClusterCapacityInfo {
  *          <p>For the data structure that represents Amazon RDS DB instance endpoints,
  *         see <code>Endpoint</code>.</p>
  */
-export interface DBClusterEndpoint extends $MetadataBearer {
+export interface DBClusterEndpoint {
   __type?: "DBClusterEndpoint";
   /**
    * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
@@ -6509,7 +6508,7 @@ export namespace DBClusterEndpoint {
   }
 }
 
-export interface DBClusterEndpointMessage extends $MetadataBearer {
+export interface DBClusterEndpointMessage {
   __type?: "DBClusterEndpointMessage";
   /**
    * <p>Contains the details of the endpoints associated with the cluster
@@ -6573,7 +6572,7 @@ export namespace DBClusterMember {
 /**
  * <p>Contains the result of a successful invocation of the <code>DescribeDBClusters</code> action.</p>
  */
-export interface DBClusterMessage extends $MetadataBearer {
+export interface DBClusterMessage {
   __type?: "DBClusterMessage";
   /**
    * <p>Contains a list of DB clusters for the user.</p>
@@ -6652,7 +6651,7 @@ export namespace DBClusterParameterGroup {
 /**
  * <p>Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.</p>
  */
-export interface DBClusterParameterGroupDetails extends $MetadataBearer {
+export interface DBClusterParameterGroupDetails {
   __type?: "DBClusterParameterGroupDetails";
   /**
    * <p>
@@ -6680,7 +6679,7 @@ export namespace DBClusterParameterGroupDetails {
 /**
  * <p></p>
  */
-export interface DBClusterParameterGroupNameMessage extends $MetadataBearer {
+export interface DBClusterParameterGroupNameMessage {
   __type?: "DBClusterParameterGroupNameMessage";
   /**
    * <p>The name of the DB cluster parameter group.</p>
@@ -6712,7 +6711,7 @@ export namespace DBClusterParameterGroupNameMessage {
 /**
  * <p></p>
  */
-export interface DBClusterParameterGroupsMessage extends $MetadataBearer {
+export interface DBClusterParameterGroupsMessage {
   __type?: "DBClusterParameterGroupsMessage";
   /**
    * <p>A list of DB cluster parameter groups.</p>
@@ -6964,7 +6963,7 @@ export namespace DBClusterSnapshotAttributesResult {
  *           Provides a list of DB cluster snapshots for the user as the result of a call to the <code>DescribeDBClusterSnapshots</code> action.
  *     </p>
  */
-export interface DBClusterSnapshotMessage extends $MetadataBearer {
+export interface DBClusterSnapshotMessage {
   __type?: "DBClusterSnapshotMessage";
   /**
    * <p>Provides a list of DB cluster snapshots for the user.</p>
@@ -7099,7 +7098,7 @@ export namespace DBEngineVersion {
  *             Contains the result of a successful invocation of the <code>DescribeDBEngineVersions</code> action.
  *         </p>
  */
-export interface DBEngineVersionMessage extends $MetadataBearer {
+export interface DBEngineVersionMessage {
   __type?: "DBEngineVersionMessage";
   /**
    * <p>
@@ -7656,7 +7655,7 @@ export namespace DBInstanceAutomatedBackup {
  *             Contains the result of a successful invocation of the <code>DescribeDBInstanceAutomatedBackups</code> action.
  *         </p>
  */
-export interface DBInstanceAutomatedBackupMessage extends $MetadataBearer {
+export interface DBInstanceAutomatedBackupMessage {
   __type?: "DBInstanceAutomatedBackupMessage";
   /**
    * <p>
@@ -7687,7 +7686,7 @@ export namespace DBInstanceAutomatedBackupMessage {
  *         Contains the result of a successful invocation of the <code>DescribeDBInstances</code> action.
  *         </p>
  */
-export interface DBInstanceMessage extends $MetadataBearer {
+export interface DBInstanceMessage {
   __type?: "DBInstanceMessage";
   /**
    * <p>
@@ -7833,7 +7832,7 @@ export namespace DBParameterGroup {
  *         Contains the result of a successful invocation of the <code>DescribeDBParameters</code> action.
  *         </p>
  */
-export interface DBParameterGroupDetails extends $MetadataBearer {
+export interface DBParameterGroupDetails {
   __type?: "DBParameterGroupDetails";
   /**
    * <p>
@@ -7865,7 +7864,7 @@ export namespace DBParameterGroupDetails {
  *         <code>ModifyDBParameterGroup</code> or <code>ResetDBParameterGroup</code> action.
  *         </p>
  */
-export interface DBParameterGroupNameMessage extends $MetadataBearer {
+export interface DBParameterGroupNameMessage {
   __type?: "DBParameterGroupNameMessage";
   /**
    * <p>Provides the name of the DB parameter group.</p>
@@ -7939,7 +7938,7 @@ export namespace DBParameterGroupStatus {
  *         Contains the result of a successful invocation of the <code>DescribeDBParameterGroups</code> action.
  *         </p>
  */
-export interface DBParameterGroupsMessage extends $MetadataBearer {
+export interface DBParameterGroupsMessage {
   __type?: "DBParameterGroupsMessage";
   /**
    * <p>
@@ -8290,7 +8289,7 @@ export namespace DBSecurityGroupMembership {
  *         Contains the result of a successful invocation of the <code>DescribeDBSecurityGroups</code> action.
  *         </p>
  */
-export interface DBSecurityGroupMessage extends $MetadataBearer {
+export interface DBSecurityGroupMessage {
   __type?: "DBSecurityGroupMessage";
   /**
    * <p>
@@ -8546,7 +8545,7 @@ export namespace DBSnapshotAttributesResult {
  *         Contains the result of a successful invocation of the <code>DescribeDBSnapshots</code> action.
  *         </p>
  */
-export interface DBSnapshotMessage extends $MetadataBearer {
+export interface DBSnapshotMessage {
   __type?: "DBSnapshotMessage";
   /**
    * <p>
@@ -8625,7 +8624,7 @@ export namespace DBSubnetGroup {
  *         Contains the result of a successful invocation of the <code>DescribeDBSubnetGroups</code> action.
  *         </p>
  */
-export interface DBSubnetGroupMessage extends $MetadataBearer {
+export interface DBSubnetGroupMessage {
   __type?: "DBSubnetGroupMessage";
   /**
    * <p>
@@ -8665,7 +8664,7 @@ export namespace DeleteCustomAvailabilityZoneMessage {
   }
 }
 
-export interface DeleteCustomAvailabilityZoneResult extends $MetadataBearer {
+export interface DeleteCustomAvailabilityZoneResult {
   __type?: "DeleteCustomAvailabilityZoneResult";
   /**
    * <p>A custom Availability Zone (AZ) is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
@@ -8786,7 +8785,7 @@ export namespace DeleteDBClusterParameterGroupMessage {
   }
 }
 
-export interface DeleteDBClusterResult extends $MetadataBearer {
+export interface DeleteDBClusterResult {
   __type?: "DeleteDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -8822,7 +8821,7 @@ export namespace DeleteDBClusterSnapshotMessage {
   }
 }
 
-export interface DeleteDBClusterSnapshotResult extends $MetadataBearer {
+export interface DeleteDBClusterSnapshotResult {
   __type?: "DeleteDBClusterSnapshotResult";
   /**
    * <p>Contains the details for an Amazon RDS DB cluster snapshot
@@ -8857,7 +8856,7 @@ export namespace DeleteDBInstanceAutomatedBackupMessage {
   }
 }
 
-export interface DeleteDBInstanceAutomatedBackupResult extends $MetadataBearer {
+export interface DeleteDBInstanceAutomatedBackupResult {
   __type?: "DeleteDBInstanceAutomatedBackupResult";
   /**
    * <p>An automated backup of a DB instance. It it consists of
@@ -8941,7 +8940,7 @@ export namespace DeleteDBInstanceMessage {
   }
 }
 
-export interface DeleteDBInstanceResult extends $MetadataBearer {
+export interface DeleteDBInstanceResult {
   __type?: "DeleteDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -9001,7 +9000,7 @@ export namespace DeleteDBProxyRequest {
   }
 }
 
-export interface DeleteDBProxyResponse extends $MetadataBearer {
+export interface DeleteDBProxyResponse {
   __type?: "DeleteDBProxyResponse";
   /**
    * <p>The data structure representing the details of the DB proxy that you delete.</p>
@@ -9068,7 +9067,7 @@ export namespace DeleteDBSnapshotMessage {
   }
 }
 
-export interface DeleteDBSnapshotResult extends $MetadataBearer {
+export interface DeleteDBSnapshotResult {
   __type?: "DeleteDBSnapshotResult";
   /**
    * <p>Contains the details of an Amazon RDS DB snapshot.
@@ -9127,7 +9126,7 @@ export namespace DeleteEventSubscriptionMessage {
   }
 }
 
-export interface DeleteEventSubscriptionResult extends $MetadataBearer {
+export interface DeleteEventSubscriptionResult {
   __type?: "DeleteEventSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
@@ -9157,7 +9156,7 @@ export namespace DeleteGlobalClusterMessage {
   }
 }
 
-export interface DeleteGlobalClusterResult extends $MetadataBearer {
+export interface DeleteGlobalClusterResult {
   __type?: "DeleteGlobalClusterResult";
   /**
    * <p>A data type representing an Aurora global database.</p>
@@ -9234,7 +9233,7 @@ export namespace DeregisterDBProxyTargetsRequest {
   }
 }
 
-export interface DeregisterDBProxyTargetsResponse extends $MetadataBearer {
+export interface DeregisterDBProxyTargetsResponse {
   __type?: "DeregisterDBProxyTargetsResponse";
 }
 
@@ -9632,8 +9631,7 @@ export namespace DescribeDBClusterSnapshotAttributesMessage {
   }
 }
 
-export interface DescribeDBClusterSnapshotAttributesResult
-  extends $MetadataBearer {
+export interface DescribeDBClusterSnapshotAttributesResult {
   __type?: "DescribeDBClusterSnapshotAttributesResult";
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
@@ -10181,7 +10179,7 @@ export namespace DescribeDBLogFilesMessage {
  *             The response from a call to <code>DescribeDBLogFiles</code>.
  *         </p>
  */
-export interface DescribeDBLogFilesResponse extends $MetadataBearer {
+export interface DescribeDBLogFilesResponse {
   __type?: "DescribeDBLogFilesResponse";
   /**
    * <p>The DB log files returned.</p>
@@ -10344,7 +10342,7 @@ export namespace DescribeDBProxiesRequest {
   }
 }
 
-export interface DescribeDBProxiesResponse extends $MetadataBearer {
+export interface DescribeDBProxiesResponse {
   __type?: "DescribeDBProxiesResponse";
   /**
    * <p>A return value representing an arbitrary number of <code>DBProxy</code> data structures.</p>
@@ -10412,7 +10410,7 @@ export namespace DescribeDBProxyTargetGroupsRequest {
   }
 }
 
-export interface DescribeDBProxyTargetGroupsResponse extends $MetadataBearer {
+export interface DescribeDBProxyTargetGroupsResponse {
   __type?: "DescribeDBProxyTargetGroupsResponse";
   /**
    * <p>
@@ -10480,7 +10478,7 @@ export namespace DescribeDBProxyTargetsRequest {
   }
 }
 
-export interface DescribeDBProxyTargetsResponse extends $MetadataBearer {
+export interface DescribeDBProxyTargetsResponse {
   __type?: "DescribeDBProxyTargetsResponse";
   /**
    * <p>
@@ -10565,7 +10563,7 @@ export namespace DescribeDBSnapshotAttributesMessage {
   }
 }
 
-export interface DescribeDBSnapshotAttributesResult extends $MetadataBearer {
+export interface DescribeDBSnapshotAttributesResult {
   __type?: "DescribeDBSnapshotAttributesResult";
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
@@ -10832,8 +10830,7 @@ export namespace DescribeEngineDefaultClusterParametersMessage {
   }
 }
 
-export interface DescribeEngineDefaultClusterParametersResult
-  extends $MetadataBearer {
+export interface DescribeEngineDefaultClusterParametersResult {
   __type?: "DescribeEngineDefaultClusterParametersResult";
   /**
    * <p>
@@ -10895,7 +10892,7 @@ export namespace DescribeEngineDefaultParametersMessage {
   }
 }
 
-export interface DescribeEngineDefaultParametersResult extends $MetadataBearer {
+export interface DescribeEngineDefaultParametersResult {
   __type?: "DescribeEngineDefaultParametersResult";
   /**
    * <p>
@@ -11640,8 +11637,7 @@ export namespace DescribeValidDBInstanceModificationsMessage {
   }
 }
 
-export interface DescribeValidDBInstanceModificationsResult
-  extends $MetadataBearer {
+export interface DescribeValidDBInstanceModificationsResult {
   __type?: "DescribeValidDBInstanceModificationsResult";
   /**
    * <p>Information about valid modifications that you can make to your DB instance.
@@ -11717,7 +11713,7 @@ export namespace DoubleRange {
 /**
  * <p>This data type is used as a response element to <code>DownloadDBLogFilePortion</code>.</p>
  */
-export interface DownloadDBLogFilePortionDetails extends $MetadataBearer {
+export interface DownloadDBLogFilePortionDetails {
   __type?: "DownloadDBLogFilePortionDetails";
   /**
    * <p>Boolean value that if true, indicates there is more data to be downloaded.</p>
@@ -12010,7 +12006,7 @@ export namespace EventCategoriesMap {
 /**
  * <p>Data returned from the <b>DescribeEventCategories</b> action.</p>
  */
-export interface EventCategoriesMessage extends $MetadataBearer {
+export interface EventCategoriesMessage {
   __type?: "EventCategoriesMessage";
   /**
    * <p>A list of EventCategoriesMap data types.</p>
@@ -12092,7 +12088,7 @@ export namespace EventSubscription {
 /**
  * <p>Data returned by the <b>DescribeEventSubscriptions</b> action.</p>
  */
-export interface EventSubscriptionsMessage extends $MetadataBearer {
+export interface EventSubscriptionsMessage {
   __type?: "EventSubscriptionsMessage";
   /**
    * <p>A list of EventSubscriptions data types.</p>
@@ -12122,7 +12118,7 @@ export namespace EventSubscriptionsMessage {
  *         Contains the result of a successful invocation of the <code>DescribeEvents</code> action.
  *         </p>
  */
-export interface EventsMessage extends $MetadataBearer {
+export interface EventsMessage {
   __type?: "EventsMessage";
   /**
    * <p>
@@ -12179,7 +12175,7 @@ export namespace FailoverDBClusterMessage {
   }
 }
 
-export interface FailoverDBClusterResult extends $MetadataBearer {
+export interface FailoverDBClusterResult {
   __type?: "FailoverDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -12371,7 +12367,7 @@ export namespace GlobalClusterMember {
   }
 }
 
-export interface GlobalClustersMessage extends $MetadataBearer {
+export interface GlobalClustersMessage {
   __type?: "GlobalClustersMessage";
   /**
    * <p>
@@ -12509,7 +12505,7 @@ export namespace ImportInstallationMediaMessage {
  * <p>Contains the installation media for a DB engine that requires an on-premises
  *           customer provided license, such as Microsoft SQL Server.</p>
  */
-export interface InstallationMedia extends $MetadataBearer {
+export interface InstallationMedia {
   __type?: "InstallationMedia";
   /**
    * <p>The custom Availability Zone (AZ) that contains the installation media.</p>
@@ -12577,7 +12573,7 @@ export namespace InstallationMediaFailureCause {
   }
 }
 
-export interface InstallationMediaMessage extends $MetadataBearer {
+export interface InstallationMediaMessage {
   __type?: "InstallationMediaMessage";
   /**
    * <p>The list of <a>InstallationMedia</a> objects for the AWS account.</p>
@@ -12670,7 +12666,7 @@ export namespace ModifyCertificatesMessage {
   }
 }
 
-export interface ModifyCertificatesResult extends $MetadataBearer {
+export interface ModifyCertificatesResult {
   __type?: "ModifyCertificatesResult";
   /**
    * <p>A CA certificate for an AWS account.</p>
@@ -13046,7 +13042,7 @@ export namespace ModifyDBClusterParameterGroupMessage {
   }
 }
 
-export interface ModifyDBClusterResult extends $MetadataBearer {
+export interface ModifyDBClusterResult {
   __type?: "ModifyDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -13109,8 +13105,7 @@ export namespace ModifyDBClusterSnapshotAttributeMessage {
   }
 }
 
-export interface ModifyDBClusterSnapshotAttributeResult
-  extends $MetadataBearer {
+export interface ModifyDBClusterSnapshotAttributeResult {
   __type?: "ModifyDBClusterSnapshotAttributeResult";
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
@@ -13775,7 +13770,7 @@ export namespace ModifyDBInstanceMessage {
   }
 }
 
-export interface ModifyDBInstanceResult extends $MetadataBearer {
+export interface ModifyDBInstanceResult {
   __type?: "ModifyDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -13882,7 +13877,7 @@ export namespace ModifyDBProxyRequest {
   }
 }
 
-export interface ModifyDBProxyResponse extends $MetadataBearer {
+export interface ModifyDBProxyResponse {
   __type?: "ModifyDBProxyResponse";
   /**
    * <p>The <code>DBProxy</code> object representing the new settings for the proxy.</p>
@@ -13925,7 +13920,7 @@ export namespace ModifyDBProxyTargetGroupRequest {
   }
 }
 
-export interface ModifyDBProxyTargetGroupResponse extends $MetadataBearer {
+export interface ModifyDBProxyTargetGroupResponse {
   __type?: "ModifyDBProxyTargetGroupResponse";
   /**
    * <p>The settings of the modified <code>DBProxyTarget</code>.</p>
@@ -13984,7 +13979,7 @@ export namespace ModifyDBSnapshotAttributeMessage {
   }
 }
 
-export interface ModifyDBSnapshotAttributeResult extends $MetadataBearer {
+export interface ModifyDBSnapshotAttributeResult {
   __type?: "ModifyDBSnapshotAttributeResult";
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
@@ -14076,7 +14071,7 @@ export namespace ModifyDBSnapshotMessage {
   }
 }
 
-export interface ModifyDBSnapshotResult extends $MetadataBearer {
+export interface ModifyDBSnapshotResult {
   __type?: "ModifyDBSnapshotResult";
   /**
    * <p>Contains the details of an Amazon RDS DB snapshot.
@@ -14126,7 +14121,7 @@ export namespace ModifyDBSubnetGroupMessage {
   }
 }
 
-export interface ModifyDBSubnetGroupResult extends $MetadataBearer {
+export interface ModifyDBSubnetGroupResult {
   __type?: "ModifyDBSubnetGroupResult";
   /**
    * <p>Contains the details of an Amazon RDS DB subnet group.
@@ -14188,7 +14183,7 @@ export namespace ModifyEventSubscriptionMessage {
   }
 }
 
-export interface ModifyEventSubscriptionResult extends $MetadataBearer {
+export interface ModifyEventSubscriptionResult {
   __type?: "ModifyEventSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
@@ -14254,7 +14249,7 @@ export namespace ModifyGlobalClusterMessage {
   }
 }
 
-export interface ModifyGlobalClusterResult extends $MetadataBearer {
+export interface ModifyGlobalClusterResult {
   __type?: "ModifyGlobalClusterResult";
   /**
    * <p>A data type representing an Aurora global database.</p>
@@ -14301,7 +14296,7 @@ export namespace ModifyOptionGroupMessage {
   }
 }
 
-export interface ModifyOptionGroupResult extends $MetadataBearer {
+export interface ModifyOptionGroupResult {
   __type?: "ModifyOptionGroupResult";
   /**
    * <p></p>
@@ -14661,7 +14656,7 @@ export namespace OptionGroupOptionSetting {
 /**
  * <p></p>
  */
-export interface OptionGroupOptionsMessage extends $MetadataBearer {
+export interface OptionGroupOptionsMessage {
   __type?: "OptionGroupOptionsMessage";
   /**
    * <p>An optional pagination token provided by a previous request.
@@ -14686,7 +14681,7 @@ export namespace OptionGroupOptionsMessage {
 /**
  * <p>List of option groups.</p>
  */
-export interface OptionGroups extends $MetadataBearer {
+export interface OptionGroups {
   __type?: "OptionGroups";
   /**
    * <p>An optional pagination token provided by a previous request.
@@ -14929,7 +14924,7 @@ export namespace OrderableDBInstanceOption {
  *             Contains the result of a successful invocation of the <code>DescribeOrderableDBInstanceOptions</code> action.
  *         </p>
  */
-export interface OrderableDBInstanceOptionsMessage extends $MetadataBearer {
+export interface OrderableDBInstanceOptionsMessage {
   __type?: "OrderableDBInstanceOptionsMessage";
   /**
    * <p>
@@ -15109,7 +15104,7 @@ export namespace PendingMaintenanceAction {
 /**
  * <p>Data returned from the <b>DescribePendingMaintenanceActions</b> action.</p>
  */
-export interface PendingMaintenanceActionsMessage extends $MetadataBearer {
+export interface PendingMaintenanceActionsMessage {
   __type?: "PendingMaintenanceActionsMessage";
   /**
    * <p>
@@ -15343,7 +15338,7 @@ export namespace PromoteReadReplicaDBClusterMessage {
   }
 }
 
-export interface PromoteReadReplicaDBClusterResult extends $MetadataBearer {
+export interface PromoteReadReplicaDBClusterResult {
   __type?: "PromoteReadReplicaDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -15432,7 +15427,7 @@ export namespace PromoteReadReplicaMessage {
   }
 }
 
-export interface PromoteReadReplicaResult extends $MetadataBearer {
+export interface PromoteReadReplicaResult {
   __type?: "PromoteReadReplicaResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -15487,8 +15482,7 @@ export namespace PurchaseReservedDBInstancesOfferingMessage {
   }
 }
 
-export interface PurchaseReservedDBInstancesOfferingResult
-  extends $MetadataBearer {
+export interface PurchaseReservedDBInstancesOfferingResult {
   __type?: "PurchaseReservedDBInstancesOfferingResult";
   /**
    * <p>
@@ -15571,7 +15565,7 @@ export namespace RebootDBInstanceMessage {
   }
 }
 
-export interface RebootDBInstanceResult extends $MetadataBearer {
+export interface RebootDBInstanceResult {
   __type?: "RebootDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -15642,7 +15636,7 @@ export namespace RegisterDBProxyTargetsRequest {
   }
 }
 
-export interface RegisterDBProxyTargetsResponse extends $MetadataBearer {
+export interface RegisterDBProxyTargetsResponse {
   __type?: "RegisterDBProxyTargetsResponse";
   /**
    * <p>One or more <code>DBProxyTarget</code> objects that are created when you register targets with a target group.</p>
@@ -15679,7 +15673,7 @@ export namespace RemoveFromGlobalClusterMessage {
   }
 }
 
-export interface RemoveFromGlobalClusterResult extends $MetadataBearer {
+export interface RemoveFromGlobalClusterResult {
   __type?: "RemoveFromGlobalClusterResult";
   /**
    * <p>A data type representing an Aurora global database.</p>
@@ -15773,8 +15767,7 @@ export namespace RemoveSourceIdentifierFromSubscriptionMessage {
   }
 }
 
-export interface RemoveSourceIdentifierFromSubscriptionResult
-  extends $MetadataBearer {
+export interface RemoveSourceIdentifierFromSubscriptionResult {
   __type?: "RemoveSourceIdentifierFromSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
@@ -15920,7 +15913,7 @@ export namespace ReservedDBInstance {
  *         Contains the result of a successful invocation of the <code>DescribeReservedDBInstances</code> action.
  *         </p>
  */
-export interface ReservedDBInstanceMessage extends $MetadataBearer {
+export interface ReservedDBInstanceMessage {
   __type?: "ReservedDBInstanceMessage";
   /**
    * <p>
@@ -16013,7 +16006,7 @@ export namespace ReservedDBInstancesOffering {
  *         Contains the result of a successful invocation of the <code>DescribeReservedDBInstancesOfferings</code> action.
  *         </p>
  */
-export interface ReservedDBInstancesOfferingMessage extends $MetadataBearer {
+export interface ReservedDBInstancesOfferingMessage {
   __type?: "ReservedDBInstancesOfferingMessage";
   /**
    * <p>
@@ -16451,7 +16444,7 @@ export namespace RestoreDBClusterFromS3Message {
   }
 }
 
-export interface RestoreDBClusterFromS3Result extends $MetadataBearer {
+export interface RestoreDBClusterFromS3Result {
   __type?: "RestoreDBClusterFromS3Result";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -16696,7 +16689,7 @@ export namespace RestoreDBClusterFromSnapshotMessage {
   }
 }
 
-export interface RestoreDBClusterFromSnapshotResult extends $MetadataBearer {
+export interface RestoreDBClusterFromSnapshotResult {
   __type?: "RestoreDBClusterFromSnapshotResult";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -16926,7 +16919,7 @@ export namespace RestoreDBClusterToPointInTimeMessage {
   }
 }
 
-export interface RestoreDBClusterToPointInTimeResult extends $MetadataBearer {
+export interface RestoreDBClusterToPointInTimeResult {
   __type?: "RestoreDBClusterToPointInTimeResult";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -17281,7 +17274,7 @@ export namespace RestoreDBInstanceFromDBSnapshotMessage {
   }
 }
 
-export interface RestoreDBInstanceFromDBSnapshotResult extends $MetadataBearer {
+export interface RestoreDBInstanceFromDBSnapshotResult {
   __type?: "RestoreDBInstanceFromDBSnapshotResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -17749,7 +17742,7 @@ export namespace RestoreDBInstanceFromS3Message {
   }
 }
 
-export interface RestoreDBInstanceFromS3Result extends $MetadataBearer {
+export interface RestoreDBInstanceFromS3Result {
   __type?: "RestoreDBInstanceFromS3Result";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -18123,7 +18116,7 @@ export namespace RestoreDBInstanceToPointInTimeMessage {
   }
 }
 
-export interface RestoreDBInstanceToPointInTimeResult extends $MetadataBearer {
+export interface RestoreDBInstanceToPointInTimeResult {
   __type?: "RestoreDBInstanceToPointInTimeResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -18218,7 +18211,7 @@ export namespace RevokeDBSecurityGroupIngressMessage {
   }
 }
 
-export interface RevokeDBSecurityGroupIngressResult extends $MetadataBearer {
+export interface RevokeDBSecurityGroupIngressResult {
   __type?: "RevokeDBSecurityGroupIngressResult";
   /**
    * <p>Contains the details for an Amazon RDS DB security group.
@@ -18371,7 +18364,7 @@ export namespace SourceRegion {
 /**
  * <p>Contains the result of a successful invocation of the <code>DescribeSourceRegions</code> action.</p>
  */
-export interface SourceRegionMessage extends $MetadataBearer {
+export interface SourceRegionMessage {
   __type?: "SourceRegionMessage";
   /**
    * <p>
@@ -18438,7 +18431,7 @@ export namespace StartActivityStreamRequest {
   }
 }
 
-export interface StartActivityStreamResponse extends $MetadataBearer {
+export interface StartActivityStreamResponse {
   __type?: "StartActivityStreamResponse";
   /**
    * <p>Indicates whether or not the database activity stream will start as soon as possible,
@@ -18488,7 +18481,7 @@ export namespace StartDBClusterMessage {
   }
 }
 
-export interface StartDBClusterResult extends $MetadataBearer {
+export interface StartDBClusterResult {
   __type?: "StartDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -18522,7 +18515,7 @@ export namespace StartDBInstanceMessage {
   }
 }
 
-export interface StartDBInstanceResult extends $MetadataBearer {
+export interface StartDBInstanceResult {
   __type?: "StartDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -18561,7 +18554,7 @@ export namespace StopActivityStreamRequest {
   }
 }
 
-export interface StopActivityStreamResponse extends $MetadataBearer {
+export interface StopActivityStreamResponse {
   __type?: "StopActivityStreamResponse";
   /**
    * <p>The name of the Amazon Kinesis data stream used for the database activity stream.</p>
@@ -18600,7 +18593,7 @@ export namespace StopDBClusterMessage {
   }
 }
 
-export interface StopDBClusterResult extends $MetadataBearer {
+export interface StopDBClusterResult {
   __type?: "StopDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster.
@@ -18641,7 +18634,7 @@ export namespace StopDBInstanceMessage {
   }
 }
 
-export interface StopDBInstanceResult extends $MetadataBearer {
+export interface StopDBInstanceResult {
   __type?: "StopDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
@@ -18714,7 +18707,7 @@ export namespace Tag {
 /**
  * <p></p>
  */
-export interface TagListMessage extends $MetadataBearer {
+export interface TagListMessage {
   __type?: "TagListMessage";
   /**
    * <p>List of tags returned by the ListTagsForResource operation.</p>

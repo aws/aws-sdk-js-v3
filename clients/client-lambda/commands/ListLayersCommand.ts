@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListLayersCommandInput = ListLayersRequest;
-export type ListLayersCommandOutput = ListLayersResponse;
+export type ListLayersCommandOutput = ListLayersResponse & __MetadataBearer;
 
 export class ListLayersCommand extends $Command<
   ListLayersCommandInput,

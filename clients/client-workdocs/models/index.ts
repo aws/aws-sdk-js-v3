@@ -49,7 +49,7 @@ export namespace ActivateUserRequest {
   }
 }
 
-export interface ActivateUserResponse extends $MetadataBearer {
+export interface ActivateUserResponse {
   __type?: "ActivateUserResponse";
   /**
    * <p>The user information.</p>
@@ -193,7 +193,7 @@ export namespace AddResourcePermissionsRequest {
   }
 }
 
-export interface AddResourcePermissionsResponse extends $MetadataBearer {
+export interface AddResourcePermissionsResponse {
   __type?: "AddResourcePermissionsResponse";
   /**
    * <p>The share results.</p>
@@ -407,7 +407,7 @@ export namespace CreateCommentRequest {
   }
 }
 
-export interface CreateCommentResponse extends $MetadataBearer {
+export interface CreateCommentResponse {
   __type?: "CreateCommentResponse";
   /**
    * <p>The comment that has been created.</p>
@@ -452,7 +452,7 @@ export namespace CreateCustomMetadataRequest {
   }
 }
 
-export interface CreateCustomMetadataResponse extends $MetadataBearer {
+export interface CreateCustomMetadataResponse {
   __type?: "CreateCustomMetadataResponse";
 }
 
@@ -487,7 +487,7 @@ export namespace CreateFolderRequest {
   }
 }
 
-export interface CreateFolderResponse extends $MetadataBearer {
+export interface CreateFolderResponse {
   __type?: "CreateFolderResponse";
   /**
    * <p>The metadata of the folder.</p>
@@ -526,7 +526,7 @@ export namespace CreateLabelsRequest {
   }
 }
 
-export interface CreateLabelsResponse extends $MetadataBearer {
+export interface CreateLabelsResponse {
   __type?: "CreateLabelsResponse";
 }
 
@@ -567,8 +567,7 @@ export namespace CreateNotificationSubscriptionRequest {
   }
 }
 
-export interface CreateNotificationSubscriptionResponse
-  extends $MetadataBearer {
+export interface CreateNotificationSubscriptionResponse {
   __type?: "CreateNotificationSubscriptionResponse";
   /**
    * <p>The subscription.</p>
@@ -637,7 +636,7 @@ export namespace CreateUserRequest {
   }
 }
 
-export interface CreateUserResponse extends $MetadataBearer {
+export interface CreateUserResponse {
   __type?: "CreateUserResponse";
   /**
    * <p>The user information.</p>
@@ -774,7 +773,7 @@ export namespace DeleteCustomMetadataRequest {
   }
 }
 
-export interface DeleteCustomMetadataResponse extends $MetadataBearer {
+export interface DeleteCustomMetadataResponse {
   __type?: "DeleteCustomMetadataResponse";
 }
 
@@ -874,7 +873,7 @@ export namespace DeleteLabelsRequest {
   }
 }
 
-export interface DeleteLabelsResponse extends $MetadataBearer {
+export interface DeleteLabelsResponse {
   __type?: "DeleteLabelsResponse";
 }
 
@@ -992,7 +991,7 @@ export namespace DescribeActivitiesRequest {
   }
 }
 
-export interface DescribeActivitiesResponse extends $MetadataBearer {
+export interface DescribeActivitiesResponse {
   __type?: "DescribeActivitiesResponse";
   /**
    * <p>The marker for the next set of results.</p>
@@ -1047,7 +1046,7 @@ export namespace DescribeCommentsRequest {
   }
 }
 
-export interface DescribeCommentsResponse extends $MetadataBearer {
+export interface DescribeCommentsResponse {
   __type?: "DescribeCommentsResponse";
   /**
    * <p>The list of comments for the specified document version.</p>
@@ -1110,7 +1109,7 @@ export namespace DescribeDocumentVersionsRequest {
   }
 }
 
-export interface DescribeDocumentVersionsResponse extends $MetadataBearer {
+export interface DescribeDocumentVersionsResponse {
   __type?: "DescribeDocumentVersionsResponse";
   /**
    * <p>The document versions.</p>
@@ -1182,7 +1181,7 @@ export namespace DescribeFolderContentsRequest {
   }
 }
 
-export interface DescribeFolderContentsResponse extends $MetadataBearer {
+export interface DescribeFolderContentsResponse {
   __type?: "DescribeFolderContentsResponse";
   /**
    * <p>The documents in the specified folder.</p>
@@ -1243,7 +1242,7 @@ export namespace DescribeGroupsRequest {
   }
 }
 
-export interface DescribeGroupsResponse extends $MetadataBearer {
+export interface DescribeGroupsResponse {
   __type?: "DescribeGroupsResponse";
   /**
    * <p>The list of groups.</p>
@@ -1288,8 +1287,7 @@ export namespace DescribeNotificationSubscriptionsRequest {
   }
 }
 
-export interface DescribeNotificationSubscriptionsResponse
-  extends $MetadataBearer {
+export interface DescribeNotificationSubscriptionsResponse {
   __type?: "DescribeNotificationSubscriptionsResponse";
   /**
    * <p>The marker to use when requesting the next set of results. If there are no
@@ -1345,7 +1343,7 @@ export namespace DescribeResourcePermissionsRequest {
   }
 }
 
-export interface DescribeResourcePermissionsResponse extends $MetadataBearer {
+export interface DescribeResourcePermissionsResponse {
   __type?: "DescribeResourcePermissionsResponse";
   /**
    * <p>The marker to use when requesting the next set of results. If there are no
@@ -1391,7 +1389,7 @@ export namespace DescribeRootFoldersRequest {
   }
 }
 
-export interface DescribeRootFoldersResponse extends $MetadataBearer {
+export interface DescribeRootFoldersResponse {
   __type?: "DescribeRootFoldersResponse";
   /**
    * <p>The user's special folders.</p>
@@ -1472,7 +1470,7 @@ export namespace DescribeUsersRequest {
   }
 }
 
-export interface DescribeUsersResponse extends $MetadataBearer {
+export interface DescribeUsersResponse {
   __type?: "DescribeUsersResponse";
   /**
    * <p>The marker to use when requesting the next set of results. If there are no
@@ -1825,7 +1823,7 @@ export namespace GetCurrentUserRequest {
   }
 }
 
-export interface GetCurrentUserResponse extends $MetadataBearer {
+export interface GetCurrentUserResponse {
   __type?: "GetCurrentUserResponse";
   /**
    * <p>Metadata of the user.</p>
@@ -1875,7 +1873,7 @@ export namespace GetDocumentPathRequest {
   }
 }
 
-export interface GetDocumentPathResponse extends $MetadataBearer {
+export interface GetDocumentPathResponse {
   __type?: "GetDocumentPathResponse";
   /**
    * <p>The path information.</p>
@@ -1914,7 +1912,7 @@ export namespace GetDocumentRequest {
   }
 }
 
-export interface GetDocumentResponse extends $MetadataBearer {
+export interface GetDocumentResponse {
   __type?: "GetDocumentResponse";
   /**
    * <p>The custom metadata on the document.</p>
@@ -1969,7 +1967,7 @@ export namespace GetDocumentVersionRequest {
   }
 }
 
-export interface GetDocumentVersionResponse extends $MetadataBearer {
+export interface GetDocumentVersionResponse {
   __type?: "GetDocumentVersionResponse";
   /**
    * <p>The custom metadata on the document version.</p>
@@ -2024,7 +2022,7 @@ export namespace GetFolderPathRequest {
   }
 }
 
-export interface GetFolderPathResponse extends $MetadataBearer {
+export interface GetFolderPathResponse {
   __type?: "GetFolderPathResponse";
   /**
    * <p>The path information.</p>
@@ -2063,7 +2061,7 @@ export namespace GetFolderRequest {
   }
 }
 
-export interface GetFolderResponse extends $MetadataBearer {
+export interface GetFolderResponse {
   __type?: "GetFolderResponse";
   /**
    * <p>The custom metadata on the folder.</p>
@@ -2119,7 +2117,7 @@ export namespace GetResourcesRequest {
   }
 }
 
-export interface GetResourcesResponse extends $MetadataBearer {
+export interface GetResourcesResponse {
   __type?: "GetResourcesResponse";
   /**
    * <p>The documents in the specified collection.</p>
@@ -2232,7 +2230,7 @@ export namespace InitiateDocumentVersionUploadRequest {
   }
 }
 
-export interface InitiateDocumentVersionUploadResponse extends $MetadataBearer {
+export interface InitiateDocumentVersionUploadResponse {
   __type?: "InitiateDocumentVersionUploadResponse";
   /**
    * <p>The document metadata.</p>
@@ -3093,7 +3091,7 @@ export namespace UpdateUserRequest {
   }
 }
 
-export interface UpdateUserResponse extends $MetadataBearer {
+export interface UpdateUserResponse {
   __type?: "UpdateUserResponse";
   /**
    * <p>The user information.</p>

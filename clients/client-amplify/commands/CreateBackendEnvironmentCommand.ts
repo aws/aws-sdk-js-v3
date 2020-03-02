@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBackendEnvironmentCommandInput = CreateBackendEnvironmentRequest;
-export type CreateBackendEnvironmentCommandOutput = CreateBackendEnvironmentResult;
+export type CreateBackendEnvironmentCommandOutput = CreateBackendEnvironmentResult &
+  __MetadataBearer;
 
 export class CreateBackendEnvironmentCommand extends $Command<
   CreateBackendEnvironmentCommandInput,

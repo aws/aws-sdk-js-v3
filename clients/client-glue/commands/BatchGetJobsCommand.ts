@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetJobsCommandInput = BatchGetJobsRequest;
-export type BatchGetJobsCommandOutput = BatchGetJobsResponse;
+export type BatchGetJobsCommandOutput = BatchGetJobsResponse & __MetadataBearer;
 
 export class BatchGetJobsCommand extends $Command<
   BatchGetJobsCommandInput,

@@ -1192,7 +1192,7 @@ export namespace CreateActivityInput {
   }
 }
 
-export interface CreateActivityOutput extends $MetadataBearer {
+export interface CreateActivityOutput {
   __type?: "CreateActivityOutput";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the created activity.</p>
@@ -1276,7 +1276,7 @@ export namespace CreateStateMachineInput {
   }
 }
 
-export interface CreateStateMachineOutput extends $MetadataBearer {
+export interface CreateStateMachineOutput {
   __type?: "CreateStateMachineOutput";
   /**
    * <p>The date the state machine is created.</p>
@@ -1309,7 +1309,7 @@ export namespace DeleteActivityInput {
   }
 }
 
-export interface DeleteActivityOutput extends $MetadataBearer {
+export interface DeleteActivityOutput {
   __type?: "DeleteActivityOutput";
 }
 
@@ -1333,7 +1333,7 @@ export namespace DeleteStateMachineInput {
   }
 }
 
-export interface DeleteStateMachineOutput extends $MetadataBearer {
+export interface DeleteStateMachineOutput {
   __type?: "DeleteStateMachineOutput";
 }
 
@@ -1357,7 +1357,7 @@ export namespace DescribeActivityInput {
   }
 }
 
-export interface DescribeActivityOutput extends $MetadataBearer {
+export interface DescribeActivityOutput {
   __type?: "DescribeActivityOutput";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
@@ -1416,7 +1416,7 @@ export namespace DescribeExecutionInput {
   }
 }
 
-export interface DescribeExecutionOutput extends $MetadataBearer {
+export interface DescribeExecutionOutput {
   __type?: "DescribeExecutionOutput";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
@@ -1504,8 +1504,7 @@ export namespace DescribeStateMachineForExecutionInput {
   }
 }
 
-export interface DescribeStateMachineForExecutionOutput
-  extends $MetadataBearer {
+export interface DescribeStateMachineForExecutionOutput {
   __type?: "DescribeStateMachineForExecutionOutput";
   /**
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
@@ -1554,7 +1553,7 @@ export namespace DescribeStateMachineInput {
   }
 }
 
-export interface DescribeStateMachineOutput extends $MetadataBearer {
+export interface DescribeStateMachineOutput {
   __type?: "DescribeStateMachineOutput";
   /**
    * <p>The date the state machine is created.</p>
@@ -1773,7 +1772,7 @@ export namespace GetActivityTaskInput {
   }
 }
 
-export interface GetActivityTaskOutput extends $MetadataBearer {
+export interface GetActivityTaskOutput {
   __type?: "GetActivityTaskOutput";
   /**
    * <p>The string that contains the JSON input data for the task.</p>
@@ -1827,7 +1826,7 @@ export namespace GetExecutionHistoryInput {
   }
 }
 
-export interface GetExecutionHistoryOutput extends $MetadataBearer {
+export interface GetExecutionHistoryOutput {
   __type?: "GetExecutionHistoryOutput";
   /**
    * <p>The list of events that occurred in the execution.</p>
@@ -1978,7 +1977,7 @@ export namespace ListActivitiesInput {
   }
 }
 
-export interface ListActivitiesOutput extends $MetadataBearer {
+export interface ListActivitiesOutput {
   __type?: "ListActivitiesOutput";
   /**
    * <p>The list of activities.</p>
@@ -2031,7 +2030,7 @@ export namespace ListExecutionsInput {
   }
 }
 
-export interface ListExecutionsOutput extends $MetadataBearer {
+export interface ListExecutionsOutput {
   __type?: "ListExecutionsOutput";
   /**
    * <p>The list of matching executions.</p>
@@ -2073,7 +2072,7 @@ export namespace ListStateMachinesInput {
   }
 }
 
-export interface ListStateMachinesOutput extends $MetadataBearer {
+export interface ListStateMachinesOutput {
   __type?: "ListStateMachinesOutput";
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
@@ -2104,7 +2103,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>An array of tags associated with the resource.</p>
@@ -2179,7 +2178,7 @@ export namespace SendTaskFailureInput {
   }
 }
 
-export interface SendTaskFailureOutput extends $MetadataBearer {
+export interface SendTaskFailureOutput {
   __type?: "SendTaskFailureOutput";
 }
 
@@ -2205,7 +2204,7 @@ export namespace SendTaskHeartbeatInput {
   }
 }
 
-export interface SendTaskHeartbeatOutput extends $MetadataBearer {
+export interface SendTaskHeartbeatOutput {
   __type?: "SendTaskHeartbeatOutput";
 }
 
@@ -2236,7 +2235,7 @@ export namespace SendTaskSuccessInput {
   }
 }
 
-export interface SendTaskSuccessOutput extends $MetadataBearer {
+export interface SendTaskSuccessOutput {
   __type?: "SendTaskSuccessOutput";
 }
 
@@ -2301,7 +2300,7 @@ export namespace StartExecutionInput {
   }
 }
 
-export interface StartExecutionOutput extends $MetadataBearer {
+export interface StartExecutionOutput {
   __type?: "StartExecutionOutput";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
@@ -2486,7 +2485,7 @@ export namespace StopExecutionInput {
   }
 }
 
-export interface StopExecutionOutput extends $MetadataBearer {
+export interface StopExecutionOutput {
   __type?: "StopExecutionOutput";
   /**
    * <p>The date the execution is stopped.</p>
@@ -2548,7 +2547,7 @@ export namespace TagResourceInput {
   }
 }
 
-export interface TagResourceOutput extends $MetadataBearer {
+export interface TagResourceOutput {
   __type?: "TagResourceOutput";
 }
 
@@ -2618,7 +2617,7 @@ export namespace UntagResourceInput {
   }
 }
 
-export interface UntagResourceOutput extends $MetadataBearer {
+export interface UntagResourceOutput {
   __type?: "UntagResourceOutput";
 }
 
@@ -2657,7 +2656,7 @@ export namespace UpdateStateMachineInput {
   }
 }
 
-export interface UpdateStateMachineOutput extends $MetadataBearer {
+export interface UpdateStateMachineOutput {
   __type?: "UpdateStateMachineOutput";
   /**
    * <p>The date and time the state machine was updated.</p>

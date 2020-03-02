@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnassignIpv6AddressesCommandInput = UnassignIpv6AddressesRequest;
-export type UnassignIpv6AddressesCommandOutput = UnassignIpv6AddressesResult;
+export type UnassignIpv6AddressesCommandOutput = UnassignIpv6AddressesResult &
+  __MetadataBearer;
 
 export class UnassignIpv6AddressesCommand extends $Command<
   UnassignIpv6AddressesCommandInput,

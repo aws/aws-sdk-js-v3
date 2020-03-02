@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetModelVersionCommandInput = GetModelVersionRequest;
-export type GetModelVersionCommandOutput = GetModelVersionResult;
+export type GetModelVersionCommandOutput = GetModelVersionResult &
+  __MetadataBearer;
 
 export class GetModelVersionCommand extends $Command<
   GetModelVersionCommandInput,

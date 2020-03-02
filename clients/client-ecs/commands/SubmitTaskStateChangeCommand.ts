@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SubmitTaskStateChangeCommandInput = SubmitTaskStateChangeRequest;
-export type SubmitTaskStateChangeCommandOutput = SubmitTaskStateChangeResponse;
+export type SubmitTaskStateChangeCommandOutput = SubmitTaskStateChangeResponse &
+  __MetadataBearer;
 
 export class SubmitTaskStateChangeCommand extends $Command<
   SubmitTaskStateChangeCommandInput,

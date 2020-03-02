@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeFleetsCommandInput = DescribeFleetsRequest;
-export type DescribeFleetsCommandOutput = DescribeFleetsResult;
+export type DescribeFleetsCommandOutput = DescribeFleetsResult &
+  __MetadataBearer;
 
 export class DescribeFleetsCommand extends $Command<
   DescribeFleetsCommandInput,

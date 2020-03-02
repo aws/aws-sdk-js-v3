@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateStreamProcessorCommandInput = CreateStreamProcessorRequest;
-export type CreateStreamProcessorCommandOutput = CreateStreamProcessorResponse;
+export type CreateStreamProcessorCommandOutput = CreateStreamProcessorResponse &
+  __MetadataBearer;
 
 export class CreateStreamProcessorCommand extends $Command<
   CreateStreamProcessorCommandInput,

@@ -61,7 +61,7 @@ export namespace AssociateS3ResourcesRequest {
   }
 }
 
-export interface AssociateS3ResourcesResult extends $MetadataBearer {
+export interface AssociateS3ResourcesResult {
   __type?: "AssociateS3ResourcesResult";
   /**
    * <p>S3 resources that couldn't be associated with Amazon Macie. An error code and an error
@@ -163,7 +163,7 @@ export namespace DisassociateS3ResourcesRequest {
   }
 }
 
-export interface DisassociateS3ResourcesResult extends $MetadataBearer {
+export interface DisassociateS3ResourcesResult {
   __type?: "DisassociateS3ResourcesResult";
   /**
    * <p>S3 resources that couldn't be removed from being monitored and classified by Amazon
@@ -303,7 +303,7 @@ export namespace ListMemberAccountsRequest {
   }
 }
 
-export interface ListMemberAccountsResult extends $MetadataBearer {
+export interface ListMemberAccountsResult {
   __type?: "ListMemberAccountsResult";
   /**
    * <p>A list of the Amazon Macie member accounts returned by the action. The current master
@@ -354,7 +354,7 @@ export namespace ListS3ResourcesRequest {
   }
 }
 
-export interface ListS3ResourcesResult extends $MetadataBearer {
+export interface ListS3ResourcesResult {
   __type?: "ListS3ResourcesResult";
   /**
    * <p>When a response is generated, if there is more data to be listed, this parameter is
@@ -505,7 +505,7 @@ export namespace UpdateS3ResourcesRequest {
   }
 }
 
-export interface UpdateS3ResourcesResult extends $MetadataBearer {
+export interface UpdateS3ResourcesResult {
   __type?: "UpdateS3ResourcesResult";
   /**
    * <p>The S3 resources whose classification types can't be updated. An error code and an

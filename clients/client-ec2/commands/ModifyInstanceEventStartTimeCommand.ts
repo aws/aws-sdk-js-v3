@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyInstanceEventStartTimeCommandInput = ModifyInstanceEventStartTimeRequest;
-export type ModifyInstanceEventStartTimeCommandOutput = ModifyInstanceEventStartTimeResult;
+export type ModifyInstanceEventStartTimeCommandOutput = ModifyInstanceEventStartTimeResult &
+  __MetadataBearer;
 
 export class ModifyInstanceEventStartTimeCommand extends $Command<
   ModifyInstanceEventStartTimeCommandInput,

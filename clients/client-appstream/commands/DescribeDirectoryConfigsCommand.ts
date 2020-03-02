@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDirectoryConfigsCommandInput = DescribeDirectoryConfigsRequest;
-export type DescribeDirectoryConfigsCommandOutput = DescribeDirectoryConfigsResult;
+export type DescribeDirectoryConfigsCommandOutput = DescribeDirectoryConfigsResult &
+  __MetadataBearer;
 
 export class DescribeDirectoryConfigsCommand extends $Command<
   DescribeDirectoryConfigsCommandInput,

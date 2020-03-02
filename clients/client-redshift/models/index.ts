@@ -1873,8 +1873,7 @@ export namespace AcceptReservedNodeExchangeInputMessage {
   }
 }
 
-export interface AcceptReservedNodeExchangeOutputMessage
-  extends $MetadataBearer {
+export interface AcceptReservedNodeExchangeOutputMessage {
   __type?: "AcceptReservedNodeExchangeOutputMessage";
   /**
    * <p></p>
@@ -1910,7 +1909,7 @@ export namespace AccountAttribute {
   }
 }
 
-export interface AccountAttributeList extends $MetadataBearer {
+export interface AccountAttributeList {
   __type?: "AccountAttributeList";
   /**
    * <p>A list of attributes assigned to an account.</p>
@@ -2008,8 +2007,7 @@ export namespace AuthorizeClusterSecurityGroupIngressMessage {
   }
 }
 
-export interface AuthorizeClusterSecurityGroupIngressResult
-  extends $MetadataBearer {
+export interface AuthorizeClusterSecurityGroupIngressResult {
   __type?: "AuthorizeClusterSecurityGroupIngressResult";
   /**
    * <p>Describes a security group.</p>
@@ -2054,7 +2052,7 @@ export namespace AuthorizeSnapshotAccessMessage {
   }
 }
 
-export interface AuthorizeSnapshotAccessResult extends $MetadataBearer {
+export interface AuthorizeSnapshotAccessResult {
   __type?: "AuthorizeSnapshotAccessResult";
   /**
    * <p>Describes a snapshot.</p>
@@ -2104,7 +2102,7 @@ export namespace BatchDeleteClusterSnapshotsRequest {
   }
 }
 
-export interface BatchDeleteClusterSnapshotsResult extends $MetadataBearer {
+export interface BatchDeleteClusterSnapshotsResult {
   __type?: "BatchDeleteClusterSnapshotsResult";
   /**
    * <p>A list of any errors returned.</p>
@@ -2153,8 +2151,7 @@ export namespace BatchModifyClusterSnapshotsMessage {
   }
 }
 
-export interface BatchModifyClusterSnapshotsOutputMessage
-  extends $MetadataBearer {
+export interface BatchModifyClusterSnapshotsOutputMessage {
   __type?: "BatchModifyClusterSnapshotsOutputMessage";
   /**
    * <p>A list of any errors returned.</p>
@@ -2622,7 +2619,7 @@ export namespace ClusterAssociatedToSchedule {
  * <p>Temporary credentials with authorization to log on to an Amazon Redshift database.
  *         </p>
  */
-export interface ClusterCredentials extends $MetadataBearer {
+export interface ClusterCredentials {
   __type?: "ClusterCredentials";
   /**
    * <p>A temporary password that authorizes the user name returned by <code>DbUser</code>
@@ -2685,7 +2682,7 @@ export namespace ClusterDbRevision {
   }
 }
 
-export interface ClusterDbRevisionsMessage extends $MetadataBearer {
+export interface ClusterDbRevisionsMessage {
   __type?: "ClusterDbRevisionsMessage";
   /**
    * <p>A list of revisions.</p>
@@ -2813,7 +2810,7 @@ export namespace ClusterParameterGroup {
  * <p>Contains the output from the <a>DescribeClusterParameters</a> action.
  *         </p>
  */
-export interface ClusterParameterGroupDetails extends $MetadataBearer {
+export interface ClusterParameterGroupDetails {
   __type?: "ClusterParameterGroupDetails";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -2840,7 +2837,7 @@ export namespace ClusterParameterGroupDetails {
 /**
  * <p></p>
  */
-export interface ClusterParameterGroupNameMessage extends $MetadataBearer {
+export interface ClusterParameterGroupNameMessage {
   __type?: "ClusterParameterGroupNameMessage";
   /**
    * <p>The name of the cluster parameter group.</p>
@@ -2896,7 +2893,7 @@ export namespace ClusterParameterGroupStatus {
  * <p>Contains the output from the <a>DescribeClusterParameterGroups</a>
  *             action. </p>
  */
-export interface ClusterParameterGroupsMessage extends $MetadataBearer {
+export interface ClusterParameterGroupsMessage {
   __type?: "ClusterParameterGroupsMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -3053,7 +3050,7 @@ export namespace ClusterSecurityGroupMembership {
 /**
  * <p></p>
  */
-export interface ClusterSecurityGroupMessage extends $MetadataBearer {
+export interface ClusterSecurityGroupMessage {
   __type?: "ClusterSecurityGroupMessage";
   /**
    * <p>A list of <a>ClusterSecurityGroup</a> instances. </p>
@@ -3161,7 +3158,7 @@ export namespace ClusterSubnetGroup {
  * <p>Contains the output from the <a>DescribeClusterSubnetGroups</a> action.
  *         </p>
  */
-export interface ClusterSubnetGroupMessage extends $MetadataBearer {
+export interface ClusterSubnetGroupMessage {
   __type?: "ClusterSubnetGroupMessage";
   /**
    * <p>A list of <a>ClusterSubnetGroup</a> instances. </p>
@@ -3216,7 +3213,7 @@ export namespace ClusterVersion {
  * <p>Contains the output from the <a>DescribeClusterVersions</a> action.
  *         </p>
  */
-export interface ClusterVersionsMessage extends $MetadataBearer {
+export interface ClusterVersionsMessage {
   __type?: "ClusterVersionsMessage";
   /**
    * <p>A list of <code>Version</code> elements. </p>
@@ -3242,7 +3239,7 @@ export namespace ClusterVersionsMessage {
 /**
  * <p>Contains the output from the <a>DescribeClusters</a> action. </p>
  */
-export interface ClustersMessage extends $MetadataBearer {
+export interface ClustersMessage {
   __type?: "ClustersMessage";
   /**
    * <p>A list of <code>Cluster</code> objects, where each object describes one cluster.
@@ -3334,7 +3331,7 @@ export namespace CopyClusterSnapshotMessage {
   }
 }
 
-export interface CopyClusterSnapshotResult extends $MetadataBearer {
+export interface CopyClusterSnapshotResult {
   __type?: "CopyClusterSnapshotResult";
   /**
    * <p>Describes a snapshot.</p>
@@ -3761,7 +3758,7 @@ export namespace CreateClusterParameterGroupMessage {
   }
 }
 
-export interface CreateClusterParameterGroupResult extends $MetadataBearer {
+export interface CreateClusterParameterGroupResult {
   __type?: "CreateClusterParameterGroupResult";
   /**
    * <p>Describes a parameter group.</p>
@@ -3775,7 +3772,7 @@ export namespace CreateClusterParameterGroupResult {
   }
 }
 
-export interface CreateClusterResult extends $MetadataBearer {
+export interface CreateClusterResult {
   __type?: "CreateClusterResult";
   /**
    * <p>Describes a cluster.</p>
@@ -3832,7 +3829,7 @@ export namespace CreateClusterSecurityGroupMessage {
   }
 }
 
-export interface CreateClusterSecurityGroupResult extends $MetadataBearer {
+export interface CreateClusterSecurityGroupResult {
   __type?: "CreateClusterSecurityGroupResult";
   /**
    * <p>Describes a security group.</p>
@@ -3901,7 +3898,7 @@ export namespace CreateClusterSnapshotMessage {
   }
 }
 
-export interface CreateClusterSnapshotResult extends $MetadataBearer {
+export interface CreateClusterSnapshotResult {
   __type?: "CreateClusterSnapshotResult";
   /**
    * <p>Describes a snapshot.</p>
@@ -3964,7 +3961,7 @@ export namespace CreateClusterSubnetGroupMessage {
   }
 }
 
-export interface CreateClusterSubnetGroupResult extends $MetadataBearer {
+export interface CreateClusterSubnetGroupResult {
   __type?: "CreateClusterSubnetGroupResult";
   /**
    * <p>Describes a subnet group.</p>
@@ -4062,7 +4059,7 @@ export namespace CreateEventSubscriptionMessage {
   }
 }
 
-export interface CreateEventSubscriptionResult extends $MetadataBearer {
+export interface CreateEventSubscriptionResult {
   __type?: "CreateEventSubscriptionResult";
   /**
    * <p>Describes event subscriptions.</p>
@@ -4099,7 +4096,7 @@ export namespace CreateHsmClientCertificateMessage {
   }
 }
 
-export interface CreateHsmClientCertificateResult extends $MetadataBearer {
+export interface CreateHsmClientCertificateResult {
   __type?: "CreateHsmClientCertificateResult";
   /**
    * <p>Returns information about an HSM client certificate. The certificate is stored in a
@@ -4164,7 +4161,7 @@ export namespace CreateHsmConfigurationMessage {
   }
 }
 
-export interface CreateHsmConfigurationResult extends $MetadataBearer {
+export interface CreateHsmConfigurationResult {
   __type?: "CreateHsmConfigurationResult";
   /**
    * <p>Returns information about an HSM configuration, which is an object that describes
@@ -4285,7 +4282,7 @@ export namespace CreateSnapshotCopyGrantMessage {
   }
 }
 
-export interface CreateSnapshotCopyGrantResult extends $MetadataBearer {
+export interface CreateSnapshotCopyGrantResult {
   __type?: "CreateSnapshotCopyGrantResult";
   /**
    * <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied
@@ -4375,7 +4372,7 @@ export namespace CreateTagsMessage {
   }
 }
 
-export interface CustomerStorageMessage extends $MetadataBearer {
+export interface CustomerStorageMessage {
   __type?: "CustomerStorageMessage";
   /**
    * <p>The total amount of storage currently used for snapshots.</p>
@@ -4597,7 +4594,7 @@ export namespace DeleteClusterParameterGroupMessage {
   }
 }
 
-export interface DeleteClusterResult extends $MetadataBearer {
+export interface DeleteClusterResult {
   __type?: "DeleteClusterResult";
   /**
    * <p>Describes a cluster.</p>
@@ -4656,7 +4653,7 @@ export namespace DeleteClusterSnapshotMessage {
   }
 }
 
-export interface DeleteClusterSnapshotResult extends $MetadataBearer {
+export interface DeleteClusterSnapshotResult {
   __type?: "DeleteClusterSnapshotResult";
   /**
    * <p>Describes a snapshot.</p>
@@ -5406,8 +5403,7 @@ export namespace DescribeDefaultClusterParametersMessage {
   }
 }
 
-export interface DescribeDefaultClusterParametersResult
-  extends $MetadataBearer {
+export interface DescribeDefaultClusterParametersResult {
   __type?: "DescribeDefaultClusterParametersResult";
   /**
    * <p>Describes the default cluster parameters for a parameter group family.</p>
@@ -6126,8 +6122,7 @@ export namespace DescribeSnapshotSchedulesMessage {
   }
 }
 
-export interface DescribeSnapshotSchedulesOutputMessage
-  extends $MetadataBearer {
+export interface DescribeSnapshotSchedulesOutputMessage {
   __type?: "DescribeSnapshotSchedulesOutputMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -6323,7 +6318,7 @@ export namespace DisableSnapshotCopyMessage {
   }
 }
 
-export interface DisableSnapshotCopyResult extends $MetadataBearer {
+export interface DisableSnapshotCopyResult {
   __type?: "DisableSnapshotCopyResult";
   /**
    * <p>Describes a cluster.</p>
@@ -6506,7 +6501,7 @@ export namespace EnableSnapshotCopyMessage {
   }
 }
 
-export interface EnableSnapshotCopyResult extends $MetadataBearer {
+export interface EnableSnapshotCopyResult {
   __type?: "EnableSnapshotCopyResult";
   /**
    * <p>Describes a cluster.</p>
@@ -6617,7 +6612,7 @@ export namespace EventCategoriesMap {
 /**
  * <p></p>
  */
-export interface EventCategoriesMessage extends $MetadataBearer {
+export interface EventCategoriesMessage {
   __type?: "EventCategoriesMessage";
   /**
    * <p>A list of event categories descriptions.</p>
@@ -6757,7 +6752,7 @@ export namespace EventSubscription {
 /**
  * <p></p>
  */
-export interface EventSubscriptionsMessage extends $MetadataBearer {
+export interface EventSubscriptionsMessage {
   __type?: "EventSubscriptionsMessage";
   /**
    * <p>A list of event subscriptions.</p>
@@ -6783,7 +6778,7 @@ export namespace EventSubscriptionsMessage {
 /**
  * <p></p>
  */
-export interface EventsMessage extends $MetadataBearer {
+export interface EventsMessage {
   __type?: "EventsMessage";
   /**
    * <p>A list of <code>Event</code> instances. </p>
@@ -6959,8 +6954,7 @@ export namespace GetReservedNodeExchangeOfferingsInputMessage {
   }
 }
 
-export interface GetReservedNodeExchangeOfferingsOutputMessage
-  extends $MetadataBearer {
+export interface GetReservedNodeExchangeOfferingsOutputMessage {
   __type?: "GetReservedNodeExchangeOfferingsOutputMessage";
   /**
    * <p>An optional parameter that specifies the starting point for returning a set of
@@ -7019,7 +7013,7 @@ export namespace HsmClientCertificate {
 /**
  * <p></p>
  */
-export interface HsmClientCertificateMessage extends $MetadataBearer {
+export interface HsmClientCertificateMessage {
   __type?: "HsmClientCertificateMessage";
   /**
    * <p>A list of the identifiers for one or more HSM client certificates used by Amazon Redshift
@@ -7086,7 +7080,7 @@ export namespace HsmConfiguration {
 /**
  * <p></p>
  */
-export interface HsmConfigurationMessage extends $MetadataBearer {
+export interface HsmConfigurationMessage {
   __type?: "HsmConfigurationMessage";
   /**
    * <p>A list of <code>HsmConfiguration</code> objects.</p>
@@ -7170,7 +7164,7 @@ export namespace IPRange {
 /**
  * <p>Describes the status of logging for a cluster.</p>
  */
-export interface LoggingStatus extends $MetadataBearer {
+export interface LoggingStatus {
   __type?: "LoggingStatus";
   /**
    * <p>The name of the S3 bucket where the log files are stored.</p>
@@ -7270,7 +7264,7 @@ export namespace ModifyClusterDbRevisionMessage {
   }
 }
 
-export interface ModifyClusterDbRevisionResult extends $MetadataBearer {
+export interface ModifyClusterDbRevisionResult {
   __type?: "ModifyClusterDbRevisionResult";
   /**
    * <p>Describes a cluster.</p>
@@ -7315,7 +7309,7 @@ export namespace ModifyClusterIamRolesMessage {
   }
 }
 
-export interface ModifyClusterIamRolesResult extends $MetadataBearer {
+export interface ModifyClusterIamRolesResult {
   __type?: "ModifyClusterIamRolesResult";
   /**
    * <p>Describes a cluster.</p>
@@ -7370,7 +7364,7 @@ export namespace ModifyClusterMaintenanceMessage {
   }
 }
 
-export interface ModifyClusterMaintenanceResult extends $MetadataBearer {
+export interface ModifyClusterMaintenanceResult {
   __type?: "ModifyClusterMaintenanceResult";
   /**
    * <p>Describes a cluster.</p>
@@ -7684,7 +7678,7 @@ export namespace ModifyClusterParameterGroupMessage {
   }
 }
 
-export interface ModifyClusterResult extends $MetadataBearer {
+export interface ModifyClusterResult {
   __type?: "ModifyClusterResult";
   /**
    * <p>Describes a cluster.</p>
@@ -7727,7 +7721,7 @@ export namespace ModifyClusterSnapshotMessage {
   }
 }
 
-export interface ModifyClusterSnapshotResult extends $MetadataBearer {
+export interface ModifyClusterSnapshotResult {
   __type?: "ModifyClusterSnapshotResult";
   /**
    * <p>Describes a snapshot.</p>
@@ -7796,7 +7790,7 @@ export namespace ModifyClusterSubnetGroupMessage {
   }
 }
 
-export interface ModifyClusterSubnetGroupResult extends $MetadataBearer {
+export interface ModifyClusterSubnetGroupResult {
   __type?: "ModifyClusterSubnetGroupResult";
   /**
    * <p>Describes a subnet group.</p>
@@ -7873,7 +7867,7 @@ export namespace ModifyEventSubscriptionMessage {
   }
 }
 
-export interface ModifyEventSubscriptionResult extends $MetadataBearer {
+export interface ModifyEventSubscriptionResult {
   __type?: "ModifyEventSubscriptionResult";
   /**
    * <p>Describes event subscriptions.</p>
@@ -7986,8 +7980,7 @@ export namespace ModifySnapshotCopyRetentionPeriodMessage {
   }
 }
 
-export interface ModifySnapshotCopyRetentionPeriodResult
-  extends $MetadataBearer {
+export interface ModifySnapshotCopyRetentionPeriodResult {
   __type?: "ModifySnapshotCopyRetentionPeriodResult";
   /**
    * <p>Describes a cluster.</p>
@@ -8094,7 +8087,7 @@ export enum NodeConfigurationOptionsFilterName {
   NUM_NODES = "NumberOfNodes"
 }
 
-export interface NodeConfigurationOptionsMessage extends $MetadataBearer {
+export interface NodeConfigurationOptionsMessage {
   __type?: "NodeConfigurationOptionsMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -8163,7 +8156,7 @@ export namespace OrderableClusterOption {
  * <p>Contains the output from the <a>DescribeOrderableClusterOptions</a>
  *             action. </p>
  */
-export interface OrderableClusterOptionsMessage extends $MetadataBearer {
+export interface OrderableClusterOptionsMessage {
   __type?: "OrderableClusterOptionsMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -8354,7 +8347,7 @@ export namespace PurchaseReservedNodeOfferingMessage {
   }
 }
 
-export interface PurchaseReservedNodeOfferingResult extends $MetadataBearer {
+export interface PurchaseReservedNodeOfferingResult {
   __type?: "PurchaseReservedNodeOfferingResult";
   /**
    * <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
@@ -8386,7 +8379,7 @@ export namespace RebootClusterMessage {
   }
 }
 
-export interface RebootClusterResult extends $MetadataBearer {
+export interface RebootClusterResult {
   __type?: "RebootClusterResult";
   /**
    * <p>Describes a cluster.</p>
@@ -8591,7 +8584,7 @@ export type ReservedNodeOfferingType = "Regular" | "Upgradable";
 /**
  * <p></p>
  */
-export interface ReservedNodeOfferingsMessage extends $MetadataBearer {
+export interface ReservedNodeOfferingsMessage {
   __type?: "ReservedNodeOfferingsMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -8617,7 +8610,7 @@ export namespace ReservedNodeOfferingsMessage {
 /**
  * <p></p>
  */
-export interface ReservedNodesMessage extends $MetadataBearer {
+export interface ReservedNodesMessage {
   __type?: "ReservedNodesMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -8709,7 +8702,7 @@ export namespace ResizeClusterMessage {
   }
 }
 
-export interface ResizeClusterResult extends $MetadataBearer {
+export interface ResizeClusterResult {
   __type?: "ResizeClusterResult";
   /**
    * <p>Describes a cluster.</p>
@@ -8748,7 +8741,7 @@ export namespace ResizeInfo {
 /**
  * <p>Describes the result of a cluster resize operation.</p>
  */
-export interface ResizeProgressMessage extends $MetadataBearer {
+export interface ResizeProgressMessage {
   __type?: "ResizeProgressMessage";
   /**
    * <p>The average rate of the resize operation over the last few minutes, measured in
@@ -9102,7 +9095,7 @@ export namespace RestoreFromClusterSnapshotMessage {
   }
 }
 
-export interface RestoreFromClusterSnapshotResult extends $MetadataBearer {
+export interface RestoreFromClusterSnapshotResult {
   __type?: "RestoreFromClusterSnapshotResult";
   /**
    * <p>Describes a cluster.</p>
@@ -9224,7 +9217,7 @@ export namespace RestoreTableFromClusterSnapshotMessage {
   }
 }
 
-export interface RestoreTableFromClusterSnapshotResult extends $MetadataBearer {
+export interface RestoreTableFromClusterSnapshotResult {
   __type?: "RestoreTableFromClusterSnapshotResult";
   /**
    * <p>Describes the status of a <a>RestoreTableFromClusterSnapshot</a>
@@ -9311,8 +9304,7 @@ export namespace RevokeClusterSecurityGroupIngressMessage {
   }
 }
 
-export interface RevokeClusterSecurityGroupIngressResult
-  extends $MetadataBearer {
+export interface RevokeClusterSecurityGroupIngressResult {
   __type?: "RevokeClusterSecurityGroupIngressResult";
   /**
    * <p>Describes a security group.</p>
@@ -9356,7 +9348,7 @@ export namespace RevokeSnapshotAccessMessage {
   }
 }
 
-export interface RevokeSnapshotAccessResult extends $MetadataBearer {
+export interface RevokeSnapshotAccessResult {
   __type?: "RevokeSnapshotAccessResult";
   /**
    * <p>Describes a snapshot.</p>
@@ -9390,7 +9382,7 @@ export namespace RotateEncryptionKeyMessage {
   }
 }
 
-export interface RotateEncryptionKeyResult extends $MetadataBearer {
+export interface RotateEncryptionKeyResult {
   __type?: "RotateEncryptionKeyResult";
   /**
    * <p>Describes a cluster.</p>
@@ -9410,7 +9402,7 @@ export type ScheduleState = "ACTIVE" | "FAILED" | "MODIFYING";
  * <p>Describes a scheduled action. You can use a scheduled action to trigger some Amazon Redshift API operations on a schedule.
  *             For information about which API operations can be scheduled, see  <a>ScheduledActionType</a>. </p>
  */
-export interface ScheduledAction extends $MetadataBearer {
+export interface ScheduledAction {
   __type?: "ScheduledAction";
   /**
    * <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger. </p>
@@ -9531,7 +9523,7 @@ export enum ScheduledActionTypeValues {
   RESIZE_CLUSTER = "ResizeCluster"
 }
 
-export interface ScheduledActionsMessage extends $MetadataBearer {
+export interface ScheduledActionsMessage {
   __type?: "ScheduledActionsMessage";
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -9815,7 +9807,7 @@ export namespace SnapshotCopyGrant {
 /**
  * <p></p>
  */
-export interface SnapshotCopyGrantMessage extends $MetadataBearer {
+export interface SnapshotCopyGrantMessage {
   __type?: "SnapshotCopyGrantMessage";
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -9876,7 +9868,7 @@ export namespace SnapshotErrorMessage {
  * <p>Contains the output from the <a>DescribeClusterSnapshots</a> action.
  *         </p>
  */
-export interface SnapshotMessage extends $MetadataBearer {
+export interface SnapshotMessage {
   __type?: "SnapshotMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -9903,7 +9895,7 @@ export namespace SnapshotMessage {
  * <p>Describes a snapshot schedule. You can set a regular interval for creating
  *             snapshots of a cluster. You can also schedule snapshots for specific dates. </p>
  */
-export interface SnapshotSchedule extends $MetadataBearer {
+export interface SnapshotSchedule {
   __type?: "SnapshotSchedule";
   /**
    * <p>The number of clusters associated with the schedule.</p>
@@ -10135,7 +10127,7 @@ export namespace TableRestoreStatus {
 /**
  * <p></p>
  */
-export interface TableRestoreStatusMessage extends $MetadataBearer {
+export interface TableRestoreStatusMessage {
   __type?: "TableRestoreStatusMessage";
   /**
    * <p>A pagination token that can be used in a subsequent <a>DescribeTableRestoreStatus</a> request.</p>
@@ -10246,7 +10238,7 @@ export namespace TaggedResource {
 /**
  * <p></p>
  */
-export interface TaggedResourceListMessage extends $MetadataBearer {
+export interface TaggedResourceListMessage {
   __type?: "TaggedResourceListMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -10269,7 +10261,7 @@ export namespace TaggedResourceListMessage {
   }
 }
 
-export interface TrackListMessage extends $MetadataBearer {
+export interface TrackListMessage {
   __type?: "TrackListMessage";
   /**
    * <p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code>

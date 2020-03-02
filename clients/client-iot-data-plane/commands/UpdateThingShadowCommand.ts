@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateThingShadowCommandInput = UpdateThingShadowRequest;
-export type UpdateThingShadowCommandOutput = UpdateThingShadowResponse;
+export type UpdateThingShadowCommandOutput = UpdateThingShadowResponse &
+  __MetadataBearer;
 
 export class UpdateThingShadowCommand extends $Command<
   UpdateThingShadowCommandInput,

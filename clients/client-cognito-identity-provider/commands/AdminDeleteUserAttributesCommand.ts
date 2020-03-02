@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminDeleteUserAttributesCommandInput = AdminDeleteUserAttributesRequest;
-export type AdminDeleteUserAttributesCommandOutput = AdminDeleteUserAttributesResponse;
+export type AdminDeleteUserAttributesCommandOutput = AdminDeleteUserAttributesResponse &
+  __MetadataBearer;
 
 export class AdminDeleteUserAttributesCommand extends $Command<
   AdminDeleteUserAttributesCommandInput,

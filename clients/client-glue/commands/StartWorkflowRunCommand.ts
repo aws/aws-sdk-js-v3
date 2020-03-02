@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartWorkflowRunCommandInput = StartWorkflowRunRequest;
-export type StartWorkflowRunCommandOutput = StartWorkflowRunResponse;
+export type StartWorkflowRunCommandOutput = StartWorkflowRunResponse &
+  __MetadataBearer;
 
 export class StartWorkflowRunCommand extends $Command<
   StartWorkflowRunCommandInput,

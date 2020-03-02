@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetDBParameterGroupCommandInput = ResetDBParameterGroupMessage;
-export type ResetDBParameterGroupCommandOutput = DBParameterGroupNameMessage;
+export type ResetDBParameterGroupCommandOutput = DBParameterGroupNameMessage &
+  __MetadataBearer;
 
 export class ResetDBParameterGroupCommand extends $Command<
   ResetDBParameterGroupCommandInput,

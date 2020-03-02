@@ -803,7 +803,7 @@ export namespace CreateBackupPlanInput {
   }
 }
 
-export interface CreateBackupPlanOutput extends $MetadataBearer {
+export interface CreateBackupPlanOutput {
   __type?: "CreateBackupPlanOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
@@ -863,7 +863,7 @@ export namespace CreateBackupSelectionInput {
   }
 }
 
-export interface CreateBackupSelectionOutput extends $MetadataBearer {
+export interface CreateBackupSelectionOutput {
   __type?: "CreateBackupSelectionOutput";
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -925,7 +925,7 @@ export namespace CreateBackupVaultInput {
   }
 }
 
-export interface CreateBackupVaultOutput extends $MetadataBearer {
+export interface CreateBackupVaultOutput {
   __type?: "CreateBackupVaultOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
@@ -969,7 +969,7 @@ export namespace DeleteBackupPlanInput {
   }
 }
 
-export interface DeleteBackupPlanOutput extends $MetadataBearer {
+export interface DeleteBackupPlanOutput {
   __type?: "DeleteBackupPlanOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
@@ -1135,7 +1135,7 @@ export namespace DescribeBackupJobInput {
   }
 }
 
-export interface DescribeBackupJobOutput extends $MetadataBearer {
+export interface DescribeBackupJobOutput {
   __type?: "DescribeBackupJobOutput";
   /**
    * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
@@ -1270,7 +1270,7 @@ export namespace DescribeBackupVaultInput {
   }
 }
 
-export interface DescribeBackupVaultOutput extends $MetadataBearer {
+export interface DescribeBackupVaultOutput {
   __type?: "DescribeBackupVaultOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
@@ -1331,7 +1331,7 @@ export namespace DescribeCopyJobInput {
   }
 }
 
-export interface DescribeCopyJobOutput extends $MetadataBearer {
+export interface DescribeCopyJobOutput {
   __type?: "DescribeCopyJobOutput";
   /**
    * <p>Contains detailed information about a copy job.</p>
@@ -1360,7 +1360,7 @@ export namespace DescribeProtectedResourceInput {
   }
 }
 
-export interface DescribeProtectedResourceOutput extends $MetadataBearer {
+export interface DescribeProtectedResourceOutput {
   __type?: "DescribeProtectedResourceOutput";
   /**
    * <p>The date and time that a resource was last backed up, in Unix format and Coordinated
@@ -1411,7 +1411,7 @@ export namespace DescribeRecoveryPointInput {
   }
 }
 
-export interface DescribeRecoveryPointOutput extends $MetadataBearer {
+export interface DescribeRecoveryPointOutput {
   __type?: "DescribeRecoveryPointOutput";
   /**
    * <p>The size, in bytes, of a backup.</p>
@@ -1552,7 +1552,7 @@ export namespace DescribeRestoreJobInput {
   }
 }
 
-export interface DescribeRestoreJobOutput extends $MetadataBearer {
+export interface DescribeRestoreJobOutput {
   __type?: "DescribeRestoreJobOutput";
   /**
    * <p>The size, in bytes, of the restored resource.</p>
@@ -1643,7 +1643,7 @@ export namespace ExportBackupPlanTemplateInput {
   }
 }
 
-export interface ExportBackupPlanTemplateOutput extends $MetadataBearer {
+export interface ExportBackupPlanTemplateOutput {
   __type?: "ExportBackupPlanTemplateOutput";
   /**
    * <p>The body of a backup plan template in JSON format.</p>
@@ -1676,7 +1676,7 @@ export namespace GetBackupPlanFromJSONInput {
   }
 }
 
-export interface GetBackupPlanFromJSONOutput extends $MetadataBearer {
+export interface GetBackupPlanFromJSONOutput {
   __type?: "GetBackupPlanFromJSONOutput";
   /**
    * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
@@ -1705,7 +1705,7 @@ export namespace GetBackupPlanFromTemplateInput {
   }
 }
 
-export interface GetBackupPlanFromTemplateOutput extends $MetadataBearer {
+export interface GetBackupPlanFromTemplateOutput {
   __type?: "GetBackupPlanFromTemplateOutput";
   /**
    * <p>Returns the body of a backup plan based on the target template, including the name,
@@ -1740,7 +1740,7 @@ export namespace GetBackupPlanInput {
   }
 }
 
-export interface GetBackupPlanOutput extends $MetadataBearer {
+export interface GetBackupPlanOutput {
   __type?: "GetBackupPlanOutput";
   /**
    * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
@@ -1822,7 +1822,7 @@ export namespace GetBackupSelectionInput {
   }
 }
 
-export interface GetBackupSelectionOutput extends $MetadataBearer {
+export interface GetBackupSelectionOutput {
   __type?: "GetBackupSelectionOutput";
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -1877,7 +1877,7 @@ export namespace GetBackupVaultAccessPolicyInput {
   }
 }
 
-export interface GetBackupVaultAccessPolicyOutput extends $MetadataBearer {
+export interface GetBackupVaultAccessPolicyOutput {
   __type?: "GetBackupVaultAccessPolicyOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
@@ -1920,7 +1920,7 @@ export namespace GetBackupVaultNotificationsInput {
   }
 }
 
-export interface GetBackupVaultNotificationsOutput extends $MetadataBearer {
+export interface GetBackupVaultNotificationsOutput {
   __type?: "GetBackupVaultNotificationsOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
@@ -1976,7 +1976,7 @@ export namespace GetRecoveryPointRestoreMetadataInput {
   }
 }
 
-export interface GetRecoveryPointRestoreMetadataOutput extends $MetadataBearer {
+export interface GetRecoveryPointRestoreMetadataOutput {
   __type?: "GetRecoveryPointRestoreMetadataOutput";
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
@@ -2004,7 +2004,7 @@ export namespace GetRecoveryPointRestoreMetadataOutput {
   }
 }
 
-export interface GetSupportedResourceTypesOutput extends $MetadataBearer {
+export interface GetSupportedResourceTypesOutput {
   __type?: "GetSupportedResourceTypesOutput";
   /**
    * <p>Contains a string with the supported AWS resource types:</p>
@@ -2231,7 +2231,7 @@ export namespace ListBackupJobsInput {
   }
 }
 
-export interface ListBackupJobsOutput extends $MetadataBearer {
+export interface ListBackupJobsOutput {
   __type?: "ListBackupJobsOutput";
   /**
    * <p>An array of structures containing metadata about your backup jobs returned in JSON
@@ -2276,7 +2276,7 @@ export namespace ListBackupPlanTemplatesInput {
   }
 }
 
-export interface ListBackupPlanTemplatesOutput extends $MetadataBearer {
+export interface ListBackupPlanTemplatesOutput {
   __type?: "ListBackupPlanTemplatesOutput";
   /**
    * <p>An array of template list items containing metadata about your saved templates.</p>
@@ -2325,7 +2325,7 @@ export namespace ListBackupPlanVersionsInput {
   }
 }
 
-export interface ListBackupPlanVersionsOutput extends $MetadataBearer {
+export interface ListBackupPlanVersionsOutput {
   __type?: "ListBackupPlanVersionsOutput";
   /**
    * <p>An array of version list items containing metadata about your backup plans.</p>
@@ -2375,7 +2375,7 @@ export namespace ListBackupPlansInput {
   }
 }
 
-export interface ListBackupPlansOutput extends $MetadataBearer {
+export interface ListBackupPlansOutput {
   __type?: "ListBackupPlansOutput";
   /**
    * <p>An array of backup plan list items containing metadata about your saved backup
@@ -2425,7 +2425,7 @@ export namespace ListBackupSelectionsInput {
   }
 }
 
-export interface ListBackupSelectionsOutput extends $MetadataBearer {
+export interface ListBackupSelectionsOutput {
   __type?: "ListBackupSelectionsOutput";
   /**
    * <p>An array of backup selection list items containing metadata about each resource in the
@@ -2470,7 +2470,7 @@ export namespace ListBackupVaultsInput {
   }
 }
 
-export interface ListBackupVaultsOutput extends $MetadataBearer {
+export interface ListBackupVaultsOutput {
   __type?: "ListBackupVaultsOutput";
   /**
    * <p>An array of backup vault list members containing vault metadata, including Amazon
@@ -2567,7 +2567,7 @@ export namespace ListCopyJobsInput {
   }
 }
 
-export interface ListCopyJobsOutput extends $MetadataBearer {
+export interface ListCopyJobsOutput {
   __type?: "ListCopyJobsOutput";
   /**
    * <p>An array of structures containing metadata about your copy jobs returned in JSON format. </p>
@@ -2609,7 +2609,7 @@ export namespace ListProtectedResourcesInput {
   }
 }
 
-export interface ListProtectedResourcesOutput extends $MetadataBearer {
+export interface ListProtectedResourcesOutput {
   __type?: "ListProtectedResourcesOutput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2688,7 +2688,7 @@ export namespace ListRecoveryPointsByBackupVaultInput {
   }
 }
 
-export interface ListRecoveryPointsByBackupVaultOutput extends $MetadataBearer {
+export interface ListRecoveryPointsByBackupVaultOutput {
   __type?: "ListRecoveryPointsByBackupVaultOutput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2739,7 +2739,7 @@ export namespace ListRecoveryPointsByResourceInput {
   }
 }
 
-export interface ListRecoveryPointsByResourceOutput extends $MetadataBearer {
+export interface ListRecoveryPointsByResourceOutput {
   __type?: "ListRecoveryPointsByResourceOutput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2784,7 +2784,7 @@ export namespace ListRestoreJobsInput {
   }
 }
 
-export interface ListRestoreJobsOutput extends $MetadataBearer {
+export interface ListRestoreJobsOutput {
   __type?: "ListRestoreJobsOutput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2836,7 +2836,7 @@ export namespace ListTagsInput {
   }
 }
 
-export interface ListTagsOutput extends $MetadataBearer {
+export interface ListTagsOutput {
   __type?: "ListTagsOutput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3382,7 +3382,7 @@ export namespace StartBackupJobInput {
   }
 }
 
-export interface StartBackupJobOutput extends $MetadataBearer {
+export interface StartBackupJobOutput {
   __type?: "StartBackupJobOutput";
   /**
    * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
@@ -3456,7 +3456,7 @@ export namespace StartCopyJobInput {
   }
 }
 
-export interface StartCopyJobOutput extends $MetadataBearer {
+export interface StartCopyJobOutput {
   __type?: "StartCopyJobOutput";
   /**
    * <p>Uniquely identifies a request to AWS Backup to copy a resource.</p>
@@ -3574,7 +3574,7 @@ export namespace StartRestoreJobInput {
   }
 }
 
-export interface StartRestoreJobOutput extends $MetadataBearer {
+export interface StartRestoreJobOutput {
   __type?: "StartRestoreJobOutput";
   /**
    * <p>Uniquely identifies the job that restores a recovery point.</p>
@@ -3669,7 +3669,7 @@ export namespace UpdateBackupPlanInput {
   }
 }
 
-export interface UpdateBackupPlanOutput extends $MetadataBearer {
+export interface UpdateBackupPlanOutput {
   __type?: "UpdateBackupPlanOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
@@ -3736,7 +3736,7 @@ export namespace UpdateRecoveryPointLifecycleInput {
   }
 }
 
-export interface UpdateRecoveryPointLifecycleOutput extends $MetadataBearer {
+export interface UpdateRecoveryPointLifecycleOutput {
   __type?: "UpdateRecoveryPointLifecycleOutput";
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,

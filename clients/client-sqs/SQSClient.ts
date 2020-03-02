@@ -1,36 +1,83 @@
 import {
-  AddPermissionRequest,
-  ChangeMessageVisibilityBatchRequest,
-  ChangeMessageVisibilityBatchResult,
-  ChangeMessageVisibilityRequest,
-  CreateQueueRequest,
-  CreateQueueResult,
-  DeleteMessageBatchRequest,
-  DeleteMessageBatchResult,
-  DeleteMessageRequest,
-  DeleteQueueRequest,
-  GetQueueAttributesRequest,
-  GetQueueAttributesResult,
-  GetQueueUrlRequest,
-  GetQueueUrlResult,
-  ListDeadLetterSourceQueuesRequest,
-  ListDeadLetterSourceQueuesResult,
-  ListQueueTagsRequest,
-  ListQueueTagsResult,
-  ListQueuesRequest,
-  ListQueuesResult,
-  PurgeQueueRequest,
-  ReceiveMessageRequest,
-  ReceiveMessageResult,
-  RemovePermissionRequest,
-  SendMessageBatchRequest,
-  SendMessageBatchResult,
-  SendMessageRequest,
-  SendMessageResult,
-  SetQueueAttributesRequest,
-  TagQueueRequest,
-  UntagQueueRequest
-} from "./models/index";
+  AddPermissionCommandInput,
+  AddPermissionCommandOutput
+} from "./commands/AddPermissionCommand";
+import {
+  ChangeMessageVisibilityBatchCommandInput,
+  ChangeMessageVisibilityBatchCommandOutput
+} from "./commands/ChangeMessageVisibilityBatchCommand";
+import {
+  ChangeMessageVisibilityCommandInput,
+  ChangeMessageVisibilityCommandOutput
+} from "./commands/ChangeMessageVisibilityCommand";
+import {
+  CreateQueueCommandInput,
+  CreateQueueCommandOutput
+} from "./commands/CreateQueueCommand";
+import {
+  DeleteMessageBatchCommandInput,
+  DeleteMessageBatchCommandOutput
+} from "./commands/DeleteMessageBatchCommand";
+import {
+  DeleteMessageCommandInput,
+  DeleteMessageCommandOutput
+} from "./commands/DeleteMessageCommand";
+import {
+  DeleteQueueCommandInput,
+  DeleteQueueCommandOutput
+} from "./commands/DeleteQueueCommand";
+import {
+  GetQueueAttributesCommandInput,
+  GetQueueAttributesCommandOutput
+} from "./commands/GetQueueAttributesCommand";
+import {
+  GetQueueUrlCommandInput,
+  GetQueueUrlCommandOutput
+} from "./commands/GetQueueUrlCommand";
+import {
+  ListDeadLetterSourceQueuesCommandInput,
+  ListDeadLetterSourceQueuesCommandOutput
+} from "./commands/ListDeadLetterSourceQueuesCommand";
+import {
+  ListQueueTagsCommandInput,
+  ListQueueTagsCommandOutput
+} from "./commands/ListQueueTagsCommand";
+import {
+  ListQueuesCommandInput,
+  ListQueuesCommandOutput
+} from "./commands/ListQueuesCommand";
+import {
+  PurgeQueueCommandInput,
+  PurgeQueueCommandOutput
+} from "./commands/PurgeQueueCommand";
+import {
+  ReceiveMessageCommandInput,
+  ReceiveMessageCommandOutput
+} from "./commands/ReceiveMessageCommand";
+import {
+  RemovePermissionCommandInput,
+  RemovePermissionCommandOutput
+} from "./commands/RemovePermissionCommand";
+import {
+  SendMessageBatchCommandInput,
+  SendMessageBatchCommandOutput
+} from "./commands/SendMessageBatchCommand";
+import {
+  SendMessageCommandInput,
+  SendMessageCommandOutput
+} from "./commands/SendMessageCommand";
+import {
+  SetQueueAttributesCommandInput,
+  SetQueueAttributesCommandOutput
+} from "./commands/SetQueueAttributesCommand";
+import {
+  TagQueueCommandInput,
+  TagQueueCommandOutput
+} from "./commands/TagQueueCommand";
+import {
+  UntagQueueCommandInput,
+  UntagQueueCommandOutput
+} from "./commands/UntagQueueCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -78,47 +125,54 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddPermissionRequest
-  | ChangeMessageVisibilityBatchRequest
-  | ChangeMessageVisibilityRequest
-  | CreateQueueRequest
-  | DeleteMessageBatchRequest
-  | DeleteMessageRequest
-  | DeleteQueueRequest
-  | GetQueueAttributesRequest
-  | GetQueueUrlRequest
-  | ListDeadLetterSourceQueuesRequest
-  | ListQueueTagsRequest
-  | ListQueuesRequest
-  | PurgeQueueRequest
-  | ReceiveMessageRequest
-  | RemovePermissionRequest
-  | SendMessageBatchRequest
-  | SendMessageRequest
-  | SetQueueAttributesRequest
-  | TagQueueRequest
-  | UntagQueueRequest;
+  | AddPermissionCommandInput
+  | ChangeMessageVisibilityBatchCommandInput
+  | ChangeMessageVisibilityCommandInput
+  | CreateQueueCommandInput
+  | DeleteMessageBatchCommandInput
+  | DeleteMessageCommandInput
+  | DeleteQueueCommandInput
+  | GetQueueAttributesCommandInput
+  | GetQueueUrlCommandInput
+  | ListDeadLetterSourceQueuesCommandInput
+  | ListQueueTagsCommandInput
+  | ListQueuesCommandInput
+  | PurgeQueueCommandInput
+  | ReceiveMessageCommandInput
+  | RemovePermissionCommandInput
+  | SendMessageBatchCommandInput
+  | SendMessageCommandInput
+  | SetQueueAttributesCommandInput
+  | TagQueueCommandInput
+  | UntagQueueCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | ChangeMessageVisibilityBatchResult
-  | CreateQueueResult
-  | DeleteMessageBatchResult
-  | GetQueueAttributesResult
-  | GetQueueUrlResult
-  | ListDeadLetterSourceQueuesResult
-  | ListQueueTagsResult
-  | ListQueuesResult
-  | ReceiveMessageResult
-  | SendMessageBatchResult
-  | SendMessageResult;
+  | AddPermissionCommandOutput
+  | ChangeMessageVisibilityBatchCommandOutput
+  | ChangeMessageVisibilityCommandOutput
+  | CreateQueueCommandOutput
+  | DeleteMessageBatchCommandOutput
+  | DeleteMessageCommandOutput
+  | DeleteQueueCommandOutput
+  | GetQueueAttributesCommandOutput
+  | GetQueueUrlCommandOutput
+  | ListDeadLetterSourceQueuesCommandOutput
+  | ListQueueTagsCommandOutput
+  | ListQueuesCommandOutput
+  | PurgeQueueCommandOutput
+  | ReceiveMessageCommandOutput
+  | RemovePermissionCommandOutput
+  | SendMessageBatchCommandOutput
+  | SendMessageCommandOutput
+  | SetQueueAttributesCommandOutput
+  | TagQueueCommandOutput
+  | UntagQueueCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

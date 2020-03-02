@@ -1138,10 +1138,13 @@ async function deserializeAws_queryAbortEnvironmentUpdateCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1199,17 +1202,23 @@ async function deserializeAws_queryApplyEnvironmentManagedActionCommandError(
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
     case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      response = await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ManagedActionInvalidStateException":
     case "com.amazonaws.elasticbeanstalk#ManagedActionInvalidStateException":
-      response = await deserializeAws_queryManagedActionInvalidStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryManagedActionInvalidStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1318,17 +1327,23 @@ async function deserializeAws_queryComposeEnvironmentsCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyEnvironmentsException":
     case "com.amazonaws.elasticbeanstalk#TooManyEnvironmentsException":
-      response = await deserializeAws_queryTooManyEnvironmentsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyEnvironmentsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1383,10 +1398,13 @@ async function deserializeAws_queryCreateApplicationCommandError(
   switch (errorCode) {
     case "TooManyApplicationsException":
     case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
-      response = await deserializeAws_queryTooManyApplicationsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyApplicationsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1444,38 +1462,53 @@ async function deserializeAws_queryCreateApplicationVersionCommandError(
   switch (errorCode) {
     case "CodeBuildNotInServiceRegionException":
     case "com.amazonaws.elasticbeanstalk#CodeBuildNotInServiceRegionException":
-      response = await deserializeAws_queryCodeBuildNotInServiceRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCodeBuildNotInServiceRegionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "S3LocationNotInServiceRegionException":
     case "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException":
-      response = await deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyApplicationVersionsException":
     case "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException":
-      response = await deserializeAws_queryTooManyApplicationVersionsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyApplicationVersionsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyApplicationsException":
     case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
-      response = await deserializeAws_queryTooManyApplicationsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyApplicationsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1533,24 +1566,33 @@ async function deserializeAws_queryCreateConfigurationTemplateCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyBucketsException":
     case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      response = await deserializeAws_queryTooManyBucketsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyBucketsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyConfigurationTemplatesException":
     case "com.amazonaws.elasticbeanstalk#TooManyConfigurationTemplatesException":
-      response = await deserializeAws_queryTooManyConfigurationTemplatesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyConfigurationTemplatesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1605,17 +1647,23 @@ async function deserializeAws_queryCreateEnvironmentCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyEnvironmentsException":
     case "com.amazonaws.elasticbeanstalk#TooManyEnvironmentsException":
-      response = await deserializeAws_queryTooManyEnvironmentsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyEnvironmentsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1673,24 +1721,33 @@ async function deserializeAws_queryCreatePlatformVersionCommandError(
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
     case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      response = await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyPlatformsException":
     case "com.amazonaws.elasticbeanstalk#TooManyPlatformsException":
-      response = await deserializeAws_queryTooManyPlatformsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyPlatformsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1748,24 +1805,33 @@ async function deserializeAws_queryCreateStorageLocationCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "S3SubscriptionRequiredException":
     case "com.amazonaws.elasticbeanstalk#S3SubscriptionRequiredException":
-      response = await deserializeAws_queryS3SubscriptionRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryS3SubscriptionRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyBucketsException":
     case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      response = await deserializeAws_queryTooManyBucketsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyBucketsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1813,10 +1879,13 @@ async function deserializeAws_queryDeleteApplicationCommandError(
   switch (errorCode) {
     case "OperationInProgressException":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1867,31 +1936,43 @@ async function deserializeAws_queryDeleteApplicationVersionCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "S3LocationNotInServiceRegionException":
     case "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException":
-      response = await deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SourceBundleDeletionException":
     case "com.amazonaws.elasticbeanstalk#SourceBundleDeletionException":
-      response = await deserializeAws_querySourceBundleDeletionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySourceBundleDeletionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1942,10 +2023,13 @@ async function deserializeAws_queryDeleteConfigurationTemplateCommandError(
   switch (errorCode) {
     case "OperationInProgressException":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2050,31 +2134,43 @@ async function deserializeAws_queryDeletePlatformVersionCommandError(
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
     case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      response = await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PlatformVersionStillReferencedException":
     case "com.amazonaws.elasticbeanstalk#PlatformVersionStillReferencedException":
-      response = await deserializeAws_queryPlatformVersionStillReferencedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPlatformVersionStillReferencedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2132,10 +2228,13 @@ async function deserializeAws_queryDescribeAccountAttributesCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2301,10 +2400,13 @@ async function deserializeAws_queryDescribeConfigurationOptionsCommandError(
   switch (errorCode) {
     case "TooManyBucketsException":
     case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      response = await deserializeAws_queryTooManyBucketsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyBucketsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2362,10 +2464,13 @@ async function deserializeAws_queryDescribeConfigurationSettingsCommandError(
   switch (errorCode) {
     case "TooManyBucketsException":
     case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      response = await deserializeAws_queryTooManyBucketsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyBucketsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2423,17 +2528,23 @@ async function deserializeAws_queryDescribeEnvironmentHealthCommandError(
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
     case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      response = await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.elasticbeanstalk#InvalidRequestException":
-      response = await deserializeAws_queryInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2491,10 +2602,13 @@ async function deserializeAws_queryDescribeEnvironmentManagedActionHistoryComman
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
     case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      response = await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2552,10 +2666,13 @@ async function deserializeAws_queryDescribeEnvironmentManagedActionsCommandError
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
     case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      response = await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2613,10 +2730,13 @@ async function deserializeAws_queryDescribeEnvironmentResourcesCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2779,17 +2899,23 @@ async function deserializeAws_queryDescribeInstancesHealthCommandError(
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
     case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      response = await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.elasticbeanstalk#InvalidRequestException":
-      response = await deserializeAws_queryInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2847,17 +2973,23 @@ async function deserializeAws_queryDescribePlatformVersionCommandError(
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
     case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      response = await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2969,17 +3101,23 @@ async function deserializeAws_queryListPlatformVersionsCommandError(
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
     case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      response = await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryElasticBeanstalkServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3034,24 +3172,33 @@ async function deserializeAws_queryListTagsForResourceCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.elasticbeanstalk#ResourceNotFoundException":
-      response = await deserializeAws_queryResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceTypeNotSupportedException":
     case "com.amazonaws.elasticbeanstalk#ResourceTypeNotSupportedException":
-      response = await deserializeAws_queryResourceTypeNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceTypeNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3099,10 +3246,13 @@ async function deserializeAws_queryRebuildEnvironmentCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3352,10 +3502,13 @@ async function deserializeAws_queryTerminateEnvironmentCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3464,10 +3617,13 @@ async function deserializeAws_queryUpdateApplicationResourceLifecycleCommandErro
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3579,17 +3735,23 @@ async function deserializeAws_queryUpdateConfigurationTemplateCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyBucketsException":
     case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      response = await deserializeAws_queryTooManyBucketsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyBucketsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3644,17 +3806,23 @@ async function deserializeAws_queryUpdateEnvironmentCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyBucketsException":
     case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      response = await deserializeAws_queryTooManyBucketsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyBucketsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3705,38 +3873,53 @@ async function deserializeAws_queryUpdateTagsForResourceCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      response = await deserializeAws_queryOperationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.elasticbeanstalk#ResourceNotFoundException":
-      response = await deserializeAws_queryResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceTypeNotSupportedException":
     case "com.amazonaws.elasticbeanstalk#ResourceTypeNotSupportedException":
-      response = await deserializeAws_queryResourceTypeNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceTypeNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.elasticbeanstalk#TooManyTagsException":
-      response = await deserializeAws_queryTooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3794,17 +3977,23 @@ async function deserializeAws_queryValidateConfigurationSettingsCommandError(
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      response = await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyBucketsException":
     case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      response = await deserializeAws_queryTooManyBucketsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyBucketsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

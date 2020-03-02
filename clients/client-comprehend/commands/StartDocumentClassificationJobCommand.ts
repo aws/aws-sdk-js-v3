@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartDocumentClassificationJobCommandInput = StartDocumentClassificationJobRequest;
-export type StartDocumentClassificationJobCommandOutput = StartDocumentClassificationJobResponse;
+export type StartDocumentClassificationJobCommandOutput = StartDocumentClassificationJobResponse &
+  __MetadataBearer;
 
 export class StartDocumentClassificationJobCommand extends $Command<
   StartDocumentClassificationJobCommandInput,

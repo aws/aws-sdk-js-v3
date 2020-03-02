@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListConstraintsForPortfolioCommandInput = ListConstraintsForPortfolioInput;
-export type ListConstraintsForPortfolioCommandOutput = ListConstraintsForPortfolioOutput;
+export type ListConstraintsForPortfolioCommandOutput = ListConstraintsForPortfolioOutput &
+  __MetadataBearer;
 
 export class ListConstraintsForPortfolioCommand extends $Command<
   ListConstraintsForPortfolioCommandInput,

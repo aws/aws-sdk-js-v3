@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 /**
  * <p>A container for facet information.</p>
@@ -521,7 +522,7 @@ export namespace SearchRequest {
 /**
  * <p>The result of a <code>Search</code> request. Contains the documents that match the specified search criteria and any requested fields, highlights, and facet information.</p>
  */
-export interface SearchResponse extends $MetadataBearer {
+export interface SearchResponse {
   __type?: "SearchResponse";
   /**
    * <p>The requested facet information.</p>
@@ -629,7 +630,7 @@ export namespace SuggestRequest {
 /**
  * <p>Contains the response to a <code>Suggest</code> request.</p>
  */
-export interface SuggestResponse extends $MetadataBearer {
+export interface SuggestResponse {
   __type?: "SuggestResponse";
   /**
    * <p>The status of a <code>SuggestRequest</code>. Contains the resource ID (<code>rid</code>) and how long it took to process the request (<code>timems</code>).</p>
@@ -714,7 +715,7 @@ export interface UploadDocumentsRequest {
   /**
    * <p>A batch of documents formatted in JSON or HTML.</p>
    */
-  documents: Uint8Array | undefined;
+  documents: Readable | ReadableStream | Blob | undefined;
 }
 
 export namespace UploadDocumentsRequest {
@@ -726,7 +727,7 @@ export namespace UploadDocumentsRequest {
 /**
  * <p>Contains the response to an <code>UploadDocuments</code> request.</p>
  */
-export interface UploadDocumentsResponse extends $MetadataBearer {
+export interface UploadDocumentsResponse {
   __type?: "UploadDocumentsResponse";
   /**
    * <p>The number of documents that were added to the search domain.</p>

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReservationCommandInput = DescribeReservationRequest;
-export type DescribeReservationCommandOutput = DescribeReservationResponse;
+export type DescribeReservationCommandOutput = DescribeReservationResponse &
+  __MetadataBearer;
 
 export class DescribeReservationCommand extends $Command<
   DescribeReservationCommandInput,

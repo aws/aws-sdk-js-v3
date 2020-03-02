@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEntityRecognizerCommandInput = DescribeEntityRecognizerRequest;
-export type DescribeEntityRecognizerCommandOutput = DescribeEntityRecognizerResponse;
+export type DescribeEntityRecognizerCommandOutput = DescribeEntityRecognizerResponse &
+  __MetadataBearer;
 
 export class DescribeEntityRecognizerCommand extends $Command<
   DescribeEntityRecognizerCommandInput,

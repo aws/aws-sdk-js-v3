@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteApnsSandboxChannelCommandInput = DeleteApnsSandboxChannelRequest;
-export type DeleteApnsSandboxChannelCommandOutput = DeleteApnsSandboxChannelResponse;
+export type DeleteApnsSandboxChannelCommandOutput = DeleteApnsSandboxChannelResponse &
+  __MetadataBearer;
 
 export class DeleteApnsSandboxChannelCommand extends $Command<
   DeleteApnsSandboxChannelCommandInput,

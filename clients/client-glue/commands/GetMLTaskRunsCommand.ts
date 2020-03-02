@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMLTaskRunsCommandInput = GetMLTaskRunsRequest;
-export type GetMLTaskRunsCommandOutput = GetMLTaskRunsResponse;
+export type GetMLTaskRunsCommandOutput = GetMLTaskRunsResponse &
+  __MetadataBearer;
 
 export class GetMLTaskRunsCommand extends $Command<
   GetMLTaskRunsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetReceiptRulePositionCommandInput = SetReceiptRulePositionRequest;
-export type SetReceiptRulePositionCommandOutput = SetReceiptRulePositionResponse;
+export type SetReceiptRulePositionCommandOutput = SetReceiptRulePositionResponse &
+  __MetadataBearer;
 
 export class SetReceiptRulePositionCommand extends $Command<
   SetReceiptRulePositionCommandInput,

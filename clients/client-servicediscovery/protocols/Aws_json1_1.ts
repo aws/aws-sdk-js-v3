@@ -493,31 +493,43 @@ async function deserializeAws_json1_1CreateHttpNamespaceCommandError(
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NamespaceAlreadyExists":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceAlreadyExists":
-      response = await deserializeAws_json1_1NamespaceAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NamespaceAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -576,31 +588,43 @@ async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NamespaceAlreadyExists":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceAlreadyExists":
-      response = await deserializeAws_json1_1NamespaceAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NamespaceAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -659,31 +683,43 @@ async function deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NamespaceAlreadyExists":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceAlreadyExists":
-      response = await deserializeAws_json1_1NamespaceAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NamespaceAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -736,31 +772,43 @@ async function deserializeAws_json1_1CreateServiceCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NamespaceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceNotFound":
-      response = await deserializeAws_json1_1NamespaceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceAlreadyExists":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceAlreadyExists":
-      response = await deserializeAws_json1_1ServiceAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -813,31 +861,43 @@ async function deserializeAws_json1_1DeleteNamespaceCommandError(
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NamespaceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceNotFound":
-      response = await deserializeAws_json1_1NamespaceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUse":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -890,24 +950,33 @@ async function deserializeAws_json1_1DeleteServiceCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUse":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -963,38 +1032,53 @@ async function deserializeAws_json1_1DeregisterInstanceCommandError(
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#InstanceNotFound":
-      response = await deserializeAws_json1_1InstanceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUse":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1047,24 +1131,33 @@ async function deserializeAws_json1_1DiscoverInstancesCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NamespaceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceNotFound":
-      response = await deserializeAws_json1_1NamespaceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1117,24 +1210,33 @@ async function deserializeAws_json1_1GetInstanceCommandError(
   switch (errorCode) {
     case "InstanceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#InstanceNotFound":
-      response = await deserializeAws_json1_1InstanceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1193,24 +1295,33 @@ async function deserializeAws_json1_1GetInstancesHealthStatusCommandError(
   switch (errorCode) {
     case "InstanceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#InstanceNotFound":
-      response = await deserializeAws_json1_1InstanceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1263,17 +1374,23 @@ async function deserializeAws_json1_1GetNamespaceCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NamespaceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceNotFound":
-      response = await deserializeAws_json1_1NamespaceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1326,17 +1443,23 @@ async function deserializeAws_json1_1GetOperationCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#OperationNotFound":
-      response = await deserializeAws_json1_1OperationNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1389,17 +1512,23 @@ async function deserializeAws_json1_1GetServiceCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1452,17 +1581,23 @@ async function deserializeAws_json1_1ListInstancesCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1515,10 +1650,13 @@ async function deserializeAws_json1_1ListNamespacesCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1571,10 +1709,13 @@ async function deserializeAws_json1_1ListOperationsCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1627,10 +1768,13 @@ async function deserializeAws_json1_1ListServicesCommandError(
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1683,38 +1827,53 @@ async function deserializeAws_json1_1RegisterInstanceCommandError(
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUse":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1766,31 +1925,43 @@ async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandErro
   switch (errorCode) {
     case "CustomHealthNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#CustomHealthNotFound":
-      response = await deserializeAws_json1_1CustomHealthNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CustomHealthNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InstanceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#InstanceNotFound":
-      response = await deserializeAws_json1_1InstanceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InstanceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1843,24 +2014,33 @@ async function deserializeAws_json1_1UpdateServiceCommandError(
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

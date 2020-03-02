@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSSLPoliciesCommandInput = DescribeSSLPoliciesInput;
-export type DescribeSSLPoliciesCommandOutput = DescribeSSLPoliciesOutput;
+export type DescribeSSLPoliciesCommandOutput = DescribeSSLPoliciesOutput &
+  __MetadataBearer;
 
 export class DescribeSSLPoliciesCommand extends $Command<
   DescribeSSLPoliciesCommandInput,

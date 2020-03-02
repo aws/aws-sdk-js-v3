@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestConnectionCommandInput = TestConnectionMessage;
-export type TestConnectionCommandOutput = TestConnectionResponse;
+export type TestConnectionCommandOutput = TestConnectionResponse &
+  __MetadataBearer;
 
 export class TestConnectionCommand extends $Command<
   TestConnectionCommandInput,

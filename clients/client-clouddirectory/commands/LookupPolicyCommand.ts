@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type LookupPolicyCommandInput = LookupPolicyRequest;
-export type LookupPolicyCommandOutput = LookupPolicyResponse;
+export type LookupPolicyCommandOutput = LookupPolicyResponse & __MetadataBearer;
 
 export class LookupPolicyCommand extends $Command<
   LookupPolicyCommandInput,

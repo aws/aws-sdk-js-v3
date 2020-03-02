@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteReportDefinitionCommandInput = DeleteReportDefinitionRequest;
-export type DeleteReportDefinitionCommandOutput = DeleteReportDefinitionResponse;
+export type DeleteReportDefinitionCommandOutput = DeleteReportDefinitionResponse &
+  __MetadataBearer;
 
 export class DeleteReportDefinitionCommand extends $Command<
   DeleteReportDefinitionCommandInput,

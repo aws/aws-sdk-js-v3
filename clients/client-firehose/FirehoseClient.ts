@@ -1,29 +1,51 @@
 import {
-  CreateDeliveryStreamInput,
-  CreateDeliveryStreamOutput,
-  DeleteDeliveryStreamInput,
-  DeleteDeliveryStreamOutput,
-  DescribeDeliveryStreamInput,
-  DescribeDeliveryStreamOutput,
-  ListDeliveryStreamsInput,
-  ListDeliveryStreamsOutput,
-  ListTagsForDeliveryStreamInput,
-  ListTagsForDeliveryStreamOutput,
-  PutRecordBatchInput,
-  PutRecordBatchOutput,
-  PutRecordInput,
-  PutRecordOutput,
-  StartDeliveryStreamEncryptionInput,
-  StartDeliveryStreamEncryptionOutput,
-  StopDeliveryStreamEncryptionInput,
-  StopDeliveryStreamEncryptionOutput,
-  TagDeliveryStreamInput,
-  TagDeliveryStreamOutput,
-  UntagDeliveryStreamInput,
-  UntagDeliveryStreamOutput,
-  UpdateDestinationInput,
-  UpdateDestinationOutput
-} from "./models/index";
+  CreateDeliveryStreamCommandInput,
+  CreateDeliveryStreamCommandOutput
+} from "./commands/CreateDeliveryStreamCommand";
+import {
+  DeleteDeliveryStreamCommandInput,
+  DeleteDeliveryStreamCommandOutput
+} from "./commands/DeleteDeliveryStreamCommand";
+import {
+  DescribeDeliveryStreamCommandInput,
+  DescribeDeliveryStreamCommandOutput
+} from "./commands/DescribeDeliveryStreamCommand";
+import {
+  ListDeliveryStreamsCommandInput,
+  ListDeliveryStreamsCommandOutput
+} from "./commands/ListDeliveryStreamsCommand";
+import {
+  ListTagsForDeliveryStreamCommandInput,
+  ListTagsForDeliveryStreamCommandOutput
+} from "./commands/ListTagsForDeliveryStreamCommand";
+import {
+  PutRecordBatchCommandInput,
+  PutRecordBatchCommandOutput
+} from "./commands/PutRecordBatchCommand";
+import {
+  PutRecordCommandInput,
+  PutRecordCommandOutput
+} from "./commands/PutRecordCommand";
+import {
+  StartDeliveryStreamEncryptionCommandInput,
+  StartDeliveryStreamEncryptionCommandOutput
+} from "./commands/StartDeliveryStreamEncryptionCommand";
+import {
+  StopDeliveryStreamEncryptionCommandInput,
+  StopDeliveryStreamEncryptionCommandOutput
+} from "./commands/StopDeliveryStreamEncryptionCommand";
+import {
+  TagDeliveryStreamCommandInput,
+  TagDeliveryStreamCommandOutput
+} from "./commands/TagDeliveryStreamCommand";
+import {
+  UntagDeliveryStreamCommandInput,
+  UntagDeliveryStreamCommandOutput
+} from "./commands/UntagDeliveryStreamCommand";
+import {
+  UpdateDestinationCommandInput,
+  UpdateDestinationCommandOutput
+} from "./commands/UpdateDestinationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -77,32 +99,32 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateDeliveryStreamInput
-  | DeleteDeliveryStreamInput
-  | DescribeDeliveryStreamInput
-  | ListDeliveryStreamsInput
-  | ListTagsForDeliveryStreamInput
-  | PutRecordBatchInput
-  | PutRecordInput
-  | StartDeliveryStreamEncryptionInput
-  | StopDeliveryStreamEncryptionInput
-  | TagDeliveryStreamInput
-  | UntagDeliveryStreamInput
-  | UpdateDestinationInput;
+  | CreateDeliveryStreamCommandInput
+  | DeleteDeliveryStreamCommandInput
+  | DescribeDeliveryStreamCommandInput
+  | ListDeliveryStreamsCommandInput
+  | ListTagsForDeliveryStreamCommandInput
+  | PutRecordBatchCommandInput
+  | PutRecordCommandInput
+  | StartDeliveryStreamEncryptionCommandInput
+  | StopDeliveryStreamEncryptionCommandInput
+  | TagDeliveryStreamCommandInput
+  | UntagDeliveryStreamCommandInput
+  | UpdateDestinationCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateDeliveryStreamOutput
-  | DeleteDeliveryStreamOutput
-  | DescribeDeliveryStreamOutput
-  | ListDeliveryStreamsOutput
-  | ListTagsForDeliveryStreamOutput
-  | PutRecordBatchOutput
-  | PutRecordOutput
-  | StartDeliveryStreamEncryptionOutput
-  | StopDeliveryStreamEncryptionOutput
-  | TagDeliveryStreamOutput
-  | UntagDeliveryStreamOutput
-  | UpdateDestinationOutput;
+  | CreateDeliveryStreamCommandOutput
+  | DeleteDeliveryStreamCommandOutput
+  | DescribeDeliveryStreamCommandOutput
+  | ListDeliveryStreamsCommandOutput
+  | ListTagsForDeliveryStreamCommandOutput
+  | PutRecordBatchCommandOutput
+  | PutRecordCommandOutput
+  | StartDeliveryStreamEncryptionCommandOutput
+  | StopDeliveryStreamEncryptionCommandOutput
+  | TagDeliveryStreamCommandOutput
+  | UntagDeliveryStreamCommandOutput
+  | UpdateDestinationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

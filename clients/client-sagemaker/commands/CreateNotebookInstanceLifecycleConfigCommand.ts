@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateNotebookInstanceLifecycleConfigCommandInput = CreateNotebookInstanceLifecycleConfigInput;
-export type CreateNotebookInstanceLifecycleConfigCommandOutput = CreateNotebookInstanceLifecycleConfigOutput;
+export type CreateNotebookInstanceLifecycleConfigCommandOutput = CreateNotebookInstanceLifecycleConfigOutput &
+  __MetadataBearer;
 
 export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
   CreateNotebookInstanceLifecycleConfigCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateJobPriorityCommandInput = UpdateJobPriorityRequest;
-export type UpdateJobPriorityCommandOutput = UpdateJobPriorityResult;
+export type UpdateJobPriorityCommandOutput = UpdateJobPriorityResult &
+  __MetadataBearer;
 
 export class UpdateJobPriorityCommand extends $Command<
   UpdateJobPriorityCommandInput,

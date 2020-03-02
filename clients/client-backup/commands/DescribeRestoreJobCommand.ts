@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRestoreJobCommandInput = DescribeRestoreJobInput;
-export type DescribeRestoreJobCommandOutput = DescribeRestoreJobOutput;
+export type DescribeRestoreJobCommandOutput = DescribeRestoreJobOutput &
+  __MetadataBearer;
 
 export class DescribeRestoreJobCommand extends $Command<
   DescribeRestoreJobCommandInput,

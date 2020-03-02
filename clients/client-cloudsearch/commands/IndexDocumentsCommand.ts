@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type IndexDocumentsCommandInput = IndexDocumentsRequest;
-export type IndexDocumentsCommandOutput = IndexDocumentsResponse;
+export type IndexDocumentsCommandOutput = IndexDocumentsResponse &
+  __MetadataBearer;
 
 export class IndexDocumentsCommand extends $Command<
   IndexDocumentsCommandInput,

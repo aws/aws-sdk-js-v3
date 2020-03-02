@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTriggerCommandInput = CreateTriggerRequest;
-export type CreateTriggerCommandOutput = CreateTriggerResponse;
+export type CreateTriggerCommandOutput = CreateTriggerResponse &
+  __MetadataBearer;
 
 export class CreateTriggerCommand extends $Command<
   CreateTriggerCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ContinueUpdateRollbackCommandInput = ContinueUpdateRollbackInput;
-export type ContinueUpdateRollbackCommandOutput = ContinueUpdateRollbackOutput;
+export type ContinueUpdateRollbackCommandOutput = ContinueUpdateRollbackOutput &
+  __MetadataBearer;
 
 export class ContinueUpdateRollbackCommand extends $Command<
   ContinueUpdateRollbackCommandInput,

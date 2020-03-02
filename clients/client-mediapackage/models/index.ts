@@ -202,7 +202,7 @@ export namespace CreateChannelRequest {
   }
 }
 
-export interface CreateChannelResponse extends $MetadataBearer {
+export interface CreateChannelResponse {
   __type?: "CreateChannelResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -275,7 +275,7 @@ export namespace CreateHarvestJobRequest {
   }
 }
 
-export interface CreateHarvestJobResponse extends $MetadataBearer {
+export interface CreateHarvestJobResponse {
   __type?: "CreateHarvestJobResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
@@ -421,7 +421,7 @@ export namespace CreateOriginEndpointRequest {
   }
 }
 
-export interface CreateOriginEndpointResponse extends $MetadataBearer {
+export interface CreateOriginEndpointResponse {
   __type?: "CreateOriginEndpointResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
@@ -640,7 +640,7 @@ export namespace DeleteChannelRequest {
   }
 }
 
-export interface DeleteChannelResponse extends $MetadataBearer {
+export interface DeleteChannelResponse {
   __type?: "DeleteChannelResponse";
 }
 
@@ -664,7 +664,7 @@ export namespace DeleteOriginEndpointRequest {
   }
 }
 
-export interface DeleteOriginEndpointResponse extends $MetadataBearer {
+export interface DeleteOriginEndpointResponse {
   __type?: "DeleteOriginEndpointResponse";
 }
 
@@ -688,7 +688,7 @@ export namespace DescribeChannelRequest {
   }
 }
 
-export interface DescribeChannelResponse extends $MetadataBearer {
+export interface DescribeChannelResponse {
   __type?: "DescribeChannelResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -736,7 +736,7 @@ export namespace DescribeHarvestJobRequest {
   }
 }
 
-export interface DescribeHarvestJobResponse extends $MetadataBearer {
+export interface DescribeHarvestJobResponse {
   __type?: "DescribeHarvestJobResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
@@ -808,7 +808,7 @@ export namespace DescribeOriginEndpointRequest {
   }
 }
 
-export interface DescribeOriginEndpointResponse extends $MetadataBearer {
+export interface DescribeOriginEndpointResponse {
   __type?: "DescribeOriginEndpointResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
@@ -1345,7 +1345,7 @@ export namespace ListChannelsRequest {
   }
 }
 
-export interface ListChannelsResponse extends $MetadataBearer {
+export interface ListChannelsResponse {
   __type?: "ListChannelsResponse";
   /**
    * A list of Channel records.
@@ -1393,7 +1393,7 @@ export namespace ListHarvestJobsRequest {
   }
 }
 
-export interface ListHarvestJobsResponse extends $MetadataBearer {
+export interface ListHarvestJobsResponse {
   __type?: "ListHarvestJobsResponse";
   /**
    * A list of HarvestJob records.
@@ -1436,7 +1436,7 @@ export namespace ListOriginEndpointsRequest {
   }
 }
 
-export interface ListOriginEndpointsResponse extends $MetadataBearer {
+export interface ListOriginEndpointsResponse {
   __type?: "ListOriginEndpointsResponse";
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1466,7 +1466,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   Tags?: { [key: string]: string };
 }
@@ -1672,7 +1672,7 @@ export namespace RotateChannelCredentialsRequest {
   }
 }
 
-export interface RotateChannelCredentialsResponse extends $MetadataBearer {
+export interface RotateChannelCredentialsResponse {
   __type?: "RotateChannelCredentialsResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1725,8 +1725,7 @@ export namespace RotateIngestEndpointCredentialsRequest {
   }
 }
 
-export interface RotateIngestEndpointCredentialsResponse
-  extends $MetadataBearer {
+export interface RotateIngestEndpointCredentialsResponse {
   __type?: "RotateIngestEndpointCredentialsResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1972,7 +1971,7 @@ export namespace UpdateChannelRequest {
   }
 }
 
-export interface UpdateChannelResponse extends $MetadataBearer {
+export interface UpdateChannelResponse {
   __type?: "UpdateChannelResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -2082,7 +2081,7 @@ export namespace UpdateOriginEndpointRequest {
   }
 }
 
-export interface UpdateOriginEndpointResponse extends $MetadataBearer {
+export interface UpdateOriginEndpointResponse {
   __type?: "UpdateOriginEndpointResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.

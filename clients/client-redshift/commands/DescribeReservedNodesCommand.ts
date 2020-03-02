@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReservedNodesCommandInput = DescribeReservedNodesMessage;
-export type DescribeReservedNodesCommandOutput = ReservedNodesMessage;
+export type DescribeReservedNodesCommandOutput = ReservedNodesMessage &
+  __MetadataBearer;
 
 export class DescribeReservedNodesCommand extends $Command<
   DescribeReservedNodesCommandInput,

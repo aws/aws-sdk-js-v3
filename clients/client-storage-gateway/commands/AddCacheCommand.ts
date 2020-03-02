@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddCacheCommandInput = AddCacheInput;
-export type AddCacheCommandOutput = AddCacheOutput;
+export type AddCacheCommandOutput = AddCacheOutput & __MetadataBearer;
 
 export class AddCacheCommand extends $Command<
   AddCacheCommandInput,

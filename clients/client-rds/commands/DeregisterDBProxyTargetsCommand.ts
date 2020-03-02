@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterDBProxyTargetsCommandInput = DeregisterDBProxyTargetsRequest;
-export type DeregisterDBProxyTargetsCommandOutput = DeregisterDBProxyTargetsResponse;
+export type DeregisterDBProxyTargetsCommandOutput = DeregisterDBProxyTargetsResponse &
+  __MetadataBearer;
 
 export class DeregisterDBProxyTargetsCommand extends $Command<
   DeregisterDBProxyTargetsCommandInput,

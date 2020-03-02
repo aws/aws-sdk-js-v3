@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateXssMatchSetCommandInput = CreateXssMatchSetRequest;
-export type CreateXssMatchSetCommandOutput = CreateXssMatchSetResponse;
+export type CreateXssMatchSetCommandOutput = CreateXssMatchSetResponse &
+  __MetadataBearer;
 
 export class CreateXssMatchSetCommand extends $Command<
   CreateXssMatchSetCommandInput,

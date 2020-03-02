@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableLDAPSCommandInput = EnableLDAPSRequest;
-export type EnableLDAPSCommandOutput = EnableLDAPSResult;
+export type EnableLDAPSCommandOutput = EnableLDAPSResult & __MetadataBearer;
 
 export class EnableLDAPSCommand extends $Command<
   EnableLDAPSCommandInput,

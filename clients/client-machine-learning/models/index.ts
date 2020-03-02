@@ -31,7 +31,7 @@ export namespace AddTagsInput {
 /**
  * <p>Amazon ML returns the following elements.</p>
  */
-export interface AddTagsOutput extends $MetadataBearer {
+export interface AddTagsOutput {
   __type?: "AddTagsOutput";
   /**
    * <p>The ID of the ML object that was tagged.</p>
@@ -225,7 +225,7 @@ export namespace CreateBatchPredictionInput {
  *             operation and checking the <code>Status</code> parameter of the result.
  *         </p>
  */
-export interface CreateBatchPredictionOutput extends $MetadataBearer {
+export interface CreateBatchPredictionOutput {
   __type?: "CreateBatchPredictionOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>. This value is identical to the value of the
@@ -335,7 +335,7 @@ export namespace CreateDataSourceFromRDSInput {
  *             also check the progress of the copy operation by going to the <code>DataPipeline</code> console and looking up
  *             the pipeline using the <code>pipelineId </code> from the describe call.</p>
  */
-export interface CreateDataSourceFromRDSOutput extends $MetadataBearer {
+export interface CreateDataSourceFromRDSOutput {
   __type?: "CreateDataSourceFromRDSOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the
@@ -442,7 +442,7 @@ export namespace CreateDataSourceFromRedshiftInput {
  *          <p>The <code>CreateDataSourceFromRedshift</code> operation is asynchronous. You can poll for updates by using
  *         the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>
  */
-export interface CreateDataSourceFromRedshiftOutput extends $MetadataBearer {
+export interface CreateDataSourceFromRedshiftOutput {
   __type?: "CreateDataSourceFromRedshiftOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the
@@ -511,7 +511,7 @@ export namespace CreateDataSourceFromS3Input {
  *         <p>The <code>CreateDataSourceFromS3</code> operation is asynchronous. You can poll for updates by using
  *             the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>
  */
-export interface CreateDataSourceFromS3Output extends $MetadataBearer {
+export interface CreateDataSourceFromS3Output {
   __type?: "CreateDataSourceFromS3Output";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>. This value should be identical to the value of the
@@ -566,7 +566,7 @@ export namespace CreateEvaluationInput {
  *             and checking the <code>Status</code> parameter.
  *         </p>
  */
-export interface CreateEvaluationOutput extends $MetadataBearer {
+export interface CreateEvaluationOutput {
   __type?: "CreateEvaluationOutput";
   /**
    * <p>The user-supplied ID that uniquely identifies the <code>Evaluation</code>. This value should be identical to the value of the
@@ -688,7 +688,7 @@ export namespace CreateMLModelInput {
  *             <code>GetMLModel</code> operation and checking the <code>Status</code> parameter.
  *         </p>
  */
-export interface CreateMLModelOutput extends $MetadataBearer {
+export interface CreateMLModelOutput {
   __type?: "CreateMLModelOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the
@@ -724,7 +724,7 @@ export namespace CreateRealtimeEndpointInput {
  *         <p>
  *             <b>Note:</b> The endpoint information includes the URI of the <code>MLModel</code>; that is, the location to send online prediction requests for the specified <code>MLModel</code>.</p>
  */
-export interface CreateRealtimeEndpointOutput extends $MetadataBearer {
+export interface CreateRealtimeEndpointOutput {
   __type?: "CreateRealtimeEndpointOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the
@@ -897,7 +897,7 @@ export namespace DeleteBatchPredictionInput {
  *         <p>You can use the <code>GetBatchPrediction</code> operation and check the value of the <code>Status</code> parameter to see whether a
  *             <code>BatchPrediction</code> is marked as <code>DELETED</code>.</p>
  */
-export interface DeleteBatchPredictionOutput extends $MetadataBearer {
+export interface DeleteBatchPredictionOutput {
   __type?: "DeleteBatchPredictionOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>. This value should be identical to the value of the <code>BatchPredictionID</code> in the request.</p>
@@ -928,7 +928,7 @@ export namespace DeleteDataSourceInput {
 /**
  * <p> Represents the output of a <code>DeleteDataSource</code> operation.</p>
  */
-export interface DeleteDataSourceOutput extends $MetadataBearer {
+export interface DeleteDataSourceOutput {
   __type?: "DeleteDataSourceOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>. This value should be identical to the value of the <code>DataSourceID</code> in the request.</p>
@@ -961,7 +961,7 @@ export namespace DeleteEvaluationInput {
  *         <p>You can use the <code>GetEvaluation</code> operation and check the value of the <code>Status</code> parameter to see whether an
  *             <code>Evaluation</code> is marked as <code>DELETED</code>.</p>
  */
-export interface DeleteEvaluationOutput extends $MetadataBearer {
+export interface DeleteEvaluationOutput {
   __type?: "DeleteEvaluationOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>Evaluation</code>. This value should be identical to the value of the <code>EvaluationId</code> in the request.</p>
@@ -994,7 +994,7 @@ export namespace DeleteMLModelInput {
  *         <p>You can use the <code>GetMLModel</code> operation and check the value of the <code>Status</code> parameter to see whether an
  *             <code>MLModel</code> is marked as <code>DELETED</code>.</p>
  */
-export interface DeleteMLModelOutput extends $MetadataBearer {
+export interface DeleteMLModelOutput {
   __type?: "DeleteMLModelOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the <code>MLModelID</code> in the request.</p>
@@ -1026,7 +1026,7 @@ export namespace DeleteRealtimeEndpointInput {
  * <p>Represents the output of an <code>DeleteRealtimeEndpoint</code> operation.</p>
  *         <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>. </p>
  */
-export interface DeleteRealtimeEndpointOutput extends $MetadataBearer {
+export interface DeleteRealtimeEndpointOutput {
   __type?: "DeleteRealtimeEndpointOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the
@@ -1074,7 +1074,7 @@ export namespace DeleteTagsInput {
 /**
  * <p>Amazon ML returns the following elements.</p>
  */
-export interface DeleteTagsOutput extends $MetadataBearer {
+export interface DeleteTagsOutput {
   __type?: "DeleteTagsOutput";
   /**
    * <p>The ID of the ML object from which tags were deleted.</p>
@@ -1224,7 +1224,7 @@ export namespace DescribeBatchPredictionsInput {
 /**
  * <p>Represents the output of a <code>DescribeBatchPredictions</code> operation. The content is essentially a list of <code>BatchPrediction</code>s.</p>
  */
-export interface DescribeBatchPredictionsOutput extends $MetadataBearer {
+export interface DescribeBatchPredictionsOutput {
   __type?: "DescribeBatchPredictionsOutput";
   /**
    * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
@@ -1366,7 +1366,7 @@ export namespace DescribeDataSourcesInput {
 /**
  * <p>Represents the query results from a <a>DescribeDataSources</a> operation. The content is essentially a list of <code>DataSource</code>.</p>
  */
-export interface DescribeDataSourcesOutput extends $MetadataBearer {
+export interface DescribeDataSourcesOutput {
   __type?: "DescribeDataSourcesOutput";
   /**
    * <p>An ID of the next page in the paginated results that indicates at least one more page follows.</p>
@@ -1517,7 +1517,7 @@ export namespace DescribeEvaluationsInput {
 /**
  * <p>Represents the query results from a <code>DescribeEvaluations</code> operation. The content is essentially a list of <code>Evaluation</code>.</p>
  */
-export interface DescribeEvaluationsOutput extends $MetadataBearer {
+export interface DescribeEvaluationsOutput {
   __type?: "DescribeEvaluationsOutput";
   /**
    * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
@@ -1676,7 +1676,7 @@ export namespace DescribeMLModelsInput {
 /**
  * <p>Represents the output of a <code>DescribeMLModels</code> operation. The content is essentially a list of <code>MLModel</code>.</p>
  */
-export interface DescribeMLModelsOutput extends $MetadataBearer {
+export interface DescribeMLModelsOutput {
   __type?: "DescribeMLModelsOutput";
   /**
    * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
@@ -1717,7 +1717,7 @@ export namespace DescribeTagsInput {
 /**
  * <p>Amazon ML returns the following elements.</p>
  */
-export interface DescribeTagsOutput extends $MetadataBearer {
+export interface DescribeTagsOutput {
   __type?: "DescribeTagsOutput";
   /**
    * <p>The ID of the tagged ML object.</p>
@@ -1904,7 +1904,7 @@ export namespace GetBatchPredictionInput {
 /**
  * <p>Represents the output of a <code>GetBatchPrediction</code> operation and describes a <code>BatchPrediction</code>.</p>
  */
-export interface GetBatchPredictionOutput extends $MetadataBearer {
+export interface GetBatchPredictionOutput {
   __type?: "GetBatchPredictionOutput";
   /**
    * <p>The ID of the <code>DataSource</code> that was used to create the <code>BatchPrediction</code>.
@@ -2046,7 +2046,7 @@ export namespace GetDataSourceInput {
 /**
  * <p>Represents the output of a <code>GetDataSource</code> operation and describes a <code>DataSource</code>.</p>
  */
-export interface GetDataSourceOutput extends $MetadataBearer {
+export interface GetDataSourceOutput {
   __type?: "GetDataSourceOutput";
   /**
    * <p>
@@ -2199,7 +2199,7 @@ export namespace GetEvaluationInput {
 /**
  * <p>Represents the output of a <code>GetEvaluation</code> operation and describes an <code>Evaluation</code>.</p>
  */
-export interface GetEvaluationOutput extends $MetadataBearer {
+export interface GetEvaluationOutput {
   __type?: "GetEvaluationOutput";
   /**
    * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>Evaluation</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>Evaluation</code> is in the <code>COMPLETED</code> state.</p>
@@ -2344,7 +2344,7 @@ export namespace GetMLModelInput {
 /**
  * <p>Represents the output of a <code>GetMLModel</code> operation, and provides detailed information about a <code>MLModel</code>.</p>
  */
-export interface GetMLModelOutput extends $MetadataBearer {
+export interface GetMLModelOutput {
   __type?: "GetMLModelOutput";
   /**
    * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>MLModel</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>MLModel</code> is in the <code>COMPLETED</code> state.</p>
@@ -2913,7 +2913,7 @@ export namespace PredictInput {
   }
 }
 
-export interface PredictOutput extends $MetadataBearer {
+export interface PredictOutput {
   __type?: "PredictOutput";
   /**
    * <p>The output from a <code>Predict</code> operation: </p>
@@ -3796,7 +3796,7 @@ export namespace UpdateBatchPredictionInput {
  * <p>Represents the output of an <code>UpdateBatchPrediction</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>
  */
-export interface UpdateBatchPredictionOutput extends $MetadataBearer {
+export interface UpdateBatchPredictionOutput {
   __type?: "UpdateBatchPredictionOutput";
   /**
    * <p>The ID assigned to the <code>BatchPrediction</code> during creation.  This value should be identical to the value
@@ -3834,7 +3834,7 @@ export namespace UpdateDataSourceInput {
  * <p>Represents the output of an <code>UpdateDataSource</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>
  */
-export interface UpdateDataSourceOutput extends $MetadataBearer {
+export interface UpdateDataSourceOutput {
   __type?: "UpdateDataSourceOutput";
   /**
    * <p>The ID assigned to the <code>DataSource</code> during creation.  This value should be identical to the value
@@ -3872,7 +3872,7 @@ export namespace UpdateEvaluationInput {
  * <p>Represents the output of an <code>UpdateEvaluation</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetEvaluation</code> operation.</p>
  */
-export interface UpdateEvaluationOutput extends $MetadataBearer {
+export interface UpdateEvaluationOutput {
   __type?: "UpdateEvaluationOutput";
   /**
    * <p>The ID assigned to the <code>Evaluation</code> during creation.  This value should be identical to the value
@@ -3916,7 +3916,7 @@ export namespace UpdateMLModelInput {
  * <p>Represents the output of an <code>UpdateMLModel</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetMLModel</code> operation.</p>
  */
-export interface UpdateMLModelOutput extends $MetadataBearer {
+export interface UpdateMLModelOutput {
   __type?: "UpdateMLModelOutput";
   /**
    * <p>The ID assigned to the <code>MLModel</code> during creation.  This value should be identical to the value

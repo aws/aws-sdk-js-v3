@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccessKeyInfoCommandInput = GetAccessKeyInfoRequest;
-export type GetAccessKeyInfoCommandOutput = GetAccessKeyInfoResponse;
+export type GetAccessKeyInfoCommandOutput = GetAccessKeyInfoResponse &
+  __MetadataBearer;
 
 export class GetAccessKeyInfoCommand extends $Command<
   GetAccessKeyInfoCommandInput,

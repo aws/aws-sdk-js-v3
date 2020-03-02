@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateKeyPairCommandInput = CreateKeyPairRequest;
-export type CreateKeyPairCommandOutput = KeyPair;
+export type CreateKeyPairCommandOutput = KeyPair & __MetadataBearer;
 
 export class CreateKeyPairCommand extends $Command<
   CreateKeyPairCommandInput,

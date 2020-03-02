@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutPipelineDefinitionCommandInput = PutPipelineDefinitionInput;
-export type PutPipelineDefinitionCommandOutput = PutPipelineDefinitionOutput;
+export type PutPipelineDefinitionCommandOutput = PutPipelineDefinitionOutput &
+  __MetadataBearer;
 
 export class PutPipelineDefinitionCommand extends $Command<
   PutPipelineDefinitionCommandInput,

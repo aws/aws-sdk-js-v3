@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReorderReceiptRuleSetCommandInput = ReorderReceiptRuleSetRequest;
-export type ReorderReceiptRuleSetCommandOutput = ReorderReceiptRuleSetResponse;
+export type ReorderReceiptRuleSetCommandOutput = ReorderReceiptRuleSetResponse &
+  __MetadataBearer;
 
 export class ReorderReceiptRuleSetCommand extends $Command<
   ReorderReceiptRuleSetCommandInput,

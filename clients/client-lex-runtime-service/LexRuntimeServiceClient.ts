@@ -1,15 +1,23 @@
 import {
-  DeleteSessionRequest,
-  DeleteSessionResponse,
-  GetSessionRequest,
-  GetSessionResponse,
-  PostContentRequest,
-  PostContentResponse,
-  PostTextRequest,
-  PostTextResponse,
-  PutSessionRequest,
-  PutSessionResponse
-} from "./models/index";
+  DeleteSessionCommandInput,
+  DeleteSessionCommandOutput
+} from "./commands/DeleteSessionCommand";
+import {
+  GetSessionCommandInput,
+  GetSessionCommandOutput
+} from "./commands/GetSessionCommand";
+import {
+  PostContentCommandInput,
+  PostContentCommandOutput
+} from "./commands/PostContentCommand";
+import {
+  PostTextCommandInput,
+  PostTextCommandOutput
+} from "./commands/PostTextCommand";
+import {
+  PutSessionCommandInput,
+  PutSessionCommandOutput
+} from "./commands/PutSessionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -63,18 +71,18 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteSessionRequest
-  | GetSessionRequest
-  | PostContentRequest
-  | PostTextRequest
-  | PutSessionRequest;
+  | DeleteSessionCommandInput
+  | GetSessionCommandInput
+  | PostContentCommandInput
+  | PostTextCommandInput
+  | PutSessionCommandInput;
 
 export type ServiceOutputTypes =
-  | DeleteSessionResponse
-  | GetSessionResponse
-  | PostContentResponse
-  | PostTextResponse
-  | PutSessionResponse;
+  | DeleteSessionCommandOutput
+  | GetSessionCommandOutput
+  | PostContentCommandOutput
+  | PostTextCommandOutput
+  | PutSessionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

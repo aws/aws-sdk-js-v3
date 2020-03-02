@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInstanceProfileCommandInput = GetInstanceProfileRequest;
-export type GetInstanceProfileCommandOutput = GetInstanceProfileResult;
+export type GetInstanceProfileCommandOutput = GetInstanceProfileResult &
+  __MetadataBearer;
 
 export class GetInstanceProfileCommand extends $Command<
   GetInstanceProfileCommandInput,

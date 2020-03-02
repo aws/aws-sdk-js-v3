@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeClientVpnTargetNetworksCommandInput = DescribeClientVpnTargetNetworksRequest;
-export type DescribeClientVpnTargetNetworksCommandOutput = DescribeClientVpnTargetNetworksResult;
+export type DescribeClientVpnTargetNetworksCommandOutput = DescribeClientVpnTargetNetworksResult &
+  __MetadataBearer;
 
 export class DescribeClientVpnTargetNetworksCommand extends $Command<
   DescribeClientVpnTargetNetworksCommandInput,

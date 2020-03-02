@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PublishLayerVersionCommandInput = PublishLayerVersionRequest;
-export type PublishLayerVersionCommandOutput = PublishLayerVersionResponse;
+export type PublishLayerVersionCommandOutput = PublishLayerVersionResponse &
+  __MetadataBearer;
 
 export class PublishLayerVersionCommand extends $Command<
   PublishLayerVersionCommandInput,

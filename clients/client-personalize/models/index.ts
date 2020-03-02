@@ -574,7 +574,7 @@ export namespace CreateBatchInferenceJobRequest {
   }
 }
 
-export interface CreateBatchInferenceJobResponse extends $MetadataBearer {
+export interface CreateBatchInferenceJobResponse {
   __type?: "CreateBatchInferenceJobResponse";
   /**
    * <p>The ARN of the batch inference job.</p>
@@ -613,7 +613,7 @@ export namespace CreateCampaignRequest {
   }
 }
 
-export interface CreateCampaignResponse extends $MetadataBearer {
+export interface CreateCampaignResponse {
   __type?: "CreateCampaignResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign.</p>
@@ -652,7 +652,7 @@ export namespace CreateDatasetGroupRequest {
   }
 }
 
-export interface CreateDatasetGroupResponse extends $MetadataBearer {
+export interface CreateDatasetGroupResponse {
   __type?: "CreateDatasetGroupResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the new dataset group.</p>
@@ -695,7 +695,7 @@ export namespace CreateDatasetImportJobRequest {
   }
 }
 
-export interface CreateDatasetImportJobResponse extends $MetadataBearer {
+export interface CreateDatasetImportJobResponse {
   __type?: "CreateDatasetImportJobResponse";
   /**
    * <p>The ARN of the dataset import job.</p>
@@ -751,7 +751,7 @@ export namespace CreateDatasetRequest {
   }
 }
 
-export interface CreateDatasetResponse extends $MetadataBearer {
+export interface CreateDatasetResponse {
   __type?: "CreateDatasetResponse";
   /**
    * <p>The ARN of the dataset.</p>
@@ -784,7 +784,7 @@ export namespace CreateEventTrackerRequest {
   }
 }
 
-export interface CreateEventTrackerResponse extends $MetadataBearer {
+export interface CreateEventTrackerResponse {
   __type?: "CreateEventTrackerResponse";
   /**
    * <p>The ARN of the event tracker.</p>
@@ -823,7 +823,7 @@ export namespace CreateSchemaRequest {
   }
 }
 
-export interface CreateSchemaResponse extends $MetadataBearer {
+export interface CreateSchemaResponse {
   __type?: "CreateSchemaResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the created schema.</p>
@@ -895,7 +895,7 @@ export namespace CreateSolutionRequest {
   }
 }
 
-export interface CreateSolutionResponse extends $MetadataBearer {
+export interface CreateSolutionResponse {
   __type?: "CreateSolutionResponse";
   /**
    * <p>The ARN of the solution.</p>
@@ -938,7 +938,7 @@ export namespace CreateSolutionVersionRequest {
   }
 }
 
-export interface CreateSolutionVersionResponse extends $MetadataBearer {
+export interface CreateSolutionVersionResponse {
   __type?: "CreateSolutionVersionResponse";
   /**
    * <p>The ARN of the new solution version.</p>
@@ -1646,7 +1646,7 @@ export namespace DescribeAlgorithmRequest {
   }
 }
 
-export interface DescribeAlgorithmResponse extends $MetadataBearer {
+export interface DescribeAlgorithmResponse {
   __type?: "DescribeAlgorithmResponse";
   /**
    * <p>A listing of the properties of the algorithm.</p>
@@ -1674,7 +1674,7 @@ export namespace DescribeBatchInferenceJobRequest {
   }
 }
 
-export interface DescribeBatchInferenceJobResponse extends $MetadataBearer {
+export interface DescribeBatchInferenceJobResponse {
   __type?: "DescribeBatchInferenceJobResponse";
   /**
    * <p>Information on the specified batch inference job.</p>
@@ -1702,7 +1702,7 @@ export namespace DescribeCampaignRequest {
   }
 }
 
-export interface DescribeCampaignResponse extends $MetadataBearer {
+export interface DescribeCampaignResponse {
   __type?: "DescribeCampaignResponse";
   /**
    * <p>The properties of the campaign.</p>
@@ -1730,7 +1730,7 @@ export namespace DescribeDatasetGroupRequest {
   }
 }
 
-export interface DescribeDatasetGroupResponse extends $MetadataBearer {
+export interface DescribeDatasetGroupResponse {
   __type?: "DescribeDatasetGroupResponse";
   /**
    * <p>A listing of the dataset group's properties.</p>
@@ -1758,7 +1758,7 @@ export namespace DescribeDatasetImportJobRequest {
   }
 }
 
-export interface DescribeDatasetImportJobResponse extends $MetadataBearer {
+export interface DescribeDatasetImportJobResponse {
   __type?: "DescribeDatasetImportJobResponse";
   /**
    * <p>Information about the dataset import job, including the status.</p>
@@ -1801,7 +1801,7 @@ export namespace DescribeDatasetRequest {
   }
 }
 
-export interface DescribeDatasetResponse extends $MetadataBearer {
+export interface DescribeDatasetResponse {
   __type?: "DescribeDatasetResponse";
   /**
    * <p>A listing of the dataset's properties.</p>
@@ -1829,7 +1829,7 @@ export namespace DescribeEventTrackerRequest {
   }
 }
 
-export interface DescribeEventTrackerResponse extends $MetadataBearer {
+export interface DescribeEventTrackerResponse {
   __type?: "DescribeEventTrackerResponse";
   /**
    * <p>An object that describes the event tracker.</p>
@@ -1857,7 +1857,7 @@ export namespace DescribeFeatureTransformationRequest {
   }
 }
 
-export interface DescribeFeatureTransformationResponse extends $MetadataBearer {
+export interface DescribeFeatureTransformationResponse {
   __type?: "DescribeFeatureTransformationResponse";
   /**
    * <p>A listing of the FeatureTransformation properties.</p>
@@ -1885,7 +1885,7 @@ export namespace DescribeRecipeRequest {
   }
 }
 
-export interface DescribeRecipeResponse extends $MetadataBearer {
+export interface DescribeRecipeResponse {
   __type?: "DescribeRecipeResponse";
   /**
    * <p>An object that describes the recipe.</p>
@@ -1913,7 +1913,7 @@ export namespace DescribeSchemaRequest {
   }
 }
 
-export interface DescribeSchemaResponse extends $MetadataBearer {
+export interface DescribeSchemaResponse {
   __type?: "DescribeSchemaResponse";
   /**
    * <p>The requested schema.</p>
@@ -1941,7 +1941,7 @@ export namespace DescribeSolutionRequest {
   }
 }
 
-export interface DescribeSolutionResponse extends $MetadataBearer {
+export interface DescribeSolutionResponse {
   __type?: "DescribeSolutionResponse";
   /**
    * <p>An object that describes the solution.</p>
@@ -1969,7 +1969,7 @@ export namespace DescribeSolutionVersionRequest {
   }
 }
 
-export interface DescribeSolutionVersionResponse extends $MetadataBearer {
+export interface DescribeSolutionVersionResponse {
   __type?: "DescribeSolutionVersionResponse";
   /**
    * <p>The solution version.</p>
@@ -2155,7 +2155,7 @@ export namespace GetSolutionMetricsRequest {
   }
 }
 
-export interface GetSolutionMetricsResponse extends $MetadataBearer {
+export interface GetSolutionMetricsResponse {
   __type?: "GetSolutionMetricsResponse";
   /**
    * <p>The metrics for the solution version.</p>
@@ -2342,7 +2342,7 @@ export namespace ListBatchInferenceJobsRequest {
   }
 }
 
-export interface ListBatchInferenceJobsResponse extends $MetadataBearer {
+export interface ListBatchInferenceJobsResponse {
   __type?: "ListBatchInferenceJobsResponse";
   /**
    * <p>A list containing information on each job that is returned.</p>
@@ -2388,7 +2388,7 @@ export namespace ListCampaignsRequest {
   }
 }
 
-export interface ListCampaignsResponse extends $MetadataBearer {
+export interface ListCampaignsResponse {
   __type?: "ListCampaignsResponse";
   /**
    * <p>A list of the campaigns.</p>
@@ -2427,7 +2427,7 @@ export namespace ListDatasetGroupsRequest {
   }
 }
 
-export interface ListDatasetGroupsResponse extends $MetadataBearer {
+export interface ListDatasetGroupsResponse {
   __type?: "ListDatasetGroupsResponse";
   /**
    * <p>The list of your dataset groups.</p>
@@ -2471,7 +2471,7 @@ export namespace ListDatasetImportJobsRequest {
   }
 }
 
-export interface ListDatasetImportJobsResponse extends $MetadataBearer {
+export interface ListDatasetImportJobsResponse {
   __type?: "ListDatasetImportJobsResponse";
   /**
    * <p>The list of dataset import jobs.</p>
@@ -2516,7 +2516,7 @@ export namespace ListDatasetsRequest {
   }
 }
 
-export interface ListDatasetsResponse extends $MetadataBearer {
+export interface ListDatasetsResponse {
   __type?: "ListDatasetsResponse";
   /**
    * <p>An array of <code>Dataset</code> objects. Each object provides metadata information.</p>
@@ -2560,7 +2560,7 @@ export namespace ListEventTrackersRequest {
   }
 }
 
-export interface ListEventTrackersResponse extends $MetadataBearer {
+export interface ListEventTrackersResponse {
   __type?: "ListEventTrackersResponse";
   /**
    * <p>A list of event trackers.</p>
@@ -2604,7 +2604,7 @@ export namespace ListRecipesRequest {
   }
 }
 
-export interface ListRecipesResponse extends $MetadataBearer {
+export interface ListRecipesResponse {
   __type?: "ListRecipesResponse";
   /**
    * <p>A token for getting the next set of recipes.</p>
@@ -2643,7 +2643,7 @@ export namespace ListSchemasRequest {
   }
 }
 
-export interface ListSchemasResponse extends $MetadataBearer {
+export interface ListSchemasResponse {
   __type?: "ListSchemasResponse";
   /**
    * <p>A token used to get the next set of schemas (if they exist).</p>
@@ -2687,7 +2687,7 @@ export namespace ListSolutionVersionsRequest {
   }
 }
 
-export interface ListSolutionVersionsResponse extends $MetadataBearer {
+export interface ListSolutionVersionsResponse {
   __type?: "ListSolutionVersionsResponse";
   /**
    * <p>A token for getting the next set of solution versions (if they exist).</p>
@@ -2731,7 +2731,7 @@ export namespace ListSolutionsRequest {
   }
 }
 
-export interface ListSolutionsResponse extends $MetadataBearer {
+export interface ListSolutionsResponse {
   __type?: "ListSolutionsResponse";
   /**
    * <p>A token for getting the next set of solutions (if they exist).</p>
@@ -3249,7 +3249,7 @@ export namespace UpdateCampaignRequest {
   }
 }
 
-export interface UpdateCampaignResponse extends $MetadataBearer {
+export interface UpdateCampaignResponse {
   __type?: "UpdateCampaignResponse";
   /**
    * <p>The same campaign ARN as given in the request.</p>

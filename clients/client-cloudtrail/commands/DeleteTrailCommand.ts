@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTrailCommandInput = DeleteTrailRequest;
-export type DeleteTrailCommandOutput = DeleteTrailResponse;
+export type DeleteTrailCommandOutput = DeleteTrailResponse & __MetadataBearer;
 
 export class DeleteTrailCommand extends $Command<
   DeleteTrailCommandInput,

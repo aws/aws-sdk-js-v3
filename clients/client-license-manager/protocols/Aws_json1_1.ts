@@ -414,45 +414,63 @@ async function deserializeAws_json1_1CreateLicenseConfigurationCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -511,38 +529,53 @@ async function deserializeAws_json1_1DeleteLicenseConfigurationCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -601,38 +634,53 @@ async function deserializeAws_json1_1GetLicenseConfigurationCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -688,31 +736,43 @@ async function deserializeAws_json1_1GetServiceSettingsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -771,45 +831,63 @@ async function deserializeAws_json1_1ListAssociationsForLicenseConfigurationComm
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FilterLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException":
-      response = await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -868,38 +946,53 @@ async function deserializeAws_json1_1ListFailuresForLicenseConfigurationOperatio
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -958,45 +1051,63 @@ async function deserializeAws_json1_1ListLicenseConfigurationsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FilterLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException":
-      response = await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1055,38 +1166,53 @@ async function deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1142,52 +1268,73 @@ async function deserializeAws_json1_1ListResourceInventoryCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazonaws.license.manager.V2018_08_01#FailedDependencyException":
-      response = await deserializeAws_json1_1FailedDependencyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FailedDependencyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FilterLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException":
-      response = await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1243,38 +1390,53 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1333,45 +1495,63 @@ async function deserializeAws_json1_1ListUsageForLicenseConfigurationCommandErro
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FilterLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException":
-      response = await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1424,38 +1604,53 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1508,38 +1703,53 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1598,38 +1808,53 @@ async function deserializeAws_json1_1UpdateLicenseConfigurationCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1688,52 +1913,73 @@ async function deserializeAws_json1_1UpdateLicenseSpecificationsForResourceComma
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceStateException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidResourceStateException":
-      response = await deserializeAws_json1_1InvalidResourceStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LicenseUsageException":
     case "com.amazonaws.license.manager.V2018_08_01#LicenseUsageException":
-      response = await deserializeAws_json1_1LicenseUsageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LicenseUsageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1789,38 +2035,53 @@ async function deserializeAws_json1_1UpdateServiceSettingsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AuthorizationException":
     case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
-      response = await deserializeAws_json1_1AuthorizationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RateLimitExceededException":
     case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
-      response = await deserializeAws_json1_1RateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerInternalException":
     case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
-      response = await deserializeAws_json1_1ServerInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListConnectorDefinitionVersionsCommandInput = ListConnectorDefinitionVersionsRequest;
-export type ListConnectorDefinitionVersionsCommandOutput = ListConnectorDefinitionVersionsResponse;
+export type ListConnectorDefinitionVersionsCommandOutput = ListConnectorDefinitionVersionsResponse &
+  __MetadataBearer;
 
 export class ListConnectorDefinitionVersionsCommand extends $Command<
   ListConnectorDefinitionVersionsCommandInput,

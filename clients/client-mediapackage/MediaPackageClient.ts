@@ -1,39 +1,75 @@
 import {
-  CreateChannelRequest,
-  CreateChannelResponse,
-  CreateHarvestJobRequest,
-  CreateHarvestJobResponse,
-  CreateOriginEndpointRequest,
-  CreateOriginEndpointResponse,
-  DeleteChannelRequest,
-  DeleteChannelResponse,
-  DeleteOriginEndpointRequest,
-  DeleteOriginEndpointResponse,
-  DescribeChannelRequest,
-  DescribeChannelResponse,
-  DescribeHarvestJobRequest,
-  DescribeHarvestJobResponse,
-  DescribeOriginEndpointRequest,
-  DescribeOriginEndpointResponse,
-  ListChannelsRequest,
-  ListChannelsResponse,
-  ListHarvestJobsRequest,
-  ListHarvestJobsResponse,
-  ListOriginEndpointsRequest,
-  ListOriginEndpointsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  RotateChannelCredentialsRequest,
-  RotateChannelCredentialsResponse,
-  RotateIngestEndpointCredentialsRequest,
-  RotateIngestEndpointCredentialsResponse,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateChannelRequest,
-  UpdateChannelResponse,
-  UpdateOriginEndpointRequest,
-  UpdateOriginEndpointResponse
-} from "./models/index";
+  CreateChannelCommandInput,
+  CreateChannelCommandOutput
+} from "./commands/CreateChannelCommand";
+import {
+  CreateHarvestJobCommandInput,
+  CreateHarvestJobCommandOutput
+} from "./commands/CreateHarvestJobCommand";
+import {
+  CreateOriginEndpointCommandInput,
+  CreateOriginEndpointCommandOutput
+} from "./commands/CreateOriginEndpointCommand";
+import {
+  DeleteChannelCommandInput,
+  DeleteChannelCommandOutput
+} from "./commands/DeleteChannelCommand";
+import {
+  DeleteOriginEndpointCommandInput,
+  DeleteOriginEndpointCommandOutput
+} from "./commands/DeleteOriginEndpointCommand";
+import {
+  DescribeChannelCommandInput,
+  DescribeChannelCommandOutput
+} from "./commands/DescribeChannelCommand";
+import {
+  DescribeHarvestJobCommandInput,
+  DescribeHarvestJobCommandOutput
+} from "./commands/DescribeHarvestJobCommand";
+import {
+  DescribeOriginEndpointCommandInput,
+  DescribeOriginEndpointCommandOutput
+} from "./commands/DescribeOriginEndpointCommand";
+import {
+  ListChannelsCommandInput,
+  ListChannelsCommandOutput
+} from "./commands/ListChannelsCommand";
+import {
+  ListHarvestJobsCommandInput,
+  ListHarvestJobsCommandOutput
+} from "./commands/ListHarvestJobsCommand";
+import {
+  ListOriginEndpointsCommandInput,
+  ListOriginEndpointsCommandOutput
+} from "./commands/ListOriginEndpointsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  RotateChannelCredentialsCommandInput,
+  RotateChannelCredentialsCommandOutput
+} from "./commands/RotateChannelCredentialsCommand";
+import {
+  RotateIngestEndpointCredentialsCommandInput,
+  RotateIngestEndpointCredentialsCommandOutput
+} from "./commands/RotateIngestEndpointCredentialsCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateChannelCommandInput,
+  UpdateChannelCommandOutput
+} from "./commands/UpdateChannelCommand";
+import {
+  UpdateOriginEndpointCommandInput,
+  UpdateOriginEndpointCommandOutput
+} from "./commands/UpdateOriginEndpointCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,50 +117,50 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateChannelRequest
-  | CreateHarvestJobRequest
-  | CreateOriginEndpointRequest
-  | DeleteChannelRequest
-  | DeleteOriginEndpointRequest
-  | DescribeChannelRequest
-  | DescribeHarvestJobRequest
-  | DescribeOriginEndpointRequest
-  | ListChannelsRequest
-  | ListHarvestJobsRequest
-  | ListOriginEndpointsRequest
-  | ListTagsForResourceRequest
-  | RotateChannelCredentialsRequest
-  | RotateIngestEndpointCredentialsRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateChannelRequest
-  | UpdateOriginEndpointRequest;
+  | CreateChannelCommandInput
+  | CreateHarvestJobCommandInput
+  | CreateOriginEndpointCommandInput
+  | DeleteChannelCommandInput
+  | DeleteOriginEndpointCommandInput
+  | DescribeChannelCommandInput
+  | DescribeHarvestJobCommandInput
+  | DescribeOriginEndpointCommandInput
+  | ListChannelsCommandInput
+  | ListHarvestJobsCommandInput
+  | ListOriginEndpointsCommandInput
+  | ListTagsForResourceCommandInput
+  | RotateChannelCredentialsCommandInput
+  | RotateIngestEndpointCredentialsCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateChannelCommandInput
+  | UpdateOriginEndpointCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateChannelResponse
-  | CreateHarvestJobResponse
-  | CreateOriginEndpointResponse
-  | DeleteChannelResponse
-  | DeleteOriginEndpointResponse
-  | DescribeChannelResponse
-  | DescribeHarvestJobResponse
-  | DescribeOriginEndpointResponse
-  | ListChannelsResponse
-  | ListHarvestJobsResponse
-  | ListOriginEndpointsResponse
-  | ListTagsForResourceResponse
-  | RotateChannelCredentialsResponse
-  | RotateIngestEndpointCredentialsResponse
-  | UpdateChannelResponse
-  | UpdateOriginEndpointResponse;
+  | CreateChannelCommandOutput
+  | CreateHarvestJobCommandOutput
+  | CreateOriginEndpointCommandOutput
+  | DeleteChannelCommandOutput
+  | DeleteOriginEndpointCommandOutput
+  | DescribeChannelCommandOutput
+  | DescribeHarvestJobCommandOutput
+  | DescribeOriginEndpointCommandOutput
+  | ListChannelsCommandOutput
+  | ListHarvestJobsCommandOutput
+  | ListOriginEndpointsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | RotateChannelCredentialsCommandOutput
+  | RotateIngestEndpointCredentialsCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateChannelCommandOutput
+  | UpdateOriginEndpointCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -1,13 +1,19 @@
 import {
-  GetDASHStreamingSessionURLInput,
-  GetDASHStreamingSessionURLOutput,
-  GetHLSStreamingSessionURLInput,
-  GetHLSStreamingSessionURLOutput,
-  GetMediaForFragmentListInput,
-  GetMediaForFragmentListOutput,
-  ListFragmentsInput,
-  ListFragmentsOutput
-} from "./models/index";
+  GetDASHStreamingSessionURLCommandInput,
+  GetDASHStreamingSessionURLCommandOutput
+} from "./commands/GetDASHStreamingSessionURLCommand";
+import {
+  GetHLSStreamingSessionURLCommandInput,
+  GetHLSStreamingSessionURLCommandOutput
+} from "./commands/GetHLSStreamingSessionURLCommand";
+import {
+  GetMediaForFragmentListCommandInput,
+  GetMediaForFragmentListCommandOutput
+} from "./commands/GetMediaForFragmentListCommand";
+import {
+  ListFragmentsCommandInput,
+  ListFragmentsCommandOutput
+} from "./commands/ListFragmentsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,16 +67,16 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | GetDASHStreamingSessionURLInput
-  | GetHLSStreamingSessionURLInput
-  | GetMediaForFragmentListInput
-  | ListFragmentsInput;
+  | GetDASHStreamingSessionURLCommandInput
+  | GetHLSStreamingSessionURLCommandInput
+  | GetMediaForFragmentListCommandInput
+  | ListFragmentsCommandInput;
 
 export type ServiceOutputTypes =
-  | GetDASHStreamingSessionURLOutput
-  | GetHLSStreamingSessionURLOutput
-  | GetMediaForFragmentListOutput
-  | ListFragmentsOutput;
+  | GetDASHStreamingSessionURLCommandOutput
+  | GetHLSStreamingSessionURLCommandOutput
+  | GetMediaForFragmentListCommandOutput
+  | ListFragmentsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

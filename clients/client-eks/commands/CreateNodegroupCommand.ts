@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateNodegroupCommandInput = CreateNodegroupRequest;
-export type CreateNodegroupCommandOutput = CreateNodegroupResponse;
+export type CreateNodegroupCommandOutput = CreateNodegroupResponse &
+  __MetadataBearer;
 
 export class CreateNodegroupCommand extends $Command<
   CreateNodegroupCommandInput,

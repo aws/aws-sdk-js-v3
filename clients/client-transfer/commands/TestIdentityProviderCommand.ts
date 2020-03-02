@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestIdentityProviderCommandInput = TestIdentityProviderRequest;
-export type TestIdentityProviderCommandOutput = TestIdentityProviderResponse;
+export type TestIdentityProviderCommandOutput = TestIdentityProviderResponse &
+  __MetadataBearer;
 
 export class TestIdentityProviderCommand extends $Command<
   TestIdentityProviderCommandInput,

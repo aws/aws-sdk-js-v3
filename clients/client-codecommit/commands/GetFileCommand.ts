@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetFileCommandInput = GetFileInput;
-export type GetFileCommandOutput = GetFileOutput;
+export type GetFileCommandOutput = GetFileOutput & __MetadataBearer;
 
 export class GetFileCommand extends $Command<
   GetFileCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAttributeValuesCommandInput = GetAttributeValuesRequest;
-export type GetAttributeValuesCommandOutput = GetAttributeValuesResponse;
+export type GetAttributeValuesCommandOutput = GetAttributeValuesResponse &
+  __MetadataBearer;
 
 export class GetAttributeValuesCommand extends $Command<
   GetAttributeValuesCommandInput,

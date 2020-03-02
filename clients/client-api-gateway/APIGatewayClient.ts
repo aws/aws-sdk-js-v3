@@ -1,175 +1,483 @@
 import {
-  Account,
-  ApiKey,
-  ApiKeyIds,
-  ApiKeys,
-  Authorizer,
-  Authorizers,
-  BasePathMapping,
-  BasePathMappings,
-  ClientCertificate,
-  ClientCertificates,
-  CreateApiKeyRequest,
-  CreateAuthorizerRequest,
-  CreateBasePathMappingRequest,
-  CreateDeploymentRequest,
-  CreateDocumentationPartRequest,
-  CreateDocumentationVersionRequest,
-  CreateDomainNameRequest,
-  CreateModelRequest,
-  CreateRequestValidatorRequest,
-  CreateResourceRequest,
-  CreateRestApiRequest,
-  CreateStageRequest,
-  CreateUsagePlanKeyRequest,
-  CreateUsagePlanRequest,
-  CreateVpcLinkRequest,
-  DeleteApiKeyRequest,
-  DeleteAuthorizerRequest,
-  DeleteBasePathMappingRequest,
-  DeleteClientCertificateRequest,
-  DeleteDeploymentRequest,
-  DeleteDocumentationPartRequest,
-  DeleteDocumentationVersionRequest,
-  DeleteDomainNameRequest,
-  DeleteGatewayResponseRequest,
-  DeleteIntegrationRequest,
-  DeleteIntegrationResponseRequest,
-  DeleteMethodRequest,
-  DeleteMethodResponseRequest,
-  DeleteModelRequest,
-  DeleteRequestValidatorRequest,
-  DeleteResourceRequest,
-  DeleteRestApiRequest,
-  DeleteStageRequest,
-  DeleteUsagePlanKeyRequest,
-  DeleteUsagePlanRequest,
-  DeleteVpcLinkRequest,
-  Deployment,
-  Deployments,
-  DocumentationPart,
-  DocumentationPartIds,
-  DocumentationParts,
-  DocumentationVersion,
-  DocumentationVersions,
-  DomainName,
-  DomainNames,
-  ExportResponse,
-  FlushStageAuthorizersCacheRequest,
-  FlushStageCacheRequest,
-  GatewayResponse,
-  GatewayResponses,
-  GenerateClientCertificateRequest,
-  GetAccountRequest,
-  GetApiKeyRequest,
-  GetApiKeysRequest,
-  GetAuthorizerRequest,
-  GetAuthorizersRequest,
-  GetBasePathMappingRequest,
-  GetBasePathMappingsRequest,
-  GetClientCertificateRequest,
-  GetClientCertificatesRequest,
-  GetDeploymentRequest,
-  GetDeploymentsRequest,
-  GetDocumentationPartRequest,
-  GetDocumentationPartsRequest,
-  GetDocumentationVersionRequest,
-  GetDocumentationVersionsRequest,
-  GetDomainNameRequest,
-  GetDomainNamesRequest,
-  GetExportRequest,
-  GetGatewayResponseRequest,
-  GetGatewayResponsesRequest,
-  GetIntegrationRequest,
-  GetIntegrationResponseRequest,
-  GetMethodRequest,
-  GetMethodResponseRequest,
-  GetModelRequest,
-  GetModelTemplateRequest,
-  GetModelsRequest,
-  GetRequestValidatorRequest,
-  GetRequestValidatorsRequest,
-  GetResourceRequest,
-  GetResourcesRequest,
-  GetRestApiRequest,
-  GetRestApisRequest,
-  GetSdkRequest,
-  GetSdkTypeRequest,
-  GetSdkTypesRequest,
-  GetStageRequest,
-  GetStagesRequest,
-  GetTagsRequest,
-  GetUsagePlanKeyRequest,
-  GetUsagePlanKeysRequest,
-  GetUsagePlanRequest,
-  GetUsagePlansRequest,
-  GetUsageRequest,
-  GetVpcLinkRequest,
-  GetVpcLinksRequest,
-  ImportApiKeysRequest,
-  ImportDocumentationPartsRequest,
-  ImportRestApiRequest,
-  Integration,
-  IntegrationResponse,
-  Method,
-  MethodResponse,
-  Model,
-  Models,
-  PutGatewayResponseRequest,
-  PutIntegrationRequest,
-  PutIntegrationResponseRequest,
-  PutMethodRequest,
-  PutMethodResponseRequest,
-  PutRestApiRequest,
-  RequestValidator,
-  RequestValidators,
-  Resource,
-  Resources,
-  RestApi,
-  RestApis,
-  SdkResponse,
-  SdkType,
-  SdkTypes,
-  Stage,
-  Stages,
-  TagResourceRequest,
-  Tags,
-  Template,
-  TestInvokeAuthorizerRequest,
-  TestInvokeAuthorizerResponse,
-  TestInvokeMethodRequest,
-  TestInvokeMethodResponse,
-  UntagResourceRequest,
-  UpdateAccountRequest,
-  UpdateApiKeyRequest,
-  UpdateAuthorizerRequest,
-  UpdateBasePathMappingRequest,
-  UpdateClientCertificateRequest,
-  UpdateDeploymentRequest,
-  UpdateDocumentationPartRequest,
-  UpdateDocumentationVersionRequest,
-  UpdateDomainNameRequest,
-  UpdateGatewayResponseRequest,
-  UpdateIntegrationRequest,
-  UpdateIntegrationResponseRequest,
-  UpdateMethodRequest,
-  UpdateMethodResponseRequest,
-  UpdateModelRequest,
-  UpdateRequestValidatorRequest,
-  UpdateResourceRequest,
-  UpdateRestApiRequest,
-  UpdateStageRequest,
-  UpdateUsagePlanRequest,
-  UpdateUsageRequest,
-  UpdateVpcLinkRequest,
-  Usage,
-  UsagePlan,
-  UsagePlanKey,
-  UsagePlanKeys,
-  UsagePlans,
-  VpcLink,
-  VpcLinks
-} from "./models/index";
+  CreateApiKeyCommandInput,
+  CreateApiKeyCommandOutput
+} from "./commands/CreateApiKeyCommand";
+import {
+  CreateAuthorizerCommandInput,
+  CreateAuthorizerCommandOutput
+} from "./commands/CreateAuthorizerCommand";
+import {
+  CreateBasePathMappingCommandInput,
+  CreateBasePathMappingCommandOutput
+} from "./commands/CreateBasePathMappingCommand";
+import {
+  CreateDeploymentCommandInput,
+  CreateDeploymentCommandOutput
+} from "./commands/CreateDeploymentCommand";
+import {
+  CreateDocumentationPartCommandInput,
+  CreateDocumentationPartCommandOutput
+} from "./commands/CreateDocumentationPartCommand";
+import {
+  CreateDocumentationVersionCommandInput,
+  CreateDocumentationVersionCommandOutput
+} from "./commands/CreateDocumentationVersionCommand";
+import {
+  CreateDomainNameCommandInput,
+  CreateDomainNameCommandOutput
+} from "./commands/CreateDomainNameCommand";
+import {
+  CreateModelCommandInput,
+  CreateModelCommandOutput
+} from "./commands/CreateModelCommand";
+import {
+  CreateRequestValidatorCommandInput,
+  CreateRequestValidatorCommandOutput
+} from "./commands/CreateRequestValidatorCommand";
+import {
+  CreateResourceCommandInput,
+  CreateResourceCommandOutput
+} from "./commands/CreateResourceCommand";
+import {
+  CreateRestApiCommandInput,
+  CreateRestApiCommandOutput
+} from "./commands/CreateRestApiCommand";
+import {
+  CreateStageCommandInput,
+  CreateStageCommandOutput
+} from "./commands/CreateStageCommand";
+import {
+  CreateUsagePlanCommandInput,
+  CreateUsagePlanCommandOutput
+} from "./commands/CreateUsagePlanCommand";
+import {
+  CreateUsagePlanKeyCommandInput,
+  CreateUsagePlanKeyCommandOutput
+} from "./commands/CreateUsagePlanKeyCommand";
+import {
+  CreateVpcLinkCommandInput,
+  CreateVpcLinkCommandOutput
+} from "./commands/CreateVpcLinkCommand";
+import {
+  DeleteApiKeyCommandInput,
+  DeleteApiKeyCommandOutput
+} from "./commands/DeleteApiKeyCommand";
+import {
+  DeleteAuthorizerCommandInput,
+  DeleteAuthorizerCommandOutput
+} from "./commands/DeleteAuthorizerCommand";
+import {
+  DeleteBasePathMappingCommandInput,
+  DeleteBasePathMappingCommandOutput
+} from "./commands/DeleteBasePathMappingCommand";
+import {
+  DeleteClientCertificateCommandInput,
+  DeleteClientCertificateCommandOutput
+} from "./commands/DeleteClientCertificateCommand";
+import {
+  DeleteDeploymentCommandInput,
+  DeleteDeploymentCommandOutput
+} from "./commands/DeleteDeploymentCommand";
+import {
+  DeleteDocumentationPartCommandInput,
+  DeleteDocumentationPartCommandOutput
+} from "./commands/DeleteDocumentationPartCommand";
+import {
+  DeleteDocumentationVersionCommandInput,
+  DeleteDocumentationVersionCommandOutput
+} from "./commands/DeleteDocumentationVersionCommand";
+import {
+  DeleteDomainNameCommandInput,
+  DeleteDomainNameCommandOutput
+} from "./commands/DeleteDomainNameCommand";
+import {
+  DeleteGatewayResponseCommandInput,
+  DeleteGatewayResponseCommandOutput
+} from "./commands/DeleteGatewayResponseCommand";
+import {
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput
+} from "./commands/DeleteIntegrationCommand";
+import {
+  DeleteIntegrationResponseCommandInput,
+  DeleteIntegrationResponseCommandOutput
+} from "./commands/DeleteIntegrationResponseCommand";
+import {
+  DeleteMethodCommandInput,
+  DeleteMethodCommandOutput
+} from "./commands/DeleteMethodCommand";
+import {
+  DeleteMethodResponseCommandInput,
+  DeleteMethodResponseCommandOutput
+} from "./commands/DeleteMethodResponseCommand";
+import {
+  DeleteModelCommandInput,
+  DeleteModelCommandOutput
+} from "./commands/DeleteModelCommand";
+import {
+  DeleteRequestValidatorCommandInput,
+  DeleteRequestValidatorCommandOutput
+} from "./commands/DeleteRequestValidatorCommand";
+import {
+  DeleteResourceCommandInput,
+  DeleteResourceCommandOutput
+} from "./commands/DeleteResourceCommand";
+import {
+  DeleteRestApiCommandInput,
+  DeleteRestApiCommandOutput
+} from "./commands/DeleteRestApiCommand";
+import {
+  DeleteStageCommandInput,
+  DeleteStageCommandOutput
+} from "./commands/DeleteStageCommand";
+import {
+  DeleteUsagePlanCommandInput,
+  DeleteUsagePlanCommandOutput
+} from "./commands/DeleteUsagePlanCommand";
+import {
+  DeleteUsagePlanKeyCommandInput,
+  DeleteUsagePlanKeyCommandOutput
+} from "./commands/DeleteUsagePlanKeyCommand";
+import {
+  DeleteVpcLinkCommandInput,
+  DeleteVpcLinkCommandOutput
+} from "./commands/DeleteVpcLinkCommand";
+import {
+  FlushStageAuthorizersCacheCommandInput,
+  FlushStageAuthorizersCacheCommandOutput
+} from "./commands/FlushStageAuthorizersCacheCommand";
+import {
+  FlushStageCacheCommandInput,
+  FlushStageCacheCommandOutput
+} from "./commands/FlushStageCacheCommand";
+import {
+  GenerateClientCertificateCommandInput,
+  GenerateClientCertificateCommandOutput
+} from "./commands/GenerateClientCertificateCommand";
+import {
+  GetAccountCommandInput,
+  GetAccountCommandOutput
+} from "./commands/GetAccountCommand";
+import {
+  GetApiKeyCommandInput,
+  GetApiKeyCommandOutput
+} from "./commands/GetApiKeyCommand";
+import {
+  GetApiKeysCommandInput,
+  GetApiKeysCommandOutput
+} from "./commands/GetApiKeysCommand";
+import {
+  GetAuthorizerCommandInput,
+  GetAuthorizerCommandOutput
+} from "./commands/GetAuthorizerCommand";
+import {
+  GetAuthorizersCommandInput,
+  GetAuthorizersCommandOutput
+} from "./commands/GetAuthorizersCommand";
+import {
+  GetBasePathMappingCommandInput,
+  GetBasePathMappingCommandOutput
+} from "./commands/GetBasePathMappingCommand";
+import {
+  GetBasePathMappingsCommandInput,
+  GetBasePathMappingsCommandOutput
+} from "./commands/GetBasePathMappingsCommand";
+import {
+  GetClientCertificateCommandInput,
+  GetClientCertificateCommandOutput
+} from "./commands/GetClientCertificateCommand";
+import {
+  GetClientCertificatesCommandInput,
+  GetClientCertificatesCommandOutput
+} from "./commands/GetClientCertificatesCommand";
+import {
+  GetDeploymentCommandInput,
+  GetDeploymentCommandOutput
+} from "./commands/GetDeploymentCommand";
+import {
+  GetDeploymentsCommandInput,
+  GetDeploymentsCommandOutput
+} from "./commands/GetDeploymentsCommand";
+import {
+  GetDocumentationPartCommandInput,
+  GetDocumentationPartCommandOutput
+} from "./commands/GetDocumentationPartCommand";
+import {
+  GetDocumentationPartsCommandInput,
+  GetDocumentationPartsCommandOutput
+} from "./commands/GetDocumentationPartsCommand";
+import {
+  GetDocumentationVersionCommandInput,
+  GetDocumentationVersionCommandOutput
+} from "./commands/GetDocumentationVersionCommand";
+import {
+  GetDocumentationVersionsCommandInput,
+  GetDocumentationVersionsCommandOutput
+} from "./commands/GetDocumentationVersionsCommand";
+import {
+  GetDomainNameCommandInput,
+  GetDomainNameCommandOutput
+} from "./commands/GetDomainNameCommand";
+import {
+  GetDomainNamesCommandInput,
+  GetDomainNamesCommandOutput
+} from "./commands/GetDomainNamesCommand";
+import {
+  GetExportCommandInput,
+  GetExportCommandOutput
+} from "./commands/GetExportCommand";
+import {
+  GetGatewayResponseCommandInput,
+  GetGatewayResponseCommandOutput
+} from "./commands/GetGatewayResponseCommand";
+import {
+  GetGatewayResponsesCommandInput,
+  GetGatewayResponsesCommandOutput
+} from "./commands/GetGatewayResponsesCommand";
+import {
+  GetIntegrationCommandInput,
+  GetIntegrationCommandOutput
+} from "./commands/GetIntegrationCommand";
+import {
+  GetIntegrationResponseCommandInput,
+  GetIntegrationResponseCommandOutput
+} from "./commands/GetIntegrationResponseCommand";
+import {
+  GetMethodCommandInput,
+  GetMethodCommandOutput
+} from "./commands/GetMethodCommand";
+import {
+  GetMethodResponseCommandInput,
+  GetMethodResponseCommandOutput
+} from "./commands/GetMethodResponseCommand";
+import {
+  GetModelCommandInput,
+  GetModelCommandOutput
+} from "./commands/GetModelCommand";
+import {
+  GetModelTemplateCommandInput,
+  GetModelTemplateCommandOutput
+} from "./commands/GetModelTemplateCommand";
+import {
+  GetModelsCommandInput,
+  GetModelsCommandOutput
+} from "./commands/GetModelsCommand";
+import {
+  GetRequestValidatorCommandInput,
+  GetRequestValidatorCommandOutput
+} from "./commands/GetRequestValidatorCommand";
+import {
+  GetRequestValidatorsCommandInput,
+  GetRequestValidatorsCommandOutput
+} from "./commands/GetRequestValidatorsCommand";
+import {
+  GetResourceCommandInput,
+  GetResourceCommandOutput
+} from "./commands/GetResourceCommand";
+import {
+  GetResourcesCommandInput,
+  GetResourcesCommandOutput
+} from "./commands/GetResourcesCommand";
+import {
+  GetRestApiCommandInput,
+  GetRestApiCommandOutput
+} from "./commands/GetRestApiCommand";
+import {
+  GetRestApisCommandInput,
+  GetRestApisCommandOutput
+} from "./commands/GetRestApisCommand";
+import {
+  GetSdkCommandInput,
+  GetSdkCommandOutput
+} from "./commands/GetSdkCommand";
+import {
+  GetSdkTypeCommandInput,
+  GetSdkTypeCommandOutput
+} from "./commands/GetSdkTypeCommand";
+import {
+  GetSdkTypesCommandInput,
+  GetSdkTypesCommandOutput
+} from "./commands/GetSdkTypesCommand";
+import {
+  GetStageCommandInput,
+  GetStageCommandOutput
+} from "./commands/GetStageCommand";
+import {
+  GetStagesCommandInput,
+  GetStagesCommandOutput
+} from "./commands/GetStagesCommand";
+import {
+  GetTagsCommandInput,
+  GetTagsCommandOutput
+} from "./commands/GetTagsCommand";
+import {
+  GetUsageCommandInput,
+  GetUsageCommandOutput
+} from "./commands/GetUsageCommand";
+import {
+  GetUsagePlanCommandInput,
+  GetUsagePlanCommandOutput
+} from "./commands/GetUsagePlanCommand";
+import {
+  GetUsagePlanKeyCommandInput,
+  GetUsagePlanKeyCommandOutput
+} from "./commands/GetUsagePlanKeyCommand";
+import {
+  GetUsagePlanKeysCommandInput,
+  GetUsagePlanKeysCommandOutput
+} from "./commands/GetUsagePlanKeysCommand";
+import {
+  GetUsagePlansCommandInput,
+  GetUsagePlansCommandOutput
+} from "./commands/GetUsagePlansCommand";
+import {
+  GetVpcLinkCommandInput,
+  GetVpcLinkCommandOutput
+} from "./commands/GetVpcLinkCommand";
+import {
+  GetVpcLinksCommandInput,
+  GetVpcLinksCommandOutput
+} from "./commands/GetVpcLinksCommand";
+import {
+  ImportApiKeysCommandInput,
+  ImportApiKeysCommandOutput
+} from "./commands/ImportApiKeysCommand";
+import {
+  ImportDocumentationPartsCommandInput,
+  ImportDocumentationPartsCommandOutput
+} from "./commands/ImportDocumentationPartsCommand";
+import {
+  ImportRestApiCommandInput,
+  ImportRestApiCommandOutput
+} from "./commands/ImportRestApiCommand";
+import {
+  PutGatewayResponseCommandInput,
+  PutGatewayResponseCommandOutput
+} from "./commands/PutGatewayResponseCommand";
+import {
+  PutIntegrationCommandInput,
+  PutIntegrationCommandOutput
+} from "./commands/PutIntegrationCommand";
+import {
+  PutIntegrationResponseCommandInput,
+  PutIntegrationResponseCommandOutput
+} from "./commands/PutIntegrationResponseCommand";
+import {
+  PutMethodCommandInput,
+  PutMethodCommandOutput
+} from "./commands/PutMethodCommand";
+import {
+  PutMethodResponseCommandInput,
+  PutMethodResponseCommandOutput
+} from "./commands/PutMethodResponseCommand";
+import {
+  PutRestApiCommandInput,
+  PutRestApiCommandOutput
+} from "./commands/PutRestApiCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  TestInvokeAuthorizerCommandInput,
+  TestInvokeAuthorizerCommandOutput
+} from "./commands/TestInvokeAuthorizerCommand";
+import {
+  TestInvokeMethodCommandInput,
+  TestInvokeMethodCommandOutput
+} from "./commands/TestInvokeMethodCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAccountCommandInput,
+  UpdateAccountCommandOutput
+} from "./commands/UpdateAccountCommand";
+import {
+  UpdateApiKeyCommandInput,
+  UpdateApiKeyCommandOutput
+} from "./commands/UpdateApiKeyCommand";
+import {
+  UpdateAuthorizerCommandInput,
+  UpdateAuthorizerCommandOutput
+} from "./commands/UpdateAuthorizerCommand";
+import {
+  UpdateBasePathMappingCommandInput,
+  UpdateBasePathMappingCommandOutput
+} from "./commands/UpdateBasePathMappingCommand";
+import {
+  UpdateClientCertificateCommandInput,
+  UpdateClientCertificateCommandOutput
+} from "./commands/UpdateClientCertificateCommand";
+import {
+  UpdateDeploymentCommandInput,
+  UpdateDeploymentCommandOutput
+} from "./commands/UpdateDeploymentCommand";
+import {
+  UpdateDocumentationPartCommandInput,
+  UpdateDocumentationPartCommandOutput
+} from "./commands/UpdateDocumentationPartCommand";
+import {
+  UpdateDocumentationVersionCommandInput,
+  UpdateDocumentationVersionCommandOutput
+} from "./commands/UpdateDocumentationVersionCommand";
+import {
+  UpdateDomainNameCommandInput,
+  UpdateDomainNameCommandOutput
+} from "./commands/UpdateDomainNameCommand";
+import {
+  UpdateGatewayResponseCommandInput,
+  UpdateGatewayResponseCommandOutput
+} from "./commands/UpdateGatewayResponseCommand";
+import {
+  UpdateIntegrationCommandInput,
+  UpdateIntegrationCommandOutput
+} from "./commands/UpdateIntegrationCommand";
+import {
+  UpdateIntegrationResponseCommandInput,
+  UpdateIntegrationResponseCommandOutput
+} from "./commands/UpdateIntegrationResponseCommand";
+import {
+  UpdateMethodCommandInput,
+  UpdateMethodCommandOutput
+} from "./commands/UpdateMethodCommand";
+import {
+  UpdateMethodResponseCommandInput,
+  UpdateMethodResponseCommandOutput
+} from "./commands/UpdateMethodResponseCommand";
+import {
+  UpdateModelCommandInput,
+  UpdateModelCommandOutput
+} from "./commands/UpdateModelCommand";
+import {
+  UpdateRequestValidatorCommandInput,
+  UpdateRequestValidatorCommandOutput
+} from "./commands/UpdateRequestValidatorCommand";
+import {
+  UpdateResourceCommandInput,
+  UpdateResourceCommandOutput
+} from "./commands/UpdateResourceCommand";
+import {
+  UpdateRestApiCommandInput,
+  UpdateRestApiCommandOutput
+} from "./commands/UpdateRestApiCommand";
+import {
+  UpdateStageCommandInput,
+  UpdateStageCommandOutput
+} from "./commands/UpdateStageCommand";
+import {
+  UpdateUsageCommandInput,
+  UpdateUsageCommandOutput
+} from "./commands/UpdateUsageCommand";
+import {
+  UpdateUsagePlanCommandInput,
+  UpdateUsagePlanCommandOutput
+} from "./commands/UpdateUsagePlanCommand";
+import {
+  UpdateVpcLinkCommandInput,
+  UpdateVpcLinkCommandOutput
+} from "./commands/UpdateVpcLinkCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -218,231 +526,254 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateApiKeyRequest
-  | CreateAuthorizerRequest
-  | CreateBasePathMappingRequest
-  | CreateDeploymentRequest
-  | CreateDocumentationPartRequest
-  | CreateDocumentationVersionRequest
-  | CreateDomainNameRequest
-  | CreateModelRequest
-  | CreateRequestValidatorRequest
-  | CreateResourceRequest
-  | CreateRestApiRequest
-  | CreateStageRequest
-  | CreateUsagePlanKeyRequest
-  | CreateUsagePlanRequest
-  | CreateVpcLinkRequest
-  | DeleteApiKeyRequest
-  | DeleteAuthorizerRequest
-  | DeleteBasePathMappingRequest
-  | DeleteClientCertificateRequest
-  | DeleteDeploymentRequest
-  | DeleteDocumentationPartRequest
-  | DeleteDocumentationVersionRequest
-  | DeleteDomainNameRequest
-  | DeleteGatewayResponseRequest
-  | DeleteIntegrationRequest
-  | DeleteIntegrationResponseRequest
-  | DeleteMethodRequest
-  | DeleteMethodResponseRequest
-  | DeleteModelRequest
-  | DeleteRequestValidatorRequest
-  | DeleteResourceRequest
-  | DeleteRestApiRequest
-  | DeleteStageRequest
-  | DeleteUsagePlanKeyRequest
-  | DeleteUsagePlanRequest
-  | DeleteVpcLinkRequest
-  | FlushStageAuthorizersCacheRequest
-  | FlushStageCacheRequest
-  | GenerateClientCertificateRequest
-  | GetAccountRequest
-  | GetApiKeyRequest
-  | GetApiKeysRequest
-  | GetAuthorizerRequest
-  | GetAuthorizersRequest
-  | GetBasePathMappingRequest
-  | GetBasePathMappingsRequest
-  | GetClientCertificateRequest
-  | GetClientCertificatesRequest
-  | GetDeploymentRequest
-  | GetDeploymentsRequest
-  | GetDocumentationPartRequest
-  | GetDocumentationPartsRequest
-  | GetDocumentationVersionRequest
-  | GetDocumentationVersionsRequest
-  | GetDomainNameRequest
-  | GetDomainNamesRequest
-  | GetExportRequest
-  | GetGatewayResponseRequest
-  | GetGatewayResponsesRequest
-  | GetIntegrationRequest
-  | GetIntegrationResponseRequest
-  | GetMethodRequest
-  | GetMethodResponseRequest
-  | GetModelRequest
-  | GetModelTemplateRequest
-  | GetModelsRequest
-  | GetRequestValidatorRequest
-  | GetRequestValidatorsRequest
-  | GetResourceRequest
-  | GetResourcesRequest
-  | GetRestApiRequest
-  | GetRestApisRequest
-  | GetSdkRequest
-  | GetSdkTypeRequest
-  | GetSdkTypesRequest
-  | GetStageRequest
-  | GetStagesRequest
-  | GetTagsRequest
-  | GetUsagePlanKeyRequest
-  | GetUsagePlanKeysRequest
-  | GetUsagePlanRequest
-  | GetUsagePlansRequest
-  | GetUsageRequest
-  | GetVpcLinkRequest
-  | GetVpcLinksRequest
-  | ImportApiKeysRequest
-  | ImportDocumentationPartsRequest
-  | ImportRestApiRequest
-  | PutGatewayResponseRequest
-  | PutIntegrationRequest
-  | PutIntegrationResponseRequest
-  | PutMethodRequest
-  | PutMethodResponseRequest
-  | PutRestApiRequest
-  | TagResourceRequest
-  | TestInvokeAuthorizerRequest
-  | TestInvokeMethodRequest
-  | UntagResourceRequest
-  | UpdateAccountRequest
-  | UpdateApiKeyRequest
-  | UpdateAuthorizerRequest
-  | UpdateBasePathMappingRequest
-  | UpdateClientCertificateRequest
-  | UpdateDeploymentRequest
-  | UpdateDocumentationPartRequest
-  | UpdateDocumentationVersionRequest
-  | UpdateDomainNameRequest
-  | UpdateGatewayResponseRequest
-  | UpdateIntegrationRequest
-  | UpdateIntegrationResponseRequest
-  | UpdateMethodRequest
-  | UpdateMethodResponseRequest
-  | UpdateModelRequest
-  | UpdateRequestValidatorRequest
-  | UpdateResourceRequest
-  | UpdateRestApiRequest
-  | UpdateStageRequest
-  | UpdateUsagePlanRequest
-  | UpdateUsageRequest
-  | UpdateVpcLinkRequest;
+  | CreateApiKeyCommandInput
+  | CreateAuthorizerCommandInput
+  | CreateBasePathMappingCommandInput
+  | CreateDeploymentCommandInput
+  | CreateDocumentationPartCommandInput
+  | CreateDocumentationVersionCommandInput
+  | CreateDomainNameCommandInput
+  | CreateModelCommandInput
+  | CreateRequestValidatorCommandInput
+  | CreateResourceCommandInput
+  | CreateRestApiCommandInput
+  | CreateStageCommandInput
+  | CreateUsagePlanCommandInput
+  | CreateUsagePlanKeyCommandInput
+  | CreateVpcLinkCommandInput
+  | DeleteApiKeyCommandInput
+  | DeleteAuthorizerCommandInput
+  | DeleteBasePathMappingCommandInput
+  | DeleteClientCertificateCommandInput
+  | DeleteDeploymentCommandInput
+  | DeleteDocumentationPartCommandInput
+  | DeleteDocumentationVersionCommandInput
+  | DeleteDomainNameCommandInput
+  | DeleteGatewayResponseCommandInput
+  | DeleteIntegrationCommandInput
+  | DeleteIntegrationResponseCommandInput
+  | DeleteMethodCommandInput
+  | DeleteMethodResponseCommandInput
+  | DeleteModelCommandInput
+  | DeleteRequestValidatorCommandInput
+  | DeleteResourceCommandInput
+  | DeleteRestApiCommandInput
+  | DeleteStageCommandInput
+  | DeleteUsagePlanCommandInput
+  | DeleteUsagePlanKeyCommandInput
+  | DeleteVpcLinkCommandInput
+  | FlushStageAuthorizersCacheCommandInput
+  | FlushStageCacheCommandInput
+  | GenerateClientCertificateCommandInput
+  | GetAccountCommandInput
+  | GetApiKeyCommandInput
+  | GetApiKeysCommandInput
+  | GetAuthorizerCommandInput
+  | GetAuthorizersCommandInput
+  | GetBasePathMappingCommandInput
+  | GetBasePathMappingsCommandInput
+  | GetClientCertificateCommandInput
+  | GetClientCertificatesCommandInput
+  | GetDeploymentCommandInput
+  | GetDeploymentsCommandInput
+  | GetDocumentationPartCommandInput
+  | GetDocumentationPartsCommandInput
+  | GetDocumentationVersionCommandInput
+  | GetDocumentationVersionsCommandInput
+  | GetDomainNameCommandInput
+  | GetDomainNamesCommandInput
+  | GetExportCommandInput
+  | GetGatewayResponseCommandInput
+  | GetGatewayResponsesCommandInput
+  | GetIntegrationCommandInput
+  | GetIntegrationResponseCommandInput
+  | GetMethodCommandInput
+  | GetMethodResponseCommandInput
+  | GetModelCommandInput
+  | GetModelTemplateCommandInput
+  | GetModelsCommandInput
+  | GetRequestValidatorCommandInput
+  | GetRequestValidatorsCommandInput
+  | GetResourceCommandInput
+  | GetResourcesCommandInput
+  | GetRestApiCommandInput
+  | GetRestApisCommandInput
+  | GetSdkCommandInput
+  | GetSdkTypeCommandInput
+  | GetSdkTypesCommandInput
+  | GetStageCommandInput
+  | GetStagesCommandInput
+  | GetTagsCommandInput
+  | GetUsageCommandInput
+  | GetUsagePlanCommandInput
+  | GetUsagePlanKeyCommandInput
+  | GetUsagePlanKeysCommandInput
+  | GetUsagePlansCommandInput
+  | GetVpcLinkCommandInput
+  | GetVpcLinksCommandInput
+  | ImportApiKeysCommandInput
+  | ImportDocumentationPartsCommandInput
+  | ImportRestApiCommandInput
+  | PutGatewayResponseCommandInput
+  | PutIntegrationCommandInput
+  | PutIntegrationResponseCommandInput
+  | PutMethodCommandInput
+  | PutMethodResponseCommandInput
+  | PutRestApiCommandInput
+  | TagResourceCommandInput
+  | TestInvokeAuthorizerCommandInput
+  | TestInvokeMethodCommandInput
+  | UntagResourceCommandInput
+  | UpdateAccountCommandInput
+  | UpdateApiKeyCommandInput
+  | UpdateAuthorizerCommandInput
+  | UpdateBasePathMappingCommandInput
+  | UpdateClientCertificateCommandInput
+  | UpdateDeploymentCommandInput
+  | UpdateDocumentationPartCommandInput
+  | UpdateDocumentationVersionCommandInput
+  | UpdateDomainNameCommandInput
+  | UpdateGatewayResponseCommandInput
+  | UpdateIntegrationCommandInput
+  | UpdateIntegrationResponseCommandInput
+  | UpdateMethodCommandInput
+  | UpdateMethodResponseCommandInput
+  | UpdateModelCommandInput
+  | UpdateRequestValidatorCommandInput
+  | UpdateResourceCommandInput
+  | UpdateRestApiCommandInput
+  | UpdateStageCommandInput
+  | UpdateUsageCommandInput
+  | UpdateUsagePlanCommandInput
+  | UpdateVpcLinkCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | Account
-  | Account
-  | ApiKey
-  | ApiKey
-  | ApiKey
-  | ApiKeyIds
-  | ApiKeys
-  | Authorizer
-  | Authorizer
-  | Authorizer
-  | Authorizers
-  | BasePathMapping
-  | BasePathMapping
-  | BasePathMapping
-  | BasePathMappings
-  | ClientCertificate
-  | ClientCertificate
-  | ClientCertificate
-  | ClientCertificates
-  | Deployment
-  | Deployment
-  | Deployment
-  | Deployments
-  | DocumentationPart
-  | DocumentationPart
-  | DocumentationPart
-  | DocumentationPartIds
-  | DocumentationParts
-  | DocumentationVersion
-  | DocumentationVersion
-  | DocumentationVersion
-  | DocumentationVersions
-  | DomainName
-  | DomainName
-  | DomainName
-  | DomainNames
-  | ExportResponse
-  | GatewayResponse
-  | GatewayResponse
-  | GatewayResponse
-  | GatewayResponses
-  | Integration
-  | Integration
-  | Integration
-  | IntegrationResponse
-  | IntegrationResponse
-  | IntegrationResponse
-  | Method
-  | Method
-  | Method
-  | MethodResponse
-  | MethodResponse
-  | MethodResponse
-  | Model
-  | Model
-  | Model
-  | Models
-  | RequestValidator
-  | RequestValidator
-  | RequestValidator
-  | RequestValidators
-  | Resource
-  | Resource
-  | Resource
-  | Resources
-  | RestApi
-  | RestApi
-  | RestApi
-  | RestApi
-  | RestApi
-  | RestApis
-  | SdkResponse
-  | SdkType
-  | SdkTypes
-  | Stage
-  | Stage
-  | Stage
-  | Stages
-  | Tags
-  | Template
-  | TestInvokeAuthorizerResponse
-  | TestInvokeMethodResponse
-  | Usage
-  | Usage
-  | UsagePlan
-  | UsagePlan
-  | UsagePlan
-  | UsagePlanKey
-  | UsagePlanKey
-  | UsagePlanKeys
-  | UsagePlans
-  | VpcLink
-  | VpcLink
-  | VpcLink
-  | VpcLinks;
+  | CreateApiKeyCommandOutput
+  | CreateAuthorizerCommandOutput
+  | CreateBasePathMappingCommandOutput
+  | CreateDeploymentCommandOutput
+  | CreateDocumentationPartCommandOutput
+  | CreateDocumentationVersionCommandOutput
+  | CreateDomainNameCommandOutput
+  | CreateModelCommandOutput
+  | CreateRequestValidatorCommandOutput
+  | CreateResourceCommandOutput
+  | CreateRestApiCommandOutput
+  | CreateStageCommandOutput
+  | CreateUsagePlanCommandOutput
+  | CreateUsagePlanKeyCommandOutput
+  | CreateVpcLinkCommandOutput
+  | DeleteApiKeyCommandOutput
+  | DeleteAuthorizerCommandOutput
+  | DeleteBasePathMappingCommandOutput
+  | DeleteClientCertificateCommandOutput
+  | DeleteDeploymentCommandOutput
+  | DeleteDocumentationPartCommandOutput
+  | DeleteDocumentationVersionCommandOutput
+  | DeleteDomainNameCommandOutput
+  | DeleteGatewayResponseCommandOutput
+  | DeleteIntegrationCommandOutput
+  | DeleteIntegrationResponseCommandOutput
+  | DeleteMethodCommandOutput
+  | DeleteMethodResponseCommandOutput
+  | DeleteModelCommandOutput
+  | DeleteRequestValidatorCommandOutput
+  | DeleteResourceCommandOutput
+  | DeleteRestApiCommandOutput
+  | DeleteStageCommandOutput
+  | DeleteUsagePlanCommandOutput
+  | DeleteUsagePlanKeyCommandOutput
+  | DeleteVpcLinkCommandOutput
+  | FlushStageAuthorizersCacheCommandOutput
+  | FlushStageCacheCommandOutput
+  | GenerateClientCertificateCommandOutput
+  | GetAccountCommandOutput
+  | GetApiKeyCommandOutput
+  | GetApiKeysCommandOutput
+  | GetAuthorizerCommandOutput
+  | GetAuthorizersCommandOutput
+  | GetBasePathMappingCommandOutput
+  | GetBasePathMappingsCommandOutput
+  | GetClientCertificateCommandOutput
+  | GetClientCertificatesCommandOutput
+  | GetDeploymentCommandOutput
+  | GetDeploymentsCommandOutput
+  | GetDocumentationPartCommandOutput
+  | GetDocumentationPartsCommandOutput
+  | GetDocumentationVersionCommandOutput
+  | GetDocumentationVersionsCommandOutput
+  | GetDomainNameCommandOutput
+  | GetDomainNamesCommandOutput
+  | GetExportCommandOutput
+  | GetGatewayResponseCommandOutput
+  | GetGatewayResponsesCommandOutput
+  | GetIntegrationCommandOutput
+  | GetIntegrationResponseCommandOutput
+  | GetMethodCommandOutput
+  | GetMethodResponseCommandOutput
+  | GetModelCommandOutput
+  | GetModelTemplateCommandOutput
+  | GetModelsCommandOutput
+  | GetRequestValidatorCommandOutput
+  | GetRequestValidatorsCommandOutput
+  | GetResourceCommandOutput
+  | GetResourcesCommandOutput
+  | GetRestApiCommandOutput
+  | GetRestApisCommandOutput
+  | GetSdkCommandOutput
+  | GetSdkTypeCommandOutput
+  | GetSdkTypesCommandOutput
+  | GetStageCommandOutput
+  | GetStagesCommandOutput
+  | GetTagsCommandOutput
+  | GetUsageCommandOutput
+  | GetUsagePlanCommandOutput
+  | GetUsagePlanKeyCommandOutput
+  | GetUsagePlanKeysCommandOutput
+  | GetUsagePlansCommandOutput
+  | GetVpcLinkCommandOutput
+  | GetVpcLinksCommandOutput
+  | ImportApiKeysCommandOutput
+  | ImportDocumentationPartsCommandOutput
+  | ImportRestApiCommandOutput
+  | PutGatewayResponseCommandOutput
+  | PutIntegrationCommandOutput
+  | PutIntegrationResponseCommandOutput
+  | PutMethodCommandOutput
+  | PutMethodResponseCommandOutput
+  | PutRestApiCommandOutput
+  | TagResourceCommandOutput
+  | TestInvokeAuthorizerCommandOutput
+  | TestInvokeMethodCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAccountCommandOutput
+  | UpdateApiKeyCommandOutput
+  | UpdateAuthorizerCommandOutput
+  | UpdateBasePathMappingCommandOutput
+  | UpdateClientCertificateCommandOutput
+  | UpdateDeploymentCommandOutput
+  | UpdateDocumentationPartCommandOutput
+  | UpdateDocumentationVersionCommandOutput
+  | UpdateDomainNameCommandOutput
+  | UpdateGatewayResponseCommandOutput
+  | UpdateIntegrationCommandOutput
+  | UpdateIntegrationResponseCommandOutput
+  | UpdateMethodCommandOutput
+  | UpdateMethodResponseCommandOutput
+  | UpdateModelCommandOutput
+  | UpdateRequestValidatorCommandOutput
+  | UpdateResourceCommandOutput
+  | UpdateRestApiCommandOutput
+  | UpdateStageCommandOutput
+  | UpdateUsageCommandOutput
+  | UpdateUsagePlanCommandOutput
+  | UpdateVpcLinkCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -24,7 +24,7 @@ export namespace CloseTunnelRequest {
   }
 }
 
-export interface CloseTunnelResponse extends $MetadataBearer {
+export interface CloseTunnelResponse {
   __type?: "CloseTunnelResponse";
 }
 
@@ -76,7 +76,7 @@ export namespace DescribeTunnelRequest {
   }
 }
 
-export interface DescribeTunnelResponse extends $MetadataBearer {
+export interface DescribeTunnelResponse {
   __type?: "DescribeTunnelResponse";
   /**
    * <p>The tunnel being described.</p>
@@ -147,7 +147,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags for the specified resource.</p>
@@ -185,7 +185,7 @@ export namespace ListTunnelsRequest {
   }
 }
 
-export interface ListTunnelsResponse extends $MetadataBearer {
+export interface ListTunnelsResponse {
   __type?: "ListTunnelsResponse";
   /**
    * <p>A token to used to retrieve the next set of results.</p>
@@ -233,7 +233,7 @@ export namespace OpenTunnelRequest {
   }
 }
 
-export interface OpenTunnelResponse extends $MetadataBearer {
+export interface OpenTunnelResponse {
   __type?: "OpenTunnelResponse";
   /**
    * <p>The access token the destination local proxy uses to connect to AWS IoT Secure
@@ -325,7 +325,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -493,7 +493,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

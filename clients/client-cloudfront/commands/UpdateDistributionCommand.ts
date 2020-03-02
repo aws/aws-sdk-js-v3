@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDistributionCommandInput = UpdateDistributionRequest;
-export type UpdateDistributionCommandOutput = UpdateDistributionResult;
+export type UpdateDistributionCommandOutput = UpdateDistributionResult &
+  __MetadataBearer;
 
 export class UpdateDistributionCommand extends $Command<
   UpdateDistributionCommandInput,

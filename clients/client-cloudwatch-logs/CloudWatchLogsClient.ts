@@ -1,65 +1,159 @@
 import {
-  AssociateKmsKeyRequest,
-  CancelExportTaskRequest,
-  CreateExportTaskRequest,
-  CreateExportTaskResponse,
-  CreateLogGroupRequest,
-  CreateLogStreamRequest,
-  DeleteDestinationRequest,
-  DeleteLogGroupRequest,
-  DeleteLogStreamRequest,
-  DeleteMetricFilterRequest,
-  DeleteResourcePolicyRequest,
-  DeleteRetentionPolicyRequest,
-  DeleteSubscriptionFilterRequest,
-  DescribeDestinationsRequest,
-  DescribeDestinationsResponse,
-  DescribeExportTasksRequest,
-  DescribeExportTasksResponse,
-  DescribeLogGroupsRequest,
-  DescribeLogGroupsResponse,
-  DescribeLogStreamsRequest,
-  DescribeLogStreamsResponse,
-  DescribeMetricFiltersRequest,
-  DescribeMetricFiltersResponse,
-  DescribeQueriesRequest,
-  DescribeQueriesResponse,
-  DescribeResourcePoliciesRequest,
-  DescribeResourcePoliciesResponse,
-  DescribeSubscriptionFiltersRequest,
-  DescribeSubscriptionFiltersResponse,
-  DisassociateKmsKeyRequest,
-  FilterLogEventsRequest,
-  FilterLogEventsResponse,
-  GetLogEventsRequest,
-  GetLogEventsResponse,
-  GetLogGroupFieldsRequest,
-  GetLogGroupFieldsResponse,
-  GetLogRecordRequest,
-  GetLogRecordResponse,
-  GetQueryResultsRequest,
-  GetQueryResultsResponse,
-  ListTagsLogGroupRequest,
-  ListTagsLogGroupResponse,
-  PutDestinationPolicyRequest,
-  PutDestinationRequest,
-  PutDestinationResponse,
-  PutLogEventsRequest,
-  PutLogEventsResponse,
-  PutMetricFilterRequest,
-  PutResourcePolicyRequest,
-  PutResourcePolicyResponse,
-  PutRetentionPolicyRequest,
-  PutSubscriptionFilterRequest,
-  StartQueryRequest,
-  StartQueryResponse,
-  StopQueryRequest,
-  StopQueryResponse,
-  TagLogGroupRequest,
-  TestMetricFilterRequest,
-  TestMetricFilterResponse,
-  UntagLogGroupRequest
-} from "./models/index";
+  AssociateKmsKeyCommandInput,
+  AssociateKmsKeyCommandOutput
+} from "./commands/AssociateKmsKeyCommand";
+import {
+  CancelExportTaskCommandInput,
+  CancelExportTaskCommandOutput
+} from "./commands/CancelExportTaskCommand";
+import {
+  CreateExportTaskCommandInput,
+  CreateExportTaskCommandOutput
+} from "./commands/CreateExportTaskCommand";
+import {
+  CreateLogGroupCommandInput,
+  CreateLogGroupCommandOutput
+} from "./commands/CreateLogGroupCommand";
+import {
+  CreateLogStreamCommandInput,
+  CreateLogStreamCommandOutput
+} from "./commands/CreateLogStreamCommand";
+import {
+  DeleteDestinationCommandInput,
+  DeleteDestinationCommandOutput
+} from "./commands/DeleteDestinationCommand";
+import {
+  DeleteLogGroupCommandInput,
+  DeleteLogGroupCommandOutput
+} from "./commands/DeleteLogGroupCommand";
+import {
+  DeleteLogStreamCommandInput,
+  DeleteLogStreamCommandOutput
+} from "./commands/DeleteLogStreamCommand";
+import {
+  DeleteMetricFilterCommandInput,
+  DeleteMetricFilterCommandOutput
+} from "./commands/DeleteMetricFilterCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput
+} from "./commands/DeleteResourcePolicyCommand";
+import {
+  DeleteRetentionPolicyCommandInput,
+  DeleteRetentionPolicyCommandOutput
+} from "./commands/DeleteRetentionPolicyCommand";
+import {
+  DeleteSubscriptionFilterCommandInput,
+  DeleteSubscriptionFilterCommandOutput
+} from "./commands/DeleteSubscriptionFilterCommand";
+import {
+  DescribeDestinationsCommandInput,
+  DescribeDestinationsCommandOutput
+} from "./commands/DescribeDestinationsCommand";
+import {
+  DescribeExportTasksCommandInput,
+  DescribeExportTasksCommandOutput
+} from "./commands/DescribeExportTasksCommand";
+import {
+  DescribeLogGroupsCommandInput,
+  DescribeLogGroupsCommandOutput
+} from "./commands/DescribeLogGroupsCommand";
+import {
+  DescribeLogStreamsCommandInput,
+  DescribeLogStreamsCommandOutput
+} from "./commands/DescribeLogStreamsCommand";
+import {
+  DescribeMetricFiltersCommandInput,
+  DescribeMetricFiltersCommandOutput
+} from "./commands/DescribeMetricFiltersCommand";
+import {
+  DescribeQueriesCommandInput,
+  DescribeQueriesCommandOutput
+} from "./commands/DescribeQueriesCommand";
+import {
+  DescribeResourcePoliciesCommandInput,
+  DescribeResourcePoliciesCommandOutput
+} from "./commands/DescribeResourcePoliciesCommand";
+import {
+  DescribeSubscriptionFiltersCommandInput,
+  DescribeSubscriptionFiltersCommandOutput
+} from "./commands/DescribeSubscriptionFiltersCommand";
+import {
+  DisassociateKmsKeyCommandInput,
+  DisassociateKmsKeyCommandOutput
+} from "./commands/DisassociateKmsKeyCommand";
+import {
+  FilterLogEventsCommandInput,
+  FilterLogEventsCommandOutput
+} from "./commands/FilterLogEventsCommand";
+import {
+  GetLogEventsCommandInput,
+  GetLogEventsCommandOutput
+} from "./commands/GetLogEventsCommand";
+import {
+  GetLogGroupFieldsCommandInput,
+  GetLogGroupFieldsCommandOutput
+} from "./commands/GetLogGroupFieldsCommand";
+import {
+  GetLogRecordCommandInput,
+  GetLogRecordCommandOutput
+} from "./commands/GetLogRecordCommand";
+import {
+  GetQueryResultsCommandInput,
+  GetQueryResultsCommandOutput
+} from "./commands/GetQueryResultsCommand";
+import {
+  ListTagsLogGroupCommandInput,
+  ListTagsLogGroupCommandOutput
+} from "./commands/ListTagsLogGroupCommand";
+import {
+  PutDestinationCommandInput,
+  PutDestinationCommandOutput
+} from "./commands/PutDestinationCommand";
+import {
+  PutDestinationPolicyCommandInput,
+  PutDestinationPolicyCommandOutput
+} from "./commands/PutDestinationPolicyCommand";
+import {
+  PutLogEventsCommandInput,
+  PutLogEventsCommandOutput
+} from "./commands/PutLogEventsCommand";
+import {
+  PutMetricFilterCommandInput,
+  PutMetricFilterCommandOutput
+} from "./commands/PutMetricFilterCommand";
+import {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput
+} from "./commands/PutResourcePolicyCommand";
+import {
+  PutRetentionPolicyCommandInput,
+  PutRetentionPolicyCommandOutput
+} from "./commands/PutRetentionPolicyCommand";
+import {
+  PutSubscriptionFilterCommandInput,
+  PutSubscriptionFilterCommandOutput
+} from "./commands/PutSubscriptionFilterCommand";
+import {
+  StartQueryCommandInput,
+  StartQueryCommandOutput
+} from "./commands/StartQueryCommand";
+import {
+  StopQueryCommandInput,
+  StopQueryCommandOutput
+} from "./commands/StopQueryCommand";
+import {
+  TagLogGroupCommandInput,
+  TagLogGroupCommandOutput
+} from "./commands/TagLogGroupCommand";
+import {
+  TestMetricFilterCommandInput,
+  TestMetricFilterCommandOutput
+} from "./commands/TestMetricFilterCommand";
+import {
+  UntagLogGroupCommandInput,
+  UntagLogGroupCommandOutput
+} from "./commands/UntagLogGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -107,76 +201,92 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateKmsKeyRequest
-  | CancelExportTaskRequest
-  | CreateExportTaskRequest
-  | CreateLogGroupRequest
-  | CreateLogStreamRequest
-  | DeleteDestinationRequest
-  | DeleteLogGroupRequest
-  | DeleteLogStreamRequest
-  | DeleteMetricFilterRequest
-  | DeleteResourcePolicyRequest
-  | DeleteRetentionPolicyRequest
-  | DeleteSubscriptionFilterRequest
-  | DescribeDestinationsRequest
-  | DescribeExportTasksRequest
-  | DescribeLogGroupsRequest
-  | DescribeLogStreamsRequest
-  | DescribeMetricFiltersRequest
-  | DescribeQueriesRequest
-  | DescribeResourcePoliciesRequest
-  | DescribeSubscriptionFiltersRequest
-  | DisassociateKmsKeyRequest
-  | FilterLogEventsRequest
-  | GetLogEventsRequest
-  | GetLogGroupFieldsRequest
-  | GetLogRecordRequest
-  | GetQueryResultsRequest
-  | ListTagsLogGroupRequest
-  | PutDestinationPolicyRequest
-  | PutDestinationRequest
-  | PutLogEventsRequest
-  | PutMetricFilterRequest
-  | PutResourcePolicyRequest
-  | PutRetentionPolicyRequest
-  | PutSubscriptionFilterRequest
-  | StartQueryRequest
-  | StopQueryRequest
-  | TagLogGroupRequest
-  | TestMetricFilterRequest
-  | UntagLogGroupRequest;
+  | AssociateKmsKeyCommandInput
+  | CancelExportTaskCommandInput
+  | CreateExportTaskCommandInput
+  | CreateLogGroupCommandInput
+  | CreateLogStreamCommandInput
+  | DeleteDestinationCommandInput
+  | DeleteLogGroupCommandInput
+  | DeleteLogStreamCommandInput
+  | DeleteMetricFilterCommandInput
+  | DeleteResourcePolicyCommandInput
+  | DeleteRetentionPolicyCommandInput
+  | DeleteSubscriptionFilterCommandInput
+  | DescribeDestinationsCommandInput
+  | DescribeExportTasksCommandInput
+  | DescribeLogGroupsCommandInput
+  | DescribeLogStreamsCommandInput
+  | DescribeMetricFiltersCommandInput
+  | DescribeQueriesCommandInput
+  | DescribeResourcePoliciesCommandInput
+  | DescribeSubscriptionFiltersCommandInput
+  | DisassociateKmsKeyCommandInput
+  | FilterLogEventsCommandInput
+  | GetLogEventsCommandInput
+  | GetLogGroupFieldsCommandInput
+  | GetLogRecordCommandInput
+  | GetQueryResultsCommandInput
+  | ListTagsLogGroupCommandInput
+  | PutDestinationCommandInput
+  | PutDestinationPolicyCommandInput
+  | PutLogEventsCommandInput
+  | PutMetricFilterCommandInput
+  | PutResourcePolicyCommandInput
+  | PutRetentionPolicyCommandInput
+  | PutSubscriptionFilterCommandInput
+  | StartQueryCommandInput
+  | StopQueryCommandInput
+  | TagLogGroupCommandInput
+  | TestMetricFilterCommandInput
+  | UntagLogGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateExportTaskResponse
-  | DescribeDestinationsResponse
-  | DescribeExportTasksResponse
-  | DescribeLogGroupsResponse
-  | DescribeLogStreamsResponse
-  | DescribeMetricFiltersResponse
-  | DescribeQueriesResponse
-  | DescribeResourcePoliciesResponse
-  | DescribeSubscriptionFiltersResponse
-  | FilterLogEventsResponse
-  | GetLogEventsResponse
-  | GetLogGroupFieldsResponse
-  | GetLogRecordResponse
-  | GetQueryResultsResponse
-  | ListTagsLogGroupResponse
-  | PutDestinationResponse
-  | PutLogEventsResponse
-  | PutResourcePolicyResponse
-  | StartQueryResponse
-  | StopQueryResponse
-  | TestMetricFilterResponse;
+  | AssociateKmsKeyCommandOutput
+  | CancelExportTaskCommandOutput
+  | CreateExportTaskCommandOutput
+  | CreateLogGroupCommandOutput
+  | CreateLogStreamCommandOutput
+  | DeleteDestinationCommandOutput
+  | DeleteLogGroupCommandOutput
+  | DeleteLogStreamCommandOutput
+  | DeleteMetricFilterCommandOutput
+  | DeleteResourcePolicyCommandOutput
+  | DeleteRetentionPolicyCommandOutput
+  | DeleteSubscriptionFilterCommandOutput
+  | DescribeDestinationsCommandOutput
+  | DescribeExportTasksCommandOutput
+  | DescribeLogGroupsCommandOutput
+  | DescribeLogStreamsCommandOutput
+  | DescribeMetricFiltersCommandOutput
+  | DescribeQueriesCommandOutput
+  | DescribeResourcePoliciesCommandOutput
+  | DescribeSubscriptionFiltersCommandOutput
+  | DisassociateKmsKeyCommandOutput
+  | FilterLogEventsCommandOutput
+  | GetLogEventsCommandOutput
+  | GetLogGroupFieldsCommandOutput
+  | GetLogRecordCommandOutput
+  | GetQueryResultsCommandOutput
+  | ListTagsLogGroupCommandOutput
+  | PutDestinationCommandOutput
+  | PutDestinationPolicyCommandOutput
+  | PutLogEventsCommandOutput
+  | PutMetricFilterCommandOutput
+  | PutResourcePolicyCommandOutput
+  | PutRetentionPolicyCommandOutput
+  | PutSubscriptionFilterCommandOutput
+  | StartQueryCommandOutput
+  | StopQueryCommandOutput
+  | TagLogGroupCommandOutput
+  | TestMetricFilterCommandOutput
+  | UntagLogGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

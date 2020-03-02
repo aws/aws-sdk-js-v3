@@ -38,7 +38,7 @@ export namespace GetPersonalizedRankingRequest {
   }
 }
 
-export interface GetPersonalizedRankingResponse extends $MetadataBearer {
+export interface GetPersonalizedRankingResponse {
   __type?: "GetPersonalizedRankingResponse";
   /**
    * <p>A list of items in order of most likely interest to the user. The maximum is 500.</p>
@@ -91,7 +91,7 @@ export namespace GetRecommendationsRequest {
   }
 }
 
-export interface GetRecommendationsResponse extends $MetadataBearer {
+export interface GetRecommendationsResponse {
   __type?: "GetRecommendationsResponse";
   /**
    * <p>A list of recommendations sorted in ascending order by prediction score. There can be a

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLabelsCommandInput = CreateLabelsRequest;
-export type CreateLabelsCommandOutput = CreateLabelsResponse;
+export type CreateLabelsCommandOutput = CreateLabelsResponse & __MetadataBearer;
 
 export class CreateLabelsCommand extends $Command<
   CreateLabelsCommandInput,

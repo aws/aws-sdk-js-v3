@@ -1,12 +1,19 @@
 import {
-  GetRoleCredentialsRequest,
-  GetRoleCredentialsResponse,
-  ListAccountRolesRequest,
-  ListAccountRolesResponse,
-  ListAccountsRequest,
-  ListAccountsResponse,
-  LogoutRequest
-} from "./models/index";
+  GetRoleCredentialsCommandInput,
+  GetRoleCredentialsCommandOutput
+} from "./commands/GetRoleCredentialsCommand";
+import {
+  ListAccountRolesCommandInput,
+  ListAccountRolesCommandOutput
+} from "./commands/ListAccountRolesCommand";
+import {
+  ListAccountsCommandInput,
+  ListAccountsCommandOutput
+} from "./commands/ListAccountsCommand";
+import {
+  LogoutCommandInput,
+  LogoutCommandOutput
+} from "./commands/LogoutCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -54,23 +61,22 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | GetRoleCredentialsRequest
-  | ListAccountRolesRequest
-  | ListAccountsRequest
-  | LogoutRequest;
+  | GetRoleCredentialsCommandInput
+  | ListAccountRolesCommandInput
+  | ListAccountsCommandInput
+  | LogoutCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | GetRoleCredentialsResponse
-  | ListAccountRolesResponse
-  | ListAccountsResponse;
+  | GetRoleCredentialsCommandOutput
+  | ListAccountRolesCommandOutput
+  | ListAccountsCommandOutput
+  | LogoutCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

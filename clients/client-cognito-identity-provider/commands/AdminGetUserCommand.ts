@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminGetUserCommandInput = AdminGetUserRequest;
-export type AdminGetUserCommandOutput = AdminGetUserResponse;
+export type AdminGetUserCommandOutput = AdminGetUserResponse & __MetadataBearer;
 
 export class AdminGetUserCommand extends $Command<
   AdminGetUserCommandInput,

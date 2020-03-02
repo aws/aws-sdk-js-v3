@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ValidateConfigurationSettingsCommandInput = ValidateConfigurationSettingsMessage;
-export type ValidateConfigurationSettingsCommandOutput = ConfigurationSettingsValidationMessages;
+export type ValidateConfigurationSettingsCommandOutput = ConfigurationSettingsValidationMessages &
+  __MetadataBearer;
 
 export class ValidateConfigurationSettingsCommand extends $Command<
   ValidateConfigurationSettingsCommandInput,

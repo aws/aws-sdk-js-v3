@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListShardsCommandInput = ListShardsInput;
-export type ListShardsCommandOutput = ListShardsOutput;
+export type ListShardsCommandOutput = ListShardsOutput & __MetadataBearer;
 
 export class ListShardsCommand extends $Command<
   ListShardsCommandInput,

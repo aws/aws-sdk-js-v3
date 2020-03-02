@@ -1,171 +1,335 @@
 import {
-  AcceptPortfolioShareInput,
-  AcceptPortfolioShareOutput,
-  AssociateBudgetWithResourceInput,
-  AssociateBudgetWithResourceOutput,
-  AssociatePrincipalWithPortfolioInput,
-  AssociatePrincipalWithPortfolioOutput,
-  AssociateProductWithPortfolioInput,
-  AssociateProductWithPortfolioOutput,
-  AssociateServiceActionWithProvisioningArtifactInput,
-  AssociateServiceActionWithProvisioningArtifactOutput,
-  AssociateTagOptionWithResourceInput,
-  AssociateTagOptionWithResourceOutput,
-  BatchAssociateServiceActionWithProvisioningArtifactInput,
-  BatchAssociateServiceActionWithProvisioningArtifactOutput,
-  BatchDisassociateServiceActionFromProvisioningArtifactInput,
-  BatchDisassociateServiceActionFromProvisioningArtifactOutput,
-  CopyProductInput,
-  CopyProductOutput,
-  CreateConstraintInput,
-  CreateConstraintOutput,
-  CreatePortfolioInput,
-  CreatePortfolioOutput,
-  CreatePortfolioShareInput,
-  CreatePortfolioShareOutput,
-  CreateProductInput,
-  CreateProductOutput,
-  CreateProvisionedProductPlanInput,
-  CreateProvisionedProductPlanOutput,
-  CreateProvisioningArtifactInput,
-  CreateProvisioningArtifactOutput,
-  CreateServiceActionInput,
-  CreateServiceActionOutput,
-  CreateTagOptionInput,
-  CreateTagOptionOutput,
-  DeleteConstraintInput,
-  DeleteConstraintOutput,
-  DeletePortfolioInput,
-  DeletePortfolioOutput,
-  DeletePortfolioShareInput,
-  DeletePortfolioShareOutput,
-  DeleteProductInput,
-  DeleteProductOutput,
-  DeleteProvisionedProductPlanInput,
-  DeleteProvisionedProductPlanOutput,
-  DeleteProvisioningArtifactInput,
-  DeleteProvisioningArtifactOutput,
-  DeleteServiceActionInput,
-  DeleteServiceActionOutput,
-  DeleteTagOptionInput,
-  DeleteTagOptionOutput,
-  DescribeConstraintInput,
-  DescribeConstraintOutput,
-  DescribeCopyProductStatusInput,
-  DescribeCopyProductStatusOutput,
-  DescribePortfolioInput,
-  DescribePortfolioOutput,
-  DescribePortfolioShareStatusInput,
-  DescribePortfolioShareStatusOutput,
-  DescribeProductAsAdminInput,
-  DescribeProductAsAdminOutput,
-  DescribeProductInput,
-  DescribeProductOutput,
-  DescribeProductViewInput,
-  DescribeProductViewOutput,
-  DescribeProvisionedProductInput,
-  DescribeProvisionedProductOutput,
-  DescribeProvisionedProductPlanInput,
-  DescribeProvisionedProductPlanOutput,
-  DescribeProvisioningArtifactInput,
-  DescribeProvisioningArtifactOutput,
-  DescribeProvisioningParametersInput,
-  DescribeProvisioningParametersOutput,
-  DescribeRecordInput,
-  DescribeRecordOutput,
-  DescribeServiceActionExecutionParametersInput,
-  DescribeServiceActionExecutionParametersOutput,
-  DescribeServiceActionInput,
-  DescribeServiceActionOutput,
-  DescribeTagOptionInput,
-  DescribeTagOptionOutput,
-  DisableAWSOrganizationsAccessInput,
-  DisableAWSOrganizationsAccessOutput,
-  DisassociateBudgetFromResourceInput,
-  DisassociateBudgetFromResourceOutput,
-  DisassociatePrincipalFromPortfolioInput,
-  DisassociatePrincipalFromPortfolioOutput,
-  DisassociateProductFromPortfolioInput,
-  DisassociateProductFromPortfolioOutput,
-  DisassociateServiceActionFromProvisioningArtifactInput,
-  DisassociateServiceActionFromProvisioningArtifactOutput,
-  DisassociateTagOptionFromResourceInput,
-  DisassociateTagOptionFromResourceOutput,
-  EnableAWSOrganizationsAccessInput,
-  EnableAWSOrganizationsAccessOutput,
-  ExecuteProvisionedProductPlanInput,
-  ExecuteProvisionedProductPlanOutput,
-  ExecuteProvisionedProductServiceActionInput,
-  ExecuteProvisionedProductServiceActionOutput,
-  GetAWSOrganizationsAccessStatusInput,
-  GetAWSOrganizationsAccessStatusOutput,
-  ListAcceptedPortfolioSharesInput,
-  ListAcceptedPortfolioSharesOutput,
-  ListBudgetsForResourceInput,
-  ListBudgetsForResourceOutput,
-  ListConstraintsForPortfolioInput,
-  ListConstraintsForPortfolioOutput,
-  ListLaunchPathsInput,
-  ListLaunchPathsOutput,
-  ListOrganizationPortfolioAccessInput,
-  ListOrganizationPortfolioAccessOutput,
-  ListPortfolioAccessInput,
-  ListPortfolioAccessOutput,
-  ListPortfoliosForProductInput,
-  ListPortfoliosForProductOutput,
-  ListPortfoliosInput,
-  ListPortfoliosOutput,
-  ListPrincipalsForPortfolioInput,
-  ListPrincipalsForPortfolioOutput,
-  ListProvisionedProductPlansInput,
-  ListProvisionedProductPlansOutput,
-  ListProvisioningArtifactsForServiceActionInput,
-  ListProvisioningArtifactsForServiceActionOutput,
-  ListProvisioningArtifactsInput,
-  ListProvisioningArtifactsOutput,
-  ListRecordHistoryInput,
-  ListRecordHistoryOutput,
-  ListResourcesForTagOptionInput,
-  ListResourcesForTagOptionOutput,
-  ListServiceActionsForProvisioningArtifactInput,
-  ListServiceActionsForProvisioningArtifactOutput,
-  ListServiceActionsInput,
-  ListServiceActionsOutput,
-  ListStackInstancesForProvisionedProductInput,
-  ListStackInstancesForProvisionedProductOutput,
-  ListTagOptionsInput,
-  ListTagOptionsOutput,
-  ProvisionProductInput,
-  ProvisionProductOutput,
-  RejectPortfolioShareInput,
-  RejectPortfolioShareOutput,
-  ScanProvisionedProductsInput,
-  ScanProvisionedProductsOutput,
-  SearchProductsAsAdminInput,
-  SearchProductsAsAdminOutput,
-  SearchProductsInput,
-  SearchProductsOutput,
-  SearchProvisionedProductsInput,
-  SearchProvisionedProductsOutput,
-  TerminateProvisionedProductInput,
-  TerminateProvisionedProductOutput,
-  UpdateConstraintInput,
-  UpdateConstraintOutput,
-  UpdatePortfolioInput,
-  UpdatePortfolioOutput,
-  UpdateProductInput,
-  UpdateProductOutput,
-  UpdateProvisionedProductInput,
-  UpdateProvisionedProductOutput,
-  UpdateProvisionedProductPropertiesInput,
-  UpdateProvisionedProductPropertiesOutput,
-  UpdateProvisioningArtifactInput,
-  UpdateProvisioningArtifactOutput,
-  UpdateServiceActionInput,
-  UpdateServiceActionOutput,
-  UpdateTagOptionInput,
-  UpdateTagOptionOutput
-} from "./models/index";
+  AcceptPortfolioShareCommandInput,
+  AcceptPortfolioShareCommandOutput
+} from "./commands/AcceptPortfolioShareCommand";
+import {
+  AssociateBudgetWithResourceCommandInput,
+  AssociateBudgetWithResourceCommandOutput
+} from "./commands/AssociateBudgetWithResourceCommand";
+import {
+  AssociatePrincipalWithPortfolioCommandInput,
+  AssociatePrincipalWithPortfolioCommandOutput
+} from "./commands/AssociatePrincipalWithPortfolioCommand";
+import {
+  AssociateProductWithPortfolioCommandInput,
+  AssociateProductWithPortfolioCommandOutput
+} from "./commands/AssociateProductWithPortfolioCommand";
+import {
+  AssociateServiceActionWithProvisioningArtifactCommandInput,
+  AssociateServiceActionWithProvisioningArtifactCommandOutput
+} from "./commands/AssociateServiceActionWithProvisioningArtifactCommand";
+import {
+  AssociateTagOptionWithResourceCommandInput,
+  AssociateTagOptionWithResourceCommandOutput
+} from "./commands/AssociateTagOptionWithResourceCommand";
+import {
+  BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
+  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+} from "./commands/BatchAssociateServiceActionWithProvisioningArtifactCommand";
+import {
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+} from "./commands/BatchDisassociateServiceActionFromProvisioningArtifactCommand";
+import {
+  CopyProductCommandInput,
+  CopyProductCommandOutput
+} from "./commands/CopyProductCommand";
+import {
+  CreateConstraintCommandInput,
+  CreateConstraintCommandOutput
+} from "./commands/CreateConstraintCommand";
+import {
+  CreatePortfolioCommandInput,
+  CreatePortfolioCommandOutput
+} from "./commands/CreatePortfolioCommand";
+import {
+  CreatePortfolioShareCommandInput,
+  CreatePortfolioShareCommandOutput
+} from "./commands/CreatePortfolioShareCommand";
+import {
+  CreateProductCommandInput,
+  CreateProductCommandOutput
+} from "./commands/CreateProductCommand";
+import {
+  CreateProvisionedProductPlanCommandInput,
+  CreateProvisionedProductPlanCommandOutput
+} from "./commands/CreateProvisionedProductPlanCommand";
+import {
+  CreateProvisioningArtifactCommandInput,
+  CreateProvisioningArtifactCommandOutput
+} from "./commands/CreateProvisioningArtifactCommand";
+import {
+  CreateServiceActionCommandInput,
+  CreateServiceActionCommandOutput
+} from "./commands/CreateServiceActionCommand";
+import {
+  CreateTagOptionCommandInput,
+  CreateTagOptionCommandOutput
+} from "./commands/CreateTagOptionCommand";
+import {
+  DeleteConstraintCommandInput,
+  DeleteConstraintCommandOutput
+} from "./commands/DeleteConstraintCommand";
+import {
+  DeletePortfolioCommandInput,
+  DeletePortfolioCommandOutput
+} from "./commands/DeletePortfolioCommand";
+import {
+  DeletePortfolioShareCommandInput,
+  DeletePortfolioShareCommandOutput
+} from "./commands/DeletePortfolioShareCommand";
+import {
+  DeleteProductCommandInput,
+  DeleteProductCommandOutput
+} from "./commands/DeleteProductCommand";
+import {
+  DeleteProvisionedProductPlanCommandInput,
+  DeleteProvisionedProductPlanCommandOutput
+} from "./commands/DeleteProvisionedProductPlanCommand";
+import {
+  DeleteProvisioningArtifactCommandInput,
+  DeleteProvisioningArtifactCommandOutput
+} from "./commands/DeleteProvisioningArtifactCommand";
+import {
+  DeleteServiceActionCommandInput,
+  DeleteServiceActionCommandOutput
+} from "./commands/DeleteServiceActionCommand";
+import {
+  DeleteTagOptionCommandInput,
+  DeleteTagOptionCommandOutput
+} from "./commands/DeleteTagOptionCommand";
+import {
+  DescribeConstraintCommandInput,
+  DescribeConstraintCommandOutput
+} from "./commands/DescribeConstraintCommand";
+import {
+  DescribeCopyProductStatusCommandInput,
+  DescribeCopyProductStatusCommandOutput
+} from "./commands/DescribeCopyProductStatusCommand";
+import {
+  DescribePortfolioCommandInput,
+  DescribePortfolioCommandOutput
+} from "./commands/DescribePortfolioCommand";
+import {
+  DescribePortfolioShareStatusCommandInput,
+  DescribePortfolioShareStatusCommandOutput
+} from "./commands/DescribePortfolioShareStatusCommand";
+import {
+  DescribeProductAsAdminCommandInput,
+  DescribeProductAsAdminCommandOutput
+} from "./commands/DescribeProductAsAdminCommand";
+import {
+  DescribeProductCommandInput,
+  DescribeProductCommandOutput
+} from "./commands/DescribeProductCommand";
+import {
+  DescribeProductViewCommandInput,
+  DescribeProductViewCommandOutput
+} from "./commands/DescribeProductViewCommand";
+import {
+  DescribeProvisionedProductCommandInput,
+  DescribeProvisionedProductCommandOutput
+} from "./commands/DescribeProvisionedProductCommand";
+import {
+  DescribeProvisionedProductPlanCommandInput,
+  DescribeProvisionedProductPlanCommandOutput
+} from "./commands/DescribeProvisionedProductPlanCommand";
+import {
+  DescribeProvisioningArtifactCommandInput,
+  DescribeProvisioningArtifactCommandOutput
+} from "./commands/DescribeProvisioningArtifactCommand";
+import {
+  DescribeProvisioningParametersCommandInput,
+  DescribeProvisioningParametersCommandOutput
+} from "./commands/DescribeProvisioningParametersCommand";
+import {
+  DescribeRecordCommandInput,
+  DescribeRecordCommandOutput
+} from "./commands/DescribeRecordCommand";
+import {
+  DescribeServiceActionCommandInput,
+  DescribeServiceActionCommandOutput
+} from "./commands/DescribeServiceActionCommand";
+import {
+  DescribeServiceActionExecutionParametersCommandInput,
+  DescribeServiceActionExecutionParametersCommandOutput
+} from "./commands/DescribeServiceActionExecutionParametersCommand";
+import {
+  DescribeTagOptionCommandInput,
+  DescribeTagOptionCommandOutput
+} from "./commands/DescribeTagOptionCommand";
+import {
+  DisableAWSOrganizationsAccessCommandInput,
+  DisableAWSOrganizationsAccessCommandOutput
+} from "./commands/DisableAWSOrganizationsAccessCommand";
+import {
+  DisassociateBudgetFromResourceCommandInput,
+  DisassociateBudgetFromResourceCommandOutput
+} from "./commands/DisassociateBudgetFromResourceCommand";
+import {
+  DisassociatePrincipalFromPortfolioCommandInput,
+  DisassociatePrincipalFromPortfolioCommandOutput
+} from "./commands/DisassociatePrincipalFromPortfolioCommand";
+import {
+  DisassociateProductFromPortfolioCommandInput,
+  DisassociateProductFromPortfolioCommandOutput
+} from "./commands/DisassociateProductFromPortfolioCommand";
+import {
+  DisassociateServiceActionFromProvisioningArtifactCommandInput,
+  DisassociateServiceActionFromProvisioningArtifactCommandOutput
+} from "./commands/DisassociateServiceActionFromProvisioningArtifactCommand";
+import {
+  DisassociateTagOptionFromResourceCommandInput,
+  DisassociateTagOptionFromResourceCommandOutput
+} from "./commands/DisassociateTagOptionFromResourceCommand";
+import {
+  EnableAWSOrganizationsAccessCommandInput,
+  EnableAWSOrganizationsAccessCommandOutput
+} from "./commands/EnableAWSOrganizationsAccessCommand";
+import {
+  ExecuteProvisionedProductPlanCommandInput,
+  ExecuteProvisionedProductPlanCommandOutput
+} from "./commands/ExecuteProvisionedProductPlanCommand";
+import {
+  ExecuteProvisionedProductServiceActionCommandInput,
+  ExecuteProvisionedProductServiceActionCommandOutput
+} from "./commands/ExecuteProvisionedProductServiceActionCommand";
+import {
+  GetAWSOrganizationsAccessStatusCommandInput,
+  GetAWSOrganizationsAccessStatusCommandOutput
+} from "./commands/GetAWSOrganizationsAccessStatusCommand";
+import {
+  ListAcceptedPortfolioSharesCommandInput,
+  ListAcceptedPortfolioSharesCommandOutput
+} from "./commands/ListAcceptedPortfolioSharesCommand";
+import {
+  ListBudgetsForResourceCommandInput,
+  ListBudgetsForResourceCommandOutput
+} from "./commands/ListBudgetsForResourceCommand";
+import {
+  ListConstraintsForPortfolioCommandInput,
+  ListConstraintsForPortfolioCommandOutput
+} from "./commands/ListConstraintsForPortfolioCommand";
+import {
+  ListLaunchPathsCommandInput,
+  ListLaunchPathsCommandOutput
+} from "./commands/ListLaunchPathsCommand";
+import {
+  ListOrganizationPortfolioAccessCommandInput,
+  ListOrganizationPortfolioAccessCommandOutput
+} from "./commands/ListOrganizationPortfolioAccessCommand";
+import {
+  ListPortfolioAccessCommandInput,
+  ListPortfolioAccessCommandOutput
+} from "./commands/ListPortfolioAccessCommand";
+import {
+  ListPortfoliosCommandInput,
+  ListPortfoliosCommandOutput
+} from "./commands/ListPortfoliosCommand";
+import {
+  ListPortfoliosForProductCommandInput,
+  ListPortfoliosForProductCommandOutput
+} from "./commands/ListPortfoliosForProductCommand";
+import {
+  ListPrincipalsForPortfolioCommandInput,
+  ListPrincipalsForPortfolioCommandOutput
+} from "./commands/ListPrincipalsForPortfolioCommand";
+import {
+  ListProvisionedProductPlansCommandInput,
+  ListProvisionedProductPlansCommandOutput
+} from "./commands/ListProvisionedProductPlansCommand";
+import {
+  ListProvisioningArtifactsCommandInput,
+  ListProvisioningArtifactsCommandOutput
+} from "./commands/ListProvisioningArtifactsCommand";
+import {
+  ListProvisioningArtifactsForServiceActionCommandInput,
+  ListProvisioningArtifactsForServiceActionCommandOutput
+} from "./commands/ListProvisioningArtifactsForServiceActionCommand";
+import {
+  ListRecordHistoryCommandInput,
+  ListRecordHistoryCommandOutput
+} from "./commands/ListRecordHistoryCommand";
+import {
+  ListResourcesForTagOptionCommandInput,
+  ListResourcesForTagOptionCommandOutput
+} from "./commands/ListResourcesForTagOptionCommand";
+import {
+  ListServiceActionsCommandInput,
+  ListServiceActionsCommandOutput
+} from "./commands/ListServiceActionsCommand";
+import {
+  ListServiceActionsForProvisioningArtifactCommandInput,
+  ListServiceActionsForProvisioningArtifactCommandOutput
+} from "./commands/ListServiceActionsForProvisioningArtifactCommand";
+import {
+  ListStackInstancesForProvisionedProductCommandInput,
+  ListStackInstancesForProvisionedProductCommandOutput
+} from "./commands/ListStackInstancesForProvisionedProductCommand";
+import {
+  ListTagOptionsCommandInput,
+  ListTagOptionsCommandOutput
+} from "./commands/ListTagOptionsCommand";
+import {
+  ProvisionProductCommandInput,
+  ProvisionProductCommandOutput
+} from "./commands/ProvisionProductCommand";
+import {
+  RejectPortfolioShareCommandInput,
+  RejectPortfolioShareCommandOutput
+} from "./commands/RejectPortfolioShareCommand";
+import {
+  ScanProvisionedProductsCommandInput,
+  ScanProvisionedProductsCommandOutput
+} from "./commands/ScanProvisionedProductsCommand";
+import {
+  SearchProductsAsAdminCommandInput,
+  SearchProductsAsAdminCommandOutput
+} from "./commands/SearchProductsAsAdminCommand";
+import {
+  SearchProductsCommandInput,
+  SearchProductsCommandOutput
+} from "./commands/SearchProductsCommand";
+import {
+  SearchProvisionedProductsCommandInput,
+  SearchProvisionedProductsCommandOutput
+} from "./commands/SearchProvisionedProductsCommand";
+import {
+  TerminateProvisionedProductCommandInput,
+  TerminateProvisionedProductCommandOutput
+} from "./commands/TerminateProvisionedProductCommand";
+import {
+  UpdateConstraintCommandInput,
+  UpdateConstraintCommandOutput
+} from "./commands/UpdateConstraintCommand";
+import {
+  UpdatePortfolioCommandInput,
+  UpdatePortfolioCommandOutput
+} from "./commands/UpdatePortfolioCommand";
+import {
+  UpdateProductCommandInput,
+  UpdateProductCommandOutput
+} from "./commands/UpdateProductCommand";
+import {
+  UpdateProvisionedProductCommandInput,
+  UpdateProvisionedProductCommandOutput
+} from "./commands/UpdateProvisionedProductCommand";
+import {
+  UpdateProvisionedProductPropertiesCommandInput,
+  UpdateProvisionedProductPropertiesCommandOutput
+} from "./commands/UpdateProvisionedProductPropertiesCommand";
+import {
+  UpdateProvisioningArtifactCommandInput,
+  UpdateProvisioningArtifactCommandOutput
+} from "./commands/UpdateProvisioningArtifactCommand";
+import {
+  UpdateServiceActionCommandInput,
+  UpdateServiceActionCommandOutput
+} from "./commands/UpdateServiceActionCommand";
+import {
+  UpdateTagOptionCommandInput,
+  UpdateTagOptionCommandOutput
+} from "./commands/UpdateTagOptionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -219,174 +383,174 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AcceptPortfolioShareInput
-  | AssociateBudgetWithResourceInput
-  | AssociatePrincipalWithPortfolioInput
-  | AssociateProductWithPortfolioInput
-  | AssociateServiceActionWithProvisioningArtifactInput
-  | AssociateTagOptionWithResourceInput
-  | BatchAssociateServiceActionWithProvisioningArtifactInput
-  | BatchDisassociateServiceActionFromProvisioningArtifactInput
-  | CopyProductInput
-  | CreateConstraintInput
-  | CreatePortfolioInput
-  | CreatePortfolioShareInput
-  | CreateProductInput
-  | CreateProvisionedProductPlanInput
-  | CreateProvisioningArtifactInput
-  | CreateServiceActionInput
-  | CreateTagOptionInput
-  | DeleteConstraintInput
-  | DeletePortfolioInput
-  | DeletePortfolioShareInput
-  | DeleteProductInput
-  | DeleteProvisionedProductPlanInput
-  | DeleteProvisioningArtifactInput
-  | DeleteServiceActionInput
-  | DeleteTagOptionInput
-  | DescribeConstraintInput
-  | DescribeCopyProductStatusInput
-  | DescribePortfolioInput
-  | DescribePortfolioShareStatusInput
-  | DescribeProductAsAdminInput
-  | DescribeProductInput
-  | DescribeProductViewInput
-  | DescribeProvisionedProductInput
-  | DescribeProvisionedProductPlanInput
-  | DescribeProvisioningArtifactInput
-  | DescribeProvisioningParametersInput
-  | DescribeRecordInput
-  | DescribeServiceActionExecutionParametersInput
-  | DescribeServiceActionInput
-  | DescribeTagOptionInput
-  | DisableAWSOrganizationsAccessInput
-  | DisassociateBudgetFromResourceInput
-  | DisassociatePrincipalFromPortfolioInput
-  | DisassociateProductFromPortfolioInput
-  | DisassociateServiceActionFromProvisioningArtifactInput
-  | DisassociateTagOptionFromResourceInput
-  | EnableAWSOrganizationsAccessInput
-  | ExecuteProvisionedProductPlanInput
-  | ExecuteProvisionedProductServiceActionInput
-  | GetAWSOrganizationsAccessStatusInput
-  | ListAcceptedPortfolioSharesInput
-  | ListBudgetsForResourceInput
-  | ListConstraintsForPortfolioInput
-  | ListLaunchPathsInput
-  | ListOrganizationPortfolioAccessInput
-  | ListPortfolioAccessInput
-  | ListPortfoliosForProductInput
-  | ListPortfoliosInput
-  | ListPrincipalsForPortfolioInput
-  | ListProvisionedProductPlansInput
-  | ListProvisioningArtifactsForServiceActionInput
-  | ListProvisioningArtifactsInput
-  | ListRecordHistoryInput
-  | ListResourcesForTagOptionInput
-  | ListServiceActionsForProvisioningArtifactInput
-  | ListServiceActionsInput
-  | ListStackInstancesForProvisionedProductInput
-  | ListTagOptionsInput
-  | ProvisionProductInput
-  | RejectPortfolioShareInput
-  | ScanProvisionedProductsInput
-  | SearchProductsAsAdminInput
-  | SearchProductsInput
-  | SearchProvisionedProductsInput
-  | TerminateProvisionedProductInput
-  | UpdateConstraintInput
-  | UpdatePortfolioInput
-  | UpdateProductInput
-  | UpdateProvisionedProductInput
-  | UpdateProvisionedProductPropertiesInput
-  | UpdateProvisioningArtifactInput
-  | UpdateServiceActionInput
-  | UpdateTagOptionInput;
+  | AcceptPortfolioShareCommandInput
+  | AssociateBudgetWithResourceCommandInput
+  | AssociatePrincipalWithPortfolioCommandInput
+  | AssociateProductWithPortfolioCommandInput
+  | AssociateServiceActionWithProvisioningArtifactCommandInput
+  | AssociateTagOptionWithResourceCommandInput
+  | BatchAssociateServiceActionWithProvisioningArtifactCommandInput
+  | BatchDisassociateServiceActionFromProvisioningArtifactCommandInput
+  | CopyProductCommandInput
+  | CreateConstraintCommandInput
+  | CreatePortfolioCommandInput
+  | CreatePortfolioShareCommandInput
+  | CreateProductCommandInput
+  | CreateProvisionedProductPlanCommandInput
+  | CreateProvisioningArtifactCommandInput
+  | CreateServiceActionCommandInput
+  | CreateTagOptionCommandInput
+  | DeleteConstraintCommandInput
+  | DeletePortfolioCommandInput
+  | DeletePortfolioShareCommandInput
+  | DeleteProductCommandInput
+  | DeleteProvisionedProductPlanCommandInput
+  | DeleteProvisioningArtifactCommandInput
+  | DeleteServiceActionCommandInput
+  | DeleteTagOptionCommandInput
+  | DescribeConstraintCommandInput
+  | DescribeCopyProductStatusCommandInput
+  | DescribePortfolioCommandInput
+  | DescribePortfolioShareStatusCommandInput
+  | DescribeProductAsAdminCommandInput
+  | DescribeProductCommandInput
+  | DescribeProductViewCommandInput
+  | DescribeProvisionedProductCommandInput
+  | DescribeProvisionedProductPlanCommandInput
+  | DescribeProvisioningArtifactCommandInput
+  | DescribeProvisioningParametersCommandInput
+  | DescribeRecordCommandInput
+  | DescribeServiceActionCommandInput
+  | DescribeServiceActionExecutionParametersCommandInput
+  | DescribeTagOptionCommandInput
+  | DisableAWSOrganizationsAccessCommandInput
+  | DisassociateBudgetFromResourceCommandInput
+  | DisassociatePrincipalFromPortfolioCommandInput
+  | DisassociateProductFromPortfolioCommandInput
+  | DisassociateServiceActionFromProvisioningArtifactCommandInput
+  | DisassociateTagOptionFromResourceCommandInput
+  | EnableAWSOrganizationsAccessCommandInput
+  | ExecuteProvisionedProductPlanCommandInput
+  | ExecuteProvisionedProductServiceActionCommandInput
+  | GetAWSOrganizationsAccessStatusCommandInput
+  | ListAcceptedPortfolioSharesCommandInput
+  | ListBudgetsForResourceCommandInput
+  | ListConstraintsForPortfolioCommandInput
+  | ListLaunchPathsCommandInput
+  | ListOrganizationPortfolioAccessCommandInput
+  | ListPortfolioAccessCommandInput
+  | ListPortfoliosCommandInput
+  | ListPortfoliosForProductCommandInput
+  | ListPrincipalsForPortfolioCommandInput
+  | ListProvisionedProductPlansCommandInput
+  | ListProvisioningArtifactsCommandInput
+  | ListProvisioningArtifactsForServiceActionCommandInput
+  | ListRecordHistoryCommandInput
+  | ListResourcesForTagOptionCommandInput
+  | ListServiceActionsCommandInput
+  | ListServiceActionsForProvisioningArtifactCommandInput
+  | ListStackInstancesForProvisionedProductCommandInput
+  | ListTagOptionsCommandInput
+  | ProvisionProductCommandInput
+  | RejectPortfolioShareCommandInput
+  | ScanProvisionedProductsCommandInput
+  | SearchProductsAsAdminCommandInput
+  | SearchProductsCommandInput
+  | SearchProvisionedProductsCommandInput
+  | TerminateProvisionedProductCommandInput
+  | UpdateConstraintCommandInput
+  | UpdatePortfolioCommandInput
+  | UpdateProductCommandInput
+  | UpdateProvisionedProductCommandInput
+  | UpdateProvisionedProductPropertiesCommandInput
+  | UpdateProvisioningArtifactCommandInput
+  | UpdateServiceActionCommandInput
+  | UpdateTagOptionCommandInput;
 
 export type ServiceOutputTypes =
-  | AcceptPortfolioShareOutput
-  | AssociateBudgetWithResourceOutput
-  | AssociatePrincipalWithPortfolioOutput
-  | AssociateProductWithPortfolioOutput
-  | AssociateServiceActionWithProvisioningArtifactOutput
-  | AssociateTagOptionWithResourceOutput
-  | BatchAssociateServiceActionWithProvisioningArtifactOutput
-  | BatchDisassociateServiceActionFromProvisioningArtifactOutput
-  | CopyProductOutput
-  | CreateConstraintOutput
-  | CreatePortfolioOutput
-  | CreatePortfolioShareOutput
-  | CreateProductOutput
-  | CreateProvisionedProductPlanOutput
-  | CreateProvisioningArtifactOutput
-  | CreateServiceActionOutput
-  | CreateTagOptionOutput
-  | DeleteConstraintOutput
-  | DeletePortfolioOutput
-  | DeletePortfolioShareOutput
-  | DeleteProductOutput
-  | DeleteProvisionedProductPlanOutput
-  | DeleteProvisioningArtifactOutput
-  | DeleteServiceActionOutput
-  | DeleteTagOptionOutput
-  | DescribeConstraintOutput
-  | DescribeCopyProductStatusOutput
-  | DescribePortfolioOutput
-  | DescribePortfolioShareStatusOutput
-  | DescribeProductAsAdminOutput
-  | DescribeProductOutput
-  | DescribeProductViewOutput
-  | DescribeProvisionedProductOutput
-  | DescribeProvisionedProductPlanOutput
-  | DescribeProvisioningArtifactOutput
-  | DescribeProvisioningParametersOutput
-  | DescribeRecordOutput
-  | DescribeServiceActionExecutionParametersOutput
-  | DescribeServiceActionOutput
-  | DescribeTagOptionOutput
-  | DisableAWSOrganizationsAccessOutput
-  | DisassociateBudgetFromResourceOutput
-  | DisassociatePrincipalFromPortfolioOutput
-  | DisassociateProductFromPortfolioOutput
-  | DisassociateServiceActionFromProvisioningArtifactOutput
-  | DisassociateTagOptionFromResourceOutput
-  | EnableAWSOrganizationsAccessOutput
-  | ExecuteProvisionedProductPlanOutput
-  | ExecuteProvisionedProductServiceActionOutput
-  | GetAWSOrganizationsAccessStatusOutput
-  | ListAcceptedPortfolioSharesOutput
-  | ListBudgetsForResourceOutput
-  | ListConstraintsForPortfolioOutput
-  | ListLaunchPathsOutput
-  | ListOrganizationPortfolioAccessOutput
-  | ListPortfolioAccessOutput
-  | ListPortfoliosForProductOutput
-  | ListPortfoliosOutput
-  | ListPrincipalsForPortfolioOutput
-  | ListProvisionedProductPlansOutput
-  | ListProvisioningArtifactsForServiceActionOutput
-  | ListProvisioningArtifactsOutput
-  | ListRecordHistoryOutput
-  | ListResourcesForTagOptionOutput
-  | ListServiceActionsForProvisioningArtifactOutput
-  | ListServiceActionsOutput
-  | ListStackInstancesForProvisionedProductOutput
-  | ListTagOptionsOutput
-  | ProvisionProductOutput
-  | RejectPortfolioShareOutput
-  | ScanProvisionedProductsOutput
-  | SearchProductsAsAdminOutput
-  | SearchProductsOutput
-  | SearchProvisionedProductsOutput
-  | TerminateProvisionedProductOutput
-  | UpdateConstraintOutput
-  | UpdatePortfolioOutput
-  | UpdateProductOutput
-  | UpdateProvisionedProductOutput
-  | UpdateProvisionedProductPropertiesOutput
-  | UpdateProvisioningArtifactOutput
-  | UpdateServiceActionOutput
-  | UpdateTagOptionOutput;
+  | AcceptPortfolioShareCommandOutput
+  | AssociateBudgetWithResourceCommandOutput
+  | AssociatePrincipalWithPortfolioCommandOutput
+  | AssociateProductWithPortfolioCommandOutput
+  | AssociateServiceActionWithProvisioningArtifactCommandOutput
+  | AssociateTagOptionWithResourceCommandOutput
+  | BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+  | BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+  | CopyProductCommandOutput
+  | CreateConstraintCommandOutput
+  | CreatePortfolioCommandOutput
+  | CreatePortfolioShareCommandOutput
+  | CreateProductCommandOutput
+  | CreateProvisionedProductPlanCommandOutput
+  | CreateProvisioningArtifactCommandOutput
+  | CreateServiceActionCommandOutput
+  | CreateTagOptionCommandOutput
+  | DeleteConstraintCommandOutput
+  | DeletePortfolioCommandOutput
+  | DeletePortfolioShareCommandOutput
+  | DeleteProductCommandOutput
+  | DeleteProvisionedProductPlanCommandOutput
+  | DeleteProvisioningArtifactCommandOutput
+  | DeleteServiceActionCommandOutput
+  | DeleteTagOptionCommandOutput
+  | DescribeConstraintCommandOutput
+  | DescribeCopyProductStatusCommandOutput
+  | DescribePortfolioCommandOutput
+  | DescribePortfolioShareStatusCommandOutput
+  | DescribeProductAsAdminCommandOutput
+  | DescribeProductCommandOutput
+  | DescribeProductViewCommandOutput
+  | DescribeProvisionedProductCommandOutput
+  | DescribeProvisionedProductPlanCommandOutput
+  | DescribeProvisioningArtifactCommandOutput
+  | DescribeProvisioningParametersCommandOutput
+  | DescribeRecordCommandOutput
+  | DescribeServiceActionCommandOutput
+  | DescribeServiceActionExecutionParametersCommandOutput
+  | DescribeTagOptionCommandOutput
+  | DisableAWSOrganizationsAccessCommandOutput
+  | DisassociateBudgetFromResourceCommandOutput
+  | DisassociatePrincipalFromPortfolioCommandOutput
+  | DisassociateProductFromPortfolioCommandOutput
+  | DisassociateServiceActionFromProvisioningArtifactCommandOutput
+  | DisassociateTagOptionFromResourceCommandOutput
+  | EnableAWSOrganizationsAccessCommandOutput
+  | ExecuteProvisionedProductPlanCommandOutput
+  | ExecuteProvisionedProductServiceActionCommandOutput
+  | GetAWSOrganizationsAccessStatusCommandOutput
+  | ListAcceptedPortfolioSharesCommandOutput
+  | ListBudgetsForResourceCommandOutput
+  | ListConstraintsForPortfolioCommandOutput
+  | ListLaunchPathsCommandOutput
+  | ListOrganizationPortfolioAccessCommandOutput
+  | ListPortfolioAccessCommandOutput
+  | ListPortfoliosCommandOutput
+  | ListPortfoliosForProductCommandOutput
+  | ListPrincipalsForPortfolioCommandOutput
+  | ListProvisionedProductPlansCommandOutput
+  | ListProvisioningArtifactsCommandOutput
+  | ListProvisioningArtifactsForServiceActionCommandOutput
+  | ListRecordHistoryCommandOutput
+  | ListResourcesForTagOptionCommandOutput
+  | ListServiceActionsCommandOutput
+  | ListServiceActionsForProvisioningArtifactCommandOutput
+  | ListStackInstancesForProvisionedProductCommandOutput
+  | ListTagOptionsCommandOutput
+  | ProvisionProductCommandOutput
+  | RejectPortfolioShareCommandOutput
+  | ScanProvisionedProductsCommandOutput
+  | SearchProductsAsAdminCommandOutput
+  | SearchProductsCommandOutput
+  | SearchProvisionedProductsCommandOutput
+  | TerminateProvisionedProductCommandOutput
+  | UpdateConstraintCommandOutput
+  | UpdatePortfolioCommandOutput
+  | UpdateProductCommandOutput
+  | UpdateProvisionedProductCommandOutput
+  | UpdateProvisionedProductPropertiesCommandOutput
+  | UpdateProvisioningArtifactCommandOutput
+  | UpdateServiceActionCommandOutput
+  | UpdateTagOptionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

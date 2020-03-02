@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PostTextCommandInput = PostTextRequest;
-export type PostTextCommandOutput = PostTextResponse;
+export type PostTextCommandOutput = PostTextResponse & __MetadataBearer;
 
 export class PostTextCommand extends $Command<
   PostTextCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAlarmsCommandInput = DescribeAlarmsInput;
-export type DescribeAlarmsCommandOutput = DescribeAlarmsOutput;
+export type DescribeAlarmsCommandOutput = DescribeAlarmsOutput &
+  __MetadataBearer;
 
 export class DescribeAlarmsCommand extends $Command<
   DescribeAlarmsCommandInput,

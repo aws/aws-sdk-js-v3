@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteNotificationRuleCommandInput = DeleteNotificationRuleRequest;
-export type DeleteNotificationRuleCommandOutput = DeleteNotificationRuleResult;
+export type DeleteNotificationRuleCommandOutput = DeleteNotificationRuleResult &
+  __MetadataBearer;
 
 export class DeleteNotificationRuleCommand extends $Command<
   DeleteNotificationRuleCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCommentsForPullRequestCommandInput = GetCommentsForPullRequestInput;
-export type GetCommentsForPullRequestCommandOutput = GetCommentsForPullRequestOutput;
+export type GetCommentsForPullRequestCommandOutput = GetCommentsForPullRequestOutput &
+  __MetadataBearer;
 
 export class GetCommentsForPullRequestCommand extends $Command<
   GetCommentsForPullRequestCommandInput,

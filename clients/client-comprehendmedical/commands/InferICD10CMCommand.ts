@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InferICD10CMCommandInput = InferICD10CMRequest;
-export type InferICD10CMCommandOutput = InferICD10CMResponse;
+export type InferICD10CMCommandOutput = InferICD10CMResponse & __MetadataBearer;
 
 export class InferICD10CMCommand extends $Command<
   InferICD10CMCommandInput,

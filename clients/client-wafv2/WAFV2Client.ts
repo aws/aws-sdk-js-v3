@@ -1,77 +1,147 @@
 import {
-  AssociateWebACLRequest,
-  AssociateWebACLResponse,
-  CheckCapacityRequest,
-  CheckCapacityResponse,
-  CreateIPSetRequest,
-  CreateIPSetResponse,
-  CreateRegexPatternSetRequest,
-  CreateRegexPatternSetResponse,
-  CreateRuleGroupRequest,
-  CreateRuleGroupResponse,
-  CreateWebACLRequest,
-  CreateWebACLResponse,
-  DeleteIPSetRequest,
-  DeleteIPSetResponse,
-  DeleteLoggingConfigurationRequest,
-  DeleteLoggingConfigurationResponse,
-  DeleteRegexPatternSetRequest,
-  DeleteRegexPatternSetResponse,
-  DeleteRuleGroupRequest,
-  DeleteRuleGroupResponse,
-  DeleteWebACLRequest,
-  DeleteWebACLResponse,
-  DescribeManagedRuleGroupRequest,
-  DescribeManagedRuleGroupResponse,
-  DisassociateWebACLRequest,
-  DisassociateWebACLResponse,
-  GetIPSetRequest,
-  GetIPSetResponse,
-  GetLoggingConfigurationRequest,
-  GetLoggingConfigurationResponse,
-  GetRateBasedStatementManagedKeysRequest,
-  GetRateBasedStatementManagedKeysResponse,
-  GetRegexPatternSetRequest,
-  GetRegexPatternSetResponse,
-  GetRuleGroupRequest,
-  GetRuleGroupResponse,
-  GetSampledRequestsRequest,
-  GetSampledRequestsResponse,
-  GetWebACLForResourceRequest,
-  GetWebACLForResourceResponse,
-  GetWebACLRequest,
-  GetWebACLResponse,
-  ListAvailableManagedRuleGroupsRequest,
-  ListAvailableManagedRuleGroupsResponse,
-  ListIPSetsRequest,
-  ListIPSetsResponse,
-  ListLoggingConfigurationsRequest,
-  ListLoggingConfigurationsResponse,
-  ListRegexPatternSetsRequest,
-  ListRegexPatternSetsResponse,
-  ListResourcesForWebACLRequest,
-  ListResourcesForWebACLResponse,
-  ListRuleGroupsRequest,
-  ListRuleGroupsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListWebACLsRequest,
-  ListWebACLsResponse,
-  PutLoggingConfigurationRequest,
-  PutLoggingConfigurationResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateIPSetRequest,
-  UpdateIPSetResponse,
-  UpdateRegexPatternSetRequest,
-  UpdateRegexPatternSetResponse,
-  UpdateRuleGroupRequest,
-  UpdateRuleGroupResponse,
-  UpdateWebACLRequest,
-  UpdateWebACLResponse
-} from "./models/index";
+  AssociateWebACLCommandInput,
+  AssociateWebACLCommandOutput
+} from "./commands/AssociateWebACLCommand";
+import {
+  CheckCapacityCommandInput,
+  CheckCapacityCommandOutput
+} from "./commands/CheckCapacityCommand";
+import {
+  CreateIPSetCommandInput,
+  CreateIPSetCommandOutput
+} from "./commands/CreateIPSetCommand";
+import {
+  CreateRegexPatternSetCommandInput,
+  CreateRegexPatternSetCommandOutput
+} from "./commands/CreateRegexPatternSetCommand";
+import {
+  CreateRuleGroupCommandInput,
+  CreateRuleGroupCommandOutput
+} from "./commands/CreateRuleGroupCommand";
+import {
+  CreateWebACLCommandInput,
+  CreateWebACLCommandOutput
+} from "./commands/CreateWebACLCommand";
+import {
+  DeleteIPSetCommandInput,
+  DeleteIPSetCommandOutput
+} from "./commands/DeleteIPSetCommand";
+import {
+  DeleteLoggingConfigurationCommandInput,
+  DeleteLoggingConfigurationCommandOutput
+} from "./commands/DeleteLoggingConfigurationCommand";
+import {
+  DeleteRegexPatternSetCommandInput,
+  DeleteRegexPatternSetCommandOutput
+} from "./commands/DeleteRegexPatternSetCommand";
+import {
+  DeleteRuleGroupCommandInput,
+  DeleteRuleGroupCommandOutput
+} from "./commands/DeleteRuleGroupCommand";
+import {
+  DeleteWebACLCommandInput,
+  DeleteWebACLCommandOutput
+} from "./commands/DeleteWebACLCommand";
+import {
+  DescribeManagedRuleGroupCommandInput,
+  DescribeManagedRuleGroupCommandOutput
+} from "./commands/DescribeManagedRuleGroupCommand";
+import {
+  DisassociateWebACLCommandInput,
+  DisassociateWebACLCommandOutput
+} from "./commands/DisassociateWebACLCommand";
+import {
+  GetIPSetCommandInput,
+  GetIPSetCommandOutput
+} from "./commands/GetIPSetCommand";
+import {
+  GetLoggingConfigurationCommandInput,
+  GetLoggingConfigurationCommandOutput
+} from "./commands/GetLoggingConfigurationCommand";
+import {
+  GetRateBasedStatementManagedKeysCommandInput,
+  GetRateBasedStatementManagedKeysCommandOutput
+} from "./commands/GetRateBasedStatementManagedKeysCommand";
+import {
+  GetRegexPatternSetCommandInput,
+  GetRegexPatternSetCommandOutput
+} from "./commands/GetRegexPatternSetCommand";
+import {
+  GetRuleGroupCommandInput,
+  GetRuleGroupCommandOutput
+} from "./commands/GetRuleGroupCommand";
+import {
+  GetSampledRequestsCommandInput,
+  GetSampledRequestsCommandOutput
+} from "./commands/GetSampledRequestsCommand";
+import {
+  GetWebACLCommandInput,
+  GetWebACLCommandOutput
+} from "./commands/GetWebACLCommand";
+import {
+  GetWebACLForResourceCommandInput,
+  GetWebACLForResourceCommandOutput
+} from "./commands/GetWebACLForResourceCommand";
+import {
+  ListAvailableManagedRuleGroupsCommandInput,
+  ListAvailableManagedRuleGroupsCommandOutput
+} from "./commands/ListAvailableManagedRuleGroupsCommand";
+import {
+  ListIPSetsCommandInput,
+  ListIPSetsCommandOutput
+} from "./commands/ListIPSetsCommand";
+import {
+  ListLoggingConfigurationsCommandInput,
+  ListLoggingConfigurationsCommandOutput
+} from "./commands/ListLoggingConfigurationsCommand";
+import {
+  ListRegexPatternSetsCommandInput,
+  ListRegexPatternSetsCommandOutput
+} from "./commands/ListRegexPatternSetsCommand";
+import {
+  ListResourcesForWebACLCommandInput,
+  ListResourcesForWebACLCommandOutput
+} from "./commands/ListResourcesForWebACLCommand";
+import {
+  ListRuleGroupsCommandInput,
+  ListRuleGroupsCommandOutput
+} from "./commands/ListRuleGroupsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListWebACLsCommandInput,
+  ListWebACLsCommandOutput
+} from "./commands/ListWebACLsCommand";
+import {
+  PutLoggingConfigurationCommandInput,
+  PutLoggingConfigurationCommandOutput
+} from "./commands/PutLoggingConfigurationCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateIPSetCommandInput,
+  UpdateIPSetCommandOutput
+} from "./commands/UpdateIPSetCommand";
+import {
+  UpdateRegexPatternSetCommandInput,
+  UpdateRegexPatternSetCommandOutput
+} from "./commands/UpdateRegexPatternSetCommand";
+import {
+  UpdateRuleGroupCommandInput,
+  UpdateRuleGroupCommandOutput
+} from "./commands/UpdateRuleGroupCommand";
+import {
+  UpdateWebACLCommandInput,
+  UpdateWebACLCommandOutput
+} from "./commands/UpdateWebACLCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -125,80 +195,80 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateWebACLRequest
-  | CheckCapacityRequest
-  | CreateIPSetRequest
-  | CreateRegexPatternSetRequest
-  | CreateRuleGroupRequest
-  | CreateWebACLRequest
-  | DeleteIPSetRequest
-  | DeleteLoggingConfigurationRequest
-  | DeleteRegexPatternSetRequest
-  | DeleteRuleGroupRequest
-  | DeleteWebACLRequest
-  | DescribeManagedRuleGroupRequest
-  | DisassociateWebACLRequest
-  | GetIPSetRequest
-  | GetLoggingConfigurationRequest
-  | GetRateBasedStatementManagedKeysRequest
-  | GetRegexPatternSetRequest
-  | GetRuleGroupRequest
-  | GetSampledRequestsRequest
-  | GetWebACLForResourceRequest
-  | GetWebACLRequest
-  | ListAvailableManagedRuleGroupsRequest
-  | ListIPSetsRequest
-  | ListLoggingConfigurationsRequest
-  | ListRegexPatternSetsRequest
-  | ListResourcesForWebACLRequest
-  | ListRuleGroupsRequest
-  | ListTagsForResourceRequest
-  | ListWebACLsRequest
-  | PutLoggingConfigurationRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateIPSetRequest
-  | UpdateRegexPatternSetRequest
-  | UpdateRuleGroupRequest
-  | UpdateWebACLRequest;
+  | AssociateWebACLCommandInput
+  | CheckCapacityCommandInput
+  | CreateIPSetCommandInput
+  | CreateRegexPatternSetCommandInput
+  | CreateRuleGroupCommandInput
+  | CreateWebACLCommandInput
+  | DeleteIPSetCommandInput
+  | DeleteLoggingConfigurationCommandInput
+  | DeleteRegexPatternSetCommandInput
+  | DeleteRuleGroupCommandInput
+  | DeleteWebACLCommandInput
+  | DescribeManagedRuleGroupCommandInput
+  | DisassociateWebACLCommandInput
+  | GetIPSetCommandInput
+  | GetLoggingConfigurationCommandInput
+  | GetRateBasedStatementManagedKeysCommandInput
+  | GetRegexPatternSetCommandInput
+  | GetRuleGroupCommandInput
+  | GetSampledRequestsCommandInput
+  | GetWebACLCommandInput
+  | GetWebACLForResourceCommandInput
+  | ListAvailableManagedRuleGroupsCommandInput
+  | ListIPSetsCommandInput
+  | ListLoggingConfigurationsCommandInput
+  | ListRegexPatternSetsCommandInput
+  | ListResourcesForWebACLCommandInput
+  | ListRuleGroupsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListWebACLsCommandInput
+  | PutLoggingConfigurationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateIPSetCommandInput
+  | UpdateRegexPatternSetCommandInput
+  | UpdateRuleGroupCommandInput
+  | UpdateWebACLCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateWebACLResponse
-  | CheckCapacityResponse
-  | CreateIPSetResponse
-  | CreateRegexPatternSetResponse
-  | CreateRuleGroupResponse
-  | CreateWebACLResponse
-  | DeleteIPSetResponse
-  | DeleteLoggingConfigurationResponse
-  | DeleteRegexPatternSetResponse
-  | DeleteRuleGroupResponse
-  | DeleteWebACLResponse
-  | DescribeManagedRuleGroupResponse
-  | DisassociateWebACLResponse
-  | GetIPSetResponse
-  | GetLoggingConfigurationResponse
-  | GetRateBasedStatementManagedKeysResponse
-  | GetRegexPatternSetResponse
-  | GetRuleGroupResponse
-  | GetSampledRequestsResponse
-  | GetWebACLForResourceResponse
-  | GetWebACLResponse
-  | ListAvailableManagedRuleGroupsResponse
-  | ListIPSetsResponse
-  | ListLoggingConfigurationsResponse
-  | ListRegexPatternSetsResponse
-  | ListResourcesForWebACLResponse
-  | ListRuleGroupsResponse
-  | ListTagsForResourceResponse
-  | ListWebACLsResponse
-  | PutLoggingConfigurationResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateIPSetResponse
-  | UpdateRegexPatternSetResponse
-  | UpdateRuleGroupResponse
-  | UpdateWebACLResponse;
+  | AssociateWebACLCommandOutput
+  | CheckCapacityCommandOutput
+  | CreateIPSetCommandOutput
+  | CreateRegexPatternSetCommandOutput
+  | CreateRuleGroupCommandOutput
+  | CreateWebACLCommandOutput
+  | DeleteIPSetCommandOutput
+  | DeleteLoggingConfigurationCommandOutput
+  | DeleteRegexPatternSetCommandOutput
+  | DeleteRuleGroupCommandOutput
+  | DeleteWebACLCommandOutput
+  | DescribeManagedRuleGroupCommandOutput
+  | DisassociateWebACLCommandOutput
+  | GetIPSetCommandOutput
+  | GetLoggingConfigurationCommandOutput
+  | GetRateBasedStatementManagedKeysCommandOutput
+  | GetRegexPatternSetCommandOutput
+  | GetRuleGroupCommandOutput
+  | GetSampledRequestsCommandOutput
+  | GetWebACLCommandOutput
+  | GetWebACLForResourceCommandOutput
+  | ListAvailableManagedRuleGroupsCommandOutput
+  | ListIPSetsCommandOutput
+  | ListLoggingConfigurationsCommandOutput
+  | ListRegexPatternSetsCommandOutput
+  | ListResourcesForWebACLCommandOutput
+  | ListRuleGroupsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListWebACLsCommandOutput
+  | PutLoggingConfigurationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateIPSetCommandOutput
+  | UpdateRegexPatternSetCommandOutput
+  | UpdateRuleGroupCommandOutput
+  | UpdateWebACLCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

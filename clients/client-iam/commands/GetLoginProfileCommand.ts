@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLoginProfileCommandInput = GetLoginProfileRequest;
-export type GetLoginProfileCommandOutput = GetLoginProfileResponse;
+export type GetLoginProfileCommandOutput = GetLoginProfileResponse &
+  __MetadataBearer;
 
 export class GetLoginProfileCommand extends $Command<
   GetLoginProfileCommandInput,

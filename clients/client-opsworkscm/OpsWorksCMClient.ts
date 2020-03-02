@@ -1,43 +1,79 @@
 import {
-  AssociateNodeRequest,
-  AssociateNodeResponse,
-  CreateBackupRequest,
-  CreateBackupResponse,
-  CreateServerRequest,
-  CreateServerResponse,
-  DeleteBackupRequest,
-  DeleteBackupResponse,
-  DeleteServerRequest,
-  DeleteServerResponse,
-  DescribeAccountAttributesRequest,
-  DescribeAccountAttributesResponse,
-  DescribeBackupsRequest,
-  DescribeBackupsResponse,
-  DescribeEventsRequest,
-  DescribeEventsResponse,
-  DescribeNodeAssociationStatusRequest,
-  DescribeNodeAssociationStatusResponse,
-  DescribeServersRequest,
-  DescribeServersResponse,
-  DisassociateNodeRequest,
-  DisassociateNodeResponse,
-  ExportServerEngineAttributeRequest,
-  ExportServerEngineAttributeResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  RestoreServerRequest,
-  RestoreServerResponse,
-  StartMaintenanceRequest,
-  StartMaintenanceResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateServerEngineAttributesRequest,
-  UpdateServerEngineAttributesResponse,
-  UpdateServerRequest,
-  UpdateServerResponse
-} from "./models/index";
+  AssociateNodeCommandInput,
+  AssociateNodeCommandOutput
+} from "./commands/AssociateNodeCommand";
+import {
+  CreateBackupCommandInput,
+  CreateBackupCommandOutput
+} from "./commands/CreateBackupCommand";
+import {
+  CreateServerCommandInput,
+  CreateServerCommandOutput
+} from "./commands/CreateServerCommand";
+import {
+  DeleteBackupCommandInput,
+  DeleteBackupCommandOutput
+} from "./commands/DeleteBackupCommand";
+import {
+  DeleteServerCommandInput,
+  DeleteServerCommandOutput
+} from "./commands/DeleteServerCommand";
+import {
+  DescribeAccountAttributesCommandInput,
+  DescribeAccountAttributesCommandOutput
+} from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeBackupsCommandInput,
+  DescribeBackupsCommandOutput
+} from "./commands/DescribeBackupsCommand";
+import {
+  DescribeEventsCommandInput,
+  DescribeEventsCommandOutput
+} from "./commands/DescribeEventsCommand";
+import {
+  DescribeNodeAssociationStatusCommandInput,
+  DescribeNodeAssociationStatusCommandOutput
+} from "./commands/DescribeNodeAssociationStatusCommand";
+import {
+  DescribeServersCommandInput,
+  DescribeServersCommandOutput
+} from "./commands/DescribeServersCommand";
+import {
+  DisassociateNodeCommandInput,
+  DisassociateNodeCommandOutput
+} from "./commands/DisassociateNodeCommand";
+import {
+  ExportServerEngineAttributeCommandInput,
+  ExportServerEngineAttributeCommandOutput
+} from "./commands/ExportServerEngineAttributeCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  RestoreServerCommandInput,
+  RestoreServerCommandOutput
+} from "./commands/RestoreServerCommand";
+import {
+  StartMaintenanceCommandInput,
+  StartMaintenanceCommandOutput
+} from "./commands/StartMaintenanceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateServerCommandInput,
+  UpdateServerCommandOutput
+} from "./commands/UpdateServerCommand";
+import {
+  UpdateServerEngineAttributesCommandInput,
+  UpdateServerEngineAttributesCommandOutput
+} from "./commands/UpdateServerEngineAttributesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -91,46 +127,46 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateNodeRequest
-  | CreateBackupRequest
-  | CreateServerRequest
-  | DeleteBackupRequest
-  | DeleteServerRequest
-  | DescribeAccountAttributesRequest
-  | DescribeBackupsRequest
-  | DescribeEventsRequest
-  | DescribeNodeAssociationStatusRequest
-  | DescribeServersRequest
-  | DisassociateNodeRequest
-  | ExportServerEngineAttributeRequest
-  | ListTagsForResourceRequest
-  | RestoreServerRequest
-  | StartMaintenanceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateServerEngineAttributesRequest
-  | UpdateServerRequest;
+  | AssociateNodeCommandInput
+  | CreateBackupCommandInput
+  | CreateServerCommandInput
+  | DeleteBackupCommandInput
+  | DeleteServerCommandInput
+  | DescribeAccountAttributesCommandInput
+  | DescribeBackupsCommandInput
+  | DescribeEventsCommandInput
+  | DescribeNodeAssociationStatusCommandInput
+  | DescribeServersCommandInput
+  | DisassociateNodeCommandInput
+  | ExportServerEngineAttributeCommandInput
+  | ListTagsForResourceCommandInput
+  | RestoreServerCommandInput
+  | StartMaintenanceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateServerCommandInput
+  | UpdateServerEngineAttributesCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateNodeResponse
-  | CreateBackupResponse
-  | CreateServerResponse
-  | DeleteBackupResponse
-  | DeleteServerResponse
-  | DescribeAccountAttributesResponse
-  | DescribeBackupsResponse
-  | DescribeEventsResponse
-  | DescribeNodeAssociationStatusResponse
-  | DescribeServersResponse
-  | DisassociateNodeResponse
-  | ExportServerEngineAttributeResponse
-  | ListTagsForResourceResponse
-  | RestoreServerResponse
-  | StartMaintenanceResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateServerEngineAttributesResponse
-  | UpdateServerResponse;
+  | AssociateNodeCommandOutput
+  | CreateBackupCommandOutput
+  | CreateServerCommandOutput
+  | DeleteBackupCommandOutput
+  | DeleteServerCommandOutput
+  | DescribeAccountAttributesCommandOutput
+  | DescribeBackupsCommandOutput
+  | DescribeEventsCommandOutput
+  | DescribeNodeAssociationStatusCommandOutput
+  | DescribeServersCommandOutput
+  | DisassociateNodeCommandOutput
+  | ExportServerEngineAttributeCommandOutput
+  | ListTagsForResourceCommandOutput
+  | RestoreServerCommandOutput
+  | StartMaintenanceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateServerCommandOutput
+  | UpdateServerEngineAttributesCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

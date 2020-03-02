@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPartitionsCommandInput = GetPartitionsRequest;
-export type GetPartitionsCommandOutput = GetPartitionsResponse;
+export type GetPartitionsCommandOutput = GetPartitionsResponse &
+  __MetadataBearer;
 
 export class GetPartitionsCommand extends $Command<
   GetPartitionsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfirmTopicRuleDestinationCommandInput = ConfirmTopicRuleDestinationRequest;
-export type ConfirmTopicRuleDestinationCommandOutput = ConfirmTopicRuleDestinationResponse;
+export type ConfirmTopicRuleDestinationCommandOutput = ConfirmTopicRuleDestinationResponse &
+  __MetadataBearer;
 
 export class ConfirmTopicRuleDestinationCommand extends $Command<
   ConfirmTopicRuleDestinationCommandInput,

@@ -207,7 +207,7 @@ export namespace CancelIngestionRequest {
   }
 }
 
-export interface CancelIngestionResponse extends $MetadataBearer {
+export interface CancelIngestionResponse {
   __type?: "CancelIngestionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
@@ -490,7 +490,7 @@ export namespace CreateDashboardRequest {
   }
 }
 
-export interface CreateDashboardResponse extends $MetadataBearer {
+export interface CreateDashboardResponse {
   __type?: "CreateDashboardResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
@@ -584,7 +584,7 @@ export namespace CreateDataSetRequest {
   }
 }
 
-export interface CreateDataSetResponse extends $MetadataBearer {
+export interface CreateDataSetResponse {
   __type?: "CreateDataSetResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -685,7 +685,7 @@ export namespace CreateDataSourceRequest {
   }
 }
 
-export interface CreateDataSourceResponse extends $MetadataBearer {
+export interface CreateDataSourceResponse {
   __type?: "CreateDataSourceResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -744,7 +744,7 @@ export namespace CreateGroupMembershipRequest {
   }
 }
 
-export interface CreateGroupMembershipResponse extends $MetadataBearer {
+export interface CreateGroupMembershipResponse {
   __type?: "CreateGroupMembershipResponse";
   /**
    * <p>The group member.</p>
@@ -799,7 +799,7 @@ export namespace CreateGroupRequest {
 /**
  * <p>The response object for this operation.</p>
  */
-export interface CreateGroupResponse extends $MetadataBearer {
+export interface CreateGroupResponse {
   __type?: "CreateGroupResponse";
   /**
    * <p>The name of the group.</p>
@@ -875,7 +875,7 @@ export namespace CreateIAMPolicyAssignmentRequest {
   }
 }
 
-export interface CreateIAMPolicyAssignmentResponse extends $MetadataBearer {
+export interface CreateIAMPolicyAssignmentResponse {
   __type?: "CreateIAMPolicyAssignmentResponse";
   /**
    * <p>The ID for the assignment.</p>
@@ -954,7 +954,7 @@ export namespace CreateIngestionRequest {
   }
 }
 
-export interface CreateIngestionResponse extends $MetadataBearer {
+export interface CreateIngestionResponse {
   __type?: "CreateIngestionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
@@ -1014,7 +1014,7 @@ export namespace CreateTemplateAliasRequest {
   }
 }
 
-export interface CreateTemplateAliasResponse extends $MetadataBearer {
+export interface CreateTemplateAliasResponse {
   __type?: "CreateTemplateAliasResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -1084,7 +1084,7 @@ export namespace CreateTemplateRequest {
   }
 }
 
-export interface CreateTemplateResponse extends $MetadataBearer {
+export interface CreateTemplateResponse {
   __type?: "CreateTemplateResponse";
   /**
    * <p>The ARN for the template.</p>
@@ -1981,7 +1981,7 @@ export namespace DeleteDashboardRequest {
   }
 }
 
-export interface DeleteDashboardResponse extends $MetadataBearer {
+export interface DeleteDashboardResponse {
   __type?: "DeleteDashboardResponse";
   /**
    * <p>The Secure Socket Layer (SSL) properties that apply for the resource.</p>
@@ -2024,7 +2024,7 @@ export namespace DeleteDataSetRequest {
   }
 }
 
-export interface DeleteDataSetResponse extends $MetadataBearer {
+export interface DeleteDataSetResponse {
   __type?: "DeleteDataSetResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -2067,7 +2067,7 @@ export namespace DeleteDataSourceRequest {
   }
 }
 
-export interface DeleteDataSourceResponse extends $MetadataBearer {
+export interface DeleteDataSourceResponse {
   __type?: "DeleteDataSourceResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
@@ -2121,7 +2121,7 @@ export namespace DeleteGroupMembershipRequest {
   }
 }
 
-export interface DeleteGroupMembershipResponse extends $MetadataBearer {
+export interface DeleteGroupMembershipResponse {
   __type?: "DeleteGroupMembershipResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2160,7 +2160,7 @@ export namespace DeleteGroupRequest {
   }
 }
 
-export interface DeleteGroupResponse extends $MetadataBearer {
+export interface DeleteGroupResponse {
   __type?: "DeleteGroupResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2198,7 +2198,7 @@ export namespace DeleteIAMPolicyAssignmentRequest {
   }
 }
 
-export interface DeleteIAMPolicyAssignmentResponse extends $MetadataBearer {
+export interface DeleteIAMPolicyAssignmentResponse {
   __type?: "DeleteIAMPolicyAssignmentResponse";
   /**
    * <p>The name of the assignment. </p>
@@ -2244,7 +2244,7 @@ export namespace DeleteTemplateAliasRequest {
   }
 }
 
-export interface DeleteTemplateAliasResponse extends $MetadataBearer {
+export interface DeleteTemplateAliasResponse {
   __type?: "DeleteTemplateAliasResponse";
   /**
    * <p>The name for the template alias.</p>
@@ -2299,7 +2299,7 @@ export namespace DeleteTemplateRequest {
   }
 }
 
-export interface DeleteTemplateResponse extends $MetadataBearer {
+export interface DeleteTemplateResponse {
   __type?: "DeleteTemplateResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2351,7 +2351,7 @@ export namespace DeleteUserByPrincipalIdRequest {
   }
 }
 
-export interface DeleteUserByPrincipalIdResponse extends $MetadataBearer {
+export interface DeleteUserByPrincipalIdResponse {
   __type?: "DeleteUserByPrincipalIdResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2390,7 +2390,7 @@ export namespace DeleteUserRequest {
   }
 }
 
-export interface DeleteUserResponse extends $MetadataBearer {
+export interface DeleteUserResponse {
   __type?: "DeleteUserResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2424,7 +2424,7 @@ export namespace DescribeDashboardPermissionsRequest {
   }
 }
 
-export interface DescribeDashboardPermissionsResponse extends $MetadataBearer {
+export interface DescribeDashboardPermissionsResponse {
   __type?: "DescribeDashboardPermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
@@ -2483,7 +2483,7 @@ export namespace DescribeDashboardRequest {
   }
 }
 
-export interface DescribeDashboardResponse extends $MetadataBearer {
+export interface DescribeDashboardResponse {
   __type?: "DescribeDashboardResponse";
   /**
    * <p>Information about the dashboard.</p>
@@ -2521,7 +2521,7 @@ export namespace DescribeDataSetPermissionsRequest {
   }
 }
 
-export interface DescribeDataSetPermissionsResponse extends $MetadataBearer {
+export interface DescribeDataSetPermissionsResponse {
   __type?: "DescribeDataSetPermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -2569,7 +2569,7 @@ export namespace DescribeDataSetRequest {
   }
 }
 
-export interface DescribeDataSetResponse extends $MetadataBearer {
+export interface DescribeDataSetResponse {
   __type?: "DescribeDataSetResponse";
   /**
    * <p>Information on the dataset.</p>
@@ -2607,7 +2607,7 @@ export namespace DescribeDataSourcePermissionsRequest {
   }
 }
 
-export interface DescribeDataSourcePermissionsResponse extends $MetadataBearer {
+export interface DescribeDataSourcePermissionsResponse {
   __type?: "DescribeDataSourcePermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -2655,7 +2655,7 @@ export namespace DescribeDataSourceRequest {
   }
 }
 
-export interface DescribeDataSourceResponse extends $MetadataBearer {
+export interface DescribeDataSourceResponse {
   __type?: "DescribeDataSourceResponse";
   /**
    * <p>The information on the data source.</p>
@@ -2699,7 +2699,7 @@ export namespace DescribeGroupRequest {
   }
 }
 
-export interface DescribeGroupResponse extends $MetadataBearer {
+export interface DescribeGroupResponse {
   __type?: "DescribeGroupResponse";
   /**
    * <p>The name of the group.</p>
@@ -2742,7 +2742,7 @@ export namespace DescribeIAMPolicyAssignmentRequest {
   }
 }
 
-export interface DescribeIAMPolicyAssignmentResponse extends $MetadataBearer {
+export interface DescribeIAMPolicyAssignmentResponse {
   __type?: "DescribeIAMPolicyAssignmentResponse";
   /**
    * <p>Information describing the IAM policy assignment.</p>
@@ -2785,7 +2785,7 @@ export namespace DescribeIngestionRequest {
   }
 }
 
-export interface DescribeIngestionResponse extends $MetadataBearer {
+export interface DescribeIngestionResponse {
   __type?: "DescribeIngestionResponse";
   /**
    * <p>Information about the ingestion.</p>
@@ -2834,7 +2834,7 @@ export namespace DescribeTemplateAliasRequest {
   }
 }
 
-export interface DescribeTemplateAliasResponse extends $MetadataBearer {
+export interface DescribeTemplateAliasResponse {
   __type?: "DescribeTemplateAliasResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2872,7 +2872,7 @@ export namespace DescribeTemplatePermissionsRequest {
   }
 }
 
-export interface DescribeTemplatePermissionsResponse extends $MetadataBearer {
+export interface DescribeTemplatePermissionsResponse {
   __type?: "DescribeTemplatePermissionsResponse";
   /**
    * <p>A list of resource permissions to be set on the template. </p>
@@ -2934,7 +2934,7 @@ export namespace DescribeTemplateRequest {
   }
 }
 
-export interface DescribeTemplateResponse extends $MetadataBearer {
+export interface DescribeTemplateResponse {
   __type?: "DescribeTemplateResponse";
   /**
    * <p>The template structure for the object you want to describe.</p>
@@ -2973,7 +2973,7 @@ export namespace DescribeUserRequest {
   }
 }
 
-export interface DescribeUserResponse extends $MetadataBearer {
+export interface DescribeUserResponse {
   __type?: "DescribeUserResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -3181,7 +3181,7 @@ export namespace GetDashboardEmbedUrlRequest {
   }
 }
 
-export interface GetDashboardEmbedUrlResponse extends $MetadataBearer {
+export interface GetDashboardEmbedUrlResponse {
   __type?: "GetDashboardEmbedUrlResponse";
   /**
    * <p>An URL that you can put into your server-side webpage to embed your dashboard. This URL is
@@ -3616,7 +3616,7 @@ export namespace ListDashboardVersionsRequest {
   }
 }
 
-export interface ListDashboardVersionsResponse extends $MetadataBearer {
+export interface ListDashboardVersionsResponse {
   __type?: "ListDashboardVersionsResponse";
   /**
    * <p>A structure that contains information about each version of the dashboard.</p>
@@ -3664,7 +3664,7 @@ export namespace ListDashboardsRequest {
   }
 }
 
-export interface ListDashboardsResponse extends $MetadataBearer {
+export interface ListDashboardsResponse {
   __type?: "ListDashboardsResponse";
   /**
    * <p>A structure that contains all of the dashboards shared with the user. This structure
@@ -3713,7 +3713,7 @@ export namespace ListDataSetsRequest {
   }
 }
 
-export interface ListDataSetsResponse extends $MetadataBearer {
+export interface ListDataSetsResponse {
   __type?: "ListDataSetsResponse";
   /**
    * <p>The list of dataset summaries.</p>
@@ -3761,7 +3761,7 @@ export namespace ListDataSourcesRequest {
   }
 }
 
-export interface ListDataSourcesResponse extends $MetadataBearer {
+export interface ListDataSourcesResponse {
   __type?: "ListDataSourcesResponse";
   /**
    * <p>A list of data sources.</p>
@@ -3820,7 +3820,7 @@ export namespace ListGroupMembershipsRequest {
   }
 }
 
-export interface ListGroupMembershipsResponse extends $MetadataBearer {
+export interface ListGroupMembershipsResponse {
   __type?: "ListGroupMembershipsResponse";
   /**
    * <p>The list of the members of the group.</p>
@@ -3874,7 +3874,7 @@ export namespace ListGroupsRequest {
   }
 }
 
-export interface ListGroupsResponse extends $MetadataBearer {
+export interface ListGroupsResponse {
   __type?: "ListGroupsResponse";
   /**
    * <p>The list of the groups.</p>
@@ -3932,8 +3932,7 @@ export namespace ListIAMPolicyAssignmentsForUserRequest {
   }
 }
 
-export interface ListIAMPolicyAssignmentsForUserResponse
-  extends $MetadataBearer {
+export interface ListIAMPolicyAssignmentsForUserResponse {
   __type?: "ListIAMPolicyAssignmentsForUserResponse";
   /**
    * <p>The active assignments for this user.</p>
@@ -3991,7 +3990,7 @@ export namespace ListIAMPolicyAssignmentsRequest {
   }
 }
 
-export interface ListIAMPolicyAssignmentsResponse extends $MetadataBearer {
+export interface ListIAMPolicyAssignmentsResponse {
   __type?: "ListIAMPolicyAssignmentsResponse";
   /**
    * <p>Information describing the IAM policy assignments.</p>
@@ -4044,7 +4043,7 @@ export namespace ListIngestionsRequest {
   }
 }
 
-export interface ListIngestionsResponse extends $MetadataBearer {
+export interface ListIngestionsResponse {
   __type?: "ListIngestionsResponse";
   /**
    * <p>A list of the ingestions.</p>
@@ -4082,7 +4081,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -4131,7 +4130,7 @@ export namespace ListTemplateAliasesRequest {
   }
 }
 
-export interface ListTemplateAliasesResponse extends $MetadataBearer {
+export interface ListTemplateAliasesResponse {
   __type?: "ListTemplateAliasesResponse";
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -4184,7 +4183,7 @@ export namespace ListTemplateVersionsRequest {
   }
 }
 
-export interface ListTemplateVersionsResponse extends $MetadataBearer {
+export interface ListTemplateVersionsResponse {
   __type?: "ListTemplateVersionsResponse";
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -4232,7 +4231,7 @@ export namespace ListTemplatesRequest {
   }
 }
 
-export interface ListTemplatesResponse extends $MetadataBearer {
+export interface ListTemplatesResponse {
   __type?: "ListTemplatesResponse";
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -4291,7 +4290,7 @@ export namespace ListUserGroupsRequest {
   }
 }
 
-export interface ListUserGroupsResponse extends $MetadataBearer {
+export interface ListUserGroupsResponse {
   __type?: "ListUserGroupsResponse";
   /**
    * <p>The list of groups the user is a member of.</p>
@@ -4345,7 +4344,7 @@ export namespace ListUsersRequest {
   }
 }
 
-export interface ListUsersResponse extends $MetadataBearer {
+export interface ListUsersResponse {
   __type?: "ListUsersResponse";
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
@@ -4855,7 +4854,7 @@ export namespace RegisterUserRequest {
   }
 }
 
-export interface RegisterUserResponse extends $MetadataBearer {
+export interface RegisterUserResponse {
   __type?: "RegisterUserResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -5244,7 +5243,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -5670,7 +5669,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -5714,7 +5713,7 @@ export namespace UpdateDashboardPermissionsRequest {
   }
 }
 
-export interface UpdateDashboardPermissionsResponse extends $MetadataBearer {
+export interface UpdateDashboardPermissionsResponse {
   __type?: "UpdateDashboardPermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
@@ -5767,8 +5766,7 @@ export namespace UpdateDashboardPublishedVersionRequest {
   }
 }
 
-export interface UpdateDashboardPublishedVersionResponse
-  extends $MetadataBearer {
+export interface UpdateDashboardPublishedVersionResponse {
   __type?: "UpdateDashboardPublishedVersionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
@@ -5864,7 +5862,7 @@ export namespace UpdateDashboardRequest {
   }
 }
 
-export interface UpdateDashboardResponse extends $MetadataBearer {
+export interface UpdateDashboardResponse {
   __type?: "UpdateDashboardResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -5933,7 +5931,7 @@ export namespace UpdateDataSetPermissionsRequest {
   }
 }
 
-export interface UpdateDataSetPermissionsResponse extends $MetadataBearer {
+export interface UpdateDataSetPermissionsResponse {
   __type?: "UpdateDataSetPermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -6008,7 +6006,7 @@ export namespace UpdateDataSetRequest {
   }
 }
 
-export interface UpdateDataSetResponse extends $MetadataBearer {
+export interface UpdateDataSetResponse {
   __type?: "UpdateDataSetResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -6073,7 +6071,7 @@ export namespace UpdateDataSourcePermissionsRequest {
   }
 }
 
-export interface UpdateDataSourcePermissionsResponse extends $MetadataBearer {
+export interface UpdateDataSourcePermissionsResponse {
   __type?: "UpdateDataSourcePermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -6144,7 +6142,7 @@ export namespace UpdateDataSourceRequest {
   }
 }
 
-export interface UpdateDataSourceResponse extends $MetadataBearer {
+export interface UpdateDataSourceResponse {
   __type?: "UpdateDataSourceResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -6203,7 +6201,7 @@ export namespace UpdateGroupRequest {
   }
 }
 
-export interface UpdateGroupResponse extends $MetadataBearer {
+export interface UpdateGroupResponse {
   __type?: "UpdateGroupResponse";
   /**
    * <p>The name of the group.</p>
@@ -6278,7 +6276,7 @@ export namespace UpdateIAMPolicyAssignmentRequest {
   }
 }
 
-export interface UpdateIAMPolicyAssignmentResponse extends $MetadataBearer {
+export interface UpdateIAMPolicyAssignmentResponse {
   __type?: "UpdateIAMPolicyAssignmentResponse";
   /**
    * <p>The ID of the assignment.</p>
@@ -6366,7 +6364,7 @@ export namespace UpdateTemplateAliasRequest {
   }
 }
 
-export interface UpdateTemplateAliasResponse extends $MetadataBearer {
+export interface UpdateTemplateAliasResponse {
   __type?: "UpdateTemplateAliasResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -6414,7 +6412,7 @@ export namespace UpdateTemplatePermissionsRequest {
   }
 }
 
-export interface UpdateTemplatePermissionsResponse extends $MetadataBearer {
+export interface UpdateTemplatePermissionsResponse {
   __type?: "UpdateTemplatePermissionsResponse";
   /**
    * <p>A list of resource permissions to be set on the template.</p>
@@ -6481,7 +6479,7 @@ export namespace UpdateTemplateRequest {
   }
 }
 
-export interface UpdateTemplateResponse extends $MetadataBearer {
+export interface UpdateTemplateResponse {
   __type?: "UpdateTemplateResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the template.</p>
@@ -6567,7 +6565,7 @@ export namespace UpdateUserRequest {
   }
 }
 
-export interface UpdateUserResponse extends $MetadataBearer {
+export interface UpdateUserResponse {
   __type?: "UpdateUserResponse";
   /**
    * <p>The AWS request ID for this operation.</p>

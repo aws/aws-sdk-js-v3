@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateQualificationTypeCommandInput = CreateQualificationTypeRequest;
-export type CreateQualificationTypeCommandOutput = CreateQualificationTypeResponse;
+export type CreateQualificationTypeCommandOutput = CreateQualificationTypeResponse &
+  __MetadataBearer;
 
 export class CreateQualificationTypeCommand extends $Command<
   CreateQualificationTypeCommandInput,

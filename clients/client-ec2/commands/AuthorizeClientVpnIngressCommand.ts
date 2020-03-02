@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AuthorizeClientVpnIngressCommandInput = AuthorizeClientVpnIngressRequest;
-export type AuthorizeClientVpnIngressCommandOutput = AuthorizeClientVpnIngressResult;
+export type AuthorizeClientVpnIngressCommandOutput = AuthorizeClientVpnIngressResult &
+  __MetadataBearer;
 
 export class AuthorizeClientVpnIngressCommand extends $Command<
   AuthorizeClientVpnIngressCommandInput,

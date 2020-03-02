@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutScalingPolicyCommandInput = PutScalingPolicyInput;
-export type PutScalingPolicyCommandOutput = PutScalingPolicyOutput;
+export type PutScalingPolicyCommandOutput = PutScalingPolicyOutput &
+  __MetadataBearer;
 
 export class PutScalingPolicyCommand extends $Command<
   PutScalingPolicyCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateForecastExportJobCommandInput = CreateForecastExportJobRequest;
-export type CreateForecastExportJobCommandOutput = CreateForecastExportJobResponse;
+export type CreateForecastExportJobCommandOutput = CreateForecastExportJobResponse &
+  __MetadataBearer;
 
 export class CreateForecastExportJobCommand extends $Command<
   CreateForecastExportJobCommandInput,

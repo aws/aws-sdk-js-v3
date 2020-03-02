@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateResourceShareCommandInput = AssociateResourceShareRequest;
-export type AssociateResourceShareCommandOutput = AssociateResourceShareResponse;
+export type AssociateResourceShareCommandOutput = AssociateResourceShareResponse &
+  __MetadataBearer;
 
 export class AssociateResourceShareCommand extends $Command<
   AssociateResourceShareCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPublicKeyConfigCommandInput = GetPublicKeyConfigRequest;
-export type GetPublicKeyConfigCommandOutput = GetPublicKeyConfigResult;
+export type GetPublicKeyConfigCommandOutput = GetPublicKeyConfigResult &
+  __MetadataBearer;
 
 export class GetPublicKeyConfigCommand extends $Command<
   GetPublicKeyConfigCommandInput,

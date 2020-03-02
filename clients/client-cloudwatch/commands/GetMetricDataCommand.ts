@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMetricDataCommandInput = GetMetricDataInput;
-export type GetMetricDataCommandOutput = GetMetricDataOutput;
+export type GetMetricDataCommandOutput = GetMetricDataOutput & __MetadataBearer;
 
 export class GetMetricDataCommand extends $Command<
   GetMetricDataCommandInput,

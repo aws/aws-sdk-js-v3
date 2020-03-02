@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateEventTrackerCommandInput = CreateEventTrackerRequest;
-export type CreateEventTrackerCommandOutput = CreateEventTrackerResponse;
+export type CreateEventTrackerCommandOutput = CreateEventTrackerResponse &
+  __MetadataBearer;
 
 export class CreateEventTrackerCommand extends $Command<
   CreateEventTrackerCommandInput,

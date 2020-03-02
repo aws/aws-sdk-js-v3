@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIndexingConfigurationCommandInput = GetIndexingConfigurationRequest;
-export type GetIndexingConfigurationCommandOutput = GetIndexingConfigurationResponse;
+export type GetIndexingConfigurationCommandOutput = GetIndexingConfigurationResponse &
+  __MetadataBearer;
 
 export class GetIndexingConfigurationCommand extends $Command<
   GetIndexingConfigurationCommandInput,

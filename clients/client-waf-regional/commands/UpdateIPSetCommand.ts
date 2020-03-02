@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateIPSetCommandInput = UpdateIPSetRequest;
-export type UpdateIPSetCommandOutput = UpdateIPSetResponse;
+export type UpdateIPSetCommandOutput = UpdateIPSetResponse & __MetadataBearer;
 
 export class UpdateIPSetCommand extends $Command<
   UpdateIPSetCommandInput,

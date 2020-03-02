@@ -204,59 +204,83 @@ async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandEr
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#AccessDeniedException":
-      response = await deserializeAws_json1_0AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InternalServerException":
-      response = await deserializeAws_json1_0InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingAuthenticationToken":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#MissingAuthenticationToken":
-      response = await deserializeAws_json1_0MissingAuthenticationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0MissingAuthenticationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptInRequiredException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#OptInRequiredException":
-      response = await deserializeAws_json1_0OptInRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OptInRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ServiceUnavailableException":
-      response = await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ThrottlingException":
-      response = await deserializeAws_json1_0ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -315,59 +339,83 @@ async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#AccessDeniedException":
-      response = await deserializeAws_json1_0AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InternalServerException":
-      response = await deserializeAws_json1_0InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingAuthenticationToken":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#MissingAuthenticationToken":
-      response = await deserializeAws_json1_0MissingAuthenticationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0MissingAuthenticationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptInRequiredException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#OptInRequiredException":
-      response = await deserializeAws_json1_0OptInRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OptInRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ServiceUnavailableException":
-      response = await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ThrottlingException":
-      response = await deserializeAws_json1_0ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -426,59 +474,83 @@ async function deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#AccessDeniedException":
-      response = await deserializeAws_json1_0AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InternalServerException":
-      response = await deserializeAws_json1_0InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingAuthenticationToken":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#MissingAuthenticationToken":
-      response = await deserializeAws_json1_0MissingAuthenticationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0MissingAuthenticationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptInRequiredException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#OptInRequiredException":
-      response = await deserializeAws_json1_0OptInRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OptInRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ResourceNotFoundException":
-      response = await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ServiceUnavailableException":
-      response = await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ThrottlingException":
-      response = await deserializeAws_json1_0ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -534,45 +606,63 @@ async function deserializeAws_json1_0GetEnrollmentStatusCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#AccessDeniedException":
-      response = await deserializeAws_json1_0AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InternalServerException":
-      response = await deserializeAws_json1_0InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingAuthenticationToken":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#MissingAuthenticationToken":
-      response = await deserializeAws_json1_0MissingAuthenticationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0MissingAuthenticationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ServiceUnavailableException":
-      response = await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ThrottlingException":
-      response = await deserializeAws_json1_0ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -631,52 +721,73 @@ async function deserializeAws_json1_0GetRecommendationSummariesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#AccessDeniedException":
-      response = await deserializeAws_json1_0AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InternalServerException":
-      response = await deserializeAws_json1_0InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingAuthenticationToken":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#MissingAuthenticationToken":
-      response = await deserializeAws_json1_0MissingAuthenticationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0MissingAuthenticationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OptInRequiredException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#OptInRequiredException":
-      response = await deserializeAws_json1_0OptInRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0OptInRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ServiceUnavailableException":
-      response = await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ThrottlingException":
-      response = await deserializeAws_json1_0ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -735,45 +846,63 @@ async function deserializeAws_json1_0UpdateEnrollmentStatusCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#AccessDeniedException":
-      response = await deserializeAws_json1_0AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InternalServerException":
-      response = await deserializeAws_json1_0InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#InvalidParameterValueException":
-      response = await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingAuthenticationToken":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#MissingAuthenticationToken":
-      response = await deserializeAws_json1_0MissingAuthenticationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0MissingAuthenticationTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ServiceUnavailableException":
-      response = await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.computeoptimizer.version_2019_11_01#ThrottlingException":
-      response = await deserializeAws_json1_0ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

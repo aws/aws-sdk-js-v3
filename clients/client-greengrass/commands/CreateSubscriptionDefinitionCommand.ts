@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSubscriptionDefinitionCommandInput = CreateSubscriptionDefinitionRequest;
-export type CreateSubscriptionDefinitionCommandOutput = CreateSubscriptionDefinitionResponse;
+export type CreateSubscriptionDefinitionCommandOutput = CreateSubscriptionDefinitionResponse &
+  __MetadataBearer;
 
 export class CreateSubscriptionDefinitionCommand extends $Command<
   CreateSubscriptionDefinitionCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListReviewableHITsCommandInput = ListReviewableHITsRequest;
-export type ListReviewableHITsCommandOutput = ListReviewableHITsResponse;
+export type ListReviewableHITsCommandOutput = ListReviewableHITsResponse &
+  __MetadataBearer;
 
 export class ListReviewableHITsCommand extends $Command<
   ListReviewableHITsCommandInput,

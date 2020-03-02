@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListFunctionDefinitionVersionsCommandInput = ListFunctionDefinitionVersionsRequest;
-export type ListFunctionDefinitionVersionsCommandOutput = ListFunctionDefinitionVersionsResponse;
+export type ListFunctionDefinitionVersionsCommandOutput = ListFunctionDefinitionVersionsResponse &
+  __MetadataBearer;
 
 export class ListFunctionDefinitionVersionsCommand extends $Command<
   ListFunctionDefinitionVersionsCommandInput,

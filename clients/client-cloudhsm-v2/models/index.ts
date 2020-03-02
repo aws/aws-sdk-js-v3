@@ -232,7 +232,7 @@ export namespace CopyBackupToRegionRequest {
   }
 }
 
-export interface CopyBackupToRegionResponse extends $MetadataBearer {
+export interface CopyBackupToRegionResponse {
   __type?: "CopyBackupToRegionResponse";
   /**
    * <p>Information on the backup that will be copied to the destination region, including
@@ -289,7 +289,7 @@ export namespace CreateClusterRequest {
   }
 }
 
-export interface CreateClusterResponse extends $MetadataBearer {
+export interface CreateClusterResponse {
   __type?: "CreateClusterResponse";
   /**
    * <p>Information about the cluster that was created.</p>
@@ -330,7 +330,7 @@ export namespace CreateHsmRequest {
   }
 }
 
-export interface CreateHsmResponse extends $MetadataBearer {
+export interface CreateHsmResponse {
   __type?: "CreateHsmResponse";
   /**
    * <p>Information about the HSM that was created.</p>
@@ -358,7 +358,7 @@ export namespace DeleteBackupRequest {
   }
 }
 
-export interface DeleteBackupResponse extends $MetadataBearer {
+export interface DeleteBackupResponse {
   __type?: "DeleteBackupResponse";
   /**
    * <p>Information on the <code>Backup</code> object deleted.</p>
@@ -387,7 +387,7 @@ export namespace DeleteClusterRequest {
   }
 }
 
-export interface DeleteClusterResponse extends $MetadataBearer {
+export interface DeleteClusterResponse {
   __type?: "DeleteClusterResponse";
   /**
    * <p>Information about the cluster that was deleted.</p>
@@ -433,7 +433,7 @@ export namespace DeleteHsmRequest {
   }
 }
 
-export interface DeleteHsmResponse extends $MetadataBearer {
+export interface DeleteHsmResponse {
   __type?: "DeleteHsmResponse";
   /**
    * <p>The identifier (ID) of the HSM that was deleted.</p>
@@ -487,7 +487,7 @@ export namespace DescribeBackupsRequest {
   }
 }
 
-export interface DescribeBackupsResponse extends $MetadataBearer {
+export interface DescribeBackupsResponse {
   __type?: "DescribeBackupsResponse";
   /**
    * <p>A list of backups.</p>
@@ -540,7 +540,7 @@ export namespace DescribeClustersRequest {
   }
 }
 
-export interface DescribeClustersResponse extends $MetadataBearer {
+export interface DescribeClustersResponse {
   __type?: "DescribeClustersResponse";
   /**
    * <p>A list of clusters.</p>
@@ -683,7 +683,7 @@ export namespace InitializeClusterRequest {
   }
 }
 
-export interface InitializeClusterResponse extends $MetadataBearer {
+export interface InitializeClusterResponse {
   __type?: "InitializeClusterResponse";
   /**
    * <p>The cluster's state.</p>
@@ -729,7 +729,7 @@ export namespace ListTagsRequest {
   }
 }
 
-export interface ListTagsResponse extends $MetadataBearer {
+export interface ListTagsResponse {
   __type?: "ListTagsResponse";
   /**
    * <p>An opaque string that indicates that the response contains only a subset of tags. Use
@@ -763,7 +763,7 @@ export namespace RestoreBackupRequest {
   }
 }
 
-export interface RestoreBackupResponse extends $MetadataBearer {
+export interface RestoreBackupResponse {
   __type?: "RestoreBackupResponse";
   /**
    * <p>Information on the <code>Backup</code> object created.</p>
@@ -819,7 +819,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -850,7 +850,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

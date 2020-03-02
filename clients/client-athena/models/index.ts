@@ -18,7 +18,7 @@ export namespace BatchGetNamedQueryInput {
   }
 }
 
-export interface BatchGetNamedQueryOutput extends $MetadataBearer {
+export interface BatchGetNamedQueryOutput {
   __type?: "BatchGetNamedQueryOutput";
   /**
    * <p>Information about the named query IDs submitted.</p>
@@ -51,7 +51,7 @@ export namespace BatchGetQueryExecutionInput {
   }
 }
 
-export interface BatchGetQueryExecutionOutput extends $MetadataBearer {
+export interface BatchGetQueryExecutionOutput {
   __type?: "BatchGetQueryExecutionOutput";
   /**
    * <p>Information about a query execution.</p>
@@ -180,7 +180,7 @@ export namespace CreateNamedQueryInput {
   }
 }
 
-export interface CreateNamedQueryOutput extends $MetadataBearer {
+export interface CreateNamedQueryOutput {
   __type?: "CreateNamedQueryOutput";
   /**
    * <p>The unique ID of the query.</p>
@@ -228,7 +228,7 @@ export namespace CreateWorkGroupInput {
   }
 }
 
-export interface CreateWorkGroupOutput extends $MetadataBearer {
+export interface CreateWorkGroupOutput {
   __type?: "CreateWorkGroupOutput";
 }
 
@@ -269,7 +269,7 @@ export namespace DeleteNamedQueryInput {
   }
 }
 
-export interface DeleteNamedQueryOutput extends $MetadataBearer {
+export interface DeleteNamedQueryOutput {
   __type?: "DeleteNamedQueryOutput";
 }
 
@@ -298,7 +298,7 @@ export namespace DeleteWorkGroupInput {
   }
 }
 
-export interface DeleteWorkGroupOutput extends $MetadataBearer {
+export interface DeleteWorkGroupOutput {
   __type?: "DeleteWorkGroupOutput";
 }
 
@@ -358,7 +358,7 @@ export namespace GetNamedQueryInput {
   }
 }
 
-export interface GetNamedQueryOutput extends $MetadataBearer {
+export interface GetNamedQueryOutput {
   __type?: "GetNamedQueryOutput";
   /**
    * <p>Information about the query.</p>
@@ -386,7 +386,7 @@ export namespace GetQueryExecutionInput {
   }
 }
 
-export interface GetQueryExecutionOutput extends $MetadataBearer {
+export interface GetQueryExecutionOutput {
   __type?: "GetQueryExecutionOutput";
   /**
    * <p>Information about the query execution.</p>
@@ -424,7 +424,7 @@ export namespace GetQueryResultsInput {
   }
 }
 
-export interface GetQueryResultsOutput extends $MetadataBearer {
+export interface GetQueryResultsOutput {
   __type?: "GetQueryResultsOutput";
   /**
    * <p>A token to be used by the next request if this request is truncated.</p>
@@ -463,7 +463,7 @@ export namespace GetWorkGroupInput {
   }
 }
 
-export interface GetWorkGroupOutput extends $MetadataBearer {
+export interface GetWorkGroupOutput {
   __type?: "GetWorkGroupOutput";
   /**
    * <p>Information about the workgroup.</p>
@@ -540,7 +540,7 @@ export namespace ListNamedQueriesInput {
   }
 }
 
-export interface ListNamedQueriesOutput extends $MetadataBearer {
+export interface ListNamedQueriesOutput {
   __type?: "ListNamedQueriesOutput";
   /**
    * <p>The list of unique query IDs.</p>
@@ -583,7 +583,7 @@ export namespace ListQueryExecutionsInput {
   }
 }
 
-export interface ListQueryExecutionsOutput extends $MetadataBearer {
+export interface ListQueryExecutionsOutput {
   __type?: "ListQueryExecutionsOutput";
   /**
    * <p>A token to be used by the next request if this request is truncated.</p>
@@ -626,7 +626,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>A token to be used by the next request if this request is truncated.</p>
@@ -664,7 +664,7 @@ export namespace ListWorkGroupsInput {
   }
 }
 
-export interface ListWorkGroupsOutput extends $MetadataBearer {
+export interface ListWorkGroupsOutput {
   __type?: "ListWorkGroupsOutput";
   /**
    * <p>A token to be used by the next request if this request is truncated.</p>
@@ -1087,7 +1087,7 @@ export namespace StartQueryExecutionInput {
   }
 }
 
-export interface StartQueryExecutionOutput extends $MetadataBearer {
+export interface StartQueryExecutionOutput {
   __type?: "StartQueryExecutionOutput";
   /**
    * <p>The unique ID of the query that ran as a result of this request.</p>
@@ -1121,7 +1121,7 @@ export namespace StopQueryExecutionInput {
   }
 }
 
-export interface StopQueryExecutionOutput extends $MetadataBearer {
+export interface StopQueryExecutionOutput {
   __type?: "StopQueryExecutionOutput";
 }
 
@@ -1179,7 +1179,7 @@ export namespace TagResourceInput {
   }
 }
 
-export interface TagResourceOutput extends $MetadataBearer {
+export interface TagResourceOutput {
   __type?: "TagResourceOutput";
 }
 
@@ -1287,7 +1287,7 @@ export namespace UntagResourceInput {
   }
 }
 
-export interface UntagResourceOutput extends $MetadataBearer {
+export interface UntagResourceOutput {
   __type?: "UntagResourceOutput";
 }
 
@@ -1326,7 +1326,7 @@ export namespace UpdateWorkGroupInput {
   }
 }
 
-export interface UpdateWorkGroupOutput extends $MetadataBearer {
+export interface UpdateWorkGroupOutput {
   __type?: "UpdateWorkGroupOutput";
 }
 

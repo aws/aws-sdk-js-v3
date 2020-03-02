@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyVpcPeeringConnectionOptionsCommandInput = ModifyVpcPeeringConnectionOptionsRequest;
-export type ModifyVpcPeeringConnectionOptionsCommandOutput = ModifyVpcPeeringConnectionOptionsResult;
+export type ModifyVpcPeeringConnectionOptionsCommandOutput = ModifyVpcPeeringConnectionOptionsResult &
+  __MetadataBearer;
 
 export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
   ModifyVpcPeeringConnectionOptionsCommandInput,

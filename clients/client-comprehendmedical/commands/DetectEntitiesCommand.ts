@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectEntitiesCommandInput = DetectEntitiesRequest;
-export type DetectEntitiesCommandOutput = DetectEntitiesResponse;
+export type DetectEntitiesCommandOutput = DetectEntitiesResponse &
+  __MetadataBearer;
 
 export class DetectEntitiesCommand extends $Command<
   DetectEntitiesCommandInput,

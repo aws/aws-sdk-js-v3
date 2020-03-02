@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDocumentVersionCommandInput = GetDocumentVersionRequest;
-export type GetDocumentVersionCommandOutput = GetDocumentVersionResponse;
+export type GetDocumentVersionCommandOutput = GetDocumentVersionResponse &
+  __MetadataBearer;
 
 export class GetDocumentVersionCommand extends $Command<
   GetDocumentVersionCommandInput,

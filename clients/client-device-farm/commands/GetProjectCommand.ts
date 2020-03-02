@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetProjectCommandInput = GetProjectRequest;
-export type GetProjectCommandOutput = GetProjectResult;
+export type GetProjectCommandOutput = GetProjectResult & __MetadataBearer;
 
 export class GetProjectCommand extends $Command<
   GetProjectCommandInput,

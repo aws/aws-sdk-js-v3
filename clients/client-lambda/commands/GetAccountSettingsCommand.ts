@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccountSettingsCommandInput = GetAccountSettingsRequest;
-export type GetAccountSettingsCommandOutput = GetAccountSettingsResponse;
+export type GetAccountSettingsCommandOutput = GetAccountSettingsResponse &
+  __MetadataBearer;
 
 export class GetAccountSettingsCommand extends $Command<
   GetAccountSettingsCommandInput,

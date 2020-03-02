@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetDeploymentInstancesCommandInput = BatchGetDeploymentInstancesInput;
-export type BatchGetDeploymentInstancesCommandOutput = BatchGetDeploymentInstancesOutput;
+export type BatchGetDeploymentInstancesCommandOutput = BatchGetDeploymentInstancesOutput &
+  __MetadataBearer;
 
 export class BatchGetDeploymentInstancesCommand extends $Command<
   BatchGetDeploymentInstancesCommandInput,

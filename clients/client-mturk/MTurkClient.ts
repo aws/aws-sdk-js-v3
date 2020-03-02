@@ -1,83 +1,159 @@
 import {
-  AcceptQualificationRequestRequest,
-  AcceptQualificationRequestResponse,
-  ApproveAssignmentRequest,
-  ApproveAssignmentResponse,
-  AssociateQualificationWithWorkerRequest,
-  AssociateQualificationWithWorkerResponse,
-  CreateAdditionalAssignmentsForHITRequest,
-  CreateAdditionalAssignmentsForHITResponse,
-  CreateHITRequest,
-  CreateHITResponse,
-  CreateHITTypeRequest,
-  CreateHITTypeResponse,
-  CreateHITWithHITTypeRequest,
-  CreateHITWithHITTypeResponse,
-  CreateQualificationTypeRequest,
-  CreateQualificationTypeResponse,
-  CreateWorkerBlockRequest,
-  CreateWorkerBlockResponse,
-  DeleteHITRequest,
-  DeleteHITResponse,
-  DeleteQualificationTypeRequest,
-  DeleteQualificationTypeResponse,
-  DeleteWorkerBlockRequest,
-  DeleteWorkerBlockResponse,
-  DisassociateQualificationFromWorkerRequest,
-  DisassociateQualificationFromWorkerResponse,
-  GetAccountBalanceRequest,
-  GetAccountBalanceResponse,
-  GetAssignmentRequest,
-  GetAssignmentResponse,
-  GetFileUploadURLRequest,
-  GetFileUploadURLResponse,
-  GetHITRequest,
-  GetHITResponse,
-  GetQualificationScoreRequest,
-  GetQualificationScoreResponse,
-  GetQualificationTypeRequest,
-  GetQualificationTypeResponse,
-  ListAssignmentsForHITRequest,
-  ListAssignmentsForHITResponse,
-  ListBonusPaymentsRequest,
-  ListBonusPaymentsResponse,
-  ListHITsForQualificationTypeRequest,
-  ListHITsForQualificationTypeResponse,
-  ListHITsRequest,
-  ListHITsResponse,
-  ListQualificationRequestsRequest,
-  ListQualificationRequestsResponse,
-  ListQualificationTypesRequest,
-  ListQualificationTypesResponse,
-  ListReviewPolicyResultsForHITRequest,
-  ListReviewPolicyResultsForHITResponse,
-  ListReviewableHITsRequest,
-  ListReviewableHITsResponse,
-  ListWorkerBlocksRequest,
-  ListWorkerBlocksResponse,
-  ListWorkersWithQualificationTypeRequest,
-  ListWorkersWithQualificationTypeResponse,
-  NotifyWorkersRequest,
-  NotifyWorkersResponse,
-  RejectAssignmentRequest,
-  RejectAssignmentResponse,
-  RejectQualificationRequestRequest,
-  RejectQualificationRequestResponse,
-  SendBonusRequest,
-  SendBonusResponse,
-  SendTestEventNotificationRequest,
-  SendTestEventNotificationResponse,
-  UpdateExpirationForHITRequest,
-  UpdateExpirationForHITResponse,
-  UpdateHITReviewStatusRequest,
-  UpdateHITReviewStatusResponse,
-  UpdateHITTypeOfHITRequest,
-  UpdateHITTypeOfHITResponse,
-  UpdateNotificationSettingsRequest,
-  UpdateNotificationSettingsResponse,
-  UpdateQualificationTypeRequest,
-  UpdateQualificationTypeResponse
-} from "./models/index";
+  AcceptQualificationRequestCommandInput,
+  AcceptQualificationRequestCommandOutput
+} from "./commands/AcceptQualificationRequestCommand";
+import {
+  ApproveAssignmentCommandInput,
+  ApproveAssignmentCommandOutput
+} from "./commands/ApproveAssignmentCommand";
+import {
+  AssociateQualificationWithWorkerCommandInput,
+  AssociateQualificationWithWorkerCommandOutput
+} from "./commands/AssociateQualificationWithWorkerCommand";
+import {
+  CreateAdditionalAssignmentsForHITCommandInput,
+  CreateAdditionalAssignmentsForHITCommandOutput
+} from "./commands/CreateAdditionalAssignmentsForHITCommand";
+import {
+  CreateHITCommandInput,
+  CreateHITCommandOutput
+} from "./commands/CreateHITCommand";
+import {
+  CreateHITTypeCommandInput,
+  CreateHITTypeCommandOutput
+} from "./commands/CreateHITTypeCommand";
+import {
+  CreateHITWithHITTypeCommandInput,
+  CreateHITWithHITTypeCommandOutput
+} from "./commands/CreateHITWithHITTypeCommand";
+import {
+  CreateQualificationTypeCommandInput,
+  CreateQualificationTypeCommandOutput
+} from "./commands/CreateQualificationTypeCommand";
+import {
+  CreateWorkerBlockCommandInput,
+  CreateWorkerBlockCommandOutput
+} from "./commands/CreateWorkerBlockCommand";
+import {
+  DeleteHITCommandInput,
+  DeleteHITCommandOutput
+} from "./commands/DeleteHITCommand";
+import {
+  DeleteQualificationTypeCommandInput,
+  DeleteQualificationTypeCommandOutput
+} from "./commands/DeleteQualificationTypeCommand";
+import {
+  DeleteWorkerBlockCommandInput,
+  DeleteWorkerBlockCommandOutput
+} from "./commands/DeleteWorkerBlockCommand";
+import {
+  DisassociateQualificationFromWorkerCommandInput,
+  DisassociateQualificationFromWorkerCommandOutput
+} from "./commands/DisassociateQualificationFromWorkerCommand";
+import {
+  GetAccountBalanceCommandInput,
+  GetAccountBalanceCommandOutput
+} from "./commands/GetAccountBalanceCommand";
+import {
+  GetAssignmentCommandInput,
+  GetAssignmentCommandOutput
+} from "./commands/GetAssignmentCommand";
+import {
+  GetFileUploadURLCommandInput,
+  GetFileUploadURLCommandOutput
+} from "./commands/GetFileUploadURLCommand";
+import {
+  GetHITCommandInput,
+  GetHITCommandOutput
+} from "./commands/GetHITCommand";
+import {
+  GetQualificationScoreCommandInput,
+  GetQualificationScoreCommandOutput
+} from "./commands/GetQualificationScoreCommand";
+import {
+  GetQualificationTypeCommandInput,
+  GetQualificationTypeCommandOutput
+} from "./commands/GetQualificationTypeCommand";
+import {
+  ListAssignmentsForHITCommandInput,
+  ListAssignmentsForHITCommandOutput
+} from "./commands/ListAssignmentsForHITCommand";
+import {
+  ListBonusPaymentsCommandInput,
+  ListBonusPaymentsCommandOutput
+} from "./commands/ListBonusPaymentsCommand";
+import {
+  ListHITsCommandInput,
+  ListHITsCommandOutput
+} from "./commands/ListHITsCommand";
+import {
+  ListHITsForQualificationTypeCommandInput,
+  ListHITsForQualificationTypeCommandOutput
+} from "./commands/ListHITsForQualificationTypeCommand";
+import {
+  ListQualificationRequestsCommandInput,
+  ListQualificationRequestsCommandOutput
+} from "./commands/ListQualificationRequestsCommand";
+import {
+  ListQualificationTypesCommandInput,
+  ListQualificationTypesCommandOutput
+} from "./commands/ListQualificationTypesCommand";
+import {
+  ListReviewPolicyResultsForHITCommandInput,
+  ListReviewPolicyResultsForHITCommandOutput
+} from "./commands/ListReviewPolicyResultsForHITCommand";
+import {
+  ListReviewableHITsCommandInput,
+  ListReviewableHITsCommandOutput
+} from "./commands/ListReviewableHITsCommand";
+import {
+  ListWorkerBlocksCommandInput,
+  ListWorkerBlocksCommandOutput
+} from "./commands/ListWorkerBlocksCommand";
+import {
+  ListWorkersWithQualificationTypeCommandInput,
+  ListWorkersWithQualificationTypeCommandOutput
+} from "./commands/ListWorkersWithQualificationTypeCommand";
+import {
+  NotifyWorkersCommandInput,
+  NotifyWorkersCommandOutput
+} from "./commands/NotifyWorkersCommand";
+import {
+  RejectAssignmentCommandInput,
+  RejectAssignmentCommandOutput
+} from "./commands/RejectAssignmentCommand";
+import {
+  RejectQualificationRequestCommandInput,
+  RejectQualificationRequestCommandOutput
+} from "./commands/RejectQualificationRequestCommand";
+import {
+  SendBonusCommandInput,
+  SendBonusCommandOutput
+} from "./commands/SendBonusCommand";
+import {
+  SendTestEventNotificationCommandInput,
+  SendTestEventNotificationCommandOutput
+} from "./commands/SendTestEventNotificationCommand";
+import {
+  UpdateExpirationForHITCommandInput,
+  UpdateExpirationForHITCommandOutput
+} from "./commands/UpdateExpirationForHITCommand";
+import {
+  UpdateHITReviewStatusCommandInput,
+  UpdateHITReviewStatusCommandOutput
+} from "./commands/UpdateHITReviewStatusCommand";
+import {
+  UpdateHITTypeOfHITCommandInput,
+  UpdateHITTypeOfHITCommandOutput
+} from "./commands/UpdateHITTypeOfHITCommand";
+import {
+  UpdateNotificationSettingsCommandInput,
+  UpdateNotificationSettingsCommandOutput
+} from "./commands/UpdateNotificationSettingsCommand";
+import {
+  UpdateQualificationTypeCommandInput,
+  UpdateQualificationTypeCommandOutput
+} from "./commands/UpdateQualificationTypeCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -131,86 +207,86 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AcceptQualificationRequestRequest
-  | ApproveAssignmentRequest
-  | AssociateQualificationWithWorkerRequest
-  | CreateAdditionalAssignmentsForHITRequest
-  | CreateHITRequest
-  | CreateHITTypeRequest
-  | CreateHITWithHITTypeRequest
-  | CreateQualificationTypeRequest
-  | CreateWorkerBlockRequest
-  | DeleteHITRequest
-  | DeleteQualificationTypeRequest
-  | DeleteWorkerBlockRequest
-  | DisassociateQualificationFromWorkerRequest
-  | GetAccountBalanceRequest
-  | GetAssignmentRequest
-  | GetFileUploadURLRequest
-  | GetHITRequest
-  | GetQualificationScoreRequest
-  | GetQualificationTypeRequest
-  | ListAssignmentsForHITRequest
-  | ListBonusPaymentsRequest
-  | ListHITsForQualificationTypeRequest
-  | ListHITsRequest
-  | ListQualificationRequestsRequest
-  | ListQualificationTypesRequest
-  | ListReviewPolicyResultsForHITRequest
-  | ListReviewableHITsRequest
-  | ListWorkerBlocksRequest
-  | ListWorkersWithQualificationTypeRequest
-  | NotifyWorkersRequest
-  | RejectAssignmentRequest
-  | RejectQualificationRequestRequest
-  | SendBonusRequest
-  | SendTestEventNotificationRequest
-  | UpdateExpirationForHITRequest
-  | UpdateHITReviewStatusRequest
-  | UpdateHITTypeOfHITRequest
-  | UpdateNotificationSettingsRequest
-  | UpdateQualificationTypeRequest;
+  | AcceptQualificationRequestCommandInput
+  | ApproveAssignmentCommandInput
+  | AssociateQualificationWithWorkerCommandInput
+  | CreateAdditionalAssignmentsForHITCommandInput
+  | CreateHITCommandInput
+  | CreateHITTypeCommandInput
+  | CreateHITWithHITTypeCommandInput
+  | CreateQualificationTypeCommandInput
+  | CreateWorkerBlockCommandInput
+  | DeleteHITCommandInput
+  | DeleteQualificationTypeCommandInput
+  | DeleteWorkerBlockCommandInput
+  | DisassociateQualificationFromWorkerCommandInput
+  | GetAccountBalanceCommandInput
+  | GetAssignmentCommandInput
+  | GetFileUploadURLCommandInput
+  | GetHITCommandInput
+  | GetQualificationScoreCommandInput
+  | GetQualificationTypeCommandInput
+  | ListAssignmentsForHITCommandInput
+  | ListBonusPaymentsCommandInput
+  | ListHITsCommandInput
+  | ListHITsForQualificationTypeCommandInput
+  | ListQualificationRequestsCommandInput
+  | ListQualificationTypesCommandInput
+  | ListReviewPolicyResultsForHITCommandInput
+  | ListReviewableHITsCommandInput
+  | ListWorkerBlocksCommandInput
+  | ListWorkersWithQualificationTypeCommandInput
+  | NotifyWorkersCommandInput
+  | RejectAssignmentCommandInput
+  | RejectQualificationRequestCommandInput
+  | SendBonusCommandInput
+  | SendTestEventNotificationCommandInput
+  | UpdateExpirationForHITCommandInput
+  | UpdateHITReviewStatusCommandInput
+  | UpdateHITTypeOfHITCommandInput
+  | UpdateNotificationSettingsCommandInput
+  | UpdateQualificationTypeCommandInput;
 
 export type ServiceOutputTypes =
-  | AcceptQualificationRequestResponse
-  | ApproveAssignmentResponse
-  | AssociateQualificationWithWorkerResponse
-  | CreateAdditionalAssignmentsForHITResponse
-  | CreateHITResponse
-  | CreateHITTypeResponse
-  | CreateHITWithHITTypeResponse
-  | CreateQualificationTypeResponse
-  | CreateWorkerBlockResponse
-  | DeleteHITResponse
-  | DeleteQualificationTypeResponse
-  | DeleteWorkerBlockResponse
-  | DisassociateQualificationFromWorkerResponse
-  | GetAccountBalanceResponse
-  | GetAssignmentResponse
-  | GetFileUploadURLResponse
-  | GetHITResponse
-  | GetQualificationScoreResponse
-  | GetQualificationTypeResponse
-  | ListAssignmentsForHITResponse
-  | ListBonusPaymentsResponse
-  | ListHITsForQualificationTypeResponse
-  | ListHITsResponse
-  | ListQualificationRequestsResponse
-  | ListQualificationTypesResponse
-  | ListReviewPolicyResultsForHITResponse
-  | ListReviewableHITsResponse
-  | ListWorkerBlocksResponse
-  | ListWorkersWithQualificationTypeResponse
-  | NotifyWorkersResponse
-  | RejectAssignmentResponse
-  | RejectQualificationRequestResponse
-  | SendBonusResponse
-  | SendTestEventNotificationResponse
-  | UpdateExpirationForHITResponse
-  | UpdateHITReviewStatusResponse
-  | UpdateHITTypeOfHITResponse
-  | UpdateNotificationSettingsResponse
-  | UpdateQualificationTypeResponse;
+  | AcceptQualificationRequestCommandOutput
+  | ApproveAssignmentCommandOutput
+  | AssociateQualificationWithWorkerCommandOutput
+  | CreateAdditionalAssignmentsForHITCommandOutput
+  | CreateHITCommandOutput
+  | CreateHITTypeCommandOutput
+  | CreateHITWithHITTypeCommandOutput
+  | CreateQualificationTypeCommandOutput
+  | CreateWorkerBlockCommandOutput
+  | DeleteHITCommandOutput
+  | DeleteQualificationTypeCommandOutput
+  | DeleteWorkerBlockCommandOutput
+  | DisassociateQualificationFromWorkerCommandOutput
+  | GetAccountBalanceCommandOutput
+  | GetAssignmentCommandOutput
+  | GetFileUploadURLCommandOutput
+  | GetHITCommandOutput
+  | GetQualificationScoreCommandOutput
+  | GetQualificationTypeCommandOutput
+  | ListAssignmentsForHITCommandOutput
+  | ListBonusPaymentsCommandOutput
+  | ListHITsCommandOutput
+  | ListHITsForQualificationTypeCommandOutput
+  | ListQualificationRequestsCommandOutput
+  | ListQualificationTypesCommandOutput
+  | ListReviewPolicyResultsForHITCommandOutput
+  | ListReviewableHITsCommandOutput
+  | ListWorkerBlocksCommandOutput
+  | ListWorkersWithQualificationTypeCommandOutput
+  | NotifyWorkersCommandOutput
+  | RejectAssignmentCommandOutput
+  | RejectQualificationRequestCommandOutput
+  | SendBonusCommandOutput
+  | SendTestEventNotificationCommandOutput
+  | UpdateExpirationForHITCommandOutput
+  | UpdateHITReviewStatusCommandOutput
+  | UpdateHITTypeOfHITCommandOutput
+  | UpdateNotificationSettingsCommandOutput
+  | UpdateQualificationTypeCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

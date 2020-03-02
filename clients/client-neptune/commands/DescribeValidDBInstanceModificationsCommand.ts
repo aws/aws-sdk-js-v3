@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeValidDBInstanceModificationsCommandInput = DescribeValidDBInstanceModificationsMessage;
-export type DescribeValidDBInstanceModificationsCommandOutput = DescribeValidDBInstanceModificationsResult;
+export type DescribeValidDBInstanceModificationsCommandOutput = DescribeValidDBInstanceModificationsResult &
+  __MetadataBearer;
 
 export class DescribeValidDBInstanceModificationsCommand extends $Command<
   DescribeValidDBInstanceModificationsCommandInput,

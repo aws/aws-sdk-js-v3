@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateReceiptRuleSetCommandInput = CreateReceiptRuleSetRequest;
-export type CreateReceiptRuleSetCommandOutput = CreateReceiptRuleSetResponse;
+export type CreateReceiptRuleSetCommandOutput = CreateReceiptRuleSetResponse &
+  __MetadataBearer;
 
 export class CreateReceiptRuleSetCommand extends $Command<
   CreateReceiptRuleSetCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTrafficMirrorFilterCommandInput = CreateTrafficMirrorFilterRequest;
-export type CreateTrafficMirrorFilterCommandOutput = CreateTrafficMirrorFilterResult;
+export type CreateTrafficMirrorFilterCommandOutput = CreateTrafficMirrorFilterResult &
+  __MetadataBearer;
 
 export class CreateTrafficMirrorFilterCommand extends $Command<
   CreateTrafficMirrorFilterCommandInput,

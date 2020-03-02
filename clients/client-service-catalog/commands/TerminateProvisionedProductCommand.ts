@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TerminateProvisionedProductCommandInput = TerminateProvisionedProductInput;
-export type TerminateProvisionedProductCommandOutput = TerminateProvisionedProductOutput;
+export type TerminateProvisionedProductCommandOutput = TerminateProvisionedProductOutput &
+  __MetadataBearer;
 
 export class TerminateProvisionedProductCommand extends $Command<
   TerminateProvisionedProductCommandInput,

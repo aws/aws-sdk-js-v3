@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTemplateCommandInput = DeleteTemplateRequest;
-export type DeleteTemplateCommandOutput = DeleteTemplateResponse;
+export type DeleteTemplateCommandOutput = DeleteTemplateResponse &
+  __MetadataBearer;
 
 export class DeleteTemplateCommand extends $Command<
   DeleteTemplateCommandInput,

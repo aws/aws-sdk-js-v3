@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateRuleVersionCommandInput = UpdateRuleVersionRequest;
-export type UpdateRuleVersionCommandOutput = UpdateRuleVersionResult;
+export type UpdateRuleVersionCommandOutput = UpdateRuleVersionResult &
+  __MetadataBearer;
 
 export class UpdateRuleVersionCommand extends $Command<
   UpdateRuleVersionCommandInput,

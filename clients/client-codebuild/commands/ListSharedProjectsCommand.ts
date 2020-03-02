@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSharedProjectsCommandInput = ListSharedProjectsInput;
-export type ListSharedProjectsCommandOutput = ListSharedProjectsOutput;
+export type ListSharedProjectsCommandOutput = ListSharedProjectsOutput &
+  __MetadataBearer;
 
 export class ListSharedProjectsCommand extends $Command<
   ListSharedProjectsCommandInput,

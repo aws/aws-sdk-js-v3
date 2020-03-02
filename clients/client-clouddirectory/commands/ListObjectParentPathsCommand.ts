@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListObjectParentPathsCommandInput = ListObjectParentPathsRequest;
-export type ListObjectParentPathsCommandOutput = ListObjectParentPathsResponse;
+export type ListObjectParentPathsCommandOutput = ListObjectParentPathsResponse &
+  __MetadataBearer;
 
 export class ListObjectParentPathsCommand extends $Command<
   ListObjectParentPathsCommandInput,

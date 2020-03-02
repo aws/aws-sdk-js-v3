@@ -142,52 +142,73 @@ async function deserializeAws_json1_1BatchMeterUsageCommandError(
   switch (errorCode) {
     case "DisabledApiException":
     case "com.amazonaws.marketplace.metering#DisabledApiException":
-      response = await deserializeAws_json1_1DisabledApiExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DisabledApiExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplace.metering#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCustomerIdentifierException":
     case "com.amazonaws.marketplace.metering#InvalidCustomerIdentifierException":
-      response = await deserializeAws_json1_1InvalidCustomerIdentifierExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCustomerIdentifierExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidProductCodeException":
     case "com.amazonaws.marketplace.metering#InvalidProductCodeException":
-      response = await deserializeAws_json1_1InvalidProductCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidProductCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUsageDimensionException":
     case "com.amazonaws.marketplace.metering#InvalidUsageDimensionException":
-      response = await deserializeAws_json1_1InvalidUsageDimensionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUsageDimensionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.metering#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TimestampOutOfBoundsException":
     case "com.amazonaws.marketplace.metering#TimestampOutOfBoundsException":
-      response = await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -240,59 +261,83 @@ async function deserializeAws_json1_1MeterUsageCommandError(
   switch (errorCode) {
     case "CustomerNotEntitledException":
     case "com.amazonaws.marketplace.metering#CustomerNotEntitledException":
-      response = await deserializeAws_json1_1CustomerNotEntitledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CustomerNotEntitledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateRequestException":
     case "com.amazonaws.marketplace.metering#DuplicateRequestException":
-      response = await deserializeAws_json1_1DuplicateRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplace.metering#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEndpointRegionException":
     case "com.amazonaws.marketplace.metering#InvalidEndpointRegionException":
-      response = await deserializeAws_json1_1InvalidEndpointRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEndpointRegionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidProductCodeException":
     case "com.amazonaws.marketplace.metering#InvalidProductCodeException":
-      response = await deserializeAws_json1_1InvalidProductCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidProductCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUsageDimensionException":
     case "com.amazonaws.marketplace.metering#InvalidUsageDimensionException":
-      response = await deserializeAws_json1_1InvalidUsageDimensionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidUsageDimensionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.metering#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TimestampOutOfBoundsException":
     case "com.amazonaws.marketplace.metering#TimestampOutOfBoundsException":
-      response = await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -345,59 +390,83 @@ async function deserializeAws_json1_1RegisterUsageCommandError(
   switch (errorCode) {
     case "CustomerNotEntitledException":
     case "com.amazonaws.marketplace.metering#CustomerNotEntitledException":
-      response = await deserializeAws_json1_1CustomerNotEntitledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CustomerNotEntitledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DisabledApiException":
     case "com.amazonaws.marketplace.metering#DisabledApiException":
-      response = await deserializeAws_json1_1DisabledApiExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DisabledApiExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplace.metering#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidProductCodeException":
     case "com.amazonaws.marketplace.metering#InvalidProductCodeException":
-      response = await deserializeAws_json1_1InvalidProductCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidProductCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPublicKeyVersionException":
     case "com.amazonaws.marketplace.metering#InvalidPublicKeyVersionException":
-      response = await deserializeAws_json1_1InvalidPublicKeyVersionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPublicKeyVersionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRegionException":
     case "com.amazonaws.marketplace.metering#InvalidRegionException":
-      response = await deserializeAws_json1_1InvalidRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRegionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PlatformNotSupportedException":
     case "com.amazonaws.marketplace.metering#PlatformNotSupportedException":
-      response = await deserializeAws_json1_1PlatformNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PlatformNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.metering#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -450,38 +519,53 @@ async function deserializeAws_json1_1ResolveCustomerCommandError(
   switch (errorCode) {
     case "DisabledApiException":
     case "com.amazonaws.marketplace.metering#DisabledApiException":
-      response = await deserializeAws_json1_1DisabledApiExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DisabledApiExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ExpiredTokenException":
     case "com.amazonaws.marketplace.metering#ExpiredTokenException":
-      response = await deserializeAws_json1_1ExpiredTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplace.metering#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTokenException":
     case "com.amazonaws.marketplace.metering#InvalidTokenException":
-      response = await deserializeAws_json1_1InvalidTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.metering#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

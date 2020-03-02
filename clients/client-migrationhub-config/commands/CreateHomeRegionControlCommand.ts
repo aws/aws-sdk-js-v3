@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateHomeRegionControlCommandInput = CreateHomeRegionControlRequest;
-export type CreateHomeRegionControlCommandOutput = CreateHomeRegionControlResult;
+export type CreateHomeRegionControlCommandOutput = CreateHomeRegionControlResult &
+  __MetadataBearer;
 
 export class CreateHomeRegionControlCommand extends $Command<
   CreateHomeRegionControlCommandInput,

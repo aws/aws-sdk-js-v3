@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDataSourceSyncJobsCommandInput = ListDataSourceSyncJobsRequest;
-export type ListDataSourceSyncJobsCommandOutput = ListDataSourceSyncJobsResponse;
+export type ListDataSourceSyncJobsCommandOutput = ListDataSourceSyncJobsResponse &
+  __MetadataBearer;
 
 export class ListDataSourceSyncJobsCommand extends $Command<
   ListDataSourceSyncJobsCommandInput,

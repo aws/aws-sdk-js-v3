@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateEnrollmentStatusCommandInput = UpdateEnrollmentStatusRequest;
-export type UpdateEnrollmentStatusCommandOutput = UpdateEnrollmentStatusResponse;
+export type UpdateEnrollmentStatusCommandOutput = UpdateEnrollmentStatusResponse &
+  __MetadataBearer;
 
 export class UpdateEnrollmentStatusCommand extends $Command<
   UpdateEnrollmentStatusCommandInput,

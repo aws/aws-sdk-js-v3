@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccuracyMetricsCommandInput = GetAccuracyMetricsRequest;
-export type GetAccuracyMetricsCommandOutput = GetAccuracyMetricsResponse;
+export type GetAccuracyMetricsCommandOutput = GetAccuracyMetricsResponse &
+  __MetadataBearer;
 
 export class GetAccuracyMetricsCommand extends $Command<
   GetAccuracyMetricsCommandInput,

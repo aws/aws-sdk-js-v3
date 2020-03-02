@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SampleChannelDataCommandInput = SampleChannelDataRequest;
-export type SampleChannelDataCommandOutput = SampleChannelDataResponse;
+export type SampleChannelDataCommandOutput = SampleChannelDataResponse &
+  __MetadataBearer;
 
 export class SampleChannelDataCommand extends $Command<
   SampleChannelDataCommandInput,

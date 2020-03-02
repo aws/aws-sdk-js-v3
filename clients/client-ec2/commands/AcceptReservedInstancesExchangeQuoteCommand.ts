@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcceptReservedInstancesExchangeQuoteCommandInput = AcceptReservedInstancesExchangeQuoteRequest;
-export type AcceptReservedInstancesExchangeQuoteCommandOutput = AcceptReservedInstancesExchangeQuoteResult;
+export type AcceptReservedInstancesExchangeQuoteCommandOutput = AcceptReservedInstancesExchangeQuoteResult &
+  __MetadataBearer;
 
 export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
   AcceptReservedInstancesExchangeQuoteCommandInput,

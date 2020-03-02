@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteNetworkInterfacePermissionCommandInput = DeleteNetworkInterfacePermissionRequest;
-export type DeleteNetworkInterfacePermissionCommandOutput = DeleteNetworkInterfacePermissionResult;
+export type DeleteNetworkInterfacePermissionCommandOutput = DeleteNetworkInterfacePermissionResult &
+  __MetadataBearer;
 
 export class DeleteNetworkInterfacePermissionCommand extends $Command<
   DeleteNetworkInterfacePermissionCommandInput,

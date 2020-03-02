@@ -333,7 +333,7 @@ export namespace CompareFacesRequest {
   }
 }
 
-export interface CompareFacesResponse extends $MetadataBearer {
+export interface CompareFacesResponse {
   __type?: "CompareFacesResponse";
   /**
    * <p>An array of faces in the target image that match the source image face. Each
@@ -498,7 +498,7 @@ export namespace CreateCollectionRequest {
   }
 }
 
-export interface CreateCollectionResponse extends $MetadataBearer {
+export interface CreateCollectionResponse {
   __type?: "CreateCollectionResponse";
   /**
    * <p>Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on
@@ -537,7 +537,7 @@ export namespace CreateProjectRequest {
   }
 }
 
-export interface CreateProjectResponse extends $MetadataBearer {
+export interface CreateProjectResponse {
   __type?: "CreateProjectResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the new project. You can use the ARN to
@@ -587,7 +587,7 @@ export namespace CreateProjectVersionRequest {
   }
 }
 
-export interface CreateProjectVersionResponse extends $MetadataBearer {
+export interface CreateProjectVersionResponse {
   __type?: "CreateProjectVersionResponse";
   /**
    * <p>The ARN of the model version that was created. Use <code>DescribeProjectVersion</code>
@@ -640,7 +640,7 @@ export namespace CreateStreamProcessorRequest {
   }
 }
 
-export interface CreateStreamProcessorResponse extends $MetadataBearer {
+export interface CreateStreamProcessorResponse {
   __type?: "CreateStreamProcessorResponse";
   /**
    * <p>ARN for the newly create stream processor.</p>
@@ -698,7 +698,7 @@ export namespace DeleteCollectionRequest {
   }
 }
 
-export interface DeleteCollectionResponse extends $MetadataBearer {
+export interface DeleteCollectionResponse {
   __type?: "DeleteCollectionResponse";
   /**
    * <p>HTTP status code that indicates the result of the operation.</p>
@@ -731,7 +731,7 @@ export namespace DeleteFacesRequest {
   }
 }
 
-export interface DeleteFacesResponse extends $MetadataBearer {
+export interface DeleteFacesResponse {
   __type?: "DeleteFacesResponse";
   /**
    * <p>An array of strings (face IDs) of the faces that were deleted.</p>
@@ -759,7 +759,7 @@ export namespace DeleteStreamProcessorRequest {
   }
 }
 
-export interface DeleteStreamProcessorResponse extends $MetadataBearer {
+export interface DeleteStreamProcessorResponse {
   __type?: "DeleteStreamProcessorResponse";
 }
 
@@ -783,7 +783,7 @@ export namespace DescribeCollectionRequest {
   }
 }
 
-export interface DescribeCollectionResponse extends $MetadataBearer {
+export interface DescribeCollectionResponse {
   __type?: "DescribeCollectionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the collection.</p>
@@ -851,7 +851,7 @@ export namespace DescribeProjectVersionsRequest {
   }
 }
 
-export interface DescribeProjectVersionsResponse extends $MetadataBearer {
+export interface DescribeProjectVersionsResponse {
   __type?: "DescribeProjectVersionsResponse";
   /**
    * <p>If the previous response was incomplete (because there is more
@@ -896,7 +896,7 @@ export namespace DescribeProjectsRequest {
   }
 }
 
-export interface DescribeProjectsResponse extends $MetadataBearer {
+export interface DescribeProjectsResponse {
   __type?: "DescribeProjectsResponse";
   /**
    * <p>If the previous response was incomplete (because there is more
@@ -931,7 +931,7 @@ export namespace DescribeStreamProcessorRequest {
   }
 }
 
-export interface DescribeStreamProcessorResponse extends $MetadataBearer {
+export interface DescribeStreamProcessorResponse {
   __type?: "DescribeStreamProcessorResponse";
   /**
    * <p>Date and time the stream processor was created</p>
@@ -1048,7 +1048,7 @@ export namespace DetectCustomLabelsRequest {
   }
 }
 
-export interface DetectCustomLabelsResponse extends $MetadataBearer {
+export interface DetectCustomLabelsResponse {
   __type?: "DetectCustomLabelsResponse";
   /**
    * <p>An array of custom labels detected in the input image.</p>
@@ -1092,7 +1092,7 @@ export namespace DetectFacesRequest {
   }
 }
 
-export interface DetectFacesResponse extends $MetadataBearer {
+export interface DetectFacesResponse {
   __type?: "DetectFacesResponse";
   /**
    * <p>Details of each face found in the image. </p>
@@ -1153,7 +1153,7 @@ export namespace DetectLabelsRequest {
   }
 }
 
-export interface DetectLabelsResponse extends $MetadataBearer {
+export interface DetectLabelsResponse {
   __type?: "DetectLabelsResponse";
   /**
    * <p>Version number of the label detection model that was used to detect labels.</p>
@@ -1219,7 +1219,7 @@ export namespace DetectModerationLabelsRequest {
   }
 }
 
-export interface DetectModerationLabelsResponse extends $MetadataBearer {
+export interface DetectModerationLabelsResponse {
   __type?: "DetectModerationLabelsResponse";
   /**
    * <p>Shows the results of the human in the loop evaluation.</p>
@@ -1262,7 +1262,7 @@ export namespace DetectTextRequest {
   }
 }
 
-export interface DetectTextResponse extends $MetadataBearer {
+export interface DetectTextResponse {
   __type?: "DetectTextResponse";
   /**
    * <p>An array of text that was detected in the input image.</p>
@@ -1727,7 +1727,7 @@ export namespace GetCelebrityInfoRequest {
   }
 }
 
-export interface GetCelebrityInfoResponse extends $MetadataBearer {
+export interface GetCelebrityInfoResponse {
   __type?: "GetCelebrityInfoResponse";
   /**
    * <p>The name of the celebrity.</p>
@@ -1780,7 +1780,7 @@ export namespace GetCelebrityRecognitionRequest {
   }
 }
 
-export interface GetCelebrityRecognitionResponse extends $MetadataBearer {
+export interface GetCelebrityRecognitionResponse {
   __type?: "GetCelebrityRecognitionResponse";
   /**
    * <p>Array of celebrities recognized in the video.</p>
@@ -1854,7 +1854,7 @@ export namespace GetContentModerationRequest {
   }
 }
 
-export interface GetContentModerationResponse extends $MetadataBearer {
+export interface GetContentModerationResponse {
   __type?: "GetContentModerationResponse";
   /**
    * <p>The current status of the unsafe content analysis job.</p>
@@ -1922,7 +1922,7 @@ export namespace GetFaceDetectionRequest {
   }
 }
 
-export interface GetFaceDetectionResponse extends $MetadataBearer {
+export interface GetFaceDetectionResponse {
   __type?: "GetFaceDetectionResponse";
   /**
    * <p>An array of faces detected in the video. Each element contains a detected face's details and the time,
@@ -1991,7 +1991,7 @@ export namespace GetFaceSearchRequest {
   }
 }
 
-export interface GetFaceSearchResponse extends $MetadataBearer {
+export interface GetFaceSearchResponse {
   __type?: "GetFaceSearchResponse";
   /**
    * <p>The current status of the face search job.</p>
@@ -2069,7 +2069,7 @@ export namespace GetLabelDetectionRequest {
   }
 }
 
-export interface GetLabelDetectionResponse extends $MetadataBearer {
+export interface GetLabelDetectionResponse {
   __type?: "GetLabelDetectionResponse";
   /**
    * <p>The current status of the label detection job.</p>
@@ -2147,7 +2147,7 @@ export namespace GetPersonTrackingRequest {
   }
 }
 
-export interface GetPersonTrackingResponse extends $MetadataBearer {
+export interface GetPersonTrackingResponse {
   __type?: "GetPersonTrackingResponse";
   /**
    * <p>The current status of the person tracking job.</p>
@@ -2486,7 +2486,7 @@ export namespace IndexFacesRequest {
   }
 }
 
-export interface IndexFacesResponse extends $MetadataBearer {
+export interface IndexFacesResponse {
   __type?: "IndexFacesResponse";
   /**
    * <p>The version number of the face detection model that's associated with the input
@@ -2869,7 +2869,7 @@ export namespace ListCollectionsRequest {
   }
 }
 
-export interface ListCollectionsResponse extends $MetadataBearer {
+export interface ListCollectionsResponse {
   __type?: "ListCollectionsResponse";
   /**
    * <p>An array of collection IDs.</p>
@@ -2922,7 +2922,7 @@ export namespace ListFacesRequest {
   }
 }
 
-export interface ListFacesResponse extends $MetadataBearer {
+export interface ListFacesResponse {
   __type?: "ListFacesResponse";
   /**
    * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
@@ -2967,7 +2967,7 @@ export namespace ListStreamProcessorsRequest {
   }
 }
 
-export interface ListStreamProcessorsResponse extends $MetadataBearer {
+export interface ListStreamProcessorsResponse {
   __type?: "ListStreamProcessorsResponse";
   /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
@@ -3450,7 +3450,7 @@ export namespace RecognizeCelebritiesRequest {
   }
 }
 
-export interface RecognizeCelebritiesResponse extends $MetadataBearer {
+export interface RecognizeCelebritiesResponse {
   __type?: "RecognizeCelebritiesResponse";
   /**
    * <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 15
@@ -3651,7 +3651,7 @@ export namespace SearchFacesByImageRequest {
   }
 }
 
-export interface SearchFacesByImageResponse extends $MetadataBearer {
+export interface SearchFacesByImageResponse {
   __type?: "SearchFacesByImageResponse";
   /**
    * <p>An array of faces that match the input face, along with the confidence in the
@@ -3716,7 +3716,7 @@ export namespace SearchFacesRequest {
   }
 }
 
-export interface SearchFacesResponse extends $MetadataBearer {
+export interface SearchFacesResponse {
   __type?: "SearchFacesResponse";
   /**
    * <p>An array of faces that matched the input face, along with the confidence in the
@@ -3798,7 +3798,7 @@ export namespace StartCelebrityRecognitionRequest {
   }
 }
 
-export interface StartCelebrityRecognitionResponse extends $MetadataBearer {
+export interface StartCelebrityRecognitionResponse {
   __type?: "StartCelebrityRecognitionResponse";
   /**
    * <p>The identifier for the celebrity recognition analysis job. Use <code>JobId</code> to identify the job in
@@ -3856,7 +3856,7 @@ export namespace StartContentModerationRequest {
   }
 }
 
-export interface StartContentModerationResponse extends $MetadataBearer {
+export interface StartContentModerationResponse {
   __type?: "StartContentModerationResponse";
   /**
    * <p>The identifier for the unsafe content analysis job. Use <code>JobId</code> to identify the job in
@@ -3914,7 +3914,7 @@ export namespace StartFaceDetectionRequest {
   }
 }
 
-export interface StartFaceDetectionResponse extends $MetadataBearer {
+export interface StartFaceDetectionResponse {
   __type?: "StartFaceDetectionResponse";
   /**
    * <p>The identifier for the face detection job. Use <code>JobId</code> to identify the job in
@@ -3972,7 +3972,7 @@ export namespace StartFaceSearchRequest {
   }
 }
 
-export interface StartFaceSearchResponse extends $MetadataBearer {
+export interface StartFaceSearchResponse {
   __type?: "StartFaceSearchResponse";
   /**
    * <p>The identifier for the search job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetFaceSearch</code>. </p>
@@ -4030,7 +4030,7 @@ export namespace StartLabelDetectionRequest {
   }
 }
 
-export interface StartLabelDetectionResponse extends $MetadataBearer {
+export interface StartLabelDetectionResponse {
   __type?: "StartLabelDetectionResponse";
   /**
    * <p>The identifier for the label detection job. Use <code>JobId</code> to identify the job in
@@ -4079,7 +4079,7 @@ export namespace StartPersonTrackingRequest {
   }
 }
 
-export interface StartPersonTrackingResponse extends $MetadataBearer {
+export interface StartPersonTrackingResponse {
   __type?: "StartPersonTrackingResponse";
   /**
    * <p>The identifier for the person detection job. Use <code>JobId</code> to identify the job in
@@ -4117,7 +4117,7 @@ export namespace StartProjectVersionRequest {
   }
 }
 
-export interface StartProjectVersionResponse extends $MetadataBearer {
+export interface StartProjectVersionResponse {
   __type?: "StartProjectVersionResponse";
   /**
    * <p>The current running status of the model. </p>
@@ -4145,7 +4145,7 @@ export namespace StartStreamProcessorRequest {
   }
 }
 
-export interface StartStreamProcessorResponse extends $MetadataBearer {
+export interface StartStreamProcessorResponse {
   __type?: "StartStreamProcessorResponse";
 }
 
@@ -4170,7 +4170,7 @@ export namespace StopProjectVersionRequest {
   }
 }
 
-export interface StopProjectVersionResponse extends $MetadataBearer {
+export interface StopProjectVersionResponse {
   __type?: "StopProjectVersionResponse";
   /**
    * <p>The current status of the stop operation. </p>
@@ -4198,7 +4198,7 @@ export namespace StopStreamProcessorRequest {
   }
 }
 
-export interface StopStreamProcessorResponse extends $MetadataBearer {
+export interface StopStreamProcessorResponse {
   __type?: "StopStreamProcessorResponse";
 }
 

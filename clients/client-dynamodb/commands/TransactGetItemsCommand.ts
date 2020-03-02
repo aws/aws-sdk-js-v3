@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TransactGetItemsCommandInput = TransactGetItemsInput;
-export type TransactGetItemsCommandOutput = TransactGetItemsOutput;
+export type TransactGetItemsCommandOutput = TransactGetItemsOutput &
+  __MetadataBearer;
 
 export class TransactGetItemsCommand extends $Command<
   TransactGetItemsCommandInput,

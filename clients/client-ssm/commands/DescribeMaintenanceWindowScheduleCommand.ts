@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMaintenanceWindowScheduleCommandInput = DescribeMaintenanceWindowScheduleRequest;
-export type DescribeMaintenanceWindowScheduleCommandOutput = DescribeMaintenanceWindowScheduleResult;
+export type DescribeMaintenanceWindowScheduleCommandOutput = DescribeMaintenanceWindowScheduleResult &
+  __MetadataBearer;
 
 export class DescribeMaintenanceWindowScheduleCommand extends $Command<
   DescribeMaintenanceWindowScheduleCommandInput,

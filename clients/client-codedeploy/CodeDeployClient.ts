@@ -1,87 +1,187 @@
 import {
-  AddTagsToOnPremisesInstancesInput,
-  BatchGetApplicationRevisionsInput,
-  BatchGetApplicationRevisionsOutput,
-  BatchGetApplicationsInput,
-  BatchGetApplicationsOutput,
-  BatchGetDeploymentGroupsInput,
-  BatchGetDeploymentGroupsOutput,
-  BatchGetDeploymentInstancesInput,
-  BatchGetDeploymentInstancesOutput,
-  BatchGetDeploymentTargetsInput,
-  BatchGetDeploymentTargetsOutput,
-  BatchGetDeploymentsInput,
-  BatchGetDeploymentsOutput,
-  BatchGetOnPremisesInstancesInput,
-  BatchGetOnPremisesInstancesOutput,
-  ContinueDeploymentInput,
-  CreateApplicationInput,
-  CreateApplicationOutput,
-  CreateDeploymentConfigInput,
-  CreateDeploymentConfigOutput,
-  CreateDeploymentGroupInput,
-  CreateDeploymentGroupOutput,
-  CreateDeploymentInput,
-  CreateDeploymentOutput,
-  DeleteApplicationInput,
-  DeleteDeploymentConfigInput,
-  DeleteDeploymentGroupInput,
-  DeleteDeploymentGroupOutput,
-  DeleteGitHubAccountTokenInput,
-  DeleteGitHubAccountTokenOutput,
-  DeregisterOnPremisesInstanceInput,
-  GetApplicationInput,
-  GetApplicationOutput,
-  GetApplicationRevisionInput,
-  GetApplicationRevisionOutput,
-  GetDeploymentConfigInput,
-  GetDeploymentConfigOutput,
-  GetDeploymentGroupInput,
-  GetDeploymentGroupOutput,
-  GetDeploymentInput,
-  GetDeploymentInstanceInput,
-  GetDeploymentInstanceOutput,
-  GetDeploymentOutput,
-  GetDeploymentTargetInput,
-  GetDeploymentTargetOutput,
-  GetOnPremisesInstanceInput,
-  GetOnPremisesInstanceOutput,
-  ListApplicationRevisionsInput,
-  ListApplicationRevisionsOutput,
-  ListApplicationsInput,
-  ListApplicationsOutput,
-  ListDeploymentConfigsInput,
-  ListDeploymentConfigsOutput,
-  ListDeploymentGroupsInput,
-  ListDeploymentGroupsOutput,
-  ListDeploymentInstancesInput,
-  ListDeploymentInstancesOutput,
-  ListDeploymentTargetsInput,
-  ListDeploymentTargetsOutput,
-  ListDeploymentsInput,
-  ListDeploymentsOutput,
-  ListGitHubAccountTokenNamesInput,
-  ListGitHubAccountTokenNamesOutput,
-  ListOnPremisesInstancesInput,
-  ListOnPremisesInstancesOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  PutLifecycleEventHookExecutionStatusInput,
-  PutLifecycleEventHookExecutionStatusOutput,
-  RegisterApplicationRevisionInput,
-  RegisterOnPremisesInstanceInput,
-  RemoveTagsFromOnPremisesInstancesInput,
-  SkipWaitTimeForInstanceTerminationInput,
-  StopDeploymentInput,
-  StopDeploymentOutput,
-  TagResourceInput,
-  TagResourceOutput,
-  UntagResourceInput,
-  UntagResourceOutput,
-  UpdateApplicationInput,
-  UpdateDeploymentGroupInput,
-  UpdateDeploymentGroupOutput
-} from "./models/index";
+  AddTagsToOnPremisesInstancesCommandInput,
+  AddTagsToOnPremisesInstancesCommandOutput
+} from "./commands/AddTagsToOnPremisesInstancesCommand";
+import {
+  BatchGetApplicationRevisionsCommandInput,
+  BatchGetApplicationRevisionsCommandOutput
+} from "./commands/BatchGetApplicationRevisionsCommand";
+import {
+  BatchGetApplicationsCommandInput,
+  BatchGetApplicationsCommandOutput
+} from "./commands/BatchGetApplicationsCommand";
+import {
+  BatchGetDeploymentGroupsCommandInput,
+  BatchGetDeploymentGroupsCommandOutput
+} from "./commands/BatchGetDeploymentGroupsCommand";
+import {
+  BatchGetDeploymentInstancesCommandInput,
+  BatchGetDeploymentInstancesCommandOutput
+} from "./commands/BatchGetDeploymentInstancesCommand";
+import {
+  BatchGetDeploymentTargetsCommandInput,
+  BatchGetDeploymentTargetsCommandOutput
+} from "./commands/BatchGetDeploymentTargetsCommand";
+import {
+  BatchGetDeploymentsCommandInput,
+  BatchGetDeploymentsCommandOutput
+} from "./commands/BatchGetDeploymentsCommand";
+import {
+  BatchGetOnPremisesInstancesCommandInput,
+  BatchGetOnPremisesInstancesCommandOutput
+} from "./commands/BatchGetOnPremisesInstancesCommand";
+import {
+  ContinueDeploymentCommandInput,
+  ContinueDeploymentCommandOutput
+} from "./commands/ContinueDeploymentCommand";
+import {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput
+} from "./commands/CreateApplicationCommand";
+import {
+  CreateDeploymentCommandInput,
+  CreateDeploymentCommandOutput
+} from "./commands/CreateDeploymentCommand";
+import {
+  CreateDeploymentConfigCommandInput,
+  CreateDeploymentConfigCommandOutput
+} from "./commands/CreateDeploymentConfigCommand";
+import {
+  CreateDeploymentGroupCommandInput,
+  CreateDeploymentGroupCommandOutput
+} from "./commands/CreateDeploymentGroupCommand";
+import {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput
+} from "./commands/DeleteApplicationCommand";
+import {
+  DeleteDeploymentConfigCommandInput,
+  DeleteDeploymentConfigCommandOutput
+} from "./commands/DeleteDeploymentConfigCommand";
+import {
+  DeleteDeploymentGroupCommandInput,
+  DeleteDeploymentGroupCommandOutput
+} from "./commands/DeleteDeploymentGroupCommand";
+import {
+  DeleteGitHubAccountTokenCommandInput,
+  DeleteGitHubAccountTokenCommandOutput
+} from "./commands/DeleteGitHubAccountTokenCommand";
+import {
+  DeregisterOnPremisesInstanceCommandInput,
+  DeregisterOnPremisesInstanceCommandOutput
+} from "./commands/DeregisterOnPremisesInstanceCommand";
+import {
+  GetApplicationCommandInput,
+  GetApplicationCommandOutput
+} from "./commands/GetApplicationCommand";
+import {
+  GetApplicationRevisionCommandInput,
+  GetApplicationRevisionCommandOutput
+} from "./commands/GetApplicationRevisionCommand";
+import {
+  GetDeploymentCommandInput,
+  GetDeploymentCommandOutput
+} from "./commands/GetDeploymentCommand";
+import {
+  GetDeploymentConfigCommandInput,
+  GetDeploymentConfigCommandOutput
+} from "./commands/GetDeploymentConfigCommand";
+import {
+  GetDeploymentGroupCommandInput,
+  GetDeploymentGroupCommandOutput
+} from "./commands/GetDeploymentGroupCommand";
+import {
+  GetDeploymentInstanceCommandInput,
+  GetDeploymentInstanceCommandOutput
+} from "./commands/GetDeploymentInstanceCommand";
+import {
+  GetDeploymentTargetCommandInput,
+  GetDeploymentTargetCommandOutput
+} from "./commands/GetDeploymentTargetCommand";
+import {
+  GetOnPremisesInstanceCommandInput,
+  GetOnPremisesInstanceCommandOutput
+} from "./commands/GetOnPremisesInstanceCommand";
+import {
+  ListApplicationRevisionsCommandInput,
+  ListApplicationRevisionsCommandOutput
+} from "./commands/ListApplicationRevisionsCommand";
+import {
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput
+} from "./commands/ListApplicationsCommand";
+import {
+  ListDeploymentConfigsCommandInput,
+  ListDeploymentConfigsCommandOutput
+} from "./commands/ListDeploymentConfigsCommand";
+import {
+  ListDeploymentGroupsCommandInput,
+  ListDeploymentGroupsCommandOutput
+} from "./commands/ListDeploymentGroupsCommand";
+import {
+  ListDeploymentInstancesCommandInput,
+  ListDeploymentInstancesCommandOutput
+} from "./commands/ListDeploymentInstancesCommand";
+import {
+  ListDeploymentTargetsCommandInput,
+  ListDeploymentTargetsCommandOutput
+} from "./commands/ListDeploymentTargetsCommand";
+import {
+  ListDeploymentsCommandInput,
+  ListDeploymentsCommandOutput
+} from "./commands/ListDeploymentsCommand";
+import {
+  ListGitHubAccountTokenNamesCommandInput,
+  ListGitHubAccountTokenNamesCommandOutput
+} from "./commands/ListGitHubAccountTokenNamesCommand";
+import {
+  ListOnPremisesInstancesCommandInput,
+  ListOnPremisesInstancesCommandOutput
+} from "./commands/ListOnPremisesInstancesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutLifecycleEventHookExecutionStatusCommandInput,
+  PutLifecycleEventHookExecutionStatusCommandOutput
+} from "./commands/PutLifecycleEventHookExecutionStatusCommand";
+import {
+  RegisterApplicationRevisionCommandInput,
+  RegisterApplicationRevisionCommandOutput
+} from "./commands/RegisterApplicationRevisionCommand";
+import {
+  RegisterOnPremisesInstanceCommandInput,
+  RegisterOnPremisesInstanceCommandOutput
+} from "./commands/RegisterOnPremisesInstanceCommand";
+import {
+  RemoveTagsFromOnPremisesInstancesCommandInput,
+  RemoveTagsFromOnPremisesInstancesCommandOutput
+} from "./commands/RemoveTagsFromOnPremisesInstancesCommand";
+import {
+  SkipWaitTimeForInstanceTerminationCommandInput,
+  SkipWaitTimeForInstanceTerminationCommandOutput
+} from "./commands/SkipWaitTimeForInstanceTerminationCommand";
+import {
+  StopDeploymentCommandInput,
+  StopDeploymentCommandOutput
+} from "./commands/StopDeploymentCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput
+} from "./commands/UpdateApplicationCommand";
+import {
+  UpdateDeploymentGroupCommandInput,
+  UpdateDeploymentGroupCommandOutput
+} from "./commands/UpdateDeploymentGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -129,98 +229,106 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsToOnPremisesInstancesInput
-  | BatchGetApplicationRevisionsInput
-  | BatchGetApplicationsInput
-  | BatchGetDeploymentGroupsInput
-  | BatchGetDeploymentInstancesInput
-  | BatchGetDeploymentTargetsInput
-  | BatchGetDeploymentsInput
-  | BatchGetOnPremisesInstancesInput
-  | ContinueDeploymentInput
-  | CreateApplicationInput
-  | CreateDeploymentConfigInput
-  | CreateDeploymentGroupInput
-  | CreateDeploymentInput
-  | DeleteApplicationInput
-  | DeleteDeploymentConfigInput
-  | DeleteDeploymentGroupInput
-  | DeleteGitHubAccountTokenInput
-  | DeregisterOnPremisesInstanceInput
-  | GetApplicationInput
-  | GetApplicationRevisionInput
-  | GetDeploymentConfigInput
-  | GetDeploymentGroupInput
-  | GetDeploymentInput
-  | GetDeploymentInstanceInput
-  | GetDeploymentTargetInput
-  | GetOnPremisesInstanceInput
-  | ListApplicationRevisionsInput
-  | ListApplicationsInput
-  | ListDeploymentConfigsInput
-  | ListDeploymentGroupsInput
-  | ListDeploymentInstancesInput
-  | ListDeploymentTargetsInput
-  | ListDeploymentsInput
-  | ListGitHubAccountTokenNamesInput
-  | ListOnPremisesInstancesInput
-  | ListTagsForResourceInput
-  | PutLifecycleEventHookExecutionStatusInput
-  | RegisterApplicationRevisionInput
-  | RegisterOnPremisesInstanceInput
-  | RemoveTagsFromOnPremisesInstancesInput
-  | SkipWaitTimeForInstanceTerminationInput
-  | StopDeploymentInput
-  | TagResourceInput
-  | UntagResourceInput
-  | UpdateApplicationInput
-  | UpdateDeploymentGroupInput;
+  | AddTagsToOnPremisesInstancesCommandInput
+  | BatchGetApplicationRevisionsCommandInput
+  | BatchGetApplicationsCommandInput
+  | BatchGetDeploymentGroupsCommandInput
+  | BatchGetDeploymentInstancesCommandInput
+  | BatchGetDeploymentTargetsCommandInput
+  | BatchGetDeploymentsCommandInput
+  | BatchGetOnPremisesInstancesCommandInput
+  | ContinueDeploymentCommandInput
+  | CreateApplicationCommandInput
+  | CreateDeploymentCommandInput
+  | CreateDeploymentConfigCommandInput
+  | CreateDeploymentGroupCommandInput
+  | DeleteApplicationCommandInput
+  | DeleteDeploymentConfigCommandInput
+  | DeleteDeploymentGroupCommandInput
+  | DeleteGitHubAccountTokenCommandInput
+  | DeregisterOnPremisesInstanceCommandInput
+  | GetApplicationCommandInput
+  | GetApplicationRevisionCommandInput
+  | GetDeploymentCommandInput
+  | GetDeploymentConfigCommandInput
+  | GetDeploymentGroupCommandInput
+  | GetDeploymentInstanceCommandInput
+  | GetDeploymentTargetCommandInput
+  | GetOnPremisesInstanceCommandInput
+  | ListApplicationRevisionsCommandInput
+  | ListApplicationsCommandInput
+  | ListDeploymentConfigsCommandInput
+  | ListDeploymentGroupsCommandInput
+  | ListDeploymentInstancesCommandInput
+  | ListDeploymentTargetsCommandInput
+  | ListDeploymentsCommandInput
+  | ListGitHubAccountTokenNamesCommandInput
+  | ListOnPremisesInstancesCommandInput
+  | ListTagsForResourceCommandInput
+  | PutLifecycleEventHookExecutionStatusCommandInput
+  | RegisterApplicationRevisionCommandInput
+  | RegisterOnPremisesInstanceCommandInput
+  | RemoveTagsFromOnPremisesInstancesCommandInput
+  | SkipWaitTimeForInstanceTerminationCommandInput
+  | StopDeploymentCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateApplicationCommandInput
+  | UpdateDeploymentGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | BatchGetApplicationRevisionsOutput
-  | BatchGetApplicationsOutput
-  | BatchGetDeploymentGroupsOutput
-  | BatchGetDeploymentInstancesOutput
-  | BatchGetDeploymentTargetsOutput
-  | BatchGetDeploymentsOutput
-  | BatchGetOnPremisesInstancesOutput
-  | CreateApplicationOutput
-  | CreateDeploymentConfigOutput
-  | CreateDeploymentGroupOutput
-  | CreateDeploymentOutput
-  | DeleteDeploymentGroupOutput
-  | DeleteGitHubAccountTokenOutput
-  | GetApplicationOutput
-  | GetApplicationRevisionOutput
-  | GetDeploymentConfigOutput
-  | GetDeploymentGroupOutput
-  | GetDeploymentInstanceOutput
-  | GetDeploymentOutput
-  | GetDeploymentTargetOutput
-  | GetOnPremisesInstanceOutput
-  | ListApplicationRevisionsOutput
-  | ListApplicationsOutput
-  | ListDeploymentConfigsOutput
-  | ListDeploymentGroupsOutput
-  | ListDeploymentInstancesOutput
-  | ListDeploymentTargetsOutput
-  | ListDeploymentsOutput
-  | ListGitHubAccountTokenNamesOutput
-  | ListOnPremisesInstancesOutput
-  | ListTagsForResourceOutput
-  | PutLifecycleEventHookExecutionStatusOutput
-  | StopDeploymentOutput
-  | TagResourceOutput
-  | UntagResourceOutput
-  | UpdateDeploymentGroupOutput;
+  | AddTagsToOnPremisesInstancesCommandOutput
+  | BatchGetApplicationRevisionsCommandOutput
+  | BatchGetApplicationsCommandOutput
+  | BatchGetDeploymentGroupsCommandOutput
+  | BatchGetDeploymentInstancesCommandOutput
+  | BatchGetDeploymentTargetsCommandOutput
+  | BatchGetDeploymentsCommandOutput
+  | BatchGetOnPremisesInstancesCommandOutput
+  | ContinueDeploymentCommandOutput
+  | CreateApplicationCommandOutput
+  | CreateDeploymentCommandOutput
+  | CreateDeploymentConfigCommandOutput
+  | CreateDeploymentGroupCommandOutput
+  | DeleteApplicationCommandOutput
+  | DeleteDeploymentConfigCommandOutput
+  | DeleteDeploymentGroupCommandOutput
+  | DeleteGitHubAccountTokenCommandOutput
+  | DeregisterOnPremisesInstanceCommandOutput
+  | GetApplicationCommandOutput
+  | GetApplicationRevisionCommandOutput
+  | GetDeploymentCommandOutput
+  | GetDeploymentConfigCommandOutput
+  | GetDeploymentGroupCommandOutput
+  | GetDeploymentInstanceCommandOutput
+  | GetDeploymentTargetCommandOutput
+  | GetOnPremisesInstanceCommandOutput
+  | ListApplicationRevisionsCommandOutput
+  | ListApplicationsCommandOutput
+  | ListDeploymentConfigsCommandOutput
+  | ListDeploymentGroupsCommandOutput
+  | ListDeploymentInstancesCommandOutput
+  | ListDeploymentTargetsCommandOutput
+  | ListDeploymentsCommandOutput
+  | ListGitHubAccountTokenNamesCommandOutput
+  | ListOnPremisesInstancesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutLifecycleEventHookExecutionStatusCommandOutput
+  | RegisterApplicationRevisionCommandOutput
+  | RegisterOnPremisesInstanceCommandOutput
+  | RemoveTagsFromOnPremisesInstancesCommandOutput
+  | SkipWaitTimeForInstanceTerminationCommandOutput
+  | StopDeploymentCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateApplicationCommandOutput
+  | UpdateDeploymentGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

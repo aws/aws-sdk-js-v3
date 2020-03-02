@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAccountsForParentCommandInput = ListAccountsForParentRequest;
-export type ListAccountsForParentCommandOutput = ListAccountsForParentResponse;
+export type ListAccountsForParentCommandOutput = ListAccountsForParentResponse &
+  __MetadataBearer;
 
 export class ListAccountsForParentCommand extends $Command<
   ListAccountsForParentCommandInput,

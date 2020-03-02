@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListBonusPaymentsCommandInput = ListBonusPaymentsRequest;
-export type ListBonusPaymentsCommandOutput = ListBonusPaymentsResponse;
+export type ListBonusPaymentsCommandOutput = ListBonusPaymentsResponse &
+  __MetadataBearer;
 
 export class ListBonusPaymentsCommand extends $Command<
   ListBonusPaymentsCommandInput,

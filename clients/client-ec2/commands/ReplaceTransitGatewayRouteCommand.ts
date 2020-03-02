@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReplaceTransitGatewayRouteCommandInput = ReplaceTransitGatewayRouteRequest;
-export type ReplaceTransitGatewayRouteCommandOutput = ReplaceTransitGatewayRouteResult;
+export type ReplaceTransitGatewayRouteCommandOutput = ReplaceTransitGatewayRouteResult &
+  __MetadataBearer;
 
 export class ReplaceTransitGatewayRouteCommand extends $Command<
   ReplaceTransitGatewayRouteCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListVoiceConnectorTerminationCredentialsCommandInput = ListVoiceConnectorTerminationCredentialsRequest;
-export type ListVoiceConnectorTerminationCredentialsCommandOutput = ListVoiceConnectorTerminationCredentialsResponse;
+export type ListVoiceConnectorTerminationCredentialsCommandOutput = ListVoiceConnectorTerminationCredentialsResponse &
+  __MetadataBearer;
 
 export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
   ListVoiceConnectorTerminationCredentialsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutApprovalResultCommandInput = PutApprovalResultInput;
-export type PutApprovalResultCommandOutput = PutApprovalResultOutput;
+export type PutApprovalResultCommandOutput = PutApprovalResultOutput &
+  __MetadataBearer;
 
 export class PutApprovalResultCommand extends $Command<
   PutApprovalResultCommandInput,

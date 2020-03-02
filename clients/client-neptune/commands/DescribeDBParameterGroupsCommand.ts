@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDBParameterGroupsCommandInput = DescribeDBParameterGroupsMessage;
-export type DescribeDBParameterGroupsCommandOutput = DBParameterGroupsMessage;
+export type DescribeDBParameterGroupsCommandOutput = DBParameterGroupsMessage &
+  __MetadataBearer;
 
 export class DescribeDBParameterGroupsCommand extends $Command<
   DescribeDBParameterGroupsCommandInput,

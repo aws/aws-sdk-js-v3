@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBootstrapBrokersCommandInput = GetBootstrapBrokersRequest;
-export type GetBootstrapBrokersCommandOutput = GetBootstrapBrokersResponse;
+export type GetBootstrapBrokersCommandOutput = GetBootstrapBrokersResponse &
+  __MetadataBearer;
 
 export class GetBootstrapBrokersCommand extends $Command<
   GetBootstrapBrokersCommandInput,

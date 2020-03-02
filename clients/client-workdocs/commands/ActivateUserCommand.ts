@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ActivateUserCommandInput = ActivateUserRequest;
-export type ActivateUserCommandOutput = ActivateUserResponse;
+export type ActivateUserCommandOutput = ActivateUserResponse & __MetadataBearer;
 
 export class ActivateUserCommand extends $Command<
   ActivateUserCommandInput,

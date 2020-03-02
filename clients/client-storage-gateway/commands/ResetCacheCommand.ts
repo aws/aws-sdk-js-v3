@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetCacheCommandInput = ResetCacheInput;
-export type ResetCacheCommandOutput = ResetCacheOutput;
+export type ResetCacheCommandOutput = ResetCacheOutput & __MetadataBearer;
 
 export class ResetCacheCommand extends $Command<
   ResetCacheCommandInput,

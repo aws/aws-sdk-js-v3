@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateWebACLCommandInput = AssociateWebACLRequest;
-export type AssociateWebACLCommandOutput = AssociateWebACLResponse;
+export type AssociateWebACLCommandOutput = AssociateWebACLResponse &
+  __MetadataBearer;
 
 export class AssociateWebACLCommand extends $Command<
   AssociateWebACLCommandInput,

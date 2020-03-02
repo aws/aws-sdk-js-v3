@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateWebACLCommandInput = DisassociateWebACLRequest;
-export type DisassociateWebACLCommandOutput = DisassociateWebACLResponse;
+export type DisassociateWebACLCommandOutput = DisassociateWebACLResponse &
+  __MetadataBearer;
 
 export class DisassociateWebACLCommand extends $Command<
   DisassociateWebACLCommandInput,

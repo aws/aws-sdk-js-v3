@@ -20,11 +20,14 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type InvokeAsyncCommandInput = InvokeAsyncRequest;
-export type InvokeAsyncCommandOutput = InvokeAsyncResponse;
+export type InvokeAsyncCommandInput = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
+  InvokeArgs: InvokeAsyncRequest["InvokeArgs"] | string | Uint8Array | Buffer;
+};
+export type InvokeAsyncCommandOutput = InvokeAsyncResponse & __MetadataBearer;
 
 export class InvokeAsyncCommand extends $Command<
   InvokeAsyncCommandInput,

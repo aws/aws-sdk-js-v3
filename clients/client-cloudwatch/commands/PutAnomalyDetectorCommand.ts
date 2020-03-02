@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutAnomalyDetectorCommandInput = PutAnomalyDetectorInput;
-export type PutAnomalyDetectorCommandOutput = PutAnomalyDetectorOutput;
+export type PutAnomalyDetectorCommandOutput = PutAnomalyDetectorOutput &
+  __MetadataBearer;
 
 export class PutAnomalyDetectorCommand extends $Command<
   PutAnomalyDetectorCommandInput,

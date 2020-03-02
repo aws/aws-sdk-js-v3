@@ -247,24 +247,33 @@ async function deserializeAws_queryAssumeRoleCommandError(
   switch (errorCode) {
     case "MalformedPolicyDocumentException":
     case "com.amazon.its#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PackedPolicyTooLargeException":
     case "com.amazon.its#PackedPolicyTooLargeException":
-      response = await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RegionDisabledException":
     case "com.amazon.its#RegionDisabledException":
-      response = await deserializeAws_queryRegionDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -319,45 +328,63 @@ async function deserializeAws_queryAssumeRoleWithSAMLCommandError(
   switch (errorCode) {
     case "ExpiredTokenException":
     case "com.amazon.its#ExpiredTokenException":
-      response = await deserializeAws_queryExpiredTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryExpiredTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IDPRejectedClaimException":
     case "com.amazon.its#IDPRejectedClaimException":
-      response = await deserializeAws_queryIDPRejectedClaimExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIdentityTokenException":
     case "com.amazon.its#InvalidIdentityTokenException":
-      response = await deserializeAws_queryInvalidIdentityTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.its#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PackedPolicyTooLargeException":
     case "com.amazon.its#PackedPolicyTooLargeException":
-      response = await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RegionDisabledException":
     case "com.amazon.its#RegionDisabledException":
-      response = await deserializeAws_queryRegionDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -415,52 +442,73 @@ async function deserializeAws_queryAssumeRoleWithWebIdentityCommandError(
   switch (errorCode) {
     case "ExpiredTokenException":
     case "com.amazon.its#ExpiredTokenException":
-      response = await deserializeAws_queryExpiredTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryExpiredTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IDPCommunicationErrorException":
     case "com.amazon.its#IDPCommunicationErrorException":
-      response = await deserializeAws_queryIDPCommunicationErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryIDPCommunicationErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IDPRejectedClaimException":
     case "com.amazon.its#IDPRejectedClaimException":
-      response = await deserializeAws_queryIDPRejectedClaimExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidIdentityTokenException":
     case "com.amazon.its#InvalidIdentityTokenException":
-      response = await deserializeAws_queryInvalidIdentityTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.its#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PackedPolicyTooLargeException":
     case "com.amazon.its#PackedPolicyTooLargeException":
-      response = await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RegionDisabledException":
     case "com.amazon.its#RegionDisabledException":
-      response = await deserializeAws_queryRegionDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -518,10 +566,13 @@ async function deserializeAws_queryDecodeAuthorizationMessageCommandError(
   switch (errorCode) {
     case "InvalidAuthorizationMessageException":
     case "com.amazon.its#InvalidAuthorizationMessageException":
-      response = await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -678,24 +729,33 @@ async function deserializeAws_queryGetFederationTokenCommandError(
   switch (errorCode) {
     case "MalformedPolicyDocumentException":
     case "com.amazon.its#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PackedPolicyTooLargeException":
     case "com.amazon.its#PackedPolicyTooLargeException":
-      response = await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RegionDisabledException":
     case "com.amazon.its#RegionDisabledException":
-      response = await deserializeAws_queryRegionDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -750,10 +810,13 @@ async function deserializeAws_queryGetSessionTokenCommandError(
   switch (errorCode) {
     case "RegionDisabledException":
     case "com.amazon.its#RegionDisabledException":
-      response = await deserializeAws_queryRegionDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

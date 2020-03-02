@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListOpenIDConnectProvidersCommandInput = ListOpenIDConnectProvidersRequest;
-export type ListOpenIDConnectProvidersCommandOutput = ListOpenIDConnectProvidersResponse;
+export type ListOpenIDConnectProvidersCommandOutput = ListOpenIDConnectProvidersResponse &
+  __MetadataBearer;
 
 export class ListOpenIDConnectProvidersCommand extends $Command<
   ListOpenIDConnectProvidersCommandInput,

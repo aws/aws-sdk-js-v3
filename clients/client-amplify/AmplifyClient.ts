@@ -1,79 +1,151 @@
 import {
-  CreateAppRequest,
-  CreateAppResult,
-  CreateBackendEnvironmentRequest,
-  CreateBackendEnvironmentResult,
-  CreateBranchRequest,
-  CreateBranchResult,
-  CreateDeploymentRequest,
-  CreateDeploymentResult,
-  CreateDomainAssociationRequest,
-  CreateDomainAssociationResult,
-  CreateWebhookRequest,
-  CreateWebhookResult,
-  DeleteAppRequest,
-  DeleteAppResult,
-  DeleteBackendEnvironmentRequest,
-  DeleteBackendEnvironmentResult,
-  DeleteBranchRequest,
-  DeleteBranchResult,
-  DeleteDomainAssociationRequest,
-  DeleteDomainAssociationResult,
-  DeleteJobRequest,
-  DeleteJobResult,
-  DeleteWebhookRequest,
-  DeleteWebhookResult,
-  GenerateAccessLogsRequest,
-  GenerateAccessLogsResult,
-  GetAppRequest,
-  GetAppResult,
-  GetArtifactUrlRequest,
-  GetArtifactUrlResult,
-  GetBackendEnvironmentRequest,
-  GetBackendEnvironmentResult,
-  GetBranchRequest,
-  GetBranchResult,
-  GetDomainAssociationRequest,
-  GetDomainAssociationResult,
-  GetJobRequest,
-  GetJobResult,
-  GetWebhookRequest,
-  GetWebhookResult,
-  ListAppsRequest,
-  ListAppsResult,
-  ListArtifactsRequest,
-  ListArtifactsResult,
-  ListBackendEnvironmentsRequest,
-  ListBackendEnvironmentsResult,
-  ListBranchesRequest,
-  ListBranchesResult,
-  ListDomainAssociationsRequest,
-  ListDomainAssociationsResult,
-  ListJobsRequest,
-  ListJobsResult,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListWebhooksRequest,
-  ListWebhooksResult,
-  StartDeploymentRequest,
-  StartDeploymentResult,
-  StartJobRequest,
-  StartJobResult,
-  StopJobRequest,
-  StopJobResult,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateAppRequest,
-  UpdateAppResult,
-  UpdateBranchRequest,
-  UpdateBranchResult,
-  UpdateDomainAssociationRequest,
-  UpdateDomainAssociationResult,
-  UpdateWebhookRequest,
-  UpdateWebhookResult
-} from "./models/index";
+  CreateAppCommandInput,
+  CreateAppCommandOutput
+} from "./commands/CreateAppCommand";
+import {
+  CreateBackendEnvironmentCommandInput,
+  CreateBackendEnvironmentCommandOutput
+} from "./commands/CreateBackendEnvironmentCommand";
+import {
+  CreateBranchCommandInput,
+  CreateBranchCommandOutput
+} from "./commands/CreateBranchCommand";
+import {
+  CreateDeploymentCommandInput,
+  CreateDeploymentCommandOutput
+} from "./commands/CreateDeploymentCommand";
+import {
+  CreateDomainAssociationCommandInput,
+  CreateDomainAssociationCommandOutput
+} from "./commands/CreateDomainAssociationCommand";
+import {
+  CreateWebhookCommandInput,
+  CreateWebhookCommandOutput
+} from "./commands/CreateWebhookCommand";
+import {
+  DeleteAppCommandInput,
+  DeleteAppCommandOutput
+} from "./commands/DeleteAppCommand";
+import {
+  DeleteBackendEnvironmentCommandInput,
+  DeleteBackendEnvironmentCommandOutput
+} from "./commands/DeleteBackendEnvironmentCommand";
+import {
+  DeleteBranchCommandInput,
+  DeleteBranchCommandOutput
+} from "./commands/DeleteBranchCommand";
+import {
+  DeleteDomainAssociationCommandInput,
+  DeleteDomainAssociationCommandOutput
+} from "./commands/DeleteDomainAssociationCommand";
+import {
+  DeleteJobCommandInput,
+  DeleteJobCommandOutput
+} from "./commands/DeleteJobCommand";
+import {
+  DeleteWebhookCommandInput,
+  DeleteWebhookCommandOutput
+} from "./commands/DeleteWebhookCommand";
+import {
+  GenerateAccessLogsCommandInput,
+  GenerateAccessLogsCommandOutput
+} from "./commands/GenerateAccessLogsCommand";
+import {
+  GetAppCommandInput,
+  GetAppCommandOutput
+} from "./commands/GetAppCommand";
+import {
+  GetArtifactUrlCommandInput,
+  GetArtifactUrlCommandOutput
+} from "./commands/GetArtifactUrlCommand";
+import {
+  GetBackendEnvironmentCommandInput,
+  GetBackendEnvironmentCommandOutput
+} from "./commands/GetBackendEnvironmentCommand";
+import {
+  GetBranchCommandInput,
+  GetBranchCommandOutput
+} from "./commands/GetBranchCommand";
+import {
+  GetDomainAssociationCommandInput,
+  GetDomainAssociationCommandOutput
+} from "./commands/GetDomainAssociationCommand";
+import {
+  GetJobCommandInput,
+  GetJobCommandOutput
+} from "./commands/GetJobCommand";
+import {
+  GetWebhookCommandInput,
+  GetWebhookCommandOutput
+} from "./commands/GetWebhookCommand";
+import {
+  ListAppsCommandInput,
+  ListAppsCommandOutput
+} from "./commands/ListAppsCommand";
+import {
+  ListArtifactsCommandInput,
+  ListArtifactsCommandOutput
+} from "./commands/ListArtifactsCommand";
+import {
+  ListBackendEnvironmentsCommandInput,
+  ListBackendEnvironmentsCommandOutput
+} from "./commands/ListBackendEnvironmentsCommand";
+import {
+  ListBranchesCommandInput,
+  ListBranchesCommandOutput
+} from "./commands/ListBranchesCommand";
+import {
+  ListDomainAssociationsCommandInput,
+  ListDomainAssociationsCommandOutput
+} from "./commands/ListDomainAssociationsCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListWebhooksCommandInput,
+  ListWebhooksCommandOutput
+} from "./commands/ListWebhooksCommand";
+import {
+  StartDeploymentCommandInput,
+  StartDeploymentCommandOutput
+} from "./commands/StartDeploymentCommand";
+import {
+  StartJobCommandInput,
+  StartJobCommandOutput
+} from "./commands/StartJobCommand";
+import {
+  StopJobCommandInput,
+  StopJobCommandOutput
+} from "./commands/StopJobCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAppCommandInput,
+  UpdateAppCommandOutput
+} from "./commands/UpdateAppCommand";
+import {
+  UpdateBranchCommandInput,
+  UpdateBranchCommandOutput
+} from "./commands/UpdateBranchCommand";
+import {
+  UpdateDomainAssociationCommandInput,
+  UpdateDomainAssociationCommandOutput
+} from "./commands/UpdateDomainAssociationCommand";
+import {
+  UpdateWebhookCommandInput,
+  UpdateWebhookCommandOutput
+} from "./commands/UpdateWebhookCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -127,82 +199,82 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateAppRequest
-  | CreateBackendEnvironmentRequest
-  | CreateBranchRequest
-  | CreateDeploymentRequest
-  | CreateDomainAssociationRequest
-  | CreateWebhookRequest
-  | DeleteAppRequest
-  | DeleteBackendEnvironmentRequest
-  | DeleteBranchRequest
-  | DeleteDomainAssociationRequest
-  | DeleteJobRequest
-  | DeleteWebhookRequest
-  | GenerateAccessLogsRequest
-  | GetAppRequest
-  | GetArtifactUrlRequest
-  | GetBackendEnvironmentRequest
-  | GetBranchRequest
-  | GetDomainAssociationRequest
-  | GetJobRequest
-  | GetWebhookRequest
-  | ListAppsRequest
-  | ListArtifactsRequest
-  | ListBackendEnvironmentsRequest
-  | ListBranchesRequest
-  | ListDomainAssociationsRequest
-  | ListJobsRequest
-  | ListTagsForResourceRequest
-  | ListWebhooksRequest
-  | StartDeploymentRequest
-  | StartJobRequest
-  | StopJobRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateAppRequest
-  | UpdateBranchRequest
-  | UpdateDomainAssociationRequest
-  | UpdateWebhookRequest;
+  | CreateAppCommandInput
+  | CreateBackendEnvironmentCommandInput
+  | CreateBranchCommandInput
+  | CreateDeploymentCommandInput
+  | CreateDomainAssociationCommandInput
+  | CreateWebhookCommandInput
+  | DeleteAppCommandInput
+  | DeleteBackendEnvironmentCommandInput
+  | DeleteBranchCommandInput
+  | DeleteDomainAssociationCommandInput
+  | DeleteJobCommandInput
+  | DeleteWebhookCommandInput
+  | GenerateAccessLogsCommandInput
+  | GetAppCommandInput
+  | GetArtifactUrlCommandInput
+  | GetBackendEnvironmentCommandInput
+  | GetBranchCommandInput
+  | GetDomainAssociationCommandInput
+  | GetJobCommandInput
+  | GetWebhookCommandInput
+  | ListAppsCommandInput
+  | ListArtifactsCommandInput
+  | ListBackendEnvironmentsCommandInput
+  | ListBranchesCommandInput
+  | ListDomainAssociationsCommandInput
+  | ListJobsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListWebhooksCommandInput
+  | StartDeploymentCommandInput
+  | StartJobCommandInput
+  | StopJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAppCommandInput
+  | UpdateBranchCommandInput
+  | UpdateDomainAssociationCommandInput
+  | UpdateWebhookCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateAppResult
-  | CreateBackendEnvironmentResult
-  | CreateBranchResult
-  | CreateDeploymentResult
-  | CreateDomainAssociationResult
-  | CreateWebhookResult
-  | DeleteAppResult
-  | DeleteBackendEnvironmentResult
-  | DeleteBranchResult
-  | DeleteDomainAssociationResult
-  | DeleteJobResult
-  | DeleteWebhookResult
-  | GenerateAccessLogsResult
-  | GetAppResult
-  | GetArtifactUrlResult
-  | GetBackendEnvironmentResult
-  | GetBranchResult
-  | GetDomainAssociationResult
-  | GetJobResult
-  | GetWebhookResult
-  | ListAppsResult
-  | ListArtifactsResult
-  | ListBackendEnvironmentsResult
-  | ListBranchesResult
-  | ListDomainAssociationsResult
-  | ListJobsResult
-  | ListTagsForResourceResponse
-  | ListWebhooksResult
-  | StartDeploymentResult
-  | StartJobResult
-  | StopJobResult
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateAppResult
-  | UpdateBranchResult
-  | UpdateDomainAssociationResult
-  | UpdateWebhookResult;
+  | CreateAppCommandOutput
+  | CreateBackendEnvironmentCommandOutput
+  | CreateBranchCommandOutput
+  | CreateDeploymentCommandOutput
+  | CreateDomainAssociationCommandOutput
+  | CreateWebhookCommandOutput
+  | DeleteAppCommandOutput
+  | DeleteBackendEnvironmentCommandOutput
+  | DeleteBranchCommandOutput
+  | DeleteDomainAssociationCommandOutput
+  | DeleteJobCommandOutput
+  | DeleteWebhookCommandOutput
+  | GenerateAccessLogsCommandOutput
+  | GetAppCommandOutput
+  | GetArtifactUrlCommandOutput
+  | GetBackendEnvironmentCommandOutput
+  | GetBranchCommandOutput
+  | GetDomainAssociationCommandOutput
+  | GetJobCommandOutput
+  | GetWebhookCommandOutput
+  | ListAppsCommandOutput
+  | ListArtifactsCommandOutput
+  | ListBackendEnvironmentsCommandOutput
+  | ListBranchesCommandOutput
+  | ListDomainAssociationsCommandOutput
+  | ListJobsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListWebhooksCommandOutput
+  | StartDeploymentCommandOutput
+  | StartJobCommandOutput
+  | StopJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAppCommandOutput
+  | UpdateBranchCommandOutput
+  | UpdateDomainAssociationCommandOutput
+  | UpdateWebhookCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

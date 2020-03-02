@@ -270,31 +270,43 @@ async function deserializeAws_json1_1DeleteScalingPolicyCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
-      response = await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -350,31 +362,43 @@ async function deserializeAws_json1_1DeleteScheduledActionCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
-      response = await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -433,31 +457,43 @@ async function deserializeAws_json1_1DeregisterScalableTargetCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
-      response = await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -516,31 +552,43 @@ async function deserializeAws_json1_1DescribeScalableTargetsCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -599,31 +647,43 @@ async function deserializeAws_json1_1DescribeScalingActivitiesCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -682,38 +742,53 @@ async function deserializeAws_json1_1DescribeScalingPoliciesCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedResourceAccessException":
     case "com.amazonaws.autoscaling.anyscale.frontend#FailedResourceAccessException":
-      response = await deserializeAws_json1_1FailedResourceAccessExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FailedResourceAccessExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -772,31 +847,43 @@ async function deserializeAws_json1_1DescribeScheduledActionsCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -849,45 +936,63 @@ async function deserializeAws_json1_1PutScalingPolicyCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedResourceAccessException":
     case "com.amazonaws.autoscaling.anyscale.frontend#FailedResourceAccessException":
-      response = await deserializeAws_json1_1FailedResourceAccessExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FailedResourceAccessExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.autoscaling.anyscale.frontend#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
-      response = await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -943,38 +1048,53 @@ async function deserializeAws_json1_1PutScheduledActionCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.autoscaling.anyscale.frontend#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
-      response = await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1033,31 +1153,43 @@ async function deserializeAws_json1_1RegisterScalableTargetCommandError(
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
-      response = await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.autoscaling.anyscale.frontend#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

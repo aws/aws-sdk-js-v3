@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBotChannelAssociationCommandInput = GetBotChannelAssociationRequest;
-export type GetBotChannelAssociationCommandOutput = GetBotChannelAssociationResponse;
+export type GetBotChannelAssociationCommandOutput = GetBotChannelAssociationResponse &
+  __MetadataBearer;
 
 export class GetBotChannelAssociationCommand extends $Command<
   GetBotChannelAssociationCommandInput,

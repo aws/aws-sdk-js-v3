@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartMLEvaluationTaskRunCommandInput = StartMLEvaluationTaskRunRequest;
-export type StartMLEvaluationTaskRunCommandOutput = StartMLEvaluationTaskRunResponse;
+export type StartMLEvaluationTaskRunCommandOutput = StartMLEvaluationTaskRunResponse &
+  __MetadataBearer;
 
 export class StartMLEvaluationTaskRunCommand extends $Command<
   StartMLEvaluationTaskRunCommandInput,

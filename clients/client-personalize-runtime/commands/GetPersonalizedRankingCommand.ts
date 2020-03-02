@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPersonalizedRankingCommandInput = GetPersonalizedRankingRequest;
-export type GetPersonalizedRankingCommandOutput = GetPersonalizedRankingResponse;
+export type GetPersonalizedRankingCommandOutput = GetPersonalizedRankingResponse &
+  __MetadataBearer;
 
 export class GetPersonalizedRankingCommand extends $Command<
   GetPersonalizedRankingCommandInput,

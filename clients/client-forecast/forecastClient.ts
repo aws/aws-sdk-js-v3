@@ -1,51 +1,107 @@
 import {
-  CreateDatasetGroupRequest,
-  CreateDatasetGroupResponse,
-  CreateDatasetImportJobRequest,
-  CreateDatasetImportJobResponse,
-  CreateDatasetRequest,
-  CreateDatasetResponse,
-  CreateForecastExportJobRequest,
-  CreateForecastExportJobResponse,
-  CreateForecastRequest,
-  CreateForecastResponse,
-  CreatePredictorRequest,
-  CreatePredictorResponse,
-  DeleteDatasetGroupRequest,
-  DeleteDatasetImportJobRequest,
-  DeleteDatasetRequest,
-  DeleteForecastExportJobRequest,
-  DeleteForecastRequest,
-  DeletePredictorRequest,
-  DescribeDatasetGroupRequest,
-  DescribeDatasetGroupResponse,
-  DescribeDatasetImportJobRequest,
-  DescribeDatasetImportJobResponse,
-  DescribeDatasetRequest,
-  DescribeDatasetResponse,
-  DescribeForecastExportJobRequest,
-  DescribeForecastExportJobResponse,
-  DescribeForecastRequest,
-  DescribeForecastResponse,
-  DescribePredictorRequest,
-  DescribePredictorResponse,
-  GetAccuracyMetricsRequest,
-  GetAccuracyMetricsResponse,
-  ListDatasetGroupsRequest,
-  ListDatasetGroupsResponse,
-  ListDatasetImportJobsRequest,
-  ListDatasetImportJobsResponse,
-  ListDatasetsRequest,
-  ListDatasetsResponse,
-  ListForecastExportJobsRequest,
-  ListForecastExportJobsResponse,
-  ListForecastsRequest,
-  ListForecastsResponse,
-  ListPredictorsRequest,
-  ListPredictorsResponse,
-  UpdateDatasetGroupRequest,
-  UpdateDatasetGroupResponse
-} from "./models/index";
+  CreateDatasetCommandInput,
+  CreateDatasetCommandOutput
+} from "./commands/CreateDatasetCommand";
+import {
+  CreateDatasetGroupCommandInput,
+  CreateDatasetGroupCommandOutput
+} from "./commands/CreateDatasetGroupCommand";
+import {
+  CreateDatasetImportJobCommandInput,
+  CreateDatasetImportJobCommandOutput
+} from "./commands/CreateDatasetImportJobCommand";
+import {
+  CreateForecastCommandInput,
+  CreateForecastCommandOutput
+} from "./commands/CreateForecastCommand";
+import {
+  CreateForecastExportJobCommandInput,
+  CreateForecastExportJobCommandOutput
+} from "./commands/CreateForecastExportJobCommand";
+import {
+  CreatePredictorCommandInput,
+  CreatePredictorCommandOutput
+} from "./commands/CreatePredictorCommand";
+import {
+  DeleteDatasetCommandInput,
+  DeleteDatasetCommandOutput
+} from "./commands/DeleteDatasetCommand";
+import {
+  DeleteDatasetGroupCommandInput,
+  DeleteDatasetGroupCommandOutput
+} from "./commands/DeleteDatasetGroupCommand";
+import {
+  DeleteDatasetImportJobCommandInput,
+  DeleteDatasetImportJobCommandOutput
+} from "./commands/DeleteDatasetImportJobCommand";
+import {
+  DeleteForecastCommandInput,
+  DeleteForecastCommandOutput
+} from "./commands/DeleteForecastCommand";
+import {
+  DeleteForecastExportJobCommandInput,
+  DeleteForecastExportJobCommandOutput
+} from "./commands/DeleteForecastExportJobCommand";
+import {
+  DeletePredictorCommandInput,
+  DeletePredictorCommandOutput
+} from "./commands/DeletePredictorCommand";
+import {
+  DescribeDatasetCommandInput,
+  DescribeDatasetCommandOutput
+} from "./commands/DescribeDatasetCommand";
+import {
+  DescribeDatasetGroupCommandInput,
+  DescribeDatasetGroupCommandOutput
+} from "./commands/DescribeDatasetGroupCommand";
+import {
+  DescribeDatasetImportJobCommandInput,
+  DescribeDatasetImportJobCommandOutput
+} from "./commands/DescribeDatasetImportJobCommand";
+import {
+  DescribeForecastCommandInput,
+  DescribeForecastCommandOutput
+} from "./commands/DescribeForecastCommand";
+import {
+  DescribeForecastExportJobCommandInput,
+  DescribeForecastExportJobCommandOutput
+} from "./commands/DescribeForecastExportJobCommand";
+import {
+  DescribePredictorCommandInput,
+  DescribePredictorCommandOutput
+} from "./commands/DescribePredictorCommand";
+import {
+  GetAccuracyMetricsCommandInput,
+  GetAccuracyMetricsCommandOutput
+} from "./commands/GetAccuracyMetricsCommand";
+import {
+  ListDatasetGroupsCommandInput,
+  ListDatasetGroupsCommandOutput
+} from "./commands/ListDatasetGroupsCommand";
+import {
+  ListDatasetImportJobsCommandInput,
+  ListDatasetImportJobsCommandOutput
+} from "./commands/ListDatasetImportJobsCommand";
+import {
+  ListDatasetsCommandInput,
+  ListDatasetsCommandOutput
+} from "./commands/ListDatasetsCommand";
+import {
+  ListForecastExportJobsCommandInput,
+  ListForecastExportJobsCommandOutput
+} from "./commands/ListForecastExportJobsCommand";
+import {
+  ListForecastsCommandInput,
+  ListForecastsCommandOutput
+} from "./commands/ListForecastsCommand";
+import {
+  ListPredictorsCommandInput,
+  ListPredictorsCommandOutput
+} from "./commands/ListPredictorsCommand";
+import {
+  UpdateDatasetGroupCommandInput,
+  UpdateDatasetGroupCommandOutput
+} from "./commands/UpdateDatasetGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -93,62 +149,66 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateDatasetGroupRequest
-  | CreateDatasetImportJobRequest
-  | CreateDatasetRequest
-  | CreateForecastExportJobRequest
-  | CreateForecastRequest
-  | CreatePredictorRequest
-  | DeleteDatasetGroupRequest
-  | DeleteDatasetImportJobRequest
-  | DeleteDatasetRequest
-  | DeleteForecastExportJobRequest
-  | DeleteForecastRequest
-  | DeletePredictorRequest
-  | DescribeDatasetGroupRequest
-  | DescribeDatasetImportJobRequest
-  | DescribeDatasetRequest
-  | DescribeForecastExportJobRequest
-  | DescribeForecastRequest
-  | DescribePredictorRequest
-  | GetAccuracyMetricsRequest
-  | ListDatasetGroupsRequest
-  | ListDatasetImportJobsRequest
-  | ListDatasetsRequest
-  | ListForecastExportJobsRequest
-  | ListForecastsRequest
-  | ListPredictorsRequest
-  | UpdateDatasetGroupRequest;
+  | CreateDatasetCommandInput
+  | CreateDatasetGroupCommandInput
+  | CreateDatasetImportJobCommandInput
+  | CreateForecastCommandInput
+  | CreateForecastExportJobCommandInput
+  | CreatePredictorCommandInput
+  | DeleteDatasetCommandInput
+  | DeleteDatasetGroupCommandInput
+  | DeleteDatasetImportJobCommandInput
+  | DeleteForecastCommandInput
+  | DeleteForecastExportJobCommandInput
+  | DeletePredictorCommandInput
+  | DescribeDatasetCommandInput
+  | DescribeDatasetGroupCommandInput
+  | DescribeDatasetImportJobCommandInput
+  | DescribeForecastCommandInput
+  | DescribeForecastExportJobCommandInput
+  | DescribePredictorCommandInput
+  | GetAccuracyMetricsCommandInput
+  | ListDatasetGroupsCommandInput
+  | ListDatasetImportJobsCommandInput
+  | ListDatasetsCommandInput
+  | ListForecastExportJobsCommandInput
+  | ListForecastsCommandInput
+  | ListPredictorsCommandInput
+  | UpdateDatasetGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateDatasetGroupResponse
-  | CreateDatasetImportJobResponse
-  | CreateDatasetResponse
-  | CreateForecastExportJobResponse
-  | CreateForecastResponse
-  | CreatePredictorResponse
-  | DescribeDatasetGroupResponse
-  | DescribeDatasetImportJobResponse
-  | DescribeDatasetResponse
-  | DescribeForecastExportJobResponse
-  | DescribeForecastResponse
-  | DescribePredictorResponse
-  | GetAccuracyMetricsResponse
-  | ListDatasetGroupsResponse
-  | ListDatasetImportJobsResponse
-  | ListDatasetsResponse
-  | ListForecastExportJobsResponse
-  | ListForecastsResponse
-  | ListPredictorsResponse
-  | UpdateDatasetGroupResponse;
+  | CreateDatasetCommandOutput
+  | CreateDatasetGroupCommandOutput
+  | CreateDatasetImportJobCommandOutput
+  | CreateForecastCommandOutput
+  | CreateForecastExportJobCommandOutput
+  | CreatePredictorCommandOutput
+  | DeleteDatasetCommandOutput
+  | DeleteDatasetGroupCommandOutput
+  | DeleteDatasetImportJobCommandOutput
+  | DeleteForecastCommandOutput
+  | DeleteForecastExportJobCommandOutput
+  | DeletePredictorCommandOutput
+  | DescribeDatasetCommandOutput
+  | DescribeDatasetGroupCommandOutput
+  | DescribeDatasetImportJobCommandOutput
+  | DescribeForecastCommandOutput
+  | DescribeForecastExportJobCommandOutput
+  | DescribePredictorCommandOutput
+  | GetAccuracyMetricsCommandOutput
+  | ListDatasetGroupsCommandOutput
+  | ListDatasetImportJobsCommandOutput
+  | ListDatasetsCommandOutput
+  | ListForecastExportJobsCommandOutput
+  | ListForecastsCommandOutput
+  | ListPredictorsCommandOutput
+  | UpdateDatasetGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

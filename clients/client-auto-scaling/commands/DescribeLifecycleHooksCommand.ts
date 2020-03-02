@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLifecycleHooksCommandInput = DescribeLifecycleHooksType;
-export type DescribeLifecycleHooksCommandOutput = DescribeLifecycleHooksAnswer;
+export type DescribeLifecycleHooksCommandOutput = DescribeLifecycleHooksAnswer &
+  __MetadataBearer;
 
 export class DescribeLifecycleHooksCommand extends $Command<
   DescribeLifecycleHooksCommandInput,

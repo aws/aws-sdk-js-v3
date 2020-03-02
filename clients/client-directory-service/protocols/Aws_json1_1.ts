@@ -1237,38 +1237,53 @@ async function deserializeAws_json1_1AcceptSharedDirectoryCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryAlreadySharedException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryAlreadySharedException":
-      response = await deserializeAws_json1_1DirectoryAlreadySharedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryAlreadySharedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1321,52 +1336,73 @@ async function deserializeAws_json1_1AddIpRoutesCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.directoryservice.v20150416#EntityAlreadyExistsException":
-      response = await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IpRouteLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#IpRouteLimitExceededException":
-      response = await deserializeAws_json1_1IpRouteLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IpRouteLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1419,38 +1455,53 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#TagLimitExceededException":
-      response = await deserializeAws_json1_1TagLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1506,24 +1557,33 @@ async function deserializeAws_json1_1CancelSchemaExtensionCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1576,31 +1636,43 @@ async function deserializeAws_json1_1ConnectDirectoryCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryLimitExceededException":
-      response = await deserializeAws_json1_1DirectoryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1653,38 +1725,53 @@ async function deserializeAws_json1_1CreateAliasCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.directoryservice.v20150416#EntityAlreadyExistsException":
-      response = await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1737,59 +1824,83 @@ async function deserializeAws_json1_1CreateComputerCommandError(
   switch (errorCode) {
     case "AuthenticationFailedException":
     case "com.amazonaws.directoryservice.v20150416#AuthenticationFailedException":
-      response = await deserializeAws_json1_1AuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.directoryservice.v20150416#EntityAlreadyExistsException":
-      response = await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1848,52 +1959,73 @@ async function deserializeAws_json1_1CreateConditionalForwarderCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.directoryservice.v20150416#EntityAlreadyExistsException":
-      response = await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1946,31 +2078,43 @@ async function deserializeAws_json1_1CreateDirectoryCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryLimitExceededException":
-      response = await deserializeAws_json1_1DirectoryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2026,45 +2170,63 @@ async function deserializeAws_json1_1CreateLogSubscriptionCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.directoryservice.v20150416#EntityAlreadyExistsException":
-      response = await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientPermissionsException":
     case "com.amazonaws.directoryservice.v20150416#InsufficientPermissionsException":
-      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2117,38 +2279,53 @@ async function deserializeAws_json1_1CreateMicrosoftADCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryLimitExceededException":
-      response = await deserializeAws_json1_1DirectoryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2201,38 +2378,53 @@ async function deserializeAws_json1_1CreateSnapshotCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#SnapshotLimitExceededException":
-      response = await deserializeAws_json1_1SnapshotLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SnapshotLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2285,45 +2477,63 @@ async function deserializeAws_json1_1CreateTrustCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.directoryservice.v20150416#EntityAlreadyExistsException":
-      response = await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2382,45 +2592,63 @@ async function deserializeAws_json1_1DeleteConditionalForwarderCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2473,24 +2701,33 @@ async function deserializeAws_json1_1DeleteDirectoryCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2546,31 +2783,43 @@ async function deserializeAws_json1_1DeleteLogSubscriptionCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2623,31 +2872,43 @@ async function deserializeAws_json1_1DeleteSnapshotCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2700,38 +2961,53 @@ async function deserializeAws_json1_1DeleteTrustCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2787,59 +3063,83 @@ async function deserializeAws_json1_1DeregisterCertificateCommandError(
   switch (errorCode) {
     case "CertificateDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#CertificateDoesNotExistException":
-      response = await deserializeAws_json1_1CertificateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CertificateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CertificateInUseException":
     case "com.amazonaws.directoryservice.v20150416#CertificateInUseException":
-      response = await deserializeAws_json1_1CertificateInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CertificateInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryDoesNotExistException":
-      response = await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2895,31 +3195,43 @@ async function deserializeAws_json1_1DeregisterEventTopicCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2975,45 +3287,63 @@ async function deserializeAws_json1_1DescribeCertificateCommandError(
   switch (errorCode) {
     case "CertificateDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#CertificateDoesNotExistException":
-      response = await deserializeAws_json1_1CertificateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CertificateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryDoesNotExistException":
-      response = await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3072,45 +3402,63 @@ async function deserializeAws_json1_1DescribeConditionalForwardersCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3166,38 +3514,53 @@ async function deserializeAws_json1_1DescribeDirectoriesCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3256,45 +3619,63 @@ async function deserializeAws_json1_1DescribeDomainControllersCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3350,31 +3731,43 @@ async function deserializeAws_json1_1DescribeEventTopicsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3430,45 +3823,63 @@ async function deserializeAws_json1_1DescribeLDAPSSettingsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryDoesNotExistException":
-      response = await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3527,45 +3938,63 @@ async function deserializeAws_json1_1DescribeSharedDirectoriesCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3618,38 +4047,53 @@ async function deserializeAws_json1_1DescribeSnapshotsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3702,45 +4146,63 @@ async function deserializeAws_json1_1DescribeTrustsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3793,52 +4255,73 @@ async function deserializeAws_json1_1DisableLDAPSCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryDoesNotExistException":
-      response = await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLDAPSStatusException":
     case "com.amazonaws.directoryservice.v20150416#InvalidLDAPSStatusException":
-      response = await deserializeAws_json1_1InvalidLDAPSStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLDAPSStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3891,24 +4374,33 @@ async function deserializeAws_json1_1DisableRadiusCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3961,38 +4453,53 @@ async function deserializeAws_json1_1DisableSsoCommandError(
   switch (errorCode) {
     case "AuthenticationFailedException":
     case "com.amazonaws.directoryservice.v20150416#AuthenticationFailedException":
-      response = await deserializeAws_json1_1AuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientPermissionsException":
     case "com.amazonaws.directoryservice.v20150416#InsufficientPermissionsException":
-      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4045,59 +4552,83 @@ async function deserializeAws_json1_1EnableLDAPSCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryDoesNotExistException":
-      response = await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLDAPSStatusException":
     case "com.amazonaws.directoryservice.v20150416#InvalidLDAPSStatusException":
-      response = await deserializeAws_json1_1InvalidLDAPSStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLDAPSStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoAvailableCertificateException":
     case "com.amazonaws.directoryservice.v20150416#NoAvailableCertificateException":
-      response = await deserializeAws_json1_1NoAvailableCertificateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoAvailableCertificateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4150,38 +4681,53 @@ async function deserializeAws_json1_1EnableRadiusCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.directoryservice.v20150416#EntityAlreadyExistsException":
-      response = await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4234,38 +4780,53 @@ async function deserializeAws_json1_1EnableSsoCommandError(
   switch (errorCode) {
     case "AuthenticationFailedException":
     case "com.amazonaws.directoryservice.v20150416#AuthenticationFailedException":
-      response = await deserializeAws_json1_1AuthenticationFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthenticationFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientPermissionsException":
     case "com.amazonaws.directoryservice.v20150416#InsufficientPermissionsException":
-      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4321,24 +4882,33 @@ async function deserializeAws_json1_1GetDirectoryLimitsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4391,24 +4961,33 @@ async function deserializeAws_json1_1GetSnapshotLimitsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4461,45 +5040,63 @@ async function deserializeAws_json1_1ListCertificatesCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryDoesNotExistException":
-      response = await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4552,38 +5149,53 @@ async function deserializeAws_json1_1ListIpRoutesCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4639,31 +5251,43 @@ async function deserializeAws_json1_1ListLogSubscriptionsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4719,31 +5343,43 @@ async function deserializeAws_json1_1ListSchemaExtensionsCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4799,38 +5435,53 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice.v20150416#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4886,66 +5537,93 @@ async function deserializeAws_json1_1RegisterCertificateCommandError(
   switch (errorCode) {
     case "CertificateAlreadyExistsException":
     case "com.amazonaws.directoryservice.v20150416#CertificateAlreadyExistsException":
-      response = await deserializeAws_json1_1CertificateAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CertificateAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CertificateLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#CertificateLimitExceededException":
-      response = await deserializeAws_json1_1CertificateLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CertificateLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryDoesNotExistException":
-      response = await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCertificateException":
     case "com.amazonaws.directoryservice.v20150416#InvalidCertificateException":
-      response = await deserializeAws_json1_1InvalidCertificateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCertificateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5001,31 +5679,43 @@ async function deserializeAws_json1_1RegisterEventTopicCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5081,38 +5771,53 @@ async function deserializeAws_json1_1RejectSharedDirectoryCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryAlreadySharedException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryAlreadySharedException":
-      response = await deserializeAws_json1_1DirectoryAlreadySharedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryAlreadySharedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5165,38 +5870,53 @@ async function deserializeAws_json1_1RemoveIpRoutesCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5252,31 +5972,43 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5329,52 +6061,73 @@ async function deserializeAws_json1_1ResetUserPasswordCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.directoryservice.v20150416#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UserDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#UserDoesNotExistException":
-      response = await deserializeAws_json1_1UserDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UserDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5430,31 +6183,43 @@ async function deserializeAws_json1_1RestoreFromSnapshotCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5507,73 +6272,103 @@ async function deserializeAws_json1_1ShareDirectoryCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.directoryservice.v20150416#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryAlreadySharedException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryAlreadySharedException":
-      response = await deserializeAws_json1_1DirectoryAlreadySharedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryAlreadySharedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetException":
     case "com.amazonaws.directoryservice.v20150416#InvalidTargetException":
-      response = await deserializeAws_json1_1InvalidTargetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OrganizationsException":
     case "com.amazonaws.directoryservice.v20150416#OrganizationsException":
-      response = await deserializeAws_json1_1OrganizationsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OrganizationsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ShareLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#ShareLimitExceededException":
-      response = await deserializeAws_json1_1ShareLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ShareLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5629,45 +6424,63 @@ async function deserializeAws_json1_1StartSchemaExtensionCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SnapshotLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#SnapshotLimitExceededException":
-      response = await deserializeAws_json1_1SnapshotLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SnapshotLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5720,38 +6533,53 @@ async function deserializeAws_json1_1UnshareDirectoryCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryNotSharedException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryNotSharedException":
-      response = await deserializeAws_json1_1DirectoryNotSharedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryNotSharedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetException":
     case "com.amazonaws.directoryservice.v20150416#InvalidTargetException":
-      response = await deserializeAws_json1_1InvalidTargetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5810,45 +6638,63 @@ async function deserializeAws_json1_1UpdateConditionalForwarderCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5907,52 +6753,73 @@ async function deserializeAws_json1_1UpdateNumberOfDomainControllersCommandError
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryUnavailableException":
     case "com.amazonaws.directoryservice.v20150416#DirectoryUnavailableException":
-      response = await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DomainControllerLimitExceededException":
     case "com.amazonaws.directoryservice.v20150416#DomainControllerLimitExceededException":
-      response = await deserializeAws_json1_1DomainControllerLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DomainControllerLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6005,31 +6872,43 @@ async function deserializeAws_json1_1UpdateRadiusCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6082,31 +6961,43 @@ async function deserializeAws_json1_1UpdateTrustCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6159,38 +7050,53 @@ async function deserializeAws_json1_1VerifyTrustCommandError(
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice.v20150416#ClientException":
-      response = await deserializeAws_json1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice.v20150416#EntityDoesNotExistException":
-      response = await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.directoryservice.v20150416#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.directoryservice.v20150416#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice.v20150416#UnsupportedOperationException":
-      response = await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutIntegrationCommandInput = PutIntegrationRequest;
-export type PutIntegrationCommandOutput = Integration;
+export type PutIntegrationCommandOutput = Integration & __MetadataBearer;
 
 export class PutIntegrationCommand extends $Command<
   PutIntegrationCommandInput,

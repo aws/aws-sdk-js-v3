@@ -1,135 +1,263 @@
 import {
-  CancelIngestionRequest,
-  CancelIngestionResponse,
-  CreateDashboardRequest,
-  CreateDashboardResponse,
-  CreateDataSetRequest,
-  CreateDataSetResponse,
-  CreateDataSourceRequest,
-  CreateDataSourceResponse,
-  CreateGroupMembershipRequest,
-  CreateGroupMembershipResponse,
-  CreateGroupRequest,
-  CreateGroupResponse,
-  CreateIAMPolicyAssignmentRequest,
-  CreateIAMPolicyAssignmentResponse,
-  CreateIngestionRequest,
-  CreateIngestionResponse,
-  CreateTemplateAliasRequest,
-  CreateTemplateAliasResponse,
-  CreateTemplateRequest,
-  CreateTemplateResponse,
-  DeleteDashboardRequest,
-  DeleteDashboardResponse,
-  DeleteDataSetRequest,
-  DeleteDataSetResponse,
-  DeleteDataSourceRequest,
-  DeleteDataSourceResponse,
-  DeleteGroupMembershipRequest,
-  DeleteGroupMembershipResponse,
-  DeleteGroupRequest,
-  DeleteGroupResponse,
-  DeleteIAMPolicyAssignmentRequest,
-  DeleteIAMPolicyAssignmentResponse,
-  DeleteTemplateAliasRequest,
-  DeleteTemplateAliasResponse,
-  DeleteTemplateRequest,
-  DeleteTemplateResponse,
-  DeleteUserByPrincipalIdRequest,
-  DeleteUserByPrincipalIdResponse,
-  DeleteUserRequest,
-  DeleteUserResponse,
-  DescribeDashboardPermissionsRequest,
-  DescribeDashboardPermissionsResponse,
-  DescribeDashboardRequest,
-  DescribeDashboardResponse,
-  DescribeDataSetPermissionsRequest,
-  DescribeDataSetPermissionsResponse,
-  DescribeDataSetRequest,
-  DescribeDataSetResponse,
-  DescribeDataSourcePermissionsRequest,
-  DescribeDataSourcePermissionsResponse,
-  DescribeDataSourceRequest,
-  DescribeDataSourceResponse,
-  DescribeGroupRequest,
-  DescribeGroupResponse,
-  DescribeIAMPolicyAssignmentRequest,
-  DescribeIAMPolicyAssignmentResponse,
-  DescribeIngestionRequest,
-  DescribeIngestionResponse,
-  DescribeTemplateAliasRequest,
-  DescribeTemplateAliasResponse,
-  DescribeTemplatePermissionsRequest,
-  DescribeTemplatePermissionsResponse,
-  DescribeTemplateRequest,
-  DescribeTemplateResponse,
-  DescribeUserRequest,
-  DescribeUserResponse,
-  GetDashboardEmbedUrlRequest,
-  GetDashboardEmbedUrlResponse,
-  ListDashboardVersionsRequest,
-  ListDashboardVersionsResponse,
-  ListDashboardsRequest,
-  ListDashboardsResponse,
-  ListDataSetsRequest,
-  ListDataSetsResponse,
-  ListDataSourcesRequest,
-  ListDataSourcesResponse,
-  ListGroupMembershipsRequest,
-  ListGroupMembershipsResponse,
-  ListGroupsRequest,
-  ListGroupsResponse,
-  ListIAMPolicyAssignmentsForUserRequest,
-  ListIAMPolicyAssignmentsForUserResponse,
-  ListIAMPolicyAssignmentsRequest,
-  ListIAMPolicyAssignmentsResponse,
-  ListIngestionsRequest,
-  ListIngestionsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTemplateAliasesRequest,
-  ListTemplateAliasesResponse,
-  ListTemplateVersionsRequest,
-  ListTemplateVersionsResponse,
-  ListTemplatesRequest,
-  ListTemplatesResponse,
-  ListUserGroupsRequest,
-  ListUserGroupsResponse,
-  ListUsersRequest,
-  ListUsersResponse,
-  RegisterUserRequest,
-  RegisterUserResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateDashboardPermissionsRequest,
-  UpdateDashboardPermissionsResponse,
-  UpdateDashboardPublishedVersionRequest,
-  UpdateDashboardPublishedVersionResponse,
-  UpdateDashboardRequest,
-  UpdateDashboardResponse,
-  UpdateDataSetPermissionsRequest,
-  UpdateDataSetPermissionsResponse,
-  UpdateDataSetRequest,
-  UpdateDataSetResponse,
-  UpdateDataSourcePermissionsRequest,
-  UpdateDataSourcePermissionsResponse,
-  UpdateDataSourceRequest,
-  UpdateDataSourceResponse,
-  UpdateGroupRequest,
-  UpdateGroupResponse,
-  UpdateIAMPolicyAssignmentRequest,
-  UpdateIAMPolicyAssignmentResponse,
-  UpdateTemplateAliasRequest,
-  UpdateTemplateAliasResponse,
-  UpdateTemplatePermissionsRequest,
-  UpdateTemplatePermissionsResponse,
-  UpdateTemplateRequest,
-  UpdateTemplateResponse,
-  UpdateUserRequest,
-  UpdateUserResponse
-} from "./models/index";
+  CancelIngestionCommandInput,
+  CancelIngestionCommandOutput
+} from "./commands/CancelIngestionCommand";
+import {
+  CreateDashboardCommandInput,
+  CreateDashboardCommandOutput
+} from "./commands/CreateDashboardCommand";
+import {
+  CreateDataSetCommandInput,
+  CreateDataSetCommandOutput
+} from "./commands/CreateDataSetCommand";
+import {
+  CreateDataSourceCommandInput,
+  CreateDataSourceCommandOutput
+} from "./commands/CreateDataSourceCommand";
+import {
+  CreateGroupCommandInput,
+  CreateGroupCommandOutput
+} from "./commands/CreateGroupCommand";
+import {
+  CreateGroupMembershipCommandInput,
+  CreateGroupMembershipCommandOutput
+} from "./commands/CreateGroupMembershipCommand";
+import {
+  CreateIAMPolicyAssignmentCommandInput,
+  CreateIAMPolicyAssignmentCommandOutput
+} from "./commands/CreateIAMPolicyAssignmentCommand";
+import {
+  CreateIngestionCommandInput,
+  CreateIngestionCommandOutput
+} from "./commands/CreateIngestionCommand";
+import {
+  CreateTemplateAliasCommandInput,
+  CreateTemplateAliasCommandOutput
+} from "./commands/CreateTemplateAliasCommand";
+import {
+  CreateTemplateCommandInput,
+  CreateTemplateCommandOutput
+} from "./commands/CreateTemplateCommand";
+import {
+  DeleteDashboardCommandInput,
+  DeleteDashboardCommandOutput
+} from "./commands/DeleteDashboardCommand";
+import {
+  DeleteDataSetCommandInput,
+  DeleteDataSetCommandOutput
+} from "./commands/DeleteDataSetCommand";
+import {
+  DeleteDataSourceCommandInput,
+  DeleteDataSourceCommandOutput
+} from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteGroupCommandInput,
+  DeleteGroupCommandOutput
+} from "./commands/DeleteGroupCommand";
+import {
+  DeleteGroupMembershipCommandInput,
+  DeleteGroupMembershipCommandOutput
+} from "./commands/DeleteGroupMembershipCommand";
+import {
+  DeleteIAMPolicyAssignmentCommandInput,
+  DeleteIAMPolicyAssignmentCommandOutput
+} from "./commands/DeleteIAMPolicyAssignmentCommand";
+import {
+  DeleteTemplateAliasCommandInput,
+  DeleteTemplateAliasCommandOutput
+} from "./commands/DeleteTemplateAliasCommand";
+import {
+  DeleteTemplateCommandInput,
+  DeleteTemplateCommandOutput
+} from "./commands/DeleteTemplateCommand";
+import {
+  DeleteUserByPrincipalIdCommandInput,
+  DeleteUserByPrincipalIdCommandOutput
+} from "./commands/DeleteUserByPrincipalIdCommand";
+import {
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput
+} from "./commands/DeleteUserCommand";
+import {
+  DescribeDashboardCommandInput,
+  DescribeDashboardCommandOutput
+} from "./commands/DescribeDashboardCommand";
+import {
+  DescribeDashboardPermissionsCommandInput,
+  DescribeDashboardPermissionsCommandOutput
+} from "./commands/DescribeDashboardPermissionsCommand";
+import {
+  DescribeDataSetCommandInput,
+  DescribeDataSetCommandOutput
+} from "./commands/DescribeDataSetCommand";
+import {
+  DescribeDataSetPermissionsCommandInput,
+  DescribeDataSetPermissionsCommandOutput
+} from "./commands/DescribeDataSetPermissionsCommand";
+import {
+  DescribeDataSourceCommandInput,
+  DescribeDataSourceCommandOutput
+} from "./commands/DescribeDataSourceCommand";
+import {
+  DescribeDataSourcePermissionsCommandInput,
+  DescribeDataSourcePermissionsCommandOutput
+} from "./commands/DescribeDataSourcePermissionsCommand";
+import {
+  DescribeGroupCommandInput,
+  DescribeGroupCommandOutput
+} from "./commands/DescribeGroupCommand";
+import {
+  DescribeIAMPolicyAssignmentCommandInput,
+  DescribeIAMPolicyAssignmentCommandOutput
+} from "./commands/DescribeIAMPolicyAssignmentCommand";
+import {
+  DescribeIngestionCommandInput,
+  DescribeIngestionCommandOutput
+} from "./commands/DescribeIngestionCommand";
+import {
+  DescribeTemplateAliasCommandInput,
+  DescribeTemplateAliasCommandOutput
+} from "./commands/DescribeTemplateAliasCommand";
+import {
+  DescribeTemplateCommandInput,
+  DescribeTemplateCommandOutput
+} from "./commands/DescribeTemplateCommand";
+import {
+  DescribeTemplatePermissionsCommandInput,
+  DescribeTemplatePermissionsCommandOutput
+} from "./commands/DescribeTemplatePermissionsCommand";
+import {
+  DescribeUserCommandInput,
+  DescribeUserCommandOutput
+} from "./commands/DescribeUserCommand";
+import {
+  GetDashboardEmbedUrlCommandInput,
+  GetDashboardEmbedUrlCommandOutput
+} from "./commands/GetDashboardEmbedUrlCommand";
+import {
+  ListDashboardVersionsCommandInput,
+  ListDashboardVersionsCommandOutput
+} from "./commands/ListDashboardVersionsCommand";
+import {
+  ListDashboardsCommandInput,
+  ListDashboardsCommandOutput
+} from "./commands/ListDashboardsCommand";
+import {
+  ListDataSetsCommandInput,
+  ListDataSetsCommandOutput
+} from "./commands/ListDataSetsCommand";
+import {
+  ListDataSourcesCommandInput,
+  ListDataSourcesCommandOutput
+} from "./commands/ListDataSourcesCommand";
+import {
+  ListGroupMembershipsCommandInput,
+  ListGroupMembershipsCommandOutput
+} from "./commands/ListGroupMembershipsCommand";
+import {
+  ListGroupsCommandInput,
+  ListGroupsCommandOutput
+} from "./commands/ListGroupsCommand";
+import {
+  ListIAMPolicyAssignmentsCommandInput,
+  ListIAMPolicyAssignmentsCommandOutput
+} from "./commands/ListIAMPolicyAssignmentsCommand";
+import {
+  ListIAMPolicyAssignmentsForUserCommandInput,
+  ListIAMPolicyAssignmentsForUserCommandOutput
+} from "./commands/ListIAMPolicyAssignmentsForUserCommand";
+import {
+  ListIngestionsCommandInput,
+  ListIngestionsCommandOutput
+} from "./commands/ListIngestionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTemplateAliasesCommandInput,
+  ListTemplateAliasesCommandOutput
+} from "./commands/ListTemplateAliasesCommand";
+import {
+  ListTemplateVersionsCommandInput,
+  ListTemplateVersionsCommandOutput
+} from "./commands/ListTemplateVersionsCommand";
+import {
+  ListTemplatesCommandInput,
+  ListTemplatesCommandOutput
+} from "./commands/ListTemplatesCommand";
+import {
+  ListUserGroupsCommandInput,
+  ListUserGroupsCommandOutput
+} from "./commands/ListUserGroupsCommand";
+import {
+  ListUsersCommandInput,
+  ListUsersCommandOutput
+} from "./commands/ListUsersCommand";
+import {
+  RegisterUserCommandInput,
+  RegisterUserCommandOutput
+} from "./commands/RegisterUserCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDashboardCommandInput,
+  UpdateDashboardCommandOutput
+} from "./commands/UpdateDashboardCommand";
+import {
+  UpdateDashboardPermissionsCommandInput,
+  UpdateDashboardPermissionsCommandOutput
+} from "./commands/UpdateDashboardPermissionsCommand";
+import {
+  UpdateDashboardPublishedVersionCommandInput,
+  UpdateDashboardPublishedVersionCommandOutput
+} from "./commands/UpdateDashboardPublishedVersionCommand";
+import {
+  UpdateDataSetCommandInput,
+  UpdateDataSetCommandOutput
+} from "./commands/UpdateDataSetCommand";
+import {
+  UpdateDataSetPermissionsCommandInput,
+  UpdateDataSetPermissionsCommandOutput
+} from "./commands/UpdateDataSetPermissionsCommand";
+import {
+  UpdateDataSourceCommandInput,
+  UpdateDataSourceCommandOutput
+} from "./commands/UpdateDataSourceCommand";
+import {
+  UpdateDataSourcePermissionsCommandInput,
+  UpdateDataSourcePermissionsCommandOutput
+} from "./commands/UpdateDataSourcePermissionsCommand";
+import {
+  UpdateGroupCommandInput,
+  UpdateGroupCommandOutput
+} from "./commands/UpdateGroupCommand";
+import {
+  UpdateIAMPolicyAssignmentCommandInput,
+  UpdateIAMPolicyAssignmentCommandOutput
+} from "./commands/UpdateIAMPolicyAssignmentCommand";
+import {
+  UpdateTemplateAliasCommandInput,
+  UpdateTemplateAliasCommandOutput
+} from "./commands/UpdateTemplateAliasCommand";
+import {
+  UpdateTemplateCommandInput,
+  UpdateTemplateCommandOutput
+} from "./commands/UpdateTemplateCommand";
+import {
+  UpdateTemplatePermissionsCommandInput,
+  UpdateTemplatePermissionsCommandOutput
+} from "./commands/UpdateTemplatePermissionsCommand";
+import {
+  UpdateUserCommandInput,
+  UpdateUserCommandOutput
+} from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -183,138 +311,138 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelIngestionRequest
-  | CreateDashboardRequest
-  | CreateDataSetRequest
-  | CreateDataSourceRequest
-  | CreateGroupMembershipRequest
-  | CreateGroupRequest
-  | CreateIAMPolicyAssignmentRequest
-  | CreateIngestionRequest
-  | CreateTemplateAliasRequest
-  | CreateTemplateRequest
-  | DeleteDashboardRequest
-  | DeleteDataSetRequest
-  | DeleteDataSourceRequest
-  | DeleteGroupMembershipRequest
-  | DeleteGroupRequest
-  | DeleteIAMPolicyAssignmentRequest
-  | DeleteTemplateAliasRequest
-  | DeleteTemplateRequest
-  | DeleteUserByPrincipalIdRequest
-  | DeleteUserRequest
-  | DescribeDashboardPermissionsRequest
-  | DescribeDashboardRequest
-  | DescribeDataSetPermissionsRequest
-  | DescribeDataSetRequest
-  | DescribeDataSourcePermissionsRequest
-  | DescribeDataSourceRequest
-  | DescribeGroupRequest
-  | DescribeIAMPolicyAssignmentRequest
-  | DescribeIngestionRequest
-  | DescribeTemplateAliasRequest
-  | DescribeTemplatePermissionsRequest
-  | DescribeTemplateRequest
-  | DescribeUserRequest
-  | GetDashboardEmbedUrlRequest
-  | ListDashboardVersionsRequest
-  | ListDashboardsRequest
-  | ListDataSetsRequest
-  | ListDataSourcesRequest
-  | ListGroupMembershipsRequest
-  | ListGroupsRequest
-  | ListIAMPolicyAssignmentsForUserRequest
-  | ListIAMPolicyAssignmentsRequest
-  | ListIngestionsRequest
-  | ListTagsForResourceRequest
-  | ListTemplateAliasesRequest
-  | ListTemplateVersionsRequest
-  | ListTemplatesRequest
-  | ListUserGroupsRequest
-  | ListUsersRequest
-  | RegisterUserRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateDashboardPermissionsRequest
-  | UpdateDashboardPublishedVersionRequest
-  | UpdateDashboardRequest
-  | UpdateDataSetPermissionsRequest
-  | UpdateDataSetRequest
-  | UpdateDataSourcePermissionsRequest
-  | UpdateDataSourceRequest
-  | UpdateGroupRequest
-  | UpdateIAMPolicyAssignmentRequest
-  | UpdateTemplateAliasRequest
-  | UpdateTemplatePermissionsRequest
-  | UpdateTemplateRequest
-  | UpdateUserRequest;
+  | CancelIngestionCommandInput
+  | CreateDashboardCommandInput
+  | CreateDataSetCommandInput
+  | CreateDataSourceCommandInput
+  | CreateGroupCommandInput
+  | CreateGroupMembershipCommandInput
+  | CreateIAMPolicyAssignmentCommandInput
+  | CreateIngestionCommandInput
+  | CreateTemplateAliasCommandInput
+  | CreateTemplateCommandInput
+  | DeleteDashboardCommandInput
+  | DeleteDataSetCommandInput
+  | DeleteDataSourceCommandInput
+  | DeleteGroupCommandInput
+  | DeleteGroupMembershipCommandInput
+  | DeleteIAMPolicyAssignmentCommandInput
+  | DeleteTemplateAliasCommandInput
+  | DeleteTemplateCommandInput
+  | DeleteUserByPrincipalIdCommandInput
+  | DeleteUserCommandInput
+  | DescribeDashboardCommandInput
+  | DescribeDashboardPermissionsCommandInput
+  | DescribeDataSetCommandInput
+  | DescribeDataSetPermissionsCommandInput
+  | DescribeDataSourceCommandInput
+  | DescribeDataSourcePermissionsCommandInput
+  | DescribeGroupCommandInput
+  | DescribeIAMPolicyAssignmentCommandInput
+  | DescribeIngestionCommandInput
+  | DescribeTemplateAliasCommandInput
+  | DescribeTemplateCommandInput
+  | DescribeTemplatePermissionsCommandInput
+  | DescribeUserCommandInput
+  | GetDashboardEmbedUrlCommandInput
+  | ListDashboardVersionsCommandInput
+  | ListDashboardsCommandInput
+  | ListDataSetsCommandInput
+  | ListDataSourcesCommandInput
+  | ListGroupMembershipsCommandInput
+  | ListGroupsCommandInput
+  | ListIAMPolicyAssignmentsCommandInput
+  | ListIAMPolicyAssignmentsForUserCommandInput
+  | ListIngestionsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTemplateAliasesCommandInput
+  | ListTemplateVersionsCommandInput
+  | ListTemplatesCommandInput
+  | ListUserGroupsCommandInput
+  | ListUsersCommandInput
+  | RegisterUserCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateDashboardCommandInput
+  | UpdateDashboardPermissionsCommandInput
+  | UpdateDashboardPublishedVersionCommandInput
+  | UpdateDataSetCommandInput
+  | UpdateDataSetPermissionsCommandInput
+  | UpdateDataSourceCommandInput
+  | UpdateDataSourcePermissionsCommandInput
+  | UpdateGroupCommandInput
+  | UpdateIAMPolicyAssignmentCommandInput
+  | UpdateTemplateAliasCommandInput
+  | UpdateTemplateCommandInput
+  | UpdateTemplatePermissionsCommandInput
+  | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
-  | CancelIngestionResponse
-  | CreateDashboardResponse
-  | CreateDataSetResponse
-  | CreateDataSourceResponse
-  | CreateGroupMembershipResponse
-  | CreateGroupResponse
-  | CreateIAMPolicyAssignmentResponse
-  | CreateIngestionResponse
-  | CreateTemplateAliasResponse
-  | CreateTemplateResponse
-  | DeleteDashboardResponse
-  | DeleteDataSetResponse
-  | DeleteDataSourceResponse
-  | DeleteGroupMembershipResponse
-  | DeleteGroupResponse
-  | DeleteIAMPolicyAssignmentResponse
-  | DeleteTemplateAliasResponse
-  | DeleteTemplateResponse
-  | DeleteUserByPrincipalIdResponse
-  | DeleteUserResponse
-  | DescribeDashboardPermissionsResponse
-  | DescribeDashboardResponse
-  | DescribeDataSetPermissionsResponse
-  | DescribeDataSetResponse
-  | DescribeDataSourcePermissionsResponse
-  | DescribeDataSourceResponse
-  | DescribeGroupResponse
-  | DescribeIAMPolicyAssignmentResponse
-  | DescribeIngestionResponse
-  | DescribeTemplateAliasResponse
-  | DescribeTemplatePermissionsResponse
-  | DescribeTemplateResponse
-  | DescribeUserResponse
-  | GetDashboardEmbedUrlResponse
-  | ListDashboardVersionsResponse
-  | ListDashboardsResponse
-  | ListDataSetsResponse
-  | ListDataSourcesResponse
-  | ListGroupMembershipsResponse
-  | ListGroupsResponse
-  | ListIAMPolicyAssignmentsForUserResponse
-  | ListIAMPolicyAssignmentsResponse
-  | ListIngestionsResponse
-  | ListTagsForResourceResponse
-  | ListTemplateAliasesResponse
-  | ListTemplateVersionsResponse
-  | ListTemplatesResponse
-  | ListUserGroupsResponse
-  | ListUsersResponse
-  | RegisterUserResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateDashboardPermissionsResponse
-  | UpdateDashboardPublishedVersionResponse
-  | UpdateDashboardResponse
-  | UpdateDataSetPermissionsResponse
-  | UpdateDataSetResponse
-  | UpdateDataSourcePermissionsResponse
-  | UpdateDataSourceResponse
-  | UpdateGroupResponse
-  | UpdateIAMPolicyAssignmentResponse
-  | UpdateTemplateAliasResponse
-  | UpdateTemplatePermissionsResponse
-  | UpdateTemplateResponse
-  | UpdateUserResponse;
+  | CancelIngestionCommandOutput
+  | CreateDashboardCommandOutput
+  | CreateDataSetCommandOutput
+  | CreateDataSourceCommandOutput
+  | CreateGroupCommandOutput
+  | CreateGroupMembershipCommandOutput
+  | CreateIAMPolicyAssignmentCommandOutput
+  | CreateIngestionCommandOutput
+  | CreateTemplateAliasCommandOutput
+  | CreateTemplateCommandOutput
+  | DeleteDashboardCommandOutput
+  | DeleteDataSetCommandOutput
+  | DeleteDataSourceCommandOutput
+  | DeleteGroupCommandOutput
+  | DeleteGroupMembershipCommandOutput
+  | DeleteIAMPolicyAssignmentCommandOutput
+  | DeleteTemplateAliasCommandOutput
+  | DeleteTemplateCommandOutput
+  | DeleteUserByPrincipalIdCommandOutput
+  | DeleteUserCommandOutput
+  | DescribeDashboardCommandOutput
+  | DescribeDashboardPermissionsCommandOutput
+  | DescribeDataSetCommandOutput
+  | DescribeDataSetPermissionsCommandOutput
+  | DescribeDataSourceCommandOutput
+  | DescribeDataSourcePermissionsCommandOutput
+  | DescribeGroupCommandOutput
+  | DescribeIAMPolicyAssignmentCommandOutput
+  | DescribeIngestionCommandOutput
+  | DescribeTemplateAliasCommandOutput
+  | DescribeTemplateCommandOutput
+  | DescribeTemplatePermissionsCommandOutput
+  | DescribeUserCommandOutput
+  | GetDashboardEmbedUrlCommandOutput
+  | ListDashboardVersionsCommandOutput
+  | ListDashboardsCommandOutput
+  | ListDataSetsCommandOutput
+  | ListDataSourcesCommandOutput
+  | ListGroupMembershipsCommandOutput
+  | ListGroupsCommandOutput
+  | ListIAMPolicyAssignmentsCommandOutput
+  | ListIAMPolicyAssignmentsForUserCommandOutput
+  | ListIngestionsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTemplateAliasesCommandOutput
+  | ListTemplateVersionsCommandOutput
+  | ListTemplatesCommandOutput
+  | ListUserGroupsCommandOutput
+  | ListUsersCommandOutput
+  | RegisterUserCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDashboardCommandOutput
+  | UpdateDashboardPermissionsCommandOutput
+  | UpdateDashboardPublishedVersionCommandOutput
+  | UpdateDataSetCommandOutput
+  | UpdateDataSetPermissionsCommandOutput
+  | UpdateDataSourceCommandOutput
+  | UpdateDataSourcePermissionsCommandOutput
+  | UpdateGroupCommandOutput
+  | UpdateIAMPolicyAssignmentCommandOutput
+  | UpdateTemplateAliasCommandOutput
+  | UpdateTemplateCommandOutput
+  | UpdateTemplatePermissionsCommandOutput
+  | UpdateUserCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

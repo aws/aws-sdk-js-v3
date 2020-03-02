@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVTLDevicesCommandInput = DescribeVTLDevicesInput;
-export type DescribeVTLDevicesCommandOutput = DescribeVTLDevicesOutput;
+export type DescribeVTLDevicesCommandOutput = DescribeVTLDevicesOutput &
+  __MetadataBearer;
 
 export class DescribeVTLDevicesCommand extends $Command<
   DescribeVTLDevicesCommandInput,

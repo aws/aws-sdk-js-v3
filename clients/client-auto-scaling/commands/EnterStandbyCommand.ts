@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnterStandbyCommandInput = EnterStandbyQuery;
-export type EnterStandbyCommandOutput = EnterStandbyAnswer;
+export type EnterStandbyCommandOutput = EnterStandbyAnswer & __MetadataBearer;
 
 export class EnterStandbyCommand extends $Command<
   EnterStandbyCommandInput,

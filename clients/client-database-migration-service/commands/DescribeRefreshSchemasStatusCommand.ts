@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRefreshSchemasStatusCommandInput = DescribeRefreshSchemasStatusMessage;
-export type DescribeRefreshSchemasStatusCommandOutput = DescribeRefreshSchemasStatusResponse;
+export type DescribeRefreshSchemasStatusCommandOutput = DescribeRefreshSchemasStatusResponse &
+  __MetadataBearer;
 
 export class DescribeRefreshSchemasStatusCommand extends $Command<
   DescribeRefreshSchemasStatusCommandInput,

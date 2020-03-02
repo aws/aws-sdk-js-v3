@@ -1,157 +1,307 @@
 import {
-  CreateByteMatchSetRequest,
-  CreateByteMatchSetResponse,
-  CreateGeoMatchSetRequest,
-  CreateGeoMatchSetResponse,
-  CreateIPSetRequest,
-  CreateIPSetResponse,
-  CreateRateBasedRuleRequest,
-  CreateRateBasedRuleResponse,
-  CreateRegexMatchSetRequest,
-  CreateRegexMatchSetResponse,
-  CreateRegexPatternSetRequest,
-  CreateRegexPatternSetResponse,
-  CreateRuleGroupRequest,
-  CreateRuleGroupResponse,
-  CreateRuleRequest,
-  CreateRuleResponse,
-  CreateSizeConstraintSetRequest,
-  CreateSizeConstraintSetResponse,
-  CreateSqlInjectionMatchSetRequest,
-  CreateSqlInjectionMatchSetResponse,
-  CreateWebACLRequest,
-  CreateWebACLResponse,
-  CreateXssMatchSetRequest,
-  CreateXssMatchSetResponse,
-  DeleteByteMatchSetRequest,
-  DeleteByteMatchSetResponse,
-  DeleteGeoMatchSetRequest,
-  DeleteGeoMatchSetResponse,
-  DeleteIPSetRequest,
-  DeleteIPSetResponse,
-  DeleteLoggingConfigurationRequest,
-  DeleteLoggingConfigurationResponse,
-  DeletePermissionPolicyRequest,
-  DeletePermissionPolicyResponse,
-  DeleteRateBasedRuleRequest,
-  DeleteRateBasedRuleResponse,
-  DeleteRegexMatchSetRequest,
-  DeleteRegexMatchSetResponse,
-  DeleteRegexPatternSetRequest,
-  DeleteRegexPatternSetResponse,
-  DeleteRuleGroupRequest,
-  DeleteRuleGroupResponse,
-  DeleteRuleRequest,
-  DeleteRuleResponse,
-  DeleteSizeConstraintSetRequest,
-  DeleteSizeConstraintSetResponse,
-  DeleteSqlInjectionMatchSetRequest,
-  DeleteSqlInjectionMatchSetResponse,
-  DeleteWebACLRequest,
-  DeleteWebACLResponse,
-  DeleteXssMatchSetRequest,
-  DeleteXssMatchSetResponse,
-  GetByteMatchSetRequest,
-  GetByteMatchSetResponse,
-  GetChangeTokenRequest,
-  GetChangeTokenResponse,
-  GetChangeTokenStatusRequest,
-  GetChangeTokenStatusResponse,
-  GetGeoMatchSetRequest,
-  GetGeoMatchSetResponse,
-  GetIPSetRequest,
-  GetIPSetResponse,
-  GetLoggingConfigurationRequest,
-  GetLoggingConfigurationResponse,
-  GetPermissionPolicyRequest,
-  GetPermissionPolicyResponse,
-  GetRateBasedRuleManagedKeysRequest,
-  GetRateBasedRuleManagedKeysResponse,
-  GetRateBasedRuleRequest,
-  GetRateBasedRuleResponse,
-  GetRegexMatchSetRequest,
-  GetRegexMatchSetResponse,
-  GetRegexPatternSetRequest,
-  GetRegexPatternSetResponse,
-  GetRuleGroupRequest,
-  GetRuleGroupResponse,
-  GetRuleRequest,
-  GetRuleResponse,
-  GetSampledRequestsRequest,
-  GetSampledRequestsResponse,
-  GetSizeConstraintSetRequest,
-  GetSizeConstraintSetResponse,
-  GetSqlInjectionMatchSetRequest,
-  GetSqlInjectionMatchSetResponse,
-  GetWebACLRequest,
-  GetWebACLResponse,
-  GetXssMatchSetRequest,
-  GetXssMatchSetResponse,
-  ListActivatedRulesInRuleGroupRequest,
-  ListActivatedRulesInRuleGroupResponse,
-  ListByteMatchSetsRequest,
-  ListByteMatchSetsResponse,
-  ListGeoMatchSetsRequest,
-  ListGeoMatchSetsResponse,
-  ListIPSetsRequest,
-  ListIPSetsResponse,
-  ListLoggingConfigurationsRequest,
-  ListLoggingConfigurationsResponse,
-  ListRateBasedRulesRequest,
-  ListRateBasedRulesResponse,
-  ListRegexMatchSetsRequest,
-  ListRegexMatchSetsResponse,
-  ListRegexPatternSetsRequest,
-  ListRegexPatternSetsResponse,
-  ListRuleGroupsRequest,
-  ListRuleGroupsResponse,
-  ListRulesRequest,
-  ListRulesResponse,
-  ListSizeConstraintSetsRequest,
-  ListSizeConstraintSetsResponse,
-  ListSqlInjectionMatchSetsRequest,
-  ListSqlInjectionMatchSetsResponse,
-  ListSubscribedRuleGroupsRequest,
-  ListSubscribedRuleGroupsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListWebACLsRequest,
-  ListWebACLsResponse,
-  ListXssMatchSetsRequest,
-  ListXssMatchSetsResponse,
-  PutLoggingConfigurationRequest,
-  PutLoggingConfigurationResponse,
-  PutPermissionPolicyRequest,
-  PutPermissionPolicyResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateByteMatchSetRequest,
-  UpdateByteMatchSetResponse,
-  UpdateGeoMatchSetRequest,
-  UpdateGeoMatchSetResponse,
-  UpdateIPSetRequest,
-  UpdateIPSetResponse,
-  UpdateRateBasedRuleRequest,
-  UpdateRateBasedRuleResponse,
-  UpdateRegexMatchSetRequest,
-  UpdateRegexMatchSetResponse,
-  UpdateRegexPatternSetRequest,
-  UpdateRegexPatternSetResponse,
-  UpdateRuleGroupRequest,
-  UpdateRuleGroupResponse,
-  UpdateRuleRequest,
-  UpdateRuleResponse,
-  UpdateSizeConstraintSetRequest,
-  UpdateSizeConstraintSetResponse,
-  UpdateSqlInjectionMatchSetRequest,
-  UpdateSqlInjectionMatchSetResponse,
-  UpdateWebACLRequest,
-  UpdateWebACLResponse,
-  UpdateXssMatchSetRequest,
-  UpdateXssMatchSetResponse
-} from "./models/index";
+  CreateByteMatchSetCommandInput,
+  CreateByteMatchSetCommandOutput
+} from "./commands/CreateByteMatchSetCommand";
+import {
+  CreateGeoMatchSetCommandInput,
+  CreateGeoMatchSetCommandOutput
+} from "./commands/CreateGeoMatchSetCommand";
+import {
+  CreateIPSetCommandInput,
+  CreateIPSetCommandOutput
+} from "./commands/CreateIPSetCommand";
+import {
+  CreateRateBasedRuleCommandInput,
+  CreateRateBasedRuleCommandOutput
+} from "./commands/CreateRateBasedRuleCommand";
+import {
+  CreateRegexMatchSetCommandInput,
+  CreateRegexMatchSetCommandOutput
+} from "./commands/CreateRegexMatchSetCommand";
+import {
+  CreateRegexPatternSetCommandInput,
+  CreateRegexPatternSetCommandOutput
+} from "./commands/CreateRegexPatternSetCommand";
+import {
+  CreateRuleCommandInput,
+  CreateRuleCommandOutput
+} from "./commands/CreateRuleCommand";
+import {
+  CreateRuleGroupCommandInput,
+  CreateRuleGroupCommandOutput
+} from "./commands/CreateRuleGroupCommand";
+import {
+  CreateSizeConstraintSetCommandInput,
+  CreateSizeConstraintSetCommandOutput
+} from "./commands/CreateSizeConstraintSetCommand";
+import {
+  CreateSqlInjectionMatchSetCommandInput,
+  CreateSqlInjectionMatchSetCommandOutput
+} from "./commands/CreateSqlInjectionMatchSetCommand";
+import {
+  CreateWebACLCommandInput,
+  CreateWebACLCommandOutput
+} from "./commands/CreateWebACLCommand";
+import {
+  CreateXssMatchSetCommandInput,
+  CreateXssMatchSetCommandOutput
+} from "./commands/CreateXssMatchSetCommand";
+import {
+  DeleteByteMatchSetCommandInput,
+  DeleteByteMatchSetCommandOutput
+} from "./commands/DeleteByteMatchSetCommand";
+import {
+  DeleteGeoMatchSetCommandInput,
+  DeleteGeoMatchSetCommandOutput
+} from "./commands/DeleteGeoMatchSetCommand";
+import {
+  DeleteIPSetCommandInput,
+  DeleteIPSetCommandOutput
+} from "./commands/DeleteIPSetCommand";
+import {
+  DeleteLoggingConfigurationCommandInput,
+  DeleteLoggingConfigurationCommandOutput
+} from "./commands/DeleteLoggingConfigurationCommand";
+import {
+  DeletePermissionPolicyCommandInput,
+  DeletePermissionPolicyCommandOutput
+} from "./commands/DeletePermissionPolicyCommand";
+import {
+  DeleteRateBasedRuleCommandInput,
+  DeleteRateBasedRuleCommandOutput
+} from "./commands/DeleteRateBasedRuleCommand";
+import {
+  DeleteRegexMatchSetCommandInput,
+  DeleteRegexMatchSetCommandOutput
+} from "./commands/DeleteRegexMatchSetCommand";
+import {
+  DeleteRegexPatternSetCommandInput,
+  DeleteRegexPatternSetCommandOutput
+} from "./commands/DeleteRegexPatternSetCommand";
+import {
+  DeleteRuleCommandInput,
+  DeleteRuleCommandOutput
+} from "./commands/DeleteRuleCommand";
+import {
+  DeleteRuleGroupCommandInput,
+  DeleteRuleGroupCommandOutput
+} from "./commands/DeleteRuleGroupCommand";
+import {
+  DeleteSizeConstraintSetCommandInput,
+  DeleteSizeConstraintSetCommandOutput
+} from "./commands/DeleteSizeConstraintSetCommand";
+import {
+  DeleteSqlInjectionMatchSetCommandInput,
+  DeleteSqlInjectionMatchSetCommandOutput
+} from "./commands/DeleteSqlInjectionMatchSetCommand";
+import {
+  DeleteWebACLCommandInput,
+  DeleteWebACLCommandOutput
+} from "./commands/DeleteWebACLCommand";
+import {
+  DeleteXssMatchSetCommandInput,
+  DeleteXssMatchSetCommandOutput
+} from "./commands/DeleteXssMatchSetCommand";
+import {
+  GetByteMatchSetCommandInput,
+  GetByteMatchSetCommandOutput
+} from "./commands/GetByteMatchSetCommand";
+import {
+  GetChangeTokenCommandInput,
+  GetChangeTokenCommandOutput
+} from "./commands/GetChangeTokenCommand";
+import {
+  GetChangeTokenStatusCommandInput,
+  GetChangeTokenStatusCommandOutput
+} from "./commands/GetChangeTokenStatusCommand";
+import {
+  GetGeoMatchSetCommandInput,
+  GetGeoMatchSetCommandOutput
+} from "./commands/GetGeoMatchSetCommand";
+import {
+  GetIPSetCommandInput,
+  GetIPSetCommandOutput
+} from "./commands/GetIPSetCommand";
+import {
+  GetLoggingConfigurationCommandInput,
+  GetLoggingConfigurationCommandOutput
+} from "./commands/GetLoggingConfigurationCommand";
+import {
+  GetPermissionPolicyCommandInput,
+  GetPermissionPolicyCommandOutput
+} from "./commands/GetPermissionPolicyCommand";
+import {
+  GetRateBasedRuleCommandInput,
+  GetRateBasedRuleCommandOutput
+} from "./commands/GetRateBasedRuleCommand";
+import {
+  GetRateBasedRuleManagedKeysCommandInput,
+  GetRateBasedRuleManagedKeysCommandOutput
+} from "./commands/GetRateBasedRuleManagedKeysCommand";
+import {
+  GetRegexMatchSetCommandInput,
+  GetRegexMatchSetCommandOutput
+} from "./commands/GetRegexMatchSetCommand";
+import {
+  GetRegexPatternSetCommandInput,
+  GetRegexPatternSetCommandOutput
+} from "./commands/GetRegexPatternSetCommand";
+import {
+  GetRuleCommandInput,
+  GetRuleCommandOutput
+} from "./commands/GetRuleCommand";
+import {
+  GetRuleGroupCommandInput,
+  GetRuleGroupCommandOutput
+} from "./commands/GetRuleGroupCommand";
+import {
+  GetSampledRequestsCommandInput,
+  GetSampledRequestsCommandOutput
+} from "./commands/GetSampledRequestsCommand";
+import {
+  GetSizeConstraintSetCommandInput,
+  GetSizeConstraintSetCommandOutput
+} from "./commands/GetSizeConstraintSetCommand";
+import {
+  GetSqlInjectionMatchSetCommandInput,
+  GetSqlInjectionMatchSetCommandOutput
+} from "./commands/GetSqlInjectionMatchSetCommand";
+import {
+  GetWebACLCommandInput,
+  GetWebACLCommandOutput
+} from "./commands/GetWebACLCommand";
+import {
+  GetXssMatchSetCommandInput,
+  GetXssMatchSetCommandOutput
+} from "./commands/GetXssMatchSetCommand";
+import {
+  ListActivatedRulesInRuleGroupCommandInput,
+  ListActivatedRulesInRuleGroupCommandOutput
+} from "./commands/ListActivatedRulesInRuleGroupCommand";
+import {
+  ListByteMatchSetsCommandInput,
+  ListByteMatchSetsCommandOutput
+} from "./commands/ListByteMatchSetsCommand";
+import {
+  ListGeoMatchSetsCommandInput,
+  ListGeoMatchSetsCommandOutput
+} from "./commands/ListGeoMatchSetsCommand";
+import {
+  ListIPSetsCommandInput,
+  ListIPSetsCommandOutput
+} from "./commands/ListIPSetsCommand";
+import {
+  ListLoggingConfigurationsCommandInput,
+  ListLoggingConfigurationsCommandOutput
+} from "./commands/ListLoggingConfigurationsCommand";
+import {
+  ListRateBasedRulesCommandInput,
+  ListRateBasedRulesCommandOutput
+} from "./commands/ListRateBasedRulesCommand";
+import {
+  ListRegexMatchSetsCommandInput,
+  ListRegexMatchSetsCommandOutput
+} from "./commands/ListRegexMatchSetsCommand";
+import {
+  ListRegexPatternSetsCommandInput,
+  ListRegexPatternSetsCommandOutput
+} from "./commands/ListRegexPatternSetsCommand";
+import {
+  ListRuleGroupsCommandInput,
+  ListRuleGroupsCommandOutput
+} from "./commands/ListRuleGroupsCommand";
+import {
+  ListRulesCommandInput,
+  ListRulesCommandOutput
+} from "./commands/ListRulesCommand";
+import {
+  ListSizeConstraintSetsCommandInput,
+  ListSizeConstraintSetsCommandOutput
+} from "./commands/ListSizeConstraintSetsCommand";
+import {
+  ListSqlInjectionMatchSetsCommandInput,
+  ListSqlInjectionMatchSetsCommandOutput
+} from "./commands/ListSqlInjectionMatchSetsCommand";
+import {
+  ListSubscribedRuleGroupsCommandInput,
+  ListSubscribedRuleGroupsCommandOutput
+} from "./commands/ListSubscribedRuleGroupsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListWebACLsCommandInput,
+  ListWebACLsCommandOutput
+} from "./commands/ListWebACLsCommand";
+import {
+  ListXssMatchSetsCommandInput,
+  ListXssMatchSetsCommandOutput
+} from "./commands/ListXssMatchSetsCommand";
+import {
+  PutLoggingConfigurationCommandInput,
+  PutLoggingConfigurationCommandOutput
+} from "./commands/PutLoggingConfigurationCommand";
+import {
+  PutPermissionPolicyCommandInput,
+  PutPermissionPolicyCommandOutput
+} from "./commands/PutPermissionPolicyCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateByteMatchSetCommandInput,
+  UpdateByteMatchSetCommandOutput
+} from "./commands/UpdateByteMatchSetCommand";
+import {
+  UpdateGeoMatchSetCommandInput,
+  UpdateGeoMatchSetCommandOutput
+} from "./commands/UpdateGeoMatchSetCommand";
+import {
+  UpdateIPSetCommandInput,
+  UpdateIPSetCommandOutput
+} from "./commands/UpdateIPSetCommand";
+import {
+  UpdateRateBasedRuleCommandInput,
+  UpdateRateBasedRuleCommandOutput
+} from "./commands/UpdateRateBasedRuleCommand";
+import {
+  UpdateRegexMatchSetCommandInput,
+  UpdateRegexMatchSetCommandOutput
+} from "./commands/UpdateRegexMatchSetCommand";
+import {
+  UpdateRegexPatternSetCommandInput,
+  UpdateRegexPatternSetCommandOutput
+} from "./commands/UpdateRegexPatternSetCommand";
+import {
+  UpdateRuleCommandInput,
+  UpdateRuleCommandOutput
+} from "./commands/UpdateRuleCommand";
+import {
+  UpdateRuleGroupCommandInput,
+  UpdateRuleGroupCommandOutput
+} from "./commands/UpdateRuleGroupCommand";
+import {
+  UpdateSizeConstraintSetCommandInput,
+  UpdateSizeConstraintSetCommandOutput
+} from "./commands/UpdateSizeConstraintSetCommand";
+import {
+  UpdateSqlInjectionMatchSetCommandInput,
+  UpdateSqlInjectionMatchSetCommandOutput
+} from "./commands/UpdateSqlInjectionMatchSetCommand";
+import {
+  UpdateWebACLCommandInput,
+  UpdateWebACLCommandOutput
+} from "./commands/UpdateWebACLCommand";
+import {
+  UpdateXssMatchSetCommandInput,
+  UpdateXssMatchSetCommandOutput
+} from "./commands/UpdateXssMatchSetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -205,160 +355,160 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateByteMatchSetRequest
-  | CreateGeoMatchSetRequest
-  | CreateIPSetRequest
-  | CreateRateBasedRuleRequest
-  | CreateRegexMatchSetRequest
-  | CreateRegexPatternSetRequest
-  | CreateRuleGroupRequest
-  | CreateRuleRequest
-  | CreateSizeConstraintSetRequest
-  | CreateSqlInjectionMatchSetRequest
-  | CreateWebACLRequest
-  | CreateXssMatchSetRequest
-  | DeleteByteMatchSetRequest
-  | DeleteGeoMatchSetRequest
-  | DeleteIPSetRequest
-  | DeleteLoggingConfigurationRequest
-  | DeletePermissionPolicyRequest
-  | DeleteRateBasedRuleRequest
-  | DeleteRegexMatchSetRequest
-  | DeleteRegexPatternSetRequest
-  | DeleteRuleGroupRequest
-  | DeleteRuleRequest
-  | DeleteSizeConstraintSetRequest
-  | DeleteSqlInjectionMatchSetRequest
-  | DeleteWebACLRequest
-  | DeleteXssMatchSetRequest
-  | GetByteMatchSetRequest
-  | GetChangeTokenRequest
-  | GetChangeTokenStatusRequest
-  | GetGeoMatchSetRequest
-  | GetIPSetRequest
-  | GetLoggingConfigurationRequest
-  | GetPermissionPolicyRequest
-  | GetRateBasedRuleManagedKeysRequest
-  | GetRateBasedRuleRequest
-  | GetRegexMatchSetRequest
-  | GetRegexPatternSetRequest
-  | GetRuleGroupRequest
-  | GetRuleRequest
-  | GetSampledRequestsRequest
-  | GetSizeConstraintSetRequest
-  | GetSqlInjectionMatchSetRequest
-  | GetWebACLRequest
-  | GetXssMatchSetRequest
-  | ListActivatedRulesInRuleGroupRequest
-  | ListByteMatchSetsRequest
-  | ListGeoMatchSetsRequest
-  | ListIPSetsRequest
-  | ListLoggingConfigurationsRequest
-  | ListRateBasedRulesRequest
-  | ListRegexMatchSetsRequest
-  | ListRegexPatternSetsRequest
-  | ListRuleGroupsRequest
-  | ListRulesRequest
-  | ListSizeConstraintSetsRequest
-  | ListSqlInjectionMatchSetsRequest
-  | ListSubscribedRuleGroupsRequest
-  | ListTagsForResourceRequest
-  | ListWebACLsRequest
-  | ListXssMatchSetsRequest
-  | PutLoggingConfigurationRequest
-  | PutPermissionPolicyRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateByteMatchSetRequest
-  | UpdateGeoMatchSetRequest
-  | UpdateIPSetRequest
-  | UpdateRateBasedRuleRequest
-  | UpdateRegexMatchSetRequest
-  | UpdateRegexPatternSetRequest
-  | UpdateRuleGroupRequest
-  | UpdateRuleRequest
-  | UpdateSizeConstraintSetRequest
-  | UpdateSqlInjectionMatchSetRequest
-  | UpdateWebACLRequest
-  | UpdateXssMatchSetRequest;
+  | CreateByteMatchSetCommandInput
+  | CreateGeoMatchSetCommandInput
+  | CreateIPSetCommandInput
+  | CreateRateBasedRuleCommandInput
+  | CreateRegexMatchSetCommandInput
+  | CreateRegexPatternSetCommandInput
+  | CreateRuleCommandInput
+  | CreateRuleGroupCommandInput
+  | CreateSizeConstraintSetCommandInput
+  | CreateSqlInjectionMatchSetCommandInput
+  | CreateWebACLCommandInput
+  | CreateXssMatchSetCommandInput
+  | DeleteByteMatchSetCommandInput
+  | DeleteGeoMatchSetCommandInput
+  | DeleteIPSetCommandInput
+  | DeleteLoggingConfigurationCommandInput
+  | DeletePermissionPolicyCommandInput
+  | DeleteRateBasedRuleCommandInput
+  | DeleteRegexMatchSetCommandInput
+  | DeleteRegexPatternSetCommandInput
+  | DeleteRuleCommandInput
+  | DeleteRuleGroupCommandInput
+  | DeleteSizeConstraintSetCommandInput
+  | DeleteSqlInjectionMatchSetCommandInput
+  | DeleteWebACLCommandInput
+  | DeleteXssMatchSetCommandInput
+  | GetByteMatchSetCommandInput
+  | GetChangeTokenCommandInput
+  | GetChangeTokenStatusCommandInput
+  | GetGeoMatchSetCommandInput
+  | GetIPSetCommandInput
+  | GetLoggingConfigurationCommandInput
+  | GetPermissionPolicyCommandInput
+  | GetRateBasedRuleCommandInput
+  | GetRateBasedRuleManagedKeysCommandInput
+  | GetRegexMatchSetCommandInput
+  | GetRegexPatternSetCommandInput
+  | GetRuleCommandInput
+  | GetRuleGroupCommandInput
+  | GetSampledRequestsCommandInput
+  | GetSizeConstraintSetCommandInput
+  | GetSqlInjectionMatchSetCommandInput
+  | GetWebACLCommandInput
+  | GetXssMatchSetCommandInput
+  | ListActivatedRulesInRuleGroupCommandInput
+  | ListByteMatchSetsCommandInput
+  | ListGeoMatchSetsCommandInput
+  | ListIPSetsCommandInput
+  | ListLoggingConfigurationsCommandInput
+  | ListRateBasedRulesCommandInput
+  | ListRegexMatchSetsCommandInput
+  | ListRegexPatternSetsCommandInput
+  | ListRuleGroupsCommandInput
+  | ListRulesCommandInput
+  | ListSizeConstraintSetsCommandInput
+  | ListSqlInjectionMatchSetsCommandInput
+  | ListSubscribedRuleGroupsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListWebACLsCommandInput
+  | ListXssMatchSetsCommandInput
+  | PutLoggingConfigurationCommandInput
+  | PutPermissionPolicyCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateByteMatchSetCommandInput
+  | UpdateGeoMatchSetCommandInput
+  | UpdateIPSetCommandInput
+  | UpdateRateBasedRuleCommandInput
+  | UpdateRegexMatchSetCommandInput
+  | UpdateRegexPatternSetCommandInput
+  | UpdateRuleCommandInput
+  | UpdateRuleGroupCommandInput
+  | UpdateSizeConstraintSetCommandInput
+  | UpdateSqlInjectionMatchSetCommandInput
+  | UpdateWebACLCommandInput
+  | UpdateXssMatchSetCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateByteMatchSetResponse
-  | CreateGeoMatchSetResponse
-  | CreateIPSetResponse
-  | CreateRateBasedRuleResponse
-  | CreateRegexMatchSetResponse
-  | CreateRegexPatternSetResponse
-  | CreateRuleGroupResponse
-  | CreateRuleResponse
-  | CreateSizeConstraintSetResponse
-  | CreateSqlInjectionMatchSetResponse
-  | CreateWebACLResponse
-  | CreateXssMatchSetResponse
-  | DeleteByteMatchSetResponse
-  | DeleteGeoMatchSetResponse
-  | DeleteIPSetResponse
-  | DeleteLoggingConfigurationResponse
-  | DeletePermissionPolicyResponse
-  | DeleteRateBasedRuleResponse
-  | DeleteRegexMatchSetResponse
-  | DeleteRegexPatternSetResponse
-  | DeleteRuleGroupResponse
-  | DeleteRuleResponse
-  | DeleteSizeConstraintSetResponse
-  | DeleteSqlInjectionMatchSetResponse
-  | DeleteWebACLResponse
-  | DeleteXssMatchSetResponse
-  | GetByteMatchSetResponse
-  | GetChangeTokenResponse
-  | GetChangeTokenStatusResponse
-  | GetGeoMatchSetResponse
-  | GetIPSetResponse
-  | GetLoggingConfigurationResponse
-  | GetPermissionPolicyResponse
-  | GetRateBasedRuleManagedKeysResponse
-  | GetRateBasedRuleResponse
-  | GetRegexMatchSetResponse
-  | GetRegexPatternSetResponse
-  | GetRuleGroupResponse
-  | GetRuleResponse
-  | GetSampledRequestsResponse
-  | GetSizeConstraintSetResponse
-  | GetSqlInjectionMatchSetResponse
-  | GetWebACLResponse
-  | GetXssMatchSetResponse
-  | ListActivatedRulesInRuleGroupResponse
-  | ListByteMatchSetsResponse
-  | ListGeoMatchSetsResponse
-  | ListIPSetsResponse
-  | ListLoggingConfigurationsResponse
-  | ListRateBasedRulesResponse
-  | ListRegexMatchSetsResponse
-  | ListRegexPatternSetsResponse
-  | ListRuleGroupsResponse
-  | ListRulesResponse
-  | ListSizeConstraintSetsResponse
-  | ListSqlInjectionMatchSetsResponse
-  | ListSubscribedRuleGroupsResponse
-  | ListTagsForResourceResponse
-  | ListWebACLsResponse
-  | ListXssMatchSetsResponse
-  | PutLoggingConfigurationResponse
-  | PutPermissionPolicyResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateByteMatchSetResponse
-  | UpdateGeoMatchSetResponse
-  | UpdateIPSetResponse
-  | UpdateRateBasedRuleResponse
-  | UpdateRegexMatchSetResponse
-  | UpdateRegexPatternSetResponse
-  | UpdateRuleGroupResponse
-  | UpdateRuleResponse
-  | UpdateSizeConstraintSetResponse
-  | UpdateSqlInjectionMatchSetResponse
-  | UpdateWebACLResponse
-  | UpdateXssMatchSetResponse;
+  | CreateByteMatchSetCommandOutput
+  | CreateGeoMatchSetCommandOutput
+  | CreateIPSetCommandOutput
+  | CreateRateBasedRuleCommandOutput
+  | CreateRegexMatchSetCommandOutput
+  | CreateRegexPatternSetCommandOutput
+  | CreateRuleCommandOutput
+  | CreateRuleGroupCommandOutput
+  | CreateSizeConstraintSetCommandOutput
+  | CreateSqlInjectionMatchSetCommandOutput
+  | CreateWebACLCommandOutput
+  | CreateXssMatchSetCommandOutput
+  | DeleteByteMatchSetCommandOutput
+  | DeleteGeoMatchSetCommandOutput
+  | DeleteIPSetCommandOutput
+  | DeleteLoggingConfigurationCommandOutput
+  | DeletePermissionPolicyCommandOutput
+  | DeleteRateBasedRuleCommandOutput
+  | DeleteRegexMatchSetCommandOutput
+  | DeleteRegexPatternSetCommandOutput
+  | DeleteRuleCommandOutput
+  | DeleteRuleGroupCommandOutput
+  | DeleteSizeConstraintSetCommandOutput
+  | DeleteSqlInjectionMatchSetCommandOutput
+  | DeleteWebACLCommandOutput
+  | DeleteXssMatchSetCommandOutput
+  | GetByteMatchSetCommandOutput
+  | GetChangeTokenCommandOutput
+  | GetChangeTokenStatusCommandOutput
+  | GetGeoMatchSetCommandOutput
+  | GetIPSetCommandOutput
+  | GetLoggingConfigurationCommandOutput
+  | GetPermissionPolicyCommandOutput
+  | GetRateBasedRuleCommandOutput
+  | GetRateBasedRuleManagedKeysCommandOutput
+  | GetRegexMatchSetCommandOutput
+  | GetRegexPatternSetCommandOutput
+  | GetRuleCommandOutput
+  | GetRuleGroupCommandOutput
+  | GetSampledRequestsCommandOutput
+  | GetSizeConstraintSetCommandOutput
+  | GetSqlInjectionMatchSetCommandOutput
+  | GetWebACLCommandOutput
+  | GetXssMatchSetCommandOutput
+  | ListActivatedRulesInRuleGroupCommandOutput
+  | ListByteMatchSetsCommandOutput
+  | ListGeoMatchSetsCommandOutput
+  | ListIPSetsCommandOutput
+  | ListLoggingConfigurationsCommandOutput
+  | ListRateBasedRulesCommandOutput
+  | ListRegexMatchSetsCommandOutput
+  | ListRegexPatternSetsCommandOutput
+  | ListRuleGroupsCommandOutput
+  | ListRulesCommandOutput
+  | ListSizeConstraintSetsCommandOutput
+  | ListSqlInjectionMatchSetsCommandOutput
+  | ListSubscribedRuleGroupsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListWebACLsCommandOutput
+  | ListXssMatchSetsCommandOutput
+  | PutLoggingConfigurationCommandOutput
+  | PutPermissionPolicyCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateByteMatchSetCommandOutput
+  | UpdateGeoMatchSetCommandOutput
+  | UpdateIPSetCommandOutput
+  | UpdateRateBasedRuleCommandOutput
+  | UpdateRegexMatchSetCommandOutput
+  | UpdateRegexPatternSetCommandOutput
+  | UpdateRuleCommandOutput
+  | UpdateRuleGroupCommandOutput
+  | UpdateSizeConstraintSetCommandOutput
+  | UpdateSqlInjectionMatchSetCommandOutput
+  | UpdateWebACLCommandOutput
+  | UpdateXssMatchSetCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

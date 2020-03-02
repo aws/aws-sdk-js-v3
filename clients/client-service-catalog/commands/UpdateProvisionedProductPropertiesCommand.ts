@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateProvisionedProductPropertiesCommandInput = UpdateProvisionedProductPropertiesInput;
-export type UpdateProvisionedProductPropertiesCommandOutput = UpdateProvisionedProductPropertiesOutput;
+export type UpdateProvisionedProductPropertiesCommandOutput = UpdateProvisionedProductPropertiesOutput &
+  __MetadataBearer;
 
 export class UpdateProvisionedProductPropertiesCommand extends $Command<
   UpdateProvisionedProductPropertiesCommandInput,

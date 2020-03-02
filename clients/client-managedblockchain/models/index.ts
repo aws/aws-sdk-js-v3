@@ -76,7 +76,7 @@ export namespace CreateMemberInput {
   }
 }
 
-export interface CreateMemberOutput extends $MetadataBearer {
+export interface CreateMemberOutput {
   __type?: "CreateMemberOutput";
   /**
    * <p>The unique identifier of the member.</p>
@@ -143,7 +143,7 @@ export namespace CreateNetworkInput {
   }
 }
 
-export interface CreateNetworkOutput extends $MetadataBearer {
+export interface CreateNetworkOutput {
   __type?: "CreateNetworkOutput";
   /**
    * <p>The unique identifier for the first member within the network.</p>
@@ -191,7 +191,7 @@ export namespace CreateNodeInput {
   }
 }
 
-export interface CreateNodeOutput extends $MetadataBearer {
+export interface CreateNodeOutput {
   __type?: "CreateNodeOutput";
   /**
    * <p>The unique identifier of the node.</p>
@@ -240,7 +240,7 @@ export namespace CreateProposalInput {
   }
 }
 
-export interface CreateProposalOutput extends $MetadataBearer {
+export interface CreateProposalOutput {
   __type?: "CreateProposalOutput";
   /**
    * <p>The unique identifier of the proposal.</p>
@@ -273,7 +273,7 @@ export namespace DeleteMemberInput {
   }
 }
 
-export interface DeleteMemberOutput extends $MetadataBearer {
+export interface DeleteMemberOutput {
   __type?: "DeleteMemberOutput";
 }
 
@@ -307,7 +307,7 @@ export namespace DeleteNodeInput {
   }
 }
 
-export interface DeleteNodeOutput extends $MetadataBearer {
+export interface DeleteNodeOutput {
   __type?: "DeleteNodeOutput";
 }
 
@@ -345,7 +345,7 @@ export namespace GetMemberInput {
   }
 }
 
-export interface GetMemberOutput extends $MetadataBearer {
+export interface GetMemberOutput {
   __type?: "GetMemberOutput";
   /**
    * <p>The properties of a member.</p>
@@ -373,7 +373,7 @@ export namespace GetNetworkInput {
   }
 }
 
-export interface GetNetworkOutput extends $MetadataBearer {
+export interface GetNetworkOutput {
   __type?: "GetNetworkOutput";
   /**
    * <p>An object containing network configuration parameters.</p>
@@ -411,7 +411,7 @@ export namespace GetNodeInput {
   }
 }
 
-export interface GetNodeOutput extends $MetadataBearer {
+export interface GetNodeOutput {
   __type?: "GetNodeOutput";
   /**
    * <p>Properties of the node configuration.</p>
@@ -444,7 +444,7 @@ export namespace GetProposalInput {
   }
 }
 
-export interface GetProposalOutput extends $MetadataBearer {
+export interface GetProposalOutput {
   __type?: "GetProposalOutput";
   /**
    * <p>Information about a proposal.</p>
@@ -611,7 +611,7 @@ export namespace ListInvitationsInput {
   }
 }
 
-export interface ListInvitationsOutput extends $MetadataBearer {
+export interface ListInvitationsOutput {
   __type?: "ListInvitationsOutput";
   /**
    * <p>The invitations for the network.</p>
@@ -671,7 +671,7 @@ export namespace ListMembersInput {
   }
 }
 
-export interface ListMembersOutput extends $MetadataBearer {
+export interface ListMembersOutput {
   __type?: "ListMembersOutput";
   /**
    * <p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>
@@ -724,7 +724,7 @@ export namespace ListNetworksInput {
   }
 }
 
-export interface ListNetworksOutput extends $MetadataBearer {
+export interface ListNetworksOutput {
   __type?: "ListNetworksOutput";
   /**
    * <p>An array of <code>NetworkSummary</code> objects that contain configuration properties for each network.</p>
@@ -777,7 +777,7 @@ export namespace ListNodesInput {
   }
 }
 
-export interface ListNodesOutput extends $MetadataBearer {
+export interface ListNodesOutput {
   __type?: "ListNodesOutput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -833,7 +833,7 @@ export namespace ListProposalVotesInput {
   }
 }
 
-export interface ListProposalVotesOutput extends $MetadataBearer {
+export interface ListProposalVotesOutput {
   __type?: "ListProposalVotesOutput";
   /**
    * <p>
@@ -886,7 +886,7 @@ export namespace ListProposalsInput {
   }
 }
 
-export interface ListProposalsOutput extends $MetadataBearer {
+export interface ListProposalsOutput {
   __type?: "ListProposalsOutput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -1743,7 +1743,7 @@ export namespace RejectInvitationInput {
   }
 }
 
-export interface RejectInvitationOutput extends $MetadataBearer {
+export interface RejectInvitationOutput {
   __type?: "RejectInvitationOutput";
 }
 
@@ -1895,7 +1895,7 @@ export namespace VoteOnProposalInput {
   }
 }
 
-export interface VoteOnProposalOutput extends $MetadataBearer {
+export interface VoteOnProposalOutput {
   __type?: "VoteOnProposalOutput";
 }
 

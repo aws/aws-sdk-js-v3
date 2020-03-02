@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLabelingJobCommandInput = CreateLabelingJobRequest;
-export type CreateLabelingJobCommandOutput = CreateLabelingJobResponse;
+export type CreateLabelingJobCommandOutput = CreateLabelingJobResponse &
+  __MetadataBearer;
 
 export class CreateLabelingJobCommand extends $Command<
   CreateLabelingJobCommandInput,

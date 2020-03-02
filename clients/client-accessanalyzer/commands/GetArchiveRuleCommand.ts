@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetArchiveRuleCommandInput = GetArchiveRuleRequest;
-export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse;
+export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse &
+  __MetadataBearer;
 
 export class GetArchiveRuleCommand extends $Command<
   GetArchiveRuleCommandInput,

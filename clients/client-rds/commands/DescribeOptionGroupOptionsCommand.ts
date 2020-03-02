@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeOptionGroupOptionsCommandInput = DescribeOptionGroupOptionsMessage;
-export type DescribeOptionGroupOptionsCommandOutput = OptionGroupOptionsMessage;
+export type DescribeOptionGroupOptionsCommandOutput = OptionGroupOptionsMessage &
+  __MetadataBearer;
 
 export class DescribeOptionGroupOptionsCommand extends $Command<
   DescribeOptionGroupOptionsCommandInput,

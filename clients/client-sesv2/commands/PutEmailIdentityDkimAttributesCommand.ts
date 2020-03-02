@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutEmailIdentityDkimAttributesCommandInput = PutEmailIdentityDkimAttributesRequest;
-export type PutEmailIdentityDkimAttributesCommandOutput = PutEmailIdentityDkimAttributesResponse;
+export type PutEmailIdentityDkimAttributesCommandOutput = PutEmailIdentityDkimAttributesResponse &
+  __MetadataBearer;
 
 export class PutEmailIdentityDkimAttributesCommand extends $Command<
   PutEmailIdentityDkimAttributesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutWorkflowRunPropertiesCommandInput = PutWorkflowRunPropertiesRequest;
-export type PutWorkflowRunPropertiesCommandOutput = PutWorkflowRunPropertiesResponse;
+export type PutWorkflowRunPropertiesCommandOutput = PutWorkflowRunPropertiesResponse &
+  __MetadataBearer;
 
 export class PutWorkflowRunPropertiesCommand extends $Command<
   PutWorkflowRunPropertiesCommandInput,

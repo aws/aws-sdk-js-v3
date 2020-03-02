@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RotateEncryptionKeyCommandInput = RotateEncryptionKeyMessage;
-export type RotateEncryptionKeyCommandOutput = RotateEncryptionKeyResult;
+export type RotateEncryptionKeyCommandOutput = RotateEncryptionKeyResult &
+  __MetadataBearer;
 
 export class RotateEncryptionKeyCommand extends $Command<
   RotateEncryptionKeyCommandInput,

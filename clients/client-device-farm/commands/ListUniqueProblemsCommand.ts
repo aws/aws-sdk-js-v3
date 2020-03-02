@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListUniqueProblemsCommandInput = ListUniqueProblemsRequest;
-export type ListUniqueProblemsCommandOutput = ListUniqueProblemsResult;
+export type ListUniqueProblemsCommandOutput = ListUniqueProblemsResult &
+  __MetadataBearer;
 
 export class ListUniqueProblemsCommand extends $Command<
   ListUniqueProblemsCommandInput,

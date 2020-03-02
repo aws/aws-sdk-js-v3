@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutOrganizationConfigRuleCommandInput = PutOrganizationConfigRuleRequest;
-export type PutOrganizationConfigRuleCommandOutput = PutOrganizationConfigRuleResponse;
+export type PutOrganizationConfigRuleCommandOutput = PutOrganizationConfigRuleResponse &
+  __MetadataBearer;
 
 export class PutOrganizationConfigRuleCommand extends $Command<
   PutOrganizationConfigRuleCommandInput,

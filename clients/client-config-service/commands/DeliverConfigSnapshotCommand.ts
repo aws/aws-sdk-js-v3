@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeliverConfigSnapshotCommandInput = DeliverConfigSnapshotRequest;
-export type DeliverConfigSnapshotCommandOutput = DeliverConfigSnapshotResponse;
+export type DeliverConfigSnapshotCommandOutput = DeliverConfigSnapshotResponse &
+  __MetadataBearer;
 
 export class DeliverConfigSnapshotCommand extends $Command<
   DeliverConfigSnapshotCommandInput,

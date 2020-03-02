@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAppCommandInput = DeleteAppRequest;
-export type DeleteAppCommandOutput = DeleteAppResult;
+export type DeleteAppCommandOutput = DeleteAppResult & __MetadataBearer;
 
 export class DeleteAppCommand extends $Command<
   DeleteAppCommandInput,

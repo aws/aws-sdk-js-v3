@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutImageCommandInput = PutImageRequest;
-export type PutImageCommandOutput = PutImageResponse;
+export type PutImageCommandOutput = PutImageResponse & __MetadataBearer;
 
 export class PutImageCommand extends $Command<
   PutImageCommandInput,

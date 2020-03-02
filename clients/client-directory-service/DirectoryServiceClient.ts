@@ -1,119 +1,231 @@
 import {
-  AcceptSharedDirectoryRequest,
-  AcceptSharedDirectoryResult,
-  AddIpRoutesRequest,
-  AddIpRoutesResult,
-  AddTagsToResourceRequest,
-  AddTagsToResourceResult,
-  CancelSchemaExtensionRequest,
-  CancelSchemaExtensionResult,
-  ConnectDirectoryRequest,
-  ConnectDirectoryResult,
-  CreateAliasRequest,
-  CreateAliasResult,
-  CreateComputerRequest,
-  CreateComputerResult,
-  CreateConditionalForwarderRequest,
-  CreateConditionalForwarderResult,
-  CreateDirectoryRequest,
-  CreateDirectoryResult,
-  CreateLogSubscriptionRequest,
-  CreateLogSubscriptionResult,
-  CreateMicrosoftADRequest,
-  CreateMicrosoftADResult,
-  CreateSnapshotRequest,
-  CreateSnapshotResult,
-  CreateTrustRequest,
-  CreateTrustResult,
-  DeleteConditionalForwarderRequest,
-  DeleteConditionalForwarderResult,
-  DeleteDirectoryRequest,
-  DeleteDirectoryResult,
-  DeleteLogSubscriptionRequest,
-  DeleteLogSubscriptionResult,
-  DeleteSnapshotRequest,
-  DeleteSnapshotResult,
-  DeleteTrustRequest,
-  DeleteTrustResult,
-  DeregisterCertificateRequest,
-  DeregisterCertificateResult,
-  DeregisterEventTopicRequest,
-  DeregisterEventTopicResult,
-  DescribeCertificateRequest,
-  DescribeCertificateResult,
-  DescribeConditionalForwardersRequest,
-  DescribeConditionalForwardersResult,
-  DescribeDirectoriesRequest,
-  DescribeDirectoriesResult,
-  DescribeDomainControllersRequest,
-  DescribeDomainControllersResult,
-  DescribeEventTopicsRequest,
-  DescribeEventTopicsResult,
-  DescribeLDAPSSettingsRequest,
-  DescribeLDAPSSettingsResult,
-  DescribeSharedDirectoriesRequest,
-  DescribeSharedDirectoriesResult,
-  DescribeSnapshotsRequest,
-  DescribeSnapshotsResult,
-  DescribeTrustsRequest,
-  DescribeTrustsResult,
-  DisableLDAPSRequest,
-  DisableLDAPSResult,
-  DisableRadiusRequest,
-  DisableRadiusResult,
-  DisableSsoRequest,
-  DisableSsoResult,
-  EnableLDAPSRequest,
-  EnableLDAPSResult,
-  EnableRadiusRequest,
-  EnableRadiusResult,
-  EnableSsoRequest,
-  EnableSsoResult,
-  GetDirectoryLimitsRequest,
-  GetDirectoryLimitsResult,
-  GetSnapshotLimitsRequest,
-  GetSnapshotLimitsResult,
-  ListCertificatesRequest,
-  ListCertificatesResult,
-  ListIpRoutesRequest,
-  ListIpRoutesResult,
-  ListLogSubscriptionsRequest,
-  ListLogSubscriptionsResult,
-  ListSchemaExtensionsRequest,
-  ListSchemaExtensionsResult,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResult,
-  RegisterCertificateRequest,
-  RegisterCertificateResult,
-  RegisterEventTopicRequest,
-  RegisterEventTopicResult,
-  RejectSharedDirectoryRequest,
-  RejectSharedDirectoryResult,
-  RemoveIpRoutesRequest,
-  RemoveIpRoutesResult,
-  RemoveTagsFromResourceRequest,
-  RemoveTagsFromResourceResult,
-  ResetUserPasswordRequest,
-  ResetUserPasswordResult,
-  RestoreFromSnapshotRequest,
-  RestoreFromSnapshotResult,
-  ShareDirectoryRequest,
-  ShareDirectoryResult,
-  StartSchemaExtensionRequest,
-  StartSchemaExtensionResult,
-  UnshareDirectoryRequest,
-  UnshareDirectoryResult,
-  UpdateConditionalForwarderRequest,
-  UpdateConditionalForwarderResult,
-  UpdateNumberOfDomainControllersRequest,
-  UpdateNumberOfDomainControllersResult,
-  UpdateRadiusRequest,
-  UpdateRadiusResult,
-  UpdateTrustRequest,
-  UpdateTrustResult,
-  VerifyTrustRequest,
-  VerifyTrustResult
-} from "./models/index";
+  AcceptSharedDirectoryCommandInput,
+  AcceptSharedDirectoryCommandOutput
+} from "./commands/AcceptSharedDirectoryCommand";
+import {
+  AddIpRoutesCommandInput,
+  AddIpRoutesCommandOutput
+} from "./commands/AddIpRoutesCommand";
+import {
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput
+} from "./commands/AddTagsToResourceCommand";
+import {
+  CancelSchemaExtensionCommandInput,
+  CancelSchemaExtensionCommandOutput
+} from "./commands/CancelSchemaExtensionCommand";
+import {
+  ConnectDirectoryCommandInput,
+  ConnectDirectoryCommandOutput
+} from "./commands/ConnectDirectoryCommand";
+import {
+  CreateAliasCommandInput,
+  CreateAliasCommandOutput
+} from "./commands/CreateAliasCommand";
+import {
+  CreateComputerCommandInput,
+  CreateComputerCommandOutput
+} from "./commands/CreateComputerCommand";
+import {
+  CreateConditionalForwarderCommandInput,
+  CreateConditionalForwarderCommandOutput
+} from "./commands/CreateConditionalForwarderCommand";
+import {
+  CreateDirectoryCommandInput,
+  CreateDirectoryCommandOutput
+} from "./commands/CreateDirectoryCommand";
+import {
+  CreateLogSubscriptionCommandInput,
+  CreateLogSubscriptionCommandOutput
+} from "./commands/CreateLogSubscriptionCommand";
+import {
+  CreateMicrosoftADCommandInput,
+  CreateMicrosoftADCommandOutput
+} from "./commands/CreateMicrosoftADCommand";
+import {
+  CreateSnapshotCommandInput,
+  CreateSnapshotCommandOutput
+} from "./commands/CreateSnapshotCommand";
+import {
+  CreateTrustCommandInput,
+  CreateTrustCommandOutput
+} from "./commands/CreateTrustCommand";
+import {
+  DeleteConditionalForwarderCommandInput,
+  DeleteConditionalForwarderCommandOutput
+} from "./commands/DeleteConditionalForwarderCommand";
+import {
+  DeleteDirectoryCommandInput,
+  DeleteDirectoryCommandOutput
+} from "./commands/DeleteDirectoryCommand";
+import {
+  DeleteLogSubscriptionCommandInput,
+  DeleteLogSubscriptionCommandOutput
+} from "./commands/DeleteLogSubscriptionCommand";
+import {
+  DeleteSnapshotCommandInput,
+  DeleteSnapshotCommandOutput
+} from "./commands/DeleteSnapshotCommand";
+import {
+  DeleteTrustCommandInput,
+  DeleteTrustCommandOutput
+} from "./commands/DeleteTrustCommand";
+import {
+  DeregisterCertificateCommandInput,
+  DeregisterCertificateCommandOutput
+} from "./commands/DeregisterCertificateCommand";
+import {
+  DeregisterEventTopicCommandInput,
+  DeregisterEventTopicCommandOutput
+} from "./commands/DeregisterEventTopicCommand";
+import {
+  DescribeCertificateCommandInput,
+  DescribeCertificateCommandOutput
+} from "./commands/DescribeCertificateCommand";
+import {
+  DescribeConditionalForwardersCommandInput,
+  DescribeConditionalForwardersCommandOutput
+} from "./commands/DescribeConditionalForwardersCommand";
+import {
+  DescribeDirectoriesCommandInput,
+  DescribeDirectoriesCommandOutput
+} from "./commands/DescribeDirectoriesCommand";
+import {
+  DescribeDomainControllersCommandInput,
+  DescribeDomainControllersCommandOutput
+} from "./commands/DescribeDomainControllersCommand";
+import {
+  DescribeEventTopicsCommandInput,
+  DescribeEventTopicsCommandOutput
+} from "./commands/DescribeEventTopicsCommand";
+import {
+  DescribeLDAPSSettingsCommandInput,
+  DescribeLDAPSSettingsCommandOutput
+} from "./commands/DescribeLDAPSSettingsCommand";
+import {
+  DescribeSharedDirectoriesCommandInput,
+  DescribeSharedDirectoriesCommandOutput
+} from "./commands/DescribeSharedDirectoriesCommand";
+import {
+  DescribeSnapshotsCommandInput,
+  DescribeSnapshotsCommandOutput
+} from "./commands/DescribeSnapshotsCommand";
+import {
+  DescribeTrustsCommandInput,
+  DescribeTrustsCommandOutput
+} from "./commands/DescribeTrustsCommand";
+import {
+  DisableLDAPSCommandInput,
+  DisableLDAPSCommandOutput
+} from "./commands/DisableLDAPSCommand";
+import {
+  DisableRadiusCommandInput,
+  DisableRadiusCommandOutput
+} from "./commands/DisableRadiusCommand";
+import {
+  DisableSsoCommandInput,
+  DisableSsoCommandOutput
+} from "./commands/DisableSsoCommand";
+import {
+  EnableLDAPSCommandInput,
+  EnableLDAPSCommandOutput
+} from "./commands/EnableLDAPSCommand";
+import {
+  EnableRadiusCommandInput,
+  EnableRadiusCommandOutput
+} from "./commands/EnableRadiusCommand";
+import {
+  EnableSsoCommandInput,
+  EnableSsoCommandOutput
+} from "./commands/EnableSsoCommand";
+import {
+  GetDirectoryLimitsCommandInput,
+  GetDirectoryLimitsCommandOutput
+} from "./commands/GetDirectoryLimitsCommand";
+import {
+  GetSnapshotLimitsCommandInput,
+  GetSnapshotLimitsCommandOutput
+} from "./commands/GetSnapshotLimitsCommand";
+import {
+  ListCertificatesCommandInput,
+  ListCertificatesCommandOutput
+} from "./commands/ListCertificatesCommand";
+import {
+  ListIpRoutesCommandInput,
+  ListIpRoutesCommandOutput
+} from "./commands/ListIpRoutesCommand";
+import {
+  ListLogSubscriptionsCommandInput,
+  ListLogSubscriptionsCommandOutput
+} from "./commands/ListLogSubscriptionsCommand";
+import {
+  ListSchemaExtensionsCommandInput,
+  ListSchemaExtensionsCommandOutput
+} from "./commands/ListSchemaExtensionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  RegisterCertificateCommandInput,
+  RegisterCertificateCommandOutput
+} from "./commands/RegisterCertificateCommand";
+import {
+  RegisterEventTopicCommandInput,
+  RegisterEventTopicCommandOutput
+} from "./commands/RegisterEventTopicCommand";
+import {
+  RejectSharedDirectoryCommandInput,
+  RejectSharedDirectoryCommandOutput
+} from "./commands/RejectSharedDirectoryCommand";
+import {
+  RemoveIpRoutesCommandInput,
+  RemoveIpRoutesCommandOutput
+} from "./commands/RemoveIpRoutesCommand";
+import {
+  RemoveTagsFromResourceCommandInput,
+  RemoveTagsFromResourceCommandOutput
+} from "./commands/RemoveTagsFromResourceCommand";
+import {
+  ResetUserPasswordCommandInput,
+  ResetUserPasswordCommandOutput
+} from "./commands/ResetUserPasswordCommand";
+import {
+  RestoreFromSnapshotCommandInput,
+  RestoreFromSnapshotCommandOutput
+} from "./commands/RestoreFromSnapshotCommand";
+import {
+  ShareDirectoryCommandInput,
+  ShareDirectoryCommandOutput
+} from "./commands/ShareDirectoryCommand";
+import {
+  StartSchemaExtensionCommandInput,
+  StartSchemaExtensionCommandOutput
+} from "./commands/StartSchemaExtensionCommand";
+import {
+  UnshareDirectoryCommandInput,
+  UnshareDirectoryCommandOutput
+} from "./commands/UnshareDirectoryCommand";
+import {
+  UpdateConditionalForwarderCommandInput,
+  UpdateConditionalForwarderCommandOutput
+} from "./commands/UpdateConditionalForwarderCommand";
+import {
+  UpdateNumberOfDomainControllersCommandInput,
+  UpdateNumberOfDomainControllersCommandOutput
+} from "./commands/UpdateNumberOfDomainControllersCommand";
+import {
+  UpdateRadiusCommandInput,
+  UpdateRadiusCommandOutput
+} from "./commands/UpdateRadiusCommand";
+import {
+  UpdateTrustCommandInput,
+  UpdateTrustCommandOutput
+} from "./commands/UpdateTrustCommand";
+import {
+  VerifyTrustCommandInput,
+  VerifyTrustCommandOutput
+} from "./commands/VerifyTrustCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -167,122 +279,122 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AcceptSharedDirectoryRequest
-  | AddIpRoutesRequest
-  | AddTagsToResourceRequest
-  | CancelSchemaExtensionRequest
-  | ConnectDirectoryRequest
-  | CreateAliasRequest
-  | CreateComputerRequest
-  | CreateConditionalForwarderRequest
-  | CreateDirectoryRequest
-  | CreateLogSubscriptionRequest
-  | CreateMicrosoftADRequest
-  | CreateSnapshotRequest
-  | CreateTrustRequest
-  | DeleteConditionalForwarderRequest
-  | DeleteDirectoryRequest
-  | DeleteLogSubscriptionRequest
-  | DeleteSnapshotRequest
-  | DeleteTrustRequest
-  | DeregisterCertificateRequest
-  | DeregisterEventTopicRequest
-  | DescribeCertificateRequest
-  | DescribeConditionalForwardersRequest
-  | DescribeDirectoriesRequest
-  | DescribeDomainControllersRequest
-  | DescribeEventTopicsRequest
-  | DescribeLDAPSSettingsRequest
-  | DescribeSharedDirectoriesRequest
-  | DescribeSnapshotsRequest
-  | DescribeTrustsRequest
-  | DisableLDAPSRequest
-  | DisableRadiusRequest
-  | DisableSsoRequest
-  | EnableLDAPSRequest
-  | EnableRadiusRequest
-  | EnableSsoRequest
-  | GetDirectoryLimitsRequest
-  | GetSnapshotLimitsRequest
-  | ListCertificatesRequest
-  | ListIpRoutesRequest
-  | ListLogSubscriptionsRequest
-  | ListSchemaExtensionsRequest
-  | ListTagsForResourceRequest
-  | RegisterCertificateRequest
-  | RegisterEventTopicRequest
-  | RejectSharedDirectoryRequest
-  | RemoveIpRoutesRequest
-  | RemoveTagsFromResourceRequest
-  | ResetUserPasswordRequest
-  | RestoreFromSnapshotRequest
-  | ShareDirectoryRequest
-  | StartSchemaExtensionRequest
-  | UnshareDirectoryRequest
-  | UpdateConditionalForwarderRequest
-  | UpdateNumberOfDomainControllersRequest
-  | UpdateRadiusRequest
-  | UpdateTrustRequest
-  | VerifyTrustRequest;
+  | AcceptSharedDirectoryCommandInput
+  | AddIpRoutesCommandInput
+  | AddTagsToResourceCommandInput
+  | CancelSchemaExtensionCommandInput
+  | ConnectDirectoryCommandInput
+  | CreateAliasCommandInput
+  | CreateComputerCommandInput
+  | CreateConditionalForwarderCommandInput
+  | CreateDirectoryCommandInput
+  | CreateLogSubscriptionCommandInput
+  | CreateMicrosoftADCommandInput
+  | CreateSnapshotCommandInput
+  | CreateTrustCommandInput
+  | DeleteConditionalForwarderCommandInput
+  | DeleteDirectoryCommandInput
+  | DeleteLogSubscriptionCommandInput
+  | DeleteSnapshotCommandInput
+  | DeleteTrustCommandInput
+  | DeregisterCertificateCommandInput
+  | DeregisterEventTopicCommandInput
+  | DescribeCertificateCommandInput
+  | DescribeConditionalForwardersCommandInput
+  | DescribeDirectoriesCommandInput
+  | DescribeDomainControllersCommandInput
+  | DescribeEventTopicsCommandInput
+  | DescribeLDAPSSettingsCommandInput
+  | DescribeSharedDirectoriesCommandInput
+  | DescribeSnapshotsCommandInput
+  | DescribeTrustsCommandInput
+  | DisableLDAPSCommandInput
+  | DisableRadiusCommandInput
+  | DisableSsoCommandInput
+  | EnableLDAPSCommandInput
+  | EnableRadiusCommandInput
+  | EnableSsoCommandInput
+  | GetDirectoryLimitsCommandInput
+  | GetSnapshotLimitsCommandInput
+  | ListCertificatesCommandInput
+  | ListIpRoutesCommandInput
+  | ListLogSubscriptionsCommandInput
+  | ListSchemaExtensionsCommandInput
+  | ListTagsForResourceCommandInput
+  | RegisterCertificateCommandInput
+  | RegisterEventTopicCommandInput
+  | RejectSharedDirectoryCommandInput
+  | RemoveIpRoutesCommandInput
+  | RemoveTagsFromResourceCommandInput
+  | ResetUserPasswordCommandInput
+  | RestoreFromSnapshotCommandInput
+  | ShareDirectoryCommandInput
+  | StartSchemaExtensionCommandInput
+  | UnshareDirectoryCommandInput
+  | UpdateConditionalForwarderCommandInput
+  | UpdateNumberOfDomainControllersCommandInput
+  | UpdateRadiusCommandInput
+  | UpdateTrustCommandInput
+  | VerifyTrustCommandInput;
 
 export type ServiceOutputTypes =
-  | AcceptSharedDirectoryResult
-  | AddIpRoutesResult
-  | AddTagsToResourceResult
-  | CancelSchemaExtensionResult
-  | ConnectDirectoryResult
-  | CreateAliasResult
-  | CreateComputerResult
-  | CreateConditionalForwarderResult
-  | CreateDirectoryResult
-  | CreateLogSubscriptionResult
-  | CreateMicrosoftADResult
-  | CreateSnapshotResult
-  | CreateTrustResult
-  | DeleteConditionalForwarderResult
-  | DeleteDirectoryResult
-  | DeleteLogSubscriptionResult
-  | DeleteSnapshotResult
-  | DeleteTrustResult
-  | DeregisterCertificateResult
-  | DeregisterEventTopicResult
-  | DescribeCertificateResult
-  | DescribeConditionalForwardersResult
-  | DescribeDirectoriesResult
-  | DescribeDomainControllersResult
-  | DescribeEventTopicsResult
-  | DescribeLDAPSSettingsResult
-  | DescribeSharedDirectoriesResult
-  | DescribeSnapshotsResult
-  | DescribeTrustsResult
-  | DisableLDAPSResult
-  | DisableRadiusResult
-  | DisableSsoResult
-  | EnableLDAPSResult
-  | EnableRadiusResult
-  | EnableSsoResult
-  | GetDirectoryLimitsResult
-  | GetSnapshotLimitsResult
-  | ListCertificatesResult
-  | ListIpRoutesResult
-  | ListLogSubscriptionsResult
-  | ListSchemaExtensionsResult
-  | ListTagsForResourceResult
-  | RegisterCertificateResult
-  | RegisterEventTopicResult
-  | RejectSharedDirectoryResult
-  | RemoveIpRoutesResult
-  | RemoveTagsFromResourceResult
-  | ResetUserPasswordResult
-  | RestoreFromSnapshotResult
-  | ShareDirectoryResult
-  | StartSchemaExtensionResult
-  | UnshareDirectoryResult
-  | UpdateConditionalForwarderResult
-  | UpdateNumberOfDomainControllersResult
-  | UpdateRadiusResult
-  | UpdateTrustResult
-  | VerifyTrustResult;
+  | AcceptSharedDirectoryCommandOutput
+  | AddIpRoutesCommandOutput
+  | AddTagsToResourceCommandOutput
+  | CancelSchemaExtensionCommandOutput
+  | ConnectDirectoryCommandOutput
+  | CreateAliasCommandOutput
+  | CreateComputerCommandOutput
+  | CreateConditionalForwarderCommandOutput
+  | CreateDirectoryCommandOutput
+  | CreateLogSubscriptionCommandOutput
+  | CreateMicrosoftADCommandOutput
+  | CreateSnapshotCommandOutput
+  | CreateTrustCommandOutput
+  | DeleteConditionalForwarderCommandOutput
+  | DeleteDirectoryCommandOutput
+  | DeleteLogSubscriptionCommandOutput
+  | DeleteSnapshotCommandOutput
+  | DeleteTrustCommandOutput
+  | DeregisterCertificateCommandOutput
+  | DeregisterEventTopicCommandOutput
+  | DescribeCertificateCommandOutput
+  | DescribeConditionalForwardersCommandOutput
+  | DescribeDirectoriesCommandOutput
+  | DescribeDomainControllersCommandOutput
+  | DescribeEventTopicsCommandOutput
+  | DescribeLDAPSSettingsCommandOutput
+  | DescribeSharedDirectoriesCommandOutput
+  | DescribeSnapshotsCommandOutput
+  | DescribeTrustsCommandOutput
+  | DisableLDAPSCommandOutput
+  | DisableRadiusCommandOutput
+  | DisableSsoCommandOutput
+  | EnableLDAPSCommandOutput
+  | EnableRadiusCommandOutput
+  | EnableSsoCommandOutput
+  | GetDirectoryLimitsCommandOutput
+  | GetSnapshotLimitsCommandOutput
+  | ListCertificatesCommandOutput
+  | ListIpRoutesCommandOutput
+  | ListLogSubscriptionsCommandOutput
+  | ListSchemaExtensionsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | RegisterCertificateCommandOutput
+  | RegisterEventTopicCommandOutput
+  | RejectSharedDirectoryCommandOutput
+  | RemoveIpRoutesCommandOutput
+  | RemoveTagsFromResourceCommandOutput
+  | ResetUserPasswordCommandOutput
+  | RestoreFromSnapshotCommandOutput
+  | ShareDirectoryCommandOutput
+  | StartSchemaExtensionCommandOutput
+  | UnshareDirectoryCommandOutput
+  | UpdateConditionalForwarderCommandOutput
+  | UpdateNumberOfDomainControllersCommandOutput
+  | UpdateRadiusCommandOutput
+  | UpdateTrustCommandOutput
+  | VerifyTrustCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

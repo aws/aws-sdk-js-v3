@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateSecurityGroupRuleDescriptionsIngressCommandInput = UpdateSecurityGroupRuleDescriptionsIngressRequest;
-export type UpdateSecurityGroupRuleDescriptionsIngressCommandOutput = UpdateSecurityGroupRuleDescriptionsIngressResult;
+export type UpdateSecurityGroupRuleDescriptionsIngressCommandOutput = UpdateSecurityGroupRuleDescriptionsIngressResult &
+  __MetadataBearer;
 
 export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
   UpdateSecurityGroupRuleDescriptionsIngressCommandInput,

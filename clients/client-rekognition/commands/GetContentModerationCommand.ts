@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetContentModerationCommandInput = GetContentModerationRequest;
-export type GetContentModerationCommandOutput = GetContentModerationResponse;
+export type GetContentModerationCommandOutput = GetContentModerationResponse &
+  __MetadataBearer;
 
 export class GetContentModerationCommand extends $Command<
   GetContentModerationCommandInput,

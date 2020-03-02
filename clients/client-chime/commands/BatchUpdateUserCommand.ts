@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchUpdateUserCommandInput = BatchUpdateUserRequest;
-export type BatchUpdateUserCommandOutput = BatchUpdateUserResponse;
+export type BatchUpdateUserCommandOutput = BatchUpdateUserResponse &
+  __MetadataBearer;
 
 export class BatchUpdateUserCommand extends $Command<
   BatchUpdateUserCommandInput,

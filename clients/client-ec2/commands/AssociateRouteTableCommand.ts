@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateRouteTableCommandInput = AssociateRouteTableRequest;
-export type AssociateRouteTableCommandOutput = AssociateRouteTableResult;
+export type AssociateRouteTableCommandOutput = AssociateRouteTableResult &
+  __MetadataBearer;
 
 export class AssociateRouteTableCommand extends $Command<
   AssociateRouteTableCommandInput,

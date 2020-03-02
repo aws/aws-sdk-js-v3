@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeContainerCommandInput = DescribeContainerInput;
-export type DescribeContainerCommandOutput = DescribeContainerOutput;
+export type DescribeContainerCommandOutput = DescribeContainerOutput &
+  __MetadataBearer;
 
 export class DescribeContainerCommand extends $Command<
   DescribeContainerCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSqlInjectionMatchSetCommandInput = DeleteSqlInjectionMatchSetRequest;
-export type DeleteSqlInjectionMatchSetCommandOutput = DeleteSqlInjectionMatchSetResponse;
+export type DeleteSqlInjectionMatchSetCommandOutput = DeleteSqlInjectionMatchSetResponse &
+  __MetadataBearer;
 
 export class DeleteSqlInjectionMatchSetCommand extends $Command<
   DeleteSqlInjectionMatchSetCommandInput,

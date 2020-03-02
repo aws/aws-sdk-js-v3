@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRoomSkillParameterCommandInput = DeleteRoomSkillParameterRequest;
-export type DeleteRoomSkillParameterCommandOutput = DeleteRoomSkillParameterResponse;
+export type DeleteRoomSkillParameterCommandOutput = DeleteRoomSkillParameterResponse &
+  __MetadataBearer;
 
 export class DeleteRoomSkillParameterCommand extends $Command<
   DeleteRoomSkillParameterCommandInput,

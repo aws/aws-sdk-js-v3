@@ -1,61 +1,115 @@
 import {
-  AssociateCustomerGatewayRequest,
-  AssociateCustomerGatewayResponse,
-  AssociateLinkRequest,
-  AssociateLinkResponse,
-  CreateDeviceRequest,
-  CreateDeviceResponse,
-  CreateGlobalNetworkRequest,
-  CreateGlobalNetworkResponse,
-  CreateLinkRequest,
-  CreateLinkResponse,
-  CreateSiteRequest,
-  CreateSiteResponse,
-  DeleteDeviceRequest,
-  DeleteDeviceResponse,
-  DeleteGlobalNetworkRequest,
-  DeleteGlobalNetworkResponse,
-  DeleteLinkRequest,
-  DeleteLinkResponse,
-  DeleteSiteRequest,
-  DeleteSiteResponse,
-  DeregisterTransitGatewayRequest,
-  DeregisterTransitGatewayResponse,
-  DescribeGlobalNetworksRequest,
-  DescribeGlobalNetworksResponse,
-  DisassociateCustomerGatewayRequest,
-  DisassociateCustomerGatewayResponse,
-  DisassociateLinkRequest,
-  DisassociateLinkResponse,
-  GetCustomerGatewayAssociationsRequest,
-  GetCustomerGatewayAssociationsResponse,
-  GetDevicesRequest,
-  GetDevicesResponse,
-  GetLinkAssociationsRequest,
-  GetLinkAssociationsResponse,
-  GetLinksRequest,
-  GetLinksResponse,
-  GetSitesRequest,
-  GetSitesResponse,
-  GetTransitGatewayRegistrationsRequest,
-  GetTransitGatewayRegistrationsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  RegisterTransitGatewayRequest,
-  RegisterTransitGatewayResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateDeviceRequest,
-  UpdateDeviceResponse,
-  UpdateGlobalNetworkRequest,
-  UpdateGlobalNetworkResponse,
-  UpdateLinkRequest,
-  UpdateLinkResponse,
-  UpdateSiteRequest,
-  UpdateSiteResponse
-} from "./models/index";
+  AssociateCustomerGatewayCommandInput,
+  AssociateCustomerGatewayCommandOutput
+} from "./commands/AssociateCustomerGatewayCommand";
+import {
+  AssociateLinkCommandInput,
+  AssociateLinkCommandOutput
+} from "./commands/AssociateLinkCommand";
+import {
+  CreateDeviceCommandInput,
+  CreateDeviceCommandOutput
+} from "./commands/CreateDeviceCommand";
+import {
+  CreateGlobalNetworkCommandInput,
+  CreateGlobalNetworkCommandOutput
+} from "./commands/CreateGlobalNetworkCommand";
+import {
+  CreateLinkCommandInput,
+  CreateLinkCommandOutput
+} from "./commands/CreateLinkCommand";
+import {
+  CreateSiteCommandInput,
+  CreateSiteCommandOutput
+} from "./commands/CreateSiteCommand";
+import {
+  DeleteDeviceCommandInput,
+  DeleteDeviceCommandOutput
+} from "./commands/DeleteDeviceCommand";
+import {
+  DeleteGlobalNetworkCommandInput,
+  DeleteGlobalNetworkCommandOutput
+} from "./commands/DeleteGlobalNetworkCommand";
+import {
+  DeleteLinkCommandInput,
+  DeleteLinkCommandOutput
+} from "./commands/DeleteLinkCommand";
+import {
+  DeleteSiteCommandInput,
+  DeleteSiteCommandOutput
+} from "./commands/DeleteSiteCommand";
+import {
+  DeregisterTransitGatewayCommandInput,
+  DeregisterTransitGatewayCommandOutput
+} from "./commands/DeregisterTransitGatewayCommand";
+import {
+  DescribeGlobalNetworksCommandInput,
+  DescribeGlobalNetworksCommandOutput
+} from "./commands/DescribeGlobalNetworksCommand";
+import {
+  DisassociateCustomerGatewayCommandInput,
+  DisassociateCustomerGatewayCommandOutput
+} from "./commands/DisassociateCustomerGatewayCommand";
+import {
+  DisassociateLinkCommandInput,
+  DisassociateLinkCommandOutput
+} from "./commands/DisassociateLinkCommand";
+import {
+  GetCustomerGatewayAssociationsCommandInput,
+  GetCustomerGatewayAssociationsCommandOutput
+} from "./commands/GetCustomerGatewayAssociationsCommand";
+import {
+  GetDevicesCommandInput,
+  GetDevicesCommandOutput
+} from "./commands/GetDevicesCommand";
+import {
+  GetLinkAssociationsCommandInput,
+  GetLinkAssociationsCommandOutput
+} from "./commands/GetLinkAssociationsCommand";
+import {
+  GetLinksCommandInput,
+  GetLinksCommandOutput
+} from "./commands/GetLinksCommand";
+import {
+  GetSitesCommandInput,
+  GetSitesCommandOutput
+} from "./commands/GetSitesCommand";
+import {
+  GetTransitGatewayRegistrationsCommandInput,
+  GetTransitGatewayRegistrationsCommandOutput
+} from "./commands/GetTransitGatewayRegistrationsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  RegisterTransitGatewayCommandInput,
+  RegisterTransitGatewayCommandOutput
+} from "./commands/RegisterTransitGatewayCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDeviceCommandInput,
+  UpdateDeviceCommandOutput
+} from "./commands/UpdateDeviceCommand";
+import {
+  UpdateGlobalNetworkCommandInput,
+  UpdateGlobalNetworkCommandOutput
+} from "./commands/UpdateGlobalNetworkCommand";
+import {
+  UpdateLinkCommandInput,
+  UpdateLinkCommandOutput
+} from "./commands/UpdateLinkCommand";
+import {
+  UpdateSiteCommandInput,
+  UpdateSiteCommandOutput
+} from "./commands/UpdateSiteCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -109,64 +163,64 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateCustomerGatewayRequest
-  | AssociateLinkRequest
-  | CreateDeviceRequest
-  | CreateGlobalNetworkRequest
-  | CreateLinkRequest
-  | CreateSiteRequest
-  | DeleteDeviceRequest
-  | DeleteGlobalNetworkRequest
-  | DeleteLinkRequest
-  | DeleteSiteRequest
-  | DeregisterTransitGatewayRequest
-  | DescribeGlobalNetworksRequest
-  | DisassociateCustomerGatewayRequest
-  | DisassociateLinkRequest
-  | GetCustomerGatewayAssociationsRequest
-  | GetDevicesRequest
-  | GetLinkAssociationsRequest
-  | GetLinksRequest
-  | GetSitesRequest
-  | GetTransitGatewayRegistrationsRequest
-  | ListTagsForResourceRequest
-  | RegisterTransitGatewayRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateDeviceRequest
-  | UpdateGlobalNetworkRequest
-  | UpdateLinkRequest
-  | UpdateSiteRequest;
+  | AssociateCustomerGatewayCommandInput
+  | AssociateLinkCommandInput
+  | CreateDeviceCommandInput
+  | CreateGlobalNetworkCommandInput
+  | CreateLinkCommandInput
+  | CreateSiteCommandInput
+  | DeleteDeviceCommandInput
+  | DeleteGlobalNetworkCommandInput
+  | DeleteLinkCommandInput
+  | DeleteSiteCommandInput
+  | DeregisterTransitGatewayCommandInput
+  | DescribeGlobalNetworksCommandInput
+  | DisassociateCustomerGatewayCommandInput
+  | DisassociateLinkCommandInput
+  | GetCustomerGatewayAssociationsCommandInput
+  | GetDevicesCommandInput
+  | GetLinkAssociationsCommandInput
+  | GetLinksCommandInput
+  | GetSitesCommandInput
+  | GetTransitGatewayRegistrationsCommandInput
+  | ListTagsForResourceCommandInput
+  | RegisterTransitGatewayCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateDeviceCommandInput
+  | UpdateGlobalNetworkCommandInput
+  | UpdateLinkCommandInput
+  | UpdateSiteCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateCustomerGatewayResponse
-  | AssociateLinkResponse
-  | CreateDeviceResponse
-  | CreateGlobalNetworkResponse
-  | CreateLinkResponse
-  | CreateSiteResponse
-  | DeleteDeviceResponse
-  | DeleteGlobalNetworkResponse
-  | DeleteLinkResponse
-  | DeleteSiteResponse
-  | DeregisterTransitGatewayResponse
-  | DescribeGlobalNetworksResponse
-  | DisassociateCustomerGatewayResponse
-  | DisassociateLinkResponse
-  | GetCustomerGatewayAssociationsResponse
-  | GetDevicesResponse
-  | GetLinkAssociationsResponse
-  | GetLinksResponse
-  | GetSitesResponse
-  | GetTransitGatewayRegistrationsResponse
-  | ListTagsForResourceResponse
-  | RegisterTransitGatewayResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateDeviceResponse
-  | UpdateGlobalNetworkResponse
-  | UpdateLinkResponse
-  | UpdateSiteResponse;
+  | AssociateCustomerGatewayCommandOutput
+  | AssociateLinkCommandOutput
+  | CreateDeviceCommandOutput
+  | CreateGlobalNetworkCommandOutput
+  | CreateLinkCommandOutput
+  | CreateSiteCommandOutput
+  | DeleteDeviceCommandOutput
+  | DeleteGlobalNetworkCommandOutput
+  | DeleteLinkCommandOutput
+  | DeleteSiteCommandOutput
+  | DeregisterTransitGatewayCommandOutput
+  | DescribeGlobalNetworksCommandOutput
+  | DisassociateCustomerGatewayCommandOutput
+  | DisassociateLinkCommandOutput
+  | GetCustomerGatewayAssociationsCommandOutput
+  | GetDevicesCommandOutput
+  | GetLinkAssociationsCommandOutput
+  | GetLinksCommandOutput
+  | GetSitesCommandOutput
+  | GetTransitGatewayRegistrationsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | RegisterTransitGatewayCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDeviceCommandOutput
+  | UpdateGlobalNetworkCommandOutput
+  | UpdateLinkCommandOutput
+  | UpdateSiteCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

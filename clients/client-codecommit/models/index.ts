@@ -529,8 +529,7 @@ export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
   }
 }
 
-export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
-  extends $MetadataBearer {
+export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
   __type?: "BatchAssociateApprovalRuleTemplateWithRepositoriesOutput";
   /**
    * <p>A list of names of the repositories that have been associated with the template.</p>
@@ -647,7 +646,7 @@ export namespace BatchDescribeMergeConflictsInput {
   }
 }
 
-export interface BatchDescribeMergeConflictsOutput extends $MetadataBearer {
+export interface BatchDescribeMergeConflictsOutput {
   __type?: "BatchDescribeMergeConflictsOutput";
   /**
    * <p>The commit ID of the merge base.</p>
@@ -747,8 +746,7 @@ export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
   }
 }
 
-export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
-  extends $MetadataBearer {
+export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   __type?: "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput";
   /**
    * <p>A list of repository names that have had their association with the template
@@ -825,7 +823,7 @@ export namespace BatchGetCommitsInput {
   }
 }
 
-export interface BatchGetCommitsOutput extends $MetadataBearer {
+export interface BatchGetCommitsOutput {
   __type?: "BatchGetCommitsOutput";
   /**
    * <p>An array of commit data type objects, each of which contains information about a specified commit.</p>
@@ -869,7 +867,7 @@ export namespace BatchGetRepositoriesInput {
 /**
  * <p>Represents the output of a batch get repositories operation.</p>
  */
-export interface BatchGetRepositoriesOutput extends $MetadataBearer {
+export interface BatchGetRepositoriesOutput {
   __type?: "BatchGetRepositoriesOutput";
   /**
    * <p>A list of repositories returned by the batch get repositories operation.</p>
@@ -1867,7 +1865,7 @@ export namespace CreateApprovalRuleTemplateInput {
   }
 }
 
-export interface CreateApprovalRuleTemplateOutput extends $MetadataBearer {
+export interface CreateApprovalRuleTemplateOutput {
   __type?: "CreateApprovalRuleTemplateOutput";
   /**
    * <p>The content and structure of the created approval rule template.</p>
@@ -1972,7 +1970,7 @@ export namespace CreateCommitInput {
   }
 }
 
-export interface CreateCommitOutput extends $MetadataBearer {
+export interface CreateCommitOutput {
   __type?: "CreateCommitOutput";
   /**
    * <p>The full commit ID of the commit that contains your committed file changes.</p>
@@ -2072,7 +2070,7 @@ export namespace CreatePullRequestApprovalRuleInput {
   }
 }
 
-export interface CreatePullRequestApprovalRuleOutput extends $MetadataBearer {
+export interface CreatePullRequestApprovalRuleOutput {
   __type?: "CreatePullRequestApprovalRuleOutput";
   /**
    * <p>Information about the created approval rule.</p>
@@ -2125,7 +2123,7 @@ export namespace CreatePullRequestInput {
   }
 }
 
-export interface CreatePullRequestOutput extends $MetadataBearer {
+export interface CreatePullRequestOutput {
   __type?: "CreatePullRequestOutput";
   /**
    * <p>Information about the newly created pull request.</p>
@@ -2183,7 +2181,7 @@ export namespace CreateRepositoryInput {
 /**
  * <p>Represents the output of a create repository operation.</p>
  */
-export interface CreateRepositoryOutput extends $MetadataBearer {
+export interface CreateRepositoryOutput {
   __type?: "CreateRepositoryOutput";
   /**
    * <p>Information about the newly created repository.</p>
@@ -2272,7 +2270,7 @@ export namespace CreateUnreferencedMergeCommitInput {
   }
 }
 
-export interface CreateUnreferencedMergeCommitOutput extends $MetadataBearer {
+export interface CreateUnreferencedMergeCommitOutput {
   __type?: "CreateUnreferencedMergeCommitOutput";
   /**
    * <p>The full commit ID of the commit that contains your merge results.</p>
@@ -2325,7 +2323,7 @@ export namespace DeleteApprovalRuleTemplateInput {
   }
 }
 
-export interface DeleteApprovalRuleTemplateOutput extends $MetadataBearer {
+export interface DeleteApprovalRuleTemplateOutput {
   __type?: "DeleteApprovalRuleTemplateOutput";
   /**
    * <p>The system-generated ID of the deleted approval rule template. If the template has
@@ -2365,7 +2363,7 @@ export namespace DeleteBranchInput {
 /**
  * <p>Represents the output of a delete branch operation.</p>
  */
-export interface DeleteBranchOutput extends $MetadataBearer {
+export interface DeleteBranchOutput {
   __type?: "DeleteBranchOutput";
   /**
    * <p>Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.</p>
@@ -2394,7 +2392,7 @@ export namespace DeleteCommentContentInput {
   }
 }
 
-export interface DeleteCommentContentOutput extends $MetadataBearer {
+export interface DeleteCommentContentOutput {
   __type?: "DeleteCommentContentOutput";
   /**
    * <p>Information about the comment you just deleted.</p>
@@ -2485,7 +2483,7 @@ export namespace DeleteFileInput {
   }
 }
 
-export interface DeleteFileOutput extends $MetadataBearer {
+export interface DeleteFileOutput {
   __type?: "DeleteFileOutput";
   /**
    * <p>The blob ID removed from the tree as part of deleting the file.</p>
@@ -2534,7 +2532,7 @@ export namespace DeletePullRequestApprovalRuleInput {
   }
 }
 
-export interface DeletePullRequestApprovalRuleOutput extends $MetadataBearer {
+export interface DeletePullRequestApprovalRuleOutput {
   __type?: "DeletePullRequestApprovalRuleOutput";
   /**
    * <p>The ID of the deleted approval rule. </p>
@@ -2572,7 +2570,7 @@ export namespace DeleteRepositoryInput {
 /**
  * <p>Represents the output of a delete repository operation.</p>
  */
-export interface DeleteRepositoryOutput extends $MetadataBearer {
+export interface DeleteRepositoryOutput {
   __type?: "DeleteRepositoryOutput";
   /**
    * <p>The ID of the repository that was deleted.</p>
@@ -2648,7 +2646,7 @@ export namespace DescribeMergeConflictsInput {
   }
 }
 
-export interface DescribeMergeConflictsOutput extends $MetadataBearer {
+export interface DescribeMergeConflictsOutput {
   __type?: "DescribeMergeConflictsOutput";
   /**
    * <p>The commit ID of the merge base.</p>
@@ -2725,7 +2723,7 @@ export namespace DescribePullRequestEventsInput {
   }
 }
 
-export interface DescribePullRequestEventsOutput extends $MetadataBearer {
+export interface DescribePullRequestEventsOutput {
   __type?: "DescribePullRequestEventsOutput";
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -2938,8 +2936,7 @@ export namespace EvaluatePullRequestApprovalRulesInput {
   }
 }
 
-export interface EvaluatePullRequestApprovalRulesOutput
-  extends $MetadataBearer {
+export interface EvaluatePullRequestApprovalRulesOutput {
   __type?: "EvaluatePullRequestApprovalRulesOutput";
   /**
    * <p>The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have
@@ -3383,7 +3380,7 @@ export namespace GetApprovalRuleTemplateInput {
   }
 }
 
-export interface GetApprovalRuleTemplateOutput extends $MetadataBearer {
+export interface GetApprovalRuleTemplateOutput {
   __type?: "GetApprovalRuleTemplateOutput";
   /**
    * <p>The content and structure of the approval rule template.</p>
@@ -3422,7 +3419,7 @@ export namespace GetBlobInput {
 /**
  * <p>Represents the output of a get blob operation.</p>
  */
-export interface GetBlobOutput extends $MetadataBearer {
+export interface GetBlobOutput {
   __type?: "GetBlobOutput";
   /**
    * <p>The content of the blob, usually a file.</p>
@@ -3461,7 +3458,7 @@ export namespace GetBranchInput {
 /**
  * <p>Represents the output of a get branch operation.</p>
  */
-export interface GetBranchOutput extends $MetadataBearer {
+export interface GetBranchOutput {
   __type?: "GetBranchOutput";
   /**
    * <p>The name of the branch.</p>
@@ -3490,7 +3487,7 @@ export namespace GetCommentInput {
   }
 }
 
-export interface GetCommentOutput extends $MetadataBearer {
+export interface GetCommentOutput {
   __type?: "GetCommentOutput";
   /**
    * <p>The contents of the comment.</p>
@@ -3541,7 +3538,7 @@ export namespace GetCommentsForComparedCommitInput {
   }
 }
 
-export interface GetCommentsForComparedCommitOutput extends $MetadataBearer {
+export interface GetCommentsForComparedCommitOutput {
   __type?: "GetCommentsForComparedCommitOutput";
   /**
    * <p>A list of comment objects on the compared commit.</p>
@@ -3601,7 +3598,7 @@ export namespace GetCommentsForPullRequestInput {
   }
 }
 
-export interface GetCommentsForPullRequestOutput extends $MetadataBearer {
+export interface GetCommentsForPullRequestOutput {
   __type?: "GetCommentsForPullRequestOutput";
   /**
    * <p>An array of comment objects on the pull request.</p>
@@ -3645,7 +3642,7 @@ export namespace GetCommitInput {
 /**
  * <p>Represents the output of a get commit operation.</p>
  */
-export interface GetCommitOutput extends $MetadataBearer {
+export interface GetCommitOutput {
   __type?: "GetCommitOutput";
   /**
    * <p>A commit data type object that contains information about the specified commit.</p>
@@ -3713,7 +3710,7 @@ export namespace GetDifferencesInput {
   }
 }
 
-export interface GetDifferencesOutput extends $MetadataBearer {
+export interface GetDifferencesOutput {
   __type?: "GetDifferencesOutput";
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -3761,7 +3758,7 @@ export namespace GetFileInput {
   }
 }
 
-export interface GetFileOutput extends $MetadataBearer {
+export interface GetFileOutput {
   __type?: "GetFileOutput";
   /**
    * <p>The blob ID of the object that represents the file content.</p>
@@ -3835,7 +3832,7 @@ export namespace GetFolderInput {
   }
 }
 
-export interface GetFolderOutput extends $MetadataBearer {
+export interface GetFolderOutput {
   __type?: "GetFolderOutput";
   /**
    * <p>The full commit ID used as a reference for the returned version of the folder
@@ -3922,7 +3919,7 @@ export namespace GetMergeCommitInput {
   }
 }
 
-export interface GetMergeCommitOutput extends $MetadataBearer {
+export interface GetMergeCommitOutput {
   __type?: "GetMergeCommitOutput";
   /**
    * <p>The commit ID of the merge base.</p>
@@ -4010,7 +4007,7 @@ export namespace GetMergeConflictsInput {
   }
 }
 
-export interface GetMergeConflictsOutput extends $MetadataBearer {
+export interface GetMergeConflictsOutput {
   __type?: "GetMergeConflictsOutput";
   /**
    * <p>The commit ID of the merge base.</p>
@@ -4091,7 +4088,7 @@ export namespace GetMergeOptionsInput {
   }
 }
 
-export interface GetMergeOptionsOutput extends $MetadataBearer {
+export interface GetMergeOptionsOutput {
   __type?: "GetMergeOptionsOutput";
   /**
    * <p>The commit ID of the merge base.</p>
@@ -4139,7 +4136,7 @@ export namespace GetPullRequestApprovalStatesInput {
   }
 }
 
-export interface GetPullRequestApprovalStatesOutput extends $MetadataBearer {
+export interface GetPullRequestApprovalStatesOutput {
   __type?: "GetPullRequestApprovalStatesOutput";
   /**
    * <p>Information about users who have approved the pull request.</p>
@@ -4167,7 +4164,7 @@ export namespace GetPullRequestInput {
   }
 }
 
-export interface GetPullRequestOutput extends $MetadataBearer {
+export interface GetPullRequestOutput {
   __type?: "GetPullRequestOutput";
   /**
    * <p>Information about the specified pull request.</p>
@@ -4202,7 +4199,7 @@ export namespace GetPullRequestOverrideStateInput {
   }
 }
 
-export interface GetPullRequestOverrideStateOutput extends $MetadataBearer {
+export interface GetPullRequestOverrideStateOutput {
   __type?: "GetPullRequestOverrideStateOutput";
   /**
    * <p>A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).</p>
@@ -4241,7 +4238,7 @@ export namespace GetRepositoryInput {
 /**
  * <p>Represents the output of a get repository operation.</p>
  */
-export interface GetRepositoryOutput extends $MetadataBearer {
+export interface GetRepositoryOutput {
   __type?: "GetRepositoryOutput";
   /**
    * <p>Information about the repository.</p>
@@ -4275,7 +4272,7 @@ export namespace GetRepositoryTriggersInput {
 /**
  * <p>Represents the output of a get repository triggers operation.</p>
  */
-export interface GetRepositoryTriggersOutput extends $MetadataBearer {
+export interface GetRepositoryTriggersOutput {
   __type?: "GetRepositoryTriggersOutput";
   /**
    * <p>The system-generated unique ID for the trigger.</p>
@@ -5616,7 +5613,7 @@ export namespace ListApprovalRuleTemplatesInput {
   }
 }
 
-export interface ListApprovalRuleTemplatesOutput extends $MetadataBearer {
+export interface ListApprovalRuleTemplatesOutput {
   __type?: "ListApprovalRuleTemplatesOutput";
   /**
    * <p>The names of all the approval rule templates found in the AWS Region for your AWS account.</p>
@@ -5662,8 +5659,7 @@ export namespace ListAssociatedApprovalRuleTemplatesForRepositoryInput {
   }
 }
 
-export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput
-  extends $MetadataBearer {
+export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
   __type?: "ListAssociatedApprovalRuleTemplatesForRepositoryOutput";
   /**
    * <p>The names of all approval rule templates associated with the repository.</p>
@@ -5709,7 +5705,7 @@ export namespace ListBranchesInput {
 /**
  * <p>Represents the output of a list branches operation.</p>
  */
-export interface ListBranchesOutput extends $MetadataBearer {
+export interface ListBranchesOutput {
   __type?: "ListBranchesOutput";
   /**
    * <p>The list of branch names.</p>
@@ -5764,7 +5760,7 @@ export namespace ListPullRequestsInput {
   }
 }
 
-export interface ListPullRequestsOutput extends $MetadataBearer {
+export interface ListPullRequestsOutput {
   __type?: "ListPullRequestsOutput";
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
@@ -5810,8 +5806,7 @@ export namespace ListRepositoriesForApprovalRuleTemplateInput {
   }
 }
 
-export interface ListRepositoriesForApprovalRuleTemplateOutput
-  extends $MetadataBearer {
+export interface ListRepositoriesForApprovalRuleTemplateOutput {
   __type?: "ListRepositoriesForApprovalRuleTemplateOutput";
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
@@ -5864,7 +5859,7 @@ export namespace ListRepositoriesInput {
 /**
  * <p>Represents the output of a list repositories operation.</p>
  */
-export interface ListRepositoriesOutput extends $MetadataBearer {
+export interface ListRepositoriesOutput {
   __type?: "ListRepositoriesOutput";
   /**
    * <p>An enumeration token that allows the operation to batch the results of the operation.
@@ -5906,7 +5901,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
@@ -6211,7 +6206,7 @@ export namespace MergeBranchesByFastForwardInput {
   }
 }
 
-export interface MergeBranchesByFastForwardOutput extends $MetadataBearer {
+export interface MergeBranchesByFastForwardOutput {
   __type?: "MergeBranchesByFastForwardOutput";
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
@@ -6306,7 +6301,7 @@ export namespace MergeBranchesBySquashInput {
   }
 }
 
-export interface MergeBranchesBySquashOutput extends $MetadataBearer {
+export interface MergeBranchesBySquashOutput {
   __type?: "MergeBranchesBySquashOutput";
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
@@ -6401,7 +6396,7 @@ export namespace MergeBranchesByThreeWayInput {
   }
 }
 
-export interface MergeBranchesByThreeWayOutput extends $MetadataBearer {
+export interface MergeBranchesByThreeWayOutput {
   __type?: "MergeBranchesByThreeWayOutput";
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
@@ -6590,7 +6585,7 @@ export namespace MergePullRequestByFastForwardInput {
   }
 }
 
-export interface MergePullRequestByFastForwardOutput extends $MetadataBearer {
+export interface MergePullRequestByFastForwardOutput {
   __type?: "MergePullRequestByFastForwardOutput";
   /**
    * <p>Information about the specified pull request, including the merge.</p>
@@ -6674,7 +6669,7 @@ export namespace MergePullRequestBySquashInput {
   }
 }
 
-export interface MergePullRequestBySquashOutput extends $MetadataBearer {
+export interface MergePullRequestBySquashOutput {
   __type?: "MergePullRequestBySquashOutput";
   /**
    * <p>Returns information about a pull request.</p>
@@ -6758,7 +6753,7 @@ export namespace MergePullRequestByThreeWayInput {
   }
 }
 
-export interface MergePullRequestByThreeWayOutput extends $MetadataBearer {
+export interface MergePullRequestByThreeWayOutput {
   __type?: "MergePullRequestByThreeWayOutput";
   /**
    * <p>Returns information about a pull request.</p>
@@ -7171,7 +7166,7 @@ export namespace PostCommentForComparedCommitInput {
   }
 }
 
-export interface PostCommentForComparedCommitOutput extends $MetadataBearer {
+export interface PostCommentForComparedCommitOutput {
   __type?: "PostCommentForComparedCommitOutput";
   /**
    * <p>In the directionality you established, the blob ID of the after blob.</p>
@@ -7264,7 +7259,7 @@ export namespace PostCommentForPullRequestInput {
   }
 }
 
-export interface PostCommentForPullRequestOutput extends $MetadataBearer {
+export interface PostCommentForPullRequestOutput {
   __type?: "PostCommentForPullRequestOutput";
   /**
    * <p>In the directionality of the pull request, the blob ID of the after blob.</p>
@@ -7343,7 +7338,7 @@ export namespace PostCommentReplyInput {
   }
 }
 
-export interface PostCommentReplyOutput extends $MetadataBearer {
+export interface PostCommentReplyOutput {
   __type?: "PostCommentReplyOutput";
   /**
    * <p>Information about the reply to a comment.</p>
@@ -7919,7 +7914,7 @@ export namespace PutFileInput {
   }
 }
 
-export interface PutFileOutput extends $MetadataBearer {
+export interface PutFileOutput {
   __type?: "PutFileOutput";
   /**
    * <p>The ID of the blob, which is its SHA-1 pointer.</p>
@@ -7968,7 +7963,7 @@ export namespace PutRepositoryTriggersInput {
 /**
  * <p>Represents the output of a put repository triggers operation.</p>
  */
-export interface PutRepositoryTriggersOutput extends $MetadataBearer {
+export interface PutRepositoryTriggersOutput {
   __type?: "PutRepositoryTriggersOutput";
   /**
    * <p>The system-generated unique ID for the create or update operation.</p>
@@ -8962,7 +8957,7 @@ export namespace TestRepositoryTriggersInput {
 /**
  * <p>Represents the output of a test repository triggers operation.</p>
  */
-export interface TestRepositoryTriggersOutput extends $MetadataBearer {
+export interface TestRepositoryTriggersOutput {
   __type?: "TestRepositoryTriggersOutput";
   /**
    * <p>The list of triggers that were not tested. This list provides the names of the
@@ -9110,8 +9105,7 @@ export namespace UpdateApprovalRuleTemplateContentInput {
   }
 }
 
-export interface UpdateApprovalRuleTemplateContentOutput
-  extends $MetadataBearer {
+export interface UpdateApprovalRuleTemplateContentOutput {
   __type?: "UpdateApprovalRuleTemplateContentOutput";
   /**
    * <p>Returns information about an approval rule template.</p>
@@ -9144,8 +9138,7 @@ export namespace UpdateApprovalRuleTemplateDescriptionInput {
   }
 }
 
-export interface UpdateApprovalRuleTemplateDescriptionOutput
-  extends $MetadataBearer {
+export interface UpdateApprovalRuleTemplateDescriptionOutput {
   __type?: "UpdateApprovalRuleTemplateDescriptionOutput";
   /**
    * <p>The structure and content of the updated approval rule template.</p>
@@ -9180,7 +9173,7 @@ export namespace UpdateApprovalRuleTemplateNameInput {
   }
 }
 
-export interface UpdateApprovalRuleTemplateNameOutput extends $MetadataBearer {
+export interface UpdateApprovalRuleTemplateNameOutput {
   __type?: "UpdateApprovalRuleTemplateNameOutput";
   /**
    * <p>The structure and content of the updated approval rule template.</p>
@@ -9214,7 +9207,7 @@ export namespace UpdateCommentInput {
   }
 }
 
-export interface UpdateCommentOutput extends $MetadataBearer {
+export interface UpdateCommentOutput {
   __type?: "UpdateCommentOutput";
   /**
    * <p>Information about the updated comment.</p>
@@ -9321,8 +9314,7 @@ export namespace UpdatePullRequestApprovalRuleContentInput {
   }
 }
 
-export interface UpdatePullRequestApprovalRuleContentOutput
-  extends $MetadataBearer {
+export interface UpdatePullRequestApprovalRuleContentOutput {
   __type?: "UpdatePullRequestApprovalRuleContentOutput";
   /**
    * <p>Information about the updated approval rule.</p>
@@ -9380,7 +9372,7 @@ export namespace UpdatePullRequestDescriptionInput {
   }
 }
 
-export interface UpdatePullRequestDescriptionOutput extends $MetadataBearer {
+export interface UpdatePullRequestDescriptionOutput {
   __type?: "UpdatePullRequestDescriptionOutput";
   /**
    * <p>Information about the updated pull request.</p>
@@ -9415,7 +9407,7 @@ export namespace UpdatePullRequestStatusInput {
   }
 }
 
-export interface UpdatePullRequestStatusOutput extends $MetadataBearer {
+export interface UpdatePullRequestStatusOutput {
   __type?: "UpdatePullRequestStatusOutput";
   /**
    * <p>Information about the pull request.</p>
@@ -9448,7 +9440,7 @@ export namespace UpdatePullRequestTitleInput {
   }
 }
 
-export interface UpdatePullRequestTitleOutput extends $MetadataBearer {
+export interface UpdatePullRequestTitleOutput {
   __type?: "UpdatePullRequestTitleOutput";
   /**
    * <p>Information about the updated pull request.</p>

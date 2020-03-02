@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRateBasedRuleManagedKeysCommandInput = GetRateBasedRuleManagedKeysRequest;
-export type GetRateBasedRuleManagedKeysCommandOutput = GetRateBasedRuleManagedKeysResponse;
+export type GetRateBasedRuleManagedKeysCommandOutput = GetRateBasedRuleManagedKeysResponse &
+  __MetadataBearer;
 
 export class GetRateBasedRuleManagedKeysCommand extends $Command<
   GetRateBasedRuleManagedKeysCommandInput,

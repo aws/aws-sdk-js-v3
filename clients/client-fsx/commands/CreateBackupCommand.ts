@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBackupCommandInput = CreateBackupRequest;
-export type CreateBackupCommandOutput = CreateBackupResponse;
+export type CreateBackupCommandOutput = CreateBackupResponse & __MetadataBearer;
 
 export class CreateBackupCommand extends $Command<
   CreateBackupCommandInput,

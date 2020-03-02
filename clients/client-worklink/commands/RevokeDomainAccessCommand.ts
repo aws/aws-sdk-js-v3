@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeDomainAccessCommandInput = RevokeDomainAccessRequest;
-export type RevokeDomainAccessCommandOutput = RevokeDomainAccessResponse;
+export type RevokeDomainAccessCommandOutput = RevokeDomainAccessResponse &
+  __MetadataBearer;
 
 export class RevokeDomainAccessCommand extends $Command<
   RevokeDomainAccessCommandInput,

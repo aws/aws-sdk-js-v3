@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RetrieveDomainAuthCodeCommandInput = RetrieveDomainAuthCodeRequest;
-export type RetrieveDomainAuthCodeCommandOutput = RetrieveDomainAuthCodeResponse;
+export type RetrieveDomainAuthCodeCommandOutput = RetrieveDomainAuthCodeResponse &
+  __MetadataBearer;
 
 export class RetrieveDomainAuthCodeCommand extends $Command<
   RetrieveDomainAuthCodeCommandInput,

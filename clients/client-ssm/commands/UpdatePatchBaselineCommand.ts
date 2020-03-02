@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdatePatchBaselineCommandInput = UpdatePatchBaselineRequest;
-export type UpdatePatchBaselineCommandOutput = UpdatePatchBaselineResult;
+export type UpdatePatchBaselineCommandOutput = UpdatePatchBaselineResult &
+  __MetadataBearer;
 
 export class UpdatePatchBaselineCommand extends $Command<
   UpdatePatchBaselineCommandInput,

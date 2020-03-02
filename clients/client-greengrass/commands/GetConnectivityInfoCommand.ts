@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetConnectivityInfoCommandInput = GetConnectivityInfoRequest;
-export type GetConnectivityInfoCommandOutput = GetConnectivityInfoResponse;
+export type GetConnectivityInfoCommandOutput = GetConnectivityInfoResponse &
+  __MetadataBearer;
 
 export class GetConnectivityInfoCommand extends $Command<
   GetConnectivityInfoCommandInput,

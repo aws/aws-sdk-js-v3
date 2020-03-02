@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePortfolioCommandInput = DeletePortfolioInput;
-export type DeletePortfolioCommandOutput = DeletePortfolioOutput;
+export type DeletePortfolioCommandOutput = DeletePortfolioOutput &
+  __MetadataBearer;
 
 export class DeletePortfolioCommand extends $Command<
   DeletePortfolioCommandInput,

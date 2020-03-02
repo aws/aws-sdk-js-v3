@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCorsPolicyCommandInput = GetCorsPolicyInput;
-export type GetCorsPolicyCommandOutput = GetCorsPolicyOutput;
+export type GetCorsPolicyCommandOutput = GetCorsPolicyOutput & __MetadataBearer;
 
 export class GetCorsPolicyCommand extends $Command<
   GetCorsPolicyCommandInput,

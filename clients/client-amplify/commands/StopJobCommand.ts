@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopJobCommandInput = StopJobRequest;
-export type StopJobCommandOutput = StopJobResult;
+export type StopJobCommandOutput = StopJobResult & __MetadataBearer;
 
 export class StopJobCommand extends $Command<
   StopJobCommandInput,

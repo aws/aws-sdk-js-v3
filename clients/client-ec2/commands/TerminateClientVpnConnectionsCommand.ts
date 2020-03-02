@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TerminateClientVpnConnectionsCommandInput = TerminateClientVpnConnectionsRequest;
-export type TerminateClientVpnConnectionsCommandOutput = TerminateClientVpnConnectionsResult;
+export type TerminateClientVpnConnectionsCommandOutput = TerminateClientVpnConnectionsResult &
+  __MetadataBearer;
 
 export class TerminateClientVpnConnectionsCommand extends $Command<
   TerminateClientVpnConnectionsCommandInput,

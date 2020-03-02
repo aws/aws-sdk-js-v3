@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAssessmentTemplatesCommandInput = ListAssessmentTemplatesRequest;
-export type ListAssessmentTemplatesCommandOutput = ListAssessmentTemplatesResponse;
+export type ListAssessmentTemplatesCommandOutput = ListAssessmentTemplatesResponse &
+  __MetadataBearer;
 
 export class ListAssessmentTemplatesCommand extends $Command<
   ListAssessmentTemplatesCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdatePortfolioCommandInput = UpdatePortfolioInput;
-export type UpdatePortfolioCommandOutput = UpdatePortfolioOutput;
+export type UpdatePortfolioCommandOutput = UpdatePortfolioOutput &
+  __MetadataBearer;
 
 export class UpdatePortfolioCommand extends $Command<
   UpdatePortfolioCommandInput,
