@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVolumeStatusCommandInput = DescribeVolumeStatusRequest;
-export type DescribeVolumeStatusCommandOutput = DescribeVolumeStatusResult;
+export type DescribeVolumeStatusCommandOutput = DescribeVolumeStatusResult &
+  __MetadataBearer;
 
 export class DescribeVolumeStatusCommand extends $Command<
   DescribeVolumeStatusCommandInput,

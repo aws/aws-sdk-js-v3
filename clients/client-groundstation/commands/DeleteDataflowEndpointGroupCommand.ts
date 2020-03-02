@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDataflowEndpointGroupCommandInput = DeleteDataflowEndpointGroupRequest;
-export type DeleteDataflowEndpointGroupCommandOutput = DataflowEndpointGroupIdResponse;
+export type DeleteDataflowEndpointGroupCommandOutput = DataflowEndpointGroupIdResponse &
+  __MetadataBearer;
 
 export class DeleteDataflowEndpointGroupCommand extends $Command<
   DeleteDataflowEndpointGroupCommandInput,

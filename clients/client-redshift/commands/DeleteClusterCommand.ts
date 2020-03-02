@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteClusterCommandInput = DeleteClusterMessage;
-export type DeleteClusterCommandOutput = DeleteClusterResult;
+export type DeleteClusterCommandOutput = DeleteClusterResult & __MetadataBearer;
 
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,

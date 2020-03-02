@@ -1,152 +1,307 @@
 import {
-  AcceptMatchInput,
-  AcceptMatchOutput,
-  CreateAliasInput,
-  CreateAliasOutput,
-  CreateBuildInput,
-  CreateBuildOutput,
-  CreateFleetInput,
-  CreateFleetOutput,
-  CreateGameSessionInput,
-  CreateGameSessionOutput,
-  CreateGameSessionQueueInput,
-  CreateGameSessionQueueOutput,
-  CreateMatchmakingConfigurationInput,
-  CreateMatchmakingConfigurationOutput,
-  CreateMatchmakingRuleSetInput,
-  CreateMatchmakingRuleSetOutput,
-  CreatePlayerSessionInput,
-  CreatePlayerSessionOutput,
-  CreatePlayerSessionsInput,
-  CreatePlayerSessionsOutput,
-  CreateScriptInput,
-  CreateScriptOutput,
-  CreateVpcPeeringAuthorizationInput,
-  CreateVpcPeeringAuthorizationOutput,
-  CreateVpcPeeringConnectionInput,
-  CreateVpcPeeringConnectionOutput,
-  DeleteAliasInput,
-  DeleteBuildInput,
-  DeleteFleetInput,
-  DeleteGameSessionQueueInput,
-  DeleteGameSessionQueueOutput,
-  DeleteMatchmakingConfigurationInput,
-  DeleteMatchmakingConfigurationOutput,
-  DeleteMatchmakingRuleSetInput,
-  DeleteMatchmakingRuleSetOutput,
-  DeleteScalingPolicyInput,
-  DeleteScriptInput,
-  DeleteVpcPeeringAuthorizationInput,
-  DeleteVpcPeeringAuthorizationOutput,
-  DeleteVpcPeeringConnectionInput,
-  DeleteVpcPeeringConnectionOutput,
-  DescribeAliasInput,
-  DescribeAliasOutput,
-  DescribeBuildInput,
-  DescribeBuildOutput,
-  DescribeEC2InstanceLimitsInput,
-  DescribeEC2InstanceLimitsOutput,
-  DescribeFleetAttributesInput,
-  DescribeFleetAttributesOutput,
-  DescribeFleetCapacityInput,
-  DescribeFleetCapacityOutput,
-  DescribeFleetEventsInput,
-  DescribeFleetEventsOutput,
-  DescribeFleetPortSettingsInput,
-  DescribeFleetPortSettingsOutput,
-  DescribeFleetUtilizationInput,
-  DescribeFleetUtilizationOutput,
-  DescribeGameSessionDetailsInput,
-  DescribeGameSessionDetailsOutput,
-  DescribeGameSessionPlacementInput,
-  DescribeGameSessionPlacementOutput,
-  DescribeGameSessionQueuesInput,
-  DescribeGameSessionQueuesOutput,
-  DescribeGameSessionsInput,
-  DescribeGameSessionsOutput,
-  DescribeInstancesInput,
-  DescribeInstancesOutput,
-  DescribeMatchmakingConfigurationsInput,
-  DescribeMatchmakingConfigurationsOutput,
-  DescribeMatchmakingInput,
-  DescribeMatchmakingOutput,
-  DescribeMatchmakingRuleSetsInput,
-  DescribeMatchmakingRuleSetsOutput,
-  DescribePlayerSessionsInput,
-  DescribePlayerSessionsOutput,
-  DescribeRuntimeConfigurationInput,
-  DescribeRuntimeConfigurationOutput,
-  DescribeScalingPoliciesInput,
-  DescribeScalingPoliciesOutput,
-  DescribeScriptInput,
-  DescribeScriptOutput,
-  DescribeVpcPeeringAuthorizationsInput,
-  DescribeVpcPeeringAuthorizationsOutput,
-  DescribeVpcPeeringConnectionsInput,
-  DescribeVpcPeeringConnectionsOutput,
-  GetGameSessionLogUrlInput,
-  GetGameSessionLogUrlOutput,
-  GetInstanceAccessInput,
-  GetInstanceAccessOutput,
-  ListAliasesInput,
-  ListAliasesOutput,
-  ListBuildsInput,
-  ListBuildsOutput,
-  ListFleetsInput,
-  ListFleetsOutput,
-  ListScriptsInput,
-  ListScriptsOutput,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutScalingPolicyInput,
-  PutScalingPolicyOutput,
-  RequestUploadCredentialsInput,
-  RequestUploadCredentialsOutput,
-  ResolveAliasInput,
-  ResolveAliasOutput,
-  SearchGameSessionsInput,
-  SearchGameSessionsOutput,
-  StartFleetActionsInput,
-  StartFleetActionsOutput,
-  StartGameSessionPlacementInput,
-  StartGameSessionPlacementOutput,
-  StartMatchBackfillInput,
-  StartMatchBackfillOutput,
-  StartMatchmakingInput,
-  StartMatchmakingOutput,
-  StopFleetActionsInput,
-  StopFleetActionsOutput,
-  StopGameSessionPlacementInput,
-  StopGameSessionPlacementOutput,
-  StopMatchmakingInput,
-  StopMatchmakingOutput,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateAliasInput,
-  UpdateAliasOutput,
-  UpdateBuildInput,
-  UpdateBuildOutput,
-  UpdateFleetAttributesInput,
-  UpdateFleetAttributesOutput,
-  UpdateFleetCapacityInput,
-  UpdateFleetCapacityOutput,
-  UpdateFleetPortSettingsInput,
-  UpdateFleetPortSettingsOutput,
-  UpdateGameSessionInput,
-  UpdateGameSessionOutput,
-  UpdateGameSessionQueueInput,
-  UpdateGameSessionQueueOutput,
-  UpdateMatchmakingConfigurationInput,
-  UpdateMatchmakingConfigurationOutput,
-  UpdateRuntimeConfigurationInput,
-  UpdateRuntimeConfigurationOutput,
-  UpdateScriptInput,
-  UpdateScriptOutput,
-  ValidateMatchmakingRuleSetInput,
-  ValidateMatchmakingRuleSetOutput
-} from "./models/index";
+  AcceptMatchCommandInput,
+  AcceptMatchCommandOutput
+} from "./commands/AcceptMatchCommand";
+import {
+  CreateAliasCommandInput,
+  CreateAliasCommandOutput
+} from "./commands/CreateAliasCommand";
+import {
+  CreateBuildCommandInput,
+  CreateBuildCommandOutput
+} from "./commands/CreateBuildCommand";
+import {
+  CreateFleetCommandInput,
+  CreateFleetCommandOutput
+} from "./commands/CreateFleetCommand";
+import {
+  CreateGameSessionCommandInput,
+  CreateGameSessionCommandOutput
+} from "./commands/CreateGameSessionCommand";
+import {
+  CreateGameSessionQueueCommandInput,
+  CreateGameSessionQueueCommandOutput
+} from "./commands/CreateGameSessionQueueCommand";
+import {
+  CreateMatchmakingConfigurationCommandInput,
+  CreateMatchmakingConfigurationCommandOutput
+} from "./commands/CreateMatchmakingConfigurationCommand";
+import {
+  CreateMatchmakingRuleSetCommandInput,
+  CreateMatchmakingRuleSetCommandOutput
+} from "./commands/CreateMatchmakingRuleSetCommand";
+import {
+  CreatePlayerSessionCommandInput,
+  CreatePlayerSessionCommandOutput
+} from "./commands/CreatePlayerSessionCommand";
+import {
+  CreatePlayerSessionsCommandInput,
+  CreatePlayerSessionsCommandOutput
+} from "./commands/CreatePlayerSessionsCommand";
+import {
+  CreateScriptCommandInput,
+  CreateScriptCommandOutput
+} from "./commands/CreateScriptCommand";
+import {
+  CreateVpcPeeringAuthorizationCommandInput,
+  CreateVpcPeeringAuthorizationCommandOutput
+} from "./commands/CreateVpcPeeringAuthorizationCommand";
+import {
+  CreateVpcPeeringConnectionCommandInput,
+  CreateVpcPeeringConnectionCommandOutput
+} from "./commands/CreateVpcPeeringConnectionCommand";
+import {
+  DeleteAliasCommandInput,
+  DeleteAliasCommandOutput
+} from "./commands/DeleteAliasCommand";
+import {
+  DeleteBuildCommandInput,
+  DeleteBuildCommandOutput
+} from "./commands/DeleteBuildCommand";
+import {
+  DeleteFleetCommandInput,
+  DeleteFleetCommandOutput
+} from "./commands/DeleteFleetCommand";
+import {
+  DeleteGameSessionQueueCommandInput,
+  DeleteGameSessionQueueCommandOutput
+} from "./commands/DeleteGameSessionQueueCommand";
+import {
+  DeleteMatchmakingConfigurationCommandInput,
+  DeleteMatchmakingConfigurationCommandOutput
+} from "./commands/DeleteMatchmakingConfigurationCommand";
+import {
+  DeleteMatchmakingRuleSetCommandInput,
+  DeleteMatchmakingRuleSetCommandOutput
+} from "./commands/DeleteMatchmakingRuleSetCommand";
+import {
+  DeleteScalingPolicyCommandInput,
+  DeleteScalingPolicyCommandOutput
+} from "./commands/DeleteScalingPolicyCommand";
+import {
+  DeleteScriptCommandInput,
+  DeleteScriptCommandOutput
+} from "./commands/DeleteScriptCommand";
+import {
+  DeleteVpcPeeringAuthorizationCommandInput,
+  DeleteVpcPeeringAuthorizationCommandOutput
+} from "./commands/DeleteVpcPeeringAuthorizationCommand";
+import {
+  DeleteVpcPeeringConnectionCommandInput,
+  DeleteVpcPeeringConnectionCommandOutput
+} from "./commands/DeleteVpcPeeringConnectionCommand";
+import {
+  DescribeAliasCommandInput,
+  DescribeAliasCommandOutput
+} from "./commands/DescribeAliasCommand";
+import {
+  DescribeBuildCommandInput,
+  DescribeBuildCommandOutput
+} from "./commands/DescribeBuildCommand";
+import {
+  DescribeEC2InstanceLimitsCommandInput,
+  DescribeEC2InstanceLimitsCommandOutput
+} from "./commands/DescribeEC2InstanceLimitsCommand";
+import {
+  DescribeFleetAttributesCommandInput,
+  DescribeFleetAttributesCommandOutput
+} from "./commands/DescribeFleetAttributesCommand";
+import {
+  DescribeFleetCapacityCommandInput,
+  DescribeFleetCapacityCommandOutput
+} from "./commands/DescribeFleetCapacityCommand";
+import {
+  DescribeFleetEventsCommandInput,
+  DescribeFleetEventsCommandOutput
+} from "./commands/DescribeFleetEventsCommand";
+import {
+  DescribeFleetPortSettingsCommandInput,
+  DescribeFleetPortSettingsCommandOutput
+} from "./commands/DescribeFleetPortSettingsCommand";
+import {
+  DescribeFleetUtilizationCommandInput,
+  DescribeFleetUtilizationCommandOutput
+} from "./commands/DescribeFleetUtilizationCommand";
+import {
+  DescribeGameSessionDetailsCommandInput,
+  DescribeGameSessionDetailsCommandOutput
+} from "./commands/DescribeGameSessionDetailsCommand";
+import {
+  DescribeGameSessionPlacementCommandInput,
+  DescribeGameSessionPlacementCommandOutput
+} from "./commands/DescribeGameSessionPlacementCommand";
+import {
+  DescribeGameSessionQueuesCommandInput,
+  DescribeGameSessionQueuesCommandOutput
+} from "./commands/DescribeGameSessionQueuesCommand";
+import {
+  DescribeGameSessionsCommandInput,
+  DescribeGameSessionsCommandOutput
+} from "./commands/DescribeGameSessionsCommand";
+import {
+  DescribeInstancesCommandInput,
+  DescribeInstancesCommandOutput
+} from "./commands/DescribeInstancesCommand";
+import {
+  DescribeMatchmakingCommandInput,
+  DescribeMatchmakingCommandOutput
+} from "./commands/DescribeMatchmakingCommand";
+import {
+  DescribeMatchmakingConfigurationsCommandInput,
+  DescribeMatchmakingConfigurationsCommandOutput
+} from "./commands/DescribeMatchmakingConfigurationsCommand";
+import {
+  DescribeMatchmakingRuleSetsCommandInput,
+  DescribeMatchmakingRuleSetsCommandOutput
+} from "./commands/DescribeMatchmakingRuleSetsCommand";
+import {
+  DescribePlayerSessionsCommandInput,
+  DescribePlayerSessionsCommandOutput
+} from "./commands/DescribePlayerSessionsCommand";
+import {
+  DescribeRuntimeConfigurationCommandInput,
+  DescribeRuntimeConfigurationCommandOutput
+} from "./commands/DescribeRuntimeConfigurationCommand";
+import {
+  DescribeScalingPoliciesCommandInput,
+  DescribeScalingPoliciesCommandOutput
+} from "./commands/DescribeScalingPoliciesCommand";
+import {
+  DescribeScriptCommandInput,
+  DescribeScriptCommandOutput
+} from "./commands/DescribeScriptCommand";
+import {
+  DescribeVpcPeeringAuthorizationsCommandInput,
+  DescribeVpcPeeringAuthorizationsCommandOutput
+} from "./commands/DescribeVpcPeeringAuthorizationsCommand";
+import {
+  DescribeVpcPeeringConnectionsCommandInput,
+  DescribeVpcPeeringConnectionsCommandOutput
+} from "./commands/DescribeVpcPeeringConnectionsCommand";
+import {
+  GetGameSessionLogUrlCommandInput,
+  GetGameSessionLogUrlCommandOutput
+} from "./commands/GetGameSessionLogUrlCommand";
+import {
+  GetInstanceAccessCommandInput,
+  GetInstanceAccessCommandOutput
+} from "./commands/GetInstanceAccessCommand";
+import {
+  ListAliasesCommandInput,
+  ListAliasesCommandOutput
+} from "./commands/ListAliasesCommand";
+import {
+  ListBuildsCommandInput,
+  ListBuildsCommandOutput
+} from "./commands/ListBuildsCommand";
+import {
+  ListFleetsCommandInput,
+  ListFleetsCommandOutput
+} from "./commands/ListFleetsCommand";
+import {
+  ListScriptsCommandInput,
+  ListScriptsCommandOutput
+} from "./commands/ListScriptsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutScalingPolicyCommandInput,
+  PutScalingPolicyCommandOutput
+} from "./commands/PutScalingPolicyCommand";
+import {
+  RequestUploadCredentialsCommandInput,
+  RequestUploadCredentialsCommandOutput
+} from "./commands/RequestUploadCredentialsCommand";
+import {
+  ResolveAliasCommandInput,
+  ResolveAliasCommandOutput
+} from "./commands/ResolveAliasCommand";
+import {
+  SearchGameSessionsCommandInput,
+  SearchGameSessionsCommandOutput
+} from "./commands/SearchGameSessionsCommand";
+import {
+  StartFleetActionsCommandInput,
+  StartFleetActionsCommandOutput
+} from "./commands/StartFleetActionsCommand";
+import {
+  StartGameSessionPlacementCommandInput,
+  StartGameSessionPlacementCommandOutput
+} from "./commands/StartGameSessionPlacementCommand";
+import {
+  StartMatchBackfillCommandInput,
+  StartMatchBackfillCommandOutput
+} from "./commands/StartMatchBackfillCommand";
+import {
+  StartMatchmakingCommandInput,
+  StartMatchmakingCommandOutput
+} from "./commands/StartMatchmakingCommand";
+import {
+  StopFleetActionsCommandInput,
+  StopFleetActionsCommandOutput
+} from "./commands/StopFleetActionsCommand";
+import {
+  StopGameSessionPlacementCommandInput,
+  StopGameSessionPlacementCommandOutput
+} from "./commands/StopGameSessionPlacementCommand";
+import {
+  StopMatchmakingCommandInput,
+  StopMatchmakingCommandOutput
+} from "./commands/StopMatchmakingCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAliasCommandInput,
+  UpdateAliasCommandOutput
+} from "./commands/UpdateAliasCommand";
+import {
+  UpdateBuildCommandInput,
+  UpdateBuildCommandOutput
+} from "./commands/UpdateBuildCommand";
+import {
+  UpdateFleetAttributesCommandInput,
+  UpdateFleetAttributesCommandOutput
+} from "./commands/UpdateFleetAttributesCommand";
+import {
+  UpdateFleetCapacityCommandInput,
+  UpdateFleetCapacityCommandOutput
+} from "./commands/UpdateFleetCapacityCommand";
+import {
+  UpdateFleetPortSettingsCommandInput,
+  UpdateFleetPortSettingsCommandOutput
+} from "./commands/UpdateFleetPortSettingsCommand";
+import {
+  UpdateGameSessionCommandInput,
+  UpdateGameSessionCommandOutput
+} from "./commands/UpdateGameSessionCommand";
+import {
+  UpdateGameSessionQueueCommandInput,
+  UpdateGameSessionQueueCommandOutput
+} from "./commands/UpdateGameSessionQueueCommand";
+import {
+  UpdateMatchmakingConfigurationCommandInput,
+  UpdateMatchmakingConfigurationCommandOutput
+} from "./commands/UpdateMatchmakingConfigurationCommand";
+import {
+  UpdateRuntimeConfigurationCommandInput,
+  UpdateRuntimeConfigurationCommandOutput
+} from "./commands/UpdateRuntimeConfigurationCommand";
+import {
+  UpdateScriptCommandInput,
+  UpdateScriptCommandOutput
+} from "./commands/UpdateScriptCommand";
+import {
+  ValidateMatchmakingRuleSetCommandInput,
+  ValidateMatchmakingRuleSetCommandOutput
+} from "./commands/ValidateMatchmakingRuleSetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -194,163 +349,166 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AcceptMatchInput
-  | CreateAliasInput
-  | CreateBuildInput
-  | CreateFleetInput
-  | CreateGameSessionInput
-  | CreateGameSessionQueueInput
-  | CreateMatchmakingConfigurationInput
-  | CreateMatchmakingRuleSetInput
-  | CreatePlayerSessionInput
-  | CreatePlayerSessionsInput
-  | CreateScriptInput
-  | CreateVpcPeeringAuthorizationInput
-  | CreateVpcPeeringConnectionInput
-  | DeleteAliasInput
-  | DeleteBuildInput
-  | DeleteFleetInput
-  | DeleteGameSessionQueueInput
-  | DeleteMatchmakingConfigurationInput
-  | DeleteMatchmakingRuleSetInput
-  | DeleteScalingPolicyInput
-  | DeleteScriptInput
-  | DeleteVpcPeeringAuthorizationInput
-  | DeleteVpcPeeringConnectionInput
-  | DescribeAliasInput
-  | DescribeBuildInput
-  | DescribeEC2InstanceLimitsInput
-  | DescribeFleetAttributesInput
-  | DescribeFleetCapacityInput
-  | DescribeFleetEventsInput
-  | DescribeFleetPortSettingsInput
-  | DescribeFleetUtilizationInput
-  | DescribeGameSessionDetailsInput
-  | DescribeGameSessionPlacementInput
-  | DescribeGameSessionQueuesInput
-  | DescribeGameSessionsInput
-  | DescribeInstancesInput
-  | DescribeMatchmakingConfigurationsInput
-  | DescribeMatchmakingInput
-  | DescribeMatchmakingRuleSetsInput
-  | DescribePlayerSessionsInput
-  | DescribeRuntimeConfigurationInput
-  | DescribeScalingPoliciesInput
-  | DescribeScriptInput
-  | DescribeVpcPeeringAuthorizationsInput
-  | DescribeVpcPeeringConnectionsInput
-  | GetGameSessionLogUrlInput
-  | GetInstanceAccessInput
-  | ListAliasesInput
-  | ListBuildsInput
-  | ListFleetsInput
-  | ListScriptsInput
-  | ListTagsForResourceRequest
-  | PutScalingPolicyInput
-  | RequestUploadCredentialsInput
-  | ResolveAliasInput
-  | SearchGameSessionsInput
-  | StartFleetActionsInput
-  | StartGameSessionPlacementInput
-  | StartMatchBackfillInput
-  | StartMatchmakingInput
-  | StopFleetActionsInput
-  | StopGameSessionPlacementInput
-  | StopMatchmakingInput
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateAliasInput
-  | UpdateBuildInput
-  | UpdateFleetAttributesInput
-  | UpdateFleetCapacityInput
-  | UpdateFleetPortSettingsInput
-  | UpdateGameSessionInput
-  | UpdateGameSessionQueueInput
-  | UpdateMatchmakingConfigurationInput
-  | UpdateRuntimeConfigurationInput
-  | UpdateScriptInput
-  | ValidateMatchmakingRuleSetInput;
+  | AcceptMatchCommandInput
+  | CreateAliasCommandInput
+  | CreateBuildCommandInput
+  | CreateFleetCommandInput
+  | CreateGameSessionCommandInput
+  | CreateGameSessionQueueCommandInput
+  | CreateMatchmakingConfigurationCommandInput
+  | CreateMatchmakingRuleSetCommandInput
+  | CreatePlayerSessionCommandInput
+  | CreatePlayerSessionsCommandInput
+  | CreateScriptCommandInput
+  | CreateVpcPeeringAuthorizationCommandInput
+  | CreateVpcPeeringConnectionCommandInput
+  | DeleteAliasCommandInput
+  | DeleteBuildCommandInput
+  | DeleteFleetCommandInput
+  | DeleteGameSessionQueueCommandInput
+  | DeleteMatchmakingConfigurationCommandInput
+  | DeleteMatchmakingRuleSetCommandInput
+  | DeleteScalingPolicyCommandInput
+  | DeleteScriptCommandInput
+  | DeleteVpcPeeringAuthorizationCommandInput
+  | DeleteVpcPeeringConnectionCommandInput
+  | DescribeAliasCommandInput
+  | DescribeBuildCommandInput
+  | DescribeEC2InstanceLimitsCommandInput
+  | DescribeFleetAttributesCommandInput
+  | DescribeFleetCapacityCommandInput
+  | DescribeFleetEventsCommandInput
+  | DescribeFleetPortSettingsCommandInput
+  | DescribeFleetUtilizationCommandInput
+  | DescribeGameSessionDetailsCommandInput
+  | DescribeGameSessionPlacementCommandInput
+  | DescribeGameSessionQueuesCommandInput
+  | DescribeGameSessionsCommandInput
+  | DescribeInstancesCommandInput
+  | DescribeMatchmakingCommandInput
+  | DescribeMatchmakingConfigurationsCommandInput
+  | DescribeMatchmakingRuleSetsCommandInput
+  | DescribePlayerSessionsCommandInput
+  | DescribeRuntimeConfigurationCommandInput
+  | DescribeScalingPoliciesCommandInput
+  | DescribeScriptCommandInput
+  | DescribeVpcPeeringAuthorizationsCommandInput
+  | DescribeVpcPeeringConnectionsCommandInput
+  | GetGameSessionLogUrlCommandInput
+  | GetInstanceAccessCommandInput
+  | ListAliasesCommandInput
+  | ListBuildsCommandInput
+  | ListFleetsCommandInput
+  | ListScriptsCommandInput
+  | ListTagsForResourceCommandInput
+  | PutScalingPolicyCommandInput
+  | RequestUploadCredentialsCommandInput
+  | ResolveAliasCommandInput
+  | SearchGameSessionsCommandInput
+  | StartFleetActionsCommandInput
+  | StartGameSessionPlacementCommandInput
+  | StartMatchBackfillCommandInput
+  | StartMatchmakingCommandInput
+  | StopFleetActionsCommandInput
+  | StopGameSessionPlacementCommandInput
+  | StopMatchmakingCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAliasCommandInput
+  | UpdateBuildCommandInput
+  | UpdateFleetAttributesCommandInput
+  | UpdateFleetCapacityCommandInput
+  | UpdateFleetPortSettingsCommandInput
+  | UpdateGameSessionCommandInput
+  | UpdateGameSessionQueueCommandInput
+  | UpdateMatchmakingConfigurationCommandInput
+  | UpdateRuntimeConfigurationCommandInput
+  | UpdateScriptCommandInput
+  | ValidateMatchmakingRuleSetCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AcceptMatchOutput
-  | CreateAliasOutput
-  | CreateBuildOutput
-  | CreateFleetOutput
-  | CreateGameSessionOutput
-  | CreateGameSessionQueueOutput
-  | CreateMatchmakingConfigurationOutput
-  | CreateMatchmakingRuleSetOutput
-  | CreatePlayerSessionOutput
-  | CreatePlayerSessionsOutput
-  | CreateScriptOutput
-  | CreateVpcPeeringAuthorizationOutput
-  | CreateVpcPeeringConnectionOutput
-  | DeleteGameSessionQueueOutput
-  | DeleteMatchmakingConfigurationOutput
-  | DeleteMatchmakingRuleSetOutput
-  | DeleteVpcPeeringAuthorizationOutput
-  | DeleteVpcPeeringConnectionOutput
-  | DescribeAliasOutput
-  | DescribeBuildOutput
-  | DescribeEC2InstanceLimitsOutput
-  | DescribeFleetAttributesOutput
-  | DescribeFleetCapacityOutput
-  | DescribeFleetEventsOutput
-  | DescribeFleetPortSettingsOutput
-  | DescribeFleetUtilizationOutput
-  | DescribeGameSessionDetailsOutput
-  | DescribeGameSessionPlacementOutput
-  | DescribeGameSessionQueuesOutput
-  | DescribeGameSessionsOutput
-  | DescribeInstancesOutput
-  | DescribeMatchmakingConfigurationsOutput
-  | DescribeMatchmakingOutput
-  | DescribeMatchmakingRuleSetsOutput
-  | DescribePlayerSessionsOutput
-  | DescribeRuntimeConfigurationOutput
-  | DescribeScalingPoliciesOutput
-  | DescribeScriptOutput
-  | DescribeVpcPeeringAuthorizationsOutput
-  | DescribeVpcPeeringConnectionsOutput
-  | GetGameSessionLogUrlOutput
-  | GetInstanceAccessOutput
-  | ListAliasesOutput
-  | ListBuildsOutput
-  | ListFleetsOutput
-  | ListScriptsOutput
-  | ListTagsForResourceResponse
-  | PutScalingPolicyOutput
-  | RequestUploadCredentialsOutput
-  | ResolveAliasOutput
-  | SearchGameSessionsOutput
-  | StartFleetActionsOutput
-  | StartGameSessionPlacementOutput
-  | StartMatchBackfillOutput
-  | StartMatchmakingOutput
-  | StopFleetActionsOutput
-  | StopGameSessionPlacementOutput
-  | StopMatchmakingOutput
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateAliasOutput
-  | UpdateBuildOutput
-  | UpdateFleetAttributesOutput
-  | UpdateFleetCapacityOutput
-  | UpdateFleetPortSettingsOutput
-  | UpdateGameSessionOutput
-  | UpdateGameSessionQueueOutput
-  | UpdateMatchmakingConfigurationOutput
-  | UpdateRuntimeConfigurationOutput
-  | UpdateScriptOutput
-  | ValidateMatchmakingRuleSetOutput;
+  | AcceptMatchCommandOutput
+  | CreateAliasCommandOutput
+  | CreateBuildCommandOutput
+  | CreateFleetCommandOutput
+  | CreateGameSessionCommandOutput
+  | CreateGameSessionQueueCommandOutput
+  | CreateMatchmakingConfigurationCommandOutput
+  | CreateMatchmakingRuleSetCommandOutput
+  | CreatePlayerSessionCommandOutput
+  | CreatePlayerSessionsCommandOutput
+  | CreateScriptCommandOutput
+  | CreateVpcPeeringAuthorizationCommandOutput
+  | CreateVpcPeeringConnectionCommandOutput
+  | DeleteAliasCommandOutput
+  | DeleteBuildCommandOutput
+  | DeleteFleetCommandOutput
+  | DeleteGameSessionQueueCommandOutput
+  | DeleteMatchmakingConfigurationCommandOutput
+  | DeleteMatchmakingRuleSetCommandOutput
+  | DeleteScalingPolicyCommandOutput
+  | DeleteScriptCommandOutput
+  | DeleteVpcPeeringAuthorizationCommandOutput
+  | DeleteVpcPeeringConnectionCommandOutput
+  | DescribeAliasCommandOutput
+  | DescribeBuildCommandOutput
+  | DescribeEC2InstanceLimitsCommandOutput
+  | DescribeFleetAttributesCommandOutput
+  | DescribeFleetCapacityCommandOutput
+  | DescribeFleetEventsCommandOutput
+  | DescribeFleetPortSettingsCommandOutput
+  | DescribeFleetUtilizationCommandOutput
+  | DescribeGameSessionDetailsCommandOutput
+  | DescribeGameSessionPlacementCommandOutput
+  | DescribeGameSessionQueuesCommandOutput
+  | DescribeGameSessionsCommandOutput
+  | DescribeInstancesCommandOutput
+  | DescribeMatchmakingCommandOutput
+  | DescribeMatchmakingConfigurationsCommandOutput
+  | DescribeMatchmakingRuleSetsCommandOutput
+  | DescribePlayerSessionsCommandOutput
+  | DescribeRuntimeConfigurationCommandOutput
+  | DescribeScalingPoliciesCommandOutput
+  | DescribeScriptCommandOutput
+  | DescribeVpcPeeringAuthorizationsCommandOutput
+  | DescribeVpcPeeringConnectionsCommandOutput
+  | GetGameSessionLogUrlCommandOutput
+  | GetInstanceAccessCommandOutput
+  | ListAliasesCommandOutput
+  | ListBuildsCommandOutput
+  | ListFleetsCommandOutput
+  | ListScriptsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutScalingPolicyCommandOutput
+  | RequestUploadCredentialsCommandOutput
+  | ResolveAliasCommandOutput
+  | SearchGameSessionsCommandOutput
+  | StartFleetActionsCommandOutput
+  | StartGameSessionPlacementCommandOutput
+  | StartMatchBackfillCommandOutput
+  | StartMatchmakingCommandOutput
+  | StopFleetActionsCommandOutput
+  | StopGameSessionPlacementCommandOutput
+  | StopMatchmakingCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAliasCommandOutput
+  | UpdateBuildCommandOutput
+  | UpdateFleetAttributesCommandOutput
+  | UpdateFleetCapacityCommandOutput
+  | UpdateFleetPortSettingsCommandOutput
+  | UpdateGameSessionCommandOutput
+  | UpdateGameSessionQueueCommandOutput
+  | UpdateMatchmakingConfigurationCommandOutput
+  | UpdateRuntimeConfigurationCommandOutput
+  | UpdateScriptCommandOutput
+  | ValidateMatchmakingRuleSetCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

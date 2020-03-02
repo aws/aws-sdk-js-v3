@@ -42,7 +42,7 @@ export namespace AssociateTeamMemberRequest {
   }
 }
 
-export interface AssociateTeamMemberResult extends $MetadataBearer {
+export interface AssociateTeamMemberResult {
   __type?: "AssociateTeamMemberResult";
   /**
    * <p>The user- or system-generated token from the initial request that can be used to repeat
@@ -210,7 +210,7 @@ export namespace CreateProjectRequest {
   }
 }
 
-export interface CreateProjectResult extends $MetadataBearer {
+export interface CreateProjectResult {
   __type?: "CreateProjectResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the created project.</p>
@@ -272,7 +272,7 @@ export namespace CreateUserProfileRequest {
   }
 }
 
-export interface CreateUserProfileResult extends $MetadataBearer {
+export interface CreateUserProfileResult {
   __type?: "CreateUserProfileResult";
   /**
    * <p>The date the user profile was created, in timestamp format.</p>
@@ -341,7 +341,7 @@ export namespace DeleteProjectRequest {
   }
 }
 
-export interface DeleteProjectResult extends $MetadataBearer {
+export interface DeleteProjectResult {
   __type?: "DeleteProjectResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted project.</p>
@@ -375,7 +375,7 @@ export namespace DeleteUserProfileRequest {
   }
 }
 
-export interface DeleteUserProfileResult extends $MetadataBearer {
+export interface DeleteUserProfileResult {
   __type?: "DeleteUserProfileResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.</p>
@@ -403,7 +403,7 @@ export namespace DescribeProjectRequest {
   }
 }
 
-export interface DescribeProjectResult extends $MetadataBearer {
+export interface DescribeProjectResult {
   __type?: "DescribeProjectResult";
   /**
    * <p>The Amazon Resource Name (ARN) for the project.</p>
@@ -473,7 +473,7 @@ export namespace DescribeUserProfileRequest {
   }
 }
 
-export interface DescribeUserProfileResult extends $MetadataBearer {
+export interface DescribeUserProfileResult {
   __type?: "DescribeUserProfileResult";
   /**
    * <p>The date and time when the user profile was created in AWS CodeStar, in timestamp
@@ -544,7 +544,7 @@ export namespace DisassociateTeamMemberRequest {
   }
 }
 
-export interface DisassociateTeamMemberResult extends $MetadataBearer {
+export interface DisassociateTeamMemberResult {
   __type?: "DisassociateTeamMemberResult";
 }
 
@@ -675,7 +675,7 @@ export namespace ListProjectsRequest {
   }
 }
 
-export interface ListProjectsResult extends $MetadataBearer {
+export interface ListProjectsResult {
   __type?: "ListProjectsResult";
   /**
    * <p>The continuation token to use when requesting the next set of results, if there are
@@ -720,7 +720,7 @@ export namespace ListResourcesRequest {
   }
 }
 
-export interface ListResourcesResult extends $MetadataBearer {
+export interface ListResourcesResult {
   __type?: "ListResourcesResult";
   /**
    * <p>The continuation token to use when requesting the next set of results, if there are
@@ -764,7 +764,7 @@ export namespace ListTagsForProjectRequest {
   }
 }
 
-export interface ListTagsForProjectResult extends $MetadataBearer {
+export interface ListTagsForProjectResult {
   __type?: "ListTagsForProjectResult";
   /**
    * <p>Reserved for future use.</p>
@@ -808,7 +808,7 @@ export namespace ListTeamMembersRequest {
   }
 }
 
-export interface ListTeamMembersResult extends $MetadataBearer {
+export interface ListTeamMembersResult {
   __type?: "ListTeamMembersResult";
   /**
    * <p>The continuation token to use when requesting the next set of results, if there are
@@ -848,7 +848,7 @@ export namespace ListUserProfilesRequest {
   }
 }
 
-export interface ListUserProfilesResult extends $MetadataBearer {
+export interface ListUserProfilesResult {
   __type?: "ListUserProfilesResult";
   /**
    * <p>The continuation token to use when requesting the next set of results, if there are
@@ -1045,7 +1045,7 @@ export namespace TagProjectRequest {
   }
 }
 
-export interface TagProjectResult extends $MetadataBearer {
+export interface TagProjectResult {
   __type?: "TagProjectResult";
   /**
    * <p>The tags for the project.</p>
@@ -1192,7 +1192,7 @@ export namespace UntagProjectRequest {
   }
 }
 
-export interface UntagProjectResult extends $MetadataBearer {
+export interface UntagProjectResult {
   __type?: "UntagProjectResult";
 }
 
@@ -1226,7 +1226,7 @@ export namespace UpdateProjectRequest {
   }
 }
 
-export interface UpdateProjectResult extends $MetadataBearer {
+export interface UpdateProjectResult {
   __type?: "UpdateProjectResult";
 }
 
@@ -1270,7 +1270,7 @@ export namespace UpdateTeamMemberRequest {
   }
 }
 
-export interface UpdateTeamMemberResult extends $MetadataBearer {
+export interface UpdateTeamMemberResult {
   __type?: "UpdateTeamMemberResult";
   /**
    * <p>The project role granted to the user.</p>
@@ -1329,7 +1329,7 @@ export namespace UpdateUserProfileRequest {
   }
 }
 
-export interface UpdateUserProfileResult extends $MetadataBearer {
+export interface UpdateUserProfileResult {
   __type?: "UpdateUserProfileResult";
   /**
    * <p>The date the user profile was created, in timestamp format.</p>

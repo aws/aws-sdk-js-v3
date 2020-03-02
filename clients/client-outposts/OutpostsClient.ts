@@ -1,15 +1,23 @@
 import {
-  CreateOutpostInput,
-  CreateOutpostOutput,
-  GetOutpostInput,
-  GetOutpostInstanceTypesInput,
-  GetOutpostInstanceTypesOutput,
-  GetOutpostOutput,
-  ListOutpostsInput,
-  ListOutpostsOutput,
-  ListSitesInput,
-  ListSitesOutput
-} from "./models/index";
+  CreateOutpostCommandInput,
+  CreateOutpostCommandOutput
+} from "./commands/CreateOutpostCommand";
+import {
+  GetOutpostCommandInput,
+  GetOutpostCommandOutput
+} from "./commands/GetOutpostCommand";
+import {
+  GetOutpostInstanceTypesCommandInput,
+  GetOutpostInstanceTypesCommandOutput
+} from "./commands/GetOutpostInstanceTypesCommand";
+import {
+  ListOutpostsCommandInput,
+  ListOutpostsCommandOutput
+} from "./commands/ListOutpostsCommand";
+import {
+  ListSitesCommandInput,
+  ListSitesCommandOutput
+} from "./commands/ListSitesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -63,18 +71,18 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateOutpostInput
-  | GetOutpostInput
-  | GetOutpostInstanceTypesInput
-  | ListOutpostsInput
-  | ListSitesInput;
+  | CreateOutpostCommandInput
+  | GetOutpostCommandInput
+  | GetOutpostInstanceTypesCommandInput
+  | ListOutpostsCommandInput
+  | ListSitesCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateOutpostOutput
-  | GetOutpostInstanceTypesOutput
-  | GetOutpostOutput
-  | ListOutpostsOutput
-  | ListSitesOutput;
+  | CreateOutpostCommandOutput
+  | GetOutpostCommandOutput
+  | GetOutpostInstanceTypesCommandOutput
+  | ListOutpostsCommandOutput
+  | ListSitesCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

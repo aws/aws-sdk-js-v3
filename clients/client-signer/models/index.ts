@@ -71,7 +71,7 @@ export namespace DescribeSigningJobRequest {
   }
 }
 
-export interface DescribeSigningJobResponse extends $MetadataBearer {
+export interface DescribeSigningJobResponse {
   __type?: "DescribeSigningJobResponse";
   /**
    * <p>Date and time that the signing job was completed.</p>
@@ -203,7 +203,7 @@ export namespace GetSigningPlatformRequest {
   }
 }
 
-export interface GetSigningPlatformResponse extends $MetadataBearer {
+export interface GetSigningPlatformResponse {
   __type?: "GetSigningPlatformResponse";
   /**
    * <p>The category type of the target signing platform.</p>
@@ -267,7 +267,7 @@ export namespace GetSigningProfileRequest {
   }
 }
 
-export interface GetSigningProfileResponse extends $MetadataBearer {
+export interface GetSigningProfileResponse {
   __type?: "GetSigningProfileResponse";
   /**
    * <p>The Amazon
@@ -406,7 +406,7 @@ export namespace ListSigningJobsRequest {
   }
 }
 
-export interface ListSigningJobsResponse extends $MetadataBearer {
+export interface ListSigningJobsResponse {
   __type?: "ListSigningJobsResponse";
   /**
    * <p>A list of your signing jobs.</p>
@@ -461,7 +461,7 @@ export namespace ListSigningPlatformsRequest {
   }
 }
 
-export interface ListSigningPlatformsResponse extends $MetadataBearer {
+export interface ListSigningPlatformsResponse {
   __type?: "ListSigningPlatformsResponse";
   /**
    * <p>Value for specifying the next set of paginated results to return.</p>
@@ -507,7 +507,7 @@ export namespace ListSigningProfilesRequest {
   }
 }
 
-export interface ListSigningProfilesResponse extends $MetadataBearer {
+export interface ListSigningProfilesResponse {
   __type?: "ListSigningProfilesResponse";
   /**
    * <p>Value for specifying the next set of paginated results to return.</p>
@@ -544,7 +544,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>A list of tags
@@ -622,7 +622,7 @@ export namespace PutSigningProfileRequest {
   }
 }
 
-export interface PutSigningProfileResponse extends $MetadataBearer {
+export interface PutSigningProfileResponse {
   __type?: "PutSigningProfileResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the signing profile created.</p>
@@ -1056,7 +1056,7 @@ export namespace StartSigningJobRequest {
   }
 }
 
-export interface StartSigningJobResponse extends $MetadataBearer {
+export interface StartSigningJobResponse {
   __type?: "StartSigningJobResponse";
   /**
    * <p>The ID of your signing job.</p>
@@ -1093,7 +1093,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1143,7 +1143,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

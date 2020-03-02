@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetSMBGuestPasswordCommandInput = SetSMBGuestPasswordInput;
-export type SetSMBGuestPasswordCommandOutput = SetSMBGuestPasswordOutput;
+export type SetSMBGuestPasswordCommandOutput = SetSMBGuestPasswordOutput &
+  __MetadataBearer;
 
 export class SetSMBGuestPasswordCommand extends $Command<
   SetSMBGuestPasswordCommandInput,

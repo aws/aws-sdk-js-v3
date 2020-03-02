@@ -332,7 +332,7 @@ export namespace ContinueUpdateRollbackInput {
 /**
  * <p>The output for a <a>ContinueUpdateRollback</a> action.</p>
  */
-export interface ContinueUpdateRollbackOutput extends $MetadataBearer {
+export interface ContinueUpdateRollbackOutput {
   __type?: "ContinueUpdateRollbackOutput";
 }
 
@@ -589,7 +589,7 @@ export namespace CreateChangeSetInput {
 /**
  * <p>The output for the <a>CreateChangeSet</a> action.</p>
  */
-export interface CreateChangeSetOutput extends $MetadataBearer {
+export interface CreateChangeSetOutput {
   __type?: "CreateChangeSetOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the change set.</p>
@@ -889,7 +889,7 @@ export namespace CreateStackInput {
 /**
  * <p>The output for a <a>CreateStack</a> action.</p>
  */
-export interface CreateStackOutput extends $MetadataBearer {
+export interface CreateStackOutput {
   __type?: "CreateStackOutput";
   /**
    * <p>Unique identifier of the stack.</p>
@@ -930,7 +930,7 @@ export namespace DeleteChangeSetInput {
 /**
  * <p>The output for the <a>DeleteChangeSet</a> action.</p>
  */
-export interface DeleteChangeSetOutput extends $MetadataBearer {
+export interface DeleteChangeSetOutput {
   __type?: "DeleteChangeSetOutput";
 }
 
@@ -1029,7 +1029,7 @@ export namespace DeregisterTypeInput {
   }
 }
 
-export interface DeregisterTypeOutput extends $MetadataBearer {
+export interface DeregisterTypeOutput {
   __type?: "DeregisterTypeOutput";
 }
 
@@ -1059,7 +1059,7 @@ export namespace DescribeAccountLimitsInput {
 /**
  * <p>The output for the <a>DescribeAccountLimits</a> action.</p>
  */
-export interface DescribeAccountLimitsOutput extends $MetadataBearer {
+export interface DescribeAccountLimitsOutput {
   __type?: "DescribeAccountLimitsOutput";
   /**
    * <p>An account limit structure that contain a list of AWS CloudFormation account limits
@@ -1113,7 +1113,7 @@ export namespace DescribeChangeSetInput {
 /**
  * <p>The output for the <a>DescribeChangeSet</a> action.</p>
  */
-export interface DescribeChangeSetOutput extends $MetadataBearer {
+export interface DescribeChangeSetOutput {
   __type?: "DescribeChangeSetOutput";
   /**
    * <p>If you execute the change set, the list of capabilities that were explicitly
@@ -1232,8 +1232,7 @@ export namespace DescribeStackDriftDetectionStatusInput {
   }
 }
 
-export interface DescribeStackDriftDetectionStatusOutput
-  extends $MetadataBearer {
+export interface DescribeStackDriftDetectionStatusOutput {
   __type?: "DescribeStackDriftDetectionStatusOutput";
   /**
    * <p>The status of the stack drift detection operation.</p>
@@ -1362,7 +1361,7 @@ export namespace DescribeStackEventsInput {
 /**
  * <p>The output for a <a>DescribeStackEvents</a> action.</p>
  */
-export interface DescribeStackEventsOutput extends $MetadataBearer {
+export interface DescribeStackEventsOutput {
   __type?: "DescribeStackEventsOutput";
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of events.
@@ -1436,7 +1435,7 @@ export namespace DescribeStackResourceDriftsInput {
   }
 }
 
-export interface DescribeStackResourceDriftsOutput extends $MetadataBearer {
+export interface DescribeStackResourceDriftsOutput {
   __type?: "DescribeStackResourceDriftsOutput";
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
@@ -1503,7 +1502,7 @@ export namespace DescribeStackResourceInput {
 /**
  * <p>The output for a <a>DescribeStackResource</a> action.</p>
  */
-export interface DescribeStackResourceOutput extends $MetadataBearer {
+export interface DescribeStackResourceOutput {
   __type?: "DescribeStackResourceOutput";
   /**
    * <p>A <code>StackResourceDetail</code> structure containing the description of the
@@ -1570,7 +1569,7 @@ export namespace DescribeStackResourcesInput {
 /**
  * <p>The output for a <a>DescribeStackResources</a> action.</p>
  */
-export interface DescribeStackResourcesOutput extends $MetadataBearer {
+export interface DescribeStackResourcesOutput {
   __type?: "DescribeStackResourcesOutput";
   /**
    * <p>A list of <code>StackResource</code> structures.</p>
@@ -1620,7 +1619,7 @@ export namespace DescribeStacksInput {
 /**
  * <p>The output for a <a>DescribeStacks</a> action.</p>
  */
-export interface DescribeStacksOutput extends $MetadataBearer {
+export interface DescribeStacksOutput {
   __type?: "DescribeStacksOutput";
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of stacks.
@@ -1673,7 +1672,7 @@ export namespace DescribeTypeInput {
   }
 }
 
-export interface DescribeTypeOutput extends $MetadataBearer {
+export interface DescribeTypeOutput {
   __type?: "DescribeTypeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the type.</p>
@@ -1834,7 +1833,7 @@ export namespace DescribeTypeRegistrationInput {
   }
 }
 
-export interface DescribeTypeRegistrationOutput extends $MetadataBearer {
+export interface DescribeTypeRegistrationOutput {
   __type?: "DescribeTypeRegistrationOutput";
   /**
    * <p>The description of the type registration request.</p>
@@ -1884,7 +1883,7 @@ export namespace DetectStackDriftInput {
   }
 }
 
-export interface DetectStackDriftOutput extends $MetadataBearer {
+export interface DetectStackDriftOutput {
   __type?: "DetectStackDriftOutput";
   /**
    * <p>The ID of the drift detection results of this operation. </p>
@@ -1920,7 +1919,7 @@ export namespace DetectStackResourceDriftInput {
   }
 }
 
-export interface DetectStackResourceDriftOutput extends $MetadataBearer {
+export interface DetectStackResourceDriftOutput {
   __type?: "DetectStackResourceDriftOutput";
   /**
    * <p>Information about whether the resource's actual configuration has drifted from its
@@ -1980,7 +1979,7 @@ export namespace EstimateTemplateCostInput {
 /**
  * <p>The output for a <a>EstimateTemplateCost</a> action.</p>
  */
-export interface EstimateTemplateCostOutput extends $MetadataBearer {
+export interface EstimateTemplateCostOutput {
   __type?: "EstimateTemplateCostOutput";
   /**
    * <p>An AWS Simple Monthly Calculator URL with a query string that describes the resources
@@ -2036,7 +2035,7 @@ export namespace ExecuteChangeSetInput {
 /**
  * <p>The output for the <a>ExecuteChangeSet</a> action.</p>
  */
-export interface ExecuteChangeSetOutput extends $MetadataBearer {
+export interface ExecuteChangeSetOutput {
   __type?: "ExecuteChangeSetOutput";
 }
 
@@ -2109,7 +2108,7 @@ export namespace GetStackPolicyInput {
 /**
  * <p>The output for the <a>GetStackPolicy</a> action.</p>
  */
-export interface GetStackPolicyOutput extends $MetadataBearer {
+export interface GetStackPolicyOutput {
   __type?: "GetStackPolicyOutput";
   /**
    * <p>Structure containing the stack policy body. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html"> Prevent Updates
@@ -2173,7 +2172,7 @@ export namespace GetTemplateInput {
 /**
  * <p>The output for <a>GetTemplate</a> action.</p>
  */
-export interface GetTemplateOutput extends $MetadataBearer {
+export interface GetTemplateOutput {
   __type?: "GetTemplateOutput";
   /**
    * <p>The stage of the template that you can retrieve. For stacks, the
@@ -2251,7 +2250,7 @@ export namespace GetTemplateSummaryInput {
 /**
  * <p>The output for the <a>GetTemplateSummary</a> action.</p>
  */
-export interface GetTemplateSummaryOutput extends $MetadataBearer {
+export interface GetTemplateSummaryOutput {
   __type?: "GetTemplateSummaryOutput";
   /**
    * <p>The capabilities found within the template. If your template contains IAM resources,
@@ -2436,7 +2435,7 @@ export namespace ListChangeSetsInput {
 /**
  * <p>The output for the <a>ListChangeSets</a> action.</p>
  */
-export interface ListChangeSetsOutput extends $MetadataBearer {
+export interface ListChangeSetsOutput {
   __type?: "ListChangeSetsOutput";
   /**
    * <p>If the output exceeds 1 MB, a string that identifies the next page of change sets. If
@@ -2472,7 +2471,7 @@ export namespace ListExportsInput {
   }
 }
 
-export interface ListExportsOutput extends $MetadataBearer {
+export interface ListExportsOutput {
   __type?: "ListExportsOutput";
   /**
    * <p>The output for the <a>ListExports</a> action.</p>
@@ -2514,7 +2513,7 @@ export namespace ListImportsInput {
   }
 }
 
-export interface ListImportsOutput extends $MetadataBearer {
+export interface ListImportsOutput {
   __type?: "ListImportsOutput";
   /**
    * <p>A list of stack names that are importing the specified exported output value.
@@ -2572,7 +2571,7 @@ export namespace ListStackResourcesInput {
 /**
  * <p>The output for a <a>ListStackResources</a> action.</p>
  */
-export interface ListStackResourcesOutput extends $MetadataBearer {
+export interface ListStackResourcesOutput {
   __type?: "ListStackResourcesOutput";
   /**
    * <p>If the output exceeds 1 MB, a string that identifies the next page of stack
@@ -2619,7 +2618,7 @@ export namespace ListStacksInput {
 /**
  * <p>The output for <a>ListStacks</a> action.</p>
  */
-export interface ListStacksOutput extends $MetadataBearer {
+export interface ListStacksOutput {
   __type?: "ListStacksOutput";
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of stacks.
@@ -2682,7 +2681,7 @@ export namespace ListTypeRegistrationsInput {
   }
 }
 
-export interface ListTypeRegistrationsOutput extends $MetadataBearer {
+export interface ListTypeRegistrationsOutput {
   __type?: "ListTypeRegistrationsOutput";
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
@@ -2757,7 +2756,7 @@ export namespace ListTypeVersionsInput {
   }
 }
 
-export interface ListTypeVersionsOutput extends $MetadataBearer {
+export interface ListTypeVersionsOutput {
   __type?: "ListTypeVersionsOutput";
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
@@ -2847,7 +2846,7 @@ export namespace ListTypesInput {
   }
 }
 
-export interface ListTypesOutput extends $MetadataBearer {
+export interface ListTypesOutput {
   __type?: "ListTypesOutput";
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
@@ -3179,7 +3178,7 @@ export namespace RecordHandlerProgressInput {
   }
 }
 
-export interface RecordHandlerProgressOutput extends $MetadataBearer {
+export interface RecordHandlerProgressOutput {
   __type?: "RecordHandlerProgressOutput";
 }
 
@@ -3273,7 +3272,7 @@ export namespace RegisterTypeInput {
   }
 }
 
-export interface RegisterTypeOutput extends $MetadataBearer {
+export interface RegisterTypeOutput {
   __type?: "RegisterTypeOutput";
   /**
    * <p>The identifier for this registration request.</p>
@@ -3746,7 +3745,7 @@ export namespace SetTypeDefaultVersionInput {
   }
 }
 
-export interface SetTypeDefaultVersionOutput extends $MetadataBearer {
+export interface SetTypeDefaultVersionOutput {
   __type?: "SetTypeDefaultVersionOutput";
 }
 
@@ -5120,7 +5119,7 @@ export namespace UpdateStackInput {
 /**
  * <p>The output for an <a>UpdateStack</a> action.</p>
  */
-export interface UpdateStackOutput extends $MetadataBearer {
+export interface UpdateStackOutput {
   __type?: "UpdateStackOutput";
   /**
    * <p>Unique identifier of the stack.</p>
@@ -5154,7 +5153,7 @@ export namespace UpdateTerminationProtectionInput {
   }
 }
 
-export interface UpdateTerminationProtectionOutput extends $MetadataBearer {
+export interface UpdateTerminationProtectionOutput {
   __type?: "UpdateTerminationProtectionOutput";
   /**
    * <p>The unique ID of the stack.</p>
@@ -5202,7 +5201,7 @@ export namespace ValidateTemplateInput {
 /**
  * <p>The output for <a>ValidateTemplate</a> action.</p>
  */
-export interface ValidateTemplateOutput extends $MetadataBearer {
+export interface ValidateTemplateOutput {
   __type?: "ValidateTemplateOutput";
   /**
    * <p>The capabilities found within the template. If your template contains IAM resources,
@@ -5404,7 +5403,7 @@ export namespace CreateStackInstancesInput {
   }
 }
 
-export interface CreateStackInstancesOutput extends $MetadataBearer {
+export interface CreateStackInstancesOutput {
   __type?: "CreateStackInstancesOutput";
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -5608,7 +5607,7 @@ export namespace CreateStackSetInput {
   }
 }
 
-export interface CreateStackSetOutput extends $MetadataBearer {
+export interface CreateStackSetOutput {
   __type?: "CreateStackSetOutput";
   /**
    * <p>The ID of the stack set that you're creating.</p>
@@ -5689,7 +5688,7 @@ export namespace DeleteStackInstancesInput {
   }
 }
 
-export interface DeleteStackInstancesOutput extends $MetadataBearer {
+export interface DeleteStackInstancesOutput {
   __type?: "DeleteStackInstancesOutput";
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -5718,7 +5717,7 @@ export namespace DeleteStackSetInput {
   }
 }
 
-export interface DeleteStackSetOutput extends $MetadataBearer {
+export interface DeleteStackSetOutput {
   __type?: "DeleteStackSetOutput";
 }
 
@@ -5753,7 +5752,7 @@ export namespace DescribeStackInstanceInput {
   }
 }
 
-export interface DescribeStackInstanceOutput extends $MetadataBearer {
+export interface DescribeStackInstanceOutput {
   __type?: "DescribeStackInstanceOutput";
   /**
    * <p>The stack instance that matches the specified request parameters.</p>
@@ -5800,7 +5799,7 @@ export namespace DescribeStackSetOperationInput {
   }
 }
 
-export interface DescribeStackSetOperationOutput extends $MetadataBearer {
+export interface DescribeStackSetOperationOutput {
   __type?: "DescribeStackSetOperationOutput";
   /**
    * <p>The specified stack set operation.</p>
@@ -5814,7 +5813,7 @@ export namespace DescribeStackSetOperationOutput {
   }
 }
 
-export interface DescribeStackSetOutput extends $MetadataBearer {
+export interface DescribeStackSetOutput {
   __type?: "DescribeStackSetOutput";
   /**
    * <p>The specified stack set.</p>
@@ -5856,7 +5855,7 @@ export namespace DetectStackSetDriftInput {
   }
 }
 
-export interface DetectStackSetDriftOutput extends $MetadataBearer {
+export interface DetectStackSetDriftOutput {
   __type?: "DetectStackSetDriftOutput";
   /**
    * <p>The ID of the drift detection stack set operation. </p>
@@ -5932,7 +5931,7 @@ export namespace ListStackInstancesInput {
   }
 }
 
-export interface ListStackInstancesOutput extends $MetadataBearer {
+export interface ListStackInstancesOutput {
   __type?: "ListStackInstancesOutput";
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
@@ -5994,7 +5993,7 @@ export namespace ListStackSetOperationResultsInput {
   }
 }
 
-export interface ListStackSetOperationResultsOutput extends $MetadataBearer {
+export interface ListStackSetOperationResultsOutput {
   __type?: "ListStackSetOperationResultsOutput";
   /**
    * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token.
@@ -6051,7 +6050,7 @@ export namespace ListStackSetOperationsInput {
   }
 }
 
-export interface ListStackSetOperationsOutput extends $MetadataBearer {
+export interface ListStackSetOperationsOutput {
   __type?: "ListStackSetOperationsOutput";
   /**
    * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token.
@@ -6107,7 +6106,7 @@ export namespace ListStackSetsInput {
   }
 }
 
-export interface ListStackSetsOutput extends $MetadataBearer {
+export interface ListStackSetsOutput {
   __type?: "ListStackSetsOutput";
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
@@ -7181,7 +7180,7 @@ export namespace StopStackSetOperationInput {
   }
 }
 
-export interface StopStackSetOperationOutput extends $MetadataBearer {
+export interface StopStackSetOperationOutput {
   __type?: "StopStackSetOperationOutput";
 }
 
@@ -7282,7 +7281,7 @@ export namespace UpdateStackInstancesInput {
   }
 }
 
-export interface UpdateStackInstancesOutput extends $MetadataBearer {
+export interface UpdateStackInstancesOutput {
   __type?: "UpdateStackInstancesOutput";
   /**
    * <p>The unique identifier for this stack set operation. </p>
@@ -7558,7 +7557,7 @@ export namespace UpdateStackSetInput {
   }
 }
 
-export interface UpdateStackSetOutput extends $MetadataBearer {
+export interface UpdateStackSetOutput {
   __type?: "UpdateStackSetOutput";
   /**
    * <p>The unique ID for this stack set operation.</p>

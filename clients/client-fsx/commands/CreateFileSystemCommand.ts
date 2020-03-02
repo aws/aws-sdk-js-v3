@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateFileSystemCommandInput = CreateFileSystemRequest;
-export type CreateFileSystemCommandOutput = CreateFileSystemResponse;
+export type CreateFileSystemCommandOutput = CreateFileSystemResponse &
+  __MetadataBearer;
 
 export class CreateFileSystemCommand extends $Command<
   CreateFileSystemCommandInput,

@@ -1,28 +1,51 @@
 import {
-  CancelSigningProfileRequest,
-  DescribeSigningJobRequest,
-  DescribeSigningJobResponse,
-  GetSigningPlatformRequest,
-  GetSigningPlatformResponse,
-  GetSigningProfileRequest,
-  GetSigningProfileResponse,
-  ListSigningJobsRequest,
-  ListSigningJobsResponse,
-  ListSigningPlatformsRequest,
-  ListSigningPlatformsResponse,
-  ListSigningProfilesRequest,
-  ListSigningProfilesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutSigningProfileRequest,
-  PutSigningProfileResponse,
-  StartSigningJobRequest,
-  StartSigningJobResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse
-} from "./models/index";
+  CancelSigningProfileCommandInput,
+  CancelSigningProfileCommandOutput
+} from "./commands/CancelSigningProfileCommand";
+import {
+  DescribeSigningJobCommandInput,
+  DescribeSigningJobCommandOutput
+} from "./commands/DescribeSigningJobCommand";
+import {
+  GetSigningPlatformCommandInput,
+  GetSigningPlatformCommandOutput
+} from "./commands/GetSigningPlatformCommand";
+import {
+  GetSigningProfileCommandInput,
+  GetSigningProfileCommandOutput
+} from "./commands/GetSigningProfileCommand";
+import {
+  ListSigningJobsCommandInput,
+  ListSigningJobsCommandOutput
+} from "./commands/ListSigningJobsCommand";
+import {
+  ListSigningPlatformsCommandInput,
+  ListSigningPlatformsCommandOutput
+} from "./commands/ListSigningPlatformsCommand";
+import {
+  ListSigningProfilesCommandInput,
+  ListSigningProfilesCommandOutput
+} from "./commands/ListSigningProfilesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutSigningProfileCommandInput,
+  PutSigningProfileCommandOutput
+} from "./commands/PutSigningProfileCommand";
+import {
+  StartSigningJobCommandInput,
+  StartSigningJobCommandOutput
+} from "./commands/StartSigningJobCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -70,39 +93,38 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelSigningProfileRequest
-  | DescribeSigningJobRequest
-  | GetSigningPlatformRequest
-  | GetSigningProfileRequest
-  | ListSigningJobsRequest
-  | ListSigningPlatformsRequest
-  | ListSigningProfilesRequest
-  | ListTagsForResourceRequest
-  | PutSigningProfileRequest
-  | StartSigningJobRequest
-  | TagResourceRequest
-  | UntagResourceRequest;
+  | CancelSigningProfileCommandInput
+  | DescribeSigningJobCommandInput
+  | GetSigningPlatformCommandInput
+  | GetSigningProfileCommandInput
+  | ListSigningJobsCommandInput
+  | ListSigningPlatformsCommandInput
+  | ListSigningProfilesCommandInput
+  | ListTagsForResourceCommandInput
+  | PutSigningProfileCommandInput
+  | StartSigningJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | DescribeSigningJobResponse
-  | GetSigningPlatformResponse
-  | GetSigningProfileResponse
-  | ListSigningJobsResponse
-  | ListSigningPlatformsResponse
-  | ListSigningProfilesResponse
-  | ListTagsForResourceResponse
-  | PutSigningProfileResponse
-  | StartSigningJobResponse
-  | TagResourceResponse
-  | UntagResourceResponse;
+  | CancelSigningProfileCommandOutput
+  | DescribeSigningJobCommandOutput
+  | GetSigningPlatformCommandOutput
+  | GetSigningProfileCommandOutput
+  | ListSigningJobsCommandOutput
+  | ListSigningPlatformsCommandOutput
+  | ListSigningProfilesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutSigningProfileCommandOutput
+  | StartSigningJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

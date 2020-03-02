@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePatchBaselineCommandInput = DeletePatchBaselineRequest;
-export type DeletePatchBaselineCommandOutput = DeletePatchBaselineResult;
+export type DeletePatchBaselineCommandOutput = DeletePatchBaselineResult &
+  __MetadataBearer;
 
 export class DeletePatchBaselineCommand extends $Command<
   DeletePatchBaselineCommandInput,

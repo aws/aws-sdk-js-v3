@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateUsagePlanCommandInput = UpdateUsagePlanRequest;
-export type UpdateUsagePlanCommandOutput = UsagePlan;
+export type UpdateUsagePlanCommandOutput = UsagePlan & __MetadataBearer;
 
 export class UpdateUsagePlanCommand extends $Command<
   UpdateUsagePlanCommandInput,

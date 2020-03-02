@@ -76,7 +76,7 @@ export namespace CreateDiscovererRequest {
   }
 }
 
-export interface CreateDiscovererResponse extends $MetadataBearer {
+export interface CreateDiscovererResponse {
   __type?: "CreateDiscovererResponse";
   /**
    * <p>The description of the discoverer.</p>
@@ -135,7 +135,7 @@ export namespace CreateRegistryRequest {
   }
 }
 
-export interface CreateRegistryResponse extends $MetadataBearer {
+export interface CreateRegistryResponse {
   __type?: "CreateRegistryResponse";
   /**
    * <p>The description of the registry.</p>
@@ -188,7 +188,7 @@ export namespace CreateSchemaRequest {
   }
 }
 
-export interface CreateSchemaResponse extends $MetadataBearer {
+export interface CreateSchemaResponse {
   __type?: "CreateSchemaResponse";
   /**
    * <p>The description of the schema.</p>
@@ -298,7 +298,7 @@ export namespace DescribeCodeBindingRequest {
   }
 }
 
-export interface DescribeCodeBindingResponse extends $MetadataBearer {
+export interface DescribeCodeBindingResponse {
   __type?: "DescribeCodeBindingResponse";
   /**
    * <p>The time and date that the code binding was created.</p>
@@ -338,7 +338,7 @@ export namespace DescribeDiscovererRequest {
   }
 }
 
-export interface DescribeDiscovererResponse extends $MetadataBearer {
+export interface DescribeDiscovererResponse {
   __type?: "DescribeDiscovererResponse";
   /**
    * <p>The description of the discoverer.</p>
@@ -388,7 +388,7 @@ export namespace DescribeRegistryRequest {
   }
 }
 
-export interface DescribeRegistryResponse extends $MetadataBearer {
+export interface DescribeRegistryResponse {
   __type?: "DescribeRegistryResponse";
   /**
    * <p>The description of the registry.</p>
@@ -430,7 +430,7 @@ export namespace DescribeSchemaRequest {
   }
 }
 
-export interface DescribeSchemaResponse extends $MetadataBearer {
+export interface DescribeSchemaResponse {
   __type?: "DescribeSchemaResponse";
   Content?: string;
   /**
@@ -549,7 +549,7 @@ export namespace GetCodeBindingSourceRequest {
   }
 }
 
-export interface GetCodeBindingSourceResponse extends $MetadataBearer {
+export interface GetCodeBindingSourceResponse {
   __type?: "GetCodeBindingSourceResponse";
   Body?: Uint8Array;
 }
@@ -579,7 +579,7 @@ export namespace GetDiscoveredSchemaRequest {
   }
 }
 
-export interface GetDiscoveredSchemaResponse extends $MetadataBearer {
+export interface GetDiscoveredSchemaResponse {
   __type?: "GetDiscoveredSchemaResponse";
   Content?: string;
 }
@@ -646,7 +646,7 @@ export namespace ListDiscoverersRequest {
   }
 }
 
-export interface ListDiscoverersResponse extends $MetadataBearer {
+export interface ListDiscoverersResponse {
   __type?: "ListDiscoverersResponse";
   /**
    * <p>An array of DiscovererSummary information.</p>
@@ -679,7 +679,7 @@ export namespace ListRegistriesRequest {
   }
 }
 
-export interface ListRegistriesResponse extends $MetadataBearer {
+export interface ListRegistriesResponse {
   __type?: "ListRegistriesResponse";
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -712,7 +712,7 @@ export namespace ListSchemaVersionsRequest {
   }
 }
 
-export interface ListSchemaVersionsResponse extends $MetadataBearer {
+export interface ListSchemaVersionsResponse {
   __type?: "ListSchemaVersionsResponse";
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -745,7 +745,7 @@ export namespace ListSchemasRequest {
   }
 }
 
-export interface ListSchemasResponse extends $MetadataBearer {
+export interface ListSchemasResponse {
   __type?: "ListSchemasResponse";
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -775,7 +775,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>Key-value pairs associated with a resource.</p>
@@ -801,7 +801,7 @@ export namespace LockServiceLinkedRoleRequest {
   }
 }
 
-export interface LockServiceLinkedRoleResponse extends $MetadataBearer {
+export interface LockServiceLinkedRoleResponse {
   __type?: "LockServiceLinkedRoleResponse";
   CanBeDeleted?: boolean;
   ReasonOfFailure?: string;
@@ -848,7 +848,7 @@ export namespace PutCodeBindingRequest {
   }
 }
 
-export interface PutCodeBindingResponse extends $MetadataBearer {
+export interface PutCodeBindingResponse {
   __type?: "PutCodeBindingResponse";
   /**
    * <p>The time and date that the code binding was created.</p>
@@ -1020,7 +1020,7 @@ export namespace SearchSchemasRequest {
   }
 }
 
-export interface SearchSchemasResponse extends $MetadataBearer {
+export interface SearchSchemasResponse {
   __type?: "SearchSchemasResponse";
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -1072,7 +1072,7 @@ export namespace StartDiscovererRequest {
   }
 }
 
-export interface StartDiscovererResponse extends $MetadataBearer {
+export interface StartDiscovererResponse {
   __type?: "StartDiscovererResponse";
   /**
    * <p>The ID of the discoverer.</p>
@@ -1102,7 +1102,7 @@ export namespace StopDiscovererRequest {
   }
 }
 
-export interface StopDiscovererResponse extends $MetadataBearer {
+export interface StopDiscovererResponse {
   __type?: "StopDiscovererResponse";
   /**
    * <p>The ID of the discoverer.</p>
@@ -1195,7 +1195,7 @@ export namespace UnlockServiceLinkedRoleRequest {
   }
 }
 
-export interface UnlockServiceLinkedRoleResponse extends $MetadataBearer {
+export interface UnlockServiceLinkedRoleResponse {
   __type?: "UnlockServiceLinkedRoleResponse";
 }
 
@@ -1233,7 +1233,7 @@ export namespace UpdateDiscovererRequest {
   }
 }
 
-export interface UpdateDiscovererResponse extends $MetadataBearer {
+export interface UpdateDiscovererResponse {
   __type?: "UpdateDiscovererResponse";
   /**
    * <p>The description of the discoverer.</p>
@@ -1288,7 +1288,7 @@ export namespace UpdateRegistryRequest {
   }
 }
 
-export interface UpdateRegistryResponse extends $MetadataBearer {
+export interface UpdateRegistryResponse {
   __type?: "UpdateRegistryResponse";
   /**
    * <p>The description of the registry.</p>
@@ -1348,7 +1348,7 @@ export namespace UpdateSchemaRequest {
   }
 }
 
-export interface UpdateSchemaResponse extends $MetadataBearer {
+export interface UpdateSchemaResponse {
   __type?: "UpdateSchemaResponse";
   /**
    * <p>The description of the schema.</p>

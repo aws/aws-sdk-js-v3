@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DecodeAuthorizationMessageCommandInput = DecodeAuthorizationMessageRequest;
-export type DecodeAuthorizationMessageCommandOutput = DecodeAuthorizationMessageResponse;
+export type DecodeAuthorizationMessageCommandOutput = DecodeAuthorizationMessageResponse &
+  __MetadataBearer;
 
 export class DecodeAuthorizationMessageCommand extends $Command<
   DecodeAuthorizationMessageCommandInput,

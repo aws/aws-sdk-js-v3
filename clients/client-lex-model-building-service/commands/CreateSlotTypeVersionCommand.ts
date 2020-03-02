@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSlotTypeVersionCommandInput = CreateSlotTypeVersionRequest;
-export type CreateSlotTypeVersionCommandOutput = CreateSlotTypeVersionResponse;
+export type CreateSlotTypeVersionCommandOutput = CreateSlotTypeVersionResponse &
+  __MetadataBearer;
 
 export class CreateSlotTypeVersionCommand extends $Command<
   CreateSlotTypeVersionCommandInput,

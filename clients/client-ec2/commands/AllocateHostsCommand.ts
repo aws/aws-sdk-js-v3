@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AllocateHostsCommandInput = AllocateHostsRequest;
-export type AllocateHostsCommandOutput = AllocateHostsResult;
+export type AllocateHostsCommandOutput = AllocateHostsResult & __MetadataBearer;
 
 export class AllocateHostsCommand extends $Command<
   AllocateHostsCommandInput,

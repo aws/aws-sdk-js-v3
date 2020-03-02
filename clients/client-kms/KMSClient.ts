@@ -1,82 +1,184 @@
 import {
-  CancelKeyDeletionRequest,
-  CancelKeyDeletionResponse,
-  ConnectCustomKeyStoreRequest,
-  ConnectCustomKeyStoreResponse,
-  CreateAliasRequest,
-  CreateCustomKeyStoreRequest,
-  CreateCustomKeyStoreResponse,
-  CreateGrantRequest,
-  CreateGrantResponse,
-  CreateKeyRequest,
-  CreateKeyResponse,
-  DecryptRequest,
-  DecryptResponse,
-  DeleteAliasRequest,
-  DeleteCustomKeyStoreRequest,
-  DeleteCustomKeyStoreResponse,
-  DeleteImportedKeyMaterialRequest,
-  DescribeCustomKeyStoresRequest,
-  DescribeCustomKeyStoresResponse,
-  DescribeKeyRequest,
-  DescribeKeyResponse,
-  DisableKeyRequest,
-  DisableKeyRotationRequest,
-  DisconnectCustomKeyStoreRequest,
-  DisconnectCustomKeyStoreResponse,
-  EnableKeyRequest,
-  EnableKeyRotationRequest,
-  EncryptRequest,
-  EncryptResponse,
-  GenerateDataKeyPairRequest,
-  GenerateDataKeyPairResponse,
-  GenerateDataKeyPairWithoutPlaintextRequest,
-  GenerateDataKeyPairWithoutPlaintextResponse,
-  GenerateDataKeyRequest,
-  GenerateDataKeyResponse,
-  GenerateDataKeyWithoutPlaintextRequest,
-  GenerateDataKeyWithoutPlaintextResponse,
-  GenerateRandomRequest,
-  GenerateRandomResponse,
-  GetKeyPolicyRequest,
-  GetKeyPolicyResponse,
-  GetKeyRotationStatusRequest,
-  GetKeyRotationStatusResponse,
-  GetParametersForImportRequest,
-  GetParametersForImportResponse,
-  GetPublicKeyRequest,
-  GetPublicKeyResponse,
-  ImportKeyMaterialRequest,
-  ImportKeyMaterialResponse,
-  ListAliasesRequest,
-  ListAliasesResponse,
-  ListGrantsRequest,
-  ListGrantsResponse,
-  ListKeyPoliciesRequest,
-  ListKeyPoliciesResponse,
-  ListKeysRequest,
-  ListKeysResponse,
-  ListResourceTagsRequest,
-  ListResourceTagsResponse,
-  ListRetirableGrantsRequest,
-  PutKeyPolicyRequest,
-  ReEncryptRequest,
-  ReEncryptResponse,
-  RetireGrantRequest,
-  RevokeGrantRequest,
-  ScheduleKeyDeletionRequest,
-  ScheduleKeyDeletionResponse,
-  SignRequest,
-  SignResponse,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateAliasRequest,
-  UpdateCustomKeyStoreRequest,
-  UpdateCustomKeyStoreResponse,
-  UpdateKeyDescriptionRequest,
-  VerifyRequest,
-  VerifyResponse
-} from "./models/index";
+  CancelKeyDeletionCommandInput,
+  CancelKeyDeletionCommandOutput
+} from "./commands/CancelKeyDeletionCommand";
+import {
+  ConnectCustomKeyStoreCommandInput,
+  ConnectCustomKeyStoreCommandOutput
+} from "./commands/ConnectCustomKeyStoreCommand";
+import {
+  CreateAliasCommandInput,
+  CreateAliasCommandOutput
+} from "./commands/CreateAliasCommand";
+import {
+  CreateCustomKeyStoreCommandInput,
+  CreateCustomKeyStoreCommandOutput
+} from "./commands/CreateCustomKeyStoreCommand";
+import {
+  CreateGrantCommandInput,
+  CreateGrantCommandOutput
+} from "./commands/CreateGrantCommand";
+import {
+  CreateKeyCommandInput,
+  CreateKeyCommandOutput
+} from "./commands/CreateKeyCommand";
+import {
+  DecryptCommandInput,
+  DecryptCommandOutput
+} from "./commands/DecryptCommand";
+import {
+  DeleteAliasCommandInput,
+  DeleteAliasCommandOutput
+} from "./commands/DeleteAliasCommand";
+import {
+  DeleteCustomKeyStoreCommandInput,
+  DeleteCustomKeyStoreCommandOutput
+} from "./commands/DeleteCustomKeyStoreCommand";
+import {
+  DeleteImportedKeyMaterialCommandInput,
+  DeleteImportedKeyMaterialCommandOutput
+} from "./commands/DeleteImportedKeyMaterialCommand";
+import {
+  DescribeCustomKeyStoresCommandInput,
+  DescribeCustomKeyStoresCommandOutput
+} from "./commands/DescribeCustomKeyStoresCommand";
+import {
+  DescribeKeyCommandInput,
+  DescribeKeyCommandOutput
+} from "./commands/DescribeKeyCommand";
+import {
+  DisableKeyCommandInput,
+  DisableKeyCommandOutput
+} from "./commands/DisableKeyCommand";
+import {
+  DisableKeyRotationCommandInput,
+  DisableKeyRotationCommandOutput
+} from "./commands/DisableKeyRotationCommand";
+import {
+  DisconnectCustomKeyStoreCommandInput,
+  DisconnectCustomKeyStoreCommandOutput
+} from "./commands/DisconnectCustomKeyStoreCommand";
+import {
+  EnableKeyCommandInput,
+  EnableKeyCommandOutput
+} from "./commands/EnableKeyCommand";
+import {
+  EnableKeyRotationCommandInput,
+  EnableKeyRotationCommandOutput
+} from "./commands/EnableKeyRotationCommand";
+import {
+  EncryptCommandInput,
+  EncryptCommandOutput
+} from "./commands/EncryptCommand";
+import {
+  GenerateDataKeyCommandInput,
+  GenerateDataKeyCommandOutput
+} from "./commands/GenerateDataKeyCommand";
+import {
+  GenerateDataKeyPairCommandInput,
+  GenerateDataKeyPairCommandOutput
+} from "./commands/GenerateDataKeyPairCommand";
+import {
+  GenerateDataKeyPairWithoutPlaintextCommandInput,
+  GenerateDataKeyPairWithoutPlaintextCommandOutput
+} from "./commands/GenerateDataKeyPairWithoutPlaintextCommand";
+import {
+  GenerateDataKeyWithoutPlaintextCommandInput,
+  GenerateDataKeyWithoutPlaintextCommandOutput
+} from "./commands/GenerateDataKeyWithoutPlaintextCommand";
+import {
+  GenerateRandomCommandInput,
+  GenerateRandomCommandOutput
+} from "./commands/GenerateRandomCommand";
+import {
+  GetKeyPolicyCommandInput,
+  GetKeyPolicyCommandOutput
+} from "./commands/GetKeyPolicyCommand";
+import {
+  GetKeyRotationStatusCommandInput,
+  GetKeyRotationStatusCommandOutput
+} from "./commands/GetKeyRotationStatusCommand";
+import {
+  GetParametersForImportCommandInput,
+  GetParametersForImportCommandOutput
+} from "./commands/GetParametersForImportCommand";
+import {
+  GetPublicKeyCommandInput,
+  GetPublicKeyCommandOutput
+} from "./commands/GetPublicKeyCommand";
+import {
+  ImportKeyMaterialCommandInput,
+  ImportKeyMaterialCommandOutput
+} from "./commands/ImportKeyMaterialCommand";
+import {
+  ListAliasesCommandInput,
+  ListAliasesCommandOutput
+} from "./commands/ListAliasesCommand";
+import {
+  ListGrantsCommandInput,
+  ListGrantsCommandOutput
+} from "./commands/ListGrantsCommand";
+import {
+  ListKeyPoliciesCommandInput,
+  ListKeyPoliciesCommandOutput
+} from "./commands/ListKeyPoliciesCommand";
+import {
+  ListKeysCommandInput,
+  ListKeysCommandOutput
+} from "./commands/ListKeysCommand";
+import {
+  ListResourceTagsCommandInput,
+  ListResourceTagsCommandOutput
+} from "./commands/ListResourceTagsCommand";
+import {
+  ListRetirableGrantsCommandInput,
+  ListRetirableGrantsCommandOutput
+} from "./commands/ListRetirableGrantsCommand";
+import {
+  PutKeyPolicyCommandInput,
+  PutKeyPolicyCommandOutput
+} from "./commands/PutKeyPolicyCommand";
+import {
+  ReEncryptCommandInput,
+  ReEncryptCommandOutput
+} from "./commands/ReEncryptCommand";
+import {
+  RetireGrantCommandInput,
+  RetireGrantCommandOutput
+} from "./commands/RetireGrantCommand";
+import {
+  RevokeGrantCommandInput,
+  RevokeGrantCommandOutput
+} from "./commands/RevokeGrantCommand";
+import {
+  ScheduleKeyDeletionCommandInput,
+  ScheduleKeyDeletionCommandOutput
+} from "./commands/ScheduleKeyDeletionCommand";
+import { SignCommandInput, SignCommandOutput } from "./commands/SignCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAliasCommandInput,
+  UpdateAliasCommandOutput
+} from "./commands/UpdateAliasCommand";
+import {
+  UpdateCustomKeyStoreCommandInput,
+  UpdateCustomKeyStoreCommandOutput
+} from "./commands/UpdateCustomKeyStoreCommand";
+import {
+  UpdateKeyDescriptionCommandInput,
+  UpdateKeyDescriptionCommandOutput
+} from "./commands/UpdateKeyDescriptionCommand";
+import {
+  VerifyCommandInput,
+  VerifyCommandOutput
+} from "./commands/VerifyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -124,94 +226,106 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelKeyDeletionRequest
-  | ConnectCustomKeyStoreRequest
-  | CreateAliasRequest
-  | CreateCustomKeyStoreRequest
-  | CreateGrantRequest
-  | CreateKeyRequest
-  | DecryptRequest
-  | DeleteAliasRequest
-  | DeleteCustomKeyStoreRequest
-  | DeleteImportedKeyMaterialRequest
-  | DescribeCustomKeyStoresRequest
-  | DescribeKeyRequest
-  | DisableKeyRequest
-  | DisableKeyRotationRequest
-  | DisconnectCustomKeyStoreRequest
-  | EnableKeyRequest
-  | EnableKeyRotationRequest
-  | EncryptRequest
-  | GenerateDataKeyPairRequest
-  | GenerateDataKeyPairWithoutPlaintextRequest
-  | GenerateDataKeyRequest
-  | GenerateDataKeyWithoutPlaintextRequest
-  | GenerateRandomRequest
-  | GetKeyPolicyRequest
-  | GetKeyRotationStatusRequest
-  | GetParametersForImportRequest
-  | GetPublicKeyRequest
-  | ImportKeyMaterialRequest
-  | ListAliasesRequest
-  | ListGrantsRequest
-  | ListKeyPoliciesRequest
-  | ListKeysRequest
-  | ListResourceTagsRequest
-  | ListRetirableGrantsRequest
-  | PutKeyPolicyRequest
-  | ReEncryptRequest
-  | RetireGrantRequest
-  | RevokeGrantRequest
-  | ScheduleKeyDeletionRequest
-  | SignRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateAliasRequest
-  | UpdateCustomKeyStoreRequest
-  | UpdateKeyDescriptionRequest
-  | VerifyRequest;
+  | CancelKeyDeletionCommandInput
+  | ConnectCustomKeyStoreCommandInput
+  | CreateAliasCommandInput
+  | CreateCustomKeyStoreCommandInput
+  | CreateGrantCommandInput
+  | CreateKeyCommandInput
+  | DecryptCommandInput
+  | DeleteAliasCommandInput
+  | DeleteCustomKeyStoreCommandInput
+  | DeleteImportedKeyMaterialCommandInput
+  | DescribeCustomKeyStoresCommandInput
+  | DescribeKeyCommandInput
+  | DisableKeyCommandInput
+  | DisableKeyRotationCommandInput
+  | DisconnectCustomKeyStoreCommandInput
+  | EnableKeyCommandInput
+  | EnableKeyRotationCommandInput
+  | EncryptCommandInput
+  | GenerateDataKeyCommandInput
+  | GenerateDataKeyPairCommandInput
+  | GenerateDataKeyPairWithoutPlaintextCommandInput
+  | GenerateDataKeyWithoutPlaintextCommandInput
+  | GenerateRandomCommandInput
+  | GetKeyPolicyCommandInput
+  | GetKeyRotationStatusCommandInput
+  | GetParametersForImportCommandInput
+  | GetPublicKeyCommandInput
+  | ImportKeyMaterialCommandInput
+  | ListAliasesCommandInput
+  | ListGrantsCommandInput
+  | ListKeyPoliciesCommandInput
+  | ListKeysCommandInput
+  | ListResourceTagsCommandInput
+  | ListRetirableGrantsCommandInput
+  | PutKeyPolicyCommandInput
+  | ReEncryptCommandInput
+  | RetireGrantCommandInput
+  | RevokeGrantCommandInput
+  | ScheduleKeyDeletionCommandInput
+  | SignCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAliasCommandInput
+  | UpdateCustomKeyStoreCommandInput
+  | UpdateKeyDescriptionCommandInput
+  | VerifyCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CancelKeyDeletionResponse
-  | ConnectCustomKeyStoreResponse
-  | CreateCustomKeyStoreResponse
-  | CreateGrantResponse
-  | CreateKeyResponse
-  | DecryptResponse
-  | DeleteCustomKeyStoreResponse
-  | DescribeCustomKeyStoresResponse
-  | DescribeKeyResponse
-  | DisconnectCustomKeyStoreResponse
-  | EncryptResponse
-  | GenerateDataKeyPairResponse
-  | GenerateDataKeyPairWithoutPlaintextResponse
-  | GenerateDataKeyResponse
-  | GenerateDataKeyWithoutPlaintextResponse
-  | GenerateRandomResponse
-  | GetKeyPolicyResponse
-  | GetKeyRotationStatusResponse
-  | GetParametersForImportResponse
-  | GetPublicKeyResponse
-  | ImportKeyMaterialResponse
-  | ListAliasesResponse
-  | ListGrantsResponse
-  | ListGrantsResponse
-  | ListKeyPoliciesResponse
-  | ListKeysResponse
-  | ListResourceTagsResponse
-  | ReEncryptResponse
-  | ScheduleKeyDeletionResponse
-  | SignResponse
-  | UpdateCustomKeyStoreResponse
-  | VerifyResponse;
+  | CancelKeyDeletionCommandOutput
+  | ConnectCustomKeyStoreCommandOutput
+  | CreateAliasCommandOutput
+  | CreateCustomKeyStoreCommandOutput
+  | CreateGrantCommandOutput
+  | CreateKeyCommandOutput
+  | DecryptCommandOutput
+  | DeleteAliasCommandOutput
+  | DeleteCustomKeyStoreCommandOutput
+  | DeleteImportedKeyMaterialCommandOutput
+  | DescribeCustomKeyStoresCommandOutput
+  | DescribeKeyCommandOutput
+  | DisableKeyCommandOutput
+  | DisableKeyRotationCommandOutput
+  | DisconnectCustomKeyStoreCommandOutput
+  | EnableKeyCommandOutput
+  | EnableKeyRotationCommandOutput
+  | EncryptCommandOutput
+  | GenerateDataKeyCommandOutput
+  | GenerateDataKeyPairCommandOutput
+  | GenerateDataKeyPairWithoutPlaintextCommandOutput
+  | GenerateDataKeyWithoutPlaintextCommandOutput
+  | GenerateRandomCommandOutput
+  | GetKeyPolicyCommandOutput
+  | GetKeyRotationStatusCommandOutput
+  | GetParametersForImportCommandOutput
+  | GetPublicKeyCommandOutput
+  | ImportKeyMaterialCommandOutput
+  | ListAliasesCommandOutput
+  | ListGrantsCommandOutput
+  | ListKeyPoliciesCommandOutput
+  | ListKeysCommandOutput
+  | ListResourceTagsCommandOutput
+  | ListRetirableGrantsCommandOutput
+  | PutKeyPolicyCommandOutput
+  | ReEncryptCommandOutput
+  | RetireGrantCommandOutput
+  | RevokeGrantCommandOutput
+  | ScheduleKeyDeletionCommandOutput
+  | SignCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAliasCommandOutput
+  | UpdateCustomKeyStoreCommandOutput
+  | UpdateKeyDescriptionCommandOutput
+  | VerifyCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

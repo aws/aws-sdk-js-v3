@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetServiceLastAccessedDetailsWithEntitiesCommandInput = GetServiceLastAccessedDetailsWithEntitiesRequest;
-export type GetServiceLastAccessedDetailsWithEntitiesCommandOutput = GetServiceLastAccessedDetailsWithEntitiesResponse;
+export type GetServiceLastAccessedDetailsWithEntitiesCommandOutput = GetServiceLastAccessedDetailsWithEntitiesResponse &
+  __MetadataBearer;
 
 export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
   GetServiceLastAccessedDetailsWithEntitiesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AllocatePublicVirtualInterfaceCommandInput = AllocatePublicVirtualInterfaceRequest;
-export type AllocatePublicVirtualInterfaceCommandOutput = VirtualInterface;
+export type AllocatePublicVirtualInterfaceCommandOutput = VirtualInterface &
+  __MetadataBearer;
 
 export class AllocatePublicVirtualInterfaceCommand extends $Command<
   AllocatePublicVirtualInterfaceCommandInput,

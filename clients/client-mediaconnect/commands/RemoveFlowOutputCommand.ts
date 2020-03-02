@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveFlowOutputCommandInput = RemoveFlowOutputRequest;
-export type RemoveFlowOutputCommandOutput = RemoveFlowOutputResponse;
+export type RemoveFlowOutputCommandOutput = RemoveFlowOutputResponse &
+  __MetadataBearer;
 
 export class RemoveFlowOutputCommand extends $Command<
   RemoveFlowOutputCommandInput,

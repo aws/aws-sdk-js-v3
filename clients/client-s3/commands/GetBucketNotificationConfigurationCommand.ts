@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketNotificationConfigurationCommandInput = GetBucketNotificationConfigurationRequest;
-export type GetBucketNotificationConfigurationCommandOutput = NotificationConfiguration;
+export type GetBucketNotificationConfigurationCommandOutput = NotificationConfiguration &
+  __MetadataBearer;
 
 export class GetBucketNotificationConfigurationCommand extends $Command<
   GetBucketNotificationConfigurationCommandInput,

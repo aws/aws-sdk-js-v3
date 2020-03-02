@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPackagingConfigurationsCommandInput = ListPackagingConfigurationsRequest;
-export type ListPackagingConfigurationsCommandOutput = ListPackagingConfigurationsResponse;
+export type ListPackagingConfigurationsCommandOutput = ListPackagingConfigurationsResponse &
+  __MetadataBearer;
 
 export class ListPackagingConfigurationsCommand extends $Command<
   ListPackagingConfigurationsCommandInput,

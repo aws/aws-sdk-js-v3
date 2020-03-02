@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnarchiveFindingsCommandInput = UnarchiveFindingsRequest;
-export type UnarchiveFindingsCommandOutput = UnarchiveFindingsResponse;
+export type UnarchiveFindingsCommandOutput = UnarchiveFindingsResponse &
+  __MetadataBearer;
 
 export class UnarchiveFindingsCommand extends $Command<
   UnarchiveFindingsCommandInput,

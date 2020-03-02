@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAWSDefaultServiceQuotaCommandInput = GetAWSDefaultServiceQuotaRequest;
-export type GetAWSDefaultServiceQuotaCommandOutput = GetAWSDefaultServiceQuotaResponse;
+export type GetAWSDefaultServiceQuotaCommandOutput = GetAWSDefaultServiceQuotaResponse &
+  __MetadataBearer;
 
 export class GetAWSDefaultServiceQuotaCommand extends $Command<
   GetAWSDefaultServiceQuotaCommandInput,

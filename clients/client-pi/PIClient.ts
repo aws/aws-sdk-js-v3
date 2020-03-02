@@ -1,9 +1,11 @@
 import {
-  DescribeDimensionKeysRequest,
-  DescribeDimensionKeysResponse,
-  GetResourceMetricsRequest,
-  GetResourceMetricsResponse
-} from "./models/index";
+  DescribeDimensionKeysCommandInput,
+  DescribeDimensionKeysCommandOutput
+} from "./commands/DescribeDimensionKeysCommand";
+import {
+  GetResourceMetricsCommandInput,
+  GetResourceMetricsCommandOutput
+} from "./commands/GetResourceMetricsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -57,12 +59,12 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DescribeDimensionKeysRequest
-  | GetResourceMetricsRequest;
+  | DescribeDimensionKeysCommandInput
+  | GetResourceMetricsCommandInput;
 
 export type ServiceOutputTypes =
-  | DescribeDimensionKeysResponse
-  | GetResourceMetricsResponse;
+  | DescribeDimensionKeysCommandOutput
+  | GetResourceMetricsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

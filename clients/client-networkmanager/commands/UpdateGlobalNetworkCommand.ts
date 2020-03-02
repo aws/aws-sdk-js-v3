@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateGlobalNetworkCommandInput = UpdateGlobalNetworkRequest;
-export type UpdateGlobalNetworkCommandOutput = UpdateGlobalNetworkResponse;
+export type UpdateGlobalNetworkCommandOutput = UpdateGlobalNetworkResponse &
+  __MetadataBearer;
 
 export class UpdateGlobalNetworkCommand extends $Command<
   UpdateGlobalNetworkCommandInput,

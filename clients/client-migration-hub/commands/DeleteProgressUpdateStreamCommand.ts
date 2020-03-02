@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteProgressUpdateStreamCommandInput = DeleteProgressUpdateStreamRequest;
-export type DeleteProgressUpdateStreamCommandOutput = DeleteProgressUpdateStreamResult;
+export type DeleteProgressUpdateStreamCommandOutput = DeleteProgressUpdateStreamResult &
+  __MetadataBearer;
 
 export class DeleteProgressUpdateStreamCommand extends $Command<
   DeleteProgressUpdateStreamCommandInput,

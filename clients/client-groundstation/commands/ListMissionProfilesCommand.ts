@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListMissionProfilesCommandInput = ListMissionProfilesRequest;
-export type ListMissionProfilesCommandOutput = ListMissionProfilesResponse;
+export type ListMissionProfilesCommandOutput = ListMissionProfilesResponse &
+  __MetadataBearer;
 
 export class ListMissionProfilesCommand extends $Command<
   ListMissionProfilesCommandInput,

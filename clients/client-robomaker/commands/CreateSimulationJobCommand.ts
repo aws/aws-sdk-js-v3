@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSimulationJobCommandInput = CreateSimulationJobRequest;
-export type CreateSimulationJobCommandOutput = CreateSimulationJobResponse;
+export type CreateSimulationJobCommandOutput = CreateSimulationJobResponse &
+  __MetadataBearer;
 
 export class CreateSimulationJobCommand extends $Command<
   CreateSimulationJobCommandInput,

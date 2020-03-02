@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyVpnTunnelCertificateCommandInput = ModifyVpnTunnelCertificateRequest;
-export type ModifyVpnTunnelCertificateCommandOutput = ModifyVpnTunnelCertificateResult;
+export type ModifyVpnTunnelCertificateCommandOutput = ModifyVpnTunnelCertificateResult &
+  __MetadataBearer;
 
 export class ModifyVpnTunnelCertificateCommand extends $Command<
   ModifyVpnTunnelCertificateCommandInput,

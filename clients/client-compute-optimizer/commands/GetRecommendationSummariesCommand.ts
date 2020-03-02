@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRecommendationSummariesCommandInput = GetRecommendationSummariesRequest;
-export type GetRecommendationSummariesCommandOutput = GetRecommendationSummariesResponse;
+export type GetRecommendationSummariesCommandOutput = GetRecommendationSummariesResponse &
+  __MetadataBearer;
 
 export class GetRecommendationSummariesCommand extends $Command<
   GetRecommendationSummariesCommandInput,

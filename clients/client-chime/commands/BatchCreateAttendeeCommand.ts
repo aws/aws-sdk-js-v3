@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchCreateAttendeeCommandInput = BatchCreateAttendeeRequest;
-export type BatchCreateAttendeeCommandOutput = BatchCreateAttendeeResponse;
+export type BatchCreateAttendeeCommandOutput = BatchCreateAttendeeResponse &
+  __MetadataBearer;
 
 export class BatchCreateAttendeeCommand extends $Command<
   BatchCreateAttendeeCommandInput,

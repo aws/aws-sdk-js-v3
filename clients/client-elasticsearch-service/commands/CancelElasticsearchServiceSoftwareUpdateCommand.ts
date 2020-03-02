@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelElasticsearchServiceSoftwareUpdateCommandInput = CancelElasticsearchServiceSoftwareUpdateRequest;
-export type CancelElasticsearchServiceSoftwareUpdateCommandOutput = CancelElasticsearchServiceSoftwareUpdateResponse;
+export type CancelElasticsearchServiceSoftwareUpdateCommandOutput = CancelElasticsearchServiceSoftwareUpdateResponse &
+  __MetadataBearer;
 
 export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
   CancelElasticsearchServiceSoftwareUpdateCommandInput,

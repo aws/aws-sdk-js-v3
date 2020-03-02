@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListVirtualNodesCommandInput = ListVirtualNodesInput;
-export type ListVirtualNodesCommandOutput = ListVirtualNodesOutput;
+export type ListVirtualNodesCommandOutput = ListVirtualNodesOutput &
+  __MetadataBearer;
 
 export class ListVirtualNodesCommand extends $Command<
   ListVirtualNodesCommandInput,

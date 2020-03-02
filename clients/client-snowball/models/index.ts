@@ -110,7 +110,7 @@ export namespace CancelClusterRequest {
   }
 }
 
-export interface CancelClusterResult extends $MetadataBearer {
+export interface CancelClusterResult {
   __type?: "CancelClusterResult";
 }
 
@@ -135,7 +135,7 @@ export namespace CancelJobRequest {
   }
 }
 
-export interface CancelJobResult extends $MetadataBearer {
+export interface CancelJobResult {
   __type?: "CancelJobResult";
 }
 
@@ -351,7 +351,7 @@ export namespace CreateAddressRequest {
   }
 }
 
-export interface CreateAddressResult extends $MetadataBearer {
+export interface CreateAddressResult {
   __type?: "CreateAddressResult";
   /**
    * <p>The automatically generated ID for a specific address. You'll use this ID when you
@@ -456,7 +456,7 @@ export namespace CreateClusterRequest {
   }
 }
 
-export interface CreateClusterResult extends $MetadataBearer {
+export interface CreateClusterResult {
   __type?: "CreateClusterResult";
   /**
    * <p>The automatically generated ID for a cluster.</p>
@@ -582,7 +582,7 @@ export namespace CreateJobRequest {
   }
 }
 
-export interface CreateJobResult extends $MetadataBearer {
+export interface CreateJobResult {
   __type?: "CreateJobResult";
   /**
    * <p>The automatically generated ID for a job, for example
@@ -647,7 +647,7 @@ export namespace DescribeAddressRequest {
   }
 }
 
-export interface DescribeAddressResult extends $MetadataBearer {
+export interface DescribeAddressResult {
   __type?: "DescribeAddressResult";
   /**
    * <p>The address that you want the Snowball or Snowballs associated with a specific job to
@@ -683,7 +683,7 @@ export namespace DescribeAddressesRequest {
   }
 }
 
-export interface DescribeAddressesResult extends $MetadataBearer {
+export interface DescribeAddressesResult {
   __type?: "DescribeAddressesResult";
   /**
    * <p>The Snowball shipping addresses that were created for this account.</p>
@@ -718,7 +718,7 @@ export namespace DescribeClusterRequest {
   }
 }
 
-export interface DescribeClusterResult extends $MetadataBearer {
+export interface DescribeClusterResult {
   __type?: "DescribeClusterResult";
   /**
    * <p>Information about a specific cluster, including shipping information, cluster status,
@@ -748,7 +748,7 @@ export namespace DescribeJobRequest {
   }
 }
 
-export interface DescribeJobResult extends $MetadataBearer {
+export interface DescribeJobResult {
   __type?: "DescribeJobResult";
   /**
    * <p>Information about a specific job, including shipping information, job status, and other
@@ -844,7 +844,7 @@ export namespace GetJobManifestRequest {
   }
 }
 
-export interface GetJobManifestResult extends $MetadataBearer {
+export interface GetJobManifestResult {
   __type?: "GetJobManifestResult";
   /**
    * <p>The Amazon S3 presigned URL for the manifest file associated with the specified
@@ -874,7 +874,7 @@ export namespace GetJobUnlockCodeRequest {
   }
 }
 
-export interface GetJobUnlockCodeResult extends $MetadataBearer {
+export interface GetJobUnlockCodeResult {
   __type?: "GetJobUnlockCodeResult";
   /**
    * <p>The <code>UnlockCode</code> value for the specified job. The <code>UnlockCode</code>
@@ -899,7 +899,7 @@ export namespace GetSnowballUsageRequest {
   }
 }
 
-export interface GetSnowballUsageResult extends $MetadataBearer {
+export interface GetSnowballUsageResult {
   __type?: "GetSnowballUsageResult";
   /**
    * <p>The service limit for number of Snowballs this account can have at once. The default
@@ -934,7 +934,7 @@ export namespace GetSoftwareUpdatesRequest {
   }
 }
 
-export interface GetSoftwareUpdatesResult extends $MetadataBearer {
+export interface GetSoftwareUpdatesResult {
   __type?: "GetSoftwareUpdatesResult";
   /**
    * <p>The Amazon S3 presigned URL for the update file associated with the specified
@@ -1408,7 +1408,7 @@ export namespace ListClusterJobsRequest {
   }
 }
 
-export interface ListClusterJobsResult extends $MetadataBearer {
+export interface ListClusterJobsResult {
   __type?: "ListClusterJobsResult";
   /**
    * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
@@ -1451,7 +1451,7 @@ export namespace ListClustersRequest {
   }
 }
 
-export interface ListClustersResult extends $MetadataBearer {
+export interface ListClustersResult {
   __type?: "ListClustersResult";
   /**
    * <p>Each <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID,
@@ -1495,7 +1495,7 @@ export namespace ListCompatibleImagesRequest {
   }
 }
 
-export interface ListCompatibleImagesResult extends $MetadataBearer {
+export interface ListCompatibleImagesResult {
   __type?: "ListCompatibleImagesResult";
   /**
    * <p>A JSON-formatted object that describes a compatible AMI, including the ID and name for
@@ -1537,7 +1537,7 @@ export namespace ListJobsRequest {
   }
 }
 
-export interface ListJobsResult extends $MetadataBearer {
+export interface ListJobsResult {
   __type?: "ListJobsResult";
   /**
    * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
@@ -1802,7 +1802,7 @@ export namespace UpdateClusterRequest {
   }
 }
 
-export interface UpdateClusterResult extends $MetadataBearer {
+export interface UpdateClusterResult {
   __type?: "UpdateClusterResult";
 }
 
@@ -1872,7 +1872,7 @@ export namespace UpdateJobRequest {
   }
 }
 
-export interface UpdateJobResult extends $MetadataBearer {
+export interface UpdateJobResult {
   __type?: "UpdateJobResult";
 }
 

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteFacetCommandInput = DeleteFacetRequest;
-export type DeleteFacetCommandOutput = DeleteFacetResponse;
+export type DeleteFacetCommandOutput = DeleteFacetResponse & __MetadataBearer;
 
 export class DeleteFacetCommand extends $Command<
   DeleteFacetCommandInput,

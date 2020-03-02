@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSpotDatafeedSubscriptionCommandInput = DescribeSpotDatafeedSubscriptionRequest;
-export type DescribeSpotDatafeedSubscriptionCommandOutput = DescribeSpotDatafeedSubscriptionResult;
+export type DescribeSpotDatafeedSubscriptionCommandOutput = DescribeSpotDatafeedSubscriptionResult &
+  __MetadataBearer;
 
 export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
   DescribeSpotDatafeedSubscriptionCommandInput,

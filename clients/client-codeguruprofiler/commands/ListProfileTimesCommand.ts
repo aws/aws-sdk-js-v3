@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListProfileTimesCommandInput = ListProfileTimesRequest;
-export type ListProfileTimesCommandOutput = ListProfileTimesResponse;
+export type ListProfileTimesCommandOutput = ListProfileTimesResponse &
+  __MetadataBearer;
 
 export class ListProfileTimesCommand extends $Command<
   ListProfileTimesCommandInput,

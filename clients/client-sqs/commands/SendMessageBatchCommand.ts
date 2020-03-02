@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendMessageBatchCommandInput = SendMessageBatchRequest;
-export type SendMessageBatchCommandOutput = SendMessageBatchResult;
+export type SendMessageBatchCommandOutput = SendMessageBatchResult &
+  __MetadataBearer;
 
 export class SendMessageBatchCommand extends $Command<
   SendMessageBatchCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableRadiusCommandInput = DisableRadiusRequest;
-export type DisableRadiusCommandOutput = DisableRadiusResult;
+export type DisableRadiusCommandOutput = DisableRadiusResult & __MetadataBearer;
 
 export class DisableRadiusCommand extends $Command<
   DisableRadiusCommandInput,

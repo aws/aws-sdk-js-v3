@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutProvisionedConcurrencyConfigCommandInput = PutProvisionedConcurrencyConfigRequest;
-export type PutProvisionedConcurrencyConfigCommandOutput = PutProvisionedConcurrencyConfigResponse;
+export type PutProvisionedConcurrencyConfigCommandOutput = PutProvisionedConcurrencyConfigResponse &
+  __MetadataBearer;
 
 export class PutProvisionedConcurrencyConfigCommand extends $Command<
   PutProvisionedConcurrencyConfigCommandInput,

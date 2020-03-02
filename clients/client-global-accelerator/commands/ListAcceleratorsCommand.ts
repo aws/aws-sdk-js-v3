@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAcceleratorsCommandInput = ListAcceleratorsRequest;
-export type ListAcceleratorsCommandOutput = ListAcceleratorsResponse;
+export type ListAcceleratorsCommandOutput = ListAcceleratorsResponse &
+  __MetadataBearer;
 
 export class ListAcceleratorsCommand extends $Command<
   ListAcceleratorsCommandInput,

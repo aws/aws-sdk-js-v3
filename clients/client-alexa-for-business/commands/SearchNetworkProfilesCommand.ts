@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchNetworkProfilesCommandInput = SearchNetworkProfilesRequest;
-export type SearchNetworkProfilesCommandOutput = SearchNetworkProfilesResponse;
+export type SearchNetworkProfilesCommandOutput = SearchNetworkProfilesResponse &
+  __MetadataBearer;
 
 export class SearchNetworkProfilesCommand extends $Command<
   SearchNetworkProfilesCommandInput,

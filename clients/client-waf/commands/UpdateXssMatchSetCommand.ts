@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateXssMatchSetCommandInput = UpdateXssMatchSetRequest;
-export type UpdateXssMatchSetCommandOutput = UpdateXssMatchSetResponse;
+export type UpdateXssMatchSetCommandOutput = UpdateXssMatchSetResponse &
+  __MetadataBearer;
 
 export class UpdateXssMatchSetCommand extends $Command<
   UpdateXssMatchSetCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteQueuedReservedInstancesCommandInput = DeleteQueuedReservedInstancesRequest;
-export type DeleteQueuedReservedInstancesCommandOutput = DeleteQueuedReservedInstancesResult;
+export type DeleteQueuedReservedInstancesCommandOutput = DeleteQueuedReservedInstancesResult &
+  __MetadataBearer;
 
 export class DeleteQueuedReservedInstancesCommand extends $Command<
   DeleteQueuedReservedInstancesCommandInput,

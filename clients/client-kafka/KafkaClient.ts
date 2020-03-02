@@ -1,43 +1,83 @@
 import {
-  CreateClusterRequest,
-  CreateClusterResponse,
-  CreateConfigurationRequest,
-  CreateConfigurationResponse,
-  DeleteClusterRequest,
-  DeleteClusterResponse,
-  DescribeClusterOperationRequest,
-  DescribeClusterOperationResponse,
-  DescribeClusterRequest,
-  DescribeClusterResponse,
-  DescribeConfigurationRequest,
-  DescribeConfigurationResponse,
-  DescribeConfigurationRevisionRequest,
-  DescribeConfigurationRevisionResponse,
-  GetBootstrapBrokersRequest,
-  GetBootstrapBrokersResponse,
-  ListClusterOperationsRequest,
-  ListClusterOperationsResponse,
-  ListClustersRequest,
-  ListClustersResponse,
-  ListConfigurationRevisionsRequest,
-  ListConfigurationRevisionsResponse,
-  ListConfigurationsRequest,
-  ListConfigurationsResponse,
-  ListNodesRequest,
-  ListNodesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateBrokerCountRequest,
-  UpdateBrokerCountResponse,
-  UpdateBrokerStorageRequest,
-  UpdateBrokerStorageResponse,
-  UpdateClusterConfigurationRequest,
-  UpdateClusterConfigurationResponse,
-  UpdateMonitoringRequest,
-  UpdateMonitoringResponse
-} from "./models/index";
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput
+} from "./commands/CreateClusterCommand";
+import {
+  CreateConfigurationCommandInput,
+  CreateConfigurationCommandOutput
+} from "./commands/CreateConfigurationCommand";
+import {
+  DeleteClusterCommandInput,
+  DeleteClusterCommandOutput
+} from "./commands/DeleteClusterCommand";
+import {
+  DescribeClusterCommandInput,
+  DescribeClusterCommandOutput
+} from "./commands/DescribeClusterCommand";
+import {
+  DescribeClusterOperationCommandInput,
+  DescribeClusterOperationCommandOutput
+} from "./commands/DescribeClusterOperationCommand";
+import {
+  DescribeConfigurationCommandInput,
+  DescribeConfigurationCommandOutput
+} from "./commands/DescribeConfigurationCommand";
+import {
+  DescribeConfigurationRevisionCommandInput,
+  DescribeConfigurationRevisionCommandOutput
+} from "./commands/DescribeConfigurationRevisionCommand";
+import {
+  GetBootstrapBrokersCommandInput,
+  GetBootstrapBrokersCommandOutput
+} from "./commands/GetBootstrapBrokersCommand";
+import {
+  ListClusterOperationsCommandInput,
+  ListClusterOperationsCommandOutput
+} from "./commands/ListClusterOperationsCommand";
+import {
+  ListClustersCommandInput,
+  ListClustersCommandOutput
+} from "./commands/ListClustersCommand";
+import {
+  ListConfigurationRevisionsCommandInput,
+  ListConfigurationRevisionsCommandOutput
+} from "./commands/ListConfigurationRevisionsCommand";
+import {
+  ListConfigurationsCommandInput,
+  ListConfigurationsCommandOutput
+} from "./commands/ListConfigurationsCommand";
+import {
+  ListNodesCommandInput,
+  ListNodesCommandOutput
+} from "./commands/ListNodesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateBrokerCountCommandInput,
+  UpdateBrokerCountCommandOutput
+} from "./commands/UpdateBrokerCountCommand";
+import {
+  UpdateBrokerStorageCommandInput,
+  UpdateBrokerStorageCommandOutput
+} from "./commands/UpdateBrokerStorageCommand";
+import {
+  UpdateClusterConfigurationCommandInput,
+  UpdateClusterConfigurationCommandOutput
+} from "./commands/UpdateClusterConfigurationCommand";
+import {
+  UpdateMonitoringCommandInput,
+  UpdateMonitoringCommandOutput
+} from "./commands/UpdateMonitoringCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -85,54 +125,54 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateClusterRequest
-  | CreateConfigurationRequest
-  | DeleteClusterRequest
-  | DescribeClusterOperationRequest
-  | DescribeClusterRequest
-  | DescribeConfigurationRequest
-  | DescribeConfigurationRevisionRequest
-  | GetBootstrapBrokersRequest
-  | ListClusterOperationsRequest
-  | ListClustersRequest
-  | ListConfigurationRevisionsRequest
-  | ListConfigurationsRequest
-  | ListNodesRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateBrokerCountRequest
-  | UpdateBrokerStorageRequest
-  | UpdateClusterConfigurationRequest
-  | UpdateMonitoringRequest;
+  | CreateClusterCommandInput
+  | CreateConfigurationCommandInput
+  | DeleteClusterCommandInput
+  | DescribeClusterCommandInput
+  | DescribeClusterOperationCommandInput
+  | DescribeConfigurationCommandInput
+  | DescribeConfigurationRevisionCommandInput
+  | GetBootstrapBrokersCommandInput
+  | ListClusterOperationsCommandInput
+  | ListClustersCommandInput
+  | ListConfigurationRevisionsCommandInput
+  | ListConfigurationsCommandInput
+  | ListNodesCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateBrokerCountCommandInput
+  | UpdateBrokerStorageCommandInput
+  | UpdateClusterConfigurationCommandInput
+  | UpdateMonitoringCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateClusterResponse
-  | CreateConfigurationResponse
-  | DeleteClusterResponse
-  | DescribeClusterOperationResponse
-  | DescribeClusterResponse
-  | DescribeConfigurationResponse
-  | DescribeConfigurationRevisionResponse
-  | GetBootstrapBrokersResponse
-  | ListClusterOperationsResponse
-  | ListClustersResponse
-  | ListConfigurationRevisionsResponse
-  | ListConfigurationsResponse
-  | ListNodesResponse
-  | ListTagsForResourceResponse
-  | UpdateBrokerCountResponse
-  | UpdateBrokerStorageResponse
-  | UpdateClusterConfigurationResponse
-  | UpdateMonitoringResponse;
+  | CreateClusterCommandOutput
+  | CreateConfigurationCommandOutput
+  | DeleteClusterCommandOutput
+  | DescribeClusterCommandOutput
+  | DescribeClusterOperationCommandOutput
+  | DescribeConfigurationCommandOutput
+  | DescribeConfigurationRevisionCommandOutput
+  | GetBootstrapBrokersCommandOutput
+  | ListClusterOperationsCommandOutput
+  | ListClustersCommandOutput
+  | ListConfigurationRevisionsCommandOutput
+  | ListConfigurationsCommandOutput
+  | ListNodesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateBrokerCountCommandOutput
+  | UpdateBrokerStorageCommandOutput
+  | UpdateClusterConfigurationCommandOutput
+  | UpdateMonitoringCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

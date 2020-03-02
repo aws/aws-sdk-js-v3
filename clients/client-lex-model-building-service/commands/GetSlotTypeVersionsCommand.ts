@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSlotTypeVersionsCommandInput = GetSlotTypeVersionsRequest;
-export type GetSlotTypeVersionsCommandOutput = GetSlotTypeVersionsResponse;
+export type GetSlotTypeVersionsCommandOutput = GetSlotTypeVersionsResponse &
+  __MetadataBearer;
 
 export class GetSlotTypeVersionsCommand extends $Command<
   GetSlotTypeVersionsCommandInput,

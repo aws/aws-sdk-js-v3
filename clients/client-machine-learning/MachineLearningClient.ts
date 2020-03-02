@@ -1,61 +1,115 @@
 import {
-  AddTagsInput,
-  AddTagsOutput,
-  CreateBatchPredictionInput,
-  CreateBatchPredictionOutput,
-  CreateDataSourceFromRDSInput,
-  CreateDataSourceFromRDSOutput,
-  CreateDataSourceFromRedshiftInput,
-  CreateDataSourceFromRedshiftOutput,
-  CreateDataSourceFromS3Input,
-  CreateDataSourceFromS3Output,
-  CreateEvaluationInput,
-  CreateEvaluationOutput,
-  CreateMLModelInput,
-  CreateMLModelOutput,
-  CreateRealtimeEndpointInput,
-  CreateRealtimeEndpointOutput,
-  DeleteBatchPredictionInput,
-  DeleteBatchPredictionOutput,
-  DeleteDataSourceInput,
-  DeleteDataSourceOutput,
-  DeleteEvaluationInput,
-  DeleteEvaluationOutput,
-  DeleteMLModelInput,
-  DeleteMLModelOutput,
-  DeleteRealtimeEndpointInput,
-  DeleteRealtimeEndpointOutput,
-  DeleteTagsInput,
-  DeleteTagsOutput,
-  DescribeBatchPredictionsInput,
-  DescribeBatchPredictionsOutput,
-  DescribeDataSourcesInput,
-  DescribeDataSourcesOutput,
-  DescribeEvaluationsInput,
-  DescribeEvaluationsOutput,
-  DescribeMLModelsInput,
-  DescribeMLModelsOutput,
-  DescribeTagsInput,
-  DescribeTagsOutput,
-  GetBatchPredictionInput,
-  GetBatchPredictionOutput,
-  GetDataSourceInput,
-  GetDataSourceOutput,
-  GetEvaluationInput,
-  GetEvaluationOutput,
-  GetMLModelInput,
-  GetMLModelOutput,
-  PredictInput,
-  PredictOutput,
-  UpdateBatchPredictionInput,
-  UpdateBatchPredictionOutput,
-  UpdateDataSourceInput,
-  UpdateDataSourceOutput,
-  UpdateEvaluationInput,
-  UpdateEvaluationOutput,
-  UpdateMLModelInput,
-  UpdateMLModelOutput
-} from "./models/index";
+  AddTagsCommandInput,
+  AddTagsCommandOutput
+} from "./commands/AddTagsCommand";
+import {
+  CreateBatchPredictionCommandInput,
+  CreateBatchPredictionCommandOutput
+} from "./commands/CreateBatchPredictionCommand";
+import {
+  CreateDataSourceFromRDSCommandInput,
+  CreateDataSourceFromRDSCommandOutput
+} from "./commands/CreateDataSourceFromRDSCommand";
+import {
+  CreateDataSourceFromRedshiftCommandInput,
+  CreateDataSourceFromRedshiftCommandOutput
+} from "./commands/CreateDataSourceFromRedshiftCommand";
+import {
+  CreateDataSourceFromS3CommandInput,
+  CreateDataSourceFromS3CommandOutput
+} from "./commands/CreateDataSourceFromS3Command";
+import {
+  CreateEvaluationCommandInput,
+  CreateEvaluationCommandOutput
+} from "./commands/CreateEvaluationCommand";
+import {
+  CreateMLModelCommandInput,
+  CreateMLModelCommandOutput
+} from "./commands/CreateMLModelCommand";
+import {
+  CreateRealtimeEndpointCommandInput,
+  CreateRealtimeEndpointCommandOutput
+} from "./commands/CreateRealtimeEndpointCommand";
+import {
+  DeleteBatchPredictionCommandInput,
+  DeleteBatchPredictionCommandOutput
+} from "./commands/DeleteBatchPredictionCommand";
+import {
+  DeleteDataSourceCommandInput,
+  DeleteDataSourceCommandOutput
+} from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteEvaluationCommandInput,
+  DeleteEvaluationCommandOutput
+} from "./commands/DeleteEvaluationCommand";
+import {
+  DeleteMLModelCommandInput,
+  DeleteMLModelCommandOutput
+} from "./commands/DeleteMLModelCommand";
+import {
+  DeleteRealtimeEndpointCommandInput,
+  DeleteRealtimeEndpointCommandOutput
+} from "./commands/DeleteRealtimeEndpointCommand";
+import {
+  DeleteTagsCommandInput,
+  DeleteTagsCommandOutput
+} from "./commands/DeleteTagsCommand";
+import {
+  DescribeBatchPredictionsCommandInput,
+  DescribeBatchPredictionsCommandOutput
+} from "./commands/DescribeBatchPredictionsCommand";
+import {
+  DescribeDataSourcesCommandInput,
+  DescribeDataSourcesCommandOutput
+} from "./commands/DescribeDataSourcesCommand";
+import {
+  DescribeEvaluationsCommandInput,
+  DescribeEvaluationsCommandOutput
+} from "./commands/DescribeEvaluationsCommand";
+import {
+  DescribeMLModelsCommandInput,
+  DescribeMLModelsCommandOutput
+} from "./commands/DescribeMLModelsCommand";
+import {
+  DescribeTagsCommandInput,
+  DescribeTagsCommandOutput
+} from "./commands/DescribeTagsCommand";
+import {
+  GetBatchPredictionCommandInput,
+  GetBatchPredictionCommandOutput
+} from "./commands/GetBatchPredictionCommand";
+import {
+  GetDataSourceCommandInput,
+  GetDataSourceCommandOutput
+} from "./commands/GetDataSourceCommand";
+import {
+  GetEvaluationCommandInput,
+  GetEvaluationCommandOutput
+} from "./commands/GetEvaluationCommand";
+import {
+  GetMLModelCommandInput,
+  GetMLModelCommandOutput
+} from "./commands/GetMLModelCommand";
+import {
+  PredictCommandInput,
+  PredictCommandOutput
+} from "./commands/PredictCommand";
+import {
+  UpdateBatchPredictionCommandInput,
+  UpdateBatchPredictionCommandOutput
+} from "./commands/UpdateBatchPredictionCommand";
+import {
+  UpdateDataSourceCommandInput,
+  UpdateDataSourceCommandOutput
+} from "./commands/UpdateDataSourceCommand";
+import {
+  UpdateEvaluationCommandInput,
+  UpdateEvaluationCommandOutput
+} from "./commands/UpdateEvaluationCommand";
+import {
+  UpdateMLModelCommandInput,
+  UpdateMLModelCommandOutput
+} from "./commands/UpdateMLModelCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -109,64 +163,64 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsInput
-  | CreateBatchPredictionInput
-  | CreateDataSourceFromRDSInput
-  | CreateDataSourceFromRedshiftInput
-  | CreateDataSourceFromS3Input
-  | CreateEvaluationInput
-  | CreateMLModelInput
-  | CreateRealtimeEndpointInput
-  | DeleteBatchPredictionInput
-  | DeleteDataSourceInput
-  | DeleteEvaluationInput
-  | DeleteMLModelInput
-  | DeleteRealtimeEndpointInput
-  | DeleteTagsInput
-  | DescribeBatchPredictionsInput
-  | DescribeDataSourcesInput
-  | DescribeEvaluationsInput
-  | DescribeMLModelsInput
-  | DescribeTagsInput
-  | GetBatchPredictionInput
-  | GetDataSourceInput
-  | GetEvaluationInput
-  | GetMLModelInput
-  | PredictInput
-  | UpdateBatchPredictionInput
-  | UpdateDataSourceInput
-  | UpdateEvaluationInput
-  | UpdateMLModelInput;
+  | AddTagsCommandInput
+  | CreateBatchPredictionCommandInput
+  | CreateDataSourceFromRDSCommandInput
+  | CreateDataSourceFromRedshiftCommandInput
+  | CreateDataSourceFromS3CommandInput
+  | CreateEvaluationCommandInput
+  | CreateMLModelCommandInput
+  | CreateRealtimeEndpointCommandInput
+  | DeleteBatchPredictionCommandInput
+  | DeleteDataSourceCommandInput
+  | DeleteEvaluationCommandInput
+  | DeleteMLModelCommandInput
+  | DeleteRealtimeEndpointCommandInput
+  | DeleteTagsCommandInput
+  | DescribeBatchPredictionsCommandInput
+  | DescribeDataSourcesCommandInput
+  | DescribeEvaluationsCommandInput
+  | DescribeMLModelsCommandInput
+  | DescribeTagsCommandInput
+  | GetBatchPredictionCommandInput
+  | GetDataSourceCommandInput
+  | GetEvaluationCommandInput
+  | GetMLModelCommandInput
+  | PredictCommandInput
+  | UpdateBatchPredictionCommandInput
+  | UpdateDataSourceCommandInput
+  | UpdateEvaluationCommandInput
+  | UpdateMLModelCommandInput;
 
 export type ServiceOutputTypes =
-  | AddTagsOutput
-  | CreateBatchPredictionOutput
-  | CreateDataSourceFromRDSOutput
-  | CreateDataSourceFromRedshiftOutput
-  | CreateDataSourceFromS3Output
-  | CreateEvaluationOutput
-  | CreateMLModelOutput
-  | CreateRealtimeEndpointOutput
-  | DeleteBatchPredictionOutput
-  | DeleteDataSourceOutput
-  | DeleteEvaluationOutput
-  | DeleteMLModelOutput
-  | DeleteRealtimeEndpointOutput
-  | DeleteTagsOutput
-  | DescribeBatchPredictionsOutput
-  | DescribeDataSourcesOutput
-  | DescribeEvaluationsOutput
-  | DescribeMLModelsOutput
-  | DescribeTagsOutput
-  | GetBatchPredictionOutput
-  | GetDataSourceOutput
-  | GetEvaluationOutput
-  | GetMLModelOutput
-  | PredictOutput
-  | UpdateBatchPredictionOutput
-  | UpdateDataSourceOutput
-  | UpdateEvaluationOutput
-  | UpdateMLModelOutput;
+  | AddTagsCommandOutput
+  | CreateBatchPredictionCommandOutput
+  | CreateDataSourceFromRDSCommandOutput
+  | CreateDataSourceFromRedshiftCommandOutput
+  | CreateDataSourceFromS3CommandOutput
+  | CreateEvaluationCommandOutput
+  | CreateMLModelCommandOutput
+  | CreateRealtimeEndpointCommandOutput
+  | DeleteBatchPredictionCommandOutput
+  | DeleteDataSourceCommandOutput
+  | DeleteEvaluationCommandOutput
+  | DeleteMLModelCommandOutput
+  | DeleteRealtimeEndpointCommandOutput
+  | DeleteTagsCommandOutput
+  | DescribeBatchPredictionsCommandOutput
+  | DescribeDataSourcesCommandOutput
+  | DescribeEvaluationsCommandOutput
+  | DescribeMLModelsCommandOutput
+  | DescribeTagsCommandOutput
+  | GetBatchPredictionCommandOutput
+  | GetDataSourceCommandOutput
+  | GetEvaluationCommandOutput
+  | GetMLModelCommandOutput
+  | PredictCommandOutput
+  | UpdateBatchPredictionCommandOutput
+  | UpdateDataSourceCommandOutput
+  | UpdateEvaluationCommandOutput
+  | UpdateMLModelCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

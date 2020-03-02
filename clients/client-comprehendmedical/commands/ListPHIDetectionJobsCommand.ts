@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPHIDetectionJobsCommandInput = ListPHIDetectionJobsRequest;
-export type ListPHIDetectionJobsCommandOutput = ListPHIDetectionJobsResponse;
+export type ListPHIDetectionJobsCommandOutput = ListPHIDetectionJobsResponse &
+  __MetadataBearer;
 
 export class ListPHIDetectionJobsCommand extends $Command<
   ListPHIDetectionJobsCommandInput,

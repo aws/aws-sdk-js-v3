@@ -26,7 +26,7 @@ export namespace AddTagsInput {
   }
 }
 
-export interface AddTagsOutput extends $MetadataBearer {
+export interface AddTagsOutput {
   __type?: "AddTagsOutput";
   /**
    * <p>A list of tags associated with the Amazon SageMaker resource.</p>
@@ -833,7 +833,7 @@ export namespace AssociateTrialComponentRequest {
   }
 }
 
-export interface AssociateTrialComponentResponse extends $MetadataBearer {
+export interface AssociateTrialComponentResponse {
   __type?: "AssociateTrialComponentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
@@ -2001,7 +2001,7 @@ export namespace CreateAlgorithmInput {
   }
 }
 
-export interface CreateAlgorithmOutput extends $MetadataBearer {
+export interface CreateAlgorithmOutput {
   __type?: "CreateAlgorithmOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the new algorithm.</p>
@@ -2055,7 +2055,7 @@ export namespace CreateAppRequest {
   }
 }
 
-export interface CreateAppResponse extends $MetadataBearer {
+export interface CreateAppResponse {
   __type?: "CreateAppResponse";
   /**
    * <p>The app's Amazon Resource Name (ARN).</p>
@@ -2130,7 +2130,7 @@ export namespace CreateAutoMLJobRequest {
   }
 }
 
-export interface CreateAutoMLJobResponse extends $MetadataBearer {
+export interface CreateAutoMLJobResponse {
   __type?: "CreateAutoMLJobResponse";
   /**
    * <p>When a job is created, it is assigned a unique ARN.</p>
@@ -2165,7 +2165,7 @@ export namespace CreateCodeRepositoryInput {
   }
 }
 
-export interface CreateCodeRepositoryOutput extends $MetadataBearer {
+export interface CreateCodeRepositoryOutput {
   __type?: "CreateCodeRepositoryOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the new repository.</p>
@@ -2239,7 +2239,7 @@ export namespace CreateCompilationJobRequest {
   }
 }
 
-export interface CreateCompilationJobResponse extends $MetadataBearer {
+export interface CreateCompilationJobResponse {
   __type?: "CreateCompilationJobResponse";
   /**
    * <p>If the action is successful, the service sends back an HTTP 200 response. Amazon SageMaker returns
@@ -2306,7 +2306,7 @@ export namespace CreateDomainRequest {
   }
 }
 
-export interface CreateDomainResponse extends $MetadataBearer {
+export interface CreateDomainResponse {
   __type?: "CreateDomainResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the created domain.</p>
@@ -2402,7 +2402,7 @@ export namespace CreateEndpointConfigInput {
   }
 }
 
-export interface CreateEndpointConfigOutput extends $MetadataBearer {
+export interface CreateEndpointConfigOutput {
   __type?: "CreateEndpointConfigOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint configuration. </p>
@@ -2446,7 +2446,7 @@ export namespace CreateEndpointInput {
   }
 }
 
-export interface CreateEndpointOutput extends $MetadataBearer {
+export interface CreateEndpointOutput {
   __type?: "CreateEndpointOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
@@ -2493,7 +2493,7 @@ export namespace CreateExperimentRequest {
   }
 }
 
-export interface CreateExperimentResponse extends $MetadataBearer {
+export interface CreateExperimentResponse {
   __type?: "CreateExperimentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
@@ -2546,7 +2546,7 @@ export namespace CreateFlowDefinitionRequest {
   }
 }
 
-export interface CreateFlowDefinitionResponse extends $MetadataBearer {
+export interface CreateFlowDefinitionResponse {
   __type?: "CreateFlowDefinitionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the flow definition you create.</p>
@@ -2584,7 +2584,7 @@ export namespace CreateHumanTaskUiRequest {
   }
 }
 
-export interface CreateHumanTaskUiResponse extends $MetadataBearer {
+export interface CreateHumanTaskUiResponse {
   __type?: "CreateHumanTaskUiResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the human review workflow user interface you create.</p>
@@ -2667,7 +2667,7 @@ export namespace CreateHyperParameterTuningJobRequest {
   }
 }
 
-export interface CreateHyperParameterTuningJobResponse extends $MetadataBearer {
+export interface CreateHyperParameterTuningJobResponse {
   __type?: "CreateHyperParameterTuningJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker assigns an ARN to a
@@ -2800,7 +2800,7 @@ export namespace CreateLabelingJobRequest {
   }
 }
 
-export interface CreateLabelingJobResponse extends $MetadataBearer {
+export interface CreateLabelingJobResponse {
   __type?: "CreateLabelingJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the labeling job. You use this ARN to identify the
@@ -2877,7 +2877,7 @@ export namespace CreateModelInput {
   }
 }
 
-export interface CreateModelOutput extends $MetadataBearer {
+export interface CreateModelOutput {
   __type?: "CreateModelOutput";
   /**
    * <p>The ARN of the model created in Amazon SageMaker.</p>
@@ -2947,7 +2947,7 @@ export namespace CreateModelPackageInput {
   }
 }
 
-export interface CreateModelPackageOutput extends $MetadataBearer {
+export interface CreateModelPackageOutput {
   __type?: "CreateModelPackageOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the new model package.</p>
@@ -2988,7 +2988,7 @@ export namespace CreateMonitoringScheduleRequest {
   }
 }
 
-export interface CreateMonitoringScheduleResponse extends $MetadataBearer {
+export interface CreateMonitoringScheduleResponse {
   __type?: "CreateMonitoringScheduleResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
@@ -3149,8 +3149,7 @@ export namespace CreateNotebookInstanceLifecycleConfigInput {
   }
 }
 
-export interface CreateNotebookInstanceLifecycleConfigOutput
-  extends $MetadataBearer {
+export interface CreateNotebookInstanceLifecycleConfigOutput {
   __type?: "CreateNotebookInstanceLifecycleConfigOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
@@ -3166,7 +3165,7 @@ export namespace CreateNotebookInstanceLifecycleConfigOutput {
   }
 }
 
-export interface CreateNotebookInstanceOutput extends $MetadataBearer {
+export interface CreateNotebookInstanceOutput {
   __type?: "CreateNotebookInstanceOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the notebook instance. </p>
@@ -3204,7 +3203,7 @@ export namespace CreatePresignedDomainUrlRequest {
   }
 }
 
-export interface CreatePresignedDomainUrlResponse extends $MetadataBearer {
+export interface CreatePresignedDomainUrlResponse {
   __type?: "CreatePresignedDomainUrlResponse";
   /**
    * <p>The presigned URL.</p>
@@ -3237,8 +3236,7 @@ export namespace CreatePresignedNotebookInstanceUrlInput {
   }
 }
 
-export interface CreatePresignedNotebookInstanceUrlOutput
-  extends $MetadataBearer {
+export interface CreatePresignedNotebookInstanceUrlOutput {
   __type?: "CreatePresignedNotebookInstanceUrlOutput";
   /**
    * <p>A JSON object that contains the URL string. </p>
@@ -3321,7 +3319,7 @@ export namespace CreateProcessingJobRequest {
   }
 }
 
-export interface CreateProcessingJobResponse extends $MetadataBearer {
+export interface CreateProcessingJobResponse {
   __type?: "CreateProcessingJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the processing job.</p>
@@ -3504,7 +3502,7 @@ export namespace CreateTrainingJobRequest {
   }
 }
 
-export interface CreateTrainingJobResponse extends $MetadataBearer {
+export interface CreateTrainingJobResponse {
   __type?: "CreateTrainingJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the training job.</p>
@@ -3634,7 +3632,7 @@ export namespace CreateTransformJobRequest {
   }
 }
 
-export interface CreateTransformJobResponse extends $MetadataBearer {
+export interface CreateTransformJobResponse {
   __type?: "CreateTransformJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the transform job.</p>
@@ -3719,7 +3717,7 @@ export namespace CreateTrialComponentRequest {
   }
 }
 
-export interface CreateTrialComponentResponse extends $MetadataBearer {
+export interface CreateTrialComponentResponse {
   __type?: "CreateTrialComponentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
@@ -3766,7 +3764,7 @@ export namespace CreateTrialRequest {
   }
 }
 
-export interface CreateTrialResponse extends $MetadataBearer {
+export interface CreateTrialResponse {
   __type?: "CreateTrialResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
@@ -3824,7 +3822,7 @@ export namespace CreateUserProfileRequest {
   }
 }
 
-export interface CreateUserProfileResponse extends $MetadataBearer {
+export interface CreateUserProfileResponse {
   __type?: "CreateUserProfileResponse";
   /**
    * <p>The user profile Amazon Resource Name (ARN).</p>
@@ -3881,7 +3879,7 @@ export namespace CreateWorkteamRequest {
   }
 }
 
-export interface CreateWorkteamResponse extends $MetadataBearer {
+export interface CreateWorkteamResponse {
   __type?: "CreateWorkteamResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the work team. You can use this ARN to identify the
@@ -4296,7 +4294,7 @@ export namespace DeleteExperimentRequest {
   }
 }
 
-export interface DeleteExperimentResponse extends $MetadataBearer {
+export interface DeleteExperimentResponse {
   __type?: "DeleteExperimentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment that is being deleted.</p>
@@ -4324,7 +4322,7 @@ export namespace DeleteFlowDefinitionRequest {
   }
 }
 
-export interface DeleteFlowDefinitionResponse extends $MetadataBearer {
+export interface DeleteFlowDefinitionResponse {
   __type?: "DeleteFlowDefinitionResponse";
 }
 
@@ -4425,7 +4423,7 @@ export namespace DeleteTagsInput {
   }
 }
 
-export interface DeleteTagsOutput extends $MetadataBearer {
+export interface DeleteTagsOutput {
   __type?: "DeleteTagsOutput";
 }
 
@@ -4449,7 +4447,7 @@ export namespace DeleteTrialComponentRequest {
   }
 }
 
-export interface DeleteTrialComponentResponse extends $MetadataBearer {
+export interface DeleteTrialComponentResponse {
   __type?: "DeleteTrialComponentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the component is being deleted.</p>
@@ -4477,7 +4475,7 @@ export namespace DeleteTrialRequest {
   }
 }
 
-export interface DeleteTrialResponse extends $MetadataBearer {
+export interface DeleteTrialResponse {
   __type?: "DeleteTrialResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial that is being deleted.</p>
@@ -4524,7 +4522,7 @@ export namespace DeleteWorkteamRequest {
   }
 }
 
-export interface DeleteWorkteamResponse extends $MetadataBearer {
+export interface DeleteWorkteamResponse {
   __type?: "DeleteWorkteamResponse";
   /**
    * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
@@ -4588,7 +4586,7 @@ export namespace DescribeAlgorithmInput {
   }
 }
 
-export interface DescribeAlgorithmOutput extends $MetadataBearer {
+export interface DescribeAlgorithmOutput {
   __type?: "DescribeAlgorithmOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
@@ -4682,7 +4680,7 @@ export namespace DescribeAppRequest {
   }
 }
 
-export interface DescribeAppResponse extends $MetadataBearer {
+export interface DescribeAppResponse {
   __type?: "DescribeAppResponse";
   /**
    * <p>The app's Amazon Resource Name (ARN).</p>
@@ -4760,7 +4758,7 @@ export namespace DescribeAutoMLJobRequest {
   }
 }
 
-export interface DescribeAutoMLJobResponse extends $MetadataBearer {
+export interface DescribeAutoMLJobResponse {
   __type?: "DescribeAutoMLJobResponse";
   /**
    * <p>Returns the job's ARN.</p>
@@ -4876,7 +4874,7 @@ export namespace DescribeCodeRepositoryInput {
   }
 }
 
-export interface DescribeCodeRepositoryOutput extends $MetadataBearer {
+export interface DescribeCodeRepositoryOutput {
   __type?: "DescribeCodeRepositoryOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
@@ -4926,7 +4924,7 @@ export namespace DescribeCompilationJobRequest {
   }
 }
 
-export interface DescribeCompilationJobResponse extends $MetadataBearer {
+export interface DescribeCompilationJobResponse {
   __type?: "DescribeCompilationJobResponse";
   /**
    * <p>The time when the model compilation job on a compilation job instance ended. For a
@@ -5029,7 +5027,7 @@ export namespace DescribeDomainRequest {
   }
 }
 
-export interface DescribeDomainResponse extends $MetadataBearer {
+export interface DescribeDomainResponse {
   __type?: "DescribeDomainResponse";
   /**
    * <p>The domain's authentication mode.</p>
@@ -5129,7 +5127,7 @@ export namespace DescribeEndpointConfigInput {
   }
 }
 
-export interface DescribeEndpointConfigOutput extends $MetadataBearer {
+export interface DescribeEndpointConfigOutput {
   __type?: "DescribeEndpointConfigOutput";
   /**
    * <p>A timestamp that shows when the endpoint configuration was created.</p>
@@ -5184,7 +5182,7 @@ export namespace DescribeEndpointInput {
   }
 }
 
-export interface DescribeEndpointOutput extends $MetadataBearer {
+export interface DescribeEndpointOutput {
   __type?: "DescribeEndpointOutput";
   /**
    * <p>A timestamp that shows when the endpoint was created.</p>
@@ -5302,7 +5300,7 @@ export namespace DescribeExperimentRequest {
   }
 }
 
-export interface DescribeExperimentResponse extends $MetadataBearer {
+export interface DescribeExperimentResponse {
   __type?: "DescribeExperimentResponse";
   /**
    * <p>Who created the experiment.</p>
@@ -5371,7 +5369,7 @@ export namespace DescribeFlowDefinitionRequest {
   }
 }
 
-export interface DescribeFlowDefinitionResponse extends $MetadataBearer {
+export interface DescribeFlowDefinitionResponse {
   __type?: "DescribeFlowDefinitionResponse";
   /**
    * <p>The timestamp when the flow definition was created.</p>
@@ -5439,7 +5437,7 @@ export namespace DescribeHumanTaskUiRequest {
   }
 }
 
-export interface DescribeHumanTaskUiResponse extends $MetadataBearer {
+export interface DescribeHumanTaskUiResponse {
   __type?: "DescribeHumanTaskUiResponse";
   /**
    * <p>The timestamp when the human task user interface was created.</p>
@@ -5482,8 +5480,7 @@ export namespace DescribeHyperParameterTuningJobRequest {
   }
 }
 
-export interface DescribeHyperParameterTuningJobResponse
-  extends $MetadataBearer {
+export interface DescribeHyperParameterTuningJobResponse {
   __type?: "DescribeHyperParameterTuningJobResponse";
   /**
    * <p>A <a>TrainingJobSummary</a> object that describes the training job that
@@ -5599,7 +5596,7 @@ export namespace DescribeLabelingJobRequest {
   }
 }
 
-export interface DescribeLabelingJobResponse extends $MetadataBearer {
+export interface DescribeLabelingJobResponse {
   __type?: "DescribeLabelingJobResponse";
   /**
    * <p>The date and time that the labeling job was created.</p>
@@ -5777,7 +5774,7 @@ export namespace DescribeModelInput {
   }
 }
 
-export interface DescribeModelOutput extends $MetadataBearer {
+export interface DescribeModelOutput {
   __type?: "DescribeModelOutput";
   /**
    * <p>The containers in the inference pipeline.</p>
@@ -5847,7 +5844,7 @@ export namespace DescribeModelPackageInput {
   }
 }
 
-export interface DescribeModelPackageOutput extends $MetadataBearer {
+export interface DescribeModelPackageOutput {
   __type?: "DescribeModelPackageOutput";
   /**
    * <p>Whether the model package is certified for listing on AWS Marketplace.</p>
@@ -5922,7 +5919,7 @@ export namespace DescribeMonitoringScheduleRequest {
   }
 }
 
-export interface DescribeMonitoringScheduleResponse extends $MetadataBearer {
+export interface DescribeMonitoringScheduleResponse {
   __type?: "DescribeMonitoringScheduleResponse";
   /**
    * <p>The time at which the monitoring job was created.</p>
@@ -6008,8 +6005,7 @@ export namespace DescribeNotebookInstanceLifecycleConfigInput {
   }
 }
 
-export interface DescribeNotebookInstanceLifecycleConfigOutput
-  extends $MetadataBearer {
+export interface DescribeNotebookInstanceLifecycleConfigOutput {
   __type?: "DescribeNotebookInstanceLifecycleConfigOutput";
   /**
    * <p>A timestamp that tells when the lifecycle configuration was created.</p>
@@ -6051,7 +6047,7 @@ export namespace DescribeNotebookInstanceLifecycleConfigOutput {
   }
 }
 
-export interface DescribeNotebookInstanceOutput extends $MetadataBearer {
+export interface DescribeNotebookInstanceOutput {
   __type?: "DescribeNotebookInstanceOutput";
   /**
    * <p>A list of the Elastic Inference (EI) instance types associated with this notebook
@@ -6206,7 +6202,7 @@ export namespace DescribeProcessingJobRequest {
   }
 }
 
-export interface DescribeProcessingJobResponse extends $MetadataBearer {
+export interface DescribeProcessingJobResponse {
   __type?: "DescribeProcessingJobResponse";
   /**
    * <p>Configures the processing job to run a specified container image.</p>
@@ -6340,7 +6336,7 @@ export namespace DescribeSubscribedWorkteamRequest {
   }
 }
 
-export interface DescribeSubscribedWorkteamResponse extends $MetadataBearer {
+export interface DescribeSubscribedWorkteamResponse {
   __type?: "DescribeSubscribedWorkteamResponse";
   /**
    * <p>A <code>Workteam</code> instance that contains information about the work team.</p>
@@ -6368,7 +6364,7 @@ export namespace DescribeTrainingJobRequest {
   }
 }
 
-export interface DescribeTrainingJobResponse extends $MetadataBearer {
+export interface DescribeTrainingJobResponse {
   __type?: "DescribeTrainingJobResponse";
   /**
    * <p>Information about the algorithm used for training, and algorithm metadata.
@@ -6735,7 +6731,7 @@ export namespace DescribeTransformJobRequest {
   }
 }
 
-export interface DescribeTransformJobResponse extends $MetadataBearer {
+export interface DescribeTransformJobResponse {
   __type?: "DescribeTransformJobResponse";
   /**
    * <p></p>
@@ -6897,7 +6893,7 @@ export namespace DescribeTrialComponentRequest {
   }
 }
 
-export interface DescribeTrialComponentResponse extends $MetadataBearer {
+export interface DescribeTrialComponentResponse {
   __type?: "DescribeTrialComponentResponse";
   /**
    * <p>Who created the component.</p>
@@ -7008,7 +7004,7 @@ export namespace DescribeTrialRequest {
   }
 }
 
-export interface DescribeTrialResponse extends $MetadataBearer {
+export interface DescribeTrialResponse {
   __type?: "DescribeTrialResponse";
   /**
    * <p>Who created the trial.</p>
@@ -7083,7 +7079,7 @@ export namespace DescribeUserProfileRequest {
   }
 }
 
-export interface DescribeUserProfileResponse extends $MetadataBearer {
+export interface DescribeUserProfileResponse {
   __type?: "DescribeUserProfileResponse";
   /**
    * <p>The creation time.</p>
@@ -7163,7 +7159,7 @@ export namespace DescribeWorkforceRequest {
   }
 }
 
-export interface DescribeWorkforceResponse extends $MetadataBearer {
+export interface DescribeWorkforceResponse {
   __type?: "DescribeWorkforceResponse";
   /**
    * <p>A single private workforce, which is automatically created when you create your first
@@ -7194,7 +7190,7 @@ export namespace DescribeWorkteamRequest {
   }
 }
 
-export interface DescribeWorkteamResponse extends $MetadataBearer {
+export interface DescribeWorkteamResponse {
   __type?: "DescribeWorkteamResponse";
   /**
    * <p>A <code>Workteam</code> instance that contains information about the work team.
@@ -7276,7 +7272,7 @@ export namespace DisassociateTrialComponentRequest {
   }
 }
 
-export interface DisassociateTrialComponentResponse extends $MetadataBearer {
+export interface DisassociateTrialComponentResponse {
   __type?: "DisassociateTrialComponentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
@@ -8038,7 +8034,7 @@ export namespace GetSearchSuggestionsRequest {
   }
 }
 
-export interface GetSearchSuggestionsResponse extends $MetadataBearer {
+export interface GetSearchSuggestionsResponse {
   __type?: "GetSearchSuggestionsResponse";
   /**
    * <p>A list of property names for a <code>Resource</code> that match a
@@ -10803,7 +10799,7 @@ export namespace ListAlgorithmsInput {
   }
 }
 
-export interface ListAlgorithmsOutput extends $MetadataBearer {
+export interface ListAlgorithmsOutput {
   __type?: "ListAlgorithmsOutput";
   /**
    * <p>>An array of <code>AlgorithmSummary</code> objects, each of which lists an
@@ -10864,7 +10860,7 @@ export namespace ListAppsRequest {
   }
 }
 
-export interface ListAppsResponse extends $MetadataBearer {
+export interface ListAppsResponse {
   __type?: "ListAppsResponse";
   /**
    * <p>The list of apps.</p>
@@ -10944,7 +10940,7 @@ export namespace ListAutoMLJobsRequest {
   }
 }
 
-export interface ListAutoMLJobsResponse extends $MetadataBearer {
+export interface ListAutoMLJobsResponse {
   __type?: "ListAutoMLJobsResponse";
   /**
    * <p>Returns a summary list of jobs.</p>
@@ -11009,7 +11005,7 @@ export namespace ListCandidatesForAutoMLJobRequest {
   }
 }
 
-export interface ListCandidatesForAutoMLJobResponse extends $MetadataBearer {
+export interface ListCandidatesForAutoMLJobResponse {
   __type?: "ListCandidatesForAutoMLJobResponse";
   /**
    * <p>Summaries about the Candidates.</p>
@@ -11090,7 +11086,7 @@ export namespace ListCodeRepositoriesInput {
   }
 }
 
-export interface ListCodeRepositoriesOutput extends $MetadataBearer {
+export interface ListCodeRepositoriesOutput {
   __type?: "ListCodeRepositoriesOutput";
   /**
    * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following
@@ -11197,7 +11193,7 @@ export namespace ListCompilationJobsRequest {
   }
 }
 
-export interface ListCompilationJobsResponse extends $MetadataBearer {
+export interface ListCompilationJobsResponse {
   __type?: "ListCompilationJobsResponse";
   /**
    * <p>An array of <a>CompilationJobSummary</a> objects, each describing a model
@@ -11244,7 +11240,7 @@ export namespace ListDomainsRequest {
   }
 }
 
-export interface ListDomainsResponse extends $MetadataBearer {
+export interface ListDomainsResponse {
   __type?: "ListDomainsResponse";
   /**
    * <p>The list of domains.</p>
@@ -11313,7 +11309,7 @@ export namespace ListEndpointConfigsInput {
   }
 }
 
-export interface ListEndpointConfigsOutput extends $MetadataBearer {
+export interface ListEndpointConfigsOutput {
   __type?: "ListEndpointConfigsOutput";
   /**
    * <p>An array of endpoint configurations.</p>
@@ -11399,7 +11395,7 @@ export namespace ListEndpointsInput {
   }
 }
 
-export interface ListEndpointsOutput extends $MetadataBearer {
+export interface ListEndpointsOutput {
   __type?: "ListEndpointsOutput";
   /**
    * <p> An array or endpoint objects. </p>
@@ -11459,7 +11455,7 @@ export namespace ListExperimentsRequest {
   }
 }
 
-export interface ListExperimentsResponse extends $MetadataBearer {
+export interface ListExperimentsResponse {
   __type?: "ListExperimentsResponse";
   /**
    * <p>A list of the summaries of your experiments.</p>
@@ -11512,7 +11508,7 @@ export namespace ListFlowDefinitionsRequest {
   }
 }
 
-export interface ListFlowDefinitionsResponse extends $MetadataBearer {
+export interface ListFlowDefinitionsResponse {
   __type?: "ListFlowDefinitionsResponse";
   /**
    * <p>An array of objects describing the flow definitions.</p>
@@ -11565,7 +11561,7 @@ export namespace ListHumanTaskUisRequest {
   }
 }
 
-export interface ListHumanTaskUisResponse extends $MetadataBearer {
+export interface ListHumanTaskUisResponse {
   __type?: "ListHumanTaskUisResponse";
   /**
    * <p>An array of objects describing the human task user interfaces.</p>
@@ -11660,7 +11656,7 @@ export namespace ListHyperParameterTuningJobsRequest {
   }
 }
 
-export interface ListHyperParameterTuningJobsResponse extends $MetadataBearer {
+export interface ListHyperParameterTuningJobsResponse {
   __type?: "ListHyperParameterTuningJobsResponse";
   /**
    * <p>A list of <a>HyperParameterTuningJobSummary</a> objects that
@@ -11741,7 +11737,7 @@ export namespace ListLabelingJobsForWorkteamRequest {
   }
 }
 
-export interface ListLabelingJobsForWorkteamResponse extends $MetadataBearer {
+export interface ListLabelingJobsForWorkteamResponse {
   __type?: "ListLabelingJobsForWorkteamResponse";
   /**
    * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
@@ -11832,7 +11828,7 @@ export namespace ListLabelingJobsRequest {
   }
 }
 
-export interface ListLabelingJobsResponse extends $MetadataBearer {
+export interface ListLabelingJobsResponse {
   __type?: "ListLabelingJobsResponse";
   /**
    * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
@@ -11903,7 +11899,7 @@ export namespace ListModelPackagesInput {
   }
 }
 
-export interface ListModelPackagesOutput extends $MetadataBearer {
+export interface ListModelPackagesOutput {
   __type?: "ListModelPackagesOutput";
   /**
    * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
@@ -11973,7 +11969,7 @@ export namespace ListModelsInput {
   }
 }
 
-export interface ListModelsOutput extends $MetadataBearer {
+export interface ListModelsOutput {
   __type?: "ListModelsOutput";
   /**
    * <p>An array of <code>ModelSummary</code> objects, each of which lists a
@@ -12071,7 +12067,7 @@ export namespace ListMonitoringExecutionsRequest {
   }
 }
 
-export interface ListMonitoringExecutionsResponse extends $MetadataBearer {
+export interface ListMonitoringExecutionsResponse {
   __type?: "ListMonitoringExecutionsResponse";
   /**
    * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
@@ -12158,7 +12154,7 @@ export namespace ListMonitoringSchedulesRequest {
   }
 }
 
-export interface ListMonitoringSchedulesResponse extends $MetadataBearer {
+export interface ListMonitoringSchedulesResponse {
   __type?: "ListMonitoringSchedulesResponse";
   /**
    * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
@@ -12239,8 +12235,7 @@ export namespace ListNotebookInstanceLifecycleConfigsInput {
   }
 }
 
-export interface ListNotebookInstanceLifecycleConfigsOutput
-  extends $MetadataBearer {
+export interface ListNotebookInstanceLifecycleConfigsOutput {
   __type?: "ListNotebookInstanceLifecycleConfigsOutput";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To get the next set of
@@ -12355,7 +12350,7 @@ export namespace ListNotebookInstancesInput {
   }
 }
 
-export interface ListNotebookInstancesOutput extends $MetadataBearer {
+export interface ListNotebookInstancesOutput {
   __type?: "ListNotebookInstancesOutput";
   /**
    * <p>If the response to the previous <code>ListNotebookInstances</code> request was
@@ -12439,7 +12434,7 @@ export namespace ListProcessingJobsRequest {
   }
 }
 
-export interface ListProcessingJobsResponse extends $MetadataBearer {
+export interface ListProcessingJobsResponse {
   __type?: "ListProcessingJobsResponse";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -12487,7 +12482,7 @@ export namespace ListSubscribedWorkteamsRequest {
   }
 }
 
-export interface ListSubscribedWorkteamsResponse extends $MetadataBearer {
+export interface ListSubscribedWorkteamsResponse {
   __type?: "ListSubscribedWorkteamsResponse";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -12534,7 +12529,7 @@ export namespace ListTagsInput {
   }
 }
 
-export interface ListTagsOutput extends $MetadataBearer {
+export interface ListTagsOutput {
   __type?: "ListTagsOutput";
   /**
    * <p> If response is truncated, Amazon SageMaker includes a token in the response. You can use this
@@ -12605,8 +12600,7 @@ export namespace ListTrainingJobsForHyperParameterTuningJobRequest {
   }
 }
 
-export interface ListTrainingJobsForHyperParameterTuningJobResponse
-  extends $MetadataBearer {
+export interface ListTrainingJobsForHyperParameterTuningJobResponse {
   __type?: "ListTrainingJobsForHyperParameterTuningJobResponse";
   /**
    * <p>If the result of this <code>ListTrainingJobsForHyperParameterTuningJob</code> request
@@ -12698,7 +12692,7 @@ export namespace ListTrainingJobsRequest {
   }
 }
 
-export interface ListTrainingJobsResponse extends $MetadataBearer {
+export interface ListTrainingJobsResponse {
   __type?: "ListTrainingJobsResponse";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -12784,7 +12778,7 @@ export namespace ListTransformJobsRequest {
   }
 }
 
-export interface ListTransformJobsResponse extends $MetadataBearer {
+export interface ListTransformJobsResponse {
   __type?: "ListTransformJobsResponse";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -12867,7 +12861,7 @@ export namespace ListTrialComponentsRequest {
   }
 }
 
-export interface ListTrialComponentsResponse extends $MetadataBearer {
+export interface ListTrialComponentsResponse {
   __type?: "ListTrialComponentsResponse";
   /**
    * <p>A token for getting the next set of components, if there are any.</p>
@@ -12931,7 +12925,7 @@ export namespace ListTrialsRequest {
   }
 }
 
-export interface ListTrialsResponse extends $MetadataBearer {
+export interface ListTrialsResponse {
   __type?: "ListTrialsResponse";
   /**
    * <p>A token for getting the next set of trials, if there are any.</p>
@@ -12990,7 +12984,7 @@ export namespace ListUserProfilesRequest {
   }
 }
 
-export interface ListUserProfilesResponse extends $MetadataBearer {
+export interface ListUserProfilesResponse {
   __type?: "ListUserProfilesResponse";
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -13047,7 +13041,7 @@ export namespace ListWorkteamsRequest {
   }
 }
 
-export interface ListWorkteamsResponse extends $MetadataBearer {
+export interface ListWorkteamsResponse {
   __type?: "ListWorkteamsResponse";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -15325,7 +15319,7 @@ export namespace RenderUiTemplateRequest {
   }
 }
 
-export interface RenderUiTemplateResponse extends $MetadataBearer {
+export interface RenderUiTemplateResponse {
   __type?: "RenderUiTemplateResponse";
   /**
    * <p>A list of one or more <code>RenderingError</code> objects if any were encountered
@@ -15977,7 +15971,7 @@ export namespace SearchRequest {
   }
 }
 
-export interface SearchResponse extends $MetadataBearer {
+export interface SearchResponse {
   __type?: "SearchResponse";
   /**
    * <p>If the result of the previous <code>Search</code> request was truncated, the response
@@ -18457,7 +18451,7 @@ export namespace UpdateCodeRepositoryInput {
   }
 }
 
-export interface UpdateCodeRepositoryOutput extends $MetadataBearer {
+export interface UpdateCodeRepositoryOutput {
   __type?: "UpdateCodeRepositoryOutput";
   /**
    * <p>The ARN of the Git repository.</p>
@@ -18490,7 +18484,7 @@ export namespace UpdateDomainRequest {
   }
 }
 
-export interface UpdateDomainResponse extends $MetadataBearer {
+export interface UpdateDomainResponse {
   __type?: "UpdateDomainResponse";
   /**
    * <p>The domain Amazon Resource Name (ARN).</p>
@@ -18523,7 +18517,7 @@ export namespace UpdateEndpointInput {
   }
 }
 
-export interface UpdateEndpointOutput extends $MetadataBearer {
+export interface UpdateEndpointOutput {
   __type?: "UpdateEndpointOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
@@ -18556,8 +18550,7 @@ export namespace UpdateEndpointWeightsAndCapacitiesInput {
   }
 }
 
-export interface UpdateEndpointWeightsAndCapacitiesOutput
-  extends $MetadataBearer {
+export interface UpdateEndpointWeightsAndCapacitiesOutput {
   __type?: "UpdateEndpointWeightsAndCapacitiesOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
@@ -18597,7 +18590,7 @@ export namespace UpdateExperimentRequest {
   }
 }
 
-export interface UpdateExperimentResponse extends $MetadataBearer {
+export interface UpdateExperimentResponse {
   __type?: "UpdateExperimentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
@@ -18632,7 +18625,7 @@ export namespace UpdateMonitoringScheduleRequest {
   }
 }
 
-export interface UpdateMonitoringScheduleResponse extends $MetadataBearer {
+export interface UpdateMonitoringScheduleResponse {
   __type?: "UpdateMonitoringScheduleResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
@@ -18789,8 +18782,7 @@ export namespace UpdateNotebookInstanceLifecycleConfigInput {
   }
 }
 
-export interface UpdateNotebookInstanceLifecycleConfigOutput
-  extends $MetadataBearer {
+export interface UpdateNotebookInstanceLifecycleConfigOutput {
   __type?: "UpdateNotebookInstanceLifecycleConfigOutput";
 }
 
@@ -18802,7 +18794,7 @@ export namespace UpdateNotebookInstanceLifecycleConfigOutput {
   }
 }
 
-export interface UpdateNotebookInstanceOutput extends $MetadataBearer {
+export interface UpdateNotebookInstanceOutput {
   __type?: "UpdateNotebookInstanceOutput";
 }
 
@@ -18878,7 +18870,7 @@ export namespace UpdateTrialComponentRequest {
   }
 }
 
-export interface UpdateTrialComponentResponse extends $MetadataBearer {
+export interface UpdateTrialComponentResponse {
   __type?: "UpdateTrialComponentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
@@ -18913,7 +18905,7 @@ export namespace UpdateTrialRequest {
   }
 }
 
-export interface UpdateTrialResponse extends $MetadataBearer {
+export interface UpdateTrialResponse {
   __type?: "UpdateTrialResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
@@ -18951,7 +18943,7 @@ export namespace UpdateUserProfileRequest {
   }
 }
 
-export interface UpdateUserProfileResponse extends $MetadataBearer {
+export interface UpdateUserProfileResponse {
   __type?: "UpdateUserProfileResponse";
   /**
    * <p>The user profile Amazon Resource Name (ARN).</p>
@@ -18988,7 +18980,7 @@ export namespace UpdateWorkforceRequest {
   }
 }
 
-export interface UpdateWorkforceResponse extends $MetadataBearer {
+export interface UpdateWorkforceResponse {
   __type?: "UpdateWorkforceResponse";
   /**
    * <p>A single private workforce, which is automatically created when you create your first
@@ -19035,7 +19027,7 @@ export namespace UpdateWorkteamRequest {
   }
 }
 
-export interface UpdateWorkteamResponse extends $MetadataBearer {
+export interface UpdateWorkteamResponse {
   __type?: "UpdateWorkteamResponse";
   /**
    * <p>A <code>Workteam</code> object that describes the updated work team.</p>

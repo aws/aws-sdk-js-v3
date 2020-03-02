@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 /**
  * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
@@ -23,7 +24,7 @@ export namespace AbortIncompleteMultipartUpload {
   }
 }
 
-export interface AbortMultipartUploadOutput extends $MetadataBearer {
+export interface AbortMultipartUploadOutput {
   __type?: "AbortMultipartUploadOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -587,7 +588,7 @@ export namespace CommonPrefix {
   }
 }
 
-export interface CompleteMultipartUploadOutput extends $MetadataBearer {
+export interface CompleteMultipartUploadOutput {
   __type?: "CompleteMultipartUploadOutput";
   /**
    * <p>The name of the bucket that contains the newly created object.</p>
@@ -761,7 +762,7 @@ export namespace ContinuationEvent {
   }
 }
 
-export interface CopyObjectOutput extends $MetadataBearer {
+export interface CopyObjectOutput {
   __type?: "CopyObjectOutput";
   /**
    * <p>Container for all response elements.</p>
@@ -1096,7 +1097,7 @@ export namespace CreateBucketConfiguration {
   }
 }
 
-export interface CreateBucketOutput extends $MetadataBearer {
+export interface CreateBucketOutput {
   __type?: "CreateBucketOutput";
   /**
    * <p>Specifies the Region where the bucket will be created. If you are creating a bucket on
@@ -1166,7 +1167,7 @@ export namespace CreateBucketRequest {
   }
 }
 
-export interface CreateMultipartUploadOutput extends $MetadataBearer {
+export interface CreateMultipartUploadOutput {
   __type?: "CreateMultipartUploadOutput";
   /**
    * <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
@@ -1684,7 +1685,7 @@ export namespace DeleteMarkerReplication {
 
 export type DeleteMarkerReplicationStatus = "Disabled" | "Enabled";
 
-export interface DeleteObjectOutput extends $MetadataBearer {
+export interface DeleteObjectOutput {
   __type?: "DeleteObjectOutput";
   /**
    * <p>Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.</p>
@@ -1753,7 +1754,7 @@ export namespace DeleteObjectRequest {
   }
 }
 
-export interface DeleteObjectTaggingOutput extends $MetadataBearer {
+export interface DeleteObjectTaggingOutput {
   __type?: "DeleteObjectTaggingOutput";
   /**
    * <p>The versionId of the object the tag-set was removed from.</p>
@@ -1792,7 +1793,7 @@ export namespace DeleteObjectTaggingRequest {
   }
 }
 
-export interface DeleteObjectsOutput extends $MetadataBearer {
+export interface DeleteObjectsOutput {
   __type?: "DeleteObjectsOutput";
   /**
    * <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
@@ -3975,8 +3976,7 @@ export namespace FilterRule {
 
 export type FilterRuleName = "prefix" | "suffix";
 
-export interface GetBucketAccelerateConfigurationOutput
-  extends $MetadataBearer {
+export interface GetBucketAccelerateConfigurationOutput {
   __type?: "GetBucketAccelerateConfigurationOutput";
   /**
    * <p>The accelerate configuration of the bucket.</p>
@@ -4004,7 +4004,7 @@ export namespace GetBucketAccelerateConfigurationRequest {
   }
 }
 
-export interface GetBucketAclOutput extends $MetadataBearer {
+export interface GetBucketAclOutput {
   __type?: "GetBucketAclOutput";
   /**
    * <p>A list of grants.</p>
@@ -4037,7 +4037,7 @@ export namespace GetBucketAclRequest {
   }
 }
 
-export interface GetBucketAnalyticsConfigurationOutput extends $MetadataBearer {
+export interface GetBucketAnalyticsConfigurationOutput {
   __type?: "GetBucketAnalyticsConfigurationOutput";
   /**
    * <p>The configuration and any analyses for the analytics filter.</p>
@@ -4070,7 +4070,7 @@ export namespace GetBucketAnalyticsConfigurationRequest {
   }
 }
 
-export interface GetBucketCorsOutput extends $MetadataBearer {
+export interface GetBucketCorsOutput {
   __type?: "GetBucketCorsOutput";
   /**
    * <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
@@ -4098,7 +4098,7 @@ export namespace GetBucketCorsRequest {
   }
 }
 
-export interface GetBucketEncryptionOutput extends $MetadataBearer {
+export interface GetBucketEncryptionOutput {
   __type?: "GetBucketEncryptionOutput";
   /**
    * <p>Specifies the default server-side-encryption configuration.</p>
@@ -4126,7 +4126,7 @@ export namespace GetBucketEncryptionRequest {
   }
 }
 
-export interface GetBucketInventoryConfigurationOutput extends $MetadataBearer {
+export interface GetBucketInventoryConfigurationOutput {
   __type?: "GetBucketInventoryConfigurationOutput";
   /**
    * <p>Specifies the inventory configuration.</p>
@@ -4159,7 +4159,7 @@ export namespace GetBucketInventoryConfigurationRequest {
   }
 }
 
-export interface GetBucketLifecycleConfigurationOutput extends $MetadataBearer {
+export interface GetBucketLifecycleConfigurationOutput {
   __type?: "GetBucketLifecycleConfigurationOutput";
   /**
    * <p>Container for a lifecycle rule.</p>
@@ -4187,7 +4187,7 @@ export namespace GetBucketLifecycleConfigurationRequest {
   }
 }
 
-export interface GetBucketLocationOutput extends $MetadataBearer {
+export interface GetBucketLocationOutput {
   __type?: "GetBucketLocationOutput";
   /**
    * <p>Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported
@@ -4217,7 +4217,7 @@ export namespace GetBucketLocationRequest {
   }
 }
 
-export interface GetBucketLoggingOutput extends $MetadataBearer {
+export interface GetBucketLoggingOutput {
   __type?: "GetBucketLoggingOutput";
   /**
    * <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for
@@ -4247,7 +4247,7 @@ export namespace GetBucketLoggingRequest {
   }
 }
 
-export interface GetBucketMetricsConfigurationOutput extends $MetadataBearer {
+export interface GetBucketMetricsConfigurationOutput {
   __type?: "GetBucketMetricsConfigurationOutput";
   /**
    * <p>Specifies the metrics configuration.</p>
@@ -4294,7 +4294,7 @@ export namespace GetBucketNotificationConfigurationRequest {
   }
 }
 
-export interface GetBucketPolicyOutput extends $MetadataBearer {
+export interface GetBucketPolicyOutput {
   __type?: "GetBucketPolicyOutput";
   /**
    * <p>The bucket policy as a JSON document.</p>
@@ -4322,7 +4322,7 @@ export namespace GetBucketPolicyRequest {
   }
 }
 
-export interface GetBucketPolicyStatusOutput extends $MetadataBearer {
+export interface GetBucketPolicyStatusOutput {
   __type?: "GetBucketPolicyStatusOutput";
   /**
    * <p>The policy status for the specified bucket.</p>
@@ -4350,7 +4350,7 @@ export namespace GetBucketPolicyStatusRequest {
   }
 }
 
-export interface GetBucketReplicationOutput extends $MetadataBearer {
+export interface GetBucketReplicationOutput {
   __type?: "GetBucketReplicationOutput";
   /**
    * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
@@ -4379,7 +4379,7 @@ export namespace GetBucketReplicationRequest {
   }
 }
 
-export interface GetBucketRequestPaymentOutput extends $MetadataBearer {
+export interface GetBucketRequestPaymentOutput {
   __type?: "GetBucketRequestPaymentOutput";
   /**
    * <p>Specifies who pays for the download and request fees.</p>
@@ -4407,7 +4407,7 @@ export namespace GetBucketRequestPaymentRequest {
   }
 }
 
-export interface GetBucketTaggingOutput extends $MetadataBearer {
+export interface GetBucketTaggingOutput {
   __type?: "GetBucketTaggingOutput";
   /**
    * <p>Contains the tag set.</p>
@@ -4435,7 +4435,7 @@ export namespace GetBucketTaggingRequest {
   }
 }
 
-export interface GetBucketVersioningOutput extends $MetadataBearer {
+export interface GetBucketVersioningOutput {
   __type?: "GetBucketVersioningOutput";
   /**
    * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>
@@ -4468,7 +4468,7 @@ export namespace GetBucketVersioningRequest {
   }
 }
 
-export interface GetBucketWebsiteOutput extends $MetadataBearer {
+export interface GetBucketWebsiteOutput {
   __type?: "GetBucketWebsiteOutput";
   /**
    * <p>The name of the error document for the website.</p>
@@ -4511,7 +4511,7 @@ export namespace GetBucketWebsiteRequest {
   }
 }
 
-export interface GetObjectAclOutput extends $MetadataBearer {
+export interface GetObjectAclOutput {
   __type?: "GetObjectAclOutput";
   /**
    * <p>A list of grants.</p>
@@ -4569,7 +4569,7 @@ export namespace GetObjectAclRequest {
   }
 }
 
-export interface GetObjectLegalHoldOutput extends $MetadataBearer {
+export interface GetObjectLegalHoldOutput {
   __type?: "GetObjectLegalHoldOutput";
   /**
    * <p>The current Legal Hold status for the specified object.</p>
@@ -4618,7 +4618,7 @@ export namespace GetObjectLegalHoldRequest {
   }
 }
 
-export interface GetObjectLockConfigurationOutput extends $MetadataBearer {
+export interface GetObjectLockConfigurationOutput {
   __type?: "GetObjectLockConfigurationOutput";
   /**
    * <p>The specified bucket's Object Lock configuration.</p>
@@ -4646,7 +4646,7 @@ export namespace GetObjectLockConfigurationRequest {
   }
 }
 
-export interface GetObjectOutput extends $MetadataBearer {
+export interface GetObjectOutput {
   __type?: "GetObjectOutput";
   /**
    * <p>Indicates that a range of bytes was specified.</p>
@@ -4656,7 +4656,7 @@ export interface GetObjectOutput extends $MetadataBearer {
   /**
    * <p>Object data.</p>
    */
-  Body?: Uint8Array;
+  Body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>Specifies caching behavior along the request/reply chain.</p>
@@ -4934,7 +4934,7 @@ export namespace GetObjectRequest {
   }
 }
 
-export interface GetObjectRetentionOutput extends $MetadataBearer {
+export interface GetObjectRetentionOutput {
   __type?: "GetObjectRetentionOutput";
   /**
    * <p>The container element for an object's retention settings.</p>
@@ -4981,7 +4981,7 @@ export namespace GetObjectRetentionRequest {
   }
 }
 
-export interface GetObjectTaggingOutput extends $MetadataBearer {
+export interface GetObjectTaggingOutput {
   __type?: "GetObjectTaggingOutput";
   /**
    * <p>Contains the tag set.</p>
@@ -5025,12 +5025,12 @@ export namespace GetObjectTaggingRequest {
   }
 }
 
-export interface GetObjectTorrentOutput extends $MetadataBearer {
+export interface GetObjectTorrentOutput {
   __type?: "GetObjectTorrentOutput";
   /**
    * <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
    */
-  Body?: Uint8Array;
+  Body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -5071,7 +5071,7 @@ export namespace GetObjectTorrentRequest {
   }
 }
 
-export interface GetPublicAccessBlockOutput extends $MetadataBearer {
+export interface GetPublicAccessBlockOutput {
   __type?: "GetPublicAccessBlockOutput";
   /**
    * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon S3
@@ -5191,7 +5191,7 @@ export namespace HeadBucketRequest {
   }
 }
 
-export interface HeadObjectOutput extends $MetadataBearer {
+export interface HeadObjectOutput {
   __type?: "HeadObjectOutput";
   /**
    * <p>Indicates that a range of bytes was specified.</p>
@@ -5950,8 +5950,7 @@ export namespace LifecycleRuleFilter {
   }
 }
 
-export interface ListBucketAnalyticsConfigurationsOutput
-  extends $MetadataBearer {
+export interface ListBucketAnalyticsConfigurationsOutput {
   __type?: "ListBucketAnalyticsConfigurationsOutput";
   /**
    * <p>The list of analytics configurations for a bucket.</p>
@@ -6003,8 +6002,7 @@ export namespace ListBucketAnalyticsConfigurationsRequest {
   }
 }
 
-export interface ListBucketInventoryConfigurationsOutput
-  extends $MetadataBearer {
+export interface ListBucketInventoryConfigurationsOutput {
   __type?: "ListBucketInventoryConfigurationsOutput";
   /**
    * <p>If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</p>
@@ -6055,7 +6053,7 @@ export namespace ListBucketInventoryConfigurationsRequest {
   }
 }
 
-export interface ListBucketMetricsConfigurationsOutput extends $MetadataBearer {
+export interface ListBucketMetricsConfigurationsOutput {
   __type?: "ListBucketMetricsConfigurationsOutput";
   /**
    * <p>The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</p>
@@ -6105,7 +6103,7 @@ export namespace ListBucketMetricsConfigurationsRequest {
   }
 }
 
-export interface ListBucketsOutput extends $MetadataBearer {
+export interface ListBucketsOutput {
   __type?: "ListBucketsOutput";
   /**
    * <p>The list of buckets owned by the requestor.</p>
@@ -6124,7 +6122,7 @@ export namespace ListBucketsOutput {
   }
 }
 
-export interface ListMultipartUploadsOutput extends $MetadataBearer {
+export interface ListMultipartUploadsOutput {
   __type?: "ListMultipartUploadsOutput";
   /**
    * <p>Name of the bucket to which the multipart upload was initiated.</p>
@@ -6254,7 +6252,7 @@ export namespace ListMultipartUploadsRequest {
   }
 }
 
-export interface ListObjectVersionsOutput extends $MetadataBearer {
+export interface ListObjectVersionsOutput {
   __type?: "ListObjectVersionsOutput";
   /**
    * <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
@@ -6392,7 +6390,7 @@ export namespace ListObjectVersionsRequest {
   }
 }
 
-export interface ListObjectsOutput extends $MetadataBearer {
+export interface ListObjectsOutput {
   __type?: "ListObjectsOutput";
   /**
    * <p>All of the keys rolled up in a common prefix count as a single return when calculating the number of returns. </p>
@@ -6508,7 +6506,7 @@ export namespace ListObjectsRequest {
   }
 }
 
-export interface ListObjectsV2Output extends $MetadataBearer {
+export interface ListObjectsV2Output {
   __type?: "ListObjectsV2Output";
   /**
    * <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
@@ -6658,7 +6656,7 @@ export namespace ListObjectsV2Request {
   }
 }
 
-export interface ListPartsOutput extends $MetadataBearer {
+export interface ListPartsOutput {
   __type?: "ListPartsOutput";
   /**
    * <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a>.</p>
@@ -7096,7 +7094,7 @@ export namespace NoncurrentVersionTransition {
  * <p>A container for specifying the notification configuration of the bucket. If this element is
  *       empty, notifications are turned off for the bucket.</p>
  */
-export interface NotificationConfiguration extends $MetadataBearer {
+export interface NotificationConfiguration {
   __type?: "NotificationConfiguration";
   /**
    * <p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>
@@ -8064,7 +8062,7 @@ export namespace PutBucketWebsiteRequest {
   }
 }
 
-export interface PutObjectAclOutput extends $MetadataBearer {
+export interface PutObjectAclOutput {
   __type?: "PutObjectAclOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -8155,7 +8153,7 @@ export namespace PutObjectAclRequest {
   }
 }
 
-export interface PutObjectLegalHoldOutput extends $MetadataBearer {
+export interface PutObjectLegalHoldOutput {
   __type?: "PutObjectLegalHoldOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -8212,7 +8210,7 @@ export namespace PutObjectLegalHoldRequest {
   }
 }
 
-export interface PutObjectLockConfigurationOutput extends $MetadataBearer {
+export interface PutObjectLockConfigurationOutput {
   __type?: "PutObjectLockConfigurationOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -8263,7 +8261,7 @@ export namespace PutObjectLockConfigurationRequest {
   }
 }
 
-export interface PutObjectOutput extends $MetadataBearer {
+export interface PutObjectOutput {
   __type?: "PutObjectOutput";
   /**
    * <p>Entity tag for the uploaded object.</p>
@@ -8332,7 +8330,7 @@ export interface PutObjectRequest {
   /**
    * <p>Object data.</p>
    */
-  Body?: Uint8Array;
+  Body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>Bucket name to which the PUT operation was initiated. </p>
@@ -8515,7 +8513,7 @@ export namespace PutObjectRequest {
   }
 }
 
-export interface PutObjectRetentionOutput extends $MetadataBearer {
+export interface PutObjectRetentionOutput {
   __type?: "PutObjectRetentionOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -8577,7 +8575,7 @@ export namespace PutObjectRetentionRequest {
   }
 }
 
-export interface PutObjectTaggingOutput extends $MetadataBearer {
+export interface PutObjectTaggingOutput {
   __type?: "PutObjectTaggingOutput";
   /**
    * <p>The versionId of the object the tag-set was added to.</p>
@@ -9057,7 +9055,7 @@ export namespace RequestProgress {
   }
 }
 
-export interface RestoreObjectOutput extends $MetadataBearer {
+export interface RestoreObjectOutput {
   __type?: "RestoreObjectOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -9419,7 +9417,7 @@ export namespace SelectObjectContentEventStream {
   }
 }
 
-export interface SelectObjectContentOutput extends $MetadataBearer {
+export interface SelectObjectContentOutput {
   __type?: "SelectObjectContentOutput";
   /**
    * <p>The array of results.</p>
@@ -9891,7 +9889,7 @@ export type TransitionStorageClass =
 
 export type Type = "AmazonCustomerByEmail" | "CanonicalUser" | "Group";
 
-export interface UploadPartCopyOutput extends $MetadataBearer {
+export interface UploadPartCopyOutput {
   __type?: "UploadPartCopyOutput";
   /**
    * <p>Container for all response elements.</p>
@@ -10047,7 +10045,7 @@ export namespace UploadPartCopyRequest {
   }
 }
 
-export interface UploadPartOutput extends $MetadataBearer {
+export interface UploadPartOutput {
   __type?: "UploadPartOutput";
   /**
    * <p>Entity tag for the uploaded object.</p>
@@ -10095,7 +10093,7 @@ export interface UploadPartRequest {
   /**
    * <p>Object data.</p>
    */
-  Body?: Uint8Array;
+  Body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>Name of the bucket to which the multipart upload was initiated.</p>

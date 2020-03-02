@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterTransitGatewayCommandInput = RegisterTransitGatewayRequest;
-export type RegisterTransitGatewayCommandOutput = RegisterTransitGatewayResponse;
+export type RegisterTransitGatewayCommandOutput = RegisterTransitGatewayResponse &
+  __MetadataBearer;
 
 export class RegisterTransitGatewayCommand extends $Command<
   RegisterTransitGatewayCommandInput,

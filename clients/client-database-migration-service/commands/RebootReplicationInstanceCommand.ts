@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RebootReplicationInstanceCommandInput = RebootReplicationInstanceMessage;
-export type RebootReplicationInstanceCommandOutput = RebootReplicationInstanceResponse;
+export type RebootReplicationInstanceCommandOutput = RebootReplicationInstanceResponse &
+  __MetadataBearer;
 
 export class RebootReplicationInstanceCommand extends $Command<
   RebootReplicationInstanceCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeBatchPredictionsCommandInput = DescribeBatchPredictionsInput;
-export type DescribeBatchPredictionsCommandOutput = DescribeBatchPredictionsOutput;
+export type DescribeBatchPredictionsCommandOutput = DescribeBatchPredictionsOutput &
+  __MetadataBearer;
 
 export class DescribeBatchPredictionsCommand extends $Command<
   DescribeBatchPredictionsCommandInput,

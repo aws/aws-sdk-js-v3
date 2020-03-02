@@ -1,63 +1,139 @@
 import {
-  BatchPutMessageRequest,
-  BatchPutMessageResponse,
-  CancelPipelineReprocessingRequest,
-  CancelPipelineReprocessingResponse,
-  CreateChannelRequest,
-  CreateChannelResponse,
-  CreateDatasetContentRequest,
-  CreateDatasetContentResponse,
-  CreateDatasetRequest,
-  CreateDatasetResponse,
-  CreateDatastoreRequest,
-  CreateDatastoreResponse,
-  CreatePipelineRequest,
-  CreatePipelineResponse,
-  DeleteChannelRequest,
-  DeleteDatasetContentRequest,
-  DeleteDatasetRequest,
-  DeleteDatastoreRequest,
-  DeletePipelineRequest,
-  DescribeChannelRequest,
-  DescribeChannelResponse,
-  DescribeDatasetRequest,
-  DescribeDatasetResponse,
-  DescribeDatastoreRequest,
-  DescribeDatastoreResponse,
-  DescribeLoggingOptionsRequest,
-  DescribeLoggingOptionsResponse,
-  DescribePipelineRequest,
-  DescribePipelineResponse,
-  GetDatasetContentRequest,
-  GetDatasetContentResponse,
-  ListChannelsRequest,
-  ListChannelsResponse,
-  ListDatasetContentsRequest,
-  ListDatasetContentsResponse,
-  ListDatasetsRequest,
-  ListDatasetsResponse,
-  ListDatastoresRequest,
-  ListDatastoresResponse,
-  ListPipelinesRequest,
-  ListPipelinesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutLoggingOptionsRequest,
-  RunPipelineActivityRequest,
-  RunPipelineActivityResponse,
-  SampleChannelDataRequest,
-  SampleChannelDataResponse,
-  StartPipelineReprocessingRequest,
-  StartPipelineReprocessingResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateChannelRequest,
-  UpdateDatasetRequest,
-  UpdateDatastoreRequest,
-  UpdatePipelineRequest
-} from "./models/index";
+  BatchPutMessageCommandInput,
+  BatchPutMessageCommandOutput
+} from "./commands/BatchPutMessageCommand";
+import {
+  CancelPipelineReprocessingCommandInput,
+  CancelPipelineReprocessingCommandOutput
+} from "./commands/CancelPipelineReprocessingCommand";
+import {
+  CreateChannelCommandInput,
+  CreateChannelCommandOutput
+} from "./commands/CreateChannelCommand";
+import {
+  CreateDatasetCommandInput,
+  CreateDatasetCommandOutput
+} from "./commands/CreateDatasetCommand";
+import {
+  CreateDatasetContentCommandInput,
+  CreateDatasetContentCommandOutput
+} from "./commands/CreateDatasetContentCommand";
+import {
+  CreateDatastoreCommandInput,
+  CreateDatastoreCommandOutput
+} from "./commands/CreateDatastoreCommand";
+import {
+  CreatePipelineCommandInput,
+  CreatePipelineCommandOutput
+} from "./commands/CreatePipelineCommand";
+import {
+  DeleteChannelCommandInput,
+  DeleteChannelCommandOutput
+} from "./commands/DeleteChannelCommand";
+import {
+  DeleteDatasetCommandInput,
+  DeleteDatasetCommandOutput
+} from "./commands/DeleteDatasetCommand";
+import {
+  DeleteDatasetContentCommandInput,
+  DeleteDatasetContentCommandOutput
+} from "./commands/DeleteDatasetContentCommand";
+import {
+  DeleteDatastoreCommandInput,
+  DeleteDatastoreCommandOutput
+} from "./commands/DeleteDatastoreCommand";
+import {
+  DeletePipelineCommandInput,
+  DeletePipelineCommandOutput
+} from "./commands/DeletePipelineCommand";
+import {
+  DescribeChannelCommandInput,
+  DescribeChannelCommandOutput
+} from "./commands/DescribeChannelCommand";
+import {
+  DescribeDatasetCommandInput,
+  DescribeDatasetCommandOutput
+} from "./commands/DescribeDatasetCommand";
+import {
+  DescribeDatastoreCommandInput,
+  DescribeDatastoreCommandOutput
+} from "./commands/DescribeDatastoreCommand";
+import {
+  DescribeLoggingOptionsCommandInput,
+  DescribeLoggingOptionsCommandOutput
+} from "./commands/DescribeLoggingOptionsCommand";
+import {
+  DescribePipelineCommandInput,
+  DescribePipelineCommandOutput
+} from "./commands/DescribePipelineCommand";
+import {
+  GetDatasetContentCommandInput,
+  GetDatasetContentCommandOutput
+} from "./commands/GetDatasetContentCommand";
+import {
+  ListChannelsCommandInput,
+  ListChannelsCommandOutput
+} from "./commands/ListChannelsCommand";
+import {
+  ListDatasetContentsCommandInput,
+  ListDatasetContentsCommandOutput
+} from "./commands/ListDatasetContentsCommand";
+import {
+  ListDatasetsCommandInput,
+  ListDatasetsCommandOutput
+} from "./commands/ListDatasetsCommand";
+import {
+  ListDatastoresCommandInput,
+  ListDatastoresCommandOutput
+} from "./commands/ListDatastoresCommand";
+import {
+  ListPipelinesCommandInput,
+  ListPipelinesCommandOutput
+} from "./commands/ListPipelinesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutLoggingOptionsCommandInput,
+  PutLoggingOptionsCommandOutput
+} from "./commands/PutLoggingOptionsCommand";
+import {
+  RunPipelineActivityCommandInput,
+  RunPipelineActivityCommandOutput
+} from "./commands/RunPipelineActivityCommand";
+import {
+  SampleChannelDataCommandInput,
+  SampleChannelDataCommandOutput
+} from "./commands/SampleChannelDataCommand";
+import {
+  StartPipelineReprocessingCommandInput,
+  StartPipelineReprocessingCommandOutput
+} from "./commands/StartPipelineReprocessingCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateChannelCommandInput,
+  UpdateChannelCommandOutput
+} from "./commands/UpdateChannelCommand";
+import {
+  UpdateDatasetCommandInput,
+  UpdateDatasetCommandOutput
+} from "./commands/UpdateDatasetCommand";
+import {
+  UpdateDatastoreCommandInput,
+  UpdateDatastoreCommandOutput
+} from "./commands/UpdateDatastoreCommand";
+import {
+  UpdatePipelineCommandInput,
+  UpdatePipelineCommandOutput
+} from "./commands/UpdatePipelineCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -105,74 +181,82 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchPutMessageRequest
-  | CancelPipelineReprocessingRequest
-  | CreateChannelRequest
-  | CreateDatasetContentRequest
-  | CreateDatasetRequest
-  | CreateDatastoreRequest
-  | CreatePipelineRequest
-  | DeleteChannelRequest
-  | DeleteDatasetContentRequest
-  | DeleteDatasetRequest
-  | DeleteDatastoreRequest
-  | DeletePipelineRequest
-  | DescribeChannelRequest
-  | DescribeDatasetRequest
-  | DescribeDatastoreRequest
-  | DescribeLoggingOptionsRequest
-  | DescribePipelineRequest
-  | GetDatasetContentRequest
-  | ListChannelsRequest
-  | ListDatasetContentsRequest
-  | ListDatasetsRequest
-  | ListDatastoresRequest
-  | ListPipelinesRequest
-  | ListTagsForResourceRequest
-  | PutLoggingOptionsRequest
-  | RunPipelineActivityRequest
-  | SampleChannelDataRequest
-  | StartPipelineReprocessingRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateChannelRequest
-  | UpdateDatasetRequest
-  | UpdateDatastoreRequest
-  | UpdatePipelineRequest;
+  | BatchPutMessageCommandInput
+  | CancelPipelineReprocessingCommandInput
+  | CreateChannelCommandInput
+  | CreateDatasetCommandInput
+  | CreateDatasetContentCommandInput
+  | CreateDatastoreCommandInput
+  | CreatePipelineCommandInput
+  | DeleteChannelCommandInput
+  | DeleteDatasetCommandInput
+  | DeleteDatasetContentCommandInput
+  | DeleteDatastoreCommandInput
+  | DeletePipelineCommandInput
+  | DescribeChannelCommandInput
+  | DescribeDatasetCommandInput
+  | DescribeDatastoreCommandInput
+  | DescribeLoggingOptionsCommandInput
+  | DescribePipelineCommandInput
+  | GetDatasetContentCommandInput
+  | ListChannelsCommandInput
+  | ListDatasetContentsCommandInput
+  | ListDatasetsCommandInput
+  | ListDatastoresCommandInput
+  | ListPipelinesCommandInput
+  | ListTagsForResourceCommandInput
+  | PutLoggingOptionsCommandInput
+  | RunPipelineActivityCommandInput
+  | SampleChannelDataCommandInput
+  | StartPipelineReprocessingCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateChannelCommandInput
+  | UpdateDatasetCommandInput
+  | UpdateDatastoreCommandInput
+  | UpdatePipelineCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | BatchPutMessageResponse
-  | CancelPipelineReprocessingResponse
-  | CreateChannelResponse
-  | CreateDatasetContentResponse
-  | CreateDatasetResponse
-  | CreateDatastoreResponse
-  | CreatePipelineResponse
-  | DescribeChannelResponse
-  | DescribeDatasetResponse
-  | DescribeDatastoreResponse
-  | DescribeLoggingOptionsResponse
-  | DescribePipelineResponse
-  | GetDatasetContentResponse
-  | ListChannelsResponse
-  | ListDatasetContentsResponse
-  | ListDatasetsResponse
-  | ListDatastoresResponse
-  | ListPipelinesResponse
-  | ListTagsForResourceResponse
-  | RunPipelineActivityResponse
-  | SampleChannelDataResponse
-  | StartPipelineReprocessingResponse
-  | TagResourceResponse
-  | UntagResourceResponse;
+  | BatchPutMessageCommandOutput
+  | CancelPipelineReprocessingCommandOutput
+  | CreateChannelCommandOutput
+  | CreateDatasetCommandOutput
+  | CreateDatasetContentCommandOutput
+  | CreateDatastoreCommandOutput
+  | CreatePipelineCommandOutput
+  | DeleteChannelCommandOutput
+  | DeleteDatasetCommandOutput
+  | DeleteDatasetContentCommandOutput
+  | DeleteDatastoreCommandOutput
+  | DeletePipelineCommandOutput
+  | DescribeChannelCommandOutput
+  | DescribeDatasetCommandOutput
+  | DescribeDatastoreCommandOutput
+  | DescribeLoggingOptionsCommandOutput
+  | DescribePipelineCommandOutput
+  | GetDatasetContentCommandOutput
+  | ListChannelsCommandOutput
+  | ListDatasetContentsCommandOutput
+  | ListDatasetsCommandOutput
+  | ListDatastoresCommandOutput
+  | ListPipelinesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutLoggingOptionsCommandOutput
+  | RunPipelineActivityCommandOutput
+  | SampleChannelDataCommandOutput
+  | StartPipelineReprocessingCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateChannelCommandOutput
+  | UpdateDatasetCommandOutput
+  | UpdateDatastoreCommandOutput
+  | UpdatePipelineCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

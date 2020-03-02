@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeUserProfilesCommandInput = DescribeUserProfilesRequest;
-export type DescribeUserProfilesCommandOutput = DescribeUserProfilesResult;
+export type DescribeUserProfilesCommandOutput = DescribeUserProfilesResult &
+  __MetadataBearer;
 
 export class DescribeUserProfilesCommand extends $Command<
   DescribeUserProfilesCommandInput,

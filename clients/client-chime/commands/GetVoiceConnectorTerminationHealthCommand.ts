@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetVoiceConnectorTerminationHealthCommandInput = GetVoiceConnectorTerminationHealthRequest;
-export type GetVoiceConnectorTerminationHealthCommandOutput = GetVoiceConnectorTerminationHealthResponse;
+export type GetVoiceConnectorTerminationHealthCommandOutput = GetVoiceConnectorTerminationHealthResponse &
+  __MetadataBearer;
 
 export class GetVoiceConnectorTerminationHealthCommand extends $Command<
   GetVoiceConnectorTerminationHealthCommandInput,

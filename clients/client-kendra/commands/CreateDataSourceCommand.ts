@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDataSourceCommandInput = CreateDataSourceRequest;
-export type CreateDataSourceCommandOutput = CreateDataSourceResponse;
+export type CreateDataSourceCommandOutput = CreateDataSourceResponse &
+  __MetadataBearer;
 
 export class CreateDataSourceCommand extends $Command<
   CreateDataSourceCommandInput,

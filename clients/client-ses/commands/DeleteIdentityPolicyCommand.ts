@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteIdentityPolicyCommandInput = DeleteIdentityPolicyRequest;
-export type DeleteIdentityPolicyCommandOutput = DeleteIdentityPolicyResponse;
+export type DeleteIdentityPolicyCommandOutput = DeleteIdentityPolicyResponse &
+  __MetadataBearer;
 
 export class DeleteIdentityPolicyCommand extends $Command<
   DeleteIdentityPolicyCommandInput,

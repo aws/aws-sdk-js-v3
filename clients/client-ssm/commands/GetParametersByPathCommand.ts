@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetParametersByPathCommandInput = GetParametersByPathRequest;
-export type GetParametersByPathCommandOutput = GetParametersByPathResult;
+export type GetParametersByPathCommandOutput = GetParametersByPathResult &
+  __MetadataBearer;
 
 export class GetParametersByPathCommand extends $Command<
   GetParametersByPathCommandInput,

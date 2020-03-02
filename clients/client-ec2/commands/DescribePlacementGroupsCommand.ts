@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePlacementGroupsCommandInput = DescribePlacementGroupsRequest;
-export type DescribePlacementGroupsCommandOutput = DescribePlacementGroupsResult;
+export type DescribePlacementGroupsCommandOutput = DescribePlacementGroupsResult &
+  __MetadataBearer;
 
 export class DescribePlacementGroupsCommand extends $Command<
   DescribePlacementGroupsCommandInput,

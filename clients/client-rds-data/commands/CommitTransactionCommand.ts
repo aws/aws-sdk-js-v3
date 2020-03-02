@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CommitTransactionCommandInput = CommitTransactionRequest;
-export type CommitTransactionCommandOutput = CommitTransactionResponse;
+export type CommitTransactionCommandOutput = CommitTransactionResponse &
+  __MetadataBearer;
 
 export class CommitTransactionCommand extends $Command<
   CommitTransactionCommandInput,

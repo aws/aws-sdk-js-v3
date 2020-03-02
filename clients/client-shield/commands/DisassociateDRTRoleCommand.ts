@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateDRTRoleCommandInput = DisassociateDRTRoleRequest;
-export type DisassociateDRTRoleCommandOutput = DisassociateDRTRoleResponse;
+export type DisassociateDRTRoleCommandOutput = DisassociateDRTRoleResponse &
+  __MetadataBearer;
 
 export class DisassociateDRTRoleCommand extends $Command<
   DisassociateDRTRoleCommandInput,

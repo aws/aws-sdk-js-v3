@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListMFADevicesCommandInput = ListMFADevicesRequest;
-export type ListMFADevicesCommandOutput = ListMFADevicesResponse;
+export type ListMFADevicesCommandOutput = ListMFADevicesResponse &
+  __MetadataBearer;
 
 export class ListMFADevicesCommand extends $Command<
   ListMFADevicesCommandInput,

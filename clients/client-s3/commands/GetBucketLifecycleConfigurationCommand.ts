@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketLifecycleConfigurationCommandInput = GetBucketLifecycleConfigurationRequest;
-export type GetBucketLifecycleConfigurationCommandOutput = GetBucketLifecycleConfigurationOutput;
+export type GetBucketLifecycleConfigurationCommandOutput = GetBucketLifecycleConfigurationOutput &
+  __MetadataBearer;
 
 export class GetBucketLifecycleConfigurationCommand extends $Command<
   GetBucketLifecycleConfigurationCommandInput,

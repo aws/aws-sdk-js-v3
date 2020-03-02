@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeConnectionsCommandInput = DescribeConnectionsRequest;
-export type DescribeConnectionsCommandOutput = Connections;
+export type DescribeConnectionsCommandOutput = Connections & __MetadataBearer;
 
 export class DescribeConnectionsCommand extends $Command<
   DescribeConnectionsCommandInput,

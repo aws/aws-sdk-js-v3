@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRoomSkillParameterCommandInput = GetRoomSkillParameterRequest;
-export type GetRoomSkillParameterCommandOutput = GetRoomSkillParameterResponse;
+export type GetRoomSkillParameterCommandOutput = GetRoomSkillParameterResponse &
+  __MetadataBearer;
 
 export class GetRoomSkillParameterCommand extends $Command<
   GetRoomSkillParameterCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLagsCommandInput = DescribeLagsRequest;
-export type DescribeLagsCommandOutput = Lags;
+export type DescribeLagsCommandOutput = Lags & __MetadataBearer;
 
 export class DescribeLagsCommand extends $Command<
   DescribeLagsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartDeliveryStreamEncryptionCommandInput = StartDeliveryStreamEncryptionInput;
-export type StartDeliveryStreamEncryptionCommandOutput = StartDeliveryStreamEncryptionOutput;
+export type StartDeliveryStreamEncryptionCommandOutput = StartDeliveryStreamEncryptionOutput &
+  __MetadataBearer;
 
 export class StartDeliveryStreamEncryptionCommand extends $Command<
   StartDeliveryStreamEncryptionCommandInput,

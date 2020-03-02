@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminListGroupsForUserCommandInput = AdminListGroupsForUserRequest;
-export type AdminListGroupsForUserCommandOutput = AdminListGroupsForUserResponse;
+export type AdminListGroupsForUserCommandOutput = AdminListGroupsForUserResponse &
+  __MetadataBearer;
 
 export class AdminListGroupsForUserCommand extends $Command<
   AdminListGroupsForUserCommandInput,

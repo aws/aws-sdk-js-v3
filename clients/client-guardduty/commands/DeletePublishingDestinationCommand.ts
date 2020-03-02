@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePublishingDestinationCommandInput = DeletePublishingDestinationRequest;
-export type DeletePublishingDestinationCommandOutput = DeletePublishingDestinationResponse;
+export type DeletePublishingDestinationCommandOutput = DeletePublishingDestinationResponse &
+  __MetadataBearer;
 
 export class DeletePublishingDestinationCommand extends $Command<
   DeletePublishingDestinationCommandInput,

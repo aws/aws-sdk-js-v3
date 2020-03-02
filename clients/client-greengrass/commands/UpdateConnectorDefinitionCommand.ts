@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateConnectorDefinitionCommandInput = UpdateConnectorDefinitionRequest;
-export type UpdateConnectorDefinitionCommandOutput = UpdateConnectorDefinitionResponse;
+export type UpdateConnectorDefinitionCommandOutput = UpdateConnectorDefinitionResponse &
+  __MetadataBearer;
 
 export class UpdateConnectorDefinitionCommand extends $Command<
   UpdateConnectorDefinitionCommandInput,

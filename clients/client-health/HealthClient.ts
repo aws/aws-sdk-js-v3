@@ -1,26 +1,55 @@
 import {
-  DescribeAffectedAccountsForOrganizationRequest,
-  DescribeAffectedAccountsForOrganizationResponse,
-  DescribeAffectedEntitiesForOrganizationRequest,
-  DescribeAffectedEntitiesForOrganizationResponse,
-  DescribeAffectedEntitiesRequest,
-  DescribeAffectedEntitiesResponse,
-  DescribeEntityAggregatesRequest,
-  DescribeEntityAggregatesResponse,
-  DescribeEventAggregatesRequest,
-  DescribeEventAggregatesResponse,
-  DescribeEventDetailsForOrganizationRequest,
-  DescribeEventDetailsForOrganizationResponse,
-  DescribeEventDetailsRequest,
-  DescribeEventDetailsResponse,
-  DescribeEventTypesRequest,
-  DescribeEventTypesResponse,
-  DescribeEventsForOrganizationRequest,
-  DescribeEventsForOrganizationResponse,
-  DescribeEventsRequest,
-  DescribeEventsResponse,
-  DescribeHealthServiceStatusForOrganizationResponse
-} from "./models/index";
+  DescribeAffectedAccountsForOrganizationCommandInput,
+  DescribeAffectedAccountsForOrganizationCommandOutput
+} from "./commands/DescribeAffectedAccountsForOrganizationCommand";
+import {
+  DescribeAffectedEntitiesCommandInput,
+  DescribeAffectedEntitiesCommandOutput
+} from "./commands/DescribeAffectedEntitiesCommand";
+import {
+  DescribeAffectedEntitiesForOrganizationCommandInput,
+  DescribeAffectedEntitiesForOrganizationCommandOutput
+} from "./commands/DescribeAffectedEntitiesForOrganizationCommand";
+import {
+  DescribeEntityAggregatesCommandInput,
+  DescribeEntityAggregatesCommandOutput
+} from "./commands/DescribeEntityAggregatesCommand";
+import {
+  DescribeEventAggregatesCommandInput,
+  DescribeEventAggregatesCommandOutput
+} from "./commands/DescribeEventAggregatesCommand";
+import {
+  DescribeEventDetailsCommandInput,
+  DescribeEventDetailsCommandOutput
+} from "./commands/DescribeEventDetailsCommand";
+import {
+  DescribeEventDetailsForOrganizationCommandInput,
+  DescribeEventDetailsForOrganizationCommandOutput
+} from "./commands/DescribeEventDetailsForOrganizationCommand";
+import {
+  DescribeEventTypesCommandInput,
+  DescribeEventTypesCommandOutput
+} from "./commands/DescribeEventTypesCommand";
+import {
+  DescribeEventsCommandInput,
+  DescribeEventsCommandOutput
+} from "./commands/DescribeEventsCommand";
+import {
+  DescribeEventsForOrganizationCommandInput,
+  DescribeEventsForOrganizationCommandOutput
+} from "./commands/DescribeEventsForOrganizationCommand";
+import {
+  DescribeHealthServiceStatusForOrganizationCommandInput,
+  DescribeHealthServiceStatusForOrganizationCommandOutput
+} from "./commands/DescribeHealthServiceStatusForOrganizationCommand";
+import {
+  DisableHealthServiceAccessForOrganizationCommandInput,
+  DisableHealthServiceAccessForOrganizationCommandOutput
+} from "./commands/DisableHealthServiceAccessForOrganizationCommand";
+import {
+  EnableHealthServiceAccessForOrganizationCommandInput,
+  EnableHealthServiceAccessForOrganizationCommandOutput
+} from "./commands/EnableHealthServiceAccessForOrganizationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -68,38 +97,40 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | DescribeAffectedAccountsForOrganizationRequest
-  | DescribeAffectedEntitiesForOrganizationRequest
-  | DescribeAffectedEntitiesRequest
-  | DescribeEntityAggregatesRequest
-  | DescribeEventAggregatesRequest
-  | DescribeEventDetailsForOrganizationRequest
-  | DescribeEventDetailsRequest
-  | DescribeEventTypesRequest
-  | DescribeEventsForOrganizationRequest
-  | DescribeEventsRequest;
+  | DescribeAffectedAccountsForOrganizationCommandInput
+  | DescribeAffectedEntitiesCommandInput
+  | DescribeAffectedEntitiesForOrganizationCommandInput
+  | DescribeEntityAggregatesCommandInput
+  | DescribeEventAggregatesCommandInput
+  | DescribeEventDetailsCommandInput
+  | DescribeEventDetailsForOrganizationCommandInput
+  | DescribeEventTypesCommandInput
+  | DescribeEventsCommandInput
+  | DescribeEventsForOrganizationCommandInput
+  | DescribeHealthServiceStatusForOrganizationCommandInput
+  | DisableHealthServiceAccessForOrganizationCommandInput
+  | EnableHealthServiceAccessForOrganizationCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | DescribeAffectedAccountsForOrganizationResponse
-  | DescribeAffectedEntitiesForOrganizationResponse
-  | DescribeAffectedEntitiesResponse
-  | DescribeEntityAggregatesResponse
-  | DescribeEventAggregatesResponse
-  | DescribeEventDetailsForOrganizationResponse
-  | DescribeEventDetailsResponse
-  | DescribeEventTypesResponse
-  | DescribeEventsForOrganizationResponse
-  | DescribeEventsResponse
-  | DescribeHealthServiceStatusForOrganizationResponse;
+  | DescribeAffectedAccountsForOrganizationCommandOutput
+  | DescribeAffectedEntitiesCommandOutput
+  | DescribeAffectedEntitiesForOrganizationCommandOutput
+  | DescribeEntityAggregatesCommandOutput
+  | DescribeEventAggregatesCommandOutput
+  | DescribeEventDetailsCommandOutput
+  | DescribeEventDetailsForOrganizationCommandOutput
+  | DescribeEventTypesCommandOutput
+  | DescribeEventsCommandOutput
+  | DescribeEventsForOrganizationCommandOutput
+  | DescribeHealthServiceStatusForOrganizationCommandOutput
+  | DisableHealthServiceAccessForOrganizationCommandOutput
+  | EnableHealthServiceAccessForOrganizationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

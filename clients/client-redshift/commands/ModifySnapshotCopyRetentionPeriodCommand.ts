@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifySnapshotCopyRetentionPeriodCommandInput = ModifySnapshotCopyRetentionPeriodMessage;
-export type ModifySnapshotCopyRetentionPeriodCommandOutput = ModifySnapshotCopyRetentionPeriodResult;
+export type ModifySnapshotCopyRetentionPeriodCommandOutput = ModifySnapshotCopyRetentionPeriodResult &
+  __MetadataBearer;
 
 export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
   ModifySnapshotCopyRetentionPeriodCommandInput,

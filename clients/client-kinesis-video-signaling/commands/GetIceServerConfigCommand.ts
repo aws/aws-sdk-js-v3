@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIceServerConfigCommandInput = GetIceServerConfigRequest;
-export type GetIceServerConfigCommandOutput = GetIceServerConfigResponse;
+export type GetIceServerConfigCommandOutput = GetIceServerConfigResponse &
+  __MetadataBearer;
 
 export class GetIceServerConfigCommand extends $Command<
   GetIceServerConfigCommandInput,

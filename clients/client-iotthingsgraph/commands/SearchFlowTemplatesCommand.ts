@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchFlowTemplatesCommandInput = SearchFlowTemplatesRequest;
-export type SearchFlowTemplatesCommandOutput = SearchFlowTemplatesResponse;
+export type SearchFlowTemplatesCommandOutput = SearchFlowTemplatesResponse &
+  __MetadataBearer;
 
 export class SearchFlowTemplatesCommand extends $Command<
   SearchFlowTemplatesCommandInput,

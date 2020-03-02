@@ -1,13 +1,19 @@
 import {
-  DeleteReportDefinitionRequest,
-  DeleteReportDefinitionResponse,
-  DescribeReportDefinitionsRequest,
-  DescribeReportDefinitionsResponse,
-  ModifyReportDefinitionRequest,
-  ModifyReportDefinitionResponse,
-  PutReportDefinitionRequest,
-  PutReportDefinitionResponse
-} from "./models/index";
+  DeleteReportDefinitionCommandInput,
+  DeleteReportDefinitionCommandOutput
+} from "./commands/DeleteReportDefinitionCommand";
+import {
+  DescribeReportDefinitionsCommandInput,
+  DescribeReportDefinitionsCommandOutput
+} from "./commands/DescribeReportDefinitionsCommand";
+import {
+  ModifyReportDefinitionCommandInput,
+  ModifyReportDefinitionCommandOutput
+} from "./commands/ModifyReportDefinitionCommand";
+import {
+  PutReportDefinitionCommandInput,
+  PutReportDefinitionCommandOutput
+} from "./commands/PutReportDefinitionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,16 +67,16 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteReportDefinitionRequest
-  | DescribeReportDefinitionsRequest
-  | ModifyReportDefinitionRequest
-  | PutReportDefinitionRequest;
+  | DeleteReportDefinitionCommandInput
+  | DescribeReportDefinitionsCommandInput
+  | ModifyReportDefinitionCommandInput
+  | PutReportDefinitionCommandInput;
 
 export type ServiceOutputTypes =
-  | DeleteReportDefinitionResponse
-  | DescribeReportDefinitionsResponse
-  | ModifyReportDefinitionResponse
-  | PutReportDefinitionResponse;
+  | DeleteReportDefinitionCommandOutput
+  | DescribeReportDefinitionsCommandOutput
+  | ModifyReportDefinitionCommandOutput
+  | PutReportDefinitionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

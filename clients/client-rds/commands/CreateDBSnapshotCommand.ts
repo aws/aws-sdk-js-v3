@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDBSnapshotCommandInput = CreateDBSnapshotMessage;
-export type CreateDBSnapshotCommandOutput = CreateDBSnapshotResult;
+export type CreateDBSnapshotCommandOutput = CreateDBSnapshotResult &
+  __MetadataBearer;
 
 export class CreateDBSnapshotCommand extends $Command<
   CreateDBSnapshotCommandInput,

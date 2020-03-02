@@ -932,7 +932,7 @@ export namespace AddTagsToResourceMessage {
 /**
  * <p>Represents the allowed node types you can use to modify your cluster or replication group.</p>
  */
-export interface AllowedNodeTypeModificationsMessage extends $MetadataBearer {
+export interface AllowedNodeTypeModificationsMessage {
   __type?: "AllowedNodeTypeModificationsMessage";
   /**
    * <p>A string list, each element of which specifies a cache node type which you can use
@@ -992,8 +992,7 @@ export namespace AuthorizeCacheSecurityGroupIngressMessage {
   }
 }
 
-export interface AuthorizeCacheSecurityGroupIngressResult
-  extends $MetadataBearer {
+export interface AuthorizeCacheSecurityGroupIngressResult {
   __type?: "AuthorizeCacheSecurityGroupIngressResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -1497,7 +1496,7 @@ export namespace CacheCluster {
 /**
  * <p>Represents the output of a <code>DescribeCacheClusters</code> operation.</p>
  */
-export interface CacheClusterMessage extends $MetadataBearer {
+export interface CacheClusterMessage {
   __type?: "CacheClusterMessage";
   /**
    * <p>A list of clusters. Each item in the list contains detailed information about one cluster.</p>
@@ -1565,7 +1564,7 @@ export namespace CacheEngineVersion {
 /**
  * <p>Represents the output of a <a>DescribeCacheEngineVersions</a> operation.</p>
  */
-export interface CacheEngineVersionMessage extends $MetadataBearer {
+export interface CacheEngineVersionMessage {
   __type?: "CacheEngineVersionMessage";
   /**
    * <p>A list of cache engine version details.
@@ -1974,7 +1973,7 @@ export namespace CacheParameterGroup {
 /**
  * <p>Represents the output of a <code>DescribeCacheParameters</code> operation.</p>
  */
-export interface CacheParameterGroupDetails extends $MetadataBearer {
+export interface CacheParameterGroupDetails {
   __type?: "CacheParameterGroupDetails";
   /**
    * <p>A list of parameters specific to a particular cache node type.
@@ -2014,7 +2013,7 @@ export namespace CacheParameterGroupDetails {
  *             </li>
  *          </ul>
  */
-export interface CacheParameterGroupNameMessage extends $MetadataBearer {
+export interface CacheParameterGroupNameMessage {
   __type?: "CacheParameterGroupNameMessage";
   /**
    * <p>The name of the cache parameter group.</p>
@@ -2059,7 +2058,7 @@ export namespace CacheParameterGroupStatus {
 /**
  * <p>Represents the output of a <code>DescribeCacheParameterGroups</code> operation.</p>
  */
-export interface CacheParameterGroupsMessage extends $MetadataBearer {
+export interface CacheParameterGroupsMessage {
   __type?: "CacheParameterGroupsMessage";
   /**
    * <p>A list of cache parameter groups. Each element in the list contains detailed information
@@ -2153,7 +2152,7 @@ export namespace CacheSecurityGroupMembership {
 /**
  * <p>Represents the output of a <code>DescribeCacheSecurityGroups</code> operation.</p>
  */
-export interface CacheSecurityGroupMessage extends $MetadataBearer {
+export interface CacheSecurityGroupMessage {
   __type?: "CacheSecurityGroupMessage";
   /**
    * <p>A list of cache security groups. Each element in the list contains detailed information about one group.</p>
@@ -2219,7 +2218,7 @@ export namespace CacheSubnetGroup {
 /**
  * <p>Represents the output of a <code>DescribeCacheSubnetGroups</code> operation.</p>
  */
-export interface CacheSubnetGroupMessage extends $MetadataBearer {
+export interface CacheSubnetGroupMessage {
   __type?: "CacheSubnetGroupMessage";
   /**
    * <p>A list of cache subnet groups. Each element in the list contains detailed information about one group.</p>
@@ -2259,7 +2258,7 @@ export namespace CompleteMigrationMessage {
   }
 }
 
-export interface CompleteMigrationResponse extends $MetadataBearer {
+export interface CompleteMigrationResponse {
   __type?: "CompleteMigrationResponse";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -2366,7 +2365,7 @@ export namespace CopySnapshotMessage {
   }
 }
 
-export interface CopySnapshotResult extends $MetadataBearer {
+export interface CopySnapshotResult {
   __type?: "CopySnapshotResult";
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
@@ -2816,7 +2815,7 @@ export namespace CreateCacheClusterMessage {
   }
 }
 
-export interface CreateCacheClusterResult extends $MetadataBearer {
+export interface CreateCacheClusterResult {
   __type?: "CreateCacheClusterResult";
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
@@ -2866,7 +2865,7 @@ export namespace CreateCacheParameterGroupMessage {
   }
 }
 
-export interface CreateCacheParameterGroupResult extends $MetadataBearer {
+export interface CreateCacheParameterGroupResult {
   __type?: "CreateCacheParameterGroupResult";
   /**
    * <p>Represents the output of a <code>CreateCacheParameterGroup</code> operation.</p>
@@ -2905,7 +2904,7 @@ export namespace CreateCacheSecurityGroupMessage {
   }
 }
 
-export interface CreateCacheSecurityGroupResult extends $MetadataBearer {
+export interface CreateCacheSecurityGroupResult {
   __type?: "CreateCacheSecurityGroupResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -2966,7 +2965,7 @@ export namespace CreateCacheSubnetGroupMessage {
   }
 }
 
-export interface CreateCacheSubnetGroupResult extends $MetadataBearer {
+export interface CreateCacheSubnetGroupResult {
   __type?: "CreateCacheSubnetGroupResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -3522,7 +3521,7 @@ export namespace CreateReplicationGroupMessage {
   }
 }
 
-export interface CreateReplicationGroupResult extends $MetadataBearer {
+export interface CreateReplicationGroupResult {
   __type?: "CreateReplicationGroupResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -3568,7 +3567,7 @@ export namespace CreateSnapshotMessage {
   }
 }
 
-export interface CreateSnapshotResult extends $MetadataBearer {
+export interface CreateSnapshotResult {
   __type?: "CreateSnapshotResult";
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
@@ -3662,7 +3661,7 @@ export namespace DecreaseReplicaCountMessage {
   }
 }
 
-export interface DecreaseReplicaCountResult extends $MetadataBearer {
+export interface DecreaseReplicaCountResult {
   __type?: "DecreaseReplicaCountResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -3699,7 +3698,7 @@ export namespace DeleteCacheClusterMessage {
   }
 }
 
-export interface DeleteCacheClusterResult extends $MetadataBearer {
+export interface DeleteCacheClusterResult {
   __type?: "DeleteCacheClusterResult";
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
@@ -3802,7 +3801,7 @@ export namespace DeleteReplicationGroupMessage {
   }
 }
 
-export interface DeleteReplicationGroupResult extends $MetadataBearer {
+export interface DeleteReplicationGroupResult {
   __type?: "DeleteReplicationGroupResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -3833,7 +3832,7 @@ export namespace DeleteSnapshotMessage {
   }
 }
 
-export interface DeleteSnapshotResult extends $MetadataBearer {
+export interface DeleteSnapshotResult {
   __type?: "DeleteSnapshotResult";
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
@@ -4158,7 +4157,7 @@ export namespace DescribeEngineDefaultParametersMessage {
   }
 }
 
-export interface DescribeEngineDefaultParametersResult extends $MetadataBearer {
+export interface DescribeEngineDefaultParametersResult {
   __type?: "DescribeEngineDefaultParametersResult";
   /**
    * <p>Represents the output of a <code>DescribeEngineDefaultParameters</code> operation.</p>
@@ -4762,7 +4761,7 @@ export namespace DescribeServiceUpdatesMessage {
 /**
  * <p>Represents the output of a <code>DescribeSnapshots</code> operation.</p>
  */
-export interface DescribeSnapshotsListMessage extends $MetadataBearer {
+export interface DescribeSnapshotsListMessage {
   __type?: "DescribeSnapshotsListMessage";
   /**
    * <p>An optional marker returned from a prior request.
@@ -5033,7 +5032,7 @@ export namespace Event {
 /**
  * <p>Represents the output of a <code>DescribeEvents</code> operation.</p>
  */
-export interface EventsMessage extends $MetadataBearer {
+export interface EventsMessage {
   __type?: "EventsMessage";
   /**
    * <p>A list of events. Each element in the list contains detailed information about one event.</p>
@@ -5088,7 +5087,7 @@ export namespace IncreaseReplicaCountMessage {
   }
 }
 
-export interface IncreaseReplicaCountResult extends $MetadataBearer {
+export interface IncreaseReplicaCountResult {
   __type?: "IncreaseReplicaCountResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -5513,7 +5512,7 @@ export namespace ModifyCacheClusterMessage {
   }
 }
 
-export interface ModifyCacheClusterResult extends $MetadataBearer {
+export interface ModifyCacheClusterResult {
   __type?: "ModifyCacheClusterResult";
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
@@ -5579,7 +5578,7 @@ export namespace ModifyCacheSubnetGroupMessage {
   }
 }
 
-export interface ModifyCacheSubnetGroupResult extends $MetadataBearer {
+export interface ModifyCacheSubnetGroupResult {
   __type?: "ModifyCacheSubnetGroupResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -5839,7 +5838,7 @@ export namespace ModifyReplicationGroupMessage {
   }
 }
 
-export interface ModifyReplicationGroupResult extends $MetadataBearer {
+export interface ModifyReplicationGroupResult {
   __type?: "ModifyReplicationGroupResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -5919,8 +5918,7 @@ export namespace ModifyReplicationGroupShardConfigurationMessage {
   }
 }
 
-export interface ModifyReplicationGroupShardConfigurationResult
-  extends $MetadataBearer {
+export interface ModifyReplicationGroupShardConfigurationResult {
   __type?: "ModifyReplicationGroupShardConfigurationResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -6430,8 +6428,7 @@ export namespace PurchaseReservedCacheNodesOfferingMessage {
   }
 }
 
-export interface PurchaseReservedCacheNodesOfferingResult
-  extends $MetadataBearer {
+export interface PurchaseReservedCacheNodesOfferingResult {
   __type?: "PurchaseReservedCacheNodesOfferingResult";
   /**
    * <p>Represents the output of a <code>PurchaseReservedCacheNodesOffering</code> operation.</p>
@@ -6467,7 +6464,7 @@ export namespace RebootCacheClusterMessage {
   }
 }
 
-export interface RebootCacheClusterResult extends $MetadataBearer {
+export interface RebootCacheClusterResult {
   __type?: "RebootCacheClusterResult";
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
@@ -6693,7 +6690,7 @@ export namespace ReplicationGroup {
 /**
  * <p>Represents the output of a <code>DescribeReplicationGroups</code> operation.</p>
  */
-export interface ReplicationGroupMessage extends $MetadataBearer {
+export interface ReplicationGroupMessage {
   __type?: "ReplicationGroupMessage";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -7002,7 +6999,7 @@ export namespace ReservedCacheNode {
 /**
  * <p>Represents the output of a <code>DescribeReservedCacheNodes</code> operation.</p>
  */
-export interface ReservedCacheNodeMessage extends $MetadataBearer {
+export interface ReservedCacheNodeMessage {
   __type?: "ReservedCacheNodeMessage";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -7237,7 +7234,7 @@ export namespace ReservedCacheNodesOffering {
 /**
  * <p>Represents the output of a <code>DescribeReservedCacheNodesOfferings</code> operation.</p>
  */
-export interface ReservedCacheNodesOfferingMessage extends $MetadataBearer {
+export interface ReservedCacheNodesOfferingMessage {
   __type?: "ReservedCacheNodesOfferingMessage";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -7362,7 +7359,7 @@ export namespace RevokeCacheSecurityGroupIngressMessage {
   }
 }
 
-export interface RevokeCacheSecurityGroupIngressResult extends $MetadataBearer {
+export interface RevokeCacheSecurityGroupIngressResult {
   __type?: "RevokeCacheSecurityGroupIngressResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -7506,7 +7503,7 @@ export enum ServiceUpdateType {
   SECURITY_UPDATE = "security-update"
 }
 
-export interface ServiceUpdatesMessage extends $MetadataBearer {
+export interface ServiceUpdatesMessage {
   __type?: "ServiceUpdatesMessage";
   /**
    * <p>An optional marker returned from a prior request.
@@ -7947,7 +7944,7 @@ export namespace StartMigrationMessage {
   }
 }
 
-export interface StartMigrationResponse extends $MetadataBearer {
+export interface StartMigrationResponse {
   __type?: "StartMigrationResponse";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -8011,7 +8008,7 @@ export namespace Tag {
  * <p>Represents the output from the <code>AddTagsToResource</code>,
  *             <code>ListTagsForResource</code>, and <code>RemoveTagsFromResource</code> operations.</p>
  */
-export interface TagListMessage extends $MetadataBearer {
+export interface TagListMessage {
   __type?: "TagListMessage";
   /**
    * <p>A list of cost allocation tags as key-value pairs.</p>
@@ -8047,7 +8044,7 @@ export namespace TestFailoverMessage {
   }
 }
 
-export interface TestFailoverResult extends $MetadataBearer {
+export interface TestFailoverResult {
   __type?: "TestFailoverResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -8218,7 +8215,7 @@ export namespace UpdateAction {
   }
 }
 
-export interface UpdateActionResultsMessage extends $MetadataBearer {
+export interface UpdateActionResultsMessage {
   __type?: "UpdateActionResultsMessage";
   /**
    * <p>Update actions that have been processed successfully</p>
@@ -8246,7 +8243,7 @@ export enum UpdateActionStatus {
   WAITING_TO_START = "waiting-to-start"
 }
 
-export interface UpdateActionsMessage extends $MetadataBearer {
+export interface UpdateActionsMessage {
   __type?: "UpdateActionsMessage";
   /**
    * <p>An optional marker returned from a prior request.

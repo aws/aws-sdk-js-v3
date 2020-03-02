@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteConnectorDefinitionCommandInput = DeleteConnectorDefinitionRequest;
-export type DeleteConnectorDefinitionCommandOutput = DeleteConnectorDefinitionResponse;
+export type DeleteConnectorDefinitionCommandOutput = DeleteConnectorDefinitionResponse &
+  __MetadataBearer;
 
 export class DeleteConnectorDefinitionCommand extends $Command<
   DeleteConnectorDefinitionCommandInput,

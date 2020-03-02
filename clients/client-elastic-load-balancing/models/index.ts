@@ -80,7 +80,7 @@ export namespace AddAvailabilityZonesInput {
 /**
  * <p>Contains the output of EnableAvailabilityZonesForLoadBalancer.</p>
  */
-export interface AddAvailabilityZonesOutput extends $MetadataBearer {
+export interface AddAvailabilityZonesOutput {
   __type?: "AddAvailabilityZonesOutput";
   /**
    * <p>The updated list of Availability Zones for the load balancer.</p>
@@ -119,7 +119,7 @@ export namespace AddTagsInput {
 /**
  * <p>Contains the output of AddTags.</p>
  */
-export interface AddTagsOutput extends $MetadataBearer {
+export interface AddTagsOutput {
   __type?: "AddTagsOutput";
 }
 
@@ -198,8 +198,7 @@ export namespace ApplySecurityGroupsToLoadBalancerInput {
 /**
  * <p>Contains the output of ApplySecurityGroupsToLoadBalancer.</p>
  */
-export interface ApplySecurityGroupsToLoadBalancerOutput
-  extends $MetadataBearer {
+export interface ApplySecurityGroupsToLoadBalancerOutput {
   __type?: "ApplySecurityGroupsToLoadBalancerOutput";
   /**
    * <p>The IDs of the security groups associated with the load balancer.</p>
@@ -238,7 +237,7 @@ export namespace AttachLoadBalancerToSubnetsInput {
 /**
  * <p>Contains the output of AttachLoadBalancerToSubnets.</p>
  */
-export interface AttachLoadBalancerToSubnetsOutput extends $MetadataBearer {
+export interface AttachLoadBalancerToSubnetsOutput {
   __type?: "AttachLoadBalancerToSubnetsOutput";
   /**
    * <p>The IDs of the subnets attached to the load balancer.</p>
@@ -318,7 +317,7 @@ export namespace ConfigureHealthCheckInput {
 /**
  * <p>Contains the output of ConfigureHealthCheck.</p>
  */
-export interface ConfigureHealthCheckOutput extends $MetadataBearer {
+export interface ConfigureHealthCheckOutput {
   __type?: "ConfigureHealthCheckOutput";
   /**
    * <p>The updated health check.</p>
@@ -434,7 +433,7 @@ export namespace CreateAccessPointInput {
 /**
  * <p>Contains the output for CreateLoadBalancer.</p>
  */
-export interface CreateAccessPointOutput extends $MetadataBearer {
+export interface CreateAccessPointOutput {
   __type?: "CreateAccessPointOutput";
   /**
    * <p>The DNS name of the load balancer.</p>
@@ -478,7 +477,7 @@ export namespace CreateAppCookieStickinessPolicyInput {
 /**
  * <p>Contains the output for CreateAppCookieStickinessPolicy.</p>
  */
-export interface CreateAppCookieStickinessPolicyOutput extends $MetadataBearer {
+export interface CreateAppCookieStickinessPolicyOutput {
   __type?: "CreateAppCookieStickinessPolicyOutput";
 }
 
@@ -518,7 +517,7 @@ export namespace CreateLBCookieStickinessPolicyInput {
 /**
  * <p>Contains the output for CreateLBCookieStickinessPolicy.</p>
  */
-export interface CreateLBCookieStickinessPolicyOutput extends $MetadataBearer {
+export interface CreateLBCookieStickinessPolicyOutput {
   __type?: "CreateLBCookieStickinessPolicyOutput";
 }
 
@@ -553,7 +552,7 @@ export namespace CreateLoadBalancerListenerInput {
 /**
  * <p>Contains the parameters for CreateLoadBalancerListener.</p>
  */
-export interface CreateLoadBalancerListenerOutput extends $MetadataBearer {
+export interface CreateLoadBalancerListenerOutput {
   __type?: "CreateLoadBalancerListenerOutput";
 }
 
@@ -599,7 +598,7 @@ export namespace CreateLoadBalancerPolicyInput {
 /**
  * <p>Contains the output of CreateLoadBalancerPolicy.</p>
  */
-export interface CreateLoadBalancerPolicyOutput extends $MetadataBearer {
+export interface CreateLoadBalancerPolicyOutput {
   __type?: "CreateLoadBalancerPolicyOutput";
 }
 
@@ -646,7 +645,7 @@ export namespace DeleteAccessPointInput {
 /**
  * <p>Contains the output of DeleteLoadBalancer.</p>
  */
-export interface DeleteAccessPointOutput extends $MetadataBearer {
+export interface DeleteAccessPointOutput {
   __type?: "DeleteAccessPointOutput";
 }
 
@@ -681,7 +680,7 @@ export namespace DeleteLoadBalancerListenerInput {
 /**
  * <p>Contains the output of DeleteLoadBalancerListeners.</p>
  */
-export interface DeleteLoadBalancerListenerOutput extends $MetadataBearer {
+export interface DeleteLoadBalancerListenerOutput {
   __type?: "DeleteLoadBalancerListenerOutput";
 }
 
@@ -716,7 +715,7 @@ export namespace DeleteLoadBalancerPolicyInput {
 /**
  * <p>Contains the output of DeleteLoadBalancerPolicy.</p>
  */
-export interface DeleteLoadBalancerPolicyOutput extends $MetadataBearer {
+export interface DeleteLoadBalancerPolicyOutput {
   __type?: "DeleteLoadBalancerPolicyOutput";
 }
 
@@ -768,7 +767,7 @@ export namespace DeregisterEndPointsInput {
 /**
  * <p>Contains the output of DeregisterInstancesFromLoadBalancer.</p>
  */
-export interface DeregisterEndPointsOutput extends $MetadataBearer {
+export interface DeregisterEndPointsOutput {
   __type?: "DeregisterEndPointsOutput";
   /**
    * <p>The remaining instances registered with the load balancer.</p>
@@ -812,7 +811,7 @@ export namespace DescribeAccessPointsInput {
 /**
  * <p>Contains the parameters for DescribeLoadBalancers.</p>
  */
-export interface DescribeAccessPointsOutput extends $MetadataBearer {
+export interface DescribeAccessPointsOutput {
   __type?: "DescribeAccessPointsOutput";
   /**
    * <p>Information about the load balancers.</p>
@@ -850,7 +849,7 @@ export namespace DescribeAccountLimitsInput {
   }
 }
 
-export interface DescribeAccountLimitsOutput extends $MetadataBearer {
+export interface DescribeAccountLimitsOutput {
   __type?: "DescribeAccountLimitsOutput";
   /**
    * <p>Information about the limits.</p>
@@ -894,7 +893,7 @@ export namespace DescribeEndPointStateInput {
 /**
  * <p>Contains the output for DescribeInstanceHealth.</p>
  */
-export interface DescribeEndPointStateOutput extends $MetadataBearer {
+export interface DescribeEndPointStateOutput {
   __type?: "DescribeEndPointStateOutput";
   /**
    * <p>Information about the health of the instances.</p>
@@ -928,7 +927,7 @@ export namespace DescribeLoadBalancerAttributesInput {
 /**
  * <p>Contains the output of DescribeLoadBalancerAttributes.</p>
  */
-export interface DescribeLoadBalancerAttributesOutput extends $MetadataBearer {
+export interface DescribeLoadBalancerAttributesOutput {
   __type?: "DescribeLoadBalancerAttributesOutput";
   /**
    * <p>Information about the load balancer attributes.</p>
@@ -967,7 +966,7 @@ export namespace DescribeLoadBalancerPoliciesInput {
 /**
  * <p>Contains the output of DescribeLoadBalancerPolicies.</p>
  */
-export interface DescribeLoadBalancerPoliciesOutput extends $MetadataBearer {
+export interface DescribeLoadBalancerPoliciesOutput {
   __type?: "DescribeLoadBalancerPoliciesOutput";
   /**
    * <p>Information about the policies.</p>
@@ -1001,7 +1000,7 @@ export namespace DescribeLoadBalancerPolicyTypesInput {
 /**
  * <p>Contains the output of DescribeLoadBalancerPolicyTypes.</p>
  */
-export interface DescribeLoadBalancerPolicyTypesOutput extends $MetadataBearer {
+export interface DescribeLoadBalancerPolicyTypesOutput {
   __type?: "DescribeLoadBalancerPolicyTypesOutput";
   /**
    * <p>Information about the policy types.</p>
@@ -1035,7 +1034,7 @@ export namespace DescribeTagsInput {
 /**
  * <p>Contains the output for DescribeTags.</p>
  */
-export interface DescribeTagsOutput extends $MetadataBearer {
+export interface DescribeTagsOutput {
   __type?: "DescribeTagsOutput";
   /**
    * <p>Information about the tags.</p>
@@ -1074,7 +1073,7 @@ export namespace DetachLoadBalancerFromSubnetsInput {
 /**
  * <p>Contains the output of DetachLoadBalancerFromSubnets.</p>
  */
-export interface DetachLoadBalancerFromSubnetsOutput extends $MetadataBearer {
+export interface DetachLoadBalancerFromSubnetsOutput {
   __type?: "DetachLoadBalancerFromSubnetsOutput";
   /**
    * <p>The IDs of the remaining subnets for the load balancer.</p>
@@ -1724,7 +1723,7 @@ export namespace ModifyLoadBalancerAttributesInput {
 /**
  * <p>Contains the output of ModifyLoadBalancerAttributes.</p>
  */
-export interface ModifyLoadBalancerAttributesOutput extends $MetadataBearer {
+export interface ModifyLoadBalancerAttributesOutput {
   __type?: "ModifyLoadBalancerAttributesOutput";
   /**
    * <p>Information about the load balancer attributes.</p>
@@ -1996,7 +1995,7 @@ export namespace RegisterEndPointsInput {
 /**
  * <p>Contains the output of RegisterInstancesWithLoadBalancer.</p>
  */
-export interface RegisterEndPointsOutput extends $MetadataBearer {
+export interface RegisterEndPointsOutput {
   __type?: "RegisterEndPointsOutput";
   /**
    * <p>The updated list of instances for the load balancer.</p>
@@ -2035,7 +2034,7 @@ export namespace RemoveAvailabilityZonesInput {
 /**
  * <p>Contains the output for DisableAvailabilityZonesForLoadBalancer.</p>
  */
-export interface RemoveAvailabilityZonesOutput extends $MetadataBearer {
+export interface RemoveAvailabilityZonesOutput {
   __type?: "RemoveAvailabilityZonesOutput";
   /**
    * <p>The remaining Availability Zones for the load balancer.</p>
@@ -2074,7 +2073,7 @@ export namespace RemoveTagsInput {
 /**
  * <p>Contains the output of RemoveTags.</p>
  */
-export interface RemoveTagsOutput extends $MetadataBearer {
+export interface RemoveTagsOutput {
   __type?: "RemoveTagsOutput";
 }
 
@@ -2114,8 +2113,7 @@ export namespace SetLoadBalancerListenerSSLCertificateInput {
 /**
  * <p>Contains the output of SetLoadBalancerListenerSSLCertificate.</p>
  */
-export interface SetLoadBalancerListenerSSLCertificateOutput
-  extends $MetadataBearer {
+export interface SetLoadBalancerListenerSSLCertificateOutput {
   __type?: "SetLoadBalancerListenerSSLCertificateOutput";
 }
 
@@ -2159,8 +2157,7 @@ export namespace SetLoadBalancerPoliciesForBackendServerInput {
 /**
  * <p>Contains the output of SetLoadBalancerPoliciesForBackendServer.</p>
  */
-export interface SetLoadBalancerPoliciesForBackendServerOutput
-  extends $MetadataBearer {
+export interface SetLoadBalancerPoliciesForBackendServerOutput {
   __type?: "SetLoadBalancerPoliciesForBackendServerOutput";
 }
 
@@ -2202,8 +2199,7 @@ export namespace SetLoadBalancerPoliciesOfListenerInput {
 /**
  * <p>Contains the output of SetLoadBalancePoliciesOfListener.</p>
  */
-export interface SetLoadBalancerPoliciesOfListenerOutput
-  extends $MetadataBearer {
+export interface SetLoadBalancerPoliciesOfListenerOutput {
   __type?: "SetLoadBalancerPoliciesOfListenerOutput";
 }
 

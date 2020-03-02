@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDashboardPermissionsCommandInput = DescribeDashboardPermissionsRequest;
-export type DescribeDashboardPermissionsCommandOutput = DescribeDashboardPermissionsResponse;
+export type DescribeDashboardPermissionsCommandOutput = DescribeDashboardPermissionsResponse &
+  __MetadataBearer;
 
 export class DescribeDashboardPermissionsCommand extends $Command<
   DescribeDashboardPermissionsCommandInput,

@@ -86,7 +86,7 @@ export namespace CreateEnvironmentEC2Request {
   }
 }
 
-export interface CreateEnvironmentEC2Result extends $MetadataBearer {
+export interface CreateEnvironmentEC2Result {
   __type?: "CreateEnvironmentEC2Result";
   /**
    * <p>The ID of the environment that was created.</p>
@@ -134,7 +134,7 @@ export namespace CreateEnvironmentMembershipRequest {
   }
 }
 
-export interface CreateEnvironmentMembershipResult extends $MetadataBearer {
+export interface CreateEnvironmentMembershipResult {
   __type?: "CreateEnvironmentMembershipResult";
   /**
    * <p>Information about the environment member that was added.</p>
@@ -167,7 +167,7 @@ export namespace DeleteEnvironmentMembershipRequest {
   }
 }
 
-export interface DeleteEnvironmentMembershipResult extends $MetadataBearer {
+export interface DeleteEnvironmentMembershipResult {
   __type?: "DeleteEnvironmentMembershipResult";
 }
 
@@ -191,7 +191,7 @@ export namespace DeleteEnvironmentRequest {
   }
 }
 
-export interface DeleteEnvironmentResult extends $MetadataBearer {
+export interface DeleteEnvironmentResult {
   __type?: "DeleteEnvironmentResult";
 }
 
@@ -250,7 +250,7 @@ export namespace DescribeEnvironmentMembershipsRequest {
   }
 }
 
-export interface DescribeEnvironmentMembershipsResult extends $MetadataBearer {
+export interface DescribeEnvironmentMembershipsResult {
   __type?: "DescribeEnvironmentMembershipsResult";
   /**
    * <p>Information about the environment members for the environment.</p>
@@ -283,7 +283,7 @@ export namespace DescribeEnvironmentStatusRequest {
   }
 }
 
-export interface DescribeEnvironmentStatusResult extends $MetadataBearer {
+export interface DescribeEnvironmentStatusResult {
   __type?: "DescribeEnvironmentStatusResult";
   /**
    * <p>Any informational message about the status of the environment.</p>
@@ -346,7 +346,7 @@ export namespace DescribeEnvironmentsRequest {
   }
 }
 
-export interface DescribeEnvironmentsResult extends $MetadataBearer {
+export interface DescribeEnvironmentsResult {
   __type?: "DescribeEnvironmentsResult";
   /**
    * <p>Information about the environments that are returned.</p>
@@ -614,7 +614,7 @@ export namespace ListEnvironmentsRequest {
   }
 }
 
-export interface ListEnvironmentsResult extends $MetadataBearer {
+export interface ListEnvironmentsResult {
   __type?: "ListEnvironmentsResult";
   /**
    * <p>The list of environment identifiers.</p>
@@ -714,7 +714,7 @@ export namespace UpdateEnvironmentMembershipRequest {
   }
 }
 
-export interface UpdateEnvironmentMembershipResult extends $MetadataBearer {
+export interface UpdateEnvironmentMembershipResult {
   __type?: "UpdateEnvironmentMembershipResult";
   /**
    * <p>Information about the environment member whose settings were changed.</p>
@@ -752,7 +752,7 @@ export namespace UpdateEnvironmentRequest {
   }
 }
 
-export interface UpdateEnvironmentResult extends $MetadataBearer {
+export interface UpdateEnvironmentResult {
   __type?: "UpdateEnvironmentResult";
 }
 

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterWorkspaceDirectoryCommandInput = DeregisterWorkspaceDirectoryRequest;
-export type DeregisterWorkspaceDirectoryCommandOutput = DeregisterWorkspaceDirectoryResult;
+export type DeregisterWorkspaceDirectoryCommandOutput = DeregisterWorkspaceDirectoryResult &
+  __MetadataBearer;
 
 export class DeregisterWorkspaceDirectoryCommand extends $Command<
   DeregisterWorkspaceDirectoryCommandInput,

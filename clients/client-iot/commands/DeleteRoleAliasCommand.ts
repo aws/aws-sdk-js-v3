@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRoleAliasCommandInput = DeleteRoleAliasRequest;
-export type DeleteRoleAliasCommandOutput = DeleteRoleAliasResponse;
+export type DeleteRoleAliasCommandOutput = DeleteRoleAliasResponse &
+  __MetadataBearer;
 
 export class DeleteRoleAliasCommand extends $Command<
   DeleteRoleAliasCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetRulePrioritiesCommandInput = SetRulePrioritiesInput;
-export type SetRulePrioritiesCommandOutput = SetRulePrioritiesOutput;
+export type SetRulePrioritiesCommandOutput = SetRulePrioritiesOutput &
+  __MetadataBearer;
 
 export class SetRulePrioritiesCommand extends $Command<
   SetRulePrioritiesCommandInput,

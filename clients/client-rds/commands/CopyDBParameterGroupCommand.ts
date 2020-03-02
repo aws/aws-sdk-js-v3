@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyDBParameterGroupCommandInput = CopyDBParameterGroupMessage;
-export type CopyDBParameterGroupCommandOutput = CopyDBParameterGroupResult;
+export type CopyDBParameterGroupCommandOutput = CopyDBParameterGroupResult &
+  __MetadataBearer;
 
 export class CopyDBParameterGroupCommand extends $Command<
   CopyDBParameterGroupCommandInput,

@@ -75,7 +75,7 @@ export namespace CreateConnectionInput {
   }
 }
 
-export interface CreateConnectionOutput extends $MetadataBearer {
+export interface CreateConnectionOutput {
   __type?: "CreateConnectionOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the
@@ -110,7 +110,7 @@ export namespace DeleteConnectionInput {
   }
 }
 
-export interface DeleteConnectionOutput extends $MetadataBearer {
+export interface DeleteConnectionOutput {
   __type?: "DeleteConnectionOutput";
 }
 
@@ -134,7 +134,7 @@ export namespace GetConnectionInput {
   }
 }
 
-export interface GetConnectionOutput extends $MetadataBearer {
+export interface GetConnectionOutput {
   __type?: "GetConnectionOutput";
   /**
    * <p>The connection details, such as status, owner, and provider type.</p>
@@ -192,7 +192,7 @@ export namespace ListConnectionsInput {
   }
 }
 
-export interface ListConnectionsOutput extends $MetadataBearer {
+export interface ListConnectionsOutput {
   __type?: "ListConnectionsOutput";
   /**
    * <p>A list of connections and the details for each connection, such as status, owner, and

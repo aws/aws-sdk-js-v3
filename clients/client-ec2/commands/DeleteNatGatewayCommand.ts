@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteNatGatewayCommandInput = DeleteNatGatewayRequest;
-export type DeleteNatGatewayCommandOutput = DeleteNatGatewayResult;
+export type DeleteNatGatewayCommandOutput = DeleteNatGatewayResult &
+  __MetadataBearer;
 
 export class DeleteNatGatewayCommand extends $Command<
   DeleteNatGatewayCommandInput,

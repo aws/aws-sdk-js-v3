@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTransitGatewayRouteTableCommandInput = DeleteTransitGatewayRouteTableRequest;
-export type DeleteTransitGatewayRouteTableCommandOutput = DeleteTransitGatewayRouteTableResult;
+export type DeleteTransitGatewayRouteTableCommandOutput = DeleteTransitGatewayRouteTableResult &
+  __MetadataBearer;
 
 export class DeleteTransitGatewayRouteTableCommand extends $Command<
   DeleteTransitGatewayRouteTableCommandInput,

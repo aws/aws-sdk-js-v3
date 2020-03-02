@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddApplicationReferenceDataSourceCommandInput = AddApplicationReferenceDataSourceRequest;
-export type AddApplicationReferenceDataSourceCommandOutput = AddApplicationReferenceDataSourceResponse;
+export type AddApplicationReferenceDataSourceCommandOutput = AddApplicationReferenceDataSourceResponse &
+  __MetadataBearer;
 
 export class AddApplicationReferenceDataSourceCommand extends $Command<
   AddApplicationReferenceDataSourceCommandInput,

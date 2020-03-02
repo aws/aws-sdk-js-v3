@@ -1,37 +1,67 @@
 import {
-  CancelJobRequest,
-  CancelJobResponse,
-  CreateComputeEnvironmentRequest,
-  CreateComputeEnvironmentResponse,
-  CreateJobQueueRequest,
-  CreateJobQueueResponse,
-  DeleteComputeEnvironmentRequest,
-  DeleteComputeEnvironmentResponse,
-  DeleteJobQueueRequest,
-  DeleteJobQueueResponse,
-  DeregisterJobDefinitionRequest,
-  DeregisterJobDefinitionResponse,
-  DescribeComputeEnvironmentsRequest,
-  DescribeComputeEnvironmentsResponse,
-  DescribeJobDefinitionsRequest,
-  DescribeJobDefinitionsResponse,
-  DescribeJobQueuesRequest,
-  DescribeJobQueuesResponse,
-  DescribeJobsRequest,
-  DescribeJobsResponse,
-  ListJobsRequest,
-  ListJobsResponse,
-  RegisterJobDefinitionRequest,
-  RegisterJobDefinitionResponse,
-  SubmitJobRequest,
-  SubmitJobResponse,
-  TerminateJobRequest,
-  TerminateJobResponse,
-  UpdateComputeEnvironmentRequest,
-  UpdateComputeEnvironmentResponse,
-  UpdateJobQueueRequest,
-  UpdateJobQueueResponse
-} from "./models/index";
+  CancelJobCommandInput,
+  CancelJobCommandOutput
+} from "./commands/CancelJobCommand";
+import {
+  CreateComputeEnvironmentCommandInput,
+  CreateComputeEnvironmentCommandOutput
+} from "./commands/CreateComputeEnvironmentCommand";
+import {
+  CreateJobQueueCommandInput,
+  CreateJobQueueCommandOutput
+} from "./commands/CreateJobQueueCommand";
+import {
+  DeleteComputeEnvironmentCommandInput,
+  DeleteComputeEnvironmentCommandOutput
+} from "./commands/DeleteComputeEnvironmentCommand";
+import {
+  DeleteJobQueueCommandInput,
+  DeleteJobQueueCommandOutput
+} from "./commands/DeleteJobQueueCommand";
+import {
+  DeregisterJobDefinitionCommandInput,
+  DeregisterJobDefinitionCommandOutput
+} from "./commands/DeregisterJobDefinitionCommand";
+import {
+  DescribeComputeEnvironmentsCommandInput,
+  DescribeComputeEnvironmentsCommandOutput
+} from "./commands/DescribeComputeEnvironmentsCommand";
+import {
+  DescribeJobDefinitionsCommandInput,
+  DescribeJobDefinitionsCommandOutput
+} from "./commands/DescribeJobDefinitionsCommand";
+import {
+  DescribeJobQueuesCommandInput,
+  DescribeJobQueuesCommandOutput
+} from "./commands/DescribeJobQueuesCommand";
+import {
+  DescribeJobsCommandInput,
+  DescribeJobsCommandOutput
+} from "./commands/DescribeJobsCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  RegisterJobDefinitionCommandInput,
+  RegisterJobDefinitionCommandOutput
+} from "./commands/RegisterJobDefinitionCommand";
+import {
+  SubmitJobCommandInput,
+  SubmitJobCommandOutput
+} from "./commands/SubmitJobCommand";
+import {
+  TerminateJobCommandInput,
+  TerminateJobCommandOutput
+} from "./commands/TerminateJobCommand";
+import {
+  UpdateComputeEnvironmentCommandInput,
+  UpdateComputeEnvironmentCommandOutput
+} from "./commands/UpdateComputeEnvironmentCommand";
+import {
+  UpdateJobQueueCommandInput,
+  UpdateJobQueueCommandOutput
+} from "./commands/UpdateJobQueueCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -85,40 +115,40 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelJobRequest
-  | CreateComputeEnvironmentRequest
-  | CreateJobQueueRequest
-  | DeleteComputeEnvironmentRequest
-  | DeleteJobQueueRequest
-  | DeregisterJobDefinitionRequest
-  | DescribeComputeEnvironmentsRequest
-  | DescribeJobDefinitionsRequest
-  | DescribeJobQueuesRequest
-  | DescribeJobsRequest
-  | ListJobsRequest
-  | RegisterJobDefinitionRequest
-  | SubmitJobRequest
-  | TerminateJobRequest
-  | UpdateComputeEnvironmentRequest
-  | UpdateJobQueueRequest;
+  | CancelJobCommandInput
+  | CreateComputeEnvironmentCommandInput
+  | CreateJobQueueCommandInput
+  | DeleteComputeEnvironmentCommandInput
+  | DeleteJobQueueCommandInput
+  | DeregisterJobDefinitionCommandInput
+  | DescribeComputeEnvironmentsCommandInput
+  | DescribeJobDefinitionsCommandInput
+  | DescribeJobQueuesCommandInput
+  | DescribeJobsCommandInput
+  | ListJobsCommandInput
+  | RegisterJobDefinitionCommandInput
+  | SubmitJobCommandInput
+  | TerminateJobCommandInput
+  | UpdateComputeEnvironmentCommandInput
+  | UpdateJobQueueCommandInput;
 
 export type ServiceOutputTypes =
-  | CancelJobResponse
-  | CreateComputeEnvironmentResponse
-  | CreateJobQueueResponse
-  | DeleteComputeEnvironmentResponse
-  | DeleteJobQueueResponse
-  | DeregisterJobDefinitionResponse
-  | DescribeComputeEnvironmentsResponse
-  | DescribeJobDefinitionsResponse
-  | DescribeJobQueuesResponse
-  | DescribeJobsResponse
-  | ListJobsResponse
-  | RegisterJobDefinitionResponse
-  | SubmitJobResponse
-  | TerminateJobResponse
-  | UpdateComputeEnvironmentResponse
-  | UpdateJobQueueResponse;
+  | CancelJobCommandOutput
+  | CreateComputeEnvironmentCommandOutput
+  | CreateJobQueueCommandOutput
+  | DeleteComputeEnvironmentCommandOutput
+  | DeleteJobQueueCommandOutput
+  | DeregisterJobDefinitionCommandOutput
+  | DescribeComputeEnvironmentsCommandOutput
+  | DescribeJobDefinitionsCommandOutput
+  | DescribeJobQueuesCommandOutput
+  | DescribeJobsCommandOutput
+  | ListJobsCommandOutput
+  | RegisterJobDefinitionCommandOutput
+  | SubmitJobCommandOutput
+  | TerminateJobCommandOutput
+  | UpdateComputeEnvironmentCommandOutput
+  | UpdateJobQueueCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

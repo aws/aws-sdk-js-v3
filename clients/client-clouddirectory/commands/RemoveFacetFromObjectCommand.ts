@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveFacetFromObjectCommandInput = RemoveFacetFromObjectRequest;
-export type RemoveFacetFromObjectCommandOutput = RemoveFacetFromObjectResponse;
+export type RemoveFacetFromObjectCommandOutput = RemoveFacetFromObjectResponse &
+  __MetadataBearer;
 
 export class RemoveFacetFromObjectCommand extends $Command<
   RemoveFacetFromObjectCommandInput,

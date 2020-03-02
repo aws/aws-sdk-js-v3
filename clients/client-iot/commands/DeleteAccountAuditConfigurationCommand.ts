@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAccountAuditConfigurationCommandInput = DeleteAccountAuditConfigurationRequest;
-export type DeleteAccountAuditConfigurationCommandOutput = DeleteAccountAuditConfigurationResponse;
+export type DeleteAccountAuditConfigurationCommandOutput = DeleteAccountAuditConfigurationResponse &
+  __MetadataBearer;
 
 export class DeleteAccountAuditConfigurationCommand extends $Command<
   DeleteAccountAuditConfigurationCommandInput,

@@ -1,37 +1,67 @@
 import {
-  AssociateServiceQuotaTemplateRequest,
-  AssociateServiceQuotaTemplateResponse,
-  DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
-  DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
-  DisassociateServiceQuotaTemplateRequest,
-  DisassociateServiceQuotaTemplateResponse,
-  GetAWSDefaultServiceQuotaRequest,
-  GetAWSDefaultServiceQuotaResponse,
-  GetAssociationForServiceQuotaTemplateRequest,
-  GetAssociationForServiceQuotaTemplateResponse,
-  GetRequestedServiceQuotaChangeRequest,
-  GetRequestedServiceQuotaChangeResponse,
-  GetServiceQuotaIncreaseRequestFromTemplateRequest,
-  GetServiceQuotaIncreaseRequestFromTemplateResponse,
-  GetServiceQuotaRequest,
-  GetServiceQuotaResponse,
-  ListAWSDefaultServiceQuotasRequest,
-  ListAWSDefaultServiceQuotasResponse,
-  ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
-  ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
-  ListRequestedServiceQuotaChangeHistoryRequest,
-  ListRequestedServiceQuotaChangeHistoryResponse,
-  ListServiceQuotaIncreaseRequestsInTemplateRequest,
-  ListServiceQuotaIncreaseRequestsInTemplateResponse,
-  ListServiceQuotasRequest,
-  ListServiceQuotasResponse,
-  ListServicesRequest,
-  ListServicesResponse,
-  PutServiceQuotaIncreaseRequestIntoTemplateRequest,
-  PutServiceQuotaIncreaseRequestIntoTemplateResponse,
-  RequestServiceQuotaIncreaseRequest,
-  RequestServiceQuotaIncreaseResponse
-} from "./models/index";
+  AssociateServiceQuotaTemplateCommandInput,
+  AssociateServiceQuotaTemplateCommandOutput
+} from "./commands/AssociateServiceQuotaTemplateCommand";
+import {
+  DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
+  DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
+} from "./commands/DeleteServiceQuotaIncreaseRequestFromTemplateCommand";
+import {
+  DisassociateServiceQuotaTemplateCommandInput,
+  DisassociateServiceQuotaTemplateCommandOutput
+} from "./commands/DisassociateServiceQuotaTemplateCommand";
+import {
+  GetAWSDefaultServiceQuotaCommandInput,
+  GetAWSDefaultServiceQuotaCommandOutput
+} from "./commands/GetAWSDefaultServiceQuotaCommand";
+import {
+  GetAssociationForServiceQuotaTemplateCommandInput,
+  GetAssociationForServiceQuotaTemplateCommandOutput
+} from "./commands/GetAssociationForServiceQuotaTemplateCommand";
+import {
+  GetRequestedServiceQuotaChangeCommandInput,
+  GetRequestedServiceQuotaChangeCommandOutput
+} from "./commands/GetRequestedServiceQuotaChangeCommand";
+import {
+  GetServiceQuotaCommandInput,
+  GetServiceQuotaCommandOutput
+} from "./commands/GetServiceQuotaCommand";
+import {
+  GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
+  GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
+} from "./commands/GetServiceQuotaIncreaseRequestFromTemplateCommand";
+import {
+  ListAWSDefaultServiceQuotasCommandInput,
+  ListAWSDefaultServiceQuotasCommandOutput
+} from "./commands/ListAWSDefaultServiceQuotasCommand";
+import {
+  ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
+  ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
+} from "./commands/ListRequestedServiceQuotaChangeHistoryByQuotaCommand";
+import {
+  ListRequestedServiceQuotaChangeHistoryCommandInput,
+  ListRequestedServiceQuotaChangeHistoryCommandOutput
+} from "./commands/ListRequestedServiceQuotaChangeHistoryCommand";
+import {
+  ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
+  ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
+} from "./commands/ListServiceQuotaIncreaseRequestsInTemplateCommand";
+import {
+  ListServiceQuotasCommandInput,
+  ListServiceQuotasCommandOutput
+} from "./commands/ListServiceQuotasCommand";
+import {
+  ListServicesCommandInput,
+  ListServicesCommandOutput
+} from "./commands/ListServicesCommand";
+import {
+  PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
+  PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
+} from "./commands/PutServiceQuotaIncreaseRequestIntoTemplateCommand";
+import {
+  RequestServiceQuotaIncreaseCommandInput,
+  RequestServiceQuotaIncreaseCommandOutput
+} from "./commands/RequestServiceQuotaIncreaseCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -85,40 +115,40 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateServiceQuotaTemplateRequest
-  | DeleteServiceQuotaIncreaseRequestFromTemplateRequest
-  | DisassociateServiceQuotaTemplateRequest
-  | GetAWSDefaultServiceQuotaRequest
-  | GetAssociationForServiceQuotaTemplateRequest
-  | GetRequestedServiceQuotaChangeRequest
-  | GetServiceQuotaIncreaseRequestFromTemplateRequest
-  | GetServiceQuotaRequest
-  | ListAWSDefaultServiceQuotasRequest
-  | ListRequestedServiceQuotaChangeHistoryByQuotaRequest
-  | ListRequestedServiceQuotaChangeHistoryRequest
-  | ListServiceQuotaIncreaseRequestsInTemplateRequest
-  | ListServiceQuotasRequest
-  | ListServicesRequest
-  | PutServiceQuotaIncreaseRequestIntoTemplateRequest
-  | RequestServiceQuotaIncreaseRequest;
+  | AssociateServiceQuotaTemplateCommandInput
+  | DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput
+  | DisassociateServiceQuotaTemplateCommandInput
+  | GetAWSDefaultServiceQuotaCommandInput
+  | GetAssociationForServiceQuotaTemplateCommandInput
+  | GetRequestedServiceQuotaChangeCommandInput
+  | GetServiceQuotaCommandInput
+  | GetServiceQuotaIncreaseRequestFromTemplateCommandInput
+  | ListAWSDefaultServiceQuotasCommandInput
+  | ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput
+  | ListRequestedServiceQuotaChangeHistoryCommandInput
+  | ListServiceQuotaIncreaseRequestsInTemplateCommandInput
+  | ListServiceQuotasCommandInput
+  | ListServicesCommandInput
+  | PutServiceQuotaIncreaseRequestIntoTemplateCommandInput
+  | RequestServiceQuotaIncreaseCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateServiceQuotaTemplateResponse
-  | DeleteServiceQuotaIncreaseRequestFromTemplateResponse
-  | DisassociateServiceQuotaTemplateResponse
-  | GetAWSDefaultServiceQuotaResponse
-  | GetAssociationForServiceQuotaTemplateResponse
-  | GetRequestedServiceQuotaChangeResponse
-  | GetServiceQuotaIncreaseRequestFromTemplateResponse
-  | GetServiceQuotaResponse
-  | ListAWSDefaultServiceQuotasResponse
-  | ListRequestedServiceQuotaChangeHistoryByQuotaResponse
-  | ListRequestedServiceQuotaChangeHistoryResponse
-  | ListServiceQuotaIncreaseRequestsInTemplateResponse
-  | ListServiceQuotasResponse
-  | ListServicesResponse
-  | PutServiceQuotaIncreaseRequestIntoTemplateResponse
-  | RequestServiceQuotaIncreaseResponse;
+  | AssociateServiceQuotaTemplateCommandOutput
+  | DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
+  | DisassociateServiceQuotaTemplateCommandOutput
+  | GetAWSDefaultServiceQuotaCommandOutput
+  | GetAssociationForServiceQuotaTemplateCommandOutput
+  | GetRequestedServiceQuotaChangeCommandOutput
+  | GetServiceQuotaCommandOutput
+  | GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
+  | ListAWSDefaultServiceQuotasCommandOutput
+  | ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
+  | ListRequestedServiceQuotaChangeHistoryCommandOutput
+  | ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
+  | ListServiceQuotasCommandOutput
+  | ListServicesCommandOutput
+  | PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
+  | RequestServiceQuotaIncreaseCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

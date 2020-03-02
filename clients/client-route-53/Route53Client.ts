@@ -1,117 +1,227 @@
 import {
-  AssociateVPCWithHostedZoneRequest,
-  AssociateVPCWithHostedZoneResponse,
-  ChangeResourceRecordSetsRequest,
-  ChangeResourceRecordSetsResponse,
-  ChangeTagsForResourceRequest,
-  ChangeTagsForResourceResponse,
-  CreateHealthCheckRequest,
-  CreateHealthCheckResponse,
-  CreateHostedZoneRequest,
-  CreateHostedZoneResponse,
-  CreateQueryLoggingConfigRequest,
-  CreateQueryLoggingConfigResponse,
-  CreateReusableDelegationSetRequest,
-  CreateReusableDelegationSetResponse,
-  CreateTrafficPolicyInstanceRequest,
-  CreateTrafficPolicyInstanceResponse,
-  CreateTrafficPolicyRequest,
-  CreateTrafficPolicyResponse,
-  CreateTrafficPolicyVersionRequest,
-  CreateTrafficPolicyVersionResponse,
-  CreateVPCAssociationAuthorizationRequest,
-  CreateVPCAssociationAuthorizationResponse,
-  DeleteHealthCheckRequest,
-  DeleteHealthCheckResponse,
-  DeleteHostedZoneRequest,
-  DeleteHostedZoneResponse,
-  DeleteQueryLoggingConfigRequest,
-  DeleteQueryLoggingConfigResponse,
-  DeleteReusableDelegationSetRequest,
-  DeleteReusableDelegationSetResponse,
-  DeleteTrafficPolicyInstanceRequest,
-  DeleteTrafficPolicyInstanceResponse,
-  DeleteTrafficPolicyRequest,
-  DeleteTrafficPolicyResponse,
-  DeleteVPCAssociationAuthorizationRequest,
-  DeleteVPCAssociationAuthorizationResponse,
-  DisassociateVPCFromHostedZoneRequest,
-  DisassociateVPCFromHostedZoneResponse,
-  GetAccountLimitRequest,
-  GetAccountLimitResponse,
-  GetChangeRequest,
-  GetChangeResponse,
-  GetCheckerIpRangesRequest,
-  GetCheckerIpRangesResponse,
-  GetGeoLocationRequest,
-  GetGeoLocationResponse,
-  GetHealthCheckCountRequest,
-  GetHealthCheckCountResponse,
-  GetHealthCheckLastFailureReasonRequest,
-  GetHealthCheckLastFailureReasonResponse,
-  GetHealthCheckRequest,
-  GetHealthCheckResponse,
-  GetHealthCheckStatusRequest,
-  GetHealthCheckStatusResponse,
-  GetHostedZoneCountRequest,
-  GetHostedZoneCountResponse,
-  GetHostedZoneLimitRequest,
-  GetHostedZoneLimitResponse,
-  GetHostedZoneRequest,
-  GetHostedZoneResponse,
-  GetQueryLoggingConfigRequest,
-  GetQueryLoggingConfigResponse,
-  GetReusableDelegationSetLimitRequest,
-  GetReusableDelegationSetLimitResponse,
-  GetReusableDelegationSetRequest,
-  GetReusableDelegationSetResponse,
-  GetTrafficPolicyInstanceCountRequest,
-  GetTrafficPolicyInstanceCountResponse,
-  GetTrafficPolicyInstanceRequest,
-  GetTrafficPolicyInstanceResponse,
-  GetTrafficPolicyRequest,
-  GetTrafficPolicyResponse,
-  ListGeoLocationsRequest,
-  ListGeoLocationsResponse,
-  ListHealthChecksRequest,
-  ListHealthChecksResponse,
-  ListHostedZonesByNameRequest,
-  ListHostedZonesByNameResponse,
-  ListHostedZonesRequest,
-  ListHostedZonesResponse,
-  ListQueryLoggingConfigsRequest,
-  ListQueryLoggingConfigsResponse,
-  ListResourceRecordSetsRequest,
-  ListResourceRecordSetsResponse,
-  ListReusableDelegationSetsRequest,
-  ListReusableDelegationSetsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTagsForResourcesRequest,
-  ListTagsForResourcesResponse,
-  ListTrafficPoliciesRequest,
-  ListTrafficPoliciesResponse,
-  ListTrafficPolicyInstancesByHostedZoneRequest,
-  ListTrafficPolicyInstancesByHostedZoneResponse,
-  ListTrafficPolicyInstancesByPolicyRequest,
-  ListTrafficPolicyInstancesByPolicyResponse,
-  ListTrafficPolicyInstancesRequest,
-  ListTrafficPolicyInstancesResponse,
-  ListTrafficPolicyVersionsRequest,
-  ListTrafficPolicyVersionsResponse,
-  ListVPCAssociationAuthorizationsRequest,
-  ListVPCAssociationAuthorizationsResponse,
-  TestDNSAnswerRequest,
-  TestDNSAnswerResponse,
-  UpdateHealthCheckRequest,
-  UpdateHealthCheckResponse,
-  UpdateHostedZoneCommentRequest,
-  UpdateHostedZoneCommentResponse,
-  UpdateTrafficPolicyCommentRequest,
-  UpdateTrafficPolicyCommentResponse,
-  UpdateTrafficPolicyInstanceRequest,
-  UpdateTrafficPolicyInstanceResponse
-} from "./models/index";
+  AssociateVPCWithHostedZoneCommandInput,
+  AssociateVPCWithHostedZoneCommandOutput
+} from "./commands/AssociateVPCWithHostedZoneCommand";
+import {
+  ChangeResourceRecordSetsCommandInput,
+  ChangeResourceRecordSetsCommandOutput
+} from "./commands/ChangeResourceRecordSetsCommand";
+import {
+  ChangeTagsForResourceCommandInput,
+  ChangeTagsForResourceCommandOutput
+} from "./commands/ChangeTagsForResourceCommand";
+import {
+  CreateHealthCheckCommandInput,
+  CreateHealthCheckCommandOutput
+} from "./commands/CreateHealthCheckCommand";
+import {
+  CreateHostedZoneCommandInput,
+  CreateHostedZoneCommandOutput
+} from "./commands/CreateHostedZoneCommand";
+import {
+  CreateQueryLoggingConfigCommandInput,
+  CreateQueryLoggingConfigCommandOutput
+} from "./commands/CreateQueryLoggingConfigCommand";
+import {
+  CreateReusableDelegationSetCommandInput,
+  CreateReusableDelegationSetCommandOutput
+} from "./commands/CreateReusableDelegationSetCommand";
+import {
+  CreateTrafficPolicyCommandInput,
+  CreateTrafficPolicyCommandOutput
+} from "./commands/CreateTrafficPolicyCommand";
+import {
+  CreateTrafficPolicyInstanceCommandInput,
+  CreateTrafficPolicyInstanceCommandOutput
+} from "./commands/CreateTrafficPolicyInstanceCommand";
+import {
+  CreateTrafficPolicyVersionCommandInput,
+  CreateTrafficPolicyVersionCommandOutput
+} from "./commands/CreateTrafficPolicyVersionCommand";
+import {
+  CreateVPCAssociationAuthorizationCommandInput,
+  CreateVPCAssociationAuthorizationCommandOutput
+} from "./commands/CreateVPCAssociationAuthorizationCommand";
+import {
+  DeleteHealthCheckCommandInput,
+  DeleteHealthCheckCommandOutput
+} from "./commands/DeleteHealthCheckCommand";
+import {
+  DeleteHostedZoneCommandInput,
+  DeleteHostedZoneCommandOutput
+} from "./commands/DeleteHostedZoneCommand";
+import {
+  DeleteQueryLoggingConfigCommandInput,
+  DeleteQueryLoggingConfigCommandOutput
+} from "./commands/DeleteQueryLoggingConfigCommand";
+import {
+  DeleteReusableDelegationSetCommandInput,
+  DeleteReusableDelegationSetCommandOutput
+} from "./commands/DeleteReusableDelegationSetCommand";
+import {
+  DeleteTrafficPolicyCommandInput,
+  DeleteTrafficPolicyCommandOutput
+} from "./commands/DeleteTrafficPolicyCommand";
+import {
+  DeleteTrafficPolicyInstanceCommandInput,
+  DeleteTrafficPolicyInstanceCommandOutput
+} from "./commands/DeleteTrafficPolicyInstanceCommand";
+import {
+  DeleteVPCAssociationAuthorizationCommandInput,
+  DeleteVPCAssociationAuthorizationCommandOutput
+} from "./commands/DeleteVPCAssociationAuthorizationCommand";
+import {
+  DisassociateVPCFromHostedZoneCommandInput,
+  DisassociateVPCFromHostedZoneCommandOutput
+} from "./commands/DisassociateVPCFromHostedZoneCommand";
+import {
+  GetAccountLimitCommandInput,
+  GetAccountLimitCommandOutput
+} from "./commands/GetAccountLimitCommand";
+import {
+  GetChangeCommandInput,
+  GetChangeCommandOutput
+} from "./commands/GetChangeCommand";
+import {
+  GetCheckerIpRangesCommandInput,
+  GetCheckerIpRangesCommandOutput
+} from "./commands/GetCheckerIpRangesCommand";
+import {
+  GetGeoLocationCommandInput,
+  GetGeoLocationCommandOutput
+} from "./commands/GetGeoLocationCommand";
+import {
+  GetHealthCheckCommandInput,
+  GetHealthCheckCommandOutput
+} from "./commands/GetHealthCheckCommand";
+import {
+  GetHealthCheckCountCommandInput,
+  GetHealthCheckCountCommandOutput
+} from "./commands/GetHealthCheckCountCommand";
+import {
+  GetHealthCheckLastFailureReasonCommandInput,
+  GetHealthCheckLastFailureReasonCommandOutput
+} from "./commands/GetHealthCheckLastFailureReasonCommand";
+import {
+  GetHealthCheckStatusCommandInput,
+  GetHealthCheckStatusCommandOutput
+} from "./commands/GetHealthCheckStatusCommand";
+import {
+  GetHostedZoneCommandInput,
+  GetHostedZoneCommandOutput
+} from "./commands/GetHostedZoneCommand";
+import {
+  GetHostedZoneCountCommandInput,
+  GetHostedZoneCountCommandOutput
+} from "./commands/GetHostedZoneCountCommand";
+import {
+  GetHostedZoneLimitCommandInput,
+  GetHostedZoneLimitCommandOutput
+} from "./commands/GetHostedZoneLimitCommand";
+import {
+  GetQueryLoggingConfigCommandInput,
+  GetQueryLoggingConfigCommandOutput
+} from "./commands/GetQueryLoggingConfigCommand";
+import {
+  GetReusableDelegationSetCommandInput,
+  GetReusableDelegationSetCommandOutput
+} from "./commands/GetReusableDelegationSetCommand";
+import {
+  GetReusableDelegationSetLimitCommandInput,
+  GetReusableDelegationSetLimitCommandOutput
+} from "./commands/GetReusableDelegationSetLimitCommand";
+import {
+  GetTrafficPolicyCommandInput,
+  GetTrafficPolicyCommandOutput
+} from "./commands/GetTrafficPolicyCommand";
+import {
+  GetTrafficPolicyInstanceCommandInput,
+  GetTrafficPolicyInstanceCommandOutput
+} from "./commands/GetTrafficPolicyInstanceCommand";
+import {
+  GetTrafficPolicyInstanceCountCommandInput,
+  GetTrafficPolicyInstanceCountCommandOutput
+} from "./commands/GetTrafficPolicyInstanceCountCommand";
+import {
+  ListGeoLocationsCommandInput,
+  ListGeoLocationsCommandOutput
+} from "./commands/ListGeoLocationsCommand";
+import {
+  ListHealthChecksCommandInput,
+  ListHealthChecksCommandOutput
+} from "./commands/ListHealthChecksCommand";
+import {
+  ListHostedZonesByNameCommandInput,
+  ListHostedZonesByNameCommandOutput
+} from "./commands/ListHostedZonesByNameCommand";
+import {
+  ListHostedZonesCommandInput,
+  ListHostedZonesCommandOutput
+} from "./commands/ListHostedZonesCommand";
+import {
+  ListQueryLoggingConfigsCommandInput,
+  ListQueryLoggingConfigsCommandOutput
+} from "./commands/ListQueryLoggingConfigsCommand";
+import {
+  ListResourceRecordSetsCommandInput,
+  ListResourceRecordSetsCommandOutput
+} from "./commands/ListResourceRecordSetsCommand";
+import {
+  ListReusableDelegationSetsCommandInput,
+  ListReusableDelegationSetsCommandOutput
+} from "./commands/ListReusableDelegationSetsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTagsForResourcesCommandInput,
+  ListTagsForResourcesCommandOutput
+} from "./commands/ListTagsForResourcesCommand";
+import {
+  ListTrafficPoliciesCommandInput,
+  ListTrafficPoliciesCommandOutput
+} from "./commands/ListTrafficPoliciesCommand";
+import {
+  ListTrafficPolicyInstancesByHostedZoneCommandInput,
+  ListTrafficPolicyInstancesByHostedZoneCommandOutput
+} from "./commands/ListTrafficPolicyInstancesByHostedZoneCommand";
+import {
+  ListTrafficPolicyInstancesByPolicyCommandInput,
+  ListTrafficPolicyInstancesByPolicyCommandOutput
+} from "./commands/ListTrafficPolicyInstancesByPolicyCommand";
+import {
+  ListTrafficPolicyInstancesCommandInput,
+  ListTrafficPolicyInstancesCommandOutput
+} from "./commands/ListTrafficPolicyInstancesCommand";
+import {
+  ListTrafficPolicyVersionsCommandInput,
+  ListTrafficPolicyVersionsCommandOutput
+} from "./commands/ListTrafficPolicyVersionsCommand";
+import {
+  ListVPCAssociationAuthorizationsCommandInput,
+  ListVPCAssociationAuthorizationsCommandOutput
+} from "./commands/ListVPCAssociationAuthorizationsCommand";
+import {
+  TestDNSAnswerCommandInput,
+  TestDNSAnswerCommandOutput
+} from "./commands/TestDNSAnswerCommand";
+import {
+  UpdateHealthCheckCommandInput,
+  UpdateHealthCheckCommandOutput
+} from "./commands/UpdateHealthCheckCommand";
+import {
+  UpdateHostedZoneCommentCommandInput,
+  UpdateHostedZoneCommentCommandOutput
+} from "./commands/UpdateHostedZoneCommentCommand";
+import {
+  UpdateTrafficPolicyCommentCommandInput,
+  UpdateTrafficPolicyCommentCommandOutput
+} from "./commands/UpdateTrafficPolicyCommentCommand";
+import {
+  UpdateTrafficPolicyInstanceCommandInput,
+  UpdateTrafficPolicyInstanceCommandOutput
+} from "./commands/UpdateTrafficPolicyInstanceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -165,120 +275,120 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateVPCWithHostedZoneRequest
-  | ChangeResourceRecordSetsRequest
-  | ChangeTagsForResourceRequest
-  | CreateHealthCheckRequest
-  | CreateHostedZoneRequest
-  | CreateQueryLoggingConfigRequest
-  | CreateReusableDelegationSetRequest
-  | CreateTrafficPolicyInstanceRequest
-  | CreateTrafficPolicyRequest
-  | CreateTrafficPolicyVersionRequest
-  | CreateVPCAssociationAuthorizationRequest
-  | DeleteHealthCheckRequest
-  | DeleteHostedZoneRequest
-  | DeleteQueryLoggingConfigRequest
-  | DeleteReusableDelegationSetRequest
-  | DeleteTrafficPolicyInstanceRequest
-  | DeleteTrafficPolicyRequest
-  | DeleteVPCAssociationAuthorizationRequest
-  | DisassociateVPCFromHostedZoneRequest
-  | GetAccountLimitRequest
-  | GetChangeRequest
-  | GetCheckerIpRangesRequest
-  | GetGeoLocationRequest
-  | GetHealthCheckCountRequest
-  | GetHealthCheckLastFailureReasonRequest
-  | GetHealthCheckRequest
-  | GetHealthCheckStatusRequest
-  | GetHostedZoneCountRequest
-  | GetHostedZoneLimitRequest
-  | GetHostedZoneRequest
-  | GetQueryLoggingConfigRequest
-  | GetReusableDelegationSetLimitRequest
-  | GetReusableDelegationSetRequest
-  | GetTrafficPolicyInstanceCountRequest
-  | GetTrafficPolicyInstanceRequest
-  | GetTrafficPolicyRequest
-  | ListGeoLocationsRequest
-  | ListHealthChecksRequest
-  | ListHostedZonesByNameRequest
-  | ListHostedZonesRequest
-  | ListQueryLoggingConfigsRequest
-  | ListResourceRecordSetsRequest
-  | ListReusableDelegationSetsRequest
-  | ListTagsForResourceRequest
-  | ListTagsForResourcesRequest
-  | ListTrafficPoliciesRequest
-  | ListTrafficPolicyInstancesByHostedZoneRequest
-  | ListTrafficPolicyInstancesByPolicyRequest
-  | ListTrafficPolicyInstancesRequest
-  | ListTrafficPolicyVersionsRequest
-  | ListVPCAssociationAuthorizationsRequest
-  | TestDNSAnswerRequest
-  | UpdateHealthCheckRequest
-  | UpdateHostedZoneCommentRequest
-  | UpdateTrafficPolicyCommentRequest
-  | UpdateTrafficPolicyInstanceRequest;
+  | AssociateVPCWithHostedZoneCommandInput
+  | ChangeResourceRecordSetsCommandInput
+  | ChangeTagsForResourceCommandInput
+  | CreateHealthCheckCommandInput
+  | CreateHostedZoneCommandInput
+  | CreateQueryLoggingConfigCommandInput
+  | CreateReusableDelegationSetCommandInput
+  | CreateTrafficPolicyCommandInput
+  | CreateTrafficPolicyInstanceCommandInput
+  | CreateTrafficPolicyVersionCommandInput
+  | CreateVPCAssociationAuthorizationCommandInput
+  | DeleteHealthCheckCommandInput
+  | DeleteHostedZoneCommandInput
+  | DeleteQueryLoggingConfigCommandInput
+  | DeleteReusableDelegationSetCommandInput
+  | DeleteTrafficPolicyCommandInput
+  | DeleteTrafficPolicyInstanceCommandInput
+  | DeleteVPCAssociationAuthorizationCommandInput
+  | DisassociateVPCFromHostedZoneCommandInput
+  | GetAccountLimitCommandInput
+  | GetChangeCommandInput
+  | GetCheckerIpRangesCommandInput
+  | GetGeoLocationCommandInput
+  | GetHealthCheckCommandInput
+  | GetHealthCheckCountCommandInput
+  | GetHealthCheckLastFailureReasonCommandInput
+  | GetHealthCheckStatusCommandInput
+  | GetHostedZoneCommandInput
+  | GetHostedZoneCountCommandInput
+  | GetHostedZoneLimitCommandInput
+  | GetQueryLoggingConfigCommandInput
+  | GetReusableDelegationSetCommandInput
+  | GetReusableDelegationSetLimitCommandInput
+  | GetTrafficPolicyCommandInput
+  | GetTrafficPolicyInstanceCommandInput
+  | GetTrafficPolicyInstanceCountCommandInput
+  | ListGeoLocationsCommandInput
+  | ListHealthChecksCommandInput
+  | ListHostedZonesByNameCommandInput
+  | ListHostedZonesCommandInput
+  | ListQueryLoggingConfigsCommandInput
+  | ListResourceRecordSetsCommandInput
+  | ListReusableDelegationSetsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTagsForResourcesCommandInput
+  | ListTrafficPoliciesCommandInput
+  | ListTrafficPolicyInstancesByHostedZoneCommandInput
+  | ListTrafficPolicyInstancesByPolicyCommandInput
+  | ListTrafficPolicyInstancesCommandInput
+  | ListTrafficPolicyVersionsCommandInput
+  | ListVPCAssociationAuthorizationsCommandInput
+  | TestDNSAnswerCommandInput
+  | UpdateHealthCheckCommandInput
+  | UpdateHostedZoneCommentCommandInput
+  | UpdateTrafficPolicyCommentCommandInput
+  | UpdateTrafficPolicyInstanceCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateVPCWithHostedZoneResponse
-  | ChangeResourceRecordSetsResponse
-  | ChangeTagsForResourceResponse
-  | CreateHealthCheckResponse
-  | CreateHostedZoneResponse
-  | CreateQueryLoggingConfigResponse
-  | CreateReusableDelegationSetResponse
-  | CreateTrafficPolicyInstanceResponse
-  | CreateTrafficPolicyResponse
-  | CreateTrafficPolicyVersionResponse
-  | CreateVPCAssociationAuthorizationResponse
-  | DeleteHealthCheckResponse
-  | DeleteHostedZoneResponse
-  | DeleteQueryLoggingConfigResponse
-  | DeleteReusableDelegationSetResponse
-  | DeleteTrafficPolicyInstanceResponse
-  | DeleteTrafficPolicyResponse
-  | DeleteVPCAssociationAuthorizationResponse
-  | DisassociateVPCFromHostedZoneResponse
-  | GetAccountLimitResponse
-  | GetChangeResponse
-  | GetCheckerIpRangesResponse
-  | GetGeoLocationResponse
-  | GetHealthCheckCountResponse
-  | GetHealthCheckLastFailureReasonResponse
-  | GetHealthCheckResponse
-  | GetHealthCheckStatusResponse
-  | GetHostedZoneCountResponse
-  | GetHostedZoneLimitResponse
-  | GetHostedZoneResponse
-  | GetQueryLoggingConfigResponse
-  | GetReusableDelegationSetLimitResponse
-  | GetReusableDelegationSetResponse
-  | GetTrafficPolicyInstanceCountResponse
-  | GetTrafficPolicyInstanceResponse
-  | GetTrafficPolicyResponse
-  | ListGeoLocationsResponse
-  | ListHealthChecksResponse
-  | ListHostedZonesByNameResponse
-  | ListHostedZonesResponse
-  | ListQueryLoggingConfigsResponse
-  | ListResourceRecordSetsResponse
-  | ListReusableDelegationSetsResponse
-  | ListTagsForResourceResponse
-  | ListTagsForResourcesResponse
-  | ListTrafficPoliciesResponse
-  | ListTrafficPolicyInstancesByHostedZoneResponse
-  | ListTrafficPolicyInstancesByPolicyResponse
-  | ListTrafficPolicyInstancesResponse
-  | ListTrafficPolicyVersionsResponse
-  | ListVPCAssociationAuthorizationsResponse
-  | TestDNSAnswerResponse
-  | UpdateHealthCheckResponse
-  | UpdateHostedZoneCommentResponse
-  | UpdateTrafficPolicyCommentResponse
-  | UpdateTrafficPolicyInstanceResponse;
+  | AssociateVPCWithHostedZoneCommandOutput
+  | ChangeResourceRecordSetsCommandOutput
+  | ChangeTagsForResourceCommandOutput
+  | CreateHealthCheckCommandOutput
+  | CreateHostedZoneCommandOutput
+  | CreateQueryLoggingConfigCommandOutput
+  | CreateReusableDelegationSetCommandOutput
+  | CreateTrafficPolicyCommandOutput
+  | CreateTrafficPolicyInstanceCommandOutput
+  | CreateTrafficPolicyVersionCommandOutput
+  | CreateVPCAssociationAuthorizationCommandOutput
+  | DeleteHealthCheckCommandOutput
+  | DeleteHostedZoneCommandOutput
+  | DeleteQueryLoggingConfigCommandOutput
+  | DeleteReusableDelegationSetCommandOutput
+  | DeleteTrafficPolicyCommandOutput
+  | DeleteTrafficPolicyInstanceCommandOutput
+  | DeleteVPCAssociationAuthorizationCommandOutput
+  | DisassociateVPCFromHostedZoneCommandOutput
+  | GetAccountLimitCommandOutput
+  | GetChangeCommandOutput
+  | GetCheckerIpRangesCommandOutput
+  | GetGeoLocationCommandOutput
+  | GetHealthCheckCommandOutput
+  | GetHealthCheckCountCommandOutput
+  | GetHealthCheckLastFailureReasonCommandOutput
+  | GetHealthCheckStatusCommandOutput
+  | GetHostedZoneCommandOutput
+  | GetHostedZoneCountCommandOutput
+  | GetHostedZoneLimitCommandOutput
+  | GetQueryLoggingConfigCommandOutput
+  | GetReusableDelegationSetCommandOutput
+  | GetReusableDelegationSetLimitCommandOutput
+  | GetTrafficPolicyCommandOutput
+  | GetTrafficPolicyInstanceCommandOutput
+  | GetTrafficPolicyInstanceCountCommandOutput
+  | ListGeoLocationsCommandOutput
+  | ListHealthChecksCommandOutput
+  | ListHostedZonesByNameCommandOutput
+  | ListHostedZonesCommandOutput
+  | ListQueryLoggingConfigsCommandOutput
+  | ListResourceRecordSetsCommandOutput
+  | ListReusableDelegationSetsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTagsForResourcesCommandOutput
+  | ListTrafficPoliciesCommandOutput
+  | ListTrafficPolicyInstancesByHostedZoneCommandOutput
+  | ListTrafficPolicyInstancesByPolicyCommandOutput
+  | ListTrafficPolicyInstancesCommandOutput
+  | ListTrafficPolicyVersionsCommandOutput
+  | ListVPCAssociationAuthorizationsCommandOutput
+  | TestDNSAnswerCommandOutput
+  | UpdateHealthCheckCommandOutput
+  | UpdateHostedZoneCommentCommandOutput
+  | UpdateTrafficPolicyCommentCommandOutput
+  | UpdateTrafficPolicyInstanceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

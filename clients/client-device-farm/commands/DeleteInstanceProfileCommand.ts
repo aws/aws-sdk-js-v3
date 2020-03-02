@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInstanceProfileCommandInput = DeleteInstanceProfileRequest;
-export type DeleteInstanceProfileCommandOutput = DeleteInstanceProfileResult;
+export type DeleteInstanceProfileCommandOutput = DeleteInstanceProfileResult &
+  __MetadataBearer;
 
 export class DeleteInstanceProfileCommand extends $Command<
   DeleteInstanceProfileCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterWebhookWithThirdPartyCommandInput = RegisterWebhookWithThirdPartyInput;
-export type RegisterWebhookWithThirdPartyCommandOutput = RegisterWebhookWithThirdPartyOutput;
+export type RegisterWebhookWithThirdPartyCommandOutput = RegisterWebhookWithThirdPartyOutput &
+  __MetadataBearer;
 
 export class RegisterWebhookWithThirdPartyCommand extends $Command<
   RegisterWebhookWithThirdPartyCommandInput,

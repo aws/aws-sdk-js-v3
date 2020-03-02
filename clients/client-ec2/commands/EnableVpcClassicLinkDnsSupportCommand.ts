@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableVpcClassicLinkDnsSupportCommandInput = EnableVpcClassicLinkDnsSupportRequest;
-export type EnableVpcClassicLinkDnsSupportCommandOutput = EnableVpcClassicLinkDnsSupportResult;
+export type EnableVpcClassicLinkDnsSupportCommandOutput = EnableVpcClassicLinkDnsSupportResult &
+  __MetadataBearer;
 
 export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
   EnableVpcClassicLinkDnsSupportCommandInput,

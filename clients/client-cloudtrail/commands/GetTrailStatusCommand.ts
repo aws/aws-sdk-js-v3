@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTrailStatusCommandInput = GetTrailStatusRequest;
-export type GetTrailStatusCommandOutput = GetTrailStatusResponse;
+export type GetTrailStatusCommandOutput = GetTrailStatusResponse &
+  __MetadataBearer;
 
 export class GetTrailStatusCommand extends $Command<
   GetTrailStatusCommandInput,

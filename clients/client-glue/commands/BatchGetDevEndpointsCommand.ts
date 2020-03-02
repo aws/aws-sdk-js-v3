@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetDevEndpointsCommandInput = BatchGetDevEndpointsRequest;
-export type BatchGetDevEndpointsCommandOutput = BatchGetDevEndpointsResponse;
+export type BatchGetDevEndpointsCommandOutput = BatchGetDevEndpointsResponse &
+  __MetadataBearer;
 
 export class BatchGetDevEndpointsCommand extends $Command<
   BatchGetDevEndpointsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateProfilingGroupCommandInput = CreateProfilingGroupRequest;
-export type CreateProfilingGroupCommandOutput = CreateProfilingGroupResponse;
+export type CreateProfilingGroupCommandOutput = CreateProfilingGroupResponse &
+  __MetadataBearer;
 
 export class CreateProfilingGroupCommand extends $Command<
   CreateProfilingGroupCommandInput,

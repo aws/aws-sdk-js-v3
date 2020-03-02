@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssignIpv6AddressesCommandInput = AssignIpv6AddressesRequest;
-export type AssignIpv6AddressesCommandOutput = AssignIpv6AddressesResult;
+export type AssignIpv6AddressesCommandOutput = AssignIpv6AddressesResult &
+  __MetadataBearer;
 
 export class AssignIpv6AddressesCommand extends $Command<
   AssignIpv6AddressesCommandInput,

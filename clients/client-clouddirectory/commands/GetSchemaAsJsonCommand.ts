@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSchemaAsJsonCommandInput = GetSchemaAsJsonRequest;
-export type GetSchemaAsJsonCommandOutput = GetSchemaAsJsonResponse;
+export type GetSchemaAsJsonCommandOutput = GetSchemaAsJsonResponse &
+  __MetadataBearer;
 
 export class GetSchemaAsJsonCommand extends $Command<
   GetSchemaAsJsonCommandInput,

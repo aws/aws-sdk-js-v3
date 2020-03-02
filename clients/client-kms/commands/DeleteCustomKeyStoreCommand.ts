@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCustomKeyStoreCommandInput = DeleteCustomKeyStoreRequest;
-export type DeleteCustomKeyStoreCommandOutput = DeleteCustomKeyStoreResponse;
+export type DeleteCustomKeyStoreCommandOutput = DeleteCustomKeyStoreResponse &
+  __MetadataBearer;
 
 export class DeleteCustomKeyStoreCommand extends $Command<
   DeleteCustomKeyStoreCommandInput,

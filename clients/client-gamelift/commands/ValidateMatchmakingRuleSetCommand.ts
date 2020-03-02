@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ValidateMatchmakingRuleSetCommandInput = ValidateMatchmakingRuleSetInput;
-export type ValidateMatchmakingRuleSetCommandOutput = ValidateMatchmakingRuleSetOutput;
+export type ValidateMatchmakingRuleSetCommandOutput = ValidateMatchmakingRuleSetOutput &
+  __MetadataBearer;
 
 export class ValidateMatchmakingRuleSetCommand extends $Command<
   ValidateMatchmakingRuleSetCommandInput,

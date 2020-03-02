@@ -56,7 +56,7 @@ export namespace GetRoleCredentialsRequest {
   }
 }
 
-export interface GetRoleCredentialsResponse extends $MetadataBearer {
+export interface GetRoleCredentialsResponse {
   __type?: "GetRoleCredentialsResponse";
   /**
    * <p>The credentials for the role that is assigned to the user.</p>
@@ -118,7 +118,7 @@ export namespace ListAccountRolesRequest {
   }
 }
 
-export interface ListAccountRolesResponse extends $MetadataBearer {
+export interface ListAccountRolesResponse {
   __type?: "ListAccountRolesResponse";
   /**
    * <p>The page token client that is used to retrieve the list of accounts.</p>
@@ -162,7 +162,7 @@ export namespace ListAccountsRequest {
   }
 }
 
-export interface ListAccountsResponse extends $MetadataBearer {
+export interface ListAccountsResponse {
   __type?: "ListAccountsResponse";
   /**
    * <p>A paginated response with the list of account information and the next token if more results are available.</p>

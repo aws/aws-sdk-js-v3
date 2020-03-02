@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelImageCreationCommandInput = CancelImageCreationRequest;
-export type CancelImageCreationCommandOutput = CancelImageCreationResponse;
+export type CancelImageCreationCommandOutput = CancelImageCreationResponse &
+  __MetadataBearer;
 
 export class CancelImageCreationCommand extends $Command<
   CancelImageCreationCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePublicIpv4PoolsCommandInput = DescribePublicIpv4PoolsRequest;
-export type DescribePublicIpv4PoolsCommandOutput = DescribePublicIpv4PoolsResult;
+export type DescribePublicIpv4PoolsCommandOutput = DescribePublicIpv4PoolsResult &
+  __MetadataBearer;
 
 export class DescribePublicIpv4PoolsCommand extends $Command<
   DescribePublicIpv4PoolsCommandInput,

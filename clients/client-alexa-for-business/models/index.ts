@@ -409,7 +409,7 @@ export namespace SendAnnouncementRequest {
   }
 }
 
-export interface SendAnnouncementResponse extends $MetadataBearer {
+export interface SendAnnouncementResponse {
   __type?: "SendAnnouncementResponse";
   /**
    * <p>The identifier of the announcement.</p>
@@ -486,7 +486,7 @@ export namespace DeleteDeviceUsageDataRequest {
   }
 }
 
-export interface DeleteDeviceUsageDataResponse extends $MetadataBearer {
+export interface DeleteDeviceUsageDataResponse {
   __type?: "DeleteDeviceUsageDataResponse";
 }
 
@@ -568,7 +568,7 @@ export namespace ApproveSkillRequest {
   }
 }
 
-export interface ApproveSkillResponse extends $MetadataBearer {
+export interface ApproveSkillResponse {
   __type?: "ApproveSkillResponse";
 }
 
@@ -597,8 +597,7 @@ export namespace AssociateContactWithAddressBookRequest {
   }
 }
 
-export interface AssociateContactWithAddressBookResponse
-  extends $MetadataBearer {
+export interface AssociateContactWithAddressBookResponse {
   __type?: "AssociateContactWithAddressBookResponse";
 }
 
@@ -627,8 +626,7 @@ export namespace AssociateDeviceWithNetworkProfileRequest {
   }
 }
 
-export interface AssociateDeviceWithNetworkProfileResponse
-  extends $MetadataBearer {
+export interface AssociateDeviceWithNetworkProfileResponse {
   __type?: "AssociateDeviceWithNetworkProfileResponse";
 }
 
@@ -657,7 +655,7 @@ export namespace AssociateDeviceWithRoomRequest {
   }
 }
 
-export interface AssociateDeviceWithRoomResponse extends $MetadataBearer {
+export interface AssociateDeviceWithRoomResponse {
   __type?: "AssociateDeviceWithRoomResponse";
 }
 
@@ -686,7 +684,7 @@ export namespace AssociateSkillGroupWithRoomRequest {
   }
 }
 
-export interface AssociateSkillGroupWithRoomResponse extends $MetadataBearer {
+export interface AssociateSkillGroupWithRoomResponse {
   __type?: "AssociateSkillGroupWithRoomResponse";
 }
 
@@ -715,7 +713,7 @@ export namespace AssociateSkillWithSkillGroupRequest {
   }
 }
 
-export interface AssociateSkillWithSkillGroupResponse extends $MetadataBearer {
+export interface AssociateSkillWithSkillGroupResponse {
   __type?: "AssociateSkillWithSkillGroupResponse";
 }
 
@@ -739,7 +737,7 @@ export namespace AssociateSkillWithUsersRequest {
   }
 }
 
-export interface AssociateSkillWithUsersResponse extends $MetadataBearer {
+export interface AssociateSkillWithUsersResponse {
   __type?: "AssociateSkillWithUsersResponse";
 }
 
@@ -1089,7 +1087,7 @@ export namespace CreateAddressBookRequest {
   }
 }
 
-export interface CreateAddressBookResponse extends $MetadataBearer {
+export interface CreateAddressBookResponse {
   __type?: "CreateAddressBookResponse";
   /**
    * <p>The ARN of the newly created address book.</p>
@@ -1150,7 +1148,7 @@ export namespace CreateBusinessReportScheduleRequest {
   }
 }
 
-export interface CreateBusinessReportScheduleResponse extends $MetadataBearer {
+export interface CreateBusinessReportScheduleResponse {
   __type?: "CreateBusinessReportScheduleResponse";
   /**
    * <p>The ARN of the business report schedule.</p>
@@ -1203,7 +1201,7 @@ export namespace CreateConferenceProviderRequest {
   }
 }
 
-export interface CreateConferenceProviderResponse extends $MetadataBearer {
+export interface CreateConferenceProviderResponse {
   __type?: "CreateConferenceProviderResponse";
   /**
    * <p>The ARN of the newly-created conference provider.</p>
@@ -1266,7 +1264,7 @@ export namespace CreateContactRequest {
   }
 }
 
-export interface CreateContactResponse extends $MetadataBearer {
+export interface CreateContactResponse {
   __type?: "CreateContactResponse";
   /**
    * <p>The ARN of the newly created address book.</p>
@@ -1333,7 +1331,7 @@ export namespace CreateGatewayGroupRequest {
   }
 }
 
-export interface CreateGatewayGroupResponse extends $MetadataBearer {
+export interface CreateGatewayGroupResponse {
   __type?: "CreateGatewayGroupResponse";
   /**
    * <p>The ARN of the created gateway group.</p>
@@ -1471,7 +1469,7 @@ export namespace CreateNetworkProfileRequest {
   }
 }
 
-export interface CreateNetworkProfileResponse extends $MetadataBearer {
+export interface CreateNetworkProfileResponse {
   __type?: "CreateNetworkProfileResponse";
   /**
    * <p>The ARN of the network profile associated with a device.</p>
@@ -1554,7 +1552,7 @@ export namespace CreateProfileRequest {
   }
 }
 
-export interface CreateProfileResponse extends $MetadataBearer {
+export interface CreateProfileResponse {
   __type?: "CreateProfileResponse";
   /**
    * <p>The ARN of the newly created room profile in the response.</p>
@@ -1630,7 +1628,7 @@ export namespace CreateRoomRequest {
   }
 }
 
-export interface CreateRoomResponse extends $MetadataBearer {
+export interface CreateRoomResponse {
   __type?: "CreateRoomResponse";
   /**
    * <p>The ARN of the newly created room in the response.</p>
@@ -1669,7 +1667,7 @@ export namespace CreateSkillGroupRequest {
   }
 }
 
-export interface CreateSkillGroupResponse extends $MetadataBearer {
+export interface CreateSkillGroupResponse {
   __type?: "CreateSkillGroupResponse";
   /**
    * <p>The ARN of the newly created skill group in the response.</p>
@@ -1723,7 +1721,7 @@ export namespace CreateUserRequest {
   }
 }
 
-export interface CreateUserResponse extends $MetadataBearer {
+export interface CreateUserResponse {
   __type?: "CreateUserResponse";
   /**
    * <p>The ARN of the newly created user in the response.</p>
@@ -1751,7 +1749,7 @@ export namespace DeleteAddressBookRequest {
   }
 }
 
-export interface DeleteAddressBookResponse extends $MetadataBearer {
+export interface DeleteAddressBookResponse {
   __type?: "DeleteAddressBookResponse";
 }
 
@@ -1775,7 +1773,7 @@ export namespace DeleteBusinessReportScheduleRequest {
   }
 }
 
-export interface DeleteBusinessReportScheduleResponse extends $MetadataBearer {
+export interface DeleteBusinessReportScheduleResponse {
   __type?: "DeleteBusinessReportScheduleResponse";
 }
 
@@ -1799,7 +1797,7 @@ export namespace DeleteConferenceProviderRequest {
   }
 }
 
-export interface DeleteConferenceProviderResponse extends $MetadataBearer {
+export interface DeleteConferenceProviderResponse {
   __type?: "DeleteConferenceProviderResponse";
 }
 
@@ -1823,7 +1821,7 @@ export namespace DeleteContactRequest {
   }
 }
 
-export interface DeleteContactResponse extends $MetadataBearer {
+export interface DeleteContactResponse {
   __type?: "DeleteContactResponse";
 }
 
@@ -1847,7 +1845,7 @@ export namespace DeleteDeviceRequest {
   }
 }
 
-export interface DeleteDeviceResponse extends $MetadataBearer {
+export interface DeleteDeviceResponse {
   __type?: "DeleteDeviceResponse";
 }
 
@@ -1871,7 +1869,7 @@ export namespace DeleteGatewayGroupRequest {
   }
 }
 
-export interface DeleteGatewayGroupResponse extends $MetadataBearer {
+export interface DeleteGatewayGroupResponse {
   __type?: "DeleteGatewayGroupResponse";
 }
 
@@ -1895,7 +1893,7 @@ export namespace DeleteNetworkProfileRequest {
   }
 }
 
-export interface DeleteNetworkProfileResponse extends $MetadataBearer {
+export interface DeleteNetworkProfileResponse {
   __type?: "DeleteNetworkProfileResponse";
 }
 
@@ -1919,7 +1917,7 @@ export namespace DeleteProfileRequest {
   }
 }
 
-export interface DeleteProfileResponse extends $MetadataBearer {
+export interface DeleteProfileResponse {
   __type?: "DeleteProfileResponse";
 }
 
@@ -1943,7 +1941,7 @@ export namespace DeleteRoomRequest {
   }
 }
 
-export interface DeleteRoomResponse extends $MetadataBearer {
+export interface DeleteRoomResponse {
   __type?: "DeleteRoomResponse";
 }
 
@@ -1977,7 +1975,7 @@ export namespace DeleteRoomSkillParameterRequest {
   }
 }
 
-export interface DeleteRoomSkillParameterResponse extends $MetadataBearer {
+export interface DeleteRoomSkillParameterResponse {
   __type?: "DeleteRoomSkillParameterResponse";
 }
 
@@ -2006,7 +2004,7 @@ export namespace DeleteSkillAuthorizationRequest {
   }
 }
 
-export interface DeleteSkillAuthorizationResponse extends $MetadataBearer {
+export interface DeleteSkillAuthorizationResponse {
   __type?: "DeleteSkillAuthorizationResponse";
 }
 
@@ -2030,7 +2028,7 @@ export namespace DeleteSkillGroupRequest {
   }
 }
 
-export interface DeleteSkillGroupResponse extends $MetadataBearer {
+export interface DeleteSkillGroupResponse {
   __type?: "DeleteSkillGroupResponse";
 }
 
@@ -2059,7 +2057,7 @@ export namespace DeleteUserRequest {
   }
 }
 
-export interface DeleteUserResponse extends $MetadataBearer {
+export interface DeleteUserResponse {
   __type?: "DeleteUserResponse";
 }
 
@@ -2394,8 +2392,7 @@ export namespace DisassociateContactFromAddressBookRequest {
   }
 }
 
-export interface DisassociateContactFromAddressBookResponse
-  extends $MetadataBearer {
+export interface DisassociateContactFromAddressBookResponse {
   __type?: "DisassociateContactFromAddressBookResponse";
 }
 
@@ -2419,7 +2416,7 @@ export namespace DisassociateDeviceFromRoomRequest {
   }
 }
 
-export interface DisassociateDeviceFromRoomResponse extends $MetadataBearer {
+export interface DisassociateDeviceFromRoomResponse {
   __type?: "DisassociateDeviceFromRoomResponse";
 }
 
@@ -2448,8 +2445,7 @@ export namespace DisassociateSkillFromSkillGroupRequest {
   }
 }
 
-export interface DisassociateSkillFromSkillGroupResponse
-  extends $MetadataBearer {
+export interface DisassociateSkillFromSkillGroupResponse {
   __type?: "DisassociateSkillFromSkillGroupResponse";
 }
 
@@ -2473,7 +2469,7 @@ export namespace DisassociateSkillFromUsersRequest {
   }
 }
 
-export interface DisassociateSkillFromUsersResponse extends $MetadataBearer {
+export interface DisassociateSkillFromUsersResponse {
   __type?: "DisassociateSkillFromUsersResponse";
 }
 
@@ -2503,8 +2499,7 @@ export namespace DisassociateSkillGroupFromRoomRequest {
   }
 }
 
-export interface DisassociateSkillGroupFromRoomResponse
-  extends $MetadataBearer {
+export interface DisassociateSkillGroupFromRoomResponse {
   __type?: "DisassociateSkillGroupFromRoomResponse";
 }
 
@@ -2597,7 +2592,7 @@ export namespace ForgetSmartHomeAppliancesRequest {
   }
 }
 
-export interface ForgetSmartHomeAppliancesResponse extends $MetadataBearer {
+export interface ForgetSmartHomeAppliancesResponse {
   __type?: "ForgetSmartHomeAppliancesResponse";
 }
 
@@ -2751,7 +2746,7 @@ export namespace GetAddressBookRequest {
   }
 }
 
-export interface GetAddressBookResponse extends $MetadataBearer {
+export interface GetAddressBookResponse {
   __type?: "GetAddressBookResponse";
   /**
    * <p>The details of the requested address book.</p>
@@ -2775,7 +2770,7 @@ export namespace GetConferencePreferenceRequest {
   }
 }
 
-export interface GetConferencePreferenceResponse extends $MetadataBearer {
+export interface GetConferencePreferenceResponse {
   __type?: "GetConferencePreferenceResponse";
   /**
    * <p>The conference preference.</p>
@@ -2803,7 +2798,7 @@ export namespace GetConferenceProviderRequest {
   }
 }
 
-export interface GetConferenceProviderResponse extends $MetadataBearer {
+export interface GetConferenceProviderResponse {
   __type?: "GetConferenceProviderResponse";
   /**
    * <p>The conference provider.</p>
@@ -2831,7 +2826,7 @@ export namespace GetContactRequest {
   }
 }
 
-export interface GetContactResponse extends $MetadataBearer {
+export interface GetContactResponse {
   __type?: "GetContactResponse";
   /**
    * <p>The details of the requested contact.</p>
@@ -2859,7 +2854,7 @@ export namespace GetDeviceRequest {
   }
 }
 
-export interface GetDeviceResponse extends $MetadataBearer {
+export interface GetDeviceResponse {
   __type?: "GetDeviceResponse";
   /**
    * <p>The details of the device requested. Required.</p>
@@ -2887,7 +2882,7 @@ export namespace GetGatewayGroupRequest {
   }
 }
 
-export interface GetGatewayGroupResponse extends $MetadataBearer {
+export interface GetGatewayGroupResponse {
   __type?: "GetGatewayGroupResponse";
   /**
    * <p>The details of the gateway group.</p>
@@ -2915,7 +2910,7 @@ export namespace GetGatewayRequest {
   }
 }
 
-export interface GetGatewayResponse extends $MetadataBearer {
+export interface GetGatewayResponse {
   __type?: "GetGatewayResponse";
   /**
    * <p>The details of the gateway.</p>
@@ -2939,7 +2934,7 @@ export namespace GetInvitationConfigurationRequest {
   }
 }
 
-export interface GetInvitationConfigurationResponse extends $MetadataBearer {
+export interface GetInvitationConfigurationResponse {
   __type?: "GetInvitationConfigurationResponse";
   /**
    * <p>The email ID of the organization or individual contact that the enrolled user can use.
@@ -2979,7 +2974,7 @@ export namespace GetNetworkProfileRequest {
   }
 }
 
-export interface GetNetworkProfileResponse extends $MetadataBearer {
+export interface GetNetworkProfileResponse {
   __type?: "GetNetworkProfileResponse";
   /**
    * <p>The network profile associated with a device.</p>
@@ -3007,7 +3002,7 @@ export namespace GetProfileRequest {
   }
 }
 
-export interface GetProfileResponse extends $MetadataBearer {
+export interface GetProfileResponse {
   __type?: "GetProfileResponse";
   /**
    * <p>The details of the room profile requested. Required.</p>
@@ -3035,7 +3030,7 @@ export namespace GetRoomRequest {
   }
 }
 
-export interface GetRoomResponse extends $MetadataBearer {
+export interface GetRoomResponse {
   __type?: "GetRoomResponse";
   /**
    * <p>The details of the room requested.</p>
@@ -3074,7 +3069,7 @@ export namespace GetRoomSkillParameterRequest {
   }
 }
 
-export interface GetRoomSkillParameterResponse extends $MetadataBearer {
+export interface GetRoomSkillParameterResponse {
   __type?: "GetRoomSkillParameterResponse";
   /**
    * <p>The details of the room skill parameter requested. Required.</p>
@@ -3102,7 +3097,7 @@ export namespace GetSkillGroupRequest {
   }
 }
 
-export interface GetSkillGroupResponse extends $MetadataBearer {
+export interface GetSkillGroupResponse {
   __type?: "GetSkillGroupResponse";
   /**
    * <p>The details of the skill group requested. Required.</p>
@@ -3245,7 +3240,7 @@ export namespace ListBusinessReportSchedulesRequest {
   }
 }
 
-export interface ListBusinessReportSchedulesResponse extends $MetadataBearer {
+export interface ListBusinessReportSchedulesResponse {
   __type?: "ListBusinessReportSchedulesResponse";
   /**
    * <p>The schedule of the reports.</p>
@@ -3284,7 +3279,7 @@ export namespace ListConferenceProvidersRequest {
   }
 }
 
-export interface ListConferenceProvidersResponse extends $MetadataBearer {
+export interface ListConferenceProvidersResponse {
   __type?: "ListConferenceProvidersResponse";
   /**
    * <p>The conference providers.</p>
@@ -3340,7 +3335,7 @@ export namespace ListDeviceEventsRequest {
   }
 }
 
-export interface ListDeviceEventsResponse extends $MetadataBearer {
+export interface ListDeviceEventsResponse {
   __type?: "ListDeviceEventsResponse";
   /**
    * <p>The device events requested for the device ARN.</p>
@@ -3378,7 +3373,7 @@ export namespace ListGatewayGroupsRequest {
   }
 }
 
-export interface ListGatewayGroupsResponse extends $MetadataBearer {
+export interface ListGatewayGroupsResponse {
   __type?: "ListGatewayGroupsResponse";
   /**
    * <p>The gateway groups in the list.</p>
@@ -3421,7 +3416,7 @@ export namespace ListGatewaysRequest {
   }
 }
 
-export interface ListGatewaysResponse extends $MetadataBearer {
+export interface ListGatewaysResponse {
   __type?: "ListGatewaysResponse";
   /**
    * <p>The gateways in the list.</p>
@@ -3478,7 +3473,7 @@ export namespace ListSkillsRequest {
   }
 }
 
-export interface ListSkillsResponse extends $MetadataBearer {
+export interface ListSkillsResponse {
   __type?: "ListSkillsResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -3516,7 +3511,7 @@ export namespace ListSkillsStoreCategoriesRequest {
   }
 }
 
-export interface ListSkillsStoreCategoriesResponse extends $MetadataBearer {
+export interface ListSkillsStoreCategoriesResponse {
   __type?: "ListSkillsStoreCategoriesResponse";
   /**
    * <p>The list of categories.</p>
@@ -3560,8 +3555,7 @@ export namespace ListSkillsStoreSkillsByCategoryRequest {
   }
 }
 
-export interface ListSkillsStoreSkillsByCategoryResponse
-  extends $MetadataBearer {
+export interface ListSkillsStoreSkillsByCategoryResponse {
   __type?: "ListSkillsStoreSkillsByCategoryResponse";
   /**
    * <p>The tokens used for pagination.</p>
@@ -3604,7 +3598,7 @@ export namespace ListSmartHomeAppliancesRequest {
   }
 }
 
-export interface ListSmartHomeAppliancesResponse extends $MetadataBearer {
+export interface ListSmartHomeAppliancesResponse {
   __type?: "ListSmartHomeAppliancesResponse";
   /**
    * <p>The tokens used for pagination.</p>
@@ -3651,7 +3645,7 @@ export namespace ListTagsRequest {
   }
 }
 
-export interface ListTagsResponse extends $MetadataBearer {
+export interface ListTagsResponse {
   __type?: "ListTagsResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -4020,7 +4014,7 @@ export namespace PutConferencePreferenceRequest {
   }
 }
 
-export interface PutConferencePreferenceResponse extends $MetadataBearer {
+export interface PutConferencePreferenceResponse {
   __type?: "PutConferencePreferenceResponse";
 }
 
@@ -4056,7 +4050,7 @@ export namespace PutInvitationConfigurationRequest {
   }
 }
 
-export interface PutInvitationConfigurationResponse extends $MetadataBearer {
+export interface PutInvitationConfigurationResponse {
   __type?: "PutInvitationConfigurationResponse";
 }
 
@@ -4090,7 +4084,7 @@ export namespace PutRoomSkillParameterRequest {
   }
 }
 
-export interface PutRoomSkillParameterResponse extends $MetadataBearer {
+export interface PutRoomSkillParameterResponse {
   __type?: "PutRoomSkillParameterResponse";
 }
 
@@ -4125,7 +4119,7 @@ export namespace PutSkillAuthorizationRequest {
   }
 }
 
-export interface PutSkillAuthorizationResponse extends $MetadataBearer {
+export interface PutSkillAuthorizationResponse {
   __type?: "PutSkillAuthorizationResponse";
 }
 
@@ -4174,7 +4168,7 @@ export namespace RegisterAVSDeviceRequest {
   }
 }
 
-export interface RegisterAVSDeviceResponse extends $MetadataBearer {
+export interface RegisterAVSDeviceResponse {
   __type?: "RegisterAVSDeviceResponse";
   /**
    * <p>The ARN of the device.</p>
@@ -4202,7 +4196,7 @@ export namespace RejectSkillRequest {
   }
 }
 
-export interface RejectSkillResponse extends $MetadataBearer {
+export interface RejectSkillResponse {
   __type?: "RejectSkillResponse";
 }
 
@@ -4253,7 +4247,7 @@ export namespace ResolveRoomRequest {
   }
 }
 
-export interface ResolveRoomResponse extends $MetadataBearer {
+export interface ResolveRoomResponse {
   __type?: "ResolveRoomResponse";
   /**
    * <p>The ARN of the room from which the skill request was invoked.</p>
@@ -4313,7 +4307,7 @@ export namespace RevokeInvitationRequest {
   }
 }
 
-export interface RevokeInvitationResponse extends $MetadataBearer {
+export interface RevokeInvitationResponse {
   __type?: "RevokeInvitationResponse";
 }
 
@@ -4460,7 +4454,7 @@ export namespace SearchAddressBooksRequest {
   }
 }
 
-export interface SearchAddressBooksResponse extends $MetadataBearer {
+export interface SearchAddressBooksResponse {
   __type?: "SearchAddressBooksResponse";
   /**
    * <p>The address books that meet the specified set of filter criteria, in sort
@@ -4520,7 +4514,7 @@ export namespace SearchContactsRequest {
   }
 }
 
-export interface SearchContactsResponse extends $MetadataBearer {
+export interface SearchContactsResponse {
   __type?: "SearchContactsResponse";
   /**
    * <p>The contacts that meet the specified set of filter criteria, in sort order.</p>
@@ -4582,7 +4576,7 @@ export namespace SearchDevicesRequest {
   }
 }
 
-export interface SearchDevicesResponse extends $MetadataBearer {
+export interface SearchDevicesResponse {
   __type?: "SearchDevicesResponse";
   /**
    * <p>The devices that meet the specified set of filter criteria, in sort order.</p>
@@ -4641,7 +4635,7 @@ export namespace SearchNetworkProfilesRequest {
   }
 }
 
-export interface SearchNetworkProfilesResponse extends $MetadataBearer {
+export interface SearchNetworkProfilesResponse {
   __type?: "SearchNetworkProfilesResponse";
   /**
    * <p>The network profiles that meet the specified set of filter criteria, in sort order. It
@@ -4703,7 +4697,7 @@ export namespace SearchProfilesRequest {
   }
 }
 
-export interface SearchProfilesResponse extends $MetadataBearer {
+export interface SearchProfilesResponse {
   __type?: "SearchProfilesResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -4762,7 +4756,7 @@ export namespace SearchRoomsRequest {
   }
 }
 
-export interface SearchRoomsResponse extends $MetadataBearer {
+export interface SearchRoomsResponse {
   __type?: "SearchRoomsResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -4822,7 +4816,7 @@ export namespace SearchSkillGroupsRequest {
   }
 }
 
-export interface SearchSkillGroupsResponse extends $MetadataBearer {
+export interface SearchSkillGroupsResponse {
   __type?: "SearchSkillGroupsResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -4882,7 +4876,7 @@ export namespace SearchUsersRequest {
   }
 }
 
-export interface SearchUsersResponse extends $MetadataBearer {
+export interface SearchUsersResponse {
   __type?: "SearchUsersResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -4920,7 +4914,7 @@ export namespace SendInvitationRequest {
   }
 }
 
-export interface SendInvitationResponse extends $MetadataBearer {
+export interface SendInvitationResponse {
   __type?: "SendInvitationResponse";
 }
 
@@ -5265,7 +5259,7 @@ export namespace StartDeviceSyncRequest {
   }
 }
 
-export interface StartDeviceSyncResponse extends $MetadataBearer {
+export interface StartDeviceSyncResponse {
   __type?: "StartDeviceSyncResponse";
 }
 
@@ -5289,8 +5283,7 @@ export namespace StartSmartHomeApplianceDiscoveryRequest {
   }
 }
 
-export interface StartSmartHomeApplianceDiscoveryResponse
-  extends $MetadataBearer {
+export interface StartSmartHomeApplianceDiscoveryResponse {
   __type?: "StartSmartHomeApplianceDiscoveryResponse";
 }
 
@@ -5342,7 +5335,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -5377,7 +5370,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -5411,7 +5404,7 @@ export namespace UpdateAddressBookRequest {
   }
 }
 
-export interface UpdateAddressBookResponse extends $MetadataBearer {
+export interface UpdateAddressBookResponse {
   __type?: "UpdateAddressBookResponse";
 }
 
@@ -5461,7 +5454,7 @@ export namespace UpdateBusinessReportScheduleRequest {
   }
 }
 
-export interface UpdateBusinessReportScheduleResponse extends $MetadataBearer {
+export interface UpdateBusinessReportScheduleResponse {
   __type?: "UpdateBusinessReportScheduleResponse";
 }
 
@@ -5505,7 +5498,7 @@ export namespace UpdateConferenceProviderRequest {
   }
 }
 
-export interface UpdateConferenceProviderResponse extends $MetadataBearer {
+export interface UpdateConferenceProviderResponse {
   __type?: "UpdateConferenceProviderResponse";
 }
 
@@ -5561,7 +5554,7 @@ export namespace UpdateContactRequest {
   }
 }
 
-export interface UpdateContactResponse extends $MetadataBearer {
+export interface UpdateContactResponse {
   __type?: "UpdateContactResponse";
 }
 
@@ -5590,7 +5583,7 @@ export namespace UpdateDeviceRequest {
   }
 }
 
-export interface UpdateDeviceResponse extends $MetadataBearer {
+export interface UpdateDeviceResponse {
   __type?: "UpdateDeviceResponse";
 }
 
@@ -5654,7 +5647,7 @@ export namespace UpdateGatewayGroupRequest {
   }
 }
 
-export interface UpdateGatewayGroupResponse extends $MetadataBearer {
+export interface UpdateGatewayGroupResponse {
   __type?: "UpdateGatewayGroupResponse";
 }
 
@@ -5694,7 +5687,7 @@ export namespace UpdateGatewayRequest {
   }
 }
 
-export interface UpdateGatewayResponse extends $MetadataBearer {
+export interface UpdateGatewayResponse {
   __type?: "UpdateGatewayResponse";
 }
 
@@ -5811,7 +5804,7 @@ export namespace UpdateNetworkProfileRequest {
   }
 }
 
-export interface UpdateNetworkProfileResponse extends $MetadataBearer {
+export interface UpdateNetworkProfileResponse {
   __type?: "UpdateNetworkProfileResponse";
 }
 
@@ -5896,7 +5889,7 @@ export namespace UpdateProfileRequest {
   }
 }
 
-export interface UpdateProfileResponse extends $MetadataBearer {
+export interface UpdateProfileResponse {
   __type?: "UpdateProfileResponse";
 }
 
@@ -5962,7 +5955,7 @@ export namespace UpdateRoomRequest {
   }
 }
 
-export interface UpdateRoomResponse extends $MetadataBearer {
+export interface UpdateRoomResponse {
   __type?: "UpdateRoomResponse";
 }
 
@@ -5996,7 +5989,7 @@ export namespace UpdateSkillGroupRequest {
   }
 }
 
-export interface UpdateSkillGroupResponse extends $MetadataBearer {
+export interface UpdateSkillGroupResponse {
   __type?: "UpdateSkillGroupResponse";
 }
 

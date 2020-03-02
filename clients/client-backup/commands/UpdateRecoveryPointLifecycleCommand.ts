@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateRecoveryPointLifecycleCommandInput = UpdateRecoveryPointLifecycleInput;
-export type UpdateRecoveryPointLifecycleCommandOutput = UpdateRecoveryPointLifecycleOutput;
+export type UpdateRecoveryPointLifecycleCommandOutput = UpdateRecoveryPointLifecycleOutput &
+  __MetadataBearer;
 
 export class UpdateRecoveryPointLifecycleCommand extends $Command<
   UpdateRecoveryPointLifecycleCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSnapshotScheduleCommandInput = DescribeSnapshotScheduleInput;
-export type DescribeSnapshotScheduleCommandOutput = DescribeSnapshotScheduleOutput;
+export type DescribeSnapshotScheduleCommandOutput = DescribeSnapshotScheduleOutput &
+  __MetadataBearer;
 
 export class DescribeSnapshotScheduleCommand extends $Command<
   DescribeSnapshotScheduleCommandInput,

@@ -23,7 +23,7 @@ export namespace AcceptResourceShareInvitationRequest {
   }
 }
 
-export interface AcceptResourceShareInvitationResponse extends $MetadataBearer {
+export interface AcceptResourceShareInvitationResponse {
   __type?: "AcceptResourceShareInvitationResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -73,8 +73,7 @@ export namespace AssociateResourceSharePermissionRequest {
   }
 }
 
-export interface AssociateResourceSharePermissionResponse
-  extends $MetadataBearer {
+export interface AssociateResourceSharePermissionResponse {
   __type?: "AssociateResourceSharePermissionResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -122,7 +121,7 @@ export namespace AssociateResourceShareRequest {
   }
 }
 
-export interface AssociateResourceShareResponse extends $MetadataBearer {
+export interface AssociateResourceShareResponse {
   __type?: "AssociateResourceShareResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -188,7 +187,7 @@ export namespace CreateResourceShareRequest {
   }
 }
 
-export interface CreateResourceShareResponse extends $MetadataBearer {
+export interface CreateResourceShareResponse {
   __type?: "CreateResourceShareResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -226,7 +225,7 @@ export namespace DeleteResourceShareRequest {
   }
 }
 
-export interface DeleteResourceShareResponse extends $MetadataBearer {
+export interface DeleteResourceShareResponse {
   __type?: "DeleteResourceShareResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -269,8 +268,7 @@ export namespace DisassociateResourceSharePermissionRequest {
   }
 }
 
-export interface DisassociateResourceSharePermissionResponse
-  extends $MetadataBearer {
+export interface DisassociateResourceSharePermissionResponse {
   __type?: "DisassociateResourceSharePermissionResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -320,7 +318,7 @@ export namespace DisassociateResourceShareRequest {
   }
 }
 
-export interface DisassociateResourceShareResponse extends $MetadataBearer {
+export interface DisassociateResourceShareResponse {
   __type?: "DisassociateResourceShareResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -349,8 +347,7 @@ export namespace EnableSharingWithAwsOrganizationRequest {
   }
 }
 
-export interface EnableSharingWithAwsOrganizationResponse
-  extends $MetadataBearer {
+export interface EnableSharingWithAwsOrganizationResponse {
   __type?: "EnableSharingWithAwsOrganizationResponse";
   /**
    * <p>Indicates whether the request succeeded.</p>
@@ -383,7 +380,7 @@ export namespace GetPermissionRequest {
   }
 }
 
-export interface GetPermissionResponse extends $MetadataBearer {
+export interface GetPermissionResponse {
   __type?: "GetPermissionResponse";
   /**
    * <p>Information about the permission.</p>
@@ -427,7 +424,7 @@ export namespace GetResourcePoliciesRequest {
   }
 }
 
-export interface GetResourcePoliciesResponse extends $MetadataBearer {
+export interface GetResourcePoliciesResponse {
   __type?: "GetResourcePoliciesResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -495,7 +492,7 @@ export namespace GetResourceShareAssociationsRequest {
   }
 }
 
-export interface GetResourceShareAssociationsResponse extends $MetadataBearer {
+export interface GetResourceShareAssociationsResponse {
   __type?: "GetResourceShareAssociationsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -544,7 +541,7 @@ export namespace GetResourceShareInvitationsRequest {
   }
 }
 
-export interface GetResourceShareInvitationsResponse extends $MetadataBearer {
+export interface GetResourceShareInvitationsResponse {
   __type?: "GetResourceShareInvitationsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -608,7 +605,7 @@ export namespace GetResourceSharesRequest {
   }
 }
 
-export interface GetResourceSharesResponse extends $MetadataBearer {
+export interface GetResourceSharesResponse {
   __type?: "GetResourceSharesResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -772,8 +769,7 @@ export namespace ListPendingInvitationResourcesRequest {
   }
 }
 
-export interface ListPendingInvitationResourcesResponse
-  extends $MetadataBearer {
+export interface ListPendingInvitationResourcesResponse {
   __type?: "ListPendingInvitationResourcesResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -818,7 +814,7 @@ export namespace ListPermissionsRequest {
   }
 }
 
-export interface ListPermissionsResponse extends $MetadataBearer {
+export interface ListPermissionsResponse {
   __type?: "ListPermissionsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -888,7 +884,7 @@ export namespace ListPrincipalsRequest {
   }
 }
 
-export interface ListPrincipalsResponse extends $MetadataBearer {
+export interface ListPrincipalsResponse {
   __type?: "ListPrincipalsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -932,7 +928,7 @@ export namespace ListResourceSharePermissionsRequest {
   }
 }
 
-export interface ListResourceSharePermissionsResponse extends $MetadataBearer {
+export interface ListResourceSharePermissionsResponse {
   __type?: "ListResourceSharePermissionsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -1002,7 +998,7 @@ export namespace ListResourcesRequest {
   }
 }
 
-export interface ListResourcesResponse extends $MetadataBearer {
+export interface ListResourcesResponse {
   __type?: "ListResourcesResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -1125,8 +1121,7 @@ export namespace PromoteResourceShareCreatedFromPolicyRequest {
   }
 }
 
-export interface PromoteResourceShareCreatedFromPolicyResponse
-  extends $MetadataBearer {
+export interface PromoteResourceShareCreatedFromPolicyResponse {
   __type?: "PromoteResourceShareCreatedFromPolicyResponse";
   /**
    * <p>Indicates whether the request succeeded.</p>
@@ -1161,7 +1156,7 @@ export namespace RejectResourceShareInvitationRequest {
   }
 }
 
-export interface RejectResourceShareInvitationResponse extends $MetadataBearer {
+export interface RejectResourceShareInvitationResponse {
   __type?: "RejectResourceShareInvitationResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -1814,7 +1809,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1860,7 +1855,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1899,7 +1894,7 @@ export namespace UpdateResourceShareRequest {
   }
 }
 
-export interface UpdateResourceShareResponse extends $MetadataBearer {
+export interface UpdateResourceShareResponse {
   __type?: "UpdateResourceShareResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>

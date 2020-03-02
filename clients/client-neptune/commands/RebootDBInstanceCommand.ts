@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RebootDBInstanceCommandInput = RebootDBInstanceMessage;
-export type RebootDBInstanceCommandOutput = RebootDBInstanceResult;
+export type RebootDBInstanceCommandOutput = RebootDBInstanceResult &
+  __MetadataBearer;
 
 export class RebootDBInstanceCommand extends $Command<
   RebootDBInstanceCommandInput,

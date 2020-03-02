@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SelectResourceConfigCommandInput = SelectResourceConfigRequest;
-export type SelectResourceConfigCommandOutput = SelectResourceConfigResponse;
+export type SelectResourceConfigCommandOutput = SelectResourceConfigResponse &
+  __MetadataBearer;
 
 export class SelectResourceConfigCommand extends $Command<
   SelectResourceConfigCommandInput,

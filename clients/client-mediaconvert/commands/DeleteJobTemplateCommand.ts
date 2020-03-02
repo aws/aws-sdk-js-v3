@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteJobTemplateCommandInput = DeleteJobTemplateRequest;
-export type DeleteJobTemplateCommandOutput = DeleteJobTemplateResponse;
+export type DeleteJobTemplateCommandOutput = DeleteJobTemplateResponse &
+  __MetadataBearer;
 
 export class DeleteJobTemplateCommand extends $Command<
   DeleteJobTemplateCommandInput,

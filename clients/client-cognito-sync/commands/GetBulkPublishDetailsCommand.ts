@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBulkPublishDetailsCommandInput = GetBulkPublishDetailsRequest;
-export type GetBulkPublishDetailsCommandOutput = GetBulkPublishDetailsResponse;
+export type GetBulkPublishDetailsCommandOutput = GetBulkPublishDetailsResponse &
+  __MetadataBearer;
 
 export class GetBulkPublishDetailsCommand extends $Command<
   GetBulkPublishDetailsCommandInput,

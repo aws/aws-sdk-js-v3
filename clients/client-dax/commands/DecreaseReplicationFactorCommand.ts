@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DecreaseReplicationFactorCommandInput = DecreaseReplicationFactorRequest;
-export type DecreaseReplicationFactorCommandOutput = DecreaseReplicationFactorResponse;
+export type DecreaseReplicationFactorCommandOutput = DecreaseReplicationFactorResponse &
+  __MetadataBearer;
 
 export class DecreaseReplicationFactorCommand extends $Command<
   DecreaseReplicationFactorCommandInput,

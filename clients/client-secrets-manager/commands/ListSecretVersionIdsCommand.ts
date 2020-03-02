@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSecretVersionIdsCommandInput = ListSecretVersionIdsRequest;
-export type ListSecretVersionIdsCommandOutput = ListSecretVersionIdsResponse;
+export type ListSecretVersionIdsCommandOutput = ListSecretVersionIdsResponse &
+  __MetadataBearer;
 
 export class ListSecretVersionIdsCommand extends $Command<
   ListSecretVersionIdsCommandInput,

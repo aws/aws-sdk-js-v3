@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetWorkflowsCommandInput = BatchGetWorkflowsRequest;
-export type BatchGetWorkflowsCommandOutput = BatchGetWorkflowsResponse;
+export type BatchGetWorkflowsCommandOutput = BatchGetWorkflowsResponse &
+  __MetadataBearer;
 
 export class BatchGetWorkflowsCommand extends $Command<
   BatchGetWorkflowsCommandInput,

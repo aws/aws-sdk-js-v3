@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateRoleAliasCommandInput = CreateRoleAliasRequest;
-export type CreateRoleAliasCommandOutput = CreateRoleAliasResponse;
+export type CreateRoleAliasCommandOutput = CreateRoleAliasResponse &
+  __MetadataBearer;
 
 export class CreateRoleAliasCommand extends $Command<
   CreateRoleAliasCommandInput,

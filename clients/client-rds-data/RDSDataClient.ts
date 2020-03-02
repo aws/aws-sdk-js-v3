@@ -1,17 +1,27 @@
 import {
-  BatchExecuteStatementRequest,
-  BatchExecuteStatementResponse,
-  BeginTransactionRequest,
-  BeginTransactionResponse,
-  CommitTransactionRequest,
-  CommitTransactionResponse,
-  ExecuteSqlRequest,
-  ExecuteSqlResponse,
-  ExecuteStatementRequest,
-  ExecuteStatementResponse,
-  RollbackTransactionRequest,
-  RollbackTransactionResponse
-} from "./models/index";
+  BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput
+} from "./commands/BatchExecuteStatementCommand";
+import {
+  BeginTransactionCommandInput,
+  BeginTransactionCommandOutput
+} from "./commands/BeginTransactionCommand";
+import {
+  CommitTransactionCommandInput,
+  CommitTransactionCommandOutput
+} from "./commands/CommitTransactionCommand";
+import {
+  ExecuteSqlCommandInput,
+  ExecuteSqlCommandOutput
+} from "./commands/ExecuteSqlCommand";
+import {
+  ExecuteStatementCommandInput,
+  ExecuteStatementCommandOutput
+} from "./commands/ExecuteStatementCommand";
+import {
+  RollbackTransactionCommandInput,
+  RollbackTransactionCommandOutput
+} from "./commands/RollbackTransactionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -65,20 +75,20 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchExecuteStatementRequest
-  | BeginTransactionRequest
-  | CommitTransactionRequest
-  | ExecuteSqlRequest
-  | ExecuteStatementRequest
-  | RollbackTransactionRequest;
+  | BatchExecuteStatementCommandInput
+  | BeginTransactionCommandInput
+  | CommitTransactionCommandInput
+  | ExecuteSqlCommandInput
+  | ExecuteStatementCommandInput
+  | RollbackTransactionCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchExecuteStatementResponse
-  | BeginTransactionResponse
-  | CommitTransactionResponse
-  | ExecuteSqlResponse
-  | ExecuteStatementResponse
-  | RollbackTransactionResponse;
+  | BatchExecuteStatementCommandOutput
+  | BeginTransactionCommandOutput
+  | CommitTransactionCommandOutput
+  | ExecuteSqlCommandOutput
+  | ExecuteStatementCommandOutput
+  | RollbackTransactionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

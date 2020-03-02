@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTableCommandInput = CreateTableRequest;
-export type CreateTableCommandOutput = CreateTableResponse;
+export type CreateTableCommandOutput = CreateTableResponse & __MetadataBearer;
 
 export class CreateTableCommand extends $Command<
   CreateTableCommandInput,

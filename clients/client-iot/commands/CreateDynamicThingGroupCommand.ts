@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDynamicThingGroupCommandInput = CreateDynamicThingGroupRequest;
-export type CreateDynamicThingGroupCommandOutput = CreateDynamicThingGroupResponse;
+export type CreateDynamicThingGroupCommandOutput = CreateDynamicThingGroupResponse &
+  __MetadataBearer;
 
 export class CreateDynamicThingGroupCommand extends $Command<
   CreateDynamicThingGroupCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateServiceRoleFromAccountCommandInput = DisassociateServiceRoleFromAccountRequest;
-export type DisassociateServiceRoleFromAccountCommandOutput = DisassociateServiceRoleFromAccountResponse;
+export type DisassociateServiceRoleFromAccountCommandOutput = DisassociateServiceRoleFromAccountResponse &
+  __MetadataBearer;
 
 export class DisassociateServiceRoleFromAccountCommand extends $Command<
   DisassociateServiceRoleFromAccountCommandInput,

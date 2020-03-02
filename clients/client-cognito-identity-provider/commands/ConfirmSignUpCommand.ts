@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfirmSignUpCommandInput = ConfirmSignUpRequest;
-export type ConfirmSignUpCommandOutput = ConfirmSignUpResponse;
+export type ConfirmSignUpCommandOutput = ConfirmSignUpResponse &
+  __MetadataBearer;
 
 export class ConfirmSignUpCommand extends $Command<
   ConfirmSignUpCommandInput,

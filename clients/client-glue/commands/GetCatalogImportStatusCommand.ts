@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCatalogImportStatusCommandInput = GetCatalogImportStatusRequest;
-export type GetCatalogImportStatusCommandOutput = GetCatalogImportStatusResponse;
+export type GetCatalogImportStatusCommandOutput = GetCatalogImportStatusResponse &
+  __MetadataBearer;
 
 export class GetCatalogImportStatusCommand extends $Command<
   GetCatalogImportStatusCommandInput,

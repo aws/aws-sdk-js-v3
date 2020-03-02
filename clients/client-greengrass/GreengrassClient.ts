@@ -1,183 +1,363 @@
 import {
-  AssociateRoleToGroupRequest,
-  AssociateRoleToGroupResponse,
-  AssociateServiceRoleToAccountRequest,
-  AssociateServiceRoleToAccountResponse,
-  CreateConnectorDefinitionRequest,
-  CreateConnectorDefinitionResponse,
-  CreateConnectorDefinitionVersionRequest,
-  CreateConnectorDefinitionVersionResponse,
-  CreateCoreDefinitionRequest,
-  CreateCoreDefinitionResponse,
-  CreateCoreDefinitionVersionRequest,
-  CreateCoreDefinitionVersionResponse,
-  CreateDeploymentRequest,
-  CreateDeploymentResponse,
-  CreateDeviceDefinitionRequest,
-  CreateDeviceDefinitionResponse,
-  CreateDeviceDefinitionVersionRequest,
-  CreateDeviceDefinitionVersionResponse,
-  CreateFunctionDefinitionRequest,
-  CreateFunctionDefinitionResponse,
-  CreateFunctionDefinitionVersionRequest,
-  CreateFunctionDefinitionVersionResponse,
-  CreateGroupCertificateAuthorityRequest,
-  CreateGroupCertificateAuthorityResponse,
-  CreateGroupRequest,
-  CreateGroupResponse,
-  CreateGroupVersionRequest,
-  CreateGroupVersionResponse,
-  CreateLoggerDefinitionRequest,
-  CreateLoggerDefinitionResponse,
-  CreateLoggerDefinitionVersionRequest,
-  CreateLoggerDefinitionVersionResponse,
-  CreateResourceDefinitionRequest,
-  CreateResourceDefinitionResponse,
-  CreateResourceDefinitionVersionRequest,
-  CreateResourceDefinitionVersionResponse,
-  CreateSoftwareUpdateJobRequest,
-  CreateSoftwareUpdateJobResponse,
-  CreateSubscriptionDefinitionRequest,
-  CreateSubscriptionDefinitionResponse,
-  CreateSubscriptionDefinitionVersionRequest,
-  CreateSubscriptionDefinitionVersionResponse,
-  DeleteConnectorDefinitionRequest,
-  DeleteConnectorDefinitionResponse,
-  DeleteCoreDefinitionRequest,
-  DeleteCoreDefinitionResponse,
-  DeleteDeviceDefinitionRequest,
-  DeleteDeviceDefinitionResponse,
-  DeleteFunctionDefinitionRequest,
-  DeleteFunctionDefinitionResponse,
-  DeleteGroupRequest,
-  DeleteGroupResponse,
-  DeleteLoggerDefinitionRequest,
-  DeleteLoggerDefinitionResponse,
-  DeleteResourceDefinitionRequest,
-  DeleteResourceDefinitionResponse,
-  DeleteSubscriptionDefinitionRequest,
-  DeleteSubscriptionDefinitionResponse,
-  DisassociateRoleFromGroupRequest,
-  DisassociateRoleFromGroupResponse,
-  DisassociateServiceRoleFromAccountRequest,
-  DisassociateServiceRoleFromAccountResponse,
-  GetAssociatedRoleRequest,
-  GetAssociatedRoleResponse,
-  GetBulkDeploymentStatusRequest,
-  GetBulkDeploymentStatusResponse,
-  GetConnectivityInfoRequest,
-  GetConnectivityInfoResponse,
-  GetConnectorDefinitionRequest,
-  GetConnectorDefinitionResponse,
-  GetConnectorDefinitionVersionRequest,
-  GetConnectorDefinitionVersionResponse,
-  GetCoreDefinitionRequest,
-  GetCoreDefinitionResponse,
-  GetCoreDefinitionVersionRequest,
-  GetCoreDefinitionVersionResponse,
-  GetDeploymentStatusRequest,
-  GetDeploymentStatusResponse,
-  GetDeviceDefinitionRequest,
-  GetDeviceDefinitionResponse,
-  GetDeviceDefinitionVersionRequest,
-  GetDeviceDefinitionVersionResponse,
-  GetFunctionDefinitionRequest,
-  GetFunctionDefinitionResponse,
-  GetFunctionDefinitionVersionRequest,
-  GetFunctionDefinitionVersionResponse,
-  GetGroupCertificateAuthorityRequest,
-  GetGroupCertificateAuthorityResponse,
-  GetGroupCertificateConfigurationRequest,
-  GetGroupCertificateConfigurationResponse,
-  GetGroupRequest,
-  GetGroupResponse,
-  GetGroupVersionRequest,
-  GetGroupVersionResponse,
-  GetLoggerDefinitionRequest,
-  GetLoggerDefinitionResponse,
-  GetLoggerDefinitionVersionRequest,
-  GetLoggerDefinitionVersionResponse,
-  GetResourceDefinitionRequest,
-  GetResourceDefinitionResponse,
-  GetResourceDefinitionVersionRequest,
-  GetResourceDefinitionVersionResponse,
-  GetServiceRoleForAccountRequest,
-  GetServiceRoleForAccountResponse,
-  GetSubscriptionDefinitionRequest,
-  GetSubscriptionDefinitionResponse,
-  GetSubscriptionDefinitionVersionRequest,
-  GetSubscriptionDefinitionVersionResponse,
-  ListBulkDeploymentDetailedReportsRequest,
-  ListBulkDeploymentDetailedReportsResponse,
-  ListBulkDeploymentsRequest,
-  ListBulkDeploymentsResponse,
-  ListConnectorDefinitionVersionsRequest,
-  ListConnectorDefinitionVersionsResponse,
-  ListConnectorDefinitionsRequest,
-  ListConnectorDefinitionsResponse,
-  ListCoreDefinitionVersionsRequest,
-  ListCoreDefinitionVersionsResponse,
-  ListCoreDefinitionsRequest,
-  ListCoreDefinitionsResponse,
-  ListDeploymentsRequest,
-  ListDeploymentsResponse,
-  ListDeviceDefinitionVersionsRequest,
-  ListDeviceDefinitionVersionsResponse,
-  ListDeviceDefinitionsRequest,
-  ListDeviceDefinitionsResponse,
-  ListFunctionDefinitionVersionsRequest,
-  ListFunctionDefinitionVersionsResponse,
-  ListFunctionDefinitionsRequest,
-  ListFunctionDefinitionsResponse,
-  ListGroupCertificateAuthoritiesRequest,
-  ListGroupCertificateAuthoritiesResponse,
-  ListGroupVersionsRequest,
-  ListGroupVersionsResponse,
-  ListGroupsRequest,
-  ListGroupsResponse,
-  ListLoggerDefinitionVersionsRequest,
-  ListLoggerDefinitionVersionsResponse,
-  ListLoggerDefinitionsRequest,
-  ListLoggerDefinitionsResponse,
-  ListResourceDefinitionVersionsRequest,
-  ListResourceDefinitionVersionsResponse,
-  ListResourceDefinitionsRequest,
-  ListResourceDefinitionsResponse,
-  ListSubscriptionDefinitionVersionsRequest,
-  ListSubscriptionDefinitionVersionsResponse,
-  ListSubscriptionDefinitionsRequest,
-  ListSubscriptionDefinitionsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ResetDeploymentsRequest,
-  ResetDeploymentsResponse,
-  StartBulkDeploymentRequest,
-  StartBulkDeploymentResponse,
-  StopBulkDeploymentRequest,
-  StopBulkDeploymentResponse,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateConnectivityInfoRequest,
-  UpdateConnectivityInfoResponse,
-  UpdateConnectorDefinitionRequest,
-  UpdateConnectorDefinitionResponse,
-  UpdateCoreDefinitionRequest,
-  UpdateCoreDefinitionResponse,
-  UpdateDeviceDefinitionRequest,
-  UpdateDeviceDefinitionResponse,
-  UpdateFunctionDefinitionRequest,
-  UpdateFunctionDefinitionResponse,
-  UpdateGroupCertificateConfigurationRequest,
-  UpdateGroupCertificateConfigurationResponse,
-  UpdateGroupRequest,
-  UpdateGroupResponse,
-  UpdateLoggerDefinitionRequest,
-  UpdateLoggerDefinitionResponse,
-  UpdateResourceDefinitionRequest,
-  UpdateResourceDefinitionResponse,
-  UpdateSubscriptionDefinitionRequest,
-  UpdateSubscriptionDefinitionResponse
-} from "./models/index";
+  AssociateRoleToGroupCommandInput,
+  AssociateRoleToGroupCommandOutput
+} from "./commands/AssociateRoleToGroupCommand";
+import {
+  AssociateServiceRoleToAccountCommandInput,
+  AssociateServiceRoleToAccountCommandOutput
+} from "./commands/AssociateServiceRoleToAccountCommand";
+import {
+  CreateConnectorDefinitionCommandInput,
+  CreateConnectorDefinitionCommandOutput
+} from "./commands/CreateConnectorDefinitionCommand";
+import {
+  CreateConnectorDefinitionVersionCommandInput,
+  CreateConnectorDefinitionVersionCommandOutput
+} from "./commands/CreateConnectorDefinitionVersionCommand";
+import {
+  CreateCoreDefinitionCommandInput,
+  CreateCoreDefinitionCommandOutput
+} from "./commands/CreateCoreDefinitionCommand";
+import {
+  CreateCoreDefinitionVersionCommandInput,
+  CreateCoreDefinitionVersionCommandOutput
+} from "./commands/CreateCoreDefinitionVersionCommand";
+import {
+  CreateDeploymentCommandInput,
+  CreateDeploymentCommandOutput
+} from "./commands/CreateDeploymentCommand";
+import {
+  CreateDeviceDefinitionCommandInput,
+  CreateDeviceDefinitionCommandOutput
+} from "./commands/CreateDeviceDefinitionCommand";
+import {
+  CreateDeviceDefinitionVersionCommandInput,
+  CreateDeviceDefinitionVersionCommandOutput
+} from "./commands/CreateDeviceDefinitionVersionCommand";
+import {
+  CreateFunctionDefinitionCommandInput,
+  CreateFunctionDefinitionCommandOutput
+} from "./commands/CreateFunctionDefinitionCommand";
+import {
+  CreateFunctionDefinitionVersionCommandInput,
+  CreateFunctionDefinitionVersionCommandOutput
+} from "./commands/CreateFunctionDefinitionVersionCommand";
+import {
+  CreateGroupCertificateAuthorityCommandInput,
+  CreateGroupCertificateAuthorityCommandOutput
+} from "./commands/CreateGroupCertificateAuthorityCommand";
+import {
+  CreateGroupCommandInput,
+  CreateGroupCommandOutput
+} from "./commands/CreateGroupCommand";
+import {
+  CreateGroupVersionCommandInput,
+  CreateGroupVersionCommandOutput
+} from "./commands/CreateGroupVersionCommand";
+import {
+  CreateLoggerDefinitionCommandInput,
+  CreateLoggerDefinitionCommandOutput
+} from "./commands/CreateLoggerDefinitionCommand";
+import {
+  CreateLoggerDefinitionVersionCommandInput,
+  CreateLoggerDefinitionVersionCommandOutput
+} from "./commands/CreateLoggerDefinitionVersionCommand";
+import {
+  CreateResourceDefinitionCommandInput,
+  CreateResourceDefinitionCommandOutput
+} from "./commands/CreateResourceDefinitionCommand";
+import {
+  CreateResourceDefinitionVersionCommandInput,
+  CreateResourceDefinitionVersionCommandOutput
+} from "./commands/CreateResourceDefinitionVersionCommand";
+import {
+  CreateSoftwareUpdateJobCommandInput,
+  CreateSoftwareUpdateJobCommandOutput
+} from "./commands/CreateSoftwareUpdateJobCommand";
+import {
+  CreateSubscriptionDefinitionCommandInput,
+  CreateSubscriptionDefinitionCommandOutput
+} from "./commands/CreateSubscriptionDefinitionCommand";
+import {
+  CreateSubscriptionDefinitionVersionCommandInput,
+  CreateSubscriptionDefinitionVersionCommandOutput
+} from "./commands/CreateSubscriptionDefinitionVersionCommand";
+import {
+  DeleteConnectorDefinitionCommandInput,
+  DeleteConnectorDefinitionCommandOutput
+} from "./commands/DeleteConnectorDefinitionCommand";
+import {
+  DeleteCoreDefinitionCommandInput,
+  DeleteCoreDefinitionCommandOutput
+} from "./commands/DeleteCoreDefinitionCommand";
+import {
+  DeleteDeviceDefinitionCommandInput,
+  DeleteDeviceDefinitionCommandOutput
+} from "./commands/DeleteDeviceDefinitionCommand";
+import {
+  DeleteFunctionDefinitionCommandInput,
+  DeleteFunctionDefinitionCommandOutput
+} from "./commands/DeleteFunctionDefinitionCommand";
+import {
+  DeleteGroupCommandInput,
+  DeleteGroupCommandOutput
+} from "./commands/DeleteGroupCommand";
+import {
+  DeleteLoggerDefinitionCommandInput,
+  DeleteLoggerDefinitionCommandOutput
+} from "./commands/DeleteLoggerDefinitionCommand";
+import {
+  DeleteResourceDefinitionCommandInput,
+  DeleteResourceDefinitionCommandOutput
+} from "./commands/DeleteResourceDefinitionCommand";
+import {
+  DeleteSubscriptionDefinitionCommandInput,
+  DeleteSubscriptionDefinitionCommandOutput
+} from "./commands/DeleteSubscriptionDefinitionCommand";
+import {
+  DisassociateRoleFromGroupCommandInput,
+  DisassociateRoleFromGroupCommandOutput
+} from "./commands/DisassociateRoleFromGroupCommand";
+import {
+  DisassociateServiceRoleFromAccountCommandInput,
+  DisassociateServiceRoleFromAccountCommandOutput
+} from "./commands/DisassociateServiceRoleFromAccountCommand";
+import {
+  GetAssociatedRoleCommandInput,
+  GetAssociatedRoleCommandOutput
+} from "./commands/GetAssociatedRoleCommand";
+import {
+  GetBulkDeploymentStatusCommandInput,
+  GetBulkDeploymentStatusCommandOutput
+} from "./commands/GetBulkDeploymentStatusCommand";
+import {
+  GetConnectivityInfoCommandInput,
+  GetConnectivityInfoCommandOutput
+} from "./commands/GetConnectivityInfoCommand";
+import {
+  GetConnectorDefinitionCommandInput,
+  GetConnectorDefinitionCommandOutput
+} from "./commands/GetConnectorDefinitionCommand";
+import {
+  GetConnectorDefinitionVersionCommandInput,
+  GetConnectorDefinitionVersionCommandOutput
+} from "./commands/GetConnectorDefinitionVersionCommand";
+import {
+  GetCoreDefinitionCommandInput,
+  GetCoreDefinitionCommandOutput
+} from "./commands/GetCoreDefinitionCommand";
+import {
+  GetCoreDefinitionVersionCommandInput,
+  GetCoreDefinitionVersionCommandOutput
+} from "./commands/GetCoreDefinitionVersionCommand";
+import {
+  GetDeploymentStatusCommandInput,
+  GetDeploymentStatusCommandOutput
+} from "./commands/GetDeploymentStatusCommand";
+import {
+  GetDeviceDefinitionCommandInput,
+  GetDeviceDefinitionCommandOutput
+} from "./commands/GetDeviceDefinitionCommand";
+import {
+  GetDeviceDefinitionVersionCommandInput,
+  GetDeviceDefinitionVersionCommandOutput
+} from "./commands/GetDeviceDefinitionVersionCommand";
+import {
+  GetFunctionDefinitionCommandInput,
+  GetFunctionDefinitionCommandOutput
+} from "./commands/GetFunctionDefinitionCommand";
+import {
+  GetFunctionDefinitionVersionCommandInput,
+  GetFunctionDefinitionVersionCommandOutput
+} from "./commands/GetFunctionDefinitionVersionCommand";
+import {
+  GetGroupCertificateAuthorityCommandInput,
+  GetGroupCertificateAuthorityCommandOutput
+} from "./commands/GetGroupCertificateAuthorityCommand";
+import {
+  GetGroupCertificateConfigurationCommandInput,
+  GetGroupCertificateConfigurationCommandOutput
+} from "./commands/GetGroupCertificateConfigurationCommand";
+import {
+  GetGroupCommandInput,
+  GetGroupCommandOutput
+} from "./commands/GetGroupCommand";
+import {
+  GetGroupVersionCommandInput,
+  GetGroupVersionCommandOutput
+} from "./commands/GetGroupVersionCommand";
+import {
+  GetLoggerDefinitionCommandInput,
+  GetLoggerDefinitionCommandOutput
+} from "./commands/GetLoggerDefinitionCommand";
+import {
+  GetLoggerDefinitionVersionCommandInput,
+  GetLoggerDefinitionVersionCommandOutput
+} from "./commands/GetLoggerDefinitionVersionCommand";
+import {
+  GetResourceDefinitionCommandInput,
+  GetResourceDefinitionCommandOutput
+} from "./commands/GetResourceDefinitionCommand";
+import {
+  GetResourceDefinitionVersionCommandInput,
+  GetResourceDefinitionVersionCommandOutput
+} from "./commands/GetResourceDefinitionVersionCommand";
+import {
+  GetServiceRoleForAccountCommandInput,
+  GetServiceRoleForAccountCommandOutput
+} from "./commands/GetServiceRoleForAccountCommand";
+import {
+  GetSubscriptionDefinitionCommandInput,
+  GetSubscriptionDefinitionCommandOutput
+} from "./commands/GetSubscriptionDefinitionCommand";
+import {
+  GetSubscriptionDefinitionVersionCommandInput,
+  GetSubscriptionDefinitionVersionCommandOutput
+} from "./commands/GetSubscriptionDefinitionVersionCommand";
+import {
+  ListBulkDeploymentDetailedReportsCommandInput,
+  ListBulkDeploymentDetailedReportsCommandOutput
+} from "./commands/ListBulkDeploymentDetailedReportsCommand";
+import {
+  ListBulkDeploymentsCommandInput,
+  ListBulkDeploymentsCommandOutput
+} from "./commands/ListBulkDeploymentsCommand";
+import {
+  ListConnectorDefinitionVersionsCommandInput,
+  ListConnectorDefinitionVersionsCommandOutput
+} from "./commands/ListConnectorDefinitionVersionsCommand";
+import {
+  ListConnectorDefinitionsCommandInput,
+  ListConnectorDefinitionsCommandOutput
+} from "./commands/ListConnectorDefinitionsCommand";
+import {
+  ListCoreDefinitionVersionsCommandInput,
+  ListCoreDefinitionVersionsCommandOutput
+} from "./commands/ListCoreDefinitionVersionsCommand";
+import {
+  ListCoreDefinitionsCommandInput,
+  ListCoreDefinitionsCommandOutput
+} from "./commands/ListCoreDefinitionsCommand";
+import {
+  ListDeploymentsCommandInput,
+  ListDeploymentsCommandOutput
+} from "./commands/ListDeploymentsCommand";
+import {
+  ListDeviceDefinitionVersionsCommandInput,
+  ListDeviceDefinitionVersionsCommandOutput
+} from "./commands/ListDeviceDefinitionVersionsCommand";
+import {
+  ListDeviceDefinitionsCommandInput,
+  ListDeviceDefinitionsCommandOutput
+} from "./commands/ListDeviceDefinitionsCommand";
+import {
+  ListFunctionDefinitionVersionsCommandInput,
+  ListFunctionDefinitionVersionsCommandOutput
+} from "./commands/ListFunctionDefinitionVersionsCommand";
+import {
+  ListFunctionDefinitionsCommandInput,
+  ListFunctionDefinitionsCommandOutput
+} from "./commands/ListFunctionDefinitionsCommand";
+import {
+  ListGroupCertificateAuthoritiesCommandInput,
+  ListGroupCertificateAuthoritiesCommandOutput
+} from "./commands/ListGroupCertificateAuthoritiesCommand";
+import {
+  ListGroupVersionsCommandInput,
+  ListGroupVersionsCommandOutput
+} from "./commands/ListGroupVersionsCommand";
+import {
+  ListGroupsCommandInput,
+  ListGroupsCommandOutput
+} from "./commands/ListGroupsCommand";
+import {
+  ListLoggerDefinitionVersionsCommandInput,
+  ListLoggerDefinitionVersionsCommandOutput
+} from "./commands/ListLoggerDefinitionVersionsCommand";
+import {
+  ListLoggerDefinitionsCommandInput,
+  ListLoggerDefinitionsCommandOutput
+} from "./commands/ListLoggerDefinitionsCommand";
+import {
+  ListResourceDefinitionVersionsCommandInput,
+  ListResourceDefinitionVersionsCommandOutput
+} from "./commands/ListResourceDefinitionVersionsCommand";
+import {
+  ListResourceDefinitionsCommandInput,
+  ListResourceDefinitionsCommandOutput
+} from "./commands/ListResourceDefinitionsCommand";
+import {
+  ListSubscriptionDefinitionVersionsCommandInput,
+  ListSubscriptionDefinitionVersionsCommandOutput
+} from "./commands/ListSubscriptionDefinitionVersionsCommand";
+import {
+  ListSubscriptionDefinitionsCommandInput,
+  ListSubscriptionDefinitionsCommandOutput
+} from "./commands/ListSubscriptionDefinitionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ResetDeploymentsCommandInput,
+  ResetDeploymentsCommandOutput
+} from "./commands/ResetDeploymentsCommand";
+import {
+  StartBulkDeploymentCommandInput,
+  StartBulkDeploymentCommandOutput
+} from "./commands/StartBulkDeploymentCommand";
+import {
+  StopBulkDeploymentCommandInput,
+  StopBulkDeploymentCommandOutput
+} from "./commands/StopBulkDeploymentCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateConnectivityInfoCommandInput,
+  UpdateConnectivityInfoCommandOutput
+} from "./commands/UpdateConnectivityInfoCommand";
+import {
+  UpdateConnectorDefinitionCommandInput,
+  UpdateConnectorDefinitionCommandOutput
+} from "./commands/UpdateConnectorDefinitionCommand";
+import {
+  UpdateCoreDefinitionCommandInput,
+  UpdateCoreDefinitionCommandOutput
+} from "./commands/UpdateCoreDefinitionCommand";
+import {
+  UpdateDeviceDefinitionCommandInput,
+  UpdateDeviceDefinitionCommandOutput
+} from "./commands/UpdateDeviceDefinitionCommand";
+import {
+  UpdateFunctionDefinitionCommandInput,
+  UpdateFunctionDefinitionCommandOutput
+} from "./commands/UpdateFunctionDefinitionCommand";
+import {
+  UpdateGroupCertificateConfigurationCommandInput,
+  UpdateGroupCertificateConfigurationCommandOutput
+} from "./commands/UpdateGroupCertificateConfigurationCommand";
+import {
+  UpdateGroupCommandInput,
+  UpdateGroupCommandOutput
+} from "./commands/UpdateGroupCommand";
+import {
+  UpdateLoggerDefinitionCommandInput,
+  UpdateLoggerDefinitionCommandOutput
+} from "./commands/UpdateLoggerDefinitionCommand";
+import {
+  UpdateResourceDefinitionCommandInput,
+  UpdateResourceDefinitionCommandOutput
+} from "./commands/UpdateResourceDefinitionCommand";
+import {
+  UpdateSubscriptionDefinitionCommandInput,
+  UpdateSubscriptionDefinitionCommandOutput
+} from "./commands/UpdateSubscriptionDefinitionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -225,194 +405,194 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateRoleToGroupRequest
-  | AssociateServiceRoleToAccountRequest
-  | CreateConnectorDefinitionRequest
-  | CreateConnectorDefinitionVersionRequest
-  | CreateCoreDefinitionRequest
-  | CreateCoreDefinitionVersionRequest
-  | CreateDeploymentRequest
-  | CreateDeviceDefinitionRequest
-  | CreateDeviceDefinitionVersionRequest
-  | CreateFunctionDefinitionRequest
-  | CreateFunctionDefinitionVersionRequest
-  | CreateGroupCertificateAuthorityRequest
-  | CreateGroupRequest
-  | CreateGroupVersionRequest
-  | CreateLoggerDefinitionRequest
-  | CreateLoggerDefinitionVersionRequest
-  | CreateResourceDefinitionRequest
-  | CreateResourceDefinitionVersionRequest
-  | CreateSoftwareUpdateJobRequest
-  | CreateSubscriptionDefinitionRequest
-  | CreateSubscriptionDefinitionVersionRequest
-  | DeleteConnectorDefinitionRequest
-  | DeleteCoreDefinitionRequest
-  | DeleteDeviceDefinitionRequest
-  | DeleteFunctionDefinitionRequest
-  | DeleteGroupRequest
-  | DeleteLoggerDefinitionRequest
-  | DeleteResourceDefinitionRequest
-  | DeleteSubscriptionDefinitionRequest
-  | DisassociateRoleFromGroupRequest
-  | DisassociateServiceRoleFromAccountRequest
-  | GetAssociatedRoleRequest
-  | GetBulkDeploymentStatusRequest
-  | GetConnectivityInfoRequest
-  | GetConnectorDefinitionRequest
-  | GetConnectorDefinitionVersionRequest
-  | GetCoreDefinitionRequest
-  | GetCoreDefinitionVersionRequest
-  | GetDeploymentStatusRequest
-  | GetDeviceDefinitionRequest
-  | GetDeviceDefinitionVersionRequest
-  | GetFunctionDefinitionRequest
-  | GetFunctionDefinitionVersionRequest
-  | GetGroupCertificateAuthorityRequest
-  | GetGroupCertificateConfigurationRequest
-  | GetGroupRequest
-  | GetGroupVersionRequest
-  | GetLoggerDefinitionRequest
-  | GetLoggerDefinitionVersionRequest
-  | GetResourceDefinitionRequest
-  | GetResourceDefinitionVersionRequest
-  | GetServiceRoleForAccountRequest
-  | GetSubscriptionDefinitionRequest
-  | GetSubscriptionDefinitionVersionRequest
-  | ListBulkDeploymentDetailedReportsRequest
-  | ListBulkDeploymentsRequest
-  | ListConnectorDefinitionVersionsRequest
-  | ListConnectorDefinitionsRequest
-  | ListCoreDefinitionVersionsRequest
-  | ListCoreDefinitionsRequest
-  | ListDeploymentsRequest
-  | ListDeviceDefinitionVersionsRequest
-  | ListDeviceDefinitionsRequest
-  | ListFunctionDefinitionVersionsRequest
-  | ListFunctionDefinitionsRequest
-  | ListGroupCertificateAuthoritiesRequest
-  | ListGroupVersionsRequest
-  | ListGroupsRequest
-  | ListLoggerDefinitionVersionsRequest
-  | ListLoggerDefinitionsRequest
-  | ListResourceDefinitionVersionsRequest
-  | ListResourceDefinitionsRequest
-  | ListSubscriptionDefinitionVersionsRequest
-  | ListSubscriptionDefinitionsRequest
-  | ListTagsForResourceRequest
-  | ResetDeploymentsRequest
-  | StartBulkDeploymentRequest
-  | StopBulkDeploymentRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateConnectivityInfoRequest
-  | UpdateConnectorDefinitionRequest
-  | UpdateCoreDefinitionRequest
-  | UpdateDeviceDefinitionRequest
-  | UpdateFunctionDefinitionRequest
-  | UpdateGroupCertificateConfigurationRequest
-  | UpdateGroupRequest
-  | UpdateLoggerDefinitionRequest
-  | UpdateResourceDefinitionRequest
-  | UpdateSubscriptionDefinitionRequest;
+  | AssociateRoleToGroupCommandInput
+  | AssociateServiceRoleToAccountCommandInput
+  | CreateConnectorDefinitionCommandInput
+  | CreateConnectorDefinitionVersionCommandInput
+  | CreateCoreDefinitionCommandInput
+  | CreateCoreDefinitionVersionCommandInput
+  | CreateDeploymentCommandInput
+  | CreateDeviceDefinitionCommandInput
+  | CreateDeviceDefinitionVersionCommandInput
+  | CreateFunctionDefinitionCommandInput
+  | CreateFunctionDefinitionVersionCommandInput
+  | CreateGroupCertificateAuthorityCommandInput
+  | CreateGroupCommandInput
+  | CreateGroupVersionCommandInput
+  | CreateLoggerDefinitionCommandInput
+  | CreateLoggerDefinitionVersionCommandInput
+  | CreateResourceDefinitionCommandInput
+  | CreateResourceDefinitionVersionCommandInput
+  | CreateSoftwareUpdateJobCommandInput
+  | CreateSubscriptionDefinitionCommandInput
+  | CreateSubscriptionDefinitionVersionCommandInput
+  | DeleteConnectorDefinitionCommandInput
+  | DeleteCoreDefinitionCommandInput
+  | DeleteDeviceDefinitionCommandInput
+  | DeleteFunctionDefinitionCommandInput
+  | DeleteGroupCommandInput
+  | DeleteLoggerDefinitionCommandInput
+  | DeleteResourceDefinitionCommandInput
+  | DeleteSubscriptionDefinitionCommandInput
+  | DisassociateRoleFromGroupCommandInput
+  | DisassociateServiceRoleFromAccountCommandInput
+  | GetAssociatedRoleCommandInput
+  | GetBulkDeploymentStatusCommandInput
+  | GetConnectivityInfoCommandInput
+  | GetConnectorDefinitionCommandInput
+  | GetConnectorDefinitionVersionCommandInput
+  | GetCoreDefinitionCommandInput
+  | GetCoreDefinitionVersionCommandInput
+  | GetDeploymentStatusCommandInput
+  | GetDeviceDefinitionCommandInput
+  | GetDeviceDefinitionVersionCommandInput
+  | GetFunctionDefinitionCommandInput
+  | GetFunctionDefinitionVersionCommandInput
+  | GetGroupCertificateAuthorityCommandInput
+  | GetGroupCertificateConfigurationCommandInput
+  | GetGroupCommandInput
+  | GetGroupVersionCommandInput
+  | GetLoggerDefinitionCommandInput
+  | GetLoggerDefinitionVersionCommandInput
+  | GetResourceDefinitionCommandInput
+  | GetResourceDefinitionVersionCommandInput
+  | GetServiceRoleForAccountCommandInput
+  | GetSubscriptionDefinitionCommandInput
+  | GetSubscriptionDefinitionVersionCommandInput
+  | ListBulkDeploymentDetailedReportsCommandInput
+  | ListBulkDeploymentsCommandInput
+  | ListConnectorDefinitionVersionsCommandInput
+  | ListConnectorDefinitionsCommandInput
+  | ListCoreDefinitionVersionsCommandInput
+  | ListCoreDefinitionsCommandInput
+  | ListDeploymentsCommandInput
+  | ListDeviceDefinitionVersionsCommandInput
+  | ListDeviceDefinitionsCommandInput
+  | ListFunctionDefinitionVersionsCommandInput
+  | ListFunctionDefinitionsCommandInput
+  | ListGroupCertificateAuthoritiesCommandInput
+  | ListGroupVersionsCommandInput
+  | ListGroupsCommandInput
+  | ListLoggerDefinitionVersionsCommandInput
+  | ListLoggerDefinitionsCommandInput
+  | ListResourceDefinitionVersionsCommandInput
+  | ListResourceDefinitionsCommandInput
+  | ListSubscriptionDefinitionVersionsCommandInput
+  | ListSubscriptionDefinitionsCommandInput
+  | ListTagsForResourceCommandInput
+  | ResetDeploymentsCommandInput
+  | StartBulkDeploymentCommandInput
+  | StopBulkDeploymentCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateConnectivityInfoCommandInput
+  | UpdateConnectorDefinitionCommandInput
+  | UpdateCoreDefinitionCommandInput
+  | UpdateDeviceDefinitionCommandInput
+  | UpdateFunctionDefinitionCommandInput
+  | UpdateGroupCertificateConfigurationCommandInput
+  | UpdateGroupCommandInput
+  | UpdateLoggerDefinitionCommandInput
+  | UpdateResourceDefinitionCommandInput
+  | UpdateSubscriptionDefinitionCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AssociateRoleToGroupResponse
-  | AssociateServiceRoleToAccountResponse
-  | CreateConnectorDefinitionResponse
-  | CreateConnectorDefinitionVersionResponse
-  | CreateCoreDefinitionResponse
-  | CreateCoreDefinitionVersionResponse
-  | CreateDeploymentResponse
-  | CreateDeviceDefinitionResponse
-  | CreateDeviceDefinitionVersionResponse
-  | CreateFunctionDefinitionResponse
-  | CreateFunctionDefinitionVersionResponse
-  | CreateGroupCertificateAuthorityResponse
-  | CreateGroupResponse
-  | CreateGroupVersionResponse
-  | CreateLoggerDefinitionResponse
-  | CreateLoggerDefinitionVersionResponse
-  | CreateResourceDefinitionResponse
-  | CreateResourceDefinitionVersionResponse
-  | CreateSoftwareUpdateJobResponse
-  | CreateSubscriptionDefinitionResponse
-  | CreateSubscriptionDefinitionVersionResponse
-  | DeleteConnectorDefinitionResponse
-  | DeleteCoreDefinitionResponse
-  | DeleteDeviceDefinitionResponse
-  | DeleteFunctionDefinitionResponse
-  | DeleteGroupResponse
-  | DeleteLoggerDefinitionResponse
-  | DeleteResourceDefinitionResponse
-  | DeleteSubscriptionDefinitionResponse
-  | DisassociateRoleFromGroupResponse
-  | DisassociateServiceRoleFromAccountResponse
-  | GetAssociatedRoleResponse
-  | GetBulkDeploymentStatusResponse
-  | GetConnectivityInfoResponse
-  | GetConnectorDefinitionResponse
-  | GetConnectorDefinitionVersionResponse
-  | GetCoreDefinitionResponse
-  | GetCoreDefinitionVersionResponse
-  | GetDeploymentStatusResponse
-  | GetDeviceDefinitionResponse
-  | GetDeviceDefinitionVersionResponse
-  | GetFunctionDefinitionResponse
-  | GetFunctionDefinitionVersionResponse
-  | GetGroupCertificateAuthorityResponse
-  | GetGroupCertificateConfigurationResponse
-  | GetGroupResponse
-  | GetGroupVersionResponse
-  | GetLoggerDefinitionResponse
-  | GetLoggerDefinitionVersionResponse
-  | GetResourceDefinitionResponse
-  | GetResourceDefinitionVersionResponse
-  | GetServiceRoleForAccountResponse
-  | GetSubscriptionDefinitionResponse
-  | GetSubscriptionDefinitionVersionResponse
-  | ListBulkDeploymentDetailedReportsResponse
-  | ListBulkDeploymentsResponse
-  | ListConnectorDefinitionVersionsResponse
-  | ListConnectorDefinitionsResponse
-  | ListCoreDefinitionVersionsResponse
-  | ListCoreDefinitionsResponse
-  | ListDeploymentsResponse
-  | ListDeviceDefinitionVersionsResponse
-  | ListDeviceDefinitionsResponse
-  | ListFunctionDefinitionVersionsResponse
-  | ListFunctionDefinitionsResponse
-  | ListGroupCertificateAuthoritiesResponse
-  | ListGroupVersionsResponse
-  | ListGroupsResponse
-  | ListLoggerDefinitionVersionsResponse
-  | ListLoggerDefinitionsResponse
-  | ListResourceDefinitionVersionsResponse
-  | ListResourceDefinitionsResponse
-  | ListSubscriptionDefinitionVersionsResponse
-  | ListSubscriptionDefinitionsResponse
-  | ListTagsForResourceResponse
-  | ResetDeploymentsResponse
-  | StartBulkDeploymentResponse
-  | StopBulkDeploymentResponse
-  | UpdateConnectivityInfoResponse
-  | UpdateConnectorDefinitionResponse
-  | UpdateCoreDefinitionResponse
-  | UpdateDeviceDefinitionResponse
-  | UpdateFunctionDefinitionResponse
-  | UpdateGroupCertificateConfigurationResponse
-  | UpdateGroupResponse
-  | UpdateLoggerDefinitionResponse
-  | UpdateResourceDefinitionResponse
-  | UpdateSubscriptionDefinitionResponse;
+  | AssociateRoleToGroupCommandOutput
+  | AssociateServiceRoleToAccountCommandOutput
+  | CreateConnectorDefinitionCommandOutput
+  | CreateConnectorDefinitionVersionCommandOutput
+  | CreateCoreDefinitionCommandOutput
+  | CreateCoreDefinitionVersionCommandOutput
+  | CreateDeploymentCommandOutput
+  | CreateDeviceDefinitionCommandOutput
+  | CreateDeviceDefinitionVersionCommandOutput
+  | CreateFunctionDefinitionCommandOutput
+  | CreateFunctionDefinitionVersionCommandOutput
+  | CreateGroupCertificateAuthorityCommandOutput
+  | CreateGroupCommandOutput
+  | CreateGroupVersionCommandOutput
+  | CreateLoggerDefinitionCommandOutput
+  | CreateLoggerDefinitionVersionCommandOutput
+  | CreateResourceDefinitionCommandOutput
+  | CreateResourceDefinitionVersionCommandOutput
+  | CreateSoftwareUpdateJobCommandOutput
+  | CreateSubscriptionDefinitionCommandOutput
+  | CreateSubscriptionDefinitionVersionCommandOutput
+  | DeleteConnectorDefinitionCommandOutput
+  | DeleteCoreDefinitionCommandOutput
+  | DeleteDeviceDefinitionCommandOutput
+  | DeleteFunctionDefinitionCommandOutput
+  | DeleteGroupCommandOutput
+  | DeleteLoggerDefinitionCommandOutput
+  | DeleteResourceDefinitionCommandOutput
+  | DeleteSubscriptionDefinitionCommandOutput
+  | DisassociateRoleFromGroupCommandOutput
+  | DisassociateServiceRoleFromAccountCommandOutput
+  | GetAssociatedRoleCommandOutput
+  | GetBulkDeploymentStatusCommandOutput
+  | GetConnectivityInfoCommandOutput
+  | GetConnectorDefinitionCommandOutput
+  | GetConnectorDefinitionVersionCommandOutput
+  | GetCoreDefinitionCommandOutput
+  | GetCoreDefinitionVersionCommandOutput
+  | GetDeploymentStatusCommandOutput
+  | GetDeviceDefinitionCommandOutput
+  | GetDeviceDefinitionVersionCommandOutput
+  | GetFunctionDefinitionCommandOutput
+  | GetFunctionDefinitionVersionCommandOutput
+  | GetGroupCertificateAuthorityCommandOutput
+  | GetGroupCertificateConfigurationCommandOutput
+  | GetGroupCommandOutput
+  | GetGroupVersionCommandOutput
+  | GetLoggerDefinitionCommandOutput
+  | GetLoggerDefinitionVersionCommandOutput
+  | GetResourceDefinitionCommandOutput
+  | GetResourceDefinitionVersionCommandOutput
+  | GetServiceRoleForAccountCommandOutput
+  | GetSubscriptionDefinitionCommandOutput
+  | GetSubscriptionDefinitionVersionCommandOutput
+  | ListBulkDeploymentDetailedReportsCommandOutput
+  | ListBulkDeploymentsCommandOutput
+  | ListConnectorDefinitionVersionsCommandOutput
+  | ListConnectorDefinitionsCommandOutput
+  | ListCoreDefinitionVersionsCommandOutput
+  | ListCoreDefinitionsCommandOutput
+  | ListDeploymentsCommandOutput
+  | ListDeviceDefinitionVersionsCommandOutput
+  | ListDeviceDefinitionsCommandOutput
+  | ListFunctionDefinitionVersionsCommandOutput
+  | ListFunctionDefinitionsCommandOutput
+  | ListGroupCertificateAuthoritiesCommandOutput
+  | ListGroupVersionsCommandOutput
+  | ListGroupsCommandOutput
+  | ListLoggerDefinitionVersionsCommandOutput
+  | ListLoggerDefinitionsCommandOutput
+  | ListResourceDefinitionVersionsCommandOutput
+  | ListResourceDefinitionsCommandOutput
+  | ListSubscriptionDefinitionVersionsCommandOutput
+  | ListSubscriptionDefinitionsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ResetDeploymentsCommandOutput
+  | StartBulkDeploymentCommandOutput
+  | StopBulkDeploymentCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateConnectivityInfoCommandOutput
+  | UpdateConnectorDefinitionCommandOutput
+  | UpdateCoreDefinitionCommandOutput
+  | UpdateDeviceDefinitionCommandOutput
+  | UpdateFunctionDefinitionCommandOutput
+  | UpdateGroupCertificateConfigurationCommandOutput
+  | UpdateGroupCommandOutput
+  | UpdateLoggerDefinitionCommandOutput
+  | UpdateResourceDefinitionCommandOutput
+  | UpdateSubscriptionDefinitionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

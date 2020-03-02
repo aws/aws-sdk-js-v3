@@ -35,7 +35,7 @@ export namespace AssociateDeviceWithPlacementRequest {
   }
 }
 
-export interface AssociateDeviceWithPlacementResponse extends $MetadataBearer {
+export interface AssociateDeviceWithPlacementResponse {
   __type?: "AssociateDeviceWithPlacementResponse";
 }
 
@@ -70,7 +70,7 @@ export namespace CreatePlacementRequest {
   }
 }
 
-export interface CreatePlacementResponse extends $MetadataBearer {
+export interface CreatePlacementResponse {
   __type?: "CreatePlacementResponse";
 }
 
@@ -114,7 +114,7 @@ export namespace CreateProjectRequest {
   }
 }
 
-export interface CreateProjectResponse extends $MetadataBearer {
+export interface CreateProjectResponse {
   __type?: "CreateProjectResponse";
 }
 
@@ -143,7 +143,7 @@ export namespace DeletePlacementRequest {
   }
 }
 
-export interface DeletePlacementResponse extends $MetadataBearer {
+export interface DeletePlacementResponse {
   __type?: "DeletePlacementResponse";
 }
 
@@ -167,7 +167,7 @@ export namespace DeleteProjectRequest {
   }
 }
 
-export interface DeleteProjectResponse extends $MetadataBearer {
+export interface DeleteProjectResponse {
   __type?: "DeleteProjectResponse";
 }
 
@@ -196,7 +196,7 @@ export namespace DescribePlacementRequest {
   }
 }
 
-export interface DescribePlacementResponse extends $MetadataBearer {
+export interface DescribePlacementResponse {
   __type?: "DescribePlacementResponse";
   /**
    * <p>An object describing the placement.</p>
@@ -224,7 +224,7 @@ export namespace DescribeProjectRequest {
   }
 }
 
-export interface DescribeProjectResponse extends $MetadataBearer {
+export interface DescribeProjectResponse {
   __type?: "DescribeProjectResponse";
   /**
    * <p>An object describing the project.</p>
@@ -285,8 +285,7 @@ export namespace DisassociateDeviceFromPlacementRequest {
   }
 }
 
-export interface DisassociateDeviceFromPlacementResponse
-  extends $MetadataBearer {
+export interface DisassociateDeviceFromPlacementResponse {
   __type?: "DisassociateDeviceFromPlacementResponse";
 }
 
@@ -315,7 +314,7 @@ export namespace GetDevicesInPlacementRequest {
   }
 }
 
-export interface GetDevicesInPlacementResponse extends $MetadataBearer {
+export interface GetDevicesInPlacementResponse {
   __type?: "GetDevicesInPlacementResponse";
   /**
    * <p>An object containing the devices (zero or more) within the placement.</p>
@@ -390,7 +389,7 @@ export namespace ListPlacementsRequest {
   }
 }
 
-export interface ListPlacementsResponse extends $MetadataBearer {
+export interface ListPlacementsResponse {
   __type?: "ListPlacementsResponse";
   /**
    * <p>The token used to retrieve the next set of results - will be effectively empty if there
@@ -430,7 +429,7 @@ export namespace ListProjectsRequest {
   }
 }
 
-export interface ListProjectsResponse extends $MetadataBearer {
+export interface ListProjectsResponse {
   __type?: "ListProjectsResponse";
   /**
    * <p>The token used to retrieve the next set of results - will be effectively empty if there
@@ -464,7 +463,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags (metadata key/value pairs) which you have assigned to the resource.</p>
@@ -719,7 +718,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -766,7 +765,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -801,7 +800,7 @@ export namespace UpdatePlacementRequest {
   }
 }
 
-export interface UpdatePlacementResponse extends $MetadataBearer {
+export interface UpdatePlacementResponse {
   __type?: "UpdatePlacementResponse";
 }
 
@@ -838,7 +837,7 @@ export namespace UpdateProjectRequest {
   }
 }
 
-export interface UpdateProjectResponse extends $MetadataBearer {
+export interface UpdateProjectResponse {
   __type?: "UpdateProjectResponse";
 }
 

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDevelopmentSchemaArnsCommandInput = ListDevelopmentSchemaArnsRequest;
-export type ListDevelopmentSchemaArnsCommandOutput = ListDevelopmentSchemaArnsResponse;
+export type ListDevelopmentSchemaArnsCommandOutput = ListDevelopmentSchemaArnsResponse &
+  __MetadataBearer;
 
 export class ListDevelopmentSchemaArnsCommand extends $Command<
   ListDevelopmentSchemaArnsCommandInput,

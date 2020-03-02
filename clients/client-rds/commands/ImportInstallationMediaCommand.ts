@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportInstallationMediaCommandInput = ImportInstallationMediaMessage;
-export type ImportInstallationMediaCommandOutput = InstallationMedia;
+export type ImportInstallationMediaCommandOutput = InstallationMedia &
+  __MetadataBearer;
 
 export class ImportInstallationMediaCommand extends $Command<
   ImportInstallationMediaCommandInput,

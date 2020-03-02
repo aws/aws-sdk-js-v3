@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EvaluatePullRequestApprovalRulesCommandInput = EvaluatePullRequestApprovalRulesInput;
-export type EvaluatePullRequestApprovalRulesCommandOutput = EvaluatePullRequestApprovalRulesOutput;
+export type EvaluatePullRequestApprovalRulesCommandOutput = EvaluatePullRequestApprovalRulesOutput &
+  __MetadataBearer;
 
 export class EvaluatePullRequestApprovalRulesCommand extends $Command<
   EvaluatePullRequestApprovalRulesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListStreamingDistributionsCommandInput = ListStreamingDistributionsRequest;
-export type ListStreamingDistributionsCommandOutput = ListStreamingDistributionsResult;
+export type ListStreamingDistributionsCommandOutput = ListStreamingDistributionsResult &
+  __MetadataBearer;
 
 export class ListStreamingDistributionsCommand extends $Command<
   ListStreamingDistributionsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAttachedIndicesCommandInput = ListAttachedIndicesRequest;
-export type ListAttachedIndicesCommandOutput = ListAttachedIndicesResponse;
+export type ListAttachedIndicesCommandOutput = ListAttachedIndicesResponse &
+  __MetadataBearer;
 
 export class ListAttachedIndicesCommand extends $Command<
   ListAttachedIndicesCommandInput,

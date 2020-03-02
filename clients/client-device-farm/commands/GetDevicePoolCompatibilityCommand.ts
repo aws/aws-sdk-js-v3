@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDevicePoolCompatibilityCommandInput = GetDevicePoolCompatibilityRequest;
-export type GetDevicePoolCompatibilityCommandOutput = GetDevicePoolCompatibilityResult;
+export type GetDevicePoolCompatibilityCommandOutput = GetDevicePoolCompatibilityResult &
+  __MetadataBearer;
 
 export class GetDevicePoolCompatibilityCommand extends $Command<
   GetDevicePoolCompatibilityCommandInput,

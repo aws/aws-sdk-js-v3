@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendTestEventNotificationCommandInput = SendTestEventNotificationRequest;
-export type SendTestEventNotificationCommandOutput = SendTestEventNotificationResponse;
+export type SendTestEventNotificationCommandOutput = SendTestEventNotificationResponse &
+  __MetadataBearer;
 
 export class SendTestEventNotificationCommand extends $Command<
   SendTestEventNotificationCommandInput,

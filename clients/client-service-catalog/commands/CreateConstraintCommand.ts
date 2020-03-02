@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateConstraintCommandInput = CreateConstraintInput;
-export type CreateConstraintCommandOutput = CreateConstraintOutput;
+export type CreateConstraintCommandOutput = CreateConstraintOutput &
+  __MetadataBearer;
 
 export class CreateConstraintCommand extends $Command<
   CreateConstraintCommandInput,

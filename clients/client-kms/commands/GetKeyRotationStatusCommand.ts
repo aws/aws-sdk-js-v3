@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetKeyRotationStatusCommandInput = GetKeyRotationStatusRequest;
-export type GetKeyRotationStatusCommandOutput = GetKeyRotationStatusResponse;
+export type GetKeyRotationStatusCommandOutput = GetKeyRotationStatusResponse &
+  __MetadataBearer;
 
 export class GetKeyRotationStatusCommand extends $Command<
   GetKeyRotationStatusCommandInput,

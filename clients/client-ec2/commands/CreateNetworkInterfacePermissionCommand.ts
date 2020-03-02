@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateNetworkInterfacePermissionCommandInput = CreateNetworkInterfacePermissionRequest;
-export type CreateNetworkInterfacePermissionCommandOutput = CreateNetworkInterfacePermissionResult;
+export type CreateNetworkInterfacePermissionCommandOutput = CreateNetworkInterfacePermissionResult &
+  __MetadataBearer;
 
 export class CreateNetworkInterfacePermissionCommand extends $Command<
   CreateNetworkInterfacePermissionCommandInput,

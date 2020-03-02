@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchLocalGatewayRoutesCommandInput = SearchLocalGatewayRoutesRequest;
-export type SearchLocalGatewayRoutesCommandOutput = SearchLocalGatewayRoutesResult;
+export type SearchLocalGatewayRoutesCommandOutput = SearchLocalGatewayRoutesResult &
+  __MetadataBearer;
 
 export class SearchLocalGatewayRoutesCommand extends $Command<
   SearchLocalGatewayRoutesCommandInput,

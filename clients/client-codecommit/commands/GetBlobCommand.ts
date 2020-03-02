@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBlobCommandInput = GetBlobInput;
-export type GetBlobCommandOutput = GetBlobOutput;
+export type GetBlobCommandOutput = GetBlobOutput & __MetadataBearer;
 
 export class GetBlobCommand extends $Command<
   GetBlobCommandInput,

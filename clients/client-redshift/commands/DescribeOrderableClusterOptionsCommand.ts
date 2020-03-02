@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeOrderableClusterOptionsCommandInput = DescribeOrderableClusterOptionsMessage;
-export type DescribeOrderableClusterOptionsCommandOutput = OrderableClusterOptionsMessage;
+export type DescribeOrderableClusterOptionsCommandOutput = OrderableClusterOptionsMessage &
+  __MetadataBearer;
 
 export class DescribeOrderableClusterOptionsCommand extends $Command<
   DescribeOrderableClusterOptionsCommandInput,

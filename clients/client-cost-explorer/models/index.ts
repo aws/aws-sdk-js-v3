@@ -371,7 +371,7 @@ export namespace CreateCostCategoryDefinitionRequest {
   }
 }
 
-export interface CreateCostCategoryDefinitionResponse extends $MetadataBearer {
+export interface CreateCostCategoryDefinitionResponse {
   __type?: "CreateCostCategoryDefinitionResponse";
   /**
    * <p>
@@ -518,7 +518,7 @@ export namespace DeleteCostCategoryDefinitionRequest {
   }
 }
 
-export interface DeleteCostCategoryDefinitionResponse extends $MetadataBearer {
+export interface DeleteCostCategoryDefinitionResponse {
   __type?: "DeleteCostCategoryDefinitionResponse";
   /**
    * <p>
@@ -564,8 +564,7 @@ export namespace DescribeCostCategoryDefinitionRequest {
   }
 }
 
-export interface DescribeCostCategoryDefinitionResponse
-  extends $MetadataBearer {
+export interface DescribeCostCategoryDefinitionResponse {
   __type?: "DescribeCostCategoryDefinitionResponse";
   /**
    * <important>
@@ -1097,7 +1096,7 @@ export namespace GetCostAndUsageRequest {
   }
 }
 
-export interface GetCostAndUsageResponse extends $MetadataBearer {
+export interface GetCostAndUsageResponse {
   __type?: "GetCostAndUsageResponse";
   /**
    * <p>The groups that are specified by the <code>Filter</code> or <code>GroupBy</code> parameters in the request.</p>
@@ -1185,7 +1184,7 @@ export namespace GetCostAndUsageWithResourcesRequest {
   }
 }
 
-export interface GetCostAndUsageWithResourcesResponse extends $MetadataBearer {
+export interface GetCostAndUsageWithResourcesResponse {
   __type?: "GetCostAndUsageWithResourcesResponse";
   /**
    * <p>The groups that are specified by the <code>Filter</code> or <code>GroupBy</code>
@@ -1267,7 +1266,7 @@ export namespace GetCostForecastRequest {
   }
 }
 
-export interface GetCostForecastResponse extends $MetadataBearer {
+export interface GetCostForecastResponse {
   __type?: "GetCostForecastResponse";
   /**
    * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list of days. For <code>MONTHLY</code> forecasts,
@@ -1435,7 +1434,7 @@ export namespace GetDimensionValuesRequest {
   }
 }
 
-export interface GetDimensionValuesResponse extends $MetadataBearer {
+export interface GetDimensionValuesResponse {
   __type?: "GetDimensionValuesResponse";
   /**
    * <p>The filters that you used to filter your request. Some dimensions are available only for a specific context.</p>
@@ -1695,7 +1694,7 @@ export namespace GetReservationCoverageRequest {
   }
 }
 
-export interface GetReservationCoverageResponse extends $MetadataBearer {
+export interface GetReservationCoverageResponse {
   __type?: "GetReservationCoverageResponse";
   /**
    * <p>The amount of time that your reservations covered.</p>
@@ -1778,8 +1777,7 @@ export namespace GetReservationPurchaseRecommendationRequest {
   }
 }
 
-export interface GetReservationPurchaseRecommendationResponse
-  extends $MetadataBearer {
+export interface GetReservationPurchaseRecommendationResponse {
   __type?: "GetReservationPurchaseRecommendationResponse";
   /**
    * <p>Information about this specific recommendation call, such as the time stamp for when Cost Explorer generated this recommendation.</p>
@@ -1883,7 +1881,7 @@ export namespace GetReservationUtilizationRequest {
   }
 }
 
-export interface GetReservationUtilizationResponse extends $MetadataBearer {
+export interface GetReservationUtilizationResponse {
   __type?: "GetReservationUtilizationResponse";
   /**
    * <p>The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1987,7 +1985,7 @@ export namespace GetRightsizingRecommendationRequest {
   }
 }
 
-export interface GetRightsizingRecommendationResponse extends $MetadataBearer {
+export interface GetRightsizingRecommendationResponse {
   __type?: "GetRightsizingRecommendationResponse";
   /**
    * <p>Information regarding this specific recommendation set.</p>
@@ -2087,7 +2085,7 @@ export namespace GetSavingsPlansCoverageRequest {
   }
 }
 
-export interface GetSavingsPlansCoverageResponse extends $MetadataBearer {
+export interface GetSavingsPlansCoverageResponse {
   __type?: "GetSavingsPlansCoverageResponse";
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -2147,8 +2145,7 @@ export namespace GetSavingsPlansPurchaseRecommendationRequest {
   }
 }
 
-export interface GetSavingsPlansPurchaseRecommendationResponse
-  extends $MetadataBearer {
+export interface GetSavingsPlansPurchaseRecommendationResponse {
   __type?: "GetSavingsPlansPurchaseRecommendationResponse";
   /**
    * <p>Information regarding this specific recommendation set.</p>
@@ -2234,8 +2231,7 @@ export namespace GetSavingsPlansUtilizationDetailsRequest {
   }
 }
 
-export interface GetSavingsPlansUtilizationDetailsResponse
-  extends $MetadataBearer {
+export interface GetSavingsPlansUtilizationDetailsResponse {
   __type?: "GetSavingsPlansUtilizationDetailsResponse";
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -2328,7 +2324,7 @@ export namespace GetSavingsPlansUtilizationRequest {
   }
 }
 
-export interface GetSavingsPlansUtilizationResponse extends $MetadataBearer {
+export interface GetSavingsPlansUtilizationResponse {
   __type?: "GetSavingsPlansUtilizationResponse";
   /**
    * <p>The amount of cost/commitment you used your Savings Plans. This allows you to specify date ranges.</p>
@@ -2377,7 +2373,7 @@ export namespace GetTagsRequest {
   }
 }
 
-export interface GetTagsResponse extends $MetadataBearer {
+export interface GetTagsResponse {
   __type?: "GetTagsResponse";
   /**
    * <p>The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -2453,7 +2449,7 @@ export namespace GetUsageForecastRequest {
   }
 }
 
-export interface GetUsageForecastResponse extends $MetadataBearer {
+export interface GetUsageForecastResponse {
   __type?: "GetUsageForecastResponse";
   /**
    * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list of days. For <code>MONTHLY</code> forecasts,
@@ -2625,7 +2621,7 @@ export namespace ListCostCategoryDefinitionsRequest {
   }
 }
 
-export interface ListCostCategoryDefinitionsResponse extends $MetadataBearer {
+export interface ListCostCategoryDefinitionsResponse {
   __type?: "ListCostCategoryDefinitionsResponse";
   /**
    * <p>
@@ -4072,7 +4068,7 @@ export namespace UpdateCostCategoryDefinitionRequest {
   }
 }
 
-export interface UpdateCostCategoryDefinitionResponse extends $MetadataBearer {
+export interface UpdateCostCategoryDefinitionResponse {
   __type?: "UpdateCostCategoryDefinitionResponse";
   /**
    * <p>

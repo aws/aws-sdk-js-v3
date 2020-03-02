@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDBInstanceAutomatedBackupCommandInput = DeleteDBInstanceAutomatedBackupMessage;
-export type DeleteDBInstanceAutomatedBackupCommandOutput = DeleteDBInstanceAutomatedBackupResult;
+export type DeleteDBInstanceAutomatedBackupCommandOutput = DeleteDBInstanceAutomatedBackupResult &
+  __MetadataBearer;
 
 export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
   DeleteDBInstanceAutomatedBackupCommandInput,

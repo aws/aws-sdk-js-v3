@@ -35,7 +35,7 @@ export namespace DescribeStreamInput {
 /**
  * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
  */
-export interface DescribeStreamOutput extends $MetadataBearer {
+export interface DescribeStreamOutput {
   __type?: "DescribeStreamOutput";
   /**
    * <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p>
@@ -96,7 +96,7 @@ export namespace GetRecordsInput {
 /**
  * <p>Represents the output of a <code>GetRecords</code> operation.</p>
  */
-export interface GetRecordsOutput extends $MetadataBearer {
+export interface GetRecordsOutput {
   __type?: "GetRecordsOutput";
   /**
    * <p>The next position in the shard from which to start sequentially reading stream records. If
@@ -176,7 +176,7 @@ export namespace GetShardIteratorInput {
 /**
  * <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
  */
-export interface GetShardIteratorOutput extends $MetadataBearer {
+export interface GetShardIteratorOutput {
   __type?: "GetShardIteratorOutput";
   /**
    * <p>The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.</p>
@@ -245,7 +245,7 @@ export namespace ListStreamsInput {
 /**
  * <p>Represents the output of a <code>ListStreams</code> operation.</p>
  */
-export interface ListStreamsOutput extends $MetadataBearer {
+export interface ListStreamsOutput {
   __type?: "ListStreamsOutput";
   /**
    * <p>The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>

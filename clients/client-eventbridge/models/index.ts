@@ -195,7 +195,7 @@ export namespace CreateEventBusRequest {
   }
 }
 
-export interface CreateEventBusResponse extends $MetadataBearer {
+export interface CreateEventBusResponse {
   __type?: "CreateEventBusResponse";
   /**
    * <p>The ARN of the new event bus.</p>
@@ -233,7 +233,7 @@ export namespace CreatePartnerEventSourceRequest {
   }
 }
 
-export interface CreatePartnerEventSourceResponse extends $MetadataBearer {
+export interface CreatePartnerEventSourceResponse {
   __type?: "CreatePartnerEventSourceResponse";
   /**
    * <p>The ARN of the partner event source.</p>
@@ -335,7 +335,7 @@ export namespace DescribeEventBusRequest {
   }
 }
 
-export interface DescribeEventBusResponse extends $MetadataBearer {
+export interface DescribeEventBusResponse {
   __type?: "DescribeEventBusResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the account permitted to write events to the current account.</p>
@@ -373,7 +373,7 @@ export namespace DescribeEventSourceRequest {
   }
 }
 
-export interface DescribeEventSourceResponse extends $MetadataBearer {
+export interface DescribeEventSourceResponse {
   __type?: "DescribeEventSourceResponse";
   /**
    * <p>The ARN of the partner event source.</p>
@@ -431,7 +431,7 @@ export namespace DescribePartnerEventSourceRequest {
   }
 }
 
-export interface DescribePartnerEventSourceResponse extends $MetadataBearer {
+export interface DescribePartnerEventSourceResponse {
   __type?: "DescribePartnerEventSourceResponse";
   /**
    * <p>The ARN of the event source.</p>
@@ -469,7 +469,7 @@ export namespace DescribeRuleRequest {
   }
 }
 
-export interface DescribeRuleResponse extends $MetadataBearer {
+export interface DescribeRuleResponse {
   __type?: "DescribeRuleResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
@@ -832,7 +832,7 @@ export namespace ListEventBusesRequest {
   }
 }
 
-export interface ListEventBusesResponse extends $MetadataBearer {
+export interface ListEventBusesResponse {
   __type?: "ListEventBusesResponse";
   /**
    * <p>This list of event buses.</p>
@@ -878,7 +878,7 @@ export namespace ListEventSourcesRequest {
   }
 }
 
-export interface ListEventSourcesResponse extends $MetadataBearer {
+export interface ListEventSourcesResponse {
   __type?: "ListEventSourcesResponse";
   /**
    * <p>The list of event sources.</p>
@@ -923,8 +923,7 @@ export namespace ListPartnerEventSourceAccountsRequest {
   }
 }
 
-export interface ListPartnerEventSourceAccountsResponse
-  extends $MetadataBearer {
+export interface ListPartnerEventSourceAccountsResponse {
   __type?: "ListPartnerEventSourceAccountsResponse";
   /**
    * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
@@ -970,7 +969,7 @@ export namespace ListPartnerEventSourcesRequest {
   }
 }
 
-export interface ListPartnerEventSourcesResponse extends $MetadataBearer {
+export interface ListPartnerEventSourcesResponse {
   __type?: "ListPartnerEventSourcesResponse";
   /**
    * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
@@ -1018,7 +1017,7 @@ export namespace ListRuleNamesByTargetRequest {
   }
 }
 
-export interface ListRuleNamesByTargetResponse extends $MetadataBearer {
+export interface ListRuleNamesByTargetResponse {
   __type?: "ListRuleNamesByTargetResponse";
   /**
    * <p>Indicates whether there are additional results to retrieve. If there are no more results, the value is null.</p>
@@ -1066,7 +1065,7 @@ export namespace ListRulesRequest {
   }
 }
 
-export interface ListRulesResponse extends $MetadataBearer {
+export interface ListRulesResponse {
   __type?: "ListRulesResponse";
   /**
    * <p>Indicates whether there are additional results to retrieve. If there are no more results, the value is null.</p>
@@ -1099,7 +1098,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of tag keys and values associated with the rule that you specified.</p>
@@ -1142,7 +1141,7 @@ export namespace ListTargetsByRuleRequest {
   }
 }
 
-export interface ListTargetsByRuleResponse extends $MetadataBearer {
+export interface ListTargetsByRuleResponse {
   __type?: "ListTargetsByRuleResponse";
   /**
    * <p>Indicates whether there are additional results to retrieve. If there are no more results, the value is null.</p>
@@ -1302,7 +1301,7 @@ export namespace PutEventsRequestEntry {
   }
 }
 
-export interface PutEventsResponse extends $MetadataBearer {
+export interface PutEventsResponse {
   __type?: "PutEventsResponse";
   /**
    * <p>The successfully and unsuccessfully ingested events results. If the ingestion was successful,
@@ -1404,7 +1403,7 @@ export namespace PutPartnerEventsRequestEntry {
   }
 }
 
-export interface PutPartnerEventsResponse extends $MetadataBearer {
+export interface PutPartnerEventsResponse {
   __type?: "PutPartnerEventsResponse";
   /**
    * <p>The list of events from this operation that were successfully written to the partner event bus.</p>
@@ -1557,7 +1556,7 @@ export namespace PutRuleRequest {
   }
 }
 
-export interface PutRuleResponse extends $MetadataBearer {
+export interface PutRuleResponse {
   __type?: "PutRuleResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
@@ -1595,7 +1594,7 @@ export namespace PutTargetsRequest {
   }
 }
 
-export interface PutTargetsResponse extends $MetadataBearer {
+export interface PutTargetsResponse {
   __type?: "PutTargetsResponse";
   /**
    * <p>The failed target entries.</p>
@@ -1694,7 +1693,7 @@ export namespace RemoveTargetsRequest {
   }
 }
 
-export interface RemoveTargetsResponse extends $MetadataBearer {
+export interface RemoveTargetsResponse {
   __type?: "RemoveTargetsResponse";
   /**
    * <p>The failed target entries.</p>
@@ -1910,7 +1909,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -2028,7 +2027,7 @@ export namespace TestEventPatternRequest {
   }
 }
 
-export interface TestEventPatternResponse extends $MetadataBearer {
+export interface TestEventPatternResponse {
   __type?: "TestEventPatternResponse";
   /**
    * <p>Indicates whether the event matches the event pattern.</p>
@@ -2061,7 +2060,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

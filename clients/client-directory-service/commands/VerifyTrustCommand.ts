@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type VerifyTrustCommandInput = VerifyTrustRequest;
-export type VerifyTrustCommandOutput = VerifyTrustResult;
+export type VerifyTrustCommandOutput = VerifyTrustResult & __MetadataBearer;
 
 export class VerifyTrustCommand extends $Command<
   VerifyTrustCommandInput,

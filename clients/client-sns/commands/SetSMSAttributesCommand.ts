@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetSMSAttributesCommandInput = SetSMSAttributesInput;
-export type SetSMSAttributesCommandOutput = SetSMSAttributesResponse;
+export type SetSMSAttributesCommandOutput = SetSMSAttributesResponse &
+  __MetadataBearer;
 
 export class SetSMSAttributesCommand extends $Command<
   SetSMSAttributesCommandInput,

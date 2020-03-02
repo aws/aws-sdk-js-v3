@@ -1,107 +1,207 @@
 import {
-  BatchDetectDominantLanguageRequest,
-  BatchDetectDominantLanguageResponse,
-  BatchDetectEntitiesRequest,
-  BatchDetectEntitiesResponse,
-  BatchDetectKeyPhrasesRequest,
-  BatchDetectKeyPhrasesResponse,
-  BatchDetectSentimentRequest,
-  BatchDetectSentimentResponse,
-  BatchDetectSyntaxRequest,
-  BatchDetectSyntaxResponse,
-  ClassifyDocumentRequest,
-  ClassifyDocumentResponse,
-  CreateDocumentClassifierRequest,
-  CreateDocumentClassifierResponse,
-  CreateEndpointRequest,
-  CreateEndpointResponse,
-  CreateEntityRecognizerRequest,
-  CreateEntityRecognizerResponse,
-  DeleteDocumentClassifierRequest,
-  DeleteDocumentClassifierResponse,
-  DeleteEndpointRequest,
-  DeleteEndpointResponse,
-  DeleteEntityRecognizerRequest,
-  DeleteEntityRecognizerResponse,
-  DescribeDocumentClassificationJobRequest,
-  DescribeDocumentClassificationJobResponse,
-  DescribeDocumentClassifierRequest,
-  DescribeDocumentClassifierResponse,
-  DescribeDominantLanguageDetectionJobRequest,
-  DescribeDominantLanguageDetectionJobResponse,
-  DescribeEndpointRequest,
-  DescribeEndpointResponse,
-  DescribeEntitiesDetectionJobRequest,
-  DescribeEntitiesDetectionJobResponse,
-  DescribeEntityRecognizerRequest,
-  DescribeEntityRecognizerResponse,
-  DescribeKeyPhrasesDetectionJobRequest,
-  DescribeKeyPhrasesDetectionJobResponse,
-  DescribeSentimentDetectionJobRequest,
-  DescribeSentimentDetectionJobResponse,
-  DescribeTopicsDetectionJobRequest,
-  DescribeTopicsDetectionJobResponse,
-  DetectDominantLanguageRequest,
-  DetectDominantLanguageResponse,
-  DetectEntitiesRequest,
-  DetectEntitiesResponse,
-  DetectKeyPhrasesRequest,
-  DetectKeyPhrasesResponse,
-  DetectSentimentRequest,
-  DetectSentimentResponse,
-  DetectSyntaxRequest,
-  DetectSyntaxResponse,
-  ListDocumentClassificationJobsRequest,
-  ListDocumentClassificationJobsResponse,
-  ListDocumentClassifiersRequest,
-  ListDocumentClassifiersResponse,
-  ListDominantLanguageDetectionJobsRequest,
-  ListDominantLanguageDetectionJobsResponse,
-  ListEndpointsRequest,
-  ListEndpointsResponse,
-  ListEntitiesDetectionJobsRequest,
-  ListEntitiesDetectionJobsResponse,
-  ListEntityRecognizersRequest,
-  ListEntityRecognizersResponse,
-  ListKeyPhrasesDetectionJobsRequest,
-  ListKeyPhrasesDetectionJobsResponse,
-  ListSentimentDetectionJobsRequest,
-  ListSentimentDetectionJobsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTopicsDetectionJobsRequest,
-  ListTopicsDetectionJobsResponse,
-  StartDocumentClassificationJobRequest,
-  StartDocumentClassificationJobResponse,
-  StartDominantLanguageDetectionJobRequest,
-  StartDominantLanguageDetectionJobResponse,
-  StartEntitiesDetectionJobRequest,
-  StartEntitiesDetectionJobResponse,
-  StartKeyPhrasesDetectionJobRequest,
-  StartKeyPhrasesDetectionJobResponse,
-  StartSentimentDetectionJobRequest,
-  StartSentimentDetectionJobResponse,
-  StartTopicsDetectionJobRequest,
-  StartTopicsDetectionJobResponse,
-  StopDominantLanguageDetectionJobRequest,
-  StopDominantLanguageDetectionJobResponse,
-  StopEntitiesDetectionJobRequest,
-  StopEntitiesDetectionJobResponse,
-  StopKeyPhrasesDetectionJobRequest,
-  StopKeyPhrasesDetectionJobResponse,
-  StopSentimentDetectionJobRequest,
-  StopSentimentDetectionJobResponse,
-  StopTrainingDocumentClassifierRequest,
-  StopTrainingDocumentClassifierResponse,
-  StopTrainingEntityRecognizerRequest,
-  StopTrainingEntityRecognizerResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateEndpointRequest,
-  UpdateEndpointResponse
-} from "./models/index";
+  BatchDetectDominantLanguageCommandInput,
+  BatchDetectDominantLanguageCommandOutput
+} from "./commands/BatchDetectDominantLanguageCommand";
+import {
+  BatchDetectEntitiesCommandInput,
+  BatchDetectEntitiesCommandOutput
+} from "./commands/BatchDetectEntitiesCommand";
+import {
+  BatchDetectKeyPhrasesCommandInput,
+  BatchDetectKeyPhrasesCommandOutput
+} from "./commands/BatchDetectKeyPhrasesCommand";
+import {
+  BatchDetectSentimentCommandInput,
+  BatchDetectSentimentCommandOutput
+} from "./commands/BatchDetectSentimentCommand";
+import {
+  BatchDetectSyntaxCommandInput,
+  BatchDetectSyntaxCommandOutput
+} from "./commands/BatchDetectSyntaxCommand";
+import {
+  ClassifyDocumentCommandInput,
+  ClassifyDocumentCommandOutput
+} from "./commands/ClassifyDocumentCommand";
+import {
+  CreateDocumentClassifierCommandInput,
+  CreateDocumentClassifierCommandOutput
+} from "./commands/CreateDocumentClassifierCommand";
+import {
+  CreateEndpointCommandInput,
+  CreateEndpointCommandOutput
+} from "./commands/CreateEndpointCommand";
+import {
+  CreateEntityRecognizerCommandInput,
+  CreateEntityRecognizerCommandOutput
+} from "./commands/CreateEntityRecognizerCommand";
+import {
+  DeleteDocumentClassifierCommandInput,
+  DeleteDocumentClassifierCommandOutput
+} from "./commands/DeleteDocumentClassifierCommand";
+import {
+  DeleteEndpointCommandInput,
+  DeleteEndpointCommandOutput
+} from "./commands/DeleteEndpointCommand";
+import {
+  DeleteEntityRecognizerCommandInput,
+  DeleteEntityRecognizerCommandOutput
+} from "./commands/DeleteEntityRecognizerCommand";
+import {
+  DescribeDocumentClassificationJobCommandInput,
+  DescribeDocumentClassificationJobCommandOutput
+} from "./commands/DescribeDocumentClassificationJobCommand";
+import {
+  DescribeDocumentClassifierCommandInput,
+  DescribeDocumentClassifierCommandOutput
+} from "./commands/DescribeDocumentClassifierCommand";
+import {
+  DescribeDominantLanguageDetectionJobCommandInput,
+  DescribeDominantLanguageDetectionJobCommandOutput
+} from "./commands/DescribeDominantLanguageDetectionJobCommand";
+import {
+  DescribeEndpointCommandInput,
+  DescribeEndpointCommandOutput
+} from "./commands/DescribeEndpointCommand";
+import {
+  DescribeEntitiesDetectionJobCommandInput,
+  DescribeEntitiesDetectionJobCommandOutput
+} from "./commands/DescribeEntitiesDetectionJobCommand";
+import {
+  DescribeEntityRecognizerCommandInput,
+  DescribeEntityRecognizerCommandOutput
+} from "./commands/DescribeEntityRecognizerCommand";
+import {
+  DescribeKeyPhrasesDetectionJobCommandInput,
+  DescribeKeyPhrasesDetectionJobCommandOutput
+} from "./commands/DescribeKeyPhrasesDetectionJobCommand";
+import {
+  DescribeSentimentDetectionJobCommandInput,
+  DescribeSentimentDetectionJobCommandOutput
+} from "./commands/DescribeSentimentDetectionJobCommand";
+import {
+  DescribeTopicsDetectionJobCommandInput,
+  DescribeTopicsDetectionJobCommandOutput
+} from "./commands/DescribeTopicsDetectionJobCommand";
+import {
+  DetectDominantLanguageCommandInput,
+  DetectDominantLanguageCommandOutput
+} from "./commands/DetectDominantLanguageCommand";
+import {
+  DetectEntitiesCommandInput,
+  DetectEntitiesCommandOutput
+} from "./commands/DetectEntitiesCommand";
+import {
+  DetectKeyPhrasesCommandInput,
+  DetectKeyPhrasesCommandOutput
+} from "./commands/DetectKeyPhrasesCommand";
+import {
+  DetectSentimentCommandInput,
+  DetectSentimentCommandOutput
+} from "./commands/DetectSentimentCommand";
+import {
+  DetectSyntaxCommandInput,
+  DetectSyntaxCommandOutput
+} from "./commands/DetectSyntaxCommand";
+import {
+  ListDocumentClassificationJobsCommandInput,
+  ListDocumentClassificationJobsCommandOutput
+} from "./commands/ListDocumentClassificationJobsCommand";
+import {
+  ListDocumentClassifiersCommandInput,
+  ListDocumentClassifiersCommandOutput
+} from "./commands/ListDocumentClassifiersCommand";
+import {
+  ListDominantLanguageDetectionJobsCommandInput,
+  ListDominantLanguageDetectionJobsCommandOutput
+} from "./commands/ListDominantLanguageDetectionJobsCommand";
+import {
+  ListEndpointsCommandInput,
+  ListEndpointsCommandOutput
+} from "./commands/ListEndpointsCommand";
+import {
+  ListEntitiesDetectionJobsCommandInput,
+  ListEntitiesDetectionJobsCommandOutput
+} from "./commands/ListEntitiesDetectionJobsCommand";
+import {
+  ListEntityRecognizersCommandInput,
+  ListEntityRecognizersCommandOutput
+} from "./commands/ListEntityRecognizersCommand";
+import {
+  ListKeyPhrasesDetectionJobsCommandInput,
+  ListKeyPhrasesDetectionJobsCommandOutput
+} from "./commands/ListKeyPhrasesDetectionJobsCommand";
+import {
+  ListSentimentDetectionJobsCommandInput,
+  ListSentimentDetectionJobsCommandOutput
+} from "./commands/ListSentimentDetectionJobsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTopicsDetectionJobsCommandInput,
+  ListTopicsDetectionJobsCommandOutput
+} from "./commands/ListTopicsDetectionJobsCommand";
+import {
+  StartDocumentClassificationJobCommandInput,
+  StartDocumentClassificationJobCommandOutput
+} from "./commands/StartDocumentClassificationJobCommand";
+import {
+  StartDominantLanguageDetectionJobCommandInput,
+  StartDominantLanguageDetectionJobCommandOutput
+} from "./commands/StartDominantLanguageDetectionJobCommand";
+import {
+  StartEntitiesDetectionJobCommandInput,
+  StartEntitiesDetectionJobCommandOutput
+} from "./commands/StartEntitiesDetectionJobCommand";
+import {
+  StartKeyPhrasesDetectionJobCommandInput,
+  StartKeyPhrasesDetectionJobCommandOutput
+} from "./commands/StartKeyPhrasesDetectionJobCommand";
+import {
+  StartSentimentDetectionJobCommandInput,
+  StartSentimentDetectionJobCommandOutput
+} from "./commands/StartSentimentDetectionJobCommand";
+import {
+  StartTopicsDetectionJobCommandInput,
+  StartTopicsDetectionJobCommandOutput
+} from "./commands/StartTopicsDetectionJobCommand";
+import {
+  StopDominantLanguageDetectionJobCommandInput,
+  StopDominantLanguageDetectionJobCommandOutput
+} from "./commands/StopDominantLanguageDetectionJobCommand";
+import {
+  StopEntitiesDetectionJobCommandInput,
+  StopEntitiesDetectionJobCommandOutput
+} from "./commands/StopEntitiesDetectionJobCommand";
+import {
+  StopKeyPhrasesDetectionJobCommandInput,
+  StopKeyPhrasesDetectionJobCommandOutput
+} from "./commands/StopKeyPhrasesDetectionJobCommand";
+import {
+  StopSentimentDetectionJobCommandInput,
+  StopSentimentDetectionJobCommandOutput
+} from "./commands/StopSentimentDetectionJobCommand";
+import {
+  StopTrainingDocumentClassifierCommandInput,
+  StopTrainingDocumentClassifierCommandOutput
+} from "./commands/StopTrainingDocumentClassifierCommand";
+import {
+  StopTrainingEntityRecognizerCommandInput,
+  StopTrainingEntityRecognizerCommandOutput
+} from "./commands/StopTrainingEntityRecognizerCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateEndpointCommandInput,
+  UpdateEndpointCommandOutput
+} from "./commands/UpdateEndpointCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -155,110 +255,110 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchDetectDominantLanguageRequest
-  | BatchDetectEntitiesRequest
-  | BatchDetectKeyPhrasesRequest
-  | BatchDetectSentimentRequest
-  | BatchDetectSyntaxRequest
-  | ClassifyDocumentRequest
-  | CreateDocumentClassifierRequest
-  | CreateEndpointRequest
-  | CreateEntityRecognizerRequest
-  | DeleteDocumentClassifierRequest
-  | DeleteEndpointRequest
-  | DeleteEntityRecognizerRequest
-  | DescribeDocumentClassificationJobRequest
-  | DescribeDocumentClassifierRequest
-  | DescribeDominantLanguageDetectionJobRequest
-  | DescribeEndpointRequest
-  | DescribeEntitiesDetectionJobRequest
-  | DescribeEntityRecognizerRequest
-  | DescribeKeyPhrasesDetectionJobRequest
-  | DescribeSentimentDetectionJobRequest
-  | DescribeTopicsDetectionJobRequest
-  | DetectDominantLanguageRequest
-  | DetectEntitiesRequest
-  | DetectKeyPhrasesRequest
-  | DetectSentimentRequest
-  | DetectSyntaxRequest
-  | ListDocumentClassificationJobsRequest
-  | ListDocumentClassifiersRequest
-  | ListDominantLanguageDetectionJobsRequest
-  | ListEndpointsRequest
-  | ListEntitiesDetectionJobsRequest
-  | ListEntityRecognizersRequest
-  | ListKeyPhrasesDetectionJobsRequest
-  | ListSentimentDetectionJobsRequest
-  | ListTagsForResourceRequest
-  | ListTopicsDetectionJobsRequest
-  | StartDocumentClassificationJobRequest
-  | StartDominantLanguageDetectionJobRequest
-  | StartEntitiesDetectionJobRequest
-  | StartKeyPhrasesDetectionJobRequest
-  | StartSentimentDetectionJobRequest
-  | StartTopicsDetectionJobRequest
-  | StopDominantLanguageDetectionJobRequest
-  | StopEntitiesDetectionJobRequest
-  | StopKeyPhrasesDetectionJobRequest
-  | StopSentimentDetectionJobRequest
-  | StopTrainingDocumentClassifierRequest
-  | StopTrainingEntityRecognizerRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateEndpointRequest;
+  | BatchDetectDominantLanguageCommandInput
+  | BatchDetectEntitiesCommandInput
+  | BatchDetectKeyPhrasesCommandInput
+  | BatchDetectSentimentCommandInput
+  | BatchDetectSyntaxCommandInput
+  | ClassifyDocumentCommandInput
+  | CreateDocumentClassifierCommandInput
+  | CreateEndpointCommandInput
+  | CreateEntityRecognizerCommandInput
+  | DeleteDocumentClassifierCommandInput
+  | DeleteEndpointCommandInput
+  | DeleteEntityRecognizerCommandInput
+  | DescribeDocumentClassificationJobCommandInput
+  | DescribeDocumentClassifierCommandInput
+  | DescribeDominantLanguageDetectionJobCommandInput
+  | DescribeEndpointCommandInput
+  | DescribeEntitiesDetectionJobCommandInput
+  | DescribeEntityRecognizerCommandInput
+  | DescribeKeyPhrasesDetectionJobCommandInput
+  | DescribeSentimentDetectionJobCommandInput
+  | DescribeTopicsDetectionJobCommandInput
+  | DetectDominantLanguageCommandInput
+  | DetectEntitiesCommandInput
+  | DetectKeyPhrasesCommandInput
+  | DetectSentimentCommandInput
+  | DetectSyntaxCommandInput
+  | ListDocumentClassificationJobsCommandInput
+  | ListDocumentClassifiersCommandInput
+  | ListDominantLanguageDetectionJobsCommandInput
+  | ListEndpointsCommandInput
+  | ListEntitiesDetectionJobsCommandInput
+  | ListEntityRecognizersCommandInput
+  | ListKeyPhrasesDetectionJobsCommandInput
+  | ListSentimentDetectionJobsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTopicsDetectionJobsCommandInput
+  | StartDocumentClassificationJobCommandInput
+  | StartDominantLanguageDetectionJobCommandInput
+  | StartEntitiesDetectionJobCommandInput
+  | StartKeyPhrasesDetectionJobCommandInput
+  | StartSentimentDetectionJobCommandInput
+  | StartTopicsDetectionJobCommandInput
+  | StopDominantLanguageDetectionJobCommandInput
+  | StopEntitiesDetectionJobCommandInput
+  | StopKeyPhrasesDetectionJobCommandInput
+  | StopSentimentDetectionJobCommandInput
+  | StopTrainingDocumentClassifierCommandInput
+  | StopTrainingEntityRecognizerCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateEndpointCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchDetectDominantLanguageResponse
-  | BatchDetectEntitiesResponse
-  | BatchDetectKeyPhrasesResponse
-  | BatchDetectSentimentResponse
-  | BatchDetectSyntaxResponse
-  | ClassifyDocumentResponse
-  | CreateDocumentClassifierResponse
-  | CreateEndpointResponse
-  | CreateEntityRecognizerResponse
-  | DeleteDocumentClassifierResponse
-  | DeleteEndpointResponse
-  | DeleteEntityRecognizerResponse
-  | DescribeDocumentClassificationJobResponse
-  | DescribeDocumentClassifierResponse
-  | DescribeDominantLanguageDetectionJobResponse
-  | DescribeEndpointResponse
-  | DescribeEntitiesDetectionJobResponse
-  | DescribeEntityRecognizerResponse
-  | DescribeKeyPhrasesDetectionJobResponse
-  | DescribeSentimentDetectionJobResponse
-  | DescribeTopicsDetectionJobResponse
-  | DetectDominantLanguageResponse
-  | DetectEntitiesResponse
-  | DetectKeyPhrasesResponse
-  | DetectSentimentResponse
-  | DetectSyntaxResponse
-  | ListDocumentClassificationJobsResponse
-  | ListDocumentClassifiersResponse
-  | ListDominantLanguageDetectionJobsResponse
-  | ListEndpointsResponse
-  | ListEntitiesDetectionJobsResponse
-  | ListEntityRecognizersResponse
-  | ListKeyPhrasesDetectionJobsResponse
-  | ListSentimentDetectionJobsResponse
-  | ListTagsForResourceResponse
-  | ListTopicsDetectionJobsResponse
-  | StartDocumentClassificationJobResponse
-  | StartDominantLanguageDetectionJobResponse
-  | StartEntitiesDetectionJobResponse
-  | StartKeyPhrasesDetectionJobResponse
-  | StartSentimentDetectionJobResponse
-  | StartTopicsDetectionJobResponse
-  | StopDominantLanguageDetectionJobResponse
-  | StopEntitiesDetectionJobResponse
-  | StopKeyPhrasesDetectionJobResponse
-  | StopSentimentDetectionJobResponse
-  | StopTrainingDocumentClassifierResponse
-  | StopTrainingEntityRecognizerResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateEndpointResponse;
+  | BatchDetectDominantLanguageCommandOutput
+  | BatchDetectEntitiesCommandOutput
+  | BatchDetectKeyPhrasesCommandOutput
+  | BatchDetectSentimentCommandOutput
+  | BatchDetectSyntaxCommandOutput
+  | ClassifyDocumentCommandOutput
+  | CreateDocumentClassifierCommandOutput
+  | CreateEndpointCommandOutput
+  | CreateEntityRecognizerCommandOutput
+  | DeleteDocumentClassifierCommandOutput
+  | DeleteEndpointCommandOutput
+  | DeleteEntityRecognizerCommandOutput
+  | DescribeDocumentClassificationJobCommandOutput
+  | DescribeDocumentClassifierCommandOutput
+  | DescribeDominantLanguageDetectionJobCommandOutput
+  | DescribeEndpointCommandOutput
+  | DescribeEntitiesDetectionJobCommandOutput
+  | DescribeEntityRecognizerCommandOutput
+  | DescribeKeyPhrasesDetectionJobCommandOutput
+  | DescribeSentimentDetectionJobCommandOutput
+  | DescribeTopicsDetectionJobCommandOutput
+  | DetectDominantLanguageCommandOutput
+  | DetectEntitiesCommandOutput
+  | DetectKeyPhrasesCommandOutput
+  | DetectSentimentCommandOutput
+  | DetectSyntaxCommandOutput
+  | ListDocumentClassificationJobsCommandOutput
+  | ListDocumentClassifiersCommandOutput
+  | ListDominantLanguageDetectionJobsCommandOutput
+  | ListEndpointsCommandOutput
+  | ListEntitiesDetectionJobsCommandOutput
+  | ListEntityRecognizersCommandOutput
+  | ListKeyPhrasesDetectionJobsCommandOutput
+  | ListSentimentDetectionJobsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTopicsDetectionJobsCommandOutput
+  | StartDocumentClassificationJobCommandOutput
+  | StartDominantLanguageDetectionJobCommandOutput
+  | StartEntitiesDetectionJobCommandOutput
+  | StartKeyPhrasesDetectionJobCommandOutput
+  | StartSentimentDetectionJobCommandOutput
+  | StartTopicsDetectionJobCommandOutput
+  | StopDominantLanguageDetectionJobCommandOutput
+  | StopEntitiesDetectionJobCommandOutput
+  | StopKeyPhrasesDetectionJobCommandOutput
+  | StopSentimentDetectionJobCommandOutput
+  | StopTrainingDocumentClassifierCommandOutput
+  | StopTrainingEntityRecognizerCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateEndpointCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

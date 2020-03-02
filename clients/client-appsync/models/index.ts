@@ -560,7 +560,7 @@ export namespace CreateApiCacheRequest {
 /**
  * <p>Represents the output of a <code>CreateApiCache</code> operation.</p>
  */
-export interface CreateApiCacheResponse extends $MetadataBearer {
+export interface CreateApiCacheResponse {
   __type?: "CreateApiCacheResponse";
   /**
    * <p>The <code>ApiCache</code> object.</p>
@@ -600,7 +600,7 @@ export namespace CreateApiKeyRequest {
   }
 }
 
-export interface CreateApiKeyResponse extends $MetadataBearer {
+export interface CreateApiKeyResponse {
   __type?: "CreateApiKeyResponse";
   /**
    * <p>The API key.</p>
@@ -674,7 +674,7 @@ export namespace CreateDataSourceRequest {
   }
 }
 
-export interface CreateDataSourceResponse extends $MetadataBearer {
+export interface CreateDataSourceResponse {
   __type?: "CreateDataSourceResponse";
   /**
    * <p>The <code>DataSource</code> object.</p>
@@ -733,7 +733,7 @@ export namespace CreateFunctionRequest {
   }
 }
 
-export interface CreateFunctionResponse extends $MetadataBearer {
+export interface CreateFunctionResponse {
   __type?: "CreateFunctionResponse";
   /**
    * <p>The <code>Function</code> object.</p>
@@ -791,7 +791,7 @@ export namespace CreateGraphqlApiRequest {
   }
 }
 
-export interface CreateGraphqlApiResponse extends $MetadataBearer {
+export interface CreateGraphqlApiResponse {
   __type?: "CreateGraphqlApiResponse";
   /**
    * <p>The <code>GraphqlApi</code>.</p>
@@ -881,7 +881,7 @@ export namespace CreateResolverRequest {
   }
 }
 
-export interface CreateResolverResponse extends $MetadataBearer {
+export interface CreateResolverResponse {
   __type?: "CreateResolverResponse";
   /**
    * <p>The <code>Resolver</code> object.</p>
@@ -921,7 +921,7 @@ export namespace CreateTypeRequest {
   }
 }
 
-export interface CreateTypeResponse extends $MetadataBearer {
+export interface CreateTypeResponse {
   __type?: "CreateTypeResponse";
   /**
    * <p>The <code>Type</code> object.</p>
@@ -1065,7 +1065,7 @@ export namespace DeleteApiCacheRequest {
 /**
  * <p>Represents the output of a <code>DeleteApiCache</code> operation.</p>
  */
-export interface DeleteApiCacheResponse extends $MetadataBearer {
+export interface DeleteApiCacheResponse {
   __type?: "DeleteApiCacheResponse";
 }
 
@@ -1094,7 +1094,7 @@ export namespace DeleteApiKeyRequest {
   }
 }
 
-export interface DeleteApiKeyResponse extends $MetadataBearer {
+export interface DeleteApiKeyResponse {
   __type?: "DeleteApiKeyResponse";
 }
 
@@ -1123,7 +1123,7 @@ export namespace DeleteDataSourceRequest {
   }
 }
 
-export interface DeleteDataSourceResponse extends $MetadataBearer {
+export interface DeleteDataSourceResponse {
   __type?: "DeleteDataSourceResponse";
 }
 
@@ -1152,7 +1152,7 @@ export namespace DeleteFunctionRequest {
   }
 }
 
-export interface DeleteFunctionResponse extends $MetadataBearer {
+export interface DeleteFunctionResponse {
   __type?: "DeleteFunctionResponse";
 }
 
@@ -1176,7 +1176,7 @@ export namespace DeleteGraphqlApiRequest {
   }
 }
 
-export interface DeleteGraphqlApiResponse extends $MetadataBearer {
+export interface DeleteGraphqlApiResponse {
   __type?: "DeleteGraphqlApiResponse";
 }
 
@@ -1210,7 +1210,7 @@ export namespace DeleteResolverRequest {
   }
 }
 
-export interface DeleteResolverResponse extends $MetadataBearer {
+export interface DeleteResolverResponse {
   __type?: "DeleteResolverResponse";
 }
 
@@ -1239,7 +1239,7 @@ export namespace DeleteTypeRequest {
   }
 }
 
-export interface DeleteTypeResponse extends $MetadataBearer {
+export interface DeleteTypeResponse {
   __type?: "DeleteTypeResponse";
 }
 
@@ -1361,7 +1361,7 @@ export namespace FlushApiCacheRequest {
 /**
  * <p>Represents the output of a <code>FlushApiCache</code> operation.</p>
  */
-export interface FlushApiCacheResponse extends $MetadataBearer {
+export interface FlushApiCacheResponse {
   __type?: "FlushApiCacheResponse";
 }
 
@@ -1443,7 +1443,7 @@ export namespace GetApiCacheRequest {
 /**
  * <p>Represents the output of a <code>GetApiCache</code> operation.</p>
  */
-export interface GetApiCacheResponse extends $MetadataBearer {
+export interface GetApiCacheResponse {
   __type?: "GetApiCacheResponse";
   apiCache?: ApiCache;
 }
@@ -1473,7 +1473,7 @@ export namespace GetDataSourceRequest {
   }
 }
 
-export interface GetDataSourceResponse extends $MetadataBearer {
+export interface GetDataSourceResponse {
   __type?: "GetDataSourceResponse";
   /**
    * <p>The <code>DataSource</code> object.</p>
@@ -1506,7 +1506,7 @@ export namespace GetFunctionRequest {
   }
 }
 
-export interface GetFunctionResponse extends $MetadataBearer {
+export interface GetFunctionResponse {
   __type?: "GetFunctionResponse";
   /**
    * <p>The <code>Function</code> object.</p>
@@ -1534,7 +1534,7 @@ export namespace GetGraphqlApiRequest {
   }
 }
 
-export interface GetGraphqlApiResponse extends $MetadataBearer {
+export interface GetGraphqlApiResponse {
   __type?: "GetGraphqlApiResponse";
   /**
    * <p>The <code>GraphqlApi</code> object.</p>
@@ -1572,7 +1572,7 @@ export namespace GetIntrospectionSchemaRequest {
   }
 }
 
-export interface GetIntrospectionSchemaResponse extends $MetadataBearer {
+export interface GetIntrospectionSchemaResponse {
   __type?: "GetIntrospectionSchemaResponse";
   /**
    * <p>The schema, in GraphQL Schema Definition Language (SDL) format.</p>
@@ -1612,7 +1612,7 @@ export namespace GetResolverRequest {
   }
 }
 
-export interface GetResolverResponse extends $MetadataBearer {
+export interface GetResolverResponse {
   __type?: "GetResolverResponse";
   /**
    * <p>The <code>Resolver</code> object.</p>
@@ -1640,7 +1640,7 @@ export namespace GetSchemaCreationStatusRequest {
   }
 }
 
-export interface GetSchemaCreationStatusResponse extends $MetadataBearer {
+export interface GetSchemaCreationStatusResponse {
   __type?: "GetSchemaCreationStatusResponse";
   /**
    * <p>Detailed information about the status of the schema creation operation.</p>
@@ -1684,7 +1684,7 @@ export namespace GetTypeRequest {
   }
 }
 
-export interface GetTypeResponse extends $MetadataBearer {
+export interface GetTypeResponse {
   __type?: "GetTypeResponse";
   /**
    * <p>The <code>Type</code> object.</p>
@@ -1889,7 +1889,7 @@ export namespace ListApiKeysRequest {
   }
 }
 
-export interface ListApiKeysResponse extends $MetadataBearer {
+export interface ListApiKeysResponse {
   __type?: "ListApiKeysResponse";
   /**
    * <p>The <code>ApiKey</code> objects.</p>
@@ -1934,7 +1934,7 @@ export namespace ListDataSourcesRequest {
   }
 }
 
-export interface ListDataSourcesResponse extends $MetadataBearer {
+export interface ListDataSourcesResponse {
   __type?: "ListDataSourcesResponse";
   /**
    * <p>The <code>DataSource</code> objects.</p>
@@ -1979,7 +1979,7 @@ export namespace ListFunctionsRequest {
   }
 }
 
-export interface ListFunctionsResponse extends $MetadataBearer {
+export interface ListFunctionsResponse {
   __type?: "ListFunctionsResponse";
   /**
    * <p>A list of <code>Function</code> objects.</p>
@@ -2019,7 +2019,7 @@ export namespace ListGraphqlApisRequest {
   }
 }
 
-export interface ListGraphqlApisResponse extends $MetadataBearer {
+export interface ListGraphqlApisResponse {
   __type?: "ListGraphqlApisResponse";
   /**
    * <p>The <code>GraphqlApi</code> objects.</p>
@@ -2068,7 +2068,7 @@ export namespace ListResolversByFunctionRequest {
   }
 }
 
-export interface ListResolversByFunctionResponse extends $MetadataBearer {
+export interface ListResolversByFunctionResponse {
   __type?: "ListResolversByFunctionResponse";
   /**
    * <p>An identifier that can be used to return the next set of items in the list.</p>
@@ -2117,7 +2117,7 @@ export namespace ListResolversRequest {
   }
 }
 
-export interface ListResolversResponse extends $MetadataBearer {
+export interface ListResolversResponse {
   __type?: "ListResolversResponse";
   /**
    * <p>An identifier to be passed in the next request to this operation to return the next set
@@ -2151,7 +2151,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>A <code>TagMap</code> object.</p>
@@ -2195,7 +2195,7 @@ export namespace ListTypesRequest {
   }
 }
 
-export interface ListTypesResponse extends $MetadataBearer {
+export interface ListTypesResponse {
   __type?: "ListTypesResponse";
   /**
    * <p>An identifier to be passed in the next request to this operation to return the next set
@@ -2527,7 +2527,7 @@ export namespace StartSchemaCreationRequest {
   }
 }
 
-export interface StartSchemaCreationResponse extends $MetadataBearer {
+export interface StartSchemaCreationResponse {
   __type?: "StartSchemaCreationResponse";
   /**
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in
@@ -2613,7 +2613,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -2701,7 +2701,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -2787,7 +2787,7 @@ export namespace UpdateApiCacheRequest {
 /**
  * <p>Represents the output of a <code>UpdateApiCache</code> operation.</p>
  */
-export interface UpdateApiCacheResponse extends $MetadataBearer {
+export interface UpdateApiCacheResponse {
   __type?: "UpdateApiCacheResponse";
   /**
    * <p>The <code>ApiCache</code> object.</p>
@@ -2831,7 +2831,7 @@ export namespace UpdateApiKeyRequest {
   }
 }
 
-export interface UpdateApiKeyResponse extends $MetadataBearer {
+export interface UpdateApiKeyResponse {
   __type?: "UpdateApiKeyResponse";
   /**
    * <p>The API key.</p>
@@ -2904,7 +2904,7 @@ export namespace UpdateDataSourceRequest {
   }
 }
 
-export interface UpdateDataSourceResponse extends $MetadataBearer {
+export interface UpdateDataSourceResponse {
   __type?: "UpdateDataSourceResponse";
   /**
    * <p>The updated <code>DataSource</code> object.</p>
@@ -2968,7 +2968,7 @@ export namespace UpdateFunctionRequest {
   }
 }
 
-export interface UpdateFunctionResponse extends $MetadataBearer {
+export interface UpdateFunctionResponse {
   __type?: "UpdateFunctionResponse";
   /**
    * <p>The <code>Function</code> object.</p>
@@ -3029,7 +3029,7 @@ export namespace UpdateGraphqlApiRequest {
   }
 }
 
-export interface UpdateGraphqlApiResponse extends $MetadataBearer {
+export interface UpdateGraphqlApiResponse {
   __type?: "UpdateGraphqlApiResponse";
   /**
    * <p>The updated <code>GraphqlApi</code> object.</p>
@@ -3116,7 +3116,7 @@ export namespace UpdateResolverRequest {
   }
 }
 
-export interface UpdateResolverResponse extends $MetadataBearer {
+export interface UpdateResolverResponse {
   __type?: "UpdateResolverResponse";
   /**
    * <p>The updated <code>Resolver</code> object.</p>
@@ -3159,7 +3159,7 @@ export namespace UpdateTypeRequest {
   }
 }
 
-export interface UpdateTypeResponse extends $MetadataBearer {
+export interface UpdateTypeResponse {
   __type?: "UpdateTypeResponse";
   /**
    * <p>The updated <code>Type</code> object.</p>

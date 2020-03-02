@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCustomAvailabilityZoneCommandInput = DeleteCustomAvailabilityZoneMessage;
-export type DeleteCustomAvailabilityZoneCommandOutput = DeleteCustomAvailabilityZoneResult;
+export type DeleteCustomAvailabilityZoneCommandOutput = DeleteCustomAvailabilityZoneResult &
+  __MetadataBearer;
 
 export class DeleteCustomAvailabilityZoneCommand extends $Command<
   DeleteCustomAvailabilityZoneCommandInput,

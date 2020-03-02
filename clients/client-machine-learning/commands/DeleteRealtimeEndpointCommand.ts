@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRealtimeEndpointCommandInput = DeleteRealtimeEndpointInput;
-export type DeleteRealtimeEndpointCommandOutput = DeleteRealtimeEndpointOutput;
+export type DeleteRealtimeEndpointCommandOutput = DeleteRealtimeEndpointOutput &
+  __MetadataBearer;
 
 export class DeleteRealtimeEndpointCommand extends $Command<
   DeleteRealtimeEndpointCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterTargetsCommandInput = RegisterTargetsInput;
-export type RegisterTargetsCommandOutput = RegisterTargetsOutput;
+export type RegisterTargetsCommandOutput = RegisterTargetsOutput &
+  __MetadataBearer;
 
 export class RegisterTargetsCommand extends $Command<
   RegisterTargetsCommandInput,

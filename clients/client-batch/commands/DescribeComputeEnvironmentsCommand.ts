@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeComputeEnvironmentsCommandInput = DescribeComputeEnvironmentsRequest;
-export type DescribeComputeEnvironmentsCommandOutput = DescribeComputeEnvironmentsResponse;
+export type DescribeComputeEnvironmentsCommandOutput = DescribeComputeEnvironmentsResponse &
+  __MetadataBearer;
 
 export class DescribeComputeEnvironmentsCommand extends $Command<
   DescribeComputeEnvironmentsCommandInput,

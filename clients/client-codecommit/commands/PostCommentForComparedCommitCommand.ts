@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PostCommentForComparedCommitCommandInput = PostCommentForComparedCommitInput;
-export type PostCommentForComparedCommitCommandOutput = PostCommentForComparedCommitOutput;
+export type PostCommentForComparedCommitCommandOutput = PostCommentForComparedCommitOutput &
+  __MetadataBearer;
 
 export class PostCommentForComparedCommitCommand extends $Command<
   PostCommentForComparedCommitCommandInput,

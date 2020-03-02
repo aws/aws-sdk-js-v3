@@ -1,40 +1,84 @@
 import {
-  CreateIdentityPoolInput,
-  DeleteIdentitiesInput,
-  DeleteIdentitiesResponse,
-  DeleteIdentityPoolInput,
-  DescribeIdentityInput,
-  DescribeIdentityPoolInput,
-  GetCredentialsForIdentityInput,
-  GetCredentialsForIdentityResponse,
-  GetIdInput,
-  GetIdResponse,
-  GetIdentityPoolRolesInput,
-  GetIdentityPoolRolesResponse,
-  GetOpenIdTokenForDeveloperIdentityInput,
-  GetOpenIdTokenForDeveloperIdentityResponse,
-  GetOpenIdTokenInput,
-  GetOpenIdTokenResponse,
-  IdentityDescription,
-  IdentityPool,
-  ListIdentitiesInput,
-  ListIdentitiesResponse,
-  ListIdentityPoolsInput,
-  ListIdentityPoolsResponse,
-  ListTagsForResourceInput,
-  ListTagsForResourceResponse,
-  LookupDeveloperIdentityInput,
-  LookupDeveloperIdentityResponse,
-  MergeDeveloperIdentitiesInput,
-  MergeDeveloperIdentitiesResponse,
-  SetIdentityPoolRolesInput,
-  TagResourceInput,
-  TagResourceResponse,
-  UnlinkDeveloperIdentityInput,
-  UnlinkIdentityInput,
-  UntagResourceInput,
-  UntagResourceResponse
-} from "./models/index";
+  CreateIdentityPoolCommandInput,
+  CreateIdentityPoolCommandOutput
+} from "./commands/CreateIdentityPoolCommand";
+import {
+  DeleteIdentitiesCommandInput,
+  DeleteIdentitiesCommandOutput
+} from "./commands/DeleteIdentitiesCommand";
+import {
+  DeleteIdentityPoolCommandInput,
+  DeleteIdentityPoolCommandOutput
+} from "./commands/DeleteIdentityPoolCommand";
+import {
+  DescribeIdentityCommandInput,
+  DescribeIdentityCommandOutput
+} from "./commands/DescribeIdentityCommand";
+import {
+  DescribeIdentityPoolCommandInput,
+  DescribeIdentityPoolCommandOutput
+} from "./commands/DescribeIdentityPoolCommand";
+import {
+  GetCredentialsForIdentityCommandInput,
+  GetCredentialsForIdentityCommandOutput
+} from "./commands/GetCredentialsForIdentityCommand";
+import { GetIdCommandInput, GetIdCommandOutput } from "./commands/GetIdCommand";
+import {
+  GetIdentityPoolRolesCommandInput,
+  GetIdentityPoolRolesCommandOutput
+} from "./commands/GetIdentityPoolRolesCommand";
+import {
+  GetOpenIdTokenCommandInput,
+  GetOpenIdTokenCommandOutput
+} from "./commands/GetOpenIdTokenCommand";
+import {
+  GetOpenIdTokenForDeveloperIdentityCommandInput,
+  GetOpenIdTokenForDeveloperIdentityCommandOutput
+} from "./commands/GetOpenIdTokenForDeveloperIdentityCommand";
+import {
+  ListIdentitiesCommandInput,
+  ListIdentitiesCommandOutput
+} from "./commands/ListIdentitiesCommand";
+import {
+  ListIdentityPoolsCommandInput,
+  ListIdentityPoolsCommandOutput
+} from "./commands/ListIdentityPoolsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  LookupDeveloperIdentityCommandInput,
+  LookupDeveloperIdentityCommandOutput
+} from "./commands/LookupDeveloperIdentityCommand";
+import {
+  MergeDeveloperIdentitiesCommandInput,
+  MergeDeveloperIdentitiesCommandOutput
+} from "./commands/MergeDeveloperIdentitiesCommand";
+import {
+  SetIdentityPoolRolesCommandInput,
+  SetIdentityPoolRolesCommandOutput
+} from "./commands/SetIdentityPoolRolesCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UnlinkDeveloperIdentityCommandInput,
+  UnlinkDeveloperIdentityCommandOutput
+} from "./commands/UnlinkDeveloperIdentityCommand";
+import {
+  UnlinkIdentityCommandInput,
+  UnlinkIdentityCommandOutput
+} from "./commands/UnlinkIdentityCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateIdentityPoolCommandInput,
+  UpdateIdentityPoolCommandOutput
+} from "./commands/UpdateIdentityPoolCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,54 +125,56 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateIdentityPoolInput
-  | DeleteIdentitiesInput
-  | DeleteIdentityPoolInput
-  | DescribeIdentityInput
-  | DescribeIdentityPoolInput
-  | GetCredentialsForIdentityInput
-  | GetIdInput
-  | GetIdentityPoolRolesInput
-  | GetOpenIdTokenForDeveloperIdentityInput
-  | GetOpenIdTokenInput
-  | IdentityPool
-  | ListIdentitiesInput
-  | ListIdentityPoolsInput
-  | ListTagsForResourceInput
-  | LookupDeveloperIdentityInput
-  | MergeDeveloperIdentitiesInput
-  | SetIdentityPoolRolesInput
-  | TagResourceInput
-  | UnlinkDeveloperIdentityInput
-  | UnlinkIdentityInput
-  | UntagResourceInput;
+  | CreateIdentityPoolCommandInput
+  | DeleteIdentitiesCommandInput
+  | DeleteIdentityPoolCommandInput
+  | DescribeIdentityCommandInput
+  | DescribeIdentityPoolCommandInput
+  | GetCredentialsForIdentityCommandInput
+  | GetIdCommandInput
+  | GetIdentityPoolRolesCommandInput
+  | GetOpenIdTokenCommandInput
+  | GetOpenIdTokenForDeveloperIdentityCommandInput
+  | ListIdentitiesCommandInput
+  | ListIdentityPoolsCommandInput
+  | ListTagsForResourceCommandInput
+  | LookupDeveloperIdentityCommandInput
+  | MergeDeveloperIdentitiesCommandInput
+  | SetIdentityPoolRolesCommandInput
+  | TagResourceCommandInput
+  | UnlinkDeveloperIdentityCommandInput
+  | UnlinkIdentityCommandInput
+  | UntagResourceCommandInput
+  | UpdateIdentityPoolCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | DeleteIdentitiesResponse
-  | GetCredentialsForIdentityResponse
-  | GetIdResponse
-  | GetIdentityPoolRolesResponse
-  | GetOpenIdTokenForDeveloperIdentityResponse
-  | GetOpenIdTokenResponse
-  | IdentityDescription
-  | IdentityPool
-  | IdentityPool
-  | IdentityPool
-  | ListIdentitiesResponse
-  | ListIdentityPoolsResponse
-  | ListTagsForResourceResponse
-  | LookupDeveloperIdentityResponse
-  | MergeDeveloperIdentitiesResponse
-  | TagResourceResponse
-  | UntagResourceResponse;
+  | CreateIdentityPoolCommandOutput
+  | DeleteIdentitiesCommandOutput
+  | DeleteIdentityPoolCommandOutput
+  | DescribeIdentityCommandOutput
+  | DescribeIdentityPoolCommandOutput
+  | GetCredentialsForIdentityCommandOutput
+  | GetIdCommandOutput
+  | GetIdentityPoolRolesCommandOutput
+  | GetOpenIdTokenCommandOutput
+  | GetOpenIdTokenForDeveloperIdentityCommandOutput
+  | ListIdentitiesCommandOutput
+  | ListIdentityPoolsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | LookupDeveloperIdentityCommandOutput
+  | MergeDeveloperIdentitiesCommandOutput
+  | SetIdentityPoolRolesCommandOutput
+  | TagResourceCommandOutput
+  | UnlinkDeveloperIdentityCommandOutput
+  | UnlinkIdentityCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateIdentityPoolCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

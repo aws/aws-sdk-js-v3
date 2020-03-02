@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetResourcePolicyCommandInput = GetResourcePolicyInput;
-export type GetResourcePolicyCommandOutput = GetResourcePolicyOutput;
+export type GetResourcePolicyCommandOutput = GetResourcePolicyOutput &
+  __MetadataBearer;
 
 export class GetResourcePolicyCommand extends $Command<
   GetResourcePolicyCommandInput,

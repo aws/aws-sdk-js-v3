@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDatasetGroupCommandInput = DescribeDatasetGroupRequest;
-export type DescribeDatasetGroupCommandOutput = DescribeDatasetGroupResponse;
+export type DescribeDatasetGroupCommandOutput = DescribeDatasetGroupResponse &
+  __MetadataBearer;
 
 export class DescribeDatasetGroupCommand extends $Command<
   DescribeDatasetGroupCommandInput,

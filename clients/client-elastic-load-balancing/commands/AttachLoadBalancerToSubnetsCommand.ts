@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AttachLoadBalancerToSubnetsCommandInput = AttachLoadBalancerToSubnetsInput;
-export type AttachLoadBalancerToSubnetsCommandOutput = AttachLoadBalancerToSubnetsOutput;
+export type AttachLoadBalancerToSubnetsCommandOutput = AttachLoadBalancerToSubnetsOutput &
+  __MetadataBearer;
 
 export class AttachLoadBalancerToSubnetsCommand extends $Command<
   AttachLoadBalancerToSubnetsCommandInput,

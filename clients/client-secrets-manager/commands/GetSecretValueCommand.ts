@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSecretValueCommandInput = GetSecretValueRequest;
-export type GetSecretValueCommandOutput = GetSecretValueResponse;
+export type GetSecretValueCommandOutput = GetSecretValueResponse &
+  __MetadataBearer;
 
 export class GetSecretValueCommand extends $Command<
   GetSecretValueCommandInput,

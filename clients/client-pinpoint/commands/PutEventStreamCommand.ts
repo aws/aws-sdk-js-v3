@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutEventStreamCommandInput = PutEventStreamRequest;
-export type PutEventStreamCommandOutput = PutEventStreamResponse;
+export type PutEventStreamCommandOutput = PutEventStreamResponse &
+  __MetadataBearer;
 
 export class PutEventStreamCommand extends $Command<
   PutEventStreamCommandInput,

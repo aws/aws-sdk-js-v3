@@ -488,7 +488,7 @@ export namespace UnsupportedAvailabilityZone {
 /**
  * <p>Provides a description of an EFS file system access point.</p>
  */
-export interface AccessPointDescription extends $MetadataBearer {
+export interface AccessPointDescription {
   __type?: "AccessPointDescription";
   /**
    * <p>The  unique Amazon Resource Name (ARN) associated with the access point.</p>
@@ -886,7 +886,7 @@ export namespace DescribeAccessPointsRequest {
   }
 }
 
-export interface DescribeAccessPointsResponse extends $MetadataBearer {
+export interface DescribeAccessPointsResponse {
   __type?: "DescribeAccessPointsResponse";
   /**
    * <p>An array of access point descriptions.</p>
@@ -958,7 +958,7 @@ export namespace DescribeFileSystemsRequest {
   }
 }
 
-export interface DescribeFileSystemsResponse extends $MetadataBearer {
+export interface DescribeFileSystemsResponse {
   __type?: "DescribeFileSystemsResponse";
   /**
    * <p>An array of file system descriptions.</p>
@@ -1015,8 +1015,7 @@ export namespace DescribeMountTargetSecurityGroupsRequest {
   }
 }
 
-export interface DescribeMountTargetSecurityGroupsResponse
-  extends $MetadataBearer {
+export interface DescribeMountTargetSecurityGroupsResponse {
   __type?: "DescribeMountTargetSecurityGroupsResponse";
   /**
    * <p>An array of security groups.</p>
@@ -1077,7 +1076,7 @@ export namespace DescribeMountTargetsRequest {
 /**
  * <p></p>
  */
-export interface DescribeMountTargetsResponse extends $MetadataBearer {
+export interface DescribeMountTargetsResponse {
   __type?: "DescribeMountTargetsResponse";
   /**
    * <p>If the request included the <code>Marker</code>, the response returns that value in
@@ -1139,7 +1138,7 @@ export namespace DescribeTagsRequest {
 /**
  * <p></p>
  */
-export interface DescribeTagsResponse extends $MetadataBearer {
+export interface DescribeTagsResponse {
   __type?: "DescribeTagsResponse";
   /**
    * <p>If the request included a <code>Marker</code>, the response returns that value in this
@@ -1170,7 +1169,7 @@ export namespace DescribeTagsResponse {
 /**
  * <p>A description of the file system.</p>
  */
-export interface FileSystemDescription extends $MetadataBearer {
+export interface FileSystemDescription {
   __type?: "FileSystemDescription";
   /**
    * <p>The time that the file system was created, in seconds (since
@@ -1273,7 +1272,7 @@ export namespace FileSystemDescription {
   }
 }
 
-export interface FileSystemPolicyDescription extends $MetadataBearer {
+export interface FileSystemPolicyDescription {
   __type?: "FileSystemPolicyDescription";
   /**
    * <p>Specifies the EFS file system to which the <code>FileSystemPolicy</code> applies.</p>
@@ -1341,7 +1340,7 @@ export enum LifeCycleState {
   UPDATING = "updating"
 }
 
-export interface LifecycleConfigurationDescription extends $MetadataBearer {
+export interface LifecycleConfigurationDescription {
   __type?: "LifecycleConfigurationDescription";
   /**
    * <p>An array of lifecycle management policies. Currently, EFS supports a maximum of one
@@ -1401,7 +1400,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>
@@ -1446,7 +1445,7 @@ export namespace ModifyMountTargetSecurityGroupsRequest {
 /**
  * <p>Provides a description of a mount target.</p>
  */
-export interface MountTargetDescription extends $MetadataBearer {
+export interface MountTargetDescription {
   __type?: "MountTargetDescription";
   /**
    * <p>The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.

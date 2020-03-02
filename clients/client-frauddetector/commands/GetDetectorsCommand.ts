@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDetectorsCommandInput = GetDetectorsRequest;
-export type GetDetectorsCommandOutput = GetDetectorsResult;
+export type GetDetectorsCommandOutput = GetDetectorsResult & __MetadataBearer;
 
 export class GetDetectorsCommand extends $Command<
   GetDetectorsCommandInput,

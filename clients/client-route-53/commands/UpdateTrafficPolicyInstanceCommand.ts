@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateTrafficPolicyInstanceCommandInput = UpdateTrafficPolicyInstanceRequest;
-export type UpdateTrafficPolicyInstanceCommandOutput = UpdateTrafficPolicyInstanceResponse;
+export type UpdateTrafficPolicyInstanceCommandOutput = UpdateTrafficPolicyInstanceResponse &
+  __MetadataBearer;
 
 export class UpdateTrafficPolicyInstanceCommand extends $Command<
   UpdateTrafficPolicyInstanceCommandInput,

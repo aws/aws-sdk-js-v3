@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCachediSCSIVolumeCommandInput = CreateCachediSCSIVolumeInput;
-export type CreateCachediSCSIVolumeCommandOutput = CreateCachediSCSIVolumeOutput;
+export type CreateCachediSCSIVolumeCommandOutput = CreateCachediSCSIVolumeOutput &
+  __MetadataBearer;
 
 export class CreateCachediSCSIVolumeCommand extends $Command<
   CreateCachediSCSIVolumeCommandInput,

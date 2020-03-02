@@ -262,8 +262,7 @@ export namespace GetAutoScalingGroupRecommendationsRequest {
   }
 }
 
-export interface GetAutoScalingGroupRecommendationsResponse
-  extends $MetadataBearer {
+export interface GetAutoScalingGroupRecommendationsResponse {
   __type?: "GetAutoScalingGroupRecommendationsResponse";
   /**
    * <p>An array of objects that describe Auto Scaling group recommendations.</p>
@@ -330,7 +329,7 @@ export namespace GetEC2InstanceRecommendationsRequest {
   }
 }
 
-export interface GetEC2InstanceRecommendationsResponse extends $MetadataBearer {
+export interface GetEC2InstanceRecommendationsResponse {
   __type?: "GetEC2InstanceRecommendationsResponse";
   /**
    * <p>An array of objects that describe errors of the request.</p>
@@ -395,8 +394,7 @@ export namespace GetEC2RecommendationProjectedMetricsRequest {
   }
 }
 
-export interface GetEC2RecommendationProjectedMetricsResponse
-  extends $MetadataBearer {
+export interface GetEC2RecommendationProjectedMetricsResponse {
   __type?: "GetEC2RecommendationProjectedMetricsResponse";
   /**
    * <p>An array of objects that describe a projected metrics.</p>
@@ -422,7 +420,7 @@ export namespace GetEnrollmentStatusRequest {
   }
 }
 
-export interface GetEnrollmentStatusResponse extends $MetadataBearer {
+export interface GetEnrollmentStatusResponse {
   __type?: "GetEnrollmentStatusResponse";
   /**
    * <p>Confirms the enrollment status of member accounts within the organization, if the
@@ -506,7 +504,7 @@ export namespace GetRecommendationSummariesRequest {
   }
 }
 
-export interface GetRecommendationSummariesResponse extends $MetadataBearer {
+export interface GetRecommendationSummariesResponse {
   __type?: "GetRecommendationSummariesResponse";
   /**
    * <p>The token to use to advance to the next page of recommendation summaries.</p>
@@ -967,7 +965,7 @@ export namespace UpdateEnrollmentStatusRequest {
   }
 }
 
-export interface UpdateEnrollmentStatusResponse extends $MetadataBearer {
+export interface UpdateEnrollmentStatusResponse {
   __type?: "UpdateEnrollmentStatusResponse";
   /**
    * <p>The enrollment status of the account.</p>

@@ -816,31 +816,43 @@ async function deserializeAws_json1_1AssociateWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFUnavailableEntityException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
-      response = await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -893,45 +905,63 @@ async function deserializeAws_json1_1CheckCapacityCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidResourceException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidResourceException":
-      response = await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFUnavailableEntityException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
-      response = await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -984,52 +1014,73 @@ async function deserializeAws_json1_1CreateIPSetCommandError(
   switch (errorCode) {
     case "WAFDuplicateItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
-      response = await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1085,52 +1136,73 @@ async function deserializeAws_json1_1CreateRegexPatternSetCommandError(
   switch (errorCode) {
     case "WAFDuplicateItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
-      response = await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1183,59 +1255,83 @@ async function deserializeAws_json1_1CreateRuleGroupCommandError(
   switch (errorCode) {
     case "WAFDuplicateItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
-      response = await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFUnavailableEntityException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
-      response = await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1288,73 +1384,103 @@ async function deserializeAws_json1_1CreateWebACLCommandError(
   switch (errorCode) {
     case "WAFDuplicateItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
-      response = await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidResourceException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidResourceException":
-      response = await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFUnavailableEntityException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
-      response = await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1407,45 +1533,63 @@ async function deserializeAws_json1_1DeleteIPSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1504,24 +1648,33 @@ async function deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1577,45 +1730,63 @@ async function deserializeAws_json1_1DeleteRegexPatternSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1668,45 +1839,63 @@ async function deserializeAws_json1_1DeleteRuleGroupCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1759,52 +1948,73 @@ async function deserializeAws_json1_1DeleteWebACLCommandError(
   switch (errorCode) {
     case "WAFAssociatedItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFAssociatedItemException":
-      response = await deserializeAws_json1_1WAFAssociatedItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFAssociatedItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1863,31 +2073,43 @@ async function deserializeAws_json1_1DescribeManagedRuleGroupCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidResourceException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidResourceException":
-      response = await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1943,24 +2165,33 @@ async function deserializeAws_json1_1DisassociateWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2013,24 +2244,33 @@ async function deserializeAws_json1_1GetIPSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2089,17 +2329,23 @@ async function deserializeAws_json1_1GetLoggingConfigurationCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2158,24 +2404,33 @@ async function deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandErro
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2231,24 +2486,33 @@ async function deserializeAws_json1_1GetRegexPatternSetCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2301,24 +2565,33 @@ async function deserializeAws_json1_1GetRuleGroupCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2374,24 +2647,33 @@ async function deserializeAws_json1_1GetSampledRequestsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2444,24 +2726,33 @@ async function deserializeAws_json1_1GetWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2517,31 +2808,43 @@ async function deserializeAws_json1_1GetWebACLForResourceCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFUnavailableEntityException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
-      response = await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2600,17 +2903,23 @@ async function deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2663,17 +2972,23 @@ async function deserializeAws_json1_1ListIPSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2732,17 +3047,23 @@ async function deserializeAws_json1_1ListLoggingConfigurationsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2798,17 +3119,23 @@ async function deserializeAws_json1_1ListRegexPatternSetsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2867,24 +3194,33 @@ async function deserializeAws_json1_1ListResourcesForWebACLCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2937,17 +3273,23 @@ async function deserializeAws_json1_1ListRuleGroupsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3003,38 +3345,53 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3087,17 +3444,23 @@ async function deserializeAws_json1_1ListWebACLsCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3156,38 +3519,53 @@ async function deserializeAws_json1_1PutLoggingConfigurationCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFServiceLinkedRoleErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFServiceLinkedRoleErrorException":
-      response = await deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3240,45 +3618,63 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3331,38 +3727,53 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3415,45 +3826,63 @@ async function deserializeAws_json1_1UpdateIPSetCommandError(
   switch (errorCode) {
     case "WAFDuplicateItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
-      response = await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3509,45 +3938,63 @@ async function deserializeAws_json1_1UpdateRegexPatternSetCommandError(
   switch (errorCode) {
     case "WAFDuplicateItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
-      response = await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3600,52 +4047,73 @@ async function deserializeAws_json1_1UpdateRuleGroupCommandError(
   switch (errorCode) {
     case "WAFDuplicateItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
-      response = await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFUnavailableEntityException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
-      response = await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3698,59 +4166,83 @@ async function deserializeAws_json1_1UpdateWebACLCommandError(
   switch (errorCode) {
     case "WAFDuplicateItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
-      response = await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFInvalidResourceException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidResourceException":
-      response = await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFOptimisticLockException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
-      response = await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "WAFUnavailableEntityException":
     case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
-      response = await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

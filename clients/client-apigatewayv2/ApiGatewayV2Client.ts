@@ -1,117 +1,255 @@
 import {
-  CreateApiMappingRequest,
-  CreateApiMappingResponse,
-  CreateApiRequest,
-  CreateApiResponse,
-  CreateAuthorizerRequest,
-  CreateAuthorizerResponse,
-  CreateDeploymentRequest,
-  CreateDeploymentResponse,
-  CreateDomainNameRequest,
-  CreateDomainNameResponse,
-  CreateIntegrationRequest,
-  CreateIntegrationResponseRequest,
-  CreateIntegrationResponseResponse,
-  CreateIntegrationResult,
-  CreateModelRequest,
-  CreateModelResponse,
-  CreateRouteRequest,
-  CreateRouteResponseRequest,
-  CreateRouteResponseResponse,
-  CreateRouteResult,
-  CreateStageRequest,
-  CreateStageResponse,
-  DeleteApiMappingRequest,
-  DeleteApiRequest,
-  DeleteAuthorizerRequest,
-  DeleteCorsConfigurationRequest,
-  DeleteDeploymentRequest,
-  DeleteDomainNameRequest,
-  DeleteIntegrationRequest,
-  DeleteIntegrationResponseRequest,
-  DeleteModelRequest,
-  DeleteRouteRequest,
-  DeleteRouteResponseRequest,
-  DeleteRouteSettingsRequest,
-  DeleteStageRequest,
-  GetApiMappingRequest,
-  GetApiMappingResponse,
-  GetApiMappingsRequest,
-  GetApiMappingsResponse,
-  GetApiRequest,
-  GetApiResponse,
-  GetApisRequest,
-  GetApisResponse,
-  GetAuthorizerRequest,
-  GetAuthorizerResponse,
-  GetAuthorizersRequest,
-  GetAuthorizersResponse,
-  GetDeploymentRequest,
-  GetDeploymentResponse,
-  GetDeploymentsRequest,
-  GetDeploymentsResponse,
-  GetDomainNameRequest,
-  GetDomainNameResponse,
-  GetDomainNamesRequest,
-  GetDomainNamesResponse,
-  GetIntegrationRequest,
-  GetIntegrationResponseRequest,
-  GetIntegrationResponseResponse,
-  GetIntegrationResponsesRequest,
-  GetIntegrationResponsesResponse,
-  GetIntegrationResult,
-  GetIntegrationsRequest,
-  GetIntegrationsResponse,
-  GetModelRequest,
-  GetModelResponse,
-  GetModelTemplateRequest,
-  GetModelTemplateResponse,
-  GetModelsRequest,
-  GetModelsResponse,
-  GetRouteRequest,
-  GetRouteResponseRequest,
-  GetRouteResponseResponse,
-  GetRouteResponsesRequest,
-  GetRouteResponsesResponse,
-  GetRouteResult,
-  GetRoutesRequest,
-  GetRoutesResponse,
-  GetStageRequest,
-  GetStageResponse,
-  GetStagesRequest,
-  GetStagesResponse,
-  GetTagsRequest,
-  GetTagsResponse,
-  ImportApiRequest,
-  ImportApiResponse,
-  ReimportApiRequest,
-  ReimportApiResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UpdateApiMappingRequest,
-  UpdateApiMappingResponse,
-  UpdateApiRequest,
-  UpdateApiResponse,
-  UpdateAuthorizerRequest,
-  UpdateAuthorizerResponse,
-  UpdateDeploymentRequest,
-  UpdateDeploymentResponse,
-  UpdateDomainNameRequest,
-  UpdateDomainNameResponse,
-  UpdateIntegrationRequest,
-  UpdateIntegrationResponseRequest,
-  UpdateIntegrationResponseResponse,
-  UpdateIntegrationResult,
-  UpdateModelRequest,
-  UpdateModelResponse,
-  UpdateRouteRequest,
-  UpdateRouteResponseRequest,
-  UpdateRouteResponseResponse,
-  UpdateRouteResult,
-  UpdateStageRequest,
-  UpdateStageResponse
-} from "./models/index";
+  CreateApiCommandInput,
+  CreateApiCommandOutput
+} from "./commands/CreateApiCommand";
+import {
+  CreateApiMappingCommandInput,
+  CreateApiMappingCommandOutput
+} from "./commands/CreateApiMappingCommand";
+import {
+  CreateAuthorizerCommandInput,
+  CreateAuthorizerCommandOutput
+} from "./commands/CreateAuthorizerCommand";
+import {
+  CreateDeploymentCommandInput,
+  CreateDeploymentCommandOutput
+} from "./commands/CreateDeploymentCommand";
+import {
+  CreateDomainNameCommandInput,
+  CreateDomainNameCommandOutput
+} from "./commands/CreateDomainNameCommand";
+import {
+  CreateIntegrationCommandInput,
+  CreateIntegrationCommandOutput
+} from "./commands/CreateIntegrationCommand";
+import {
+  CreateIntegrationResponseCommandInput,
+  CreateIntegrationResponseCommandOutput
+} from "./commands/CreateIntegrationResponseCommand";
+import {
+  CreateModelCommandInput,
+  CreateModelCommandOutput
+} from "./commands/CreateModelCommand";
+import {
+  CreateRouteCommandInput,
+  CreateRouteCommandOutput
+} from "./commands/CreateRouteCommand";
+import {
+  CreateRouteResponseCommandInput,
+  CreateRouteResponseCommandOutput
+} from "./commands/CreateRouteResponseCommand";
+import {
+  CreateStageCommandInput,
+  CreateStageCommandOutput
+} from "./commands/CreateStageCommand";
+import {
+  DeleteApiCommandInput,
+  DeleteApiCommandOutput
+} from "./commands/DeleteApiCommand";
+import {
+  DeleteApiMappingCommandInput,
+  DeleteApiMappingCommandOutput
+} from "./commands/DeleteApiMappingCommand";
+import {
+  DeleteAuthorizerCommandInput,
+  DeleteAuthorizerCommandOutput
+} from "./commands/DeleteAuthorizerCommand";
+import {
+  DeleteCorsConfigurationCommandInput,
+  DeleteCorsConfigurationCommandOutput
+} from "./commands/DeleteCorsConfigurationCommand";
+import {
+  DeleteDeploymentCommandInput,
+  DeleteDeploymentCommandOutput
+} from "./commands/DeleteDeploymentCommand";
+import {
+  DeleteDomainNameCommandInput,
+  DeleteDomainNameCommandOutput
+} from "./commands/DeleteDomainNameCommand";
+import {
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput
+} from "./commands/DeleteIntegrationCommand";
+import {
+  DeleteIntegrationResponseCommandInput,
+  DeleteIntegrationResponseCommandOutput
+} from "./commands/DeleteIntegrationResponseCommand";
+import {
+  DeleteModelCommandInput,
+  DeleteModelCommandOutput
+} from "./commands/DeleteModelCommand";
+import {
+  DeleteRouteCommandInput,
+  DeleteRouteCommandOutput
+} from "./commands/DeleteRouteCommand";
+import {
+  DeleteRouteResponseCommandInput,
+  DeleteRouteResponseCommandOutput
+} from "./commands/DeleteRouteResponseCommand";
+import {
+  DeleteRouteSettingsCommandInput,
+  DeleteRouteSettingsCommandOutput
+} from "./commands/DeleteRouteSettingsCommand";
+import {
+  DeleteStageCommandInput,
+  DeleteStageCommandOutput
+} from "./commands/DeleteStageCommand";
+import {
+  GetApiCommandInput,
+  GetApiCommandOutput
+} from "./commands/GetApiCommand";
+import {
+  GetApiMappingCommandInput,
+  GetApiMappingCommandOutput
+} from "./commands/GetApiMappingCommand";
+import {
+  GetApiMappingsCommandInput,
+  GetApiMappingsCommandOutput
+} from "./commands/GetApiMappingsCommand";
+import {
+  GetApisCommandInput,
+  GetApisCommandOutput
+} from "./commands/GetApisCommand";
+import {
+  GetAuthorizerCommandInput,
+  GetAuthorizerCommandOutput
+} from "./commands/GetAuthorizerCommand";
+import {
+  GetAuthorizersCommandInput,
+  GetAuthorizersCommandOutput
+} from "./commands/GetAuthorizersCommand";
+import {
+  GetDeploymentCommandInput,
+  GetDeploymentCommandOutput
+} from "./commands/GetDeploymentCommand";
+import {
+  GetDeploymentsCommandInput,
+  GetDeploymentsCommandOutput
+} from "./commands/GetDeploymentsCommand";
+import {
+  GetDomainNameCommandInput,
+  GetDomainNameCommandOutput
+} from "./commands/GetDomainNameCommand";
+import {
+  GetDomainNamesCommandInput,
+  GetDomainNamesCommandOutput
+} from "./commands/GetDomainNamesCommand";
+import {
+  GetIntegrationCommandInput,
+  GetIntegrationCommandOutput
+} from "./commands/GetIntegrationCommand";
+import {
+  GetIntegrationResponseCommandInput,
+  GetIntegrationResponseCommandOutput
+} from "./commands/GetIntegrationResponseCommand";
+import {
+  GetIntegrationResponsesCommandInput,
+  GetIntegrationResponsesCommandOutput
+} from "./commands/GetIntegrationResponsesCommand";
+import {
+  GetIntegrationsCommandInput,
+  GetIntegrationsCommandOutput
+} from "./commands/GetIntegrationsCommand";
+import {
+  GetModelCommandInput,
+  GetModelCommandOutput
+} from "./commands/GetModelCommand";
+import {
+  GetModelTemplateCommandInput,
+  GetModelTemplateCommandOutput
+} from "./commands/GetModelTemplateCommand";
+import {
+  GetModelsCommandInput,
+  GetModelsCommandOutput
+} from "./commands/GetModelsCommand";
+import {
+  GetRouteCommandInput,
+  GetRouteCommandOutput
+} from "./commands/GetRouteCommand";
+import {
+  GetRouteResponseCommandInput,
+  GetRouteResponseCommandOutput
+} from "./commands/GetRouteResponseCommand";
+import {
+  GetRouteResponsesCommandInput,
+  GetRouteResponsesCommandOutput
+} from "./commands/GetRouteResponsesCommand";
+import {
+  GetRoutesCommandInput,
+  GetRoutesCommandOutput
+} from "./commands/GetRoutesCommand";
+import {
+  GetStageCommandInput,
+  GetStageCommandOutput
+} from "./commands/GetStageCommand";
+import {
+  GetStagesCommandInput,
+  GetStagesCommandOutput
+} from "./commands/GetStagesCommand";
+import {
+  GetTagsCommandInput,
+  GetTagsCommandOutput
+} from "./commands/GetTagsCommand";
+import {
+  ImportApiCommandInput,
+  ImportApiCommandOutput
+} from "./commands/ImportApiCommand";
+import {
+  ReimportApiCommandInput,
+  ReimportApiCommandOutput
+} from "./commands/ReimportApiCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateApiCommandInput,
+  UpdateApiCommandOutput
+} from "./commands/UpdateApiCommand";
+import {
+  UpdateApiMappingCommandInput,
+  UpdateApiMappingCommandOutput
+} from "./commands/UpdateApiMappingCommand";
+import {
+  UpdateAuthorizerCommandInput,
+  UpdateAuthorizerCommandOutput
+} from "./commands/UpdateAuthorizerCommand";
+import {
+  UpdateDeploymentCommandInput,
+  UpdateDeploymentCommandOutput
+} from "./commands/UpdateDeploymentCommand";
+import {
+  UpdateDomainNameCommandInput,
+  UpdateDomainNameCommandOutput
+} from "./commands/UpdateDomainNameCommand";
+import {
+  UpdateIntegrationCommandInput,
+  UpdateIntegrationCommandOutput
+} from "./commands/UpdateIntegrationCommand";
+import {
+  UpdateIntegrationResponseCommandInput,
+  UpdateIntegrationResponseCommandOutput
+} from "./commands/UpdateIntegrationResponseCommand";
+import {
+  UpdateModelCommandInput,
+  UpdateModelCommandOutput
+} from "./commands/UpdateModelCommand";
+import {
+  UpdateRouteCommandInput,
+  UpdateRouteCommandOutput
+} from "./commands/UpdateRouteCommand";
+import {
+  UpdateRouteResponseCommandInput,
+  UpdateRouteResponseCommandOutput
+} from "./commands/UpdateRouteResponseCommand";
+import {
+  UpdateStageCommandInput,
+  UpdateStageCommandOutput
+} from "./commands/UpdateStageCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -159,128 +297,140 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateApiMappingRequest
-  | CreateApiRequest
-  | CreateAuthorizerRequest
-  | CreateDeploymentRequest
-  | CreateDomainNameRequest
-  | CreateIntegrationRequest
-  | CreateIntegrationResponseRequest
-  | CreateModelRequest
-  | CreateRouteRequest
-  | CreateRouteResponseRequest
-  | CreateStageRequest
-  | DeleteApiMappingRequest
-  | DeleteApiRequest
-  | DeleteAuthorizerRequest
-  | DeleteCorsConfigurationRequest
-  | DeleteDeploymentRequest
-  | DeleteDomainNameRequest
-  | DeleteIntegrationRequest
-  | DeleteIntegrationResponseRequest
-  | DeleteModelRequest
-  | DeleteRouteRequest
-  | DeleteRouteResponseRequest
-  | DeleteRouteSettingsRequest
-  | DeleteStageRequest
-  | GetApiMappingRequest
-  | GetApiMappingsRequest
-  | GetApiRequest
-  | GetApisRequest
-  | GetAuthorizerRequest
-  | GetAuthorizersRequest
-  | GetDeploymentRequest
-  | GetDeploymentsRequest
-  | GetDomainNameRequest
-  | GetDomainNamesRequest
-  | GetIntegrationRequest
-  | GetIntegrationResponseRequest
-  | GetIntegrationResponsesRequest
-  | GetIntegrationsRequest
-  | GetModelRequest
-  | GetModelTemplateRequest
-  | GetModelsRequest
-  | GetRouteRequest
-  | GetRouteResponseRequest
-  | GetRouteResponsesRequest
-  | GetRoutesRequest
-  | GetStageRequest
-  | GetStagesRequest
-  | GetTagsRequest
-  | ImportApiRequest
-  | ReimportApiRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateApiMappingRequest
-  | UpdateApiRequest
-  | UpdateAuthorizerRequest
-  | UpdateDeploymentRequest
-  | UpdateDomainNameRequest
-  | UpdateIntegrationRequest
-  | UpdateIntegrationResponseRequest
-  | UpdateModelRequest
-  | UpdateRouteRequest
-  | UpdateRouteResponseRequest
-  | UpdateStageRequest;
+  | CreateApiCommandInput
+  | CreateApiMappingCommandInput
+  | CreateAuthorizerCommandInput
+  | CreateDeploymentCommandInput
+  | CreateDomainNameCommandInput
+  | CreateIntegrationCommandInput
+  | CreateIntegrationResponseCommandInput
+  | CreateModelCommandInput
+  | CreateRouteCommandInput
+  | CreateRouteResponseCommandInput
+  | CreateStageCommandInput
+  | DeleteApiCommandInput
+  | DeleteApiMappingCommandInput
+  | DeleteAuthorizerCommandInput
+  | DeleteCorsConfigurationCommandInput
+  | DeleteDeploymentCommandInput
+  | DeleteDomainNameCommandInput
+  | DeleteIntegrationCommandInput
+  | DeleteIntegrationResponseCommandInput
+  | DeleteModelCommandInput
+  | DeleteRouteCommandInput
+  | DeleteRouteResponseCommandInput
+  | DeleteRouteSettingsCommandInput
+  | DeleteStageCommandInput
+  | GetApiCommandInput
+  | GetApiMappingCommandInput
+  | GetApiMappingsCommandInput
+  | GetApisCommandInput
+  | GetAuthorizerCommandInput
+  | GetAuthorizersCommandInput
+  | GetDeploymentCommandInput
+  | GetDeploymentsCommandInput
+  | GetDomainNameCommandInput
+  | GetDomainNamesCommandInput
+  | GetIntegrationCommandInput
+  | GetIntegrationResponseCommandInput
+  | GetIntegrationResponsesCommandInput
+  | GetIntegrationsCommandInput
+  | GetModelCommandInput
+  | GetModelTemplateCommandInput
+  | GetModelsCommandInput
+  | GetRouteCommandInput
+  | GetRouteResponseCommandInput
+  | GetRouteResponsesCommandInput
+  | GetRoutesCommandInput
+  | GetStageCommandInput
+  | GetStagesCommandInput
+  | GetTagsCommandInput
+  | ImportApiCommandInput
+  | ReimportApiCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateApiCommandInput
+  | UpdateApiMappingCommandInput
+  | UpdateAuthorizerCommandInput
+  | UpdateDeploymentCommandInput
+  | UpdateDomainNameCommandInput
+  | UpdateIntegrationCommandInput
+  | UpdateIntegrationResponseCommandInput
+  | UpdateModelCommandInput
+  | UpdateRouteCommandInput
+  | UpdateRouteResponseCommandInput
+  | UpdateStageCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateApiMappingResponse
-  | CreateApiResponse
-  | CreateAuthorizerResponse
-  | CreateDeploymentResponse
-  | CreateDomainNameResponse
-  | CreateIntegrationResponseResponse
-  | CreateIntegrationResult
-  | CreateModelResponse
-  | CreateRouteResponseResponse
-  | CreateRouteResult
-  | CreateStageResponse
-  | GetApiMappingResponse
-  | GetApiMappingsResponse
-  | GetApiResponse
-  | GetApisResponse
-  | GetAuthorizerResponse
-  | GetAuthorizersResponse
-  | GetDeploymentResponse
-  | GetDeploymentsResponse
-  | GetDomainNameResponse
-  | GetDomainNamesResponse
-  | GetIntegrationResponseResponse
-  | GetIntegrationResponsesResponse
-  | GetIntegrationResult
-  | GetIntegrationsResponse
-  | GetModelResponse
-  | GetModelTemplateResponse
-  | GetModelsResponse
-  | GetRouteResponseResponse
-  | GetRouteResponsesResponse
-  | GetRouteResult
-  | GetRoutesResponse
-  | GetStageResponse
-  | GetStagesResponse
-  | GetTagsResponse
-  | ImportApiResponse
-  | ReimportApiResponse
-  | TagResourceResponse
-  | UpdateApiMappingResponse
-  | UpdateApiResponse
-  | UpdateAuthorizerResponse
-  | UpdateDeploymentResponse
-  | UpdateDomainNameResponse
-  | UpdateIntegrationResponseResponse
-  | UpdateIntegrationResult
-  | UpdateModelResponse
-  | UpdateRouteResponseResponse
-  | UpdateRouteResult
-  | UpdateStageResponse;
+  | CreateApiCommandOutput
+  | CreateApiMappingCommandOutput
+  | CreateAuthorizerCommandOutput
+  | CreateDeploymentCommandOutput
+  | CreateDomainNameCommandOutput
+  | CreateIntegrationCommandOutput
+  | CreateIntegrationResponseCommandOutput
+  | CreateModelCommandOutput
+  | CreateRouteCommandOutput
+  | CreateRouteResponseCommandOutput
+  | CreateStageCommandOutput
+  | DeleteApiCommandOutput
+  | DeleteApiMappingCommandOutput
+  | DeleteAuthorizerCommandOutput
+  | DeleteCorsConfigurationCommandOutput
+  | DeleteDeploymentCommandOutput
+  | DeleteDomainNameCommandOutput
+  | DeleteIntegrationCommandOutput
+  | DeleteIntegrationResponseCommandOutput
+  | DeleteModelCommandOutput
+  | DeleteRouteCommandOutput
+  | DeleteRouteResponseCommandOutput
+  | DeleteRouteSettingsCommandOutput
+  | DeleteStageCommandOutput
+  | GetApiCommandOutput
+  | GetApiMappingCommandOutput
+  | GetApiMappingsCommandOutput
+  | GetApisCommandOutput
+  | GetAuthorizerCommandOutput
+  | GetAuthorizersCommandOutput
+  | GetDeploymentCommandOutput
+  | GetDeploymentsCommandOutput
+  | GetDomainNameCommandOutput
+  | GetDomainNamesCommandOutput
+  | GetIntegrationCommandOutput
+  | GetIntegrationResponseCommandOutput
+  | GetIntegrationResponsesCommandOutput
+  | GetIntegrationsCommandOutput
+  | GetModelCommandOutput
+  | GetModelTemplateCommandOutput
+  | GetModelsCommandOutput
+  | GetRouteCommandOutput
+  | GetRouteResponseCommandOutput
+  | GetRouteResponsesCommandOutput
+  | GetRoutesCommandOutput
+  | GetStageCommandOutput
+  | GetStagesCommandOutput
+  | GetTagsCommandOutput
+  | ImportApiCommandOutput
+  | ReimportApiCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateApiCommandOutput
+  | UpdateApiMappingCommandOutput
+  | UpdateAuthorizerCommandOutput
+  | UpdateDeploymentCommandOutput
+  | UpdateDomainNameCommandOutput
+  | UpdateIntegrationCommandOutput
+  | UpdateIntegrationResponseCommandOutput
+  | UpdateModelCommandOutput
+  | UpdateRouteCommandOutput
+  | UpdateRouteResponseCommandOutput
+  | UpdateStageCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

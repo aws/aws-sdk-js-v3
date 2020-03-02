@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLocalGatewayRouteTableVpcAssociationCommandInput = DeleteLocalGatewayRouteTableVpcAssociationRequest;
-export type DeleteLocalGatewayRouteTableVpcAssociationCommandOutput = DeleteLocalGatewayRouteTableVpcAssociationResult;
+export type DeleteLocalGatewayRouteTableVpcAssociationCommandOutput = DeleteLocalGatewayRouteTableVpcAssociationResult &
+  __MetadataBearer;
 
 export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListIndicesCommandInput = ListIndicesRequest;
-export type ListIndicesCommandOutput = ListIndicesResponse;
+export type ListIndicesCommandOutput = ListIndicesResponse & __MetadataBearer;
 
 export class ListIndicesCommand extends $Command<
   ListIndicesCommandInput,

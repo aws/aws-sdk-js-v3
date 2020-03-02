@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetGeoMatchSetCommandInput = GetGeoMatchSetRequest;
-export type GetGeoMatchSetCommandOutput = GetGeoMatchSetResponse;
+export type GetGeoMatchSetCommandOutput = GetGeoMatchSetResponse &
+  __MetadataBearer;
 
 export class GetGeoMatchSetCommand extends $Command<
   GetGeoMatchSetCommandInput,

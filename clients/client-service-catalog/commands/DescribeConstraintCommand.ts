@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeConstraintCommandInput = DescribeConstraintInput;
-export type DescribeConstraintCommandOutput = DescribeConstraintOutput;
+export type DescribeConstraintCommandOutput = DescribeConstraintOutput &
+  __MetadataBearer;
 
 export class DescribeConstraintCommand extends $Command<
   DescribeConstraintCommandInput,

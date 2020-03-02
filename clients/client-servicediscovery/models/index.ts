@@ -29,7 +29,7 @@ export namespace CreateHttpNamespaceRequest {
   }
 }
 
-export interface CreateHttpNamespaceResponse extends $MetadataBearer {
+export interface CreateHttpNamespaceResponse {
   __type?: "CreateHttpNamespaceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation,
@@ -75,7 +75,7 @@ export namespace CreatePrivateDnsNamespaceRequest {
   }
 }
 
-export interface CreatePrivateDnsNamespaceResponse extends $MetadataBearer {
+export interface CreatePrivateDnsNamespaceResponse {
   __type?: "CreatePrivateDnsNamespaceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation,
@@ -115,7 +115,7 @@ export namespace CreatePublicDnsNamespaceRequest {
   }
 }
 
-export interface CreatePublicDnsNamespaceResponse extends $MetadataBearer {
+export interface CreatePublicDnsNamespaceResponse {
   __type?: "CreatePublicDnsNamespaceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation,
@@ -187,7 +187,7 @@ export namespace CreateServiceRequest {
   }
 }
 
-export interface CreateServiceResponse extends $MetadataBearer {
+export interface CreateServiceResponse {
   __type?: "CreateServiceResponse";
   /**
    * <p>A complex type that contains information about the new service.</p>
@@ -237,7 +237,7 @@ export namespace DeleteNamespaceRequest {
   }
 }
 
-export interface DeleteNamespaceResponse extends $MetadataBearer {
+export interface DeleteNamespaceResponse {
   __type?: "DeleteNamespaceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation,
@@ -266,7 +266,7 @@ export namespace DeleteServiceRequest {
   }
 }
 
-export interface DeleteServiceResponse extends $MetadataBearer {
+export interface DeleteServiceResponse {
   __type?: "DeleteServiceResponse";
 }
 
@@ -295,7 +295,7 @@ export namespace DeregisterInstanceRequest {
   }
 }
 
-export interface DeregisterInstanceResponse extends $MetadataBearer {
+export interface DeregisterInstanceResponse {
   __type?: "DeregisterInstanceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. For more information, see <a>GetOperation</a>.</p>
@@ -345,7 +345,7 @@ export namespace DiscoverInstancesRequest {
   }
 }
 
-export interface DiscoverInstancesResponse extends $MetadataBearer {
+export interface DiscoverInstancesResponse {
   __type?: "DiscoverInstancesResponse";
   /**
    * <p>A complex type that contains one <code>HttpInstanceSummary</code> for each registered instance.</p>
@@ -624,7 +624,7 @@ export namespace GetInstanceRequest {
   }
 }
 
-export interface GetInstanceResponse extends $MetadataBearer {
+export interface GetInstanceResponse {
   __type?: "GetInstanceResponse";
   /**
    * <p>A complex type that contains information about a specified instance.</p>
@@ -676,7 +676,7 @@ export namespace GetInstancesHealthStatusRequest {
   }
 }
 
-export interface GetInstancesHealthStatusResponse extends $MetadataBearer {
+export interface GetInstancesHealthStatusResponse {
   __type?: "GetInstancesHealthStatusResponse";
   /**
    * <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another <code>GetInstancesHealthStatus</code> request
@@ -711,7 +711,7 @@ export namespace GetNamespaceRequest {
   }
 }
 
-export interface GetNamespaceResponse extends $MetadataBearer {
+export interface GetNamespaceResponse {
   __type?: "GetNamespaceResponse";
   /**
    * <p>A complex type that contains information about the specified namespace.</p>
@@ -739,7 +739,7 @@ export namespace GetOperationRequest {
   }
 }
 
-export interface GetOperationResponse extends $MetadataBearer {
+export interface GetOperationResponse {
   __type?: "GetOperationResponse";
   /**
    * <p>A complex type that contains information about the operation.</p>
@@ -767,7 +767,7 @@ export namespace GetServiceRequest {
   }
 }
 
-export interface GetServiceResponse extends $MetadataBearer {
+export interface GetServiceResponse {
   __type?: "GetServiceResponse";
   /**
    * <p>A complex type that contains information about the service.</p>
@@ -1300,7 +1300,7 @@ export namespace ListInstancesRequest {
   }
 }
 
-export interface ListInstancesResponse extends $MetadataBearer {
+export interface ListInstancesResponse {
   __type?: "ListInstancesResponse";
   /**
    * <p>Summary information about the instances that are associated with the specified service.</p>
@@ -1353,7 +1353,7 @@ export namespace ListNamespacesRequest {
   }
 }
 
-export interface ListNamespacesResponse extends $MetadataBearer {
+export interface ListNamespacesResponse {
   __type?: "ListNamespacesResponse";
   /**
    * <p>An array that contains one <code>NamespaceSummary</code> object for each namespace that matches the specified filter criteria.</p>
@@ -1412,7 +1412,7 @@ export namespace ListOperationsRequest {
   }
 }
 
-export interface ListOperationsResponse extends $MetadataBearer {
+export interface ListOperationsResponse {
   __type?: "ListOperationsResponse";
   /**
    * <p>If the response contains <code>NextToken</code>, submit another <code>ListOperations</code> request to get the next group of results.
@@ -1470,7 +1470,7 @@ export namespace ListServicesRequest {
   }
 }
 
-export interface ListServicesResponse extends $MetadataBearer {
+export interface ListServicesResponse {
   __type?: "ListServicesResponse";
   /**
    * <p>If the response contains <code>NextToken</code>, submit another <code>ListServices</code> request to get the next group of results.
@@ -2179,7 +2179,7 @@ export namespace RegisterInstanceRequest {
   }
 }
 
-export interface RegisterInstanceResponse extends $MetadataBearer {
+export interface RegisterInstanceResponse {
   __type?: "RegisterInstanceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation,
@@ -2705,7 +2705,7 @@ export namespace UpdateServiceRequest {
   }
 }
 
-export interface UpdateServiceResponse extends $MetadataBearer {
+export interface UpdateServiceResponse {
   __type?: "UpdateServiceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation,

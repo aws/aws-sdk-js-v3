@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAliasCommandInput = GetAliasRequest;
-export type GetAliasCommandOutput = AliasConfiguration;
+export type GetAliasCommandOutput = AliasConfiguration & __MetadataBearer;
 
 export class GetAliasCommand extends $Command<
   GetAliasCommandInput,

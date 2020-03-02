@@ -22,11 +22,14 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type UploadPartCommandInput = UploadPartRequest;
-export type UploadPartCommandOutput = UploadPartOutput;
+export type UploadPartCommandInput = Omit<UploadPartRequest, "Body"> & {
+  Body?: UploadPartRequest["Body"] | string | Uint8Array | Buffer;
+};
+export type UploadPartCommandOutput = UploadPartOutput & __MetadataBearer;
 
 export class UploadPartCommand extends $Command<
   UploadPartCommandInput,

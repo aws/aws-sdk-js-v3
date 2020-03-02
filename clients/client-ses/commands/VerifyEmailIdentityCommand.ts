@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type VerifyEmailIdentityCommandInput = VerifyEmailIdentityRequest;
-export type VerifyEmailIdentityCommandOutput = VerifyEmailIdentityResponse;
+export type VerifyEmailIdentityCommandOutput = VerifyEmailIdentityResponse &
+  __MetadataBearer;
 
 export class VerifyEmailIdentityCommand extends $Command<
   VerifyEmailIdentityCommandInput,

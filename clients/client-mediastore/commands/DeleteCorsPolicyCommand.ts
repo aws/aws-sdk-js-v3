@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCorsPolicyCommandInput = DeleteCorsPolicyInput;
-export type DeleteCorsPolicyCommandOutput = DeleteCorsPolicyOutput;
+export type DeleteCorsPolicyCommandOutput = DeleteCorsPolicyOutput &
+  __MetadataBearer;
 
 export class DeleteCorsPolicyCommand extends $Command<
   DeleteCorsPolicyCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateAddressCommandInput = AssociateAddressRequest;
-export type AssociateAddressCommandOutput = AssociateAddressResult;
+export type AssociateAddressCommandOutput = AssociateAddressResult &
+  __MetadataBearer;
 
 export class AssociateAddressCommand extends $Command<
   AssociateAddressCommandInput,

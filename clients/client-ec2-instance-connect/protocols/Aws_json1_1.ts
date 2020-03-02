@@ -72,38 +72,53 @@ async function deserializeAws_json1_1SendSSHPublicKeyCommandError(
   switch (errorCode) {
     case "AuthException":
     case "com.amazon.aws.sshaccessproxyservice#AuthException":
-      response = await deserializeAws_json1_1AuthExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EC2InstanceNotFoundException":
     case "com.amazon.aws.sshaccessproxyservice#EC2InstanceNotFoundException":
-      response = await deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgsException":
     case "com.amazon.aws.sshaccessproxyservice#InvalidArgsException":
-      response = await deserializeAws_json1_1InvalidArgsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazon.aws.sshaccessproxyservice#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazon.aws.sshaccessproxyservice#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

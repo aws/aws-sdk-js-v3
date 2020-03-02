@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopThingRegistrationTaskCommandInput = StopThingRegistrationTaskRequest;
-export type StopThingRegistrationTaskCommandOutput = StopThingRegistrationTaskResponse;
+export type StopThingRegistrationTaskCommandOutput = StopThingRegistrationTaskResponse &
+  __MetadataBearer;
 
 export class StopThingRegistrationTaskCommand extends $Command<
   StopThingRegistrationTaskCommandInput,

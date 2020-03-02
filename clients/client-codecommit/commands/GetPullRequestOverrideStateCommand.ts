@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPullRequestOverrideStateCommandInput = GetPullRequestOverrideStateInput;
-export type GetPullRequestOverrideStateCommandOutput = GetPullRequestOverrideStateOutput;
+export type GetPullRequestOverrideStateCommandOutput = GetPullRequestOverrideStateOutput &
+  __MetadataBearer;
 
 export class GetPullRequestOverrideStateCommand extends $Command<
   GetPullRequestOverrideStateCommandInput,

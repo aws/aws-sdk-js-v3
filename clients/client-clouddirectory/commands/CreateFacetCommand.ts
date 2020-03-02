@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateFacetCommandInput = CreateFacetRequest;
-export type CreateFacetCommandOutput = CreateFacetResponse;
+export type CreateFacetCommandOutput = CreateFacetResponse & __MetadataBearer;
 
 export class CreateFacetCommand extends $Command<
   CreateFacetCommandInput,

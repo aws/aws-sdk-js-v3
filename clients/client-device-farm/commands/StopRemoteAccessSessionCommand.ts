@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopRemoteAccessSessionCommandInput = StopRemoteAccessSessionRequest;
-export type StopRemoteAccessSessionCommandOutput = StopRemoteAccessSessionResult;
+export type StopRemoteAccessSessionCommandOutput = StopRemoteAccessSessionResult &
+  __MetadataBearer;
 
 export class StopRemoteAccessSessionCommand extends $Command<
   StopRemoteAccessSessionCommandInput,

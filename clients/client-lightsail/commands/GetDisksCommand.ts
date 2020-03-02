@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDisksCommandInput = GetDisksRequest;
-export type GetDisksCommandOutput = GetDisksResult;
+export type GetDisksCommandOutput = GetDisksResult & __MetadataBearer;
 
 export class GetDisksCommand extends $Command<
   GetDisksCommandInput,

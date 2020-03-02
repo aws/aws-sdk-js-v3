@@ -252,7 +252,7 @@ export namespace CreateClusterRequest {
   }
 }
 
-export interface CreateClusterResponse extends $MetadataBearer {
+export interface CreateClusterResponse {
   __type?: "CreateClusterResponse";
   /**
    * <p>The full description of your new cluster.</p>
@@ -322,7 +322,7 @@ export namespace CreateFargateProfileRequest {
   }
 }
 
-export interface CreateFargateProfileResponse extends $MetadataBearer {
+export interface CreateFargateProfileResponse {
   __type?: "CreateFargateProfileResponse";
   /**
    * <p>The full description of your new Fargate profile.</p>
@@ -442,7 +442,7 @@ export namespace CreateNodegroupRequest {
   }
 }
 
-export interface CreateNodegroupResponse extends $MetadataBearer {
+export interface CreateNodegroupResponse {
   __type?: "CreateNodegroupResponse";
   /**
    * <p>The full description of your new node group.</p>
@@ -470,7 +470,7 @@ export namespace DeleteClusterRequest {
   }
 }
 
-export interface DeleteClusterResponse extends $MetadataBearer {
+export interface DeleteClusterResponse {
   __type?: "DeleteClusterResponse";
   /**
    * <p>The full description of the cluster to delete.</p>
@@ -503,7 +503,7 @@ export namespace DeleteFargateProfileRequest {
   }
 }
 
-export interface DeleteFargateProfileResponse extends $MetadataBearer {
+export interface DeleteFargateProfileResponse {
   __type?: "DeleteFargateProfileResponse";
   /**
    * <p>The deleted Fargate profile.</p>
@@ -536,7 +536,7 @@ export namespace DeleteNodegroupRequest {
   }
 }
 
-export interface DeleteNodegroupResponse extends $MetadataBearer {
+export interface DeleteNodegroupResponse {
   __type?: "DeleteNodegroupResponse";
   /**
    * <p>The full description of your deleted node group.</p>
@@ -564,7 +564,7 @@ export namespace DescribeClusterRequest {
   }
 }
 
-export interface DescribeClusterResponse extends $MetadataBearer {
+export interface DescribeClusterResponse {
   __type?: "DescribeClusterResponse";
   /**
    * <p>The full description of your specified cluster.</p>
@@ -597,7 +597,7 @@ export namespace DescribeFargateProfileRequest {
   }
 }
 
-export interface DescribeFargateProfileResponse extends $MetadataBearer {
+export interface DescribeFargateProfileResponse {
   __type?: "DescribeFargateProfileResponse";
   /**
    * <p>The full description of your Fargate profile.</p>
@@ -630,7 +630,7 @@ export namespace DescribeNodegroupRequest {
   }
 }
 
-export interface DescribeNodegroupResponse extends $MetadataBearer {
+export interface DescribeNodegroupResponse {
   __type?: "DescribeNodegroupResponse";
   /**
    * <p>The full description of your node group.</p>
@@ -668,7 +668,7 @@ export namespace DescribeUpdateRequest {
   }
 }
 
-export interface DescribeUpdateResponse extends $MetadataBearer {
+export interface DescribeUpdateResponse {
   __type?: "DescribeUpdateResponse";
   /**
    * <p>The full description of the specified update.</p>
@@ -1070,7 +1070,7 @@ export namespace ListClustersRequest {
   }
 }
 
-export interface ListClustersResponse extends $MetadataBearer {
+export interface ListClustersResponse {
   __type?: "ListClustersResponse";
   /**
    * <p>A list of all of the clusters for your account in the specified Region.</p>
@@ -1128,7 +1128,7 @@ export namespace ListFargateProfilesRequest {
   }
 }
 
-export interface ListFargateProfilesResponse extends $MetadataBearer {
+export interface ListFargateProfilesResponse {
   __type?: "ListFargateProfilesResponse";
   /**
    * <p>A list of all of the Fargate profiles associated with the specified cluster.</p>
@@ -1185,7 +1185,7 @@ export namespace ListNodegroupsRequest {
   }
 }
 
-export interface ListNodegroupsResponse extends $MetadataBearer {
+export interface ListNodegroupsResponse {
   __type?: "ListNodegroupsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListNodegroups</code>
@@ -1223,7 +1223,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags for the resource.</p>
@@ -1276,7 +1276,7 @@ export namespace ListUpdatesRequest {
   }
 }
 
-export interface ListUpdatesResponse extends $MetadataBearer {
+export interface ListUpdatesResponse {
   __type?: "ListUpdatesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListUpdates</code>
@@ -1788,7 +1788,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1852,7 +1852,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1943,7 +1943,7 @@ export namespace UpdateClusterConfigRequest {
   }
 }
 
-export interface UpdateClusterConfigResponse extends $MetadataBearer {
+export interface UpdateClusterConfigResponse {
   __type?: "UpdateClusterConfigResponse";
   /**
    * <p>An object representing an asynchronous update.</p>
@@ -1982,7 +1982,7 @@ export namespace UpdateClusterVersionRequest {
   }
 }
 
-export interface UpdateClusterVersionResponse extends $MetadataBearer {
+export interface UpdateClusterVersionResponse {
   __type?: "UpdateClusterVersionResponse";
   /**
    * <p>The full description of the specified update</p>
@@ -2054,7 +2054,7 @@ export namespace UpdateNodegroupConfigRequest {
   }
 }
 
-export interface UpdateNodegroupConfigResponse extends $MetadataBearer {
+export interface UpdateNodegroupConfigResponse {
   __type?: "UpdateNodegroupConfigResponse";
   /**
    * <p>An object representing an asynchronous update.</p>
@@ -2118,7 +2118,7 @@ export namespace UpdateNodegroupVersionRequest {
   }
 }
 
-export interface UpdateNodegroupVersionResponse extends $MetadataBearer {
+export interface UpdateNodegroupVersionResponse {
   __type?: "UpdateNodegroupVersionResponse";
   /**
    * <p>An object representing an asynchronous update.</p>

@@ -2004,7 +2004,7 @@ export namespace CreateAppRequest {
   }
 }
 
-export interface CreateAppResponse extends $MetadataBearer {
+export interface CreateAppResponse {
   __type?: "CreateAppResponse";
   /**
    * <p>Provides information about an application.</p>
@@ -2059,7 +2059,7 @@ export namespace CreateCampaignRequest {
   }
 }
 
-export interface CreateCampaignResponse extends $MetadataBearer {
+export interface CreateCampaignResponse {
   __type?: "CreateCampaignResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -2092,7 +2092,7 @@ export namespace CreateEmailTemplateRequest {
   }
 }
 
-export interface CreateEmailTemplateResponse extends $MetadataBearer {
+export interface CreateEmailTemplateResponse {
   __type?: "CreateEmailTemplateResponse";
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -2125,7 +2125,7 @@ export namespace CreateExportJobRequest {
   }
 }
 
-export interface CreateExportJobResponse extends $MetadataBearer {
+export interface CreateExportJobResponse {
   __type?: "CreateExportJobResponse";
   /**
    * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
@@ -2158,7 +2158,7 @@ export namespace CreateImportJobRequest {
   }
 }
 
-export interface CreateImportJobResponse extends $MetadataBearer {
+export interface CreateImportJobResponse {
   __type?: "CreateImportJobResponse";
   /**
    * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
@@ -2191,7 +2191,7 @@ export namespace CreateJourneyRequest {
   }
 }
 
-export interface CreateJourneyResponse extends $MetadataBearer {
+export interface CreateJourneyResponse {
   __type?: "CreateJourneyResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -2224,7 +2224,7 @@ export namespace CreatePushTemplateRequest {
   }
 }
 
-export interface CreatePushTemplateResponse extends $MetadataBearer {
+export interface CreatePushTemplateResponse {
   __type?: "CreatePushTemplateResponse";
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -2257,7 +2257,7 @@ export namespace CreateSegmentRequest {
   }
 }
 
-export interface CreateSegmentResponse extends $MetadataBearer {
+export interface CreateSegmentResponse {
   __type?: "CreateSegmentResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -2290,7 +2290,7 @@ export namespace CreateSmsTemplateRequest {
   }
 }
 
-export interface CreateSmsTemplateResponse extends $MetadataBearer {
+export interface CreateSmsTemplateResponse {
   __type?: "CreateSmsTemplateResponse";
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -2350,7 +2350,7 @@ export namespace CreateVoiceTemplateRequest {
   }
 }
 
-export interface CreateVoiceTemplateResponse extends $MetadataBearer {
+export interface CreateVoiceTemplateResponse {
   __type?: "CreateVoiceTemplateResponse";
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -2484,7 +2484,7 @@ export namespace DeleteAdmChannelRequest {
   }
 }
 
-export interface DeleteAdmChannelResponse extends $MetadataBearer {
+export interface DeleteAdmChannelResponse {
   __type?: "DeleteAdmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -2512,7 +2512,7 @@ export namespace DeleteApnsChannelRequest {
   }
 }
 
-export interface DeleteApnsChannelResponse extends $MetadataBearer {
+export interface DeleteApnsChannelResponse {
   __type?: "DeleteApnsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -2540,7 +2540,7 @@ export namespace DeleteApnsSandboxChannelRequest {
   }
 }
 
-export interface DeleteApnsSandboxChannelResponse extends $MetadataBearer {
+export interface DeleteApnsSandboxChannelResponse {
   __type?: "DeleteApnsSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -2568,7 +2568,7 @@ export namespace DeleteApnsVoipChannelRequest {
   }
 }
 
-export interface DeleteApnsVoipChannelResponse extends $MetadataBearer {
+export interface DeleteApnsVoipChannelResponse {
   __type?: "DeleteApnsVoipChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -2596,7 +2596,7 @@ export namespace DeleteApnsVoipSandboxChannelRequest {
   }
 }
 
-export interface DeleteApnsVoipSandboxChannelResponse extends $MetadataBearer {
+export interface DeleteApnsVoipSandboxChannelResponse {
   __type?: "DeleteApnsVoipSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -2624,7 +2624,7 @@ export namespace DeleteAppRequest {
   }
 }
 
-export interface DeleteAppResponse extends $MetadataBearer {
+export interface DeleteAppResponse {
   __type?: "DeleteAppResponse";
   /**
    * <p>Provides information about an application.</p>
@@ -2652,7 +2652,7 @@ export namespace DeleteBaiduChannelRequest {
   }
 }
 
-export interface DeleteBaiduChannelResponse extends $MetadataBearer {
+export interface DeleteBaiduChannelResponse {
   __type?: "DeleteBaiduChannelResponse";
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
@@ -2685,7 +2685,7 @@ export namespace DeleteCampaignRequest {
   }
 }
 
-export interface DeleteCampaignResponse extends $MetadataBearer {
+export interface DeleteCampaignResponse {
   __type?: "DeleteCampaignResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -2713,7 +2713,7 @@ export namespace DeleteEmailChannelRequest {
   }
 }
 
-export interface DeleteEmailChannelResponse extends $MetadataBearer {
+export interface DeleteEmailChannelResponse {
   __type?: "DeleteEmailChannelResponse";
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
@@ -2746,7 +2746,7 @@ export namespace DeleteEmailTemplateRequest {
   }
 }
 
-export interface DeleteEmailTemplateResponse extends $MetadataBearer {
+export interface DeleteEmailTemplateResponse {
   __type?: "DeleteEmailTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2779,7 +2779,7 @@ export namespace DeleteEndpointRequest {
   }
 }
 
-export interface DeleteEndpointResponse extends $MetadataBearer {
+export interface DeleteEndpointResponse {
   __type?: "DeleteEndpointResponse";
   /**
    * <p>Provides information about the channel type and other settings for an endpoint.</p>
@@ -2807,7 +2807,7 @@ export namespace DeleteEventStreamRequest {
   }
 }
 
-export interface DeleteEventStreamResponse extends $MetadataBearer {
+export interface DeleteEventStreamResponse {
   __type?: "DeleteEventStreamResponse";
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
@@ -2835,7 +2835,7 @@ export namespace DeleteGcmChannelRequest {
   }
 }
 
-export interface DeleteGcmChannelResponse extends $MetadataBearer {
+export interface DeleteGcmChannelResponse {
   __type?: "DeleteGcmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
@@ -2868,7 +2868,7 @@ export namespace DeleteJourneyRequest {
   }
 }
 
-export interface DeleteJourneyResponse extends $MetadataBearer {
+export interface DeleteJourneyResponse {
   __type?: "DeleteJourneyResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -2901,7 +2901,7 @@ export namespace DeletePushTemplateRequest {
   }
 }
 
-export interface DeletePushTemplateResponse extends $MetadataBearer {
+export interface DeletePushTemplateResponse {
   __type?: "DeletePushTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2934,7 +2934,7 @@ export namespace DeleteSegmentRequest {
   }
 }
 
-export interface DeleteSegmentResponse extends $MetadataBearer {
+export interface DeleteSegmentResponse {
   __type?: "DeleteSegmentResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -2962,7 +2962,7 @@ export namespace DeleteSmsChannelRequest {
   }
 }
 
-export interface DeleteSmsChannelResponse extends $MetadataBearer {
+export interface DeleteSmsChannelResponse {
   __type?: "DeleteSmsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
@@ -2995,7 +2995,7 @@ export namespace DeleteSmsTemplateRequest {
   }
 }
 
-export interface DeleteSmsTemplateResponse extends $MetadataBearer {
+export interface DeleteSmsTemplateResponse {
   __type?: "DeleteSmsTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -3028,7 +3028,7 @@ export namespace DeleteUserEndpointsRequest {
   }
 }
 
-export interface DeleteUserEndpointsResponse extends $MetadataBearer {
+export interface DeleteUserEndpointsResponse {
   __type?: "DeleteUserEndpointsResponse";
   /**
    * <p>Provides information about all the endpoints that are associated with a user ID.</p>
@@ -3056,7 +3056,7 @@ export namespace DeleteVoiceChannelRequest {
   }
 }
 
-export interface DeleteVoiceChannelResponse extends $MetadataBearer {
+export interface DeleteVoiceChannelResponse {
   __type?: "DeleteVoiceChannelResponse";
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
@@ -3089,7 +3089,7 @@ export namespace DeleteVoiceTemplateRequest {
   }
 }
 
-export interface DeleteVoiceTemplateResponse extends $MetadataBearer {
+export interface DeleteVoiceTemplateResponse {
   __type?: "DeleteVoiceTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -4658,7 +4658,7 @@ export namespace GetAdmChannelRequest {
   }
 }
 
-export interface GetAdmChannelResponse extends $MetadataBearer {
+export interface GetAdmChannelResponse {
   __type?: "GetAdmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -4686,7 +4686,7 @@ export namespace GetApnsChannelRequest {
   }
 }
 
-export interface GetApnsChannelResponse extends $MetadataBearer {
+export interface GetApnsChannelResponse {
   __type?: "GetApnsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -4714,7 +4714,7 @@ export namespace GetApnsSandboxChannelRequest {
   }
 }
 
-export interface GetApnsSandboxChannelResponse extends $MetadataBearer {
+export interface GetApnsSandboxChannelResponse {
   __type?: "GetApnsSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -4742,7 +4742,7 @@ export namespace GetApnsVoipChannelRequest {
   }
 }
 
-export interface GetApnsVoipChannelResponse extends $MetadataBearer {
+export interface GetApnsVoipChannelResponse {
   __type?: "GetApnsVoipChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -4770,7 +4770,7 @@ export namespace GetApnsVoipSandboxChannelRequest {
   }
 }
 
-export interface GetApnsVoipSandboxChannelResponse extends $MetadataBearer {
+export interface GetApnsVoipSandboxChannelResponse {
   __type?: "GetApnsVoipSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -4798,7 +4798,7 @@ export namespace GetAppRequest {
   }
 }
 
-export interface GetAppResponse extends $MetadataBearer {
+export interface GetAppResponse {
   __type?: "GetAppResponse";
   /**
    * <p>Provides information about an application.</p>
@@ -4851,7 +4851,7 @@ export namespace GetApplicationDateRangeKpiRequest {
   }
 }
 
-export interface GetApplicationDateRangeKpiResponse extends $MetadataBearer {
+export interface GetApplicationDateRangeKpiResponse {
   __type?: "GetApplicationDateRangeKpiResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
@@ -4879,7 +4879,7 @@ export namespace GetApplicationSettingsRequest {
   }
 }
 
-export interface GetApplicationSettingsResponse extends $MetadataBearer {
+export interface GetApplicationSettingsResponse {
   __type?: "GetApplicationSettingsResponse";
   /**
    * <p>Provides information about an application, including the default settings for an application.</p>
@@ -4912,7 +4912,7 @@ export namespace GetAppsRequest {
   }
 }
 
-export interface GetAppsResponse extends $MetadataBearer {
+export interface GetAppsResponse {
   __type?: "GetAppsResponse";
   /**
    * <p>Provides information about all of your applications.</p>
@@ -4940,7 +4940,7 @@ export namespace GetBaiduChannelRequest {
   }
 }
 
-export interface GetBaiduChannelResponse extends $MetadataBearer {
+export interface GetBaiduChannelResponse {
   __type?: "GetBaiduChannelResponse";
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
@@ -4983,7 +4983,7 @@ export namespace GetCampaignActivitiesRequest {
   }
 }
 
-export interface GetCampaignActivitiesResponse extends $MetadataBearer {
+export interface GetCampaignActivitiesResponse {
   __type?: "GetCampaignActivitiesResponse";
   /**
    * <p>Provides information about the activities that were performed by a campaign.</p>
@@ -5041,7 +5041,7 @@ export namespace GetCampaignDateRangeKpiRequest {
   }
 }
 
-export interface GetCampaignDateRangeKpiResponse extends $MetadataBearer {
+export interface GetCampaignDateRangeKpiResponse {
   __type?: "GetCampaignDateRangeKpiResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard metric that applies to a campaign, and provides information about that query.</p>
@@ -5074,7 +5074,7 @@ export namespace GetCampaignRequest {
   }
 }
 
-export interface GetCampaignResponse extends $MetadataBearer {
+export interface GetCampaignResponse {
   __type?: "GetCampaignResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -5112,7 +5112,7 @@ export namespace GetCampaignVersionRequest {
   }
 }
 
-export interface GetCampaignVersionResponse extends $MetadataBearer {
+export interface GetCampaignVersionResponse {
   __type?: "GetCampaignVersionResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -5155,7 +5155,7 @@ export namespace GetCampaignVersionsRequest {
   }
 }
 
-export interface GetCampaignVersionsResponse extends $MetadataBearer {
+export interface GetCampaignVersionsResponse {
   __type?: "GetCampaignVersionsResponse";
   /**
    * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
@@ -5193,7 +5193,7 @@ export namespace GetCampaignsRequest {
   }
 }
 
-export interface GetCampaignsResponse extends $MetadataBearer {
+export interface GetCampaignsResponse {
   __type?: "GetCampaignsResponse";
   /**
    * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
@@ -5221,7 +5221,7 @@ export namespace GetChannelsRequest {
   }
 }
 
-export interface GetChannelsResponse extends $MetadataBearer {
+export interface GetChannelsResponse {
   __type?: "GetChannelsResponse";
   /**
    * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
@@ -5249,7 +5249,7 @@ export namespace GetEmailChannelRequest {
   }
 }
 
-export interface GetEmailChannelResponse extends $MetadataBearer {
+export interface GetEmailChannelResponse {
   __type?: "GetEmailChannelResponse";
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
@@ -5282,7 +5282,7 @@ export namespace GetEmailTemplateRequest {
   }
 }
 
-export interface GetEmailTemplateResponse extends $MetadataBearer {
+export interface GetEmailTemplateResponse {
   __type?: "GetEmailTemplateResponse";
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
@@ -5315,7 +5315,7 @@ export namespace GetEndpointRequest {
   }
 }
 
-export interface GetEndpointResponse extends $MetadataBearer {
+export interface GetEndpointResponse {
   __type?: "GetEndpointResponse";
   /**
    * <p>Provides information about the channel type and other settings for an endpoint.</p>
@@ -5343,7 +5343,7 @@ export namespace GetEventStreamRequest {
   }
 }
 
-export interface GetEventStreamResponse extends $MetadataBearer {
+export interface GetEventStreamResponse {
   __type?: "GetEventStreamResponse";
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
@@ -5376,7 +5376,7 @@ export namespace GetExportJobRequest {
   }
 }
 
-export interface GetExportJobResponse extends $MetadataBearer {
+export interface GetExportJobResponse {
   __type?: "GetExportJobResponse";
   /**
    * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
@@ -5414,7 +5414,7 @@ export namespace GetExportJobsRequest {
   }
 }
 
-export interface GetExportJobsResponse extends $MetadataBearer {
+export interface GetExportJobsResponse {
   __type?: "GetExportJobsResponse";
   /**
    * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
@@ -5442,7 +5442,7 @@ export namespace GetGcmChannelRequest {
   }
 }
 
-export interface GetGcmChannelResponse extends $MetadataBearer {
+export interface GetGcmChannelResponse {
   __type?: "GetGcmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
@@ -5475,7 +5475,7 @@ export namespace GetImportJobRequest {
   }
 }
 
-export interface GetImportJobResponse extends $MetadataBearer {
+export interface GetImportJobResponse {
   __type?: "GetImportJobResponse";
   /**
    * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
@@ -5513,7 +5513,7 @@ export namespace GetImportJobsRequest {
   }
 }
 
-export interface GetImportJobsResponse extends $MetadataBearer {
+export interface GetImportJobsResponse {
   __type?: "GetImportJobsResponse";
   /**
    * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
@@ -5571,7 +5571,7 @@ export namespace GetJourneyDateRangeKpiRequest {
   }
 }
 
-export interface GetJourneyDateRangeKpiResponse extends $MetadataBearer {
+export interface GetJourneyDateRangeKpiResponse {
   __type?: "GetJourneyDateRangeKpiResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
@@ -5619,8 +5619,7 @@ export namespace GetJourneyExecutionActivityMetricsRequest {
   }
 }
 
-export interface GetJourneyExecutionActivityMetricsResponse
-  extends $MetadataBearer {
+export interface GetJourneyExecutionActivityMetricsResponse {
   __type?: "GetJourneyExecutionActivityMetricsResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.</p>
@@ -5665,7 +5664,7 @@ export namespace GetJourneyExecutionMetricsRequest {
   }
 }
 
-export interface GetJourneyExecutionMetricsResponse extends $MetadataBearer {
+export interface GetJourneyExecutionMetricsResponse {
   __type?: "GetJourneyExecutionMetricsResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey, and provides information about that query.</p>
@@ -5698,7 +5697,7 @@ export namespace GetJourneyRequest {
   }
 }
 
-export interface GetJourneyResponse extends $MetadataBearer {
+export interface GetJourneyResponse {
   __type?: "GetJourneyResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -5731,7 +5730,7 @@ export namespace GetPushTemplateRequest {
   }
 }
 
-export interface GetPushTemplateResponse extends $MetadataBearer {
+export interface GetPushTemplateResponse {
   __type?: "GetPushTemplateResponse";
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
@@ -5776,7 +5775,7 @@ export namespace GetSegmentExportJobsRequest {
   }
 }
 
-export interface GetSegmentExportJobsResponse extends $MetadataBearer {
+export interface GetSegmentExportJobsResponse {
   __type?: "GetSegmentExportJobsResponse";
   /**
    * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
@@ -5819,7 +5818,7 @@ export namespace GetSegmentImportJobsRequest {
   }
 }
 
-export interface GetSegmentImportJobsResponse extends $MetadataBearer {
+export interface GetSegmentImportJobsResponse {
   __type?: "GetSegmentImportJobsResponse";
   /**
    * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
@@ -5852,7 +5851,7 @@ export namespace GetSegmentRequest {
   }
 }
 
-export interface GetSegmentResponse extends $MetadataBearer {
+export interface GetSegmentResponse {
   __type?: "GetSegmentResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -5890,7 +5889,7 @@ export namespace GetSegmentVersionRequest {
   }
 }
 
-export interface GetSegmentVersionResponse extends $MetadataBearer {
+export interface GetSegmentVersionResponse {
   __type?: "GetSegmentVersionResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -5933,7 +5932,7 @@ export namespace GetSegmentVersionsRequest {
   }
 }
 
-export interface GetSegmentVersionsResponse extends $MetadataBearer {
+export interface GetSegmentVersionsResponse {
   __type?: "GetSegmentVersionsResponse";
   /**
    * <p>Provides information about all the segments that are associated with an application.</p>
@@ -5971,7 +5970,7 @@ export namespace GetSegmentsRequest {
   }
 }
 
-export interface GetSegmentsResponse extends $MetadataBearer {
+export interface GetSegmentsResponse {
   __type?: "GetSegmentsResponse";
   /**
    * <p>Provides information about all the segments that are associated with an application.</p>
@@ -5999,7 +5998,7 @@ export namespace GetSmsChannelRequest {
   }
 }
 
-export interface GetSmsChannelResponse extends $MetadataBearer {
+export interface GetSmsChannelResponse {
   __type?: "GetSmsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
@@ -6032,7 +6031,7 @@ export namespace GetSmsTemplateRequest {
   }
 }
 
-export interface GetSmsTemplateResponse extends $MetadataBearer {
+export interface GetSmsTemplateResponse {
   __type?: "GetSmsTemplateResponse";
   /**
    * <p>Provides information about the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
@@ -6065,7 +6064,7 @@ export namespace GetUserEndpointsRequest {
   }
 }
 
-export interface GetUserEndpointsResponse extends $MetadataBearer {
+export interface GetUserEndpointsResponse {
   __type?: "GetUserEndpointsResponse";
   /**
    * <p>Provides information about all the endpoints that are associated with a user ID.</p>
@@ -6093,7 +6092,7 @@ export namespace GetVoiceChannelRequest {
   }
 }
 
-export interface GetVoiceChannelResponse extends $MetadataBearer {
+export interface GetVoiceChannelResponse {
   __type?: "GetVoiceChannelResponse";
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
@@ -6126,7 +6125,7 @@ export namespace GetVoiceTemplateRequest {
   }
 }
 
-export interface GetVoiceTemplateResponse extends $MetadataBearer {
+export interface GetVoiceTemplateResponse {
   __type?: "GetVoiceTemplateResponse";
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
@@ -6777,7 +6776,7 @@ export namespace ListJourneysRequest {
   }
 }
 
-export interface ListJourneysResponse extends $MetadataBearer {
+export interface ListJourneysResponse {
   __type?: "ListJourneysResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
@@ -6805,7 +6804,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>Specifies the tags (keys and values) for an application, campaign, journey, message template, or segment.</p>
@@ -6848,7 +6847,7 @@ export namespace ListTemplateVersionsRequest {
   }
 }
 
-export interface ListTemplateVersionsResponse extends $MetadataBearer {
+export interface ListTemplateVersionsResponse {
   __type?: "ListTemplateVersionsResponse";
   /**
    * <p>Provides information about all the versions of a specific message template.</p>
@@ -6891,7 +6890,7 @@ export namespace ListTemplatesRequest {
   }
 }
 
-export interface ListTemplatesResponse extends $MetadataBearer {
+export interface ListTemplatesResponse {
   __type?: "ListTemplatesResponse";
   /**
    * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
@@ -7410,7 +7409,7 @@ export namespace PhoneNumberValidateRequest {
   }
 }
 
-export interface PhoneNumberValidateResponse extends $MetadataBearer {
+export interface PhoneNumberValidateResponse {
   __type?: "PhoneNumberValidateResponse";
   /**
    * <p>Provides information about a phone number.</p>
@@ -7644,7 +7643,7 @@ export namespace PutEventStreamRequest {
   }
 }
 
-export interface PutEventStreamResponse extends $MetadataBearer {
+export interface PutEventStreamResponse {
   __type?: "PutEventStreamResponse";
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
@@ -7677,7 +7676,7 @@ export namespace PutEventsRequest {
   }
 }
 
-export interface PutEventsResponse extends $MetadataBearer {
+export interface PutEventsResponse {
   __type?: "PutEventsResponse";
   /**
    * <p>Provides information about endpoints and the events that they're associated with.</p>
@@ -7820,7 +7819,7 @@ export namespace RemoveAttributesRequest {
   }
 }
 
-export interface RemoveAttributesResponse extends $MetadataBearer {
+export interface RemoveAttributesResponse {
   __type?: "RemoveAttributesResponse";
   /**
    * <p>Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.</p>
@@ -8554,7 +8553,7 @@ export namespace SendMessagesRequest {
   }
 }
 
-export interface SendMessagesResponse extends $MetadataBearer {
+export interface SendMessagesResponse {
   __type?: "SendMessagesResponse";
   /**
    * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
@@ -8651,7 +8650,7 @@ export namespace SendUsersMessagesRequest {
   }
 }
 
-export interface SendUsersMessagesResponse extends $MetadataBearer {
+export interface SendUsersMessagesResponse {
   __type?: "SendUsersMessagesResponse";
   /**
    * <p>Provides information about which users and endpoints a message was sent to.</p>
@@ -9224,7 +9223,7 @@ export namespace UpdateAdmChannelRequest {
   }
 }
 
-export interface UpdateAdmChannelResponse extends $MetadataBearer {
+export interface UpdateAdmChannelResponse {
   __type?: "UpdateAdmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -9257,7 +9256,7 @@ export namespace UpdateApnsChannelRequest {
   }
 }
 
-export interface UpdateApnsChannelResponse extends $MetadataBearer {
+export interface UpdateApnsChannelResponse {
   __type?: "UpdateApnsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -9290,7 +9289,7 @@ export namespace UpdateApnsSandboxChannelRequest {
   }
 }
 
-export interface UpdateApnsSandboxChannelResponse extends $MetadataBearer {
+export interface UpdateApnsSandboxChannelResponse {
   __type?: "UpdateApnsSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -9323,7 +9322,7 @@ export namespace UpdateApnsVoipChannelRequest {
   }
 }
 
-export interface UpdateApnsVoipChannelResponse extends $MetadataBearer {
+export interface UpdateApnsVoipChannelResponse {
   __type?: "UpdateApnsVoipChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -9356,7 +9355,7 @@ export namespace UpdateApnsVoipSandboxChannelRequest {
   }
 }
 
-export interface UpdateApnsVoipSandboxChannelResponse extends $MetadataBearer {
+export interface UpdateApnsVoipSandboxChannelResponse {
   __type?: "UpdateApnsVoipSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -9389,7 +9388,7 @@ export namespace UpdateApplicationSettingsRequest {
   }
 }
 
-export interface UpdateApplicationSettingsResponse extends $MetadataBearer {
+export interface UpdateApplicationSettingsResponse {
   __type?: "UpdateApplicationSettingsResponse";
   /**
    * <p>Provides information about an application, including the default settings for an application.</p>
@@ -9439,7 +9438,7 @@ export namespace UpdateBaiduChannelRequest {
   }
 }
 
-export interface UpdateBaiduChannelResponse extends $MetadataBearer {
+export interface UpdateBaiduChannelResponse {
   __type?: "UpdateBaiduChannelResponse";
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
@@ -9477,7 +9476,7 @@ export namespace UpdateCampaignRequest {
   }
 }
 
-export interface UpdateCampaignResponse extends $MetadataBearer {
+export interface UpdateCampaignResponse {
   __type?: "UpdateCampaignResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -9510,7 +9509,7 @@ export namespace UpdateEmailChannelRequest {
   }
 }
 
-export interface UpdateEmailChannelResponse extends $MetadataBearer {
+export interface UpdateEmailChannelResponse {
   __type?: "UpdateEmailChannelResponse";
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
@@ -9553,7 +9552,7 @@ export namespace UpdateEmailTemplateRequest {
   }
 }
 
-export interface UpdateEmailTemplateResponse extends $MetadataBearer {
+export interface UpdateEmailTemplateResponse {
   __type?: "UpdateEmailTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -9591,7 +9590,7 @@ export namespace UpdateEndpointRequest {
   }
 }
 
-export interface UpdateEndpointResponse extends $MetadataBearer {
+export interface UpdateEndpointResponse {
   __type?: "UpdateEndpointResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -9624,7 +9623,7 @@ export namespace UpdateEndpointsBatchRequest {
   }
 }
 
-export interface UpdateEndpointsBatchResponse extends $MetadataBearer {
+export interface UpdateEndpointsBatchResponse {
   __type?: "UpdateEndpointsBatchResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -9657,7 +9656,7 @@ export namespace UpdateGcmChannelRequest {
   }
 }
 
-export interface UpdateGcmChannelResponse extends $MetadataBearer {
+export interface UpdateGcmChannelResponse {
   __type?: "UpdateGcmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
@@ -9695,7 +9694,7 @@ export namespace UpdateJourneyRequest {
   }
 }
 
-export interface UpdateJourneyResponse extends $MetadataBearer {
+export interface UpdateJourneyResponse {
   __type?: "UpdateJourneyResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -9733,7 +9732,7 @@ export namespace UpdateJourneyStateRequest {
   }
 }
 
-export interface UpdateJourneyStateResponse extends $MetadataBearer {
+export interface UpdateJourneyStateResponse {
   __type?: "UpdateJourneyStateResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -9776,7 +9775,7 @@ export namespace UpdatePushTemplateRequest {
   }
 }
 
-export interface UpdatePushTemplateResponse extends $MetadataBearer {
+export interface UpdatePushTemplateResponse {
   __type?: "UpdatePushTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -9814,7 +9813,7 @@ export namespace UpdateSegmentRequest {
   }
 }
 
-export interface UpdateSegmentResponse extends $MetadataBearer {
+export interface UpdateSegmentResponse {
   __type?: "UpdateSegmentResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -9847,7 +9846,7 @@ export namespace UpdateSmsChannelRequest {
   }
 }
 
-export interface UpdateSmsChannelResponse extends $MetadataBearer {
+export interface UpdateSmsChannelResponse {
   __type?: "UpdateSmsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
@@ -9890,7 +9889,7 @@ export namespace UpdateSmsTemplateRequest {
   }
 }
 
-export interface UpdateSmsTemplateResponse extends $MetadataBearer {
+export interface UpdateSmsTemplateResponse {
   __type?: "UpdateSmsTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -9928,7 +9927,7 @@ export namespace UpdateTemplateActiveVersionRequest {
   }
 }
 
-export interface UpdateTemplateActiveVersionResponse extends $MetadataBearer {
+export interface UpdateTemplateActiveVersionResponse {
   __type?: "UpdateTemplateActiveVersionResponse";
   /**
    * <p>Provides information about an API request or response.</p>
@@ -9961,7 +9960,7 @@ export namespace UpdateVoiceChannelRequest {
   }
 }
 
-export interface UpdateVoiceChannelResponse extends $MetadataBearer {
+export interface UpdateVoiceChannelResponse {
   __type?: "UpdateVoiceChannelResponse";
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
@@ -10004,7 +10003,7 @@ export namespace UpdateVoiceTemplateRequest {
   }
 }
 
-export interface UpdateVoiceTemplateResponse extends $MetadataBearer {
+export interface UpdateVoiceTemplateResponse {
   __type?: "UpdateVoiceTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>

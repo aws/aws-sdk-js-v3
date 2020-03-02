@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDiscoveredSchemaCommandInput = GetDiscoveredSchemaRequest;
-export type GetDiscoveredSchemaCommandOutput = GetDiscoveredSchemaResponse;
+export type GetDiscoveredSchemaCommandOutput = GetDiscoveredSchemaResponse &
+  __MetadataBearer;
 
 export class GetDiscoveredSchemaCommand extends $Command<
   GetDiscoveredSchemaCommandInput,

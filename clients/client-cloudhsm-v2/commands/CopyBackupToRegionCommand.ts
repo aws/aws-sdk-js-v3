@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyBackupToRegionCommandInput = CopyBackupToRegionRequest;
-export type CopyBackupToRegionCommandOutput = CopyBackupToRegionResponse;
+export type CopyBackupToRegionCommandOutput = CopyBackupToRegionResponse &
+  __MetadataBearer;
 
 export class CopyBackupToRegionCommand extends $Command<
   CopyBackupToRegionCommandInput,

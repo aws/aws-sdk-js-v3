@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBuiltinIntentCommandInput = GetBuiltinIntentRequest;
-export type GetBuiltinIntentCommandOutput = GetBuiltinIntentResponse;
+export type GetBuiltinIntentCommandOutput = GetBuiltinIntentResponse &
+  __MetadataBearer;
 
 export class GetBuiltinIntentCommand extends $Command<
   GetBuiltinIntentCommandInput,

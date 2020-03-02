@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListContactFlowsCommandInput = ListContactFlowsRequest;
-export type ListContactFlowsCommandOutput = ListContactFlowsResponse;
+export type ListContactFlowsCommandOutput = ListContactFlowsResponse &
+  __MetadataBearer;
 
 export class ListContactFlowsCommand extends $Command<
   ListContactFlowsCommandInput,

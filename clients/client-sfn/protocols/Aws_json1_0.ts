@@ -541,24 +541,33 @@ async function deserializeAws_json1_0CreateActivityCommandError(
   switch (errorCode) {
     case "ActivityLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#ActivityLimitExceeded":
-      response = await deserializeAws_json1_0ActivityLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ActivityLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidName":
     case "com.amazonaws.swf.service.v2.model#InvalidName":
-      response = await deserializeAws_json1_0InvalidNameResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidNameResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTags":
     case "com.amazonaws.swf.service.v2.model#TooManyTags":
-      response = await deserializeAws_json1_0TooManyTagsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TooManyTagsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -614,66 +623,93 @@ async function deserializeAws_json1_0CreateStateMachineCommandError(
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDefinition":
     case "com.amazonaws.swf.service.v2.model#InvalidDefinition":
-      response = await deserializeAws_json1_0InvalidDefinitionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidDefinitionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.swf.service.v2.model#InvalidLoggingConfiguration":
-      response = await deserializeAws_json1_0InvalidLoggingConfigurationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidLoggingConfigurationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidName":
     case "com.amazonaws.swf.service.v2.model#InvalidName":
-      response = await deserializeAws_json1_0InvalidNameResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidNameResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineAlreadyExists":
     case "com.amazonaws.swf.service.v2.model#StateMachineAlreadyExists":
-      response = await deserializeAws_json1_0StateMachineAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineDeleting":
     case "com.amazonaws.swf.service.v2.model#StateMachineDeleting":
-      response = await deserializeAws_json1_0StateMachineDeletingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineDeletingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#StateMachineLimitExceeded":
-      response = await deserializeAws_json1_0StateMachineLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.swf.service.v2.model#StateMachineTypeNotSupported":
-      response = await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTags":
     case "com.amazonaws.swf.service.v2.model#TooManyTags":
-      response = await deserializeAws_json1_0TooManyTagsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TooManyTagsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -726,10 +762,13 @@ async function deserializeAws_json1_0DeleteActivityCommandError(
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -785,10 +824,13 @@ async function deserializeAws_json1_0DeleteStateMachineCommandError(
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -841,17 +883,23 @@ async function deserializeAws_json1_0DescribeActivityCommandError(
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist":
-      response = await deserializeAws_json1_0ActivityDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ActivityDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -904,17 +952,23 @@ async function deserializeAws_json1_0DescribeExecutionCommandError(
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
-      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -970,17 +1024,23 @@ async function deserializeAws_json1_0DescribeStateMachineCommandError(
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
-      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1039,17 +1099,23 @@ async function deserializeAws_json1_0DescribeStateMachineForExecutionCommandErro
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
-      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1102,24 +1168,33 @@ async function deserializeAws_json1_0GetActivityTaskCommandError(
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist":
-      response = await deserializeAws_json1_0ActivityDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ActivityDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ActivityWorkerLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#ActivityWorkerLimitExceeded":
-      response = await deserializeAws_json1_0ActivityWorkerLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ActivityWorkerLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1175,24 +1250,33 @@ async function deserializeAws_json1_0GetExecutionHistoryCommandError(
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
-      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1245,10 +1329,13 @@ async function deserializeAws_json1_0ListActivitiesCommandError(
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1301,31 +1388,43 @@ async function deserializeAws_json1_0ListExecutionsCommandError(
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
-      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.swf.service.v2.model#StateMachineTypeNotSupported":
-      response = await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1378,10 +1477,13 @@ async function deserializeAws_json1_0ListStateMachinesCommandError(
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1437,17 +1539,23 @@ async function deserializeAws_json1_0ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.swf.service.v2.model#ResourceNotFound":
-      response = await deserializeAws_json1_0ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1500,24 +1608,33 @@ async function deserializeAws_json1_0SendTaskFailureCommandError(
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TaskDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#TaskDoesNotExist":
-      response = await deserializeAws_json1_0TaskDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TaskTimedOut":
     case "com.amazonaws.swf.service.v2.model#TaskTimedOut":
-      response = await deserializeAws_json1_0TaskTimedOutResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TaskTimedOutResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1570,24 +1687,33 @@ async function deserializeAws_json1_0SendTaskHeartbeatCommandError(
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TaskDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#TaskDoesNotExist":
-      response = await deserializeAws_json1_0TaskDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TaskTimedOut":
     case "com.amazonaws.swf.service.v2.model#TaskTimedOut":
-      response = await deserializeAws_json1_0TaskTimedOutResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TaskTimedOutResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1640,31 +1766,43 @@ async function deserializeAws_json1_0SendTaskSuccessCommandError(
   switch (errorCode) {
     case "InvalidOutput":
     case "com.amazonaws.swf.service.v2.model#InvalidOutput":
-      response = await deserializeAws_json1_0InvalidOutputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidOutputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TaskDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#TaskDoesNotExist":
-      response = await deserializeAws_json1_0TaskDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TaskTimedOut":
     case "com.amazonaws.swf.service.v2.model#TaskTimedOut":
-      response = await deserializeAws_json1_0TaskTimedOutResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TaskTimedOutResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1717,52 +1855,73 @@ async function deserializeAws_json1_0StartExecutionCommandError(
   switch (errorCode) {
     case "ExecutionAlreadyExists":
     case "com.amazonaws.swf.service.v2.model#ExecutionAlreadyExists":
-      response = await deserializeAws_json1_0ExecutionAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ExecutionAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ExecutionLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#ExecutionLimitExceeded":
-      response = await deserializeAws_json1_0ExecutionLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ExecutionLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidExecutionInput":
     case "com.amazonaws.swf.service.v2.model#InvalidExecutionInput":
-      response = await deserializeAws_json1_0InvalidExecutionInputResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidExecutionInputResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidName":
     case "com.amazonaws.swf.service.v2.model#InvalidName":
-      response = await deserializeAws_json1_0InvalidNameResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidNameResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineDeleting":
     case "com.amazonaws.swf.service.v2.model#StateMachineDeleting":
-      response = await deserializeAws_json1_0StateMachineDeletingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineDeletingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
-      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1815,17 +1974,23 @@ async function deserializeAws_json1_0StopExecutionCommandError(
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
-      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1878,24 +2043,33 @@ async function deserializeAws_json1_0TagResourceCommandError(
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.swf.service.v2.model#ResourceNotFound":
-      response = await deserializeAws_json1_0ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTags":
     case "com.amazonaws.swf.service.v2.model#TooManyTags":
-      response = await deserializeAws_json1_0TooManyTagsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TooManyTagsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1948,17 +2122,23 @@ async function deserializeAws_json1_0UntagResourceCommandError(
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.swf.service.v2.model#ResourceNotFound":
-      response = await deserializeAws_json1_0ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2014,45 +2194,63 @@ async function deserializeAws_json1_0UpdateStateMachineCommandError(
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDefinition":
     case "com.amazonaws.swf.service.v2.model#InvalidDefinition":
-      response = await deserializeAws_json1_0InvalidDefinitionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidDefinitionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.swf.service.v2.model#InvalidLoggingConfiguration":
-      response = await deserializeAws_json1_0InvalidLoggingConfigurationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InvalidLoggingConfigurationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingRequiredParameter":
     case "com.amazonaws.swf.service.v2.model#MissingRequiredParameter":
-      response = await deserializeAws_json1_0MissingRequiredParameterResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0MissingRequiredParameterResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineDeleting":
     case "com.amazonaws.swf.service.v2.model#StateMachineDeleting":
-      response = await deserializeAws_json1_0StateMachineDeletingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineDeletingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
-      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

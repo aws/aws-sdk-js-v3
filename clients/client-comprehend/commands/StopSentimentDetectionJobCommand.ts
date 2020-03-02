@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopSentimentDetectionJobCommandInput = StopSentimentDetectionJobRequest;
-export type StopSentimentDetectionJobCommandOutput = StopSentimentDetectionJobResponse;
+export type StopSentimentDetectionJobCommandOutput = StopSentimentDetectionJobResponse &
+  __MetadataBearer;
 
 export class StopSentimentDetectionJobCommand extends $Command<
   StopSentimentDetectionJobCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportRestApiCommandInput = ImportRestApiRequest;
-export type ImportRestApiCommandOutput = RestApi;
+export type ImportRestApiCommandOutput = RestApi & __MetadataBearer;
 
 export class ImportRestApiCommand extends $Command<
   ImportRestApiCommandInput,

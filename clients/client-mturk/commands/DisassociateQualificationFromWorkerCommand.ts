@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateQualificationFromWorkerCommandInput = DisassociateQualificationFromWorkerRequest;
-export type DisassociateQualificationFromWorkerCommandOutput = DisassociateQualificationFromWorkerResponse;
+export type DisassociateQualificationFromWorkerCommandOutput = DisassociateQualificationFromWorkerResponse &
+  __MetadataBearer;
 
 export class DisassociateQualificationFromWorkerCommand extends $Command<
   DisassociateQualificationFromWorkerCommandInput,

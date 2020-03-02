@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTableReplicaAutoScalingCommandInput = DescribeTableReplicaAutoScalingInput;
-export type DescribeTableReplicaAutoScalingCommandOutput = DescribeTableReplicaAutoScalingOutput;
+export type DescribeTableReplicaAutoScalingCommandOutput = DescribeTableReplicaAutoScalingOutput &
+  __MetadataBearer;
 
 export class DescribeTableReplicaAutoScalingCommand extends $Command<
   DescribeTableReplicaAutoScalingCommandInput,

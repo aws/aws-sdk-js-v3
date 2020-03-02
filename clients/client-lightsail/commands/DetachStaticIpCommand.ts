@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachStaticIpCommandInput = DetachStaticIpRequest;
-export type DetachStaticIpCommandOutput = DetachStaticIpResult;
+export type DetachStaticIpCommandOutput = DetachStaticIpResult &
+  __MetadataBearer;
 
 export class DetachStaticIpCommand extends $Command<
   DetachStaticIpCommandInput,

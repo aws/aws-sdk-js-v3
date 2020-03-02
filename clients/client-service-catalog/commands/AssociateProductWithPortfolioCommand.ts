@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateProductWithPortfolioCommandInput = AssociateProductWithPortfolioInput;
-export type AssociateProductWithPortfolioCommandOutput = AssociateProductWithPortfolioOutput;
+export type AssociateProductWithPortfolioCommandOutput = AssociateProductWithPortfolioOutput &
+  __MetadataBearer;
 
 export class AssociateProductWithPortfolioCommand extends $Command<
   AssociateProductWithPortfolioCommandInput,

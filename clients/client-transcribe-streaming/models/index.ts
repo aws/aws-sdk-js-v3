@@ -288,7 +288,7 @@ export namespace StartStreamTranscriptionRequest {
   }
 }
 
-export interface StartStreamTranscriptionResponse extends $MetadataBearer {
+export interface StartStreamTranscriptionResponse {
   __type?: "StartStreamTranscriptionResponse";
   /**
    * <p>The language code for the input audio stream.</p>

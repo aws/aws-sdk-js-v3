@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyVolumeCommandInput = ModifyVolumeRequest;
-export type ModifyVolumeCommandOutput = ModifyVolumeResult;
+export type ModifyVolumeCommandOutput = ModifyVolumeResult & __MetadataBearer;
 
 export class ModifyVolumeCommand extends $Command<
   ModifyVolumeCommandInput,

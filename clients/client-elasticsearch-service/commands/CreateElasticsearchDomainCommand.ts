@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateElasticsearchDomainCommandInput = CreateElasticsearchDomainRequest;
-export type CreateElasticsearchDomainCommandOutput = CreateElasticsearchDomainResponse;
+export type CreateElasticsearchDomainCommandOutput = CreateElasticsearchDomainResponse &
+  __MetadataBearer;
 
 export class CreateElasticsearchDomainCommand extends $Command<
   CreateElasticsearchDomainCommandInput,

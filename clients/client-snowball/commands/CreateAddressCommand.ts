@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateAddressCommandInput = CreateAddressRequest;
-export type CreateAddressCommandOutput = CreateAddressResult;
+export type CreateAddressCommandOutput = CreateAddressResult & __MetadataBearer;
 
 export class CreateAddressCommand extends $Command<
   CreateAddressCommandInput,

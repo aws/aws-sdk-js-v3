@@ -40,7 +40,7 @@ export namespace CreateLedgerRequest {
   }
 }
 
-export interface CreateLedgerResponse extends $MetadataBearer {
+export interface CreateLedgerResponse {
   __type?: "CreateLedgerResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
@@ -113,7 +113,7 @@ export namespace DescribeJournalS3ExportRequest {
   }
 }
 
-export interface DescribeJournalS3ExportResponse extends $MetadataBearer {
+export interface DescribeJournalS3ExportResponse {
   __type?: "DescribeJournalS3ExportResponse";
   /**
    * <p>Information about the journal export job returned by a
@@ -142,7 +142,7 @@ export namespace DescribeLedgerRequest {
   }
 }
 
-export interface DescribeLedgerResponse extends $MetadataBearer {
+export interface DescribeLedgerResponse {
   __type?: "DescribeLedgerResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
@@ -243,7 +243,7 @@ export namespace ExportJournalToS3Request {
   }
 }
 
-export interface ExportJournalToS3Response extends $MetadataBearer {
+export interface ExportJournalToS3Response {
   __type?: "ExportJournalToS3Response";
   /**
    * <p>The unique ID that QLDB assigns to each journal export job.</p>
@@ -296,7 +296,7 @@ export namespace GetBlockRequest {
   }
 }
 
-export interface GetBlockResponse extends $MetadataBearer {
+export interface GetBlockResponse {
   __type?: "GetBlockResponse";
   /**
    * <p>The block data object in Amazon Ion format.</p>
@@ -331,7 +331,7 @@ export namespace GetDigestRequest {
   }
 }
 
-export interface GetDigestResponse extends $MetadataBearer {
+export interface GetDigestResponse {
   __type?: "GetDigestResponse";
   /**
    * <p>The 256-bit hash value representing the digest returned by a <code>GetDigest</code>
@@ -389,7 +389,7 @@ export namespace GetRevisionRequest {
   }
 }
 
-export interface GetRevisionResponse extends $MetadataBearer {
+export interface GetRevisionResponse {
   __type?: "GetRevisionResponse";
   /**
    * <p>The proof object in Amazon Ion format returned by a <code>GetRevision</code> request. A
@@ -583,7 +583,7 @@ export namespace ListJournalS3ExportsForLedgerRequest {
   }
 }
 
-export interface ListJournalS3ExportsForLedgerResponse extends $MetadataBearer {
+export interface ListJournalS3ExportsForLedgerResponse {
   __type?: "ListJournalS3ExportsForLedgerResponse";
   /**
    * <p>The array of journal export job descriptions that are associated with the specified
@@ -637,7 +637,7 @@ export namespace ListJournalS3ExportsRequest {
   }
 }
 
-export interface ListJournalS3ExportsResponse extends $MetadataBearer {
+export interface ListJournalS3ExportsResponse {
   __type?: "ListJournalS3ExportsResponse";
   /**
    * <p>The array of journal export job descriptions for all ledgers that are associated with
@@ -690,7 +690,7 @@ export namespace ListLedgersRequest {
   }
 }
 
-export interface ListLedgersResponse extends $MetadataBearer {
+export interface ListLedgersResponse {
   __type?: "ListLedgersResponse";
   /**
    * <p>The array of ledger summaries that are associated with the current AWS account and
@@ -738,7 +738,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags that are currently associated with the specified Amazon QLDB resource.</p>
@@ -976,7 +976,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1009,7 +1009,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1043,7 +1043,7 @@ export namespace UpdateLedgerRequest {
   }
 }
 
-export interface UpdateLedgerResponse extends $MetadataBearer {
+export interface UpdateLedgerResponse {
   __type?: "UpdateLedgerResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>

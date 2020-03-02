@@ -154,7 +154,7 @@ export namespace AssociateFleetRequest {
   }
 }
 
-export interface AssociateFleetResult extends $MetadataBearer {
+export interface AssociateFleetResult {
   __type?: "AssociateFleetResult";
 }
 
@@ -184,7 +184,7 @@ export namespace BatchAssociateUserStackRequest {
   }
 }
 
-export interface BatchAssociateUserStackResult extends $MetadataBearer {
+export interface BatchAssociateUserStackResult {
   __type?: "BatchAssociateUserStackResult";
   /**
    * <p>The list of UserStackAssociationError objects.</p>
@@ -212,7 +212,7 @@ export namespace BatchDisassociateUserStackRequest {
   }
 }
 
-export interface BatchDisassociateUserStackResult extends $MetadataBearer {
+export interface BatchDisassociateUserStackResult {
   __type?: "BatchDisassociateUserStackResult";
   /**
    * <p>The list of UserStackAssociationError objects.</p>
@@ -325,7 +325,7 @@ export namespace CopyImageRequest {
   }
 }
 
-export interface CopyImageResponse extends $MetadataBearer {
+export interface CopyImageResponse {
   __type?: "CopyImageResponse";
   /**
    * <p>The name of the destination image.</p>
@@ -363,7 +363,7 @@ export namespace CreateDirectoryConfigRequest {
   }
 }
 
-export interface CreateDirectoryConfigResult extends $MetadataBearer {
+export interface CreateDirectoryConfigResult {
   __type?: "CreateDirectoryConfigResult";
   /**
    * <p>Information about the directory configuration.</p>
@@ -565,7 +565,7 @@ export namespace CreateFleetRequest {
   }
 }
 
-export interface CreateFleetResult extends $MetadataBearer {
+export interface CreateFleetResult {
   __type?: "CreateFleetResult";
   /**
    * <p>Information about the fleet.</p>
@@ -724,7 +724,7 @@ export namespace CreateImageBuilderRequest {
   }
 }
 
-export interface CreateImageBuilderResult extends $MetadataBearer {
+export interface CreateImageBuilderResult {
   __type?: "CreateImageBuilderResult";
   /**
    * <p>Information about the image builder.</p>
@@ -758,7 +758,7 @@ export namespace CreateImageBuilderStreamingURLRequest {
   }
 }
 
-export interface CreateImageBuilderStreamingURLResult extends $MetadataBearer {
+export interface CreateImageBuilderStreamingURLResult {
   __type?: "CreateImageBuilderStreamingURLResult";
   /**
    * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
@@ -848,7 +848,7 @@ export namespace CreateStackRequest {
   }
 }
 
-export interface CreateStackResult extends $MetadataBearer {
+export interface CreateStackResult {
   __type?: "CreateStackResult";
   /**
    * <p>Information about the stack.</p>
@@ -903,7 +903,7 @@ export namespace CreateStreamingURLRequest {
   }
 }
 
-export interface CreateStreamingURLResult extends $MetadataBearer {
+export interface CreateStreamingURLResult {
   __type?: "CreateStreamingURLResult";
   /**
    * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
@@ -932,7 +932,7 @@ export namespace CreateUsageReportSubscriptionRequest {
   }
 }
 
-export interface CreateUsageReportSubscriptionResult extends $MetadataBearer {
+export interface CreateUsageReportSubscriptionResult {
   __type?: "CreateUsageReportSubscriptionResult";
   /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
@@ -999,7 +999,7 @@ export namespace CreateUserRequest {
   }
 }
 
-export interface CreateUserResult extends $MetadataBearer {
+export interface CreateUserResult {
   __type?: "CreateUserResult";
 }
 
@@ -1023,7 +1023,7 @@ export namespace DeleteDirectoryConfigRequest {
   }
 }
 
-export interface DeleteDirectoryConfigResult extends $MetadataBearer {
+export interface DeleteDirectoryConfigResult {
   __type?: "DeleteDirectoryConfigResult";
 }
 
@@ -1047,7 +1047,7 @@ export namespace DeleteFleetRequest {
   }
 }
 
-export interface DeleteFleetResult extends $MetadataBearer {
+export interface DeleteFleetResult {
   __type?: "DeleteFleetResult";
 }
 
@@ -1071,7 +1071,7 @@ export namespace DeleteImageBuilderRequest {
   }
 }
 
-export interface DeleteImageBuilderResult extends $MetadataBearer {
+export interface DeleteImageBuilderResult {
   __type?: "DeleteImageBuilderResult";
   /**
    * <p>Information about the image builder.</p>
@@ -1104,7 +1104,7 @@ export namespace DeleteImagePermissionsRequest {
   }
 }
 
-export interface DeleteImagePermissionsResult extends $MetadataBearer {
+export interface DeleteImagePermissionsResult {
   __type?: "DeleteImagePermissionsResult";
 }
 
@@ -1128,7 +1128,7 @@ export namespace DeleteImageRequest {
   }
 }
 
-export interface DeleteImageResult extends $MetadataBearer {
+export interface DeleteImageResult {
   __type?: "DeleteImageResult";
   /**
    * <p>Information about the image.</p>
@@ -1156,7 +1156,7 @@ export namespace DeleteStackRequest {
   }
 }
 
-export interface DeleteStackResult extends $MetadataBearer {
+export interface DeleteStackResult {
   __type?: "DeleteStackResult";
 }
 
@@ -1176,7 +1176,7 @@ export namespace DeleteUsageReportSubscriptionRequest {
   }
 }
 
-export interface DeleteUsageReportSubscriptionResult extends $MetadataBearer {
+export interface DeleteUsageReportSubscriptionResult {
   __type?: "DeleteUsageReportSubscriptionResult";
 }
 
@@ -1209,7 +1209,7 @@ export namespace DeleteUserRequest {
   }
 }
 
-export interface DeleteUserResult extends $MetadataBearer {
+export interface DeleteUserResult {
   __type?: "DeleteUserResult";
 }
 
@@ -1243,7 +1243,7 @@ export namespace DescribeDirectoryConfigsRequest {
   }
 }
 
-export interface DescribeDirectoryConfigsResult extends $MetadataBearer {
+export interface DescribeDirectoryConfigsResult {
   __type?: "DescribeDirectoryConfigsResult";
   /**
    * <p>Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
@@ -1281,7 +1281,7 @@ export namespace DescribeFleetsRequest {
   }
 }
 
-export interface DescribeFleetsResult extends $MetadataBearer {
+export interface DescribeFleetsResult {
   __type?: "DescribeFleetsResult";
   /**
    * <p>Information about the fleets.</p>
@@ -1324,7 +1324,7 @@ export namespace DescribeImageBuildersRequest {
   }
 }
 
-export interface DescribeImageBuildersResult extends $MetadataBearer {
+export interface DescribeImageBuildersResult {
   __type?: "DescribeImageBuildersResult";
   /**
    * <p>Information about the image builders.</p>
@@ -1372,7 +1372,7 @@ export namespace DescribeImagePermissionsRequest {
   }
 }
 
-export interface DescribeImagePermissionsResult extends $MetadataBearer {
+export interface DescribeImagePermissionsResult {
   __type?: "DescribeImagePermissionsResult";
   /**
    * <p>The name of the private image.</p>
@@ -1430,7 +1430,7 @@ export namespace DescribeImagesRequest {
   }
 }
 
-export interface DescribeImagesResult extends $MetadataBearer {
+export interface DescribeImagesResult {
   __type?: "DescribeImagesResult";
   /**
    * <p>Information about the images.</p>
@@ -1490,7 +1490,7 @@ export namespace DescribeSessionsRequest {
   }
 }
 
-export interface DescribeSessionsResult extends $MetadataBearer {
+export interface DescribeSessionsResult {
   __type?: "DescribeSessionsResult";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -1528,7 +1528,7 @@ export namespace DescribeStacksRequest {
   }
 }
 
-export interface DescribeStacksResult extends $MetadataBearer {
+export interface DescribeStacksResult {
   __type?: "DescribeStacksResult";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -1566,8 +1566,7 @@ export namespace DescribeUsageReportSubscriptionsRequest {
   }
 }
 
-export interface DescribeUsageReportSubscriptionsResult
-  extends $MetadataBearer {
+export interface DescribeUsageReportSubscriptionsResult {
   __type?: "DescribeUsageReportSubscriptionsResult";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -1624,7 +1623,7 @@ export namespace DescribeUserStackAssociationsRequest {
   }
 }
 
-export interface DescribeUserStackAssociationsResult extends $MetadataBearer {
+export interface DescribeUserStackAssociationsResult {
   __type?: "DescribeUserStackAssociationsResult";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -1667,7 +1666,7 @@ export namespace DescribeUsersRequest {
   }
 }
 
-export interface DescribeUsersResult extends $MetadataBearer {
+export interface DescribeUsersResult {
   __type?: "DescribeUsersResult";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -1741,7 +1740,7 @@ export namespace DisableUserRequest {
   }
 }
 
-export interface DisableUserResult extends $MetadataBearer {
+export interface DisableUserResult {
   __type?: "DisableUserResult";
 }
 
@@ -1770,7 +1769,7 @@ export namespace DisassociateFleetRequest {
   }
 }
 
-export interface DisassociateFleetResult extends $MetadataBearer {
+export interface DisassociateFleetResult {
   __type?: "DisassociateFleetResult";
 }
 
@@ -1825,7 +1824,7 @@ export namespace EnableUserRequest {
   }
 }
 
-export interface EnableUserResult extends $MetadataBearer {
+export interface EnableUserResult {
   __type?: "EnableUserResult";
 }
 
@@ -1849,7 +1848,7 @@ export namespace ExpireSessionRequest {
   }
 }
 
-export interface ExpireSessionResult extends $MetadataBearer {
+export interface ExpireSessionResult {
   __type?: "ExpireSessionResult";
 }
 
@@ -2629,7 +2628,7 @@ export namespace ListAssociatedFleetsRequest {
   }
 }
 
-export interface ListAssociatedFleetsResult extends $MetadataBearer {
+export interface ListAssociatedFleetsResult {
   __type?: "ListAssociatedFleetsResult";
   /**
    * <p>The name of the fleet.</p>
@@ -2667,7 +2666,7 @@ export namespace ListAssociatedStacksRequest {
   }
 }
 
-export interface ListAssociatedStacksResult extends $MetadataBearer {
+export interface ListAssociatedStacksResult {
   __type?: "ListAssociatedStacksResult";
   /**
    * <p>The name of the stack.</p>
@@ -2700,7 +2699,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The information about the tags.</p>
@@ -3130,7 +3129,7 @@ export namespace StartFleetRequest {
   }
 }
 
-export interface StartFleetResult extends $MetadataBearer {
+export interface StartFleetResult {
   __type?: "StartFleetResult";
 }
 
@@ -3159,7 +3158,7 @@ export namespace StartImageBuilderRequest {
   }
 }
 
-export interface StartImageBuilderResult extends $MetadataBearer {
+export interface StartImageBuilderResult {
   __type?: "StartImageBuilderResult";
   /**
    * <p>Information about the image builder.</p>
@@ -3187,7 +3186,7 @@ export namespace StopFleetRequest {
   }
 }
 
-export interface StopFleetResult extends $MetadataBearer {
+export interface StopFleetResult {
   __type?: "StopFleetResult";
 }
 
@@ -3211,7 +3210,7 @@ export namespace StopImageBuilderRequest {
   }
 }
 
-export interface StopImageBuilderResult extends $MetadataBearer {
+export interface StopImageBuilderResult {
   __type?: "StopImageBuilderResult";
   /**
    * <p>Information about the image builder.</p>
@@ -3282,7 +3281,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -3311,7 +3310,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -3345,7 +3344,7 @@ export namespace UpdateDirectoryConfigRequest {
   }
 }
 
-export interface UpdateDirectoryConfigResult extends $MetadataBearer {
+export interface UpdateDirectoryConfigResult {
   __type?: "UpdateDirectoryConfigResult";
   /**
    * <p>Information about the Directory Config object.</p>
@@ -3528,7 +3527,7 @@ export namespace UpdateFleetRequest {
   }
 }
 
-export interface UpdateFleetResult extends $MetadataBearer {
+export interface UpdateFleetResult {
   __type?: "UpdateFleetResult";
   /**
    * <p>Information about the fleet.</p>
@@ -3566,7 +3565,7 @@ export namespace UpdateImagePermissionsRequest {
   }
 }
 
-export interface UpdateImagePermissionsResult extends $MetadataBearer {
+export interface UpdateImagePermissionsResult {
   __type?: "UpdateImagePermissionsResult";
 }
 
@@ -3645,7 +3644,7 @@ export namespace UpdateStackRequest {
   }
 }
 
-export interface UpdateStackResult extends $MetadataBearer {
+export interface UpdateStackResult {
   __type?: "UpdateStackResult";
   /**
    * <p>Information about the stack.</p>

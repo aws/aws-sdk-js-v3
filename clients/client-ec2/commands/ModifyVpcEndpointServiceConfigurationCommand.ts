@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyVpcEndpointServiceConfigurationCommandInput = ModifyVpcEndpointServiceConfigurationRequest;
-export type ModifyVpcEndpointServiceConfigurationCommandOutput = ModifyVpcEndpointServiceConfigurationResult;
+export type ModifyVpcEndpointServiceConfigurationCommandOutput = ModifyVpcEndpointServiceConfigurationResult &
+  __MetadataBearer;
 
 export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
   ModifyVpcEndpointServiceConfigurationCommandInput,

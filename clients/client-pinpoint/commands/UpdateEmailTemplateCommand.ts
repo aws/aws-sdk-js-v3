@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateEmailTemplateCommandInput = UpdateEmailTemplateRequest;
-export type UpdateEmailTemplateCommandOutput = UpdateEmailTemplateResponse;
+export type UpdateEmailTemplateCommandOutput = UpdateEmailTemplateResponse &
+  __MetadataBearer;
 
 export class UpdateEmailTemplateCommand extends $Command<
   UpdateEmailTemplateCommandInput,

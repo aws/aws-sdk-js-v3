@@ -127,7 +127,7 @@ export namespace CreateDatasetGroupRequest {
   }
 }
 
-export interface CreateDatasetGroupResponse extends $MetadataBearer {
+export interface CreateDatasetGroupResponse {
   __type?: "CreateDatasetGroupResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
@@ -192,7 +192,7 @@ export namespace CreateDatasetImportJobRequest {
   }
 }
 
-export interface CreateDatasetImportJobResponse extends $MetadataBearer {
+export interface CreateDatasetImportJobResponse {
   __type?: "CreateDatasetImportJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
@@ -259,7 +259,7 @@ export namespace CreateDatasetRequest {
   }
 }
 
-export interface CreateDatasetResponse extends $MetadataBearer {
+export interface CreateDatasetResponse {
   __type?: "CreateDatasetResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -301,7 +301,7 @@ export namespace CreateForecastExportJobRequest {
   }
 }
 
-export interface CreateForecastExportJobResponse extends $MetadataBearer {
+export interface CreateForecastExportJobResponse {
   __type?: "CreateForecastExportJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the export job.</p>
@@ -343,7 +343,7 @@ export namespace CreateForecastRequest {
   }
 }
 
-export interface CreateForecastResponse extends $MetadataBearer {
+export interface CreateForecastResponse {
   __type?: "CreateForecastResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
@@ -489,7 +489,7 @@ export namespace CreatePredictorRequest {
   }
 }
 
-export interface CreatePredictorResponse extends $MetadataBearer {
+export interface CreatePredictorResponse {
   __type?: "CreatePredictorResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
@@ -819,7 +819,7 @@ export namespace DescribeDatasetGroupRequest {
   }
 }
 
-export interface DescribeDatasetGroupResponse extends $MetadataBearer {
+export interface DescribeDatasetGroupResponse {
   __type?: "DescribeDatasetGroupResponse";
   /**
    * <p>When the dataset group was created.</p>
@@ -910,7 +910,7 @@ export namespace DescribeDatasetImportJobRequest {
   }
 }
 
-export interface DescribeDatasetImportJobResponse extends $MetadataBearer {
+export interface DescribeDatasetImportJobResponse {
   __type?: "DescribeDatasetImportJobResponse";
   /**
    * <p>When the dataset import job was created.</p>
@@ -1041,7 +1041,7 @@ export namespace DescribeDatasetRequest {
   }
 }
 
-export interface DescribeDatasetResponse extends $MetadataBearer {
+export interface DescribeDatasetResponse {
   __type?: "DescribeDatasetResponse";
   /**
    * <p>When the dataset was created.</p>
@@ -1156,7 +1156,7 @@ export namespace DescribeForecastExportJobRequest {
   }
 }
 
-export interface DescribeForecastExportJobResponse extends $MetadataBearer {
+export interface DescribeForecastExportJobResponse {
   __type?: "DescribeForecastExportJobResponse";
   /**
    * <p>When the forecast export job was created.</p>
@@ -1242,7 +1242,7 @@ export namespace DescribeForecastRequest {
   }
 }
 
-export interface DescribeForecastResponse extends $MetadataBearer {
+export interface DescribeForecastResponse {
   __type?: "DescribeForecastResponse";
   /**
    * <p>When the forecast creation task was created.</p>
@@ -1336,7 +1336,7 @@ export namespace DescribePredictorRequest {
   }
 }
 
-export interface DescribePredictorResponse extends $MetadataBearer {
+export interface DescribePredictorResponse {
   __type?: "DescribePredictorResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
@@ -1952,7 +1952,7 @@ export namespace GetAccuracyMetricsRequest {
   }
 }
 
-export interface GetAccuracyMetricsResponse extends $MetadataBearer {
+export interface GetAccuracyMetricsResponse {
   __type?: "GetAccuracyMetricsResponse";
   /**
    * <p>An array of results from evaluating the predictor.</p>
@@ -2149,7 +2149,7 @@ export namespace ListDatasetGroupsRequest {
   }
 }
 
-export interface ListDatasetGroupsResponse extends $MetadataBearer {
+export interface ListDatasetGroupsResponse {
   __type?: "ListDatasetGroupsResponse";
   /**
    * <p>An array of objects that summarize each dataset group's properties.</p>
@@ -2224,7 +2224,7 @@ export namespace ListDatasetImportJobsRequest {
   }
 }
 
-export interface ListDatasetImportJobsResponse extends $MetadataBearer {
+export interface ListDatasetImportJobsResponse {
   __type?: "ListDatasetImportJobsResponse";
   /**
    * <p>An array of objects that summarize each dataset import job's properties.</p>
@@ -2265,7 +2265,7 @@ export namespace ListDatasetsRequest {
   }
 }
 
-export interface ListDatasetsResponse extends $MetadataBearer {
+export interface ListDatasetsResponse {
   __type?: "ListDatasetsResponse";
   /**
    * <p>An array of objects that summarize each dataset's properties.</p>
@@ -2341,7 +2341,7 @@ export namespace ListForecastExportJobsRequest {
   }
 }
 
-export interface ListForecastExportJobsResponse extends $MetadataBearer {
+export interface ListForecastExportJobsResponse {
   __type?: "ListForecastExportJobsResponse";
   /**
    * <p>An array of objects that summarize each export job's properties.</p>
@@ -2415,7 +2415,7 @@ export namespace ListForecastsRequest {
   }
 }
 
-export interface ListForecastsResponse extends $MetadataBearer {
+export interface ListForecastsResponse {
   __type?: "ListForecastsResponse";
   /**
    * <p>An array of objects that summarize each forecast's properties.</p>
@@ -2489,7 +2489,7 @@ export namespace ListPredictorsRequest {
   }
 }
 
-export interface ListPredictorsResponse extends $MetadataBearer {
+export interface ListPredictorsResponse {
   __type?: "ListPredictorsResponse";
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
@@ -2990,7 +2990,7 @@ export namespace UpdateDatasetGroupRequest {
   }
 }
 
-export interface UpdateDatasetGroupResponse extends $MetadataBearer {
+export interface UpdateDatasetGroupResponse {
   __type?: "UpdateDatasetGroupResponse";
 }
 

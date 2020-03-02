@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDomainContactPrivacyCommandInput = UpdateDomainContactPrivacyRequest;
-export type UpdateDomainContactPrivacyCommandOutput = UpdateDomainContactPrivacyResponse;
+export type UpdateDomainContactPrivacyCommandOutput = UpdateDomainContactPrivacyResponse &
+  __MetadataBearer;
 
 export class UpdateDomainContactPrivacyCommand extends $Command<
   UpdateDomainContactPrivacyCommandInput,

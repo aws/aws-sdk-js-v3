@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSamplingRulesCommandInput = GetSamplingRulesRequest;
-export type GetSamplingRulesCommandOutput = GetSamplingRulesResult;
+export type GetSamplingRulesCommandOutput = GetSamplingRulesResult &
+  __MetadataBearer;
 
 export class GetSamplingRulesCommand extends $Command<
   GetSamplingRulesCommandInput,

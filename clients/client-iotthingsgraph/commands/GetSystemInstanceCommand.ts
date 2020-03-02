@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSystemInstanceCommandInput = GetSystemInstanceRequest;
-export type GetSystemInstanceCommandOutput = GetSystemInstanceResponse;
+export type GetSystemInstanceCommandOutput = GetSystemInstanceResponse &
+  __MetadataBearer;
 
 export class GetSystemInstanceCommand extends $Command<
   GetSystemInstanceCommandInput,

@@ -55,7 +55,7 @@ export namespace AnalyzeDocumentRequest {
   }
 }
 
-export interface AnalyzeDocumentResponse extends $MetadataBearer {
+export interface AnalyzeDocumentResponse {
   __type?: "AnalyzeDocumentResponse";
   /**
    * <p>The version of the model used to analyze the document.</p>
@@ -372,7 +372,7 @@ export namespace DetectDocumentTextRequest {
   }
 }
 
-export interface DetectDocumentTextResponse extends $MetadataBearer {
+export interface DetectDocumentTextResponse {
   __type?: "DetectDocumentTextResponse";
   /**
    * <p>An array of <code>Block</code> objects that contain the text that's detected in the
@@ -559,7 +559,7 @@ export namespace GetDocumentAnalysisRequest {
   }
 }
 
-export interface GetDocumentAnalysisResponse extends $MetadataBearer {
+export interface GetDocumentAnalysisResponse {
   __type?: "GetDocumentAnalysisResponse";
   /**
    * <p></p>
@@ -633,7 +633,7 @@ export namespace GetDocumentTextDetectionRequest {
   }
 }
 
-export interface GetDocumentTextDetectionResponse extends $MetadataBearer {
+export interface GetDocumentTextDetectionResponse {
   __type?: "GetDocumentTextDetectionResponse";
   /**
    * <p>The results of the text-detection operation.</p>
@@ -1096,7 +1096,7 @@ export namespace StartDocumentAnalysisRequest {
   }
 }
 
-export interface StartDocumentAnalysisResponse extends $MetadataBearer {
+export interface StartDocumentAnalysisResponse {
   __type?: "StartDocumentAnalysisResponse";
   /**
    * <p>The identifier for the document text detection job. Use <code>JobId</code> to identify
@@ -1149,7 +1149,7 @@ export namespace StartDocumentTextDetectionRequest {
   }
 }
 
-export interface StartDocumentTextDetectionResponse extends $MetadataBearer {
+export interface StartDocumentTextDetectionResponse {
   __type?: "StartDocumentTextDetectionResponse";
   /**
    * <p>The identifier of the text detection job for the document. Use <code>JobId</code> to

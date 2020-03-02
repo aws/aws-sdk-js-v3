@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 /**
  * <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
@@ -111,7 +112,7 @@ export namespace AddLayerVersionPermissionRequest {
   }
 }
 
-export interface AddLayerVersionPermissionResponse extends $MetadataBearer {
+export interface AddLayerVersionPermissionResponse {
   __type?: "AddLayerVersionPermissionResponse";
   /**
    * <p>A unique identifier for the current revision of the policy.</p>
@@ -210,7 +211,7 @@ export namespace AddPermissionRequest {
   }
 }
 
-export interface AddPermissionResponse extends $MetadataBearer {
+export interface AddPermissionResponse {
   __type?: "AddPermissionResponse";
   /**
    * <p>The permission statement that's added to the function policy.</p>
@@ -227,7 +228,7 @@ export namespace AddPermissionResponse {
 /**
  * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
  */
-export interface AliasConfiguration extends $MetadataBearer {
+export interface AliasConfiguration {
   __type?: "AliasConfiguration";
   /**
    * <p>The Amazon Resource Name (ARN) of the alias.</p>
@@ -307,7 +308,7 @@ export namespace CodeStorageExceededException {
   }
 }
 
-export interface Concurrency extends $MetadataBearer {
+export interface Concurrency {
   __type?: "Concurrency";
   /**
    * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
@@ -1015,7 +1016,7 @@ export namespace EnvironmentResponse {
  * <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a>
  *       for details.</p>
  */
-export interface EventSourceMappingConfiguration extends $MetadataBearer {
+export interface EventSourceMappingConfiguration {
   __type?: "EventSourceMappingConfiguration";
   /**
    * <p>The maximum number of items to retrieve in a single batch.</p>
@@ -1162,7 +1163,7 @@ export namespace FunctionCodeLocation {
 /**
  * <p>Details about a function's configuration.</p>
  */
-export interface FunctionConfiguration extends $MetadataBearer {
+export interface FunctionConfiguration {
   __type?: "FunctionConfiguration";
   /**
    * <p>The SHA256 hash of the function's deployment package.</p>
@@ -1306,7 +1307,7 @@ export namespace FunctionConfiguration {
   }
 }
 
-export interface FunctionEventInvokeConfig extends $MetadataBearer {
+export interface FunctionEventInvokeConfig {
   __type?: "FunctionEventInvokeConfig";
   /**
    * <p>A destination for events after they have been sent to a function for processing.</p>
@@ -1375,7 +1376,7 @@ export namespace GetAccountSettingsRequest {
   }
 }
 
-export interface GetAccountSettingsResponse extends $MetadataBearer {
+export interface GetAccountSettingsResponse {
   __type?: "GetAccountSettingsResponse";
   /**
    * <p>Limits that are related to concurrency and code storage.</p>
@@ -1479,7 +1480,7 @@ export namespace GetFunctionConcurrencyRequest {
   }
 }
 
-export interface GetFunctionConcurrencyResponse extends $MetadataBearer {
+export interface GetFunctionConcurrencyResponse {
   __type?: "GetFunctionConcurrencyResponse";
   /**
    * <p>The number of simultaneous executions that are reserved for the function.</p>
@@ -1607,7 +1608,7 @@ export namespace GetFunctionRequest {
   }
 }
 
-export interface GetFunctionResponse extends $MetadataBearer {
+export interface GetFunctionResponse {
   __type?: "GetFunctionResponse";
   /**
    * <p>The deployment package of the function or version.</p>
@@ -1670,7 +1671,7 @@ export namespace GetLayerVersionPolicyRequest {
   }
 }
 
-export interface GetLayerVersionPolicyResponse extends $MetadataBearer {
+export interface GetLayerVersionPolicyResponse {
   __type?: "GetLayerVersionPolicyResponse";
   /**
    * <p>The policy document.</p>
@@ -1708,7 +1709,7 @@ export namespace GetLayerVersionRequest {
   }
 }
 
-export interface GetLayerVersionResponse extends $MetadataBearer {
+export interface GetLayerVersionResponse {
   __type?: "GetLayerVersionResponse";
   /**
    * <p>The layer's compatible runtimes.</p>
@@ -1795,7 +1796,7 @@ export namespace GetPolicyRequest {
   }
 }
 
-export interface GetPolicyResponse extends $MetadataBearer {
+export interface GetPolicyResponse {
   __type?: "GetPolicyResponse";
   /**
    * <p>The resource-based policy.</p>
@@ -1852,8 +1853,7 @@ export namespace GetProvisionedConcurrencyConfigRequest {
   }
 }
 
-export interface GetProvisionedConcurrencyConfigResponse
-  extends $MetadataBearer {
+export interface GetProvisionedConcurrencyConfigResponse {
   __type?: "GetProvisionedConcurrencyConfigResponse";
   /**
    * <p>The amount of provisioned concurrency allocated.</p>
@@ -2091,7 +2091,7 @@ export namespace InvocationRequest {
   }
 }
 
-export interface InvocationResponse extends $MetadataBearer {
+export interface InvocationResponse {
   __type?: "InvocationResponse";
   /**
    * <p>The version of the function that executed. When you invoke a function with an alias, this indicates which
@@ -2157,7 +2157,7 @@ export interface InvokeAsyncRequest {
   /**
    * <p>The JSON that you want to provide to your Lambda function as input.</p>
    */
-  InvokeArgs: Uint8Array | undefined;
+  InvokeArgs: Readable | ReadableStream | Blob | undefined;
 }
 
 export namespace InvokeAsyncRequest {
@@ -2169,7 +2169,7 @@ export namespace InvokeAsyncRequest {
 /**
  * <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation. </p>
  */
-export interface InvokeAsyncResponse extends $MetadataBearer {
+export interface InvokeAsyncResponse {
   __type?: "InvokeAsyncResponse";
 }
 
@@ -2476,7 +2476,7 @@ export namespace ListAliasesRequest {
   }
 }
 
-export interface ListAliasesResponse extends $MetadataBearer {
+export interface ListAliasesResponse {
   __type?: "ListAliasesResponse";
   /**
    * <p>A list of aliases.</p>
@@ -2561,7 +2561,7 @@ export namespace ListEventSourceMappingsRequest {
   }
 }
 
-export interface ListEventSourceMappingsResponse extends $MetadataBearer {
+export interface ListEventSourceMappingsResponse {
   __type?: "ListEventSourceMappingsResponse";
   /**
    * <p>A list of event source mappings.</p>
@@ -2623,8 +2623,7 @@ export namespace ListFunctionEventInvokeConfigsRequest {
   }
 }
 
-export interface ListFunctionEventInvokeConfigsResponse
-  extends $MetadataBearer {
+export interface ListFunctionEventInvokeConfigsResponse {
   __type?: "ListFunctionEventInvokeConfigsResponse";
   /**
    * <p>A list of configurations.</p>
@@ -2677,7 +2676,7 @@ export namespace ListFunctionsRequest {
 /**
  * <p>A list of Lambda functions.</p>
  */
-export interface ListFunctionsResponse extends $MetadataBearer {
+export interface ListFunctionsResponse {
   __type?: "ListFunctionsResponse";
   /**
    * <p>A list of Lambda functions.</p>
@@ -2725,7 +2724,7 @@ export namespace ListLayerVersionsRequest {
   }
 }
 
-export interface ListLayerVersionsResponse extends $MetadataBearer {
+export interface ListLayerVersionsResponse {
   __type?: "ListLayerVersionsResponse";
   /**
    * <p>A list of versions.</p>
@@ -2768,7 +2767,7 @@ export namespace ListLayersRequest {
   }
 }
 
-export interface ListLayersResponse extends $MetadataBearer {
+export interface ListLayersResponse {
   __type?: "ListLayersResponse";
   /**
    * <p>A list of function layers.</p>
@@ -2830,8 +2829,7 @@ export namespace ListProvisionedConcurrencyConfigsRequest {
   }
 }
 
-export interface ListProvisionedConcurrencyConfigsResponse
-  extends $MetadataBearer {
+export interface ListProvisionedConcurrencyConfigsResponse {
   __type?: "ListProvisionedConcurrencyConfigsResponse";
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -2864,7 +2862,7 @@ export namespace ListTagsRequest {
   }
 }
 
-export interface ListTagsResponse extends $MetadataBearer {
+export interface ListTagsResponse {
   __type?: "ListTagsResponse";
   /**
    * <p>The function's tags.</p>
@@ -2921,7 +2919,7 @@ export namespace ListVersionsByFunctionRequest {
   }
 }
 
-export interface ListVersionsByFunctionResponse extends $MetadataBearer {
+export interface ListVersionsByFunctionResponse {
   __type?: "ListVersionsByFunctionResponse";
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -3146,7 +3144,7 @@ export namespace PublishLayerVersionRequest {
   }
 }
 
-export interface PublishLayerVersionResponse extends $MetadataBearer {
+export interface PublishLayerVersionResponse {
   __type?: "PublishLayerVersionResponse";
   /**
    * <p>The layer's compatible runtimes.</p>
@@ -3401,8 +3399,7 @@ export namespace PutProvisionedConcurrencyConfigRequest {
   }
 }
 
-export interface PutProvisionedConcurrencyConfigResponse
-  extends $MetadataBearer {
+export interface PutProvisionedConcurrencyConfigResponse {
   __type?: "PutProvisionedConcurrencyConfigResponse";
   /**
    * <p>The amount of provisioned concurrency allocated.</p>

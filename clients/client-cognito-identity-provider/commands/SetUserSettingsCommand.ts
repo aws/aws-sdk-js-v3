@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetUserSettingsCommandInput = SetUserSettingsRequest;
-export type SetUserSettingsCommandOutput = SetUserSettingsResponse;
+export type SetUserSettingsCommandOutput = SetUserSettingsResponse &
+  __MetadataBearer;
 
 export class SetUserSettingsCommand extends $Command<
   SetUserSettingsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UploadEntityDefinitionsCommandInput = UploadEntityDefinitionsRequest;
-export type UploadEntityDefinitionsCommandOutput = UploadEntityDefinitionsResponse;
+export type UploadEntityDefinitionsCommandOutput = UploadEntityDefinitionsResponse &
+  __MetadataBearer;
 
 export class UploadEntityDefinitionsCommand extends $Command<
   UploadEntityDefinitionsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopTrainingEntityRecognizerCommandInput = StopTrainingEntityRecognizerRequest;
-export type StopTrainingEntityRecognizerCommandOutput = StopTrainingEntityRecognizerResponse;
+export type StopTrainingEntityRecognizerCommandOutput = StopTrainingEntityRecognizerResponse &
+  __MetadataBearer;
 
 export class StopTrainingEntityRecognizerCommand extends $Command<
   StopTrainingEntityRecognizerCommandInput,

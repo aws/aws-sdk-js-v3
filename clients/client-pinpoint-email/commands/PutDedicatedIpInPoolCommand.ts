@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutDedicatedIpInPoolCommandInput = PutDedicatedIpInPoolRequest;
-export type PutDedicatedIpInPoolCommandOutput = PutDedicatedIpInPoolResponse;
+export type PutDedicatedIpInPoolCommandOutput = PutDedicatedIpInPoolResponse &
+  __MetadataBearer;
 
 export class PutDedicatedIpInPoolCommand extends $Command<
   PutDedicatedIpInPoolCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDirectoryConfigCommandInput = CreateDirectoryConfigRequest;
-export type CreateDirectoryConfigCommandOutput = CreateDirectoryConfigResult;
+export type CreateDirectoryConfigCommandOutput = CreateDirectoryConfigResult &
+  __MetadataBearer;
 
 export class CreateDirectoryConfigCommand extends $Command<
   CreateDirectoryConfigCommandInput,

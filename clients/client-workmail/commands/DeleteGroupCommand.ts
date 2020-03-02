@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteGroupCommandInput = DeleteGroupRequest;
-export type DeleteGroupCommandOutput = DeleteGroupResponse;
+export type DeleteGroupCommandOutput = DeleteGroupResponse & __MetadataBearer;
 
 export class DeleteGroupCommand extends $Command<
   DeleteGroupCommandInput,

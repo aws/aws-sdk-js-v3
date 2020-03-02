@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetConsoleScreenshotCommandInput = GetConsoleScreenshotRequest;
-export type GetConsoleScreenshotCommandOutput = GetConsoleScreenshotResult;
+export type GetConsoleScreenshotCommandOutput = GetConsoleScreenshotResult &
+  __MetadataBearer;
 
 export class GetConsoleScreenshotCommand extends $Command<
   GetConsoleScreenshotCommandInput,

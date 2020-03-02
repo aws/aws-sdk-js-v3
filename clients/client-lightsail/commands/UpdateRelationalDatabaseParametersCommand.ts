@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateRelationalDatabaseParametersCommandInput = UpdateRelationalDatabaseParametersRequest;
-export type UpdateRelationalDatabaseParametersCommandOutput = UpdateRelationalDatabaseParametersResult;
+export type UpdateRelationalDatabaseParametersCommandOutput = UpdateRelationalDatabaseParametersResult &
+  __MetadataBearer;
 
 export class UpdateRelationalDatabaseParametersCommand extends $Command<
   UpdateRelationalDatabaseParametersCommandInput,

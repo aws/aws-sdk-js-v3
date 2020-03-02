@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExecuteSqlCommandInput = ExecuteSqlRequest;
-export type ExecuteSqlCommandOutput = ExecuteSqlResponse;
+export type ExecuteSqlCommandOutput = ExecuteSqlResponse & __MetadataBearer;
 
 export class ExecuteSqlCommand extends $Command<
   ExecuteSqlCommandInput,

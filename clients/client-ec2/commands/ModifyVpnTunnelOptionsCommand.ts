@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyVpnTunnelOptionsCommandInput = ModifyVpnTunnelOptionsRequest;
-export type ModifyVpnTunnelOptionsCommandOutput = ModifyVpnTunnelOptionsResult;
+export type ModifyVpnTunnelOptionsCommandOutput = ModifyVpnTunnelOptionsResult &
+  __MetadataBearer;
 
 export class ModifyVpnTunnelOptionsCommand extends $Command<
   ModifyVpnTunnelOptionsCommandInput,

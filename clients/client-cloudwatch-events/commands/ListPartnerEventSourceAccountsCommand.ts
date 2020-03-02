@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPartnerEventSourceAccountsCommandInput = ListPartnerEventSourceAccountsRequest;
-export type ListPartnerEventSourceAccountsCommandOutput = ListPartnerEventSourceAccountsResponse;
+export type ListPartnerEventSourceAccountsCommandOutput = ListPartnerEventSourceAccountsResponse &
+  __MetadataBearer;
 
 export class ListPartnerEventSourceAccountsCommand extends $Command<
   ListPartnerEventSourceAccountsCommandInput,

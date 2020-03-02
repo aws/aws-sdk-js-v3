@@ -38,7 +38,7 @@ export namespace CreateLifecyclePolicyRequest {
   }
 }
 
-export interface CreateLifecyclePolicyResponse extends $MetadataBearer {
+export interface CreateLifecyclePolicyResponse {
   __type?: "CreateLifecyclePolicyResponse";
   /**
    * <p>The identifier of the lifecycle policy.</p>
@@ -152,7 +152,7 @@ export namespace DeleteLifecyclePolicyRequest {
   }
 }
 
-export interface DeleteLifecyclePolicyResponse extends $MetadataBearer {
+export interface DeleteLifecyclePolicyResponse {
   __type?: "DeleteLifecyclePolicyResponse";
 }
 
@@ -228,7 +228,7 @@ export namespace GetLifecyclePoliciesRequest {
   }
 }
 
-export interface GetLifecyclePoliciesResponse extends $MetadataBearer {
+export interface GetLifecyclePoliciesResponse {
   __type?: "GetLifecyclePoliciesResponse";
   /**
    * <p>Summary information about the lifecycle policies.</p>
@@ -256,7 +256,7 @@ export namespace GetLifecyclePolicyRequest {
   }
 }
 
-export interface GetLifecyclePolicyResponse extends $MetadataBearer {
+export interface GetLifecyclePolicyResponse {
   __type?: "GetLifecyclePolicyResponse";
   /**
    * <p>Detailed information about the lifecycle policy.</p>
@@ -455,7 +455,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>Information about the tags.</p>
@@ -691,7 +691,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -720,7 +720,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -764,7 +764,7 @@ export namespace UpdateLifecyclePolicyRequest {
   }
 }
 
-export interface UpdateLifecyclePolicyResponse extends $MetadataBearer {
+export interface UpdateLifecyclePolicyResponse {
   __type?: "UpdateLifecyclePolicyResponse";
 }
 

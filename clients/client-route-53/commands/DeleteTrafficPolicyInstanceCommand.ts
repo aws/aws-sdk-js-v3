@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTrafficPolicyInstanceCommandInput = DeleteTrafficPolicyInstanceRequest;
-export type DeleteTrafficPolicyInstanceCommandOutput = DeleteTrafficPolicyInstanceResponse;
+export type DeleteTrafficPolicyInstanceCommandOutput = DeleteTrafficPolicyInstanceResponse &
+  __MetadataBearer;
 
 export class DeleteTrafficPolicyInstanceCommand extends $Command<
   DeleteTrafficPolicyInstanceCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RejectSharedDirectoryCommandInput = RejectSharedDirectoryRequest;
-export type RejectSharedDirectoryCommandOutput = RejectSharedDirectoryResult;
+export type RejectSharedDirectoryCommandOutput = RejectSharedDirectoryResult &
+  __MetadataBearer;
 
 export class RejectSharedDirectoryCommand extends $Command<
   RejectSharedDirectoryCommandInput,

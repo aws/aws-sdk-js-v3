@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeStorediSCSIVolumesCommandInput = DescribeStorediSCSIVolumesInput;
-export type DescribeStorediSCSIVolumesCommandOutput = DescribeStorediSCSIVolumesOutput;
+export type DescribeStorediSCSIVolumesCommandOutput = DescribeStorediSCSIVolumesOutput &
+  __MetadataBearer;
 
 export class DescribeStorediSCSIVolumesCommand extends $Command<
   DescribeStorediSCSIVolumesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyLunaClientCommandInput = ModifyLunaClientRequest;
-export type ModifyLunaClientCommandOutput = ModifyLunaClientResponse;
+export type ModifyLunaClientCommandOutput = ModifyLunaClientResponse &
+  __MetadataBearer;
 
 export class ModifyLunaClientCommand extends $Command<
   ModifyLunaClientCommandInput,

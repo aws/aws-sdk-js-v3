@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type MigrateWorkspaceCommandInput = MigrateWorkspaceRequest;
-export type MigrateWorkspaceCommandOutput = MigrateWorkspaceResult;
+export type MigrateWorkspaceCommandOutput = MigrateWorkspaceResult &
+  __MetadataBearer;
 
 export class MigrateWorkspaceCommand extends $Command<
   MigrateWorkspaceCommandInput,

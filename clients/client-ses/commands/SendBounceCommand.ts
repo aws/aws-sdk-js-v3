@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendBounceCommandInput = SendBounceRequest;
-export type SendBounceCommandOutput = SendBounceResponse;
+export type SendBounceCommandOutput = SendBounceResponse & __MetadataBearer;
 
 export class SendBounceCommand extends $Command<
   SendBounceCommandInput,

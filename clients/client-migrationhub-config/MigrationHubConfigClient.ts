@@ -1,11 +1,15 @@
 import {
-  CreateHomeRegionControlRequest,
-  CreateHomeRegionControlResult,
-  DescribeHomeRegionControlsRequest,
-  DescribeHomeRegionControlsResult,
-  GetHomeRegionRequest,
-  GetHomeRegionResult
-} from "./models/index";
+  CreateHomeRegionControlCommandInput,
+  CreateHomeRegionControlCommandOutput
+} from "./commands/CreateHomeRegionControlCommand";
+import {
+  DescribeHomeRegionControlsCommandInput,
+  DescribeHomeRegionControlsCommandOutput
+} from "./commands/DescribeHomeRegionControlsCommand";
+import {
+  GetHomeRegionCommandInput,
+  GetHomeRegionCommandOutput
+} from "./commands/GetHomeRegionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -59,14 +63,14 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateHomeRegionControlRequest
-  | DescribeHomeRegionControlsRequest
-  | GetHomeRegionRequest;
+  | CreateHomeRegionControlCommandInput
+  | DescribeHomeRegionControlsCommandInput
+  | GetHomeRegionCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateHomeRegionControlResult
-  | DescribeHomeRegionControlsResult
-  | GetHomeRegionResult;
+  | CreateHomeRegionControlCommandOutput
+  | DescribeHomeRegionControlsCommandOutput
+  | GetHomeRegionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

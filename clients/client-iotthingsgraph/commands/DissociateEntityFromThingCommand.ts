@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DissociateEntityFromThingCommandInput = DissociateEntityFromThingRequest;
-export type DissociateEntityFromThingCommandOutput = DissociateEntityFromThingResponse;
+export type DissociateEntityFromThingCommandOutput = DissociateEntityFromThingResponse &
+  __MetadataBearer;
 
 export class DissociateEntityFromThingCommand extends $Command<
   DissociateEntityFromThingCommandInput,

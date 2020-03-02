@@ -45,7 +45,7 @@ export namespace BatchCreateVariableRequest {
   }
 }
 
-export interface BatchCreateVariableResult extends $MetadataBearer {
+export interface BatchCreateVariableResult {
   __type?: "BatchCreateVariableResult";
   /**
    * <p>Provides the errors for the <code>BatchCreateVariable</code> request.</p>
@@ -100,7 +100,7 @@ export namespace BatchGetVariableRequest {
   }
 }
 
-export interface BatchGetVariableResult extends $MetadataBearer {
+export interface BatchGetVariableResult {
   __type?: "BatchGetVariableResult";
   /**
    * <p>The errors from the request.</p>
@@ -153,7 +153,7 @@ export namespace CreateDetectorVersionRequest {
   }
 }
 
-export interface CreateDetectorVersionResult extends $MetadataBearer {
+export interface CreateDetectorVersionResult {
   __type?: "CreateDetectorVersionResult";
   /**
    * <p>The ID for the created version's parent detector.</p>
@@ -201,7 +201,7 @@ export namespace CreateModelVersionRequest {
   }
 }
 
-export interface CreateModelVersionResult extends $MetadataBearer {
+export interface CreateModelVersionResult {
   __type?: "CreateModelVersionResult";
   /**
    * <p>The model ID. </p>
@@ -269,7 +269,7 @@ export namespace CreateRuleRequest {
   }
 }
 
-export interface CreateRuleResult extends $MetadataBearer {
+export interface CreateRuleResult {
   __type?: "CreateRuleResult";
   /**
    * <p>The created rule.</p>
@@ -322,7 +322,7 @@ export namespace CreateVariableRequest {
   }
 }
 
-export interface CreateVariableResult extends $MetadataBearer {
+export interface CreateVariableResult {
   __type?: "CreateVariableResult";
 }
 
@@ -364,7 +364,7 @@ export namespace DeleteDetectorVersionRequest {
   }
 }
 
-export interface DeleteDetectorVersionResult extends $MetadataBearer {
+export interface DeleteDetectorVersionResult {
   __type?: "DeleteDetectorVersionResult";
 }
 
@@ -388,7 +388,7 @@ export namespace DeleteEventRequest {
   }
 }
 
-export interface DeleteEventResult extends $MetadataBearer {
+export interface DeleteEventResult {
   __type?: "DeleteEventResult";
 }
 
@@ -422,7 +422,7 @@ export namespace DescribeDetectorRequest {
   }
 }
 
-export interface DescribeDetectorResult extends $MetadataBearer {
+export interface DescribeDetectorResult {
   __type?: "DescribeDetectorResult";
   /**
    * <p>The detector ID.</p>
@@ -480,7 +480,7 @@ export namespace DescribeModelVersionsRequest {
   }
 }
 
-export interface DescribeModelVersionsResult extends $MetadataBearer {
+export interface DescribeModelVersionsResult {
   __type?: "DescribeModelVersionsResult";
   /**
    * <p>The model version details.</p>
@@ -640,7 +640,7 @@ export namespace GetDetectorVersionRequest {
   }
 }
 
-export interface GetDetectorVersionResult extends $MetadataBearer {
+export interface GetDetectorVersionResult {
   __type?: "GetDetectorVersionResult";
   /**
    * <p>The timestamp when the detector version was created. </p>
@@ -719,7 +719,7 @@ export namespace GetDetectorsRequest {
   }
 }
 
-export interface GetDetectorsResult extends $MetadataBearer {
+export interface GetDetectorsResult {
   __type?: "GetDetectorsResult";
   /**
    * <p>The detectors.</p>
@@ -762,7 +762,7 @@ export namespace GetExternalModelsRequest {
   }
 }
 
-export interface GetExternalModelsResult extends $MetadataBearer {
+export interface GetExternalModelsResult {
   __type?: "GetExternalModelsResult";
   /**
    * <p>Gets the Amazon SageMaker models.</p>
@@ -805,7 +805,7 @@ export namespace GetModelVersionRequest {
   }
 }
 
-export interface GetModelVersionResult extends $MetadataBearer {
+export interface GetModelVersionResult {
   __type?: "GetModelVersionResult";
   /**
    * <p>The model version description.</p>
@@ -868,7 +868,7 @@ export namespace GetModelsRequest {
   }
 }
 
-export interface GetModelsResult extends $MetadataBearer {
+export interface GetModelsResult {
   __type?: "GetModelsResult";
   /**
    * <p>The returned models. </p>
@@ -911,7 +911,7 @@ export namespace GetOutcomesRequest {
   }
 }
 
-export interface GetOutcomesResult extends $MetadataBearer {
+export interface GetOutcomesResult {
   __type?: "GetOutcomesResult";
   /**
    * <p>The next page token for subsequent requests.</p>
@@ -964,7 +964,7 @@ export namespace GetPredictionRequest {
   }
 }
 
-export interface GetPredictionResult extends $MetadataBearer {
+export interface GetPredictionResult {
   __type?: "GetPredictionResult";
   /**
    * <p>The model scores for models used in the detector version.</p>
@@ -1017,7 +1017,7 @@ export namespace GetRulesRequest {
   }
 }
 
-export interface GetRulesResult extends $MetadataBearer {
+export interface GetRulesResult {
   __type?: "GetRulesResult";
   /**
    * <p>The next page token to be used in subsequent requests.</p>
@@ -1060,7 +1060,7 @@ export namespace GetVariablesRequest {
   }
 }
 
-export interface GetVariablesResult extends $MetadataBearer {
+export interface GetVariablesResult {
   __type?: "GetVariablesResult";
   /**
    * <p>The next page token to be used in subsequent requests. </p>
@@ -1478,7 +1478,7 @@ export namespace PutDetectorRequest {
   }
 }
 
-export interface PutDetectorResult extends $MetadataBearer {
+export interface PutDetectorResult {
   __type?: "PutDetectorResult";
 }
 
@@ -1527,7 +1527,7 @@ export namespace PutExternalModelRequest {
   }
 }
 
-export interface PutExternalModelResult extends $MetadataBearer {
+export interface PutExternalModelResult {
   __type?: "PutExternalModelResult";
 }
 
@@ -1576,7 +1576,7 @@ export namespace PutModelRequest {
   }
 }
 
-export interface PutModelResult extends $MetadataBearer {
+export interface PutModelResult {
   __type?: "PutModelResult";
 }
 
@@ -1605,7 +1605,7 @@ export namespace PutOutcomeRequest {
   }
 }
 
-export interface PutOutcomeResult extends $MetadataBearer {
+export interface PutOutcomeResult {
   __type?: "PutOutcomeResult";
 }
 
@@ -1767,7 +1767,7 @@ export namespace UpdateDetectorVersionMetadataRequest {
   }
 }
 
-export interface UpdateDetectorVersionMetadataResult extends $MetadataBearer {
+export interface UpdateDetectorVersionMetadataResult {
   __type?: "UpdateDetectorVersionMetadataResult";
 }
 
@@ -1816,7 +1816,7 @@ export namespace UpdateDetectorVersionRequest {
   }
 }
 
-export interface UpdateDetectorVersionResult extends $MetadataBearer {
+export interface UpdateDetectorVersionResult {
   __type?: "UpdateDetectorVersionResult";
 }
 
@@ -1850,7 +1850,7 @@ export namespace UpdateDetectorVersionStatusRequest {
   }
 }
 
-export interface UpdateDetectorVersionStatusResult extends $MetadataBearer {
+export interface UpdateDetectorVersionStatusResult {
   __type?: "UpdateDetectorVersionStatusResult";
 }
 
@@ -1894,7 +1894,7 @@ export namespace UpdateModelVersionRequest {
   }
 }
 
-export interface UpdateModelVersionResult extends $MetadataBearer {
+export interface UpdateModelVersionResult {
   __type?: "UpdateModelVersionResult";
 }
 
@@ -1923,7 +1923,7 @@ export namespace UpdateRuleMetadataRequest {
   }
 }
 
-export interface UpdateRuleMetadataResult extends $MetadataBearer {
+export interface UpdateRuleMetadataResult {
   __type?: "UpdateRuleMetadataResult";
 }
 
@@ -1967,7 +1967,7 @@ export namespace UpdateRuleVersionRequest {
   }
 }
 
-export interface UpdateRuleVersionResult extends $MetadataBearer {
+export interface UpdateRuleVersionResult {
   __type?: "UpdateRuleVersionResult";
   /**
    * <p>The new rule version that was created.</p>
@@ -2010,7 +2010,7 @@ export namespace UpdateVariableRequest {
   }
 }
 
-export interface UpdateVariableResult extends $MetadataBearer {
+export interface UpdateVariableResult {
   __type?: "UpdateVariableResult";
 }
 

@@ -85,7 +85,7 @@ export namespace CreateVocabularyFilterRequest {
   }
 }
 
-export interface CreateVocabularyFilterResponse extends $MetadataBearer {
+export interface CreateVocabularyFilterResponse {
   __type?: "CreateVocabularyFilterResponse";
   /**
    * <p>The language code of the words in the collection.</p>
@@ -152,7 +152,7 @@ export namespace CreateVocabularyRequest {
   }
 }
 
-export interface CreateVocabularyResponse extends $MetadataBearer {
+export interface CreateVocabularyResponse {
   __type?: "CreateVocabularyResponse";
   /**
    * <p>If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains
@@ -245,7 +245,7 @@ export namespace GetTranscriptionJobRequest {
   }
 }
 
-export interface GetTranscriptionJobResponse extends $MetadataBearer {
+export interface GetTranscriptionJobResponse {
   __type?: "GetTranscriptionJobResponse";
   /**
    * <p>An object that contains the results of the transcription job.</p>
@@ -273,7 +273,7 @@ export namespace GetVocabularyFilterRequest {
   }
 }
 
-export interface GetVocabularyFilterResponse extends $MetadataBearer {
+export interface GetVocabularyFilterResponse {
   __type?: "GetVocabularyFilterResponse";
   /**
    * <p>The URI of the list of words in the vocabulary filter. You can use this URI to get the
@@ -318,7 +318,7 @@ export namespace GetVocabularyRequest {
   }
 }
 
-export interface GetVocabularyResponse extends $MetadataBearer {
+export interface GetVocabularyResponse {
   __type?: "GetVocabularyResponse";
   /**
    * <p>The S3 location where the vocabulary is stored. Use this URI to get the contents of
@@ -496,7 +496,7 @@ export namespace ListTranscriptionJobsRequest {
   }
 }
 
-export interface ListTranscriptionJobsResponse extends $MetadataBearer {
+export interface ListTranscriptionJobsResponse {
   __type?: "ListTranscriptionJobsResponse";
   /**
    * <p>The <code>ListTranscriptionJobs</code> operation returns a page of jobs at a time. The
@@ -559,7 +559,7 @@ export namespace ListVocabulariesRequest {
   }
 }
 
-export interface ListVocabulariesResponse extends $MetadataBearer {
+export interface ListVocabulariesResponse {
   __type?: "ListVocabulariesResponse";
   /**
    * <p>The <code>ListVocabularies</code> operation returns a page of vocabularies at a time.
@@ -616,7 +616,7 @@ export namespace ListVocabularyFiltersRequest {
   }
 }
 
-export interface ListVocabularyFiltersResponse extends $MetadataBearer {
+export interface ListVocabularyFiltersResponse {
   __type?: "ListVocabularyFiltersResponse";
   /**
    * <p>The <code>ListVocabularyFilters</code> operation returns a page of collections at a
@@ -883,7 +883,7 @@ export namespace StartTranscriptionJobRequest {
   }
 }
 
-export interface StartTranscriptionJobResponse extends $MetadataBearer {
+export interface StartTranscriptionJobResponse {
   __type?: "StartTranscriptionJobResponse";
   /**
    * <p>An object containing details of the asynchronous transcription job.</p>
@@ -1143,7 +1143,7 @@ export namespace UpdateVocabularyFilterRequest {
   }
 }
 
-export interface UpdateVocabularyFilterResponse extends $MetadataBearer {
+export interface UpdateVocabularyFilterResponse {
   __type?: "UpdateVocabularyFilterResponse";
   /**
    * <p>The language code of the words in the vocabulary filter.</p>
@@ -1209,7 +1209,7 @@ export namespace UpdateVocabularyRequest {
   }
 }
 
-export interface UpdateVocabularyResponse extends $MetadataBearer {
+export interface UpdateVocabularyResponse {
   __type?: "UpdateVocabularyResponse";
   /**
    * <p>The language code of the vocabulary entries.</p>

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateGroupQueryCommandInput = UpdateGroupQueryInput;
-export type UpdateGroupQueryCommandOutput = UpdateGroupQueryOutput;
+export type UpdateGroupQueryCommandOutput = UpdateGroupQueryOutput &
+  __MetadataBearer;
 
 export class UpdateGroupQueryCommand extends $Command<
   UpdateGroupQueryCommandInput,

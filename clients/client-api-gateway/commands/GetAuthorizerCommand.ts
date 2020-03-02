@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAuthorizerCommandInput = GetAuthorizerRequest;
-export type GetAuthorizerCommandOutput = Authorizer;
+export type GetAuthorizerCommandOutput = Authorizer & __MetadataBearer;
 
 export class GetAuthorizerCommand extends $Command<
   GetAuthorizerCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateGroupMembershipCommandInput = CreateGroupMembershipRequest;
-export type CreateGroupMembershipCommandOutput = CreateGroupMembershipResponse;
+export type CreateGroupMembershipCommandOutput = CreateGroupMembershipResponse &
+  __MetadataBearer;
 
 export class CreateGroupMembershipCommand extends $Command<
   CreateGroupMembershipCommandInput,

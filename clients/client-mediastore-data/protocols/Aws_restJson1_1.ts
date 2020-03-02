@@ -236,24 +236,33 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
-      response = await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastore.object#ObjectNotFoundException":
-      response = await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -322,24 +331,33 @@ async function deserializeAws_restJson1_1DescribeObjectCommandError(
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
-      response = await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastore.object#ObjectNotFoundException":
-      response = await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -411,31 +429,43 @@ async function deserializeAws_restJson1_1GetObjectCommandError(
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
-      response = await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastore.object#ObjectNotFoundException":
-      response = await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RequestedRangeNotSatisfiableException":
     case "com.amazonaws.mediastore.object#RequestedRangeNotSatisfiableException":
-      response = await deserializeAws_restJson1_1RequestedRangeNotSatisfiableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1RequestedRangeNotSatisfiableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -489,17 +519,23 @@ async function deserializeAws_restJson1_1ListItemsCommandError(
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
-      response = await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -557,17 +593,23 @@ async function deserializeAws_restJson1_1PutObjectCommandError(
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
-      response = await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ContainerNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
-      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

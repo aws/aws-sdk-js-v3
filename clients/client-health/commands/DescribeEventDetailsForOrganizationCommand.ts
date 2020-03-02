@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEventDetailsForOrganizationCommandInput = DescribeEventDetailsForOrganizationRequest;
-export type DescribeEventDetailsForOrganizationCommandOutput = DescribeEventDetailsForOrganizationResponse;
+export type DescribeEventDetailsForOrganizationCommandOutput = DescribeEventDetailsForOrganizationResponse &
+  __MetadataBearer;
 
 export class DescribeEventDetailsForOrganizationCommand extends $Command<
   DescribeEventDetailsForOrganizationCommandInput,

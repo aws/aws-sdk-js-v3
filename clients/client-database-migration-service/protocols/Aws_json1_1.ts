@@ -1054,10 +1054,13 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1116,10 +1119,13 @@ async function deserializeAws_json1_1ApplyPendingMaintenanceActionCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1172,45 +1178,63 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.dms#AccessDeniedFault":
-      response = await deserializeAws_json1_1AccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.dms#ResourceAlreadyExistsFault":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1269,73 +1293,103 @@ async function deserializeAws_json1_1CreateEventSubscriptionCommandError(
   switch (errorCode) {
     case "KMSAccessDeniedFault":
     case "com.amazonaws.dms#KMSAccessDeniedFault":
-      response = await deserializeAws_json1_1KMSAccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSAccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSDisabledFault":
     case "com.amazonaws.dms#KMSDisabledFault":
-      response = await deserializeAws_json1_1KMSDisabledFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSDisabledFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSInvalidStateFault":
     case "com.amazonaws.dms#KMSInvalidStateFault":
-      response = await deserializeAws_json1_1KMSInvalidStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSInvalidStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSNotFoundFault":
     case "com.amazonaws.dms#KMSNotFoundFault":
-      response = await deserializeAws_json1_1KMSNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSThrottlingFault":
     case "com.amazonaws.dms#KMSThrottlingFault":
-      response = await deserializeAws_json1_1KMSThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.dms#ResourceAlreadyExistsFault":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSInvalidTopicFault":
     case "com.amazonaws.dms#SNSInvalidTopicFault":
-      response = await deserializeAws_json1_1SNSInvalidTopicFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SNSInvalidTopicFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSNoAuthorizationFault":
     case "com.amazonaws.dms#SNSNoAuthorizationFault":
-      response = await deserializeAws_json1_1SNSNoAuthorizationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SNSNoAuthorizationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1394,73 +1448,103 @@ async function deserializeAws_json1_1CreateReplicationInstanceCommandError(
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.dms#AccessDeniedFault":
-      response = await deserializeAws_json1_1AccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientResourceCapacityFault":
     case "com.amazonaws.dms#InsufficientResourceCapacityFault":
-      response = await deserializeAws_json1_1InsufficientResourceCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InsufficientResourceCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "com.amazonaws.dms#InvalidSubnet":
-      response = await deserializeAws_json1_1InvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.dms#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.dms#ResourceAlreadyExistsFault":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "com.amazonaws.dms#StorageQuotaExceededFault":
-      response = await deserializeAws_json1_1StorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1StorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1519,45 +1603,63 @@ async function deserializeAws_json1_1CreateReplicationSubnetGroupCommandError(
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.dms#AccessDeniedFault":
-      response = await deserializeAws_json1_1AccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "com.amazonaws.dms#InvalidSubnet":
-      response = await deserializeAws_json1_1InvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.dms#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.dms#ResourceAlreadyExistsFault":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1613,45 +1715,63 @@ async function deserializeAws_json1_1CreateReplicationTaskCommandError(
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.dms#AccessDeniedFault":
-      response = await deserializeAws_json1_1AccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.dms#ResourceAlreadyExistsFault":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1704,17 +1824,23 @@ async function deserializeAws_json1_1DeleteCertificateCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1767,24 +1893,33 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.dms#AccessDeniedFault":
-      response = await deserializeAws_json1_1AccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1837,17 +1972,23 @@ async function deserializeAws_json1_1DeleteEndpointCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1906,17 +2047,23 @@ async function deserializeAws_json1_1DeleteEventSubscriptionCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1975,17 +2122,23 @@ async function deserializeAws_json1_1DeleteReplicationInstanceCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2044,17 +2197,23 @@ async function deserializeAws_json1_1DeleteReplicationSubnetGroupCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2110,17 +2269,23 @@ async function deserializeAws_json1_1DeleteReplicationTaskCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2231,10 +2396,13 @@ async function deserializeAws_json1_1DescribeCertificatesCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2290,10 +2458,13 @@ async function deserializeAws_json1_1DescribeConnectionsCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2398,10 +2569,13 @@ async function deserializeAws_json1_1DescribeEndpointsCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2515,10 +2689,13 @@ async function deserializeAws_json1_1DescribeEventSubscriptionsCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2681,10 +2858,13 @@ async function deserializeAws_json1_1DescribePendingMaintenanceActionsCommandErr
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2743,17 +2923,23 @@ async function deserializeAws_json1_1DescribeRefreshSchemasStatusCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2812,17 +2998,23 @@ async function deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommandE
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2881,10 +3073,13 @@ async function deserializeAws_json1_1DescribeReplicationInstancesCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2943,10 +3138,13 @@ async function deserializeAws_json1_1DescribeReplicationSubnetGroupsCommandError
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3005,10 +3203,13 @@ async function deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCom
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3067,10 +3268,13 @@ async function deserializeAws_json1_1DescribeReplicationTasksCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3123,17 +3327,23 @@ async function deserializeAws_json1_1DescribeSchemasCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3192,17 +3402,23 @@ async function deserializeAws_json1_1DescribeTableStatisticsCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3255,24 +3471,33 @@ async function deserializeAws_json1_1ImportCertificateCommandError(
   switch (errorCode) {
     case "InvalidCertificateFault":
     case "com.amazonaws.dms#InvalidCertificateFault":
-      response = await deserializeAws_json1_1InvalidCertificateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCertificateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.dms#ResourceAlreadyExistsFault":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3328,10 +3553,13 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3384,38 +3612,53 @@ async function deserializeAws_json1_1ModifyEndpointCommandError(
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.dms#AccessDeniedFault":
-      response = await deserializeAws_json1_1AccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.dms#ResourceAlreadyExistsFault":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3474,66 +3717,93 @@ async function deserializeAws_json1_1ModifyEventSubscriptionCommandError(
   switch (errorCode) {
     case "KMSAccessDeniedFault":
     case "com.amazonaws.dms#KMSAccessDeniedFault":
-      response = await deserializeAws_json1_1KMSAccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSAccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSDisabledFault":
     case "com.amazonaws.dms#KMSDisabledFault":
-      response = await deserializeAws_json1_1KMSDisabledFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSDisabledFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSInvalidStateFault":
     case "com.amazonaws.dms#KMSInvalidStateFault":
-      response = await deserializeAws_json1_1KMSInvalidStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSInvalidStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSNotFoundFault":
     case "com.amazonaws.dms#KMSNotFoundFault":
-      response = await deserializeAws_json1_1KMSNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSThrottlingFault":
     case "com.amazonaws.dms#KMSThrottlingFault":
-      response = await deserializeAws_json1_1KMSThrottlingFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSThrottlingFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSInvalidTopicFault":
     case "com.amazonaws.dms#SNSInvalidTopicFault":
-      response = await deserializeAws_json1_1SNSInvalidTopicFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SNSInvalidTopicFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SNSNoAuthorizationFault":
     case "com.amazonaws.dms#SNSNoAuthorizationFault":
-      response = await deserializeAws_json1_1SNSNoAuthorizationFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SNSNoAuthorizationFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3592,52 +3862,73 @@ async function deserializeAws_json1_1ModifyReplicationInstanceCommandError(
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.dms#AccessDeniedFault":
-      response = await deserializeAws_json1_1AccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InsufficientResourceCapacityFault":
     case "com.amazonaws.dms#InsufficientResourceCapacityFault":
-      response = await deserializeAws_json1_1InsufficientResourceCapacityFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InsufficientResourceCapacityFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.dms#ResourceAlreadyExistsFault":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageQuotaExceededFault":
     case "com.amazonaws.dms#StorageQuotaExceededFault":
-      response = await deserializeAws_json1_1StorageQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1StorageQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UpgradeDependencyFailureFault":
     case "com.amazonaws.dms#UpgradeDependencyFailureFault":
-      response = await deserializeAws_json1_1UpgradeDependencyFailureFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UpgradeDependencyFailureFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3696,45 +3987,63 @@ async function deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError(
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.dms#AccessDeniedFault":
-      response = await deserializeAws_json1_1AccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnet":
     case "com.amazonaws.dms#InvalidSubnet":
-      response = await deserializeAws_json1_1InvalidSubnetResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSubnetResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.dms#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-      response = await deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubnetAlreadyInUse":
     case "com.amazonaws.dms#SubnetAlreadyInUse":
-      response = await deserializeAws_json1_1SubnetAlreadyInUseResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SubnetAlreadyInUseResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3790,31 +4099,43 @@ async function deserializeAws_json1_1ModifyReplicationTaskCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.dms#ResourceAlreadyExistsFault":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3873,17 +4194,23 @@ async function deserializeAws_json1_1RebootReplicationInstanceCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3936,31 +4263,43 @@ async function deserializeAws_json1_1RefreshSchemasCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4013,17 +4352,23 @@ async function deserializeAws_json1_1ReloadTablesCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4082,10 +4427,13 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4141,24 +4489,33 @@ async function deserializeAws_json1_1StartReplicationTaskCommandError(
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.dms#AccessDeniedFault":
-      response = await deserializeAws_json1_1AccessDeniedFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4217,17 +4574,23 @@ async function deserializeAws_json1_1StartReplicationTaskAssessmentCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4283,17 +4646,23 @@ async function deserializeAws_json1_1StopReplicationTaskCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4346,31 +4715,43 @@ async function deserializeAws_json1_1TestConnectionCommandError(
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
-      response = await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundFault":
     case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.dms#ResourceQuotaExceededFault":
-      response = await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePrivateVirtualInterfaceCommandInput = CreatePrivateVirtualInterfaceRequest;
-export type CreatePrivateVirtualInterfaceCommandOutput = VirtualInterface;
+export type CreatePrivateVirtualInterfaceCommandOutput = VirtualInterface &
+  __MetadataBearer;
 
 export class CreatePrivateVirtualInterfaceCommand extends $Command<
   CreatePrivateVirtualInterfaceCommandInput,

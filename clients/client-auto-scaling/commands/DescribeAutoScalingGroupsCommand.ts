@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAutoScalingGroupsCommandInput = AutoScalingGroupNamesType;
-export type DescribeAutoScalingGroupsCommandOutput = AutoScalingGroupsType;
+export type DescribeAutoScalingGroupsCommandOutput = AutoScalingGroupsType &
+  __MetadataBearer;
 
 export class DescribeAutoScalingGroupsCommand extends $Command<
   DescribeAutoScalingGroupsCommandInput,

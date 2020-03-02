@@ -89,7 +89,7 @@ export namespace ApplicationDescription {
 /**
  * <p>Result message containing a single description of an application.</p>
  */
-export interface ApplicationDescriptionMessage extends $MetadataBearer {
+export interface ApplicationDescriptionMessage {
   __type?: "ApplicationDescriptionMessage";
   /**
    * <p> The <a>ApplicationDescription</a> of the application. </p>
@@ -106,7 +106,7 @@ export namespace ApplicationDescriptionMessage {
 /**
  * <p>Result message containing a list of application descriptions.</p>
  */
-export interface ApplicationDescriptionsMessage extends $MetadataBearer {
+export interface ApplicationDescriptionsMessage {
   __type?: "ApplicationDescriptionsMessage";
   /**
    * <p>This parameter contains a list of <a>ApplicationDescription</a>.</p>
@@ -190,8 +190,7 @@ export namespace ApplicationResourceLifecycleConfig {
   }
 }
 
-export interface ApplicationResourceLifecycleDescriptionMessage
-  extends $MetadataBearer {
+export interface ApplicationResourceLifecycleDescriptionMessage {
   __type?: "ApplicationResourceLifecycleDescriptionMessage";
   /**
    * <p>The name of the application.</p>
@@ -307,7 +306,7 @@ export namespace ApplicationVersionDescription {
 /**
  * <p>Result message wrapping a single description of an application version.</p>
  */
-export interface ApplicationVersionDescriptionMessage extends $MetadataBearer {
+export interface ApplicationVersionDescriptionMessage {
   __type?: "ApplicationVersionDescriptionMessage";
   /**
    * <p> The <a>ApplicationVersionDescription</a> of the application version.
@@ -325,7 +324,7 @@ export namespace ApplicationVersionDescriptionMessage {
 /**
  * <p>Result message wrapping a list of application version descriptions.</p>
  */
-export interface ApplicationVersionDescriptionsMessage extends $MetadataBearer {
+export interface ApplicationVersionDescriptionsMessage {
   __type?: "ApplicationVersionDescriptionsMessage";
   /**
    * <p>List of <code>ApplicationVersionDescription</code> objects sorted in order of
@@ -412,7 +411,7 @@ export namespace ApplyEnvironmentManagedActionRequest {
 /**
  * <p>The result message containing information about the managed action.</p>
  */
-export interface ApplyEnvironmentManagedActionResult extends $MetadataBearer {
+export interface ApplyEnvironmentManagedActionResult {
   __type?: "ApplyEnvironmentManagedActionResult";
   /**
    * <p>A description of the managed action.</p>
@@ -620,7 +619,7 @@ export namespace CheckDNSAvailabilityMessage {
 /**
  * <p>Indicates if the specified CNAME is available.</p>
  */
-export interface CheckDNSAvailabilityResultMessage extends $MetadataBearer {
+export interface CheckDNSAvailabilityResultMessage {
   __type?: "CheckDNSAvailabilityResultMessage";
   /**
    * <p>Indicates if the specified CNAME is available:</p>
@@ -881,7 +880,7 @@ export type ConfigurationOptionValueType = "List" | "Scalar";
 /**
  * <p>Describes the settings for a specified configuration set.</p>
  */
-export interface ConfigurationOptionsDescription extends $MetadataBearer {
+export interface ConfigurationOptionsDescription {
   __type?: "ConfigurationOptionsDescription";
   /**
    * <p> A list of <a>ConfigurationOptionDescription</a>. </p>
@@ -908,7 +907,7 @@ export namespace ConfigurationOptionsDescription {
 /**
  * <p>Describes the settings for a configuration set.</p>
  */
-export interface ConfigurationSettingsDescription extends $MetadataBearer {
+export interface ConfigurationSettingsDescription {
   __type?: "ConfigurationSettingsDescription";
   /**
    * <p>The name of the application associated with this configuration set.</p>
@@ -998,7 +997,7 @@ export namespace ConfigurationSettingsDescription {
  * <p>The results from a request to change the configuration settings of an
  *       environment.</p>
  */
-export interface ConfigurationSettingsDescriptions extends $MetadataBearer {
+export interface ConfigurationSettingsDescriptions {
   __type?: "ConfigurationSettingsDescriptions";
   /**
    * <p> A list of <a>ConfigurationSettingsDescription</a>. </p>
@@ -1015,8 +1014,7 @@ export namespace ConfigurationSettingsDescriptions {
 /**
  * <p>Provides a list of validation messages.</p>
  */
-export interface ConfigurationSettingsValidationMessages
-  extends $MetadataBearer {
+export interface ConfigurationSettingsValidationMessages {
   __type?: "ConfigurationSettingsValidationMessages";
   /**
    * <p> A list of <a>ValidationMessage</a>. </p>
@@ -1386,7 +1384,7 @@ export namespace CreatePlatformVersionRequest {
   }
 }
 
-export interface CreatePlatformVersionResult extends $MetadataBearer {
+export interface CreatePlatformVersionResult {
   __type?: "CreatePlatformVersionResult";
   /**
    * <p>The builder used to create the custom platform.</p>
@@ -1408,7 +1406,7 @@ export namespace CreatePlatformVersionResult {
 /**
  * <p>Results of a <a>CreateStorageLocationResult</a> call.</p>
  */
-export interface CreateStorageLocationResultMessage extends $MetadataBearer {
+export interface CreateStorageLocationResultMessage {
   __type?: "CreateStorageLocationResultMessage";
   /**
    * <p>The name of the Amazon S3 bucket created.</p>
@@ -1554,7 +1552,7 @@ export namespace DeletePlatformVersionRequest {
   }
 }
 
-export interface DeletePlatformVersionResult extends $MetadataBearer {
+export interface DeletePlatformVersionResult {
   __type?: "DeletePlatformVersionResult";
   /**
    * <p>Detailed information about the version of the custom platform.</p>
@@ -1616,7 +1614,7 @@ export namespace Deployment {
   }
 }
 
-export interface DescribeAccountAttributesResult extends $MetadataBearer {
+export interface DescribeAccountAttributesResult {
   __type?: "DescribeAccountAttributesResult";
   /**
    * <p>The Elastic Beanstalk resource quotas associated with the calling AWS account.</p>
@@ -1802,7 +1800,7 @@ export namespace DescribeEnvironmentHealthRequest {
 /**
  * <p>Health details for an AWS Elastic Beanstalk environment.</p>
  */
-export interface DescribeEnvironmentHealthResult extends $MetadataBearer {
+export interface DescribeEnvironmentHealthResult {
   __type?: "DescribeEnvironmentHealthResult";
   /**
    * <p>Application request metrics for the environment.</p>
@@ -1892,8 +1890,7 @@ export namespace DescribeEnvironmentManagedActionHistoryRequest {
 /**
  * <p>A result message containing a list of completed and failed managed actions.</p>
  */
-export interface DescribeEnvironmentManagedActionHistoryResult
-  extends $MetadataBearer {
+export interface DescribeEnvironmentManagedActionHistoryResult {
   __type?: "DescribeEnvironmentManagedActionHistoryResult";
   /**
    * <p>A list of completed and failed managed actions.</p>
@@ -1945,8 +1942,7 @@ export namespace DescribeEnvironmentManagedActionsRequest {
 /**
  * <p>The result message containing a list of managed actions.</p>
  */
-export interface DescribeEnvironmentManagedActionsResult
-  extends $MetadataBearer {
+export interface DescribeEnvironmentManagedActionsResult {
   __type?: "DescribeEnvironmentManagedActionsResult";
   /**
    * <p>A list of upcoming and in-progress managed actions.</p>
@@ -2175,7 +2171,7 @@ export namespace DescribeInstancesHealthRequest {
  * <p>Detailed health information about the Amazon EC2 instances in an AWS Elastic Beanstalk
  *       environment.</p>
  */
-export interface DescribeInstancesHealthResult extends $MetadataBearer {
+export interface DescribeInstancesHealthResult {
   __type?: "DescribeInstancesHealthResult";
   /**
    * <p>Detailed health information about each instance.</p>
@@ -2215,7 +2211,7 @@ export namespace DescribePlatformVersionRequest {
   }
 }
 
-export interface DescribePlatformVersionResult extends $MetadataBearer {
+export interface DescribePlatformVersionResult {
   __type?: "DescribePlatformVersionResult";
   /**
    * <p>Detailed information about the version of the platform.</p>
@@ -2252,7 +2248,7 @@ export namespace ElasticBeanstalkServiceException {
 /**
  * <p>Describes the properties of an environment.</p>
  */
-export interface EnvironmentDescription extends $MetadataBearer {
+export interface EnvironmentDescription {
   __type?: "EnvironmentDescription";
   /**
    * <p>Indicates if there is an in-progress environment configuration update or application
@@ -2423,7 +2419,7 @@ export namespace EnvironmentDescription {
 /**
  * <p>Result message containing a list of environment descriptions.</p>
  */
-export interface EnvironmentDescriptionsMessage extends $MetadataBearer {
+export interface EnvironmentDescriptionsMessage {
   __type?: "EnvironmentDescriptionsMessage";
   /**
    * <p> Returns an <a>EnvironmentDescription</a> list. </p>
@@ -2584,8 +2580,7 @@ export namespace EnvironmentResourceDescription {
 /**
  * <p>Result message containing a list of environment resource descriptions.</p>
  */
-export interface EnvironmentResourceDescriptionsMessage
-  extends $MetadataBearer {
+export interface EnvironmentResourceDescriptionsMessage {
   __type?: "EnvironmentResourceDescriptionsMessage";
   /**
    * <p> A list of <a>EnvironmentResourceDescription</a>. </p>
@@ -2738,7 +2733,7 @@ export namespace EventDescription {
 /**
  * <p>Result message wrapping a list of event descriptions.</p>
  */
-export interface EventDescriptionsMessage extends $MetadataBearer {
+export interface EventDescriptionsMessage {
   __type?: "EventDescriptionsMessage";
   /**
    * <p> A list of <a>EventDescription</a>. </p>
@@ -3014,8 +3009,7 @@ export namespace LaunchTemplate {
 /**
  * <p>A list of available AWS Elastic Beanstalk solution stacks.</p>
  */
-export interface ListAvailableSolutionStacksResultMessage
-  extends $MetadataBearer {
+export interface ListAvailableSolutionStacksResultMessage {
   __type?: "ListAvailableSolutionStacksResultMessage";
   /**
    * <p> A list of available solution stacks and their <a>SolutionStackDescription</a>. </p>
@@ -3061,7 +3055,7 @@ export namespace ListPlatformVersionsRequest {
   }
 }
 
-export interface ListPlatformVersionsResult extends $MetadataBearer {
+export interface ListPlatformVersionsResult {
   __type?: "ListPlatformVersionsResult";
   /**
    * <p>The starting index into the remaining list of platforms.
@@ -3857,7 +3851,7 @@ export namespace ResourceQuotas {
   }
 }
 
-export interface ResourceTagsDescriptionMessage extends $MetadataBearer {
+export interface ResourceTagsDescriptionMessage {
   __type?: "ResourceTagsDescriptionMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the resouce for which a tag list was requested.</p>
@@ -3963,7 +3957,7 @@ export namespace RetrieveEnvironmentInfoMessage {
 /**
  * <p>Result message containing a description of the requested environment info.</p>
  */
-export interface RetrieveEnvironmentInfoResultMessage extends $MetadataBearer {
+export interface RetrieveEnvironmentInfoResultMessage {
   __type?: "RetrieveEnvironmentInfoResultMessage";
   /**
    * <p> The <a>EnvironmentInfoDescription</a> of the environment. </p>

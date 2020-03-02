@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListChangedBlocksCommandInput = ListChangedBlocksRequest;
-export type ListChangedBlocksCommandOutput = ListChangedBlocksResponse;
+export type ListChangedBlocksCommandOutput = ListChangedBlocksResponse &
+  __MetadataBearer;
 
 export class ListChangedBlocksCommand extends $Command<
   ListChangedBlocksCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddApplicationInputCommandInput = AddApplicationInputRequest;
-export type AddApplicationInputCommandOutput = AddApplicationInputResponse;
+export type AddApplicationInputCommandOutput = AddApplicationInputResponse &
+  __MetadataBearer;
 
 export class AddApplicationInputCommand extends $Command<
   AddApplicationInputCommandInput,

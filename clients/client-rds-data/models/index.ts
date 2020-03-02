@@ -181,7 +181,7 @@ export namespace BatchExecuteStatementRequest {
  * <p>The response elements represent the output of a SQL statement over an array of
  *             data.</p>
  */
-export interface BatchExecuteStatementResponse extends $MetadataBearer {
+export interface BatchExecuteStatementResponse {
   __type?: "BatchExecuteStatementResponse";
   /**
    * <p>The execution results of each batch entry.</p>
@@ -232,7 +232,7 @@ export namespace BeginTransactionRequest {
  * <p>The response elements represent the output of a request to start a SQL
  *             transaction.</p>
  */
-export interface BeginTransactionResponse extends $MetadataBearer {
+export interface BeginTransactionResponse {
   __type?: "BeginTransactionResponse";
   /**
    * <p>The transaction ID of the transaction started by the call.</p>
@@ -358,7 +358,7 @@ export namespace CommitTransactionRequest {
 /**
  * <p>The response elements represent the output of a commit transaction request.</p>
  */
-export interface CommitTransactionResponse extends $MetadataBearer {
+export interface CommitTransactionResponse {
   __type?: "CommitTransactionResponse";
   /**
    * <p>The status of the commit operation.</p>
@@ -417,7 +417,7 @@ export namespace ExecuteSqlRequest {
  * <p>The response elements represent the output of a request to run one or more SQL
  *             statements.</p>
  */
-export interface ExecuteSqlResponse extends $MetadataBearer {
+export interface ExecuteSqlResponse {
   __type?: "ExecuteSqlResponse";
   /**
    * <p>The results of the SQL statement or statements.</p>
@@ -503,7 +503,7 @@ export namespace ExecuteStatementRequest {
  * <p>The response elements represent the output of a request to run a SQL statement against
  *             a database.</p>
  */
-export interface ExecuteStatementResponse extends $MetadataBearer {
+export interface ExecuteStatementResponse {
   __type?: "ExecuteStatementResponse";
   /**
    * <p>Metadata for the columns included in the results.</p>
@@ -823,7 +823,7 @@ export namespace RollbackTransactionRequest {
  * <p>The response elements represent the output of a request to perform a rollback of a
  *             transaction.</p>
  */
-export interface RollbackTransactionResponse extends $MetadataBearer {
+export interface RollbackTransactionResponse {
   __type?: "RollbackTransactionResponse";
   /**
    * <p>The status of the rollback operation.</p>

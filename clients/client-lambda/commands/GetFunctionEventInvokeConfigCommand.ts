@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetFunctionEventInvokeConfigCommandInput = GetFunctionEventInvokeConfigRequest;
-export type GetFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig;
+export type GetFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig &
+  __MetadataBearer;
 
 export class GetFunctionEventInvokeConfigCommand extends $Command<
   GetFunctionEventInvokeConfigCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBaiduChannelCommandInput = DeleteBaiduChannelRequest;
-export type DeleteBaiduChannelCommandOutput = DeleteBaiduChannelResponse;
+export type DeleteBaiduChannelCommandOutput = DeleteBaiduChannelResponse &
+  __MetadataBearer;
 
 export class DeleteBaiduChannelCommand extends $Command<
   DeleteBaiduChannelCommandInput,

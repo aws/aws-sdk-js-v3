@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BeginTransactionCommandInput = BeginTransactionRequest;
-export type BeginTransactionCommandOutput = BeginTransactionResponse;
+export type BeginTransactionCommandOutput = BeginTransactionResponse &
+  __MetadataBearer;
 
 export class BeginTransactionCommand extends $Command<
   BeginTransactionCommandInput,

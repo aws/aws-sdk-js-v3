@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDomainEntryCommandInput = CreateDomainEntryRequest;
-export type CreateDomainEntryCommandOutput = CreateDomainEntryResult;
+export type CreateDomainEntryCommandOutput = CreateDomainEntryResult &
+  __MetadataBearer;
 
 export class CreateDomainEntryCommand extends $Command<
   CreateDomainEntryCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLinkCommandInput = CreateLinkRequest;
-export type CreateLinkCommandOutput = CreateLinkResponse;
+export type CreateLinkCommandOutput = CreateLinkResponse & __MetadataBearer;
 
 export class CreateLinkCommand extends $Command<
   CreateLinkCommandInput,

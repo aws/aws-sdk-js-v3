@@ -774,31 +774,43 @@ async function deserializeAws_restXmlCreateJobCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.awss3control.v20180820#BadRequestException":
-      response = await deserializeAws_restXmlBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotencyException":
     case "com.amazonaws.awss3control.v20180820#IdempotencyException":
-      response = await deserializeAws_restXmlIdempotencyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlIdempotencyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.awss3control.v20180820#InternalServiceException":
-      response = await deserializeAws_restXmlInternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awss3control.v20180820#TooManyRequestsException":
-      response = await deserializeAws_restXmlTooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -989,31 +1001,43 @@ async function deserializeAws_restXmlDescribeJobCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.awss3control.v20180820#BadRequestException":
-      response = await deserializeAws_restXmlBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.awss3control.v20180820#InternalServiceException":
-      response = await deserializeAws_restXmlInternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.awss3control.v20180820#NotFoundException":
-      response = await deserializeAws_restXmlNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awss3control.v20180820#TooManyRequestsException":
-      response = await deserializeAws_restXmlTooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1252,10 +1276,13 @@ async function deserializeAws_restXmlGetPublicAccessBlockCommandError(
   switch (errorCode) {
     case "NoSuchPublicAccessBlockConfiguration":
     case "com.amazonaws.awss3control.v20180820#NoSuchPublicAccessBlockConfiguration":
-      response = await deserializeAws_restXmlNoSuchPublicAccessBlockConfigurationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchPublicAccessBlockConfigurationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1388,24 +1415,33 @@ async function deserializeAws_restXmlListJobsCommandError(
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.awss3control.v20180820#InternalServiceException":
-      response = await deserializeAws_restXmlInternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.awss3control.v20180820#InvalidNextTokenException":
-      response = await deserializeAws_restXmlInvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awss3control.v20180820#InvalidRequestException":
-      response = await deserializeAws_restXmlInvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1556,31 +1592,43 @@ async function deserializeAws_restXmlUpdateJobPriorityCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.awss3control.v20180820#BadRequestException":
-      response = await deserializeAws_restXmlBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.awss3control.v20180820#InternalServiceException":
-      response = await deserializeAws_restXmlInternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.awss3control.v20180820#NotFoundException":
-      response = await deserializeAws_restXmlNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awss3control.v20180820#TooManyRequestsException":
-      response = await deserializeAws_restXmlTooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1641,38 +1689,53 @@ async function deserializeAws_restXmlUpdateJobStatusCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.awss3control.v20180820#BadRequestException":
-      response = await deserializeAws_restXmlBadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlBadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.awss3control.v20180820#InternalServiceException":
-      response = await deserializeAws_restXmlInternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobStatusException":
     case "com.amazonaws.awss3control.v20180820#JobStatusException":
-      response = await deserializeAws_restXmlJobStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlJobStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.awss3control.v20180820#NotFoundException":
-      response = await deserializeAws_restXmlNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awss3control.v20180820#TooManyRequestsException":
-      response = await deserializeAws_restXmlTooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

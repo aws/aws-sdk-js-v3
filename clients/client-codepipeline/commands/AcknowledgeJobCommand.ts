@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcknowledgeJobCommandInput = AcknowledgeJobInput;
-export type AcknowledgeJobCommandOutput = AcknowledgeJobOutput;
+export type AcknowledgeJobCommandOutput = AcknowledgeJobOutput &
+  __MetadataBearer;
 
 export class AcknowledgeJobCommand extends $Command<
   AcknowledgeJobCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResizeClusterCommandInput = ResizeClusterMessage;
-export type ResizeClusterCommandOutput = ResizeClusterResult;
+export type ResizeClusterCommandOutput = ResizeClusterResult & __MetadataBearer;
 
 export class ResizeClusterCommand extends $Command<
   ResizeClusterCommandInput,

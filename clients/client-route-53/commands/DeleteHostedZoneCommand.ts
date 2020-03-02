@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteHostedZoneCommandInput = DeleteHostedZoneRequest;
-export type DeleteHostedZoneCommandOutput = DeleteHostedZoneResponse;
+export type DeleteHostedZoneCommandOutput = DeleteHostedZoneResponse &
+  __MetadataBearer;
 
 export class DeleteHostedZoneCommand extends $Command<
   DeleteHostedZoneCommandInput,

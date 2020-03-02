@@ -23,7 +23,7 @@ export namespace DeleteHumanLoopRequest {
   }
 }
 
-export interface DeleteHumanLoopResponse extends $MetadataBearer {
+export interface DeleteHumanLoopResponse {
   __type?: "DeleteHumanLoopResponse";
 }
 
@@ -47,7 +47,7 @@ export namespace DescribeHumanLoopRequest {
   }
 }
 
-export interface DescribeHumanLoopResponse extends $MetadataBearer {
+export interface DescribeHumanLoopResponse {
   __type?: "DescribeHumanLoopResponse";
   /**
    * <p>The timestamp when Amazon Augmented AI created the human loop.</p>
@@ -289,7 +289,7 @@ export namespace ListHumanLoopsRequest {
   }
 }
 
-export interface ListHumanLoopsResponse extends $MetadataBearer {
+export interface ListHumanLoopsResponse {
   __type?: "ListHumanLoopsResponse";
   /**
    * <p>An array of objects containing information about the human loops.</p>
@@ -376,7 +376,7 @@ export namespace StartHumanLoopRequest {
   }
 }
 
-export interface StartHumanLoopResponse extends $MetadataBearer {
+export interface StartHumanLoopResponse {
   __type?: "StartHumanLoopResponse";
   /**
    * <p>An object containing information about the human loop activation.</p>
@@ -409,7 +409,7 @@ export namespace StopHumanLoopRequest {
   }
 }
 
-export interface StopHumanLoopResponse extends $MetadataBearer {
+export interface StopHumanLoopResponse {
   __type?: "StopHumanLoopResponse";
 }
 

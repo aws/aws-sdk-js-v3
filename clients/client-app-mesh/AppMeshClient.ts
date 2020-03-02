@@ -1,61 +1,115 @@
 import {
-  CreateMeshInput,
-  CreateMeshOutput,
-  CreateRouteInput,
-  CreateRouteOutput,
-  CreateVirtualNodeInput,
-  CreateVirtualNodeOutput,
-  CreateVirtualRouterInput,
-  CreateVirtualRouterOutput,
-  CreateVirtualServiceInput,
-  CreateVirtualServiceOutput,
-  DeleteMeshInput,
-  DeleteMeshOutput,
-  DeleteRouteInput,
-  DeleteRouteOutput,
-  DeleteVirtualNodeInput,
-  DeleteVirtualNodeOutput,
-  DeleteVirtualRouterInput,
-  DeleteVirtualRouterOutput,
-  DeleteVirtualServiceInput,
-  DeleteVirtualServiceOutput,
-  DescribeMeshInput,
-  DescribeMeshOutput,
-  DescribeRouteInput,
-  DescribeRouteOutput,
-  DescribeVirtualNodeInput,
-  DescribeVirtualNodeOutput,
-  DescribeVirtualRouterInput,
-  DescribeVirtualRouterOutput,
-  DescribeVirtualServiceInput,
-  DescribeVirtualServiceOutput,
-  ListMeshesInput,
-  ListMeshesOutput,
-  ListRoutesInput,
-  ListRoutesOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  ListVirtualNodesInput,
-  ListVirtualNodesOutput,
-  ListVirtualRoutersInput,
-  ListVirtualRoutersOutput,
-  ListVirtualServicesInput,
-  ListVirtualServicesOutput,
-  TagResourceInput,
-  TagResourceOutput,
-  UntagResourceInput,
-  UntagResourceOutput,
-  UpdateMeshInput,
-  UpdateMeshOutput,
-  UpdateRouteInput,
-  UpdateRouteOutput,
-  UpdateVirtualNodeInput,
-  UpdateVirtualNodeOutput,
-  UpdateVirtualRouterInput,
-  UpdateVirtualRouterOutput,
-  UpdateVirtualServiceInput,
-  UpdateVirtualServiceOutput
-} from "./models/index";
+  CreateMeshCommandInput,
+  CreateMeshCommandOutput
+} from "./commands/CreateMeshCommand";
+import {
+  CreateRouteCommandInput,
+  CreateRouteCommandOutput
+} from "./commands/CreateRouteCommand";
+import {
+  CreateVirtualNodeCommandInput,
+  CreateVirtualNodeCommandOutput
+} from "./commands/CreateVirtualNodeCommand";
+import {
+  CreateVirtualRouterCommandInput,
+  CreateVirtualRouterCommandOutput
+} from "./commands/CreateVirtualRouterCommand";
+import {
+  CreateVirtualServiceCommandInput,
+  CreateVirtualServiceCommandOutput
+} from "./commands/CreateVirtualServiceCommand";
+import {
+  DeleteMeshCommandInput,
+  DeleteMeshCommandOutput
+} from "./commands/DeleteMeshCommand";
+import {
+  DeleteRouteCommandInput,
+  DeleteRouteCommandOutput
+} from "./commands/DeleteRouteCommand";
+import {
+  DeleteVirtualNodeCommandInput,
+  DeleteVirtualNodeCommandOutput
+} from "./commands/DeleteVirtualNodeCommand";
+import {
+  DeleteVirtualRouterCommandInput,
+  DeleteVirtualRouterCommandOutput
+} from "./commands/DeleteVirtualRouterCommand";
+import {
+  DeleteVirtualServiceCommandInput,
+  DeleteVirtualServiceCommandOutput
+} from "./commands/DeleteVirtualServiceCommand";
+import {
+  DescribeMeshCommandInput,
+  DescribeMeshCommandOutput
+} from "./commands/DescribeMeshCommand";
+import {
+  DescribeRouteCommandInput,
+  DescribeRouteCommandOutput
+} from "./commands/DescribeRouteCommand";
+import {
+  DescribeVirtualNodeCommandInput,
+  DescribeVirtualNodeCommandOutput
+} from "./commands/DescribeVirtualNodeCommand";
+import {
+  DescribeVirtualRouterCommandInput,
+  DescribeVirtualRouterCommandOutput
+} from "./commands/DescribeVirtualRouterCommand";
+import {
+  DescribeVirtualServiceCommandInput,
+  DescribeVirtualServiceCommandOutput
+} from "./commands/DescribeVirtualServiceCommand";
+import {
+  ListMeshesCommandInput,
+  ListMeshesCommandOutput
+} from "./commands/ListMeshesCommand";
+import {
+  ListRoutesCommandInput,
+  ListRoutesCommandOutput
+} from "./commands/ListRoutesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListVirtualNodesCommandInput,
+  ListVirtualNodesCommandOutput
+} from "./commands/ListVirtualNodesCommand";
+import {
+  ListVirtualRoutersCommandInput,
+  ListVirtualRoutersCommandOutput
+} from "./commands/ListVirtualRoutersCommand";
+import {
+  ListVirtualServicesCommandInput,
+  ListVirtualServicesCommandOutput
+} from "./commands/ListVirtualServicesCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateMeshCommandInput,
+  UpdateMeshCommandOutput
+} from "./commands/UpdateMeshCommand";
+import {
+  UpdateRouteCommandInput,
+  UpdateRouteCommandOutput
+} from "./commands/UpdateRouteCommand";
+import {
+  UpdateVirtualNodeCommandInput,
+  UpdateVirtualNodeCommandOutput
+} from "./commands/UpdateVirtualNodeCommand";
+import {
+  UpdateVirtualRouterCommandInput,
+  UpdateVirtualRouterCommandOutput
+} from "./commands/UpdateVirtualRouterCommand";
+import {
+  UpdateVirtualServiceCommandInput,
+  UpdateVirtualServiceCommandOutput
+} from "./commands/UpdateVirtualServiceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -109,64 +163,64 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateMeshInput
-  | CreateRouteInput
-  | CreateVirtualNodeInput
-  | CreateVirtualRouterInput
-  | CreateVirtualServiceInput
-  | DeleteMeshInput
-  | DeleteRouteInput
-  | DeleteVirtualNodeInput
-  | DeleteVirtualRouterInput
-  | DeleteVirtualServiceInput
-  | DescribeMeshInput
-  | DescribeRouteInput
-  | DescribeVirtualNodeInput
-  | DescribeVirtualRouterInput
-  | DescribeVirtualServiceInput
-  | ListMeshesInput
-  | ListRoutesInput
-  | ListTagsForResourceInput
-  | ListVirtualNodesInput
-  | ListVirtualRoutersInput
-  | ListVirtualServicesInput
-  | TagResourceInput
-  | UntagResourceInput
-  | UpdateMeshInput
-  | UpdateRouteInput
-  | UpdateVirtualNodeInput
-  | UpdateVirtualRouterInput
-  | UpdateVirtualServiceInput;
+  | CreateMeshCommandInput
+  | CreateRouteCommandInput
+  | CreateVirtualNodeCommandInput
+  | CreateVirtualRouterCommandInput
+  | CreateVirtualServiceCommandInput
+  | DeleteMeshCommandInput
+  | DeleteRouteCommandInput
+  | DeleteVirtualNodeCommandInput
+  | DeleteVirtualRouterCommandInput
+  | DeleteVirtualServiceCommandInput
+  | DescribeMeshCommandInput
+  | DescribeRouteCommandInput
+  | DescribeVirtualNodeCommandInput
+  | DescribeVirtualRouterCommandInput
+  | DescribeVirtualServiceCommandInput
+  | ListMeshesCommandInput
+  | ListRoutesCommandInput
+  | ListTagsForResourceCommandInput
+  | ListVirtualNodesCommandInput
+  | ListVirtualRoutersCommandInput
+  | ListVirtualServicesCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateMeshCommandInput
+  | UpdateRouteCommandInput
+  | UpdateVirtualNodeCommandInput
+  | UpdateVirtualRouterCommandInput
+  | UpdateVirtualServiceCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateMeshOutput
-  | CreateRouteOutput
-  | CreateVirtualNodeOutput
-  | CreateVirtualRouterOutput
-  | CreateVirtualServiceOutput
-  | DeleteMeshOutput
-  | DeleteRouteOutput
-  | DeleteVirtualNodeOutput
-  | DeleteVirtualRouterOutput
-  | DeleteVirtualServiceOutput
-  | DescribeMeshOutput
-  | DescribeRouteOutput
-  | DescribeVirtualNodeOutput
-  | DescribeVirtualRouterOutput
-  | DescribeVirtualServiceOutput
-  | ListMeshesOutput
-  | ListRoutesOutput
-  | ListTagsForResourceOutput
-  | ListVirtualNodesOutput
-  | ListVirtualRoutersOutput
-  | ListVirtualServicesOutput
-  | TagResourceOutput
-  | UntagResourceOutput
-  | UpdateMeshOutput
-  | UpdateRouteOutput
-  | UpdateVirtualNodeOutput
-  | UpdateVirtualRouterOutput
-  | UpdateVirtualServiceOutput;
+  | CreateMeshCommandOutput
+  | CreateRouteCommandOutput
+  | CreateVirtualNodeCommandOutput
+  | CreateVirtualRouterCommandOutput
+  | CreateVirtualServiceCommandOutput
+  | DeleteMeshCommandOutput
+  | DeleteRouteCommandOutput
+  | DeleteVirtualNodeCommandOutput
+  | DeleteVirtualRouterCommandOutput
+  | DeleteVirtualServiceCommandOutput
+  | DescribeMeshCommandOutput
+  | DescribeRouteCommandOutput
+  | DescribeVirtualNodeCommandOutput
+  | DescribeVirtualRouterCommandOutput
+  | DescribeVirtualServiceCommandOutput
+  | ListMeshesCommandOutput
+  | ListRoutesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListVirtualNodesCommandOutput
+  | ListVirtualRoutersCommandOutput
+  | ListVirtualServicesCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateMeshCommandOutput
+  | UpdateRouteCommandOutput
+  | UpdateVirtualNodeCommandOutput
+  | UpdateVirtualRouterCommandOutput
+  | UpdateVirtualServiceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

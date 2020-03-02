@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDetectKeyPhrasesCommandInput = BatchDetectKeyPhrasesRequest;
-export type BatchDetectKeyPhrasesCommandOutput = BatchDetectKeyPhrasesResponse;
+export type BatchDetectKeyPhrasesCommandOutput = BatchDetectKeyPhrasesResponse &
+  __MetadataBearer;
 
 export class BatchDetectKeyPhrasesCommand extends $Command<
   BatchDetectKeyPhrasesCommandInput,

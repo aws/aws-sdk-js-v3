@@ -1,43 +1,79 @@
 import {
-  CancelClusterRequest,
-  CancelClusterResult,
-  CancelJobRequest,
-  CancelJobResult,
-  CreateAddressRequest,
-  CreateAddressResult,
-  CreateClusterRequest,
-  CreateClusterResult,
-  CreateJobRequest,
-  CreateJobResult,
-  DescribeAddressRequest,
-  DescribeAddressResult,
-  DescribeAddressesRequest,
-  DescribeAddressesResult,
-  DescribeClusterRequest,
-  DescribeClusterResult,
-  DescribeJobRequest,
-  DescribeJobResult,
-  GetJobManifestRequest,
-  GetJobManifestResult,
-  GetJobUnlockCodeRequest,
-  GetJobUnlockCodeResult,
-  GetSnowballUsageRequest,
-  GetSnowballUsageResult,
-  GetSoftwareUpdatesRequest,
-  GetSoftwareUpdatesResult,
-  ListClusterJobsRequest,
-  ListClusterJobsResult,
-  ListClustersRequest,
-  ListClustersResult,
-  ListCompatibleImagesRequest,
-  ListCompatibleImagesResult,
-  ListJobsRequest,
-  ListJobsResult,
-  UpdateClusterRequest,
-  UpdateClusterResult,
-  UpdateJobRequest,
-  UpdateJobResult
-} from "./models/index";
+  CancelClusterCommandInput,
+  CancelClusterCommandOutput
+} from "./commands/CancelClusterCommand";
+import {
+  CancelJobCommandInput,
+  CancelJobCommandOutput
+} from "./commands/CancelJobCommand";
+import {
+  CreateAddressCommandInput,
+  CreateAddressCommandOutput
+} from "./commands/CreateAddressCommand";
+import {
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput
+} from "./commands/CreateClusterCommand";
+import {
+  CreateJobCommandInput,
+  CreateJobCommandOutput
+} from "./commands/CreateJobCommand";
+import {
+  DescribeAddressCommandInput,
+  DescribeAddressCommandOutput
+} from "./commands/DescribeAddressCommand";
+import {
+  DescribeAddressesCommandInput,
+  DescribeAddressesCommandOutput
+} from "./commands/DescribeAddressesCommand";
+import {
+  DescribeClusterCommandInput,
+  DescribeClusterCommandOutput
+} from "./commands/DescribeClusterCommand";
+import {
+  DescribeJobCommandInput,
+  DescribeJobCommandOutput
+} from "./commands/DescribeJobCommand";
+import {
+  GetJobManifestCommandInput,
+  GetJobManifestCommandOutput
+} from "./commands/GetJobManifestCommand";
+import {
+  GetJobUnlockCodeCommandInput,
+  GetJobUnlockCodeCommandOutput
+} from "./commands/GetJobUnlockCodeCommand";
+import {
+  GetSnowballUsageCommandInput,
+  GetSnowballUsageCommandOutput
+} from "./commands/GetSnowballUsageCommand";
+import {
+  GetSoftwareUpdatesCommandInput,
+  GetSoftwareUpdatesCommandOutput
+} from "./commands/GetSoftwareUpdatesCommand";
+import {
+  ListClusterJobsCommandInput,
+  ListClusterJobsCommandOutput
+} from "./commands/ListClusterJobsCommand";
+import {
+  ListClustersCommandInput,
+  ListClustersCommandOutput
+} from "./commands/ListClustersCommand";
+import {
+  ListCompatibleImagesCommandInput,
+  ListCompatibleImagesCommandOutput
+} from "./commands/ListCompatibleImagesCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  UpdateClusterCommandInput,
+  UpdateClusterCommandOutput
+} from "./commands/UpdateClusterCommand";
+import {
+  UpdateJobCommandInput,
+  UpdateJobCommandOutput
+} from "./commands/UpdateJobCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -91,46 +127,46 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelClusterRequest
-  | CancelJobRequest
-  | CreateAddressRequest
-  | CreateClusterRequest
-  | CreateJobRequest
-  | DescribeAddressRequest
-  | DescribeAddressesRequest
-  | DescribeClusterRequest
-  | DescribeJobRequest
-  | GetJobManifestRequest
-  | GetJobUnlockCodeRequest
-  | GetSnowballUsageRequest
-  | GetSoftwareUpdatesRequest
-  | ListClusterJobsRequest
-  | ListClustersRequest
-  | ListCompatibleImagesRequest
-  | ListJobsRequest
-  | UpdateClusterRequest
-  | UpdateJobRequest;
+  | CancelClusterCommandInput
+  | CancelJobCommandInput
+  | CreateAddressCommandInput
+  | CreateClusterCommandInput
+  | CreateJobCommandInput
+  | DescribeAddressCommandInput
+  | DescribeAddressesCommandInput
+  | DescribeClusterCommandInput
+  | DescribeJobCommandInput
+  | GetJobManifestCommandInput
+  | GetJobUnlockCodeCommandInput
+  | GetSnowballUsageCommandInput
+  | GetSoftwareUpdatesCommandInput
+  | ListClusterJobsCommandInput
+  | ListClustersCommandInput
+  | ListCompatibleImagesCommandInput
+  | ListJobsCommandInput
+  | UpdateClusterCommandInput
+  | UpdateJobCommandInput;
 
 export type ServiceOutputTypes =
-  | CancelClusterResult
-  | CancelJobResult
-  | CreateAddressResult
-  | CreateClusterResult
-  | CreateJobResult
-  | DescribeAddressResult
-  | DescribeAddressesResult
-  | DescribeClusterResult
-  | DescribeJobResult
-  | GetJobManifestResult
-  | GetJobUnlockCodeResult
-  | GetSnowballUsageResult
-  | GetSoftwareUpdatesResult
-  | ListClusterJobsResult
-  | ListClustersResult
-  | ListCompatibleImagesResult
-  | ListJobsResult
-  | UpdateClusterResult
-  | UpdateJobResult;
+  | CancelClusterCommandOutput
+  | CancelJobCommandOutput
+  | CreateAddressCommandOutput
+  | CreateClusterCommandOutput
+  | CreateJobCommandOutput
+  | DescribeAddressCommandOutput
+  | DescribeAddressesCommandOutput
+  | DescribeClusterCommandOutput
+  | DescribeJobCommandOutput
+  | GetJobManifestCommandOutput
+  | GetJobUnlockCodeCommandOutput
+  | GetSnowballUsageCommandOutput
+  | GetSoftwareUpdatesCommandOutput
+  | ListClusterJobsCommandOutput
+  | ListClustersCommandOutput
+  | ListCompatibleImagesCommandOutput
+  | ListJobsCommandOutput
+  | UpdateClusterCommandOutput
+  | UpdateJobCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

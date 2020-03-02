@@ -433,7 +433,7 @@ export namespace AddTagsToResourceMessage {
 /**
  * <p></p>
  */
-export interface AddTagsToResourceResponse extends $MetadataBearer {
+export interface AddTagsToResourceResponse {
   __type?: "AddTagsToResourceResponse";
 }
 
@@ -492,7 +492,7 @@ export namespace ApplyPendingMaintenanceActionMessage {
 /**
  * <p></p>
  */
-export interface ApplyPendingMaintenanceActionResponse extends $MetadataBearer {
+export interface ApplyPendingMaintenanceActionResponse {
   __type?: "ApplyPendingMaintenanceActionResponse";
   /**
    * <p>The AWS DMS resource that the pending maintenance action will be applied to.</p>
@@ -836,7 +836,7 @@ export namespace CreateEndpointMessage {
 /**
  * <p></p>
  */
-export interface CreateEndpointResponse extends $MetadataBearer {
+export interface CreateEndpointResponse {
   __type?: "CreateEndpointResponse";
   /**
    * <p>The endpoint that was created.</p>
@@ -915,7 +915,7 @@ export namespace CreateEventSubscriptionMessage {
 /**
  * <p></p>
  */
-export interface CreateEventSubscriptionResponse extends $MetadataBearer {
+export interface CreateEventSubscriptionResponse {
   __type?: "CreateEventSubscriptionResponse";
   /**
    * <p>The event subscription that was created.</p>
@@ -1058,7 +1058,7 @@ export namespace CreateReplicationInstanceMessage {
 /**
  * <p></p>
  */
-export interface CreateReplicationInstanceResponse extends $MetadataBearer {
+export interface CreateReplicationInstanceResponse {
   __type?: "CreateReplicationInstanceResponse";
   /**
    * <p>The replication instance that was created.</p>
@@ -1112,7 +1112,7 @@ export namespace CreateReplicationSubnetGroupMessage {
 /**
  * <p></p>
  */
-export interface CreateReplicationSubnetGroupResponse extends $MetadataBearer {
+export interface CreateReplicationSubnetGroupResponse {
   __type?: "CreateReplicationSubnetGroupResponse";
   /**
    * <p>The replication subnet group that was created.</p>
@@ -1235,7 +1235,7 @@ export namespace CreateReplicationTaskMessage {
 /**
  * <p></p>
  */
-export interface CreateReplicationTaskResponse extends $MetadataBearer {
+export interface CreateReplicationTaskResponse {
   __type?: "CreateReplicationTaskResponse";
   /**
    * <p>The replication task that was created.</p>
@@ -1268,7 +1268,7 @@ export namespace DeleteCertificateMessage {
   }
 }
 
-export interface DeleteCertificateResponse extends $MetadataBearer {
+export interface DeleteCertificateResponse {
   __type?: "DeleteCertificateResponse";
   /**
    * <p>The Secure Sockets Layer (SSL) certificate.</p>
@@ -1307,7 +1307,7 @@ export namespace DeleteConnectionMessage {
 /**
  * <p></p>
  */
-export interface DeleteConnectionResponse extends $MetadataBearer {
+export interface DeleteConnectionResponse {
   __type?: "DeleteConnectionResponse";
   /**
    * <p>The connection that is being deleted.</p>
@@ -1341,7 +1341,7 @@ export namespace DeleteEndpointMessage {
 /**
  * <p></p>
  */
-export interface DeleteEndpointResponse extends $MetadataBearer {
+export interface DeleteEndpointResponse {
   __type?: "DeleteEndpointResponse";
   /**
    * <p>The endpoint that was deleted.</p>
@@ -1375,7 +1375,7 @@ export namespace DeleteEventSubscriptionMessage {
 /**
  * <p></p>
  */
-export interface DeleteEventSubscriptionResponse extends $MetadataBearer {
+export interface DeleteEventSubscriptionResponse {
   __type?: "DeleteEventSubscriptionResponse";
   /**
    * <p>The event subscription that was deleted.</p>
@@ -1409,7 +1409,7 @@ export namespace DeleteReplicationInstanceMessage {
 /**
  * <p></p>
  */
-export interface DeleteReplicationInstanceResponse extends $MetadataBearer {
+export interface DeleteReplicationInstanceResponse {
   __type?: "DeleteReplicationInstanceResponse";
   /**
    * <p>The replication instance that was deleted.</p>
@@ -1443,7 +1443,7 @@ export namespace DeleteReplicationSubnetGroupMessage {
 /**
  * <p></p>
  */
-export interface DeleteReplicationSubnetGroupResponse extends $MetadataBearer {
+export interface DeleteReplicationSubnetGroupResponse {
   __type?: "DeleteReplicationSubnetGroupResponse";
 }
 
@@ -1473,7 +1473,7 @@ export namespace DeleteReplicationTaskMessage {
 /**
  * <p></p>
  */
-export interface DeleteReplicationTaskResponse extends $MetadataBearer {
+export interface DeleteReplicationTaskResponse {
   __type?: "DeleteReplicationTaskResponse";
   /**
    * <p>The deleted replication task.</p>
@@ -1503,7 +1503,7 @@ export namespace DescribeAccountAttributesMessage {
 /**
  * <p></p>
  */
-export interface DescribeAccountAttributesResponse extends $MetadataBearer {
+export interface DescribeAccountAttributesResponse {
   __type?: "DescribeAccountAttributesResponse";
   /**
    * <p>Account quota information.</p>
@@ -1562,7 +1562,7 @@ export namespace DescribeCertificatesMessage {
   }
 }
 
-export interface DescribeCertificatesResponse extends $MetadataBearer {
+export interface DescribeCertificatesResponse {
   __type?: "DescribeCertificatesResponse";
   /**
    * <p>The Secure Sockets Layer (SSL) certificates associated with the replication
@@ -1619,7 +1619,7 @@ export namespace DescribeConnectionsMessage {
 /**
  * <p></p>
  */
-export interface DescribeConnectionsResponse extends $MetadataBearer {
+export interface DescribeConnectionsResponse {
   __type?: "DescribeConnectionsResponse";
   /**
    * <p>A description of the connections.</p>
@@ -1677,7 +1677,7 @@ export namespace DescribeEndpointTypesMessage {
 /**
  * <p></p>
  */
-export interface DescribeEndpointTypesResponse extends $MetadataBearer {
+export interface DescribeEndpointTypesResponse {
   __type?: "DescribeEndpointTypesResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1735,7 +1735,7 @@ export namespace DescribeEndpointsMessage {
 /**
  * <p></p>
  */
-export interface DescribeEndpointsResponse extends $MetadataBearer {
+export interface DescribeEndpointsResponse {
   __type?: "DescribeEndpointsResponse";
   /**
    * <p>Endpoint description.</p>
@@ -1782,7 +1782,7 @@ export namespace DescribeEventCategoriesMessage {
 /**
  * <p></p>
  */
-export interface DescribeEventCategoriesResponse extends $MetadataBearer {
+export interface DescribeEventCategoriesResponse {
   __type?: "DescribeEventCategoriesResponse";
   /**
    * <p>A list of event categories.</p>
@@ -1837,7 +1837,7 @@ export namespace DescribeEventSubscriptionsMessage {
 /**
  * <p></p>
  */
-export interface DescribeEventSubscriptionsResponse extends $MetadataBearer {
+export interface DescribeEventSubscriptionsResponse {
   __type?: "DescribeEventSubscriptionsResponse";
   /**
    * <p>A list of event subscriptions.</p>
@@ -1925,7 +1925,7 @@ export namespace DescribeEventsMessage {
 /**
  * <p></p>
  */
-export interface DescribeEventsResponse extends $MetadataBearer {
+export interface DescribeEventsResponse {
   __type?: "DescribeEventsResponse";
   /**
    * <p>The events described.</p>
@@ -1979,8 +1979,7 @@ export namespace DescribeOrderableReplicationInstancesMessage {
 /**
  * <p></p>
  */
-export interface DescribeOrderableReplicationInstancesResponse
-  extends $MetadataBearer {
+export interface DescribeOrderableReplicationInstancesResponse {
   __type?: "DescribeOrderableReplicationInstancesResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2044,8 +2043,7 @@ export namespace DescribePendingMaintenanceActionsMessage {
 /**
  * <p></p>
  */
-export interface DescribePendingMaintenanceActionsResponse
-  extends $MetadataBearer {
+export interface DescribePendingMaintenanceActionsResponse {
   __type?: "DescribePendingMaintenanceActionsResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2086,7 +2084,7 @@ export namespace DescribeRefreshSchemasStatusMessage {
 /**
  * <p></p>
  */
-export interface DescribeRefreshSchemasStatusResponse extends $MetadataBearer {
+export interface DescribeRefreshSchemasStatusResponse {
   __type?: "DescribeRefreshSchemasStatusResponse";
   /**
    * <p>The status of the schema.</p>
@@ -2130,8 +2128,7 @@ export namespace DescribeReplicationInstanceTaskLogsMessage {
   }
 }
 
-export interface DescribeReplicationInstanceTaskLogsResponse
-  extends $MetadataBearer {
+export interface DescribeReplicationInstanceTaskLogsResponse {
   __type?: "DescribeReplicationInstanceTaskLogsResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2198,7 +2195,7 @@ export namespace DescribeReplicationInstancesMessage {
 /**
  * <p></p>
  */
-export interface DescribeReplicationInstancesResponse extends $MetadataBearer {
+export interface DescribeReplicationInstancesResponse {
   __type?: "DescribeReplicationInstancesResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2255,8 +2252,7 @@ export namespace DescribeReplicationSubnetGroupsMessage {
 /**
  * <p></p>
  */
-export interface DescribeReplicationSubnetGroupsResponse
-  extends $MetadataBearer {
+export interface DescribeReplicationSubnetGroupsResponse {
   __type?: "DescribeReplicationSubnetGroupsResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2317,8 +2313,7 @@ export namespace DescribeReplicationTaskAssessmentResultsMessage {
 /**
  * <p></p>
  */
-export interface DescribeReplicationTaskAssessmentResultsResponse
-  extends $MetadataBearer {
+export interface DescribeReplicationTaskAssessmentResultsResponse {
   __type?: "DescribeReplicationTaskAssessmentResultsResponse";
   /**
    * <p>- The Amazon S3 bucket where the task assessment report is located. </p>
@@ -2391,7 +2386,7 @@ export namespace DescribeReplicationTasksMessage {
 /**
  * <p></p>
  */
-export interface DescribeReplicationTasksResponse extends $MetadataBearer {
+export interface DescribeReplicationTasksResponse {
   __type?: "DescribeReplicationTasksResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2448,7 +2443,7 @@ export namespace DescribeSchemasMessage {
 /**
  * <p></p>
  */
-export interface DescribeSchemasResponse extends $MetadataBearer {
+export interface DescribeSchemasResponse {
   __type?: "DescribeSchemasResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2513,7 +2508,7 @@ export namespace DescribeTableStatisticsMessage {
 /**
  * <p></p>
  */
-export interface DescribeTableStatisticsResponse extends $MetadataBearer {
+export interface DescribeTableStatisticsResponse {
   __type?: "DescribeTableStatisticsResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2983,7 +2978,7 @@ export namespace ImportCertificateMessage {
   }
 }
 
-export interface ImportCertificateResponse extends $MetadataBearer {
+export interface ImportCertificateResponse {
   __type?: "ImportCertificateResponse";
   /**
    * <p>The certificate to be uploaded.</p>
@@ -3047,7 +3042,7 @@ export namespace ListTagsForResourceMessage {
 /**
  * <p></p>
  */
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>A list of tags for the resource.</p>
@@ -3234,7 +3229,7 @@ export namespace ModifyEndpointMessage {
 /**
  * <p></p>
  */
-export interface ModifyEndpointResponse extends $MetadataBearer {
+export interface ModifyEndpointResponse {
   __type?: "ModifyEndpointResponse";
   /**
    * <p>The modified endpoint.</p>
@@ -3292,7 +3287,7 @@ export namespace ModifyEventSubscriptionMessage {
 /**
  * <p></p>
  */
-export interface ModifyEventSubscriptionResponse extends $MetadataBearer {
+export interface ModifyEventSubscriptionResponse {
   __type?: "ModifyEventSubscriptionResponse";
   /**
    * <p>The modified event subscription.</p>
@@ -3402,7 +3397,7 @@ export namespace ModifyReplicationInstanceMessage {
 /**
  * <p></p>
  */
-export interface ModifyReplicationInstanceResponse extends $MetadataBearer {
+export interface ModifyReplicationInstanceResponse {
   __type?: "ModifyReplicationInstanceResponse";
   /**
    * <p>The modified replication instance.</p>
@@ -3446,7 +3441,7 @@ export namespace ModifyReplicationSubnetGroupMessage {
 /**
  * <p></p>
  */
-export interface ModifyReplicationSubnetGroupResponse extends $MetadataBearer {
+export interface ModifyReplicationSubnetGroupResponse {
   __type?: "ModifyReplicationSubnetGroupResponse";
   /**
    * <p>The modified replication subnet group.</p>
@@ -3551,7 +3546,7 @@ export namespace ModifyReplicationTaskMessage {
 /**
  * <p></p>
  */
-export interface ModifyReplicationTaskResponse extends $MetadataBearer {
+export interface ModifyReplicationTaskResponse {
   __type?: "ModifyReplicationTaskResponse";
   /**
    * <p>The replication task that was modified.</p>
@@ -3808,7 +3803,7 @@ export namespace RebootReplicationInstanceMessage {
   }
 }
 
-export interface RebootReplicationInstanceResponse extends $MetadataBearer {
+export interface RebootReplicationInstanceResponse {
   __type?: "RebootReplicationInstanceResponse";
   /**
    * <p>The replication instance that is being rebooted. </p>
@@ -4030,7 +4025,7 @@ export namespace RefreshSchemasMessage {
 /**
  * <p></p>
  */
-export interface RefreshSchemasResponse extends $MetadataBearer {
+export interface RefreshSchemasResponse {
   __type?: "RefreshSchemasResponse";
   /**
    * <p>The status of the refreshed schema.</p>
@@ -4124,7 +4119,7 @@ export namespace ReloadTablesMessage {
   }
 }
 
-export interface ReloadTablesResponse extends $MetadataBearer {
+export interface ReloadTablesResponse {
   __type?: "ReloadTablesResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task. </p>
@@ -4163,7 +4158,7 @@ export namespace RemoveTagsFromResourceMessage {
 /**
  * <p></p>
  */
-export interface RemoveTagsFromResourceResponse extends $MetadataBearer {
+export interface RemoveTagsFromResourceResponse {
   __type?: "RemoveTagsFromResourceResponse";
 }
 
@@ -5037,8 +5032,7 @@ export namespace StartReplicationTaskAssessmentMessage {
 /**
  * <p></p>
  */
-export interface StartReplicationTaskAssessmentResponse
-  extends $MetadataBearer {
+export interface StartReplicationTaskAssessmentResponse {
   __type?: "StartReplicationTaskAssessmentResponse";
   /**
    * <p> The assessed replication task. </p>
@@ -5112,7 +5106,7 @@ export namespace StartReplicationTaskMessage {
 /**
  * <p></p>
  */
-export interface StartReplicationTaskResponse extends $MetadataBearer {
+export interface StartReplicationTaskResponse {
   __type?: "StartReplicationTaskResponse";
   /**
    * <p>The replication task started.</p>
@@ -5152,7 +5146,7 @@ export namespace StopReplicationTaskMessage {
 /**
  * <p></p>
  */
-export interface StopReplicationTaskResponse extends $MetadataBearer {
+export interface StopReplicationTaskResponse {
   __type?: "StopReplicationTaskResponse";
   /**
    * <p>The replication task stopped.</p>
@@ -5431,7 +5425,7 @@ export namespace TestConnectionMessage {
 /**
  * <p></p>
  */
-export interface TestConnectionResponse extends $MetadataBearer {
+export interface TestConnectionResponse {
   __type?: "TestConnectionResponse";
   /**
    * <p>The connection tested.</p>

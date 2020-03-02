@@ -1,46 +1,95 @@
 import {
-  AddTagsRequest,
-  CancelElasticsearchServiceSoftwareUpdateRequest,
-  CancelElasticsearchServiceSoftwareUpdateResponse,
-  CreateElasticsearchDomainRequest,
-  CreateElasticsearchDomainResponse,
-  DeleteElasticsearchDomainRequest,
-  DeleteElasticsearchDomainResponse,
-  DescribeElasticsearchDomainConfigRequest,
-  DescribeElasticsearchDomainConfigResponse,
-  DescribeElasticsearchDomainRequest,
-  DescribeElasticsearchDomainResponse,
-  DescribeElasticsearchDomainsRequest,
-  DescribeElasticsearchDomainsResponse,
-  DescribeElasticsearchInstanceTypeLimitsRequest,
-  DescribeElasticsearchInstanceTypeLimitsResponse,
-  DescribeReservedElasticsearchInstanceOfferingsRequest,
-  DescribeReservedElasticsearchInstanceOfferingsResponse,
-  DescribeReservedElasticsearchInstancesRequest,
-  DescribeReservedElasticsearchInstancesResponse,
-  GetCompatibleElasticsearchVersionsRequest,
-  GetCompatibleElasticsearchVersionsResponse,
-  GetUpgradeHistoryRequest,
-  GetUpgradeHistoryResponse,
-  GetUpgradeStatusRequest,
-  GetUpgradeStatusResponse,
-  ListDomainNamesResponse,
-  ListElasticsearchInstanceTypesRequest,
-  ListElasticsearchInstanceTypesResponse,
-  ListElasticsearchVersionsRequest,
-  ListElasticsearchVersionsResponse,
-  ListTagsRequest,
-  ListTagsResponse,
-  PurchaseReservedElasticsearchInstanceOfferingRequest,
-  PurchaseReservedElasticsearchInstanceOfferingResponse,
-  RemoveTagsRequest,
-  StartElasticsearchServiceSoftwareUpdateRequest,
-  StartElasticsearchServiceSoftwareUpdateResponse,
-  UpdateElasticsearchDomainConfigRequest,
-  UpdateElasticsearchDomainConfigResponse,
-  UpgradeElasticsearchDomainRequest,
-  UpgradeElasticsearchDomainResponse
-} from "./models/index";
+  AddTagsCommandInput,
+  AddTagsCommandOutput
+} from "./commands/AddTagsCommand";
+import {
+  CancelElasticsearchServiceSoftwareUpdateCommandInput,
+  CancelElasticsearchServiceSoftwareUpdateCommandOutput
+} from "./commands/CancelElasticsearchServiceSoftwareUpdateCommand";
+import {
+  CreateElasticsearchDomainCommandInput,
+  CreateElasticsearchDomainCommandOutput
+} from "./commands/CreateElasticsearchDomainCommand";
+import {
+  DeleteElasticsearchDomainCommandInput,
+  DeleteElasticsearchDomainCommandOutput
+} from "./commands/DeleteElasticsearchDomainCommand";
+import {
+  DeleteElasticsearchServiceRoleCommandInput,
+  DeleteElasticsearchServiceRoleCommandOutput
+} from "./commands/DeleteElasticsearchServiceRoleCommand";
+import {
+  DescribeElasticsearchDomainCommandInput,
+  DescribeElasticsearchDomainCommandOutput
+} from "./commands/DescribeElasticsearchDomainCommand";
+import {
+  DescribeElasticsearchDomainConfigCommandInput,
+  DescribeElasticsearchDomainConfigCommandOutput
+} from "./commands/DescribeElasticsearchDomainConfigCommand";
+import {
+  DescribeElasticsearchDomainsCommandInput,
+  DescribeElasticsearchDomainsCommandOutput
+} from "./commands/DescribeElasticsearchDomainsCommand";
+import {
+  DescribeElasticsearchInstanceTypeLimitsCommandInput,
+  DescribeElasticsearchInstanceTypeLimitsCommandOutput
+} from "./commands/DescribeElasticsearchInstanceTypeLimitsCommand";
+import {
+  DescribeReservedElasticsearchInstanceOfferingsCommandInput,
+  DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+} from "./commands/DescribeReservedElasticsearchInstanceOfferingsCommand";
+import {
+  DescribeReservedElasticsearchInstancesCommandInput,
+  DescribeReservedElasticsearchInstancesCommandOutput
+} from "./commands/DescribeReservedElasticsearchInstancesCommand";
+import {
+  GetCompatibleElasticsearchVersionsCommandInput,
+  GetCompatibleElasticsearchVersionsCommandOutput
+} from "./commands/GetCompatibleElasticsearchVersionsCommand";
+import {
+  GetUpgradeHistoryCommandInput,
+  GetUpgradeHistoryCommandOutput
+} from "./commands/GetUpgradeHistoryCommand";
+import {
+  GetUpgradeStatusCommandInput,
+  GetUpgradeStatusCommandOutput
+} from "./commands/GetUpgradeStatusCommand";
+import {
+  ListDomainNamesCommandInput,
+  ListDomainNamesCommandOutput
+} from "./commands/ListDomainNamesCommand";
+import {
+  ListElasticsearchInstanceTypesCommandInput,
+  ListElasticsearchInstanceTypesCommandOutput
+} from "./commands/ListElasticsearchInstanceTypesCommand";
+import {
+  ListElasticsearchVersionsCommandInput,
+  ListElasticsearchVersionsCommandOutput
+} from "./commands/ListElasticsearchVersionsCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  PurchaseReservedElasticsearchInstanceOfferingCommandInput,
+  PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+} from "./commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
+import {
+  RemoveTagsCommandInput,
+  RemoveTagsCommandOutput
+} from "./commands/RemoveTagsCommand";
+import {
+  StartElasticsearchServiceSoftwareUpdateCommandInput,
+  StartElasticsearchServiceSoftwareUpdateCommandOutput
+} from "./commands/StartElasticsearchServiceSoftwareUpdateCommand";
+import {
+  UpdateElasticsearchDomainConfigCommandInput,
+  UpdateElasticsearchDomainConfigCommandOutput
+} from "./commands/UpdateElasticsearchDomainConfigCommand";
+import {
+  UpgradeElasticsearchDomainCommandInput,
+  UpgradeElasticsearchDomainCommandOutput
+} from "./commands/UpgradeElasticsearchDomainCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -88,58 +137,60 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AddTagsRequest
-  | CancelElasticsearchServiceSoftwareUpdateRequest
-  | CreateElasticsearchDomainRequest
-  | DeleteElasticsearchDomainRequest
-  | DescribeElasticsearchDomainConfigRequest
-  | DescribeElasticsearchDomainRequest
-  | DescribeElasticsearchDomainsRequest
-  | DescribeElasticsearchInstanceTypeLimitsRequest
-  | DescribeReservedElasticsearchInstanceOfferingsRequest
-  | DescribeReservedElasticsearchInstancesRequest
-  | GetCompatibleElasticsearchVersionsRequest
-  | GetUpgradeHistoryRequest
-  | GetUpgradeStatusRequest
-  | ListElasticsearchInstanceTypesRequest
-  | ListElasticsearchVersionsRequest
-  | ListTagsRequest
-  | PurchaseReservedElasticsearchInstanceOfferingRequest
-  | RemoveTagsRequest
-  | StartElasticsearchServiceSoftwareUpdateRequest
-  | UpdateElasticsearchDomainConfigRequest
-  | UpgradeElasticsearchDomainRequest;
+  | AddTagsCommandInput
+  | CancelElasticsearchServiceSoftwareUpdateCommandInput
+  | CreateElasticsearchDomainCommandInput
+  | DeleteElasticsearchDomainCommandInput
+  | DeleteElasticsearchServiceRoleCommandInput
+  | DescribeElasticsearchDomainCommandInput
+  | DescribeElasticsearchDomainConfigCommandInput
+  | DescribeElasticsearchDomainsCommandInput
+  | DescribeElasticsearchInstanceTypeLimitsCommandInput
+  | DescribeReservedElasticsearchInstanceOfferingsCommandInput
+  | DescribeReservedElasticsearchInstancesCommandInput
+  | GetCompatibleElasticsearchVersionsCommandInput
+  | GetUpgradeHistoryCommandInput
+  | GetUpgradeStatusCommandInput
+  | ListDomainNamesCommandInput
+  | ListElasticsearchInstanceTypesCommandInput
+  | ListElasticsearchVersionsCommandInput
+  | ListTagsCommandInput
+  | PurchaseReservedElasticsearchInstanceOfferingCommandInput
+  | RemoveTagsCommandInput
+  | StartElasticsearchServiceSoftwareUpdateCommandInput
+  | UpdateElasticsearchDomainConfigCommandInput
+  | UpgradeElasticsearchDomainCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CancelElasticsearchServiceSoftwareUpdateResponse
-  | CreateElasticsearchDomainResponse
-  | DeleteElasticsearchDomainResponse
-  | DescribeElasticsearchDomainConfigResponse
-  | DescribeElasticsearchDomainResponse
-  | DescribeElasticsearchDomainsResponse
-  | DescribeElasticsearchInstanceTypeLimitsResponse
-  | DescribeReservedElasticsearchInstanceOfferingsResponse
-  | DescribeReservedElasticsearchInstancesResponse
-  | GetCompatibleElasticsearchVersionsResponse
-  | GetUpgradeHistoryResponse
-  | GetUpgradeStatusResponse
-  | ListDomainNamesResponse
-  | ListElasticsearchInstanceTypesResponse
-  | ListElasticsearchVersionsResponse
-  | ListTagsResponse
-  | PurchaseReservedElasticsearchInstanceOfferingResponse
-  | StartElasticsearchServiceSoftwareUpdateResponse
-  | UpdateElasticsearchDomainConfigResponse
-  | UpgradeElasticsearchDomainResponse;
+  | AddTagsCommandOutput
+  | CancelElasticsearchServiceSoftwareUpdateCommandOutput
+  | CreateElasticsearchDomainCommandOutput
+  | DeleteElasticsearchDomainCommandOutput
+  | DeleteElasticsearchServiceRoleCommandOutput
+  | DescribeElasticsearchDomainCommandOutput
+  | DescribeElasticsearchDomainConfigCommandOutput
+  | DescribeElasticsearchDomainsCommandOutput
+  | DescribeElasticsearchInstanceTypeLimitsCommandOutput
+  | DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+  | DescribeReservedElasticsearchInstancesCommandOutput
+  | GetCompatibleElasticsearchVersionsCommandOutput
+  | GetUpgradeHistoryCommandOutput
+  | GetUpgradeStatusCommandOutput
+  | ListDomainNamesCommandOutput
+  | ListElasticsearchInstanceTypesCommandOutput
+  | ListElasticsearchVersionsCommandOutput
+  | ListTagsCommandOutput
+  | PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+  | RemoveTagsCommandOutput
+  | StartElasticsearchServiceSoftwareUpdateCommandOutput
+  | UpdateElasticsearchDomainConfigCommandOutput
+  | UpgradeElasticsearchDomainCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

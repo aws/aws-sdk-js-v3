@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLunaClientCommandInput = DeleteLunaClientRequest;
-export type DeleteLunaClientCommandOutput = DeleteLunaClientResponse;
+export type DeleteLunaClientCommandOutput = DeleteLunaClientResponse &
+  __MetadataBearer;
 
 export class DeleteLunaClientCommand extends $Command<
   DeleteLunaClientCommandInput,

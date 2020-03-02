@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteEvaluationCommandInput = DeleteEvaluationInput;
-export type DeleteEvaluationCommandOutput = DeleteEvaluationOutput;
+export type DeleteEvaluationCommandOutput = DeleteEvaluationOutput &
+  __MetadataBearer;
 
 export class DeleteEvaluationCommand extends $Command<
   DeleteEvaluationCommandInput,

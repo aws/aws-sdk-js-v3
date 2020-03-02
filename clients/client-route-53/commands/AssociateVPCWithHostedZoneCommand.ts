@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateVPCWithHostedZoneCommandInput = AssociateVPCWithHostedZoneRequest;
-export type AssociateVPCWithHostedZoneCommandOutput = AssociateVPCWithHostedZoneResponse;
+export type AssociateVPCWithHostedZoneCommandOutput = AssociateVPCWithHostedZoneResponse &
+  __MetadataBearer;
 
 export class AssociateVPCWithHostedZoneCommand extends $Command<
   AssociateVPCWithHostedZoneCommandInput,

@@ -38,7 +38,7 @@ export namespace AcceptHandshakeRequest {
   }
 }
 
-export interface AcceptHandshakeResponse extends $MetadataBearer {
+export interface AcceptHandshakeResponse {
   __type?: "AcceptHandshakeResponse";
   /**
    * <p>A structure that contains details about the accepted handshake.</p>
@@ -288,7 +288,7 @@ export namespace CancelHandshakeRequest {
   }
 }
 
-export interface CancelHandshakeResponse extends $MetadataBearer {
+export interface CancelHandshakeResponse {
   __type?: "CancelHandshakeResponse";
   /**
    * <p>A structure that contains details about the handshake that you canceled.</p>
@@ -605,7 +605,7 @@ export namespace CreateAccountRequest {
   }
 }
 
-export interface CreateAccountResponse extends $MetadataBearer {
+export interface CreateAccountResponse {
   __type?: "CreateAccountResponse";
   /**
    * <p>A structure that contains details about the request to create an account. This response
@@ -794,7 +794,7 @@ export namespace CreateGovCloudAccountRequest {
   }
 }
 
-export interface CreateGovCloudAccountResponse extends $MetadataBearer {
+export interface CreateGovCloudAccountResponse {
   __type?: "CreateGovCloudAccountResponse";
   /**
    * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an AWS account or an AWS GovCloud
@@ -843,7 +843,7 @@ export namespace CreateOrganizationRequest {
   }
 }
 
-export interface CreateOrganizationResponse extends $MetadataBearer {
+export interface CreateOrganizationResponse {
   __type?: "CreateOrganizationResponse";
   /**
    * <p>A structure that contains details about the newly created organization.</p>
@@ -892,7 +892,7 @@ export namespace CreateOrganizationalUnitRequest {
   }
 }
 
-export interface CreateOrganizationalUnitResponse extends $MetadataBearer {
+export interface CreateOrganizationalUnitResponse {
   __type?: "CreateOrganizationalUnitResponse";
   /**
    * <p>A structure that contains details about the newly created OU.</p>
@@ -943,7 +943,7 @@ export namespace CreatePolicyRequest {
   }
 }
 
-export interface CreatePolicyResponse extends $MetadataBearer {
+export interface CreatePolicyResponse {
   __type?: "CreatePolicyResponse";
   /**
    * <p>A structure that contains details about the newly created policy.</p>
@@ -974,7 +974,7 @@ export namespace DeclineHandshakeRequest {
   }
 }
 
-export interface DeclineHandshakeResponse extends $MetadataBearer {
+export interface DeclineHandshakeResponse {
   __type?: "DeclineHandshakeResponse";
   /**
    * <p>A structure that contains details about the declined handshake. The state is updated to
@@ -1044,7 +1044,7 @@ export namespace DescribeAccountRequest {
   }
 }
 
-export interface DescribeAccountResponse extends $MetadataBearer {
+export interface DescribeAccountResponse {
   __type?: "DescribeAccountResponse";
   /**
    * <p>A structure that contains information about the requested account.</p>
@@ -1076,7 +1076,7 @@ export namespace DescribeCreateAccountStatusRequest {
   }
 }
 
-export interface DescribeCreateAccountStatusResponse extends $MetadataBearer {
+export interface DescribeCreateAccountStatusResponse {
   __type?: "DescribeCreateAccountStatusResponse";
   /**
    * <p>A structure that contains the current status of an account creation request.</p>
@@ -1110,7 +1110,7 @@ export namespace DescribeEffectivePolicyRequest {
   }
 }
 
-export interface DescribeEffectivePolicyResponse extends $MetadataBearer {
+export interface DescribeEffectivePolicyResponse {
   __type?: "DescribeEffectivePolicyResponse";
   /**
    * <p>The contents of the effective policy.</p>
@@ -1142,7 +1142,7 @@ export namespace DescribeHandshakeRequest {
   }
 }
 
-export interface DescribeHandshakeResponse extends $MetadataBearer {
+export interface DescribeHandshakeResponse {
   __type?: "DescribeHandshakeResponse";
   /**
    * <p>A structure that contains information about the specified handshake.</p>
@@ -1156,7 +1156,7 @@ export namespace DescribeHandshakeResponse {
   }
 }
 
-export interface DescribeOrganizationResponse extends $MetadataBearer {
+export interface DescribeOrganizationResponse {
   __type?: "DescribeOrganizationResponse";
   /**
    * <p>A structure that contains information about the organization.</p>
@@ -1189,7 +1189,7 @@ export namespace DescribeOrganizationalUnitRequest {
   }
 }
 
-export interface DescribeOrganizationalUnitResponse extends $MetadataBearer {
+export interface DescribeOrganizationalUnitResponse {
   __type?: "DescribeOrganizationalUnitResponse";
   /**
    * <p>A structure that contains details about the specified OU.</p>
@@ -1221,7 +1221,7 @@ export namespace DescribePolicyRequest {
   }
 }
 
-export interface DescribePolicyResponse extends $MetadataBearer {
+export interface DescribePolicyResponse {
   __type?: "DescribePolicyResponse";
   /**
    * <p>A structure that contains details about the specified policy.</p>
@@ -1335,7 +1335,7 @@ export namespace DisablePolicyTypeRequest {
   }
 }
 
-export interface DisablePolicyTypeResponse extends $MetadataBearer {
+export interface DisablePolicyTypeResponse {
   __type?: "DisablePolicyTypeResponse";
   /**
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
@@ -1522,7 +1522,7 @@ export namespace EnableAllFeaturesRequest {
   }
 }
 
-export interface EnableAllFeaturesResponse extends $MetadataBearer {
+export interface EnableAllFeaturesResponse {
   __type?: "EnableAllFeaturesResponse";
   /**
    * <p>A structure that contains details about the handshake created to support this request to
@@ -1559,7 +1559,7 @@ export namespace EnablePolicyTypeRequest {
   }
 }
 
-export interface EnablePolicyTypeResponse extends $MetadataBearer {
+export interface EnablePolicyTypeResponse {
   __type?: "EnablePolicyTypeResponse";
   /**
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
@@ -2185,7 +2185,7 @@ export namespace InviteAccountToOrganizationRequest {
   }
 }
 
-export interface InviteAccountToOrganizationResponse extends $MetadataBearer {
+export interface InviteAccountToOrganizationResponse {
   __type?: "InviteAccountToOrganizationResponse";
   /**
    * <p>A structure that contains details about the handshake that is created to support this
@@ -2229,8 +2229,7 @@ export namespace ListAWSServiceAccessForOrganizationRequest {
   }
 }
 
-export interface ListAWSServiceAccessForOrganizationResponse
-  extends $MetadataBearer {
+export interface ListAWSServiceAccessForOrganizationResponse {
   __type?: "ListAWSServiceAccessForOrganizationResponse";
   /**
    * <p>A list of the service principals for the services that are enabled to integrate with your
@@ -2292,7 +2291,7 @@ export namespace ListAccountsForParentRequest {
   }
 }
 
-export interface ListAccountsForParentResponse extends $MetadataBearer {
+export interface ListAccountsForParentResponse {
   __type?: "ListAccountsForParentResponse";
   /**
    * <p>A list of the accounts in the specified root or OU.</p>
@@ -2344,7 +2343,7 @@ export namespace ListAccountsRequest {
   }
 }
 
-export interface ListAccountsResponse extends $MetadataBearer {
+export interface ListAccountsResponse {
   __type?: "ListAccountsResponse";
   /**
    * <p>A list of objects in the organization.</p>
@@ -2422,7 +2421,7 @@ export namespace ListChildrenRequest {
   }
 }
 
-export interface ListChildrenResponse extends $MetadataBearer {
+export interface ListChildrenResponse {
   __type?: "ListChildrenResponse";
   /**
    * <p>The list of children of the specified parent container.</p>
@@ -2480,7 +2479,7 @@ export namespace ListCreateAccountStatusRequest {
   }
 }
 
-export interface ListCreateAccountStatusResponse extends $MetadataBearer {
+export interface ListCreateAccountStatusResponse {
   __type?: "ListCreateAccountStatusResponse";
   /**
    * <p>A list of objects with details about the requests. Certain elements, such as the accountId
@@ -2544,7 +2543,7 @@ export namespace ListHandshakesForAccountRequest {
   }
 }
 
-export interface ListHandshakesForAccountResponse extends $MetadataBearer {
+export interface ListHandshakesForAccountResponse {
   __type?: "ListHandshakesForAccountResponse";
   /**
    * <p>A list of <a>Handshake</a> objects with details about each of the handshakes
@@ -2608,7 +2607,7 @@ export namespace ListHandshakesForOrganizationRequest {
   }
 }
 
-export interface ListHandshakesForOrganizationResponse extends $MetadataBearer {
+export interface ListHandshakesForOrganizationResponse {
   __type?: "ListHandshakesForOrganizationResponse";
   /**
    * <p>A list of <a>Handshake</a> objects with details about each of the handshakes
@@ -2681,8 +2680,7 @@ export namespace ListOrganizationalUnitsForParentRequest {
   }
 }
 
-export interface ListOrganizationalUnitsForParentResponse
-  extends $MetadataBearer {
+export interface ListOrganizationalUnitsForParentResponse {
   __type?: "ListOrganizationalUnitsForParentResponse";
   /**
    * <p>If present, this value indicates that there is more output
@@ -2754,7 +2752,7 @@ export namespace ListParentsRequest {
   }
 }
 
-export interface ListParentsResponse extends $MetadataBearer {
+export interface ListParentsResponse {
   __type?: "ListParentsResponse";
   /**
    * <p>If present, this value indicates that there is more output
@@ -2836,7 +2834,7 @@ export namespace ListPoliciesForTargetRequest {
   }
 }
 
-export interface ListPoliciesForTargetResponse extends $MetadataBearer {
+export interface ListPoliciesForTargetResponse {
   __type?: "ListPoliciesForTargetResponse";
   /**
    * <p>If present, this value indicates that there is more output
@@ -2893,7 +2891,7 @@ export namespace ListPoliciesRequest {
   }
 }
 
-export interface ListPoliciesResponse extends $MetadataBearer {
+export interface ListPoliciesResponse {
   __type?: "ListPoliciesResponse";
   /**
    * <p>If present, this value indicates that there is more output
@@ -2946,7 +2944,7 @@ export namespace ListRootsRequest {
   }
 }
 
-export interface ListRootsResponse extends $MetadataBearer {
+export interface ListRootsResponse {
   __type?: "ListRootsResponse";
   /**
    * <p>If present, this value indicates that there is more output
@@ -2991,7 +2989,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>If present, this value indicates that there is more output
@@ -3050,7 +3048,7 @@ export namespace ListTargetsForPolicyRequest {
   }
 }
 
-export interface ListTargetsForPolicyResponse extends $MetadataBearer {
+export interface ListTargetsForPolicyResponse {
   __type?: "ListTargetsForPolicyResponse";
   /**
    * <p>If present, this value indicates that there is more output
@@ -3961,7 +3959,7 @@ export namespace UpdateOrganizationalUnitRequest {
   }
 }
 
-export interface UpdateOrganizationalUnitResponse extends $MetadataBearer {
+export interface UpdateOrganizationalUnitResponse {
   __type?: "UpdateOrganizationalUnitResponse";
   /**
    * <p>A structure that contains the details about the specified OU, including its new
@@ -4013,7 +4011,7 @@ export namespace UpdatePolicyRequest {
   }
 }
 
-export interface UpdatePolicyResponse extends $MetadataBearer {
+export interface UpdatePolicyResponse {
   __type?: "UpdatePolicyResponse";
   /**
    * <p>A structure that contains details about the updated policy, showing the requested

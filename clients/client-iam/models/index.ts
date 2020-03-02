@@ -528,7 +528,7 @@ export namespace CreateAccessKeyRequest {
  * <p>Contains the response to a successful <a>CreateAccessKey</a> request.
  *     </p>
  */
-export interface CreateAccessKeyResponse extends $MetadataBearer {
+export interface CreateAccessKeyResponse {
   __type?: "CreateAccessKeyResponse";
   /**
    * <p>A structure with details about the access key.</p>
@@ -590,7 +590,7 @@ export namespace CreateGroupRequest {
 /**
  * <p>Contains the response to a successful <a>CreateGroup</a> request. </p>
  */
-export interface CreateGroupResponse extends $MetadataBearer {
+export interface CreateGroupResponse {
   __type?: "CreateGroupResponse";
   /**
    * <p>A structure containing details about the new group.</p>
@@ -635,7 +635,7 @@ export namespace CreateInstanceProfileRequest {
  * <p>Contains the response to a successful <a>CreateInstanceProfile</a> request.
  *     </p>
  */
-export interface CreateInstanceProfileResponse extends $MetadataBearer {
+export interface CreateInstanceProfileResponse {
   __type?: "CreateInstanceProfileResponse";
   /**
    * <p>A structure containing details about the new instance profile.</p>
@@ -686,7 +686,7 @@ export namespace CreateLoginProfileRequest {
  * <p>Contains the response to a successful <a>CreateLoginProfile</a> request.
  *     </p>
  */
-export interface CreateLoginProfileResponse extends $MetadataBearer {
+export interface CreateLoginProfileResponse {
   __type?: "CreateLoginProfileResponse";
   /**
    * <p>A structure containing the user name and password create date.</p>
@@ -756,7 +756,7 @@ export namespace CreateOpenIDConnectProviderRequest {
  * <p>Contains the response to a successful <a>CreateOpenIDConnectProvider</a>
  *       request. </p>
  */
-export interface CreateOpenIDConnectProviderResponse extends $MetadataBearer {
+export interface CreateOpenIDConnectProviderResponse {
   __type?: "CreateOpenIDConnectProviderResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is created.
@@ -838,7 +838,7 @@ export namespace CreatePolicyRequest {
  * <p>Contains the response to a successful <a>CreatePolicy</a> request.
  *     </p>
  */
-export interface CreatePolicyResponse extends $MetadataBearer {
+export interface CreatePolicyResponse {
   __type?: "CreatePolicyResponse";
   /**
    * <p>A structure containing details about the new policy.</p>
@@ -909,7 +909,7 @@ export namespace CreatePolicyVersionRequest {
  * <p>Contains the response to a successful <a>CreatePolicyVersion</a> request.
  *     </p>
  */
-export interface CreatePolicyVersionResponse extends $MetadataBearer {
+export interface CreatePolicyVersionResponse {
   __type?: "CreatePolicyVersionResponse";
   /**
    * <p>A structure containing details about the new policy version.</p>
@@ -1021,7 +1021,7 @@ export namespace CreateRoleRequest {
 /**
  * <p>Contains the response to a successful <a>CreateRole</a> request. </p>
  */
-export interface CreateRoleResponse extends $MetadataBearer {
+export interface CreateRoleResponse {
   __type?: "CreateRoleResponse";
   /**
    * <p>A structure containing details about the new role.</p>
@@ -1067,7 +1067,7 @@ export namespace CreateSAMLProviderRequest {
  * <p>Contains the response to a successful <a>CreateSAMLProvider</a> request.
  *     </p>
  */
-export interface CreateSAMLProviderResponse extends $MetadataBearer {
+export interface CreateSAMLProviderResponse {
   __type?: "CreateSAMLProviderResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.</p>
@@ -1119,7 +1119,7 @@ export namespace CreateServiceLinkedRoleRequest {
   }
 }
 
-export interface CreateServiceLinkedRoleResponse extends $MetadataBearer {
+export interface CreateServiceLinkedRoleResponse {
   __type?: "CreateServiceLinkedRoleResponse";
   /**
    * <p>A <a>Role</a> object that contains details about the newly created
@@ -1158,8 +1158,7 @@ export namespace CreateServiceSpecificCredentialRequest {
   }
 }
 
-export interface CreateServiceSpecificCredentialResponse
-  extends $MetadataBearer {
+export interface CreateServiceSpecificCredentialResponse {
   __type?: "CreateServiceSpecificCredentialResponse";
   /**
    * <p>A structure that contains information about the newly created service-specific
@@ -1225,7 +1224,7 @@ export namespace CreateUserRequest {
 /**
  * <p>Contains the response to a successful <a>CreateUser</a> request. </p>
  */
-export interface CreateUserResponse extends $MetadataBearer {
+export interface CreateUserResponse {
   __type?: "CreateUserResponse";
   /**
    * <p>A structure with details about the new IAM user.</p>
@@ -1271,7 +1270,7 @@ export namespace CreateVirtualMFADeviceRequest {
  * <p>Contains the response to a successful <a>CreateVirtualMFADevice</a> request.
  *     </p>
  */
-export interface CreateVirtualMFADeviceResponse extends $MetadataBearer {
+export interface CreateVirtualMFADeviceResponse {
   __type?: "CreateVirtualMFADeviceResponse";
   /**
    * <p>A structure containing details about the new virtual MFA device.</p>
@@ -1676,7 +1675,7 @@ export namespace DeleteServiceLinkedRoleRequest {
   }
 }
 
-export interface DeleteServiceLinkedRoleResponse extends $MetadataBearer {
+export interface DeleteServiceLinkedRoleResponse {
   __type?: "DeleteServiceLinkedRoleResponse";
   /**
    * <p>The deletion task identifier that you can use to check the status of the deletion. This
@@ -2224,7 +2223,7 @@ export namespace EvaluationResult {
  * <p>Contains the response to a successful <a>GenerateCredentialReport</a>
  *       request. </p>
  */
-export interface GenerateCredentialReportResponse extends $MetadataBearer {
+export interface GenerateCredentialReportResponse {
   __type?: "GenerateCredentialReportResponse";
   /**
    * <p>Information about the credential report.</p>
@@ -2270,8 +2269,7 @@ export namespace GenerateOrganizationsAccessReportRequest {
   }
 }
 
-export interface GenerateOrganizationsAccessReportResponse
-  extends $MetadataBearer {
+export interface GenerateOrganizationsAccessReportResponse {
   __type?: "GenerateOrganizationsAccessReportResponse";
   /**
    * <p>The job identifier that you can use in the <a>GetOrganizationsAccessReport</a> operation.</p>
@@ -2301,8 +2299,7 @@ export namespace GenerateServiceLastAccessedDetailsRequest {
   }
 }
 
-export interface GenerateServiceLastAccessedDetailsResponse
-  extends $MetadataBearer {
+export interface GenerateServiceLastAccessedDetailsResponse {
   __type?: "GenerateServiceLastAccessedDetailsResponse";
   /**
    * <p>The job ID that you can use in the <a>GetServiceLastAccessedDetails</a> or
@@ -2338,7 +2335,7 @@ export namespace GetAccessKeyLastUsedRequest {
  *       It is also returned as a member of the <a>AccessKeyMetaData</a> structure returned
  *       by the <a>ListAccessKeys</a> action.</p>
  */
-export interface GetAccessKeyLastUsedResponse extends $MetadataBearer {
+export interface GetAccessKeyLastUsedResponse {
   __type?: "GetAccessKeyLastUsedResponse";
   /**
    * <p>Contains information about the last time the access key was used.</p>
@@ -2400,8 +2397,7 @@ export namespace GetAccountAuthorizationDetailsRequest {
  * <p>Contains the response to a successful <a>GetAccountAuthorizationDetails</a>
  *       request. </p>
  */
-export interface GetAccountAuthorizationDetailsResponse
-  extends $MetadataBearer {
+export interface GetAccountAuthorizationDetailsResponse {
   __type?: "GetAccountAuthorizationDetailsResponse";
   /**
    * <p>A list containing information about IAM groups.</p>
@@ -2451,7 +2447,7 @@ export namespace GetAccountAuthorizationDetailsResponse {
  * <p>Contains the response to a successful <a>GetAccountPasswordPolicy</a>
  *       request. </p>
  */
-export interface GetAccountPasswordPolicyResponse extends $MetadataBearer {
+export interface GetAccountPasswordPolicyResponse {
   __type?: "GetAccountPasswordPolicyResponse";
   /**
    * <p>A structure that contains details about the account's password policy.</p>
@@ -2469,7 +2465,7 @@ export namespace GetAccountPasswordPolicyResponse {
  * <p>Contains the response to a successful <a>GetAccountSummary</a> request.
  *     </p>
  */
-export interface GetAccountSummaryResponse extends $MetadataBearer {
+export interface GetAccountSummaryResponse {
   __type?: "GetAccountSummaryResponse";
   /**
    * <p>A set of key–value pairs containing information about IAM entity usage and
@@ -2519,7 +2515,7 @@ export namespace GetContextKeysForCustomPolicyRequest {
 /**
  * <p>Contains the response to a successful <a>GetContextKeysForPrincipalPolicy</a> or <a>GetContextKeysForCustomPolicy</a> request. </p>
  */
-export interface GetContextKeysForPolicyResponse extends $MetadataBearer {
+export interface GetContextKeysForPolicyResponse {
   __type?: "GetContextKeysForPolicyResponse";
   /**
    * <p>The list of context keys that are referenced in the input policies.</p>
@@ -2581,7 +2577,7 @@ export namespace GetContextKeysForPrincipalPolicyRequest {
  * <p>Contains the response to a successful <a>GetCredentialReport</a> request.
  *     </p>
  */
-export interface GetCredentialReportResponse extends $MetadataBearer {
+export interface GetCredentialReportResponse {
   __type?: "GetCredentialReportResponse";
   /**
    * <p>Contains the credential report. The report is Base64-encoded.</p>
@@ -2632,7 +2628,7 @@ export namespace GetGroupPolicyRequest {
  * <p>Contains the response to a successful <a>GetGroupPolicy</a> request.
  *     </p>
  */
-export interface GetGroupPolicyResponse extends $MetadataBearer {
+export interface GetGroupPolicyResponse {
   __type?: "GetGroupPolicyResponse";
   /**
    * <p>The group the policy is associated with.</p>
@@ -2698,7 +2694,7 @@ export namespace GetGroupRequest {
 /**
  * <p>Contains the response to a successful <a>GetGroup</a> request. </p>
  */
-export interface GetGroupResponse extends $MetadataBearer {
+export interface GetGroupResponse {
   __type?: "GetGroupResponse";
   /**
    * <p>A structure that contains details about the group.</p>
@@ -2754,7 +2750,7 @@ export namespace GetInstanceProfileRequest {
  * <p>Contains the response to a successful <a>GetInstanceProfile</a> request.
  *     </p>
  */
-export interface GetInstanceProfileResponse extends $MetadataBearer {
+export interface GetInstanceProfileResponse {
   __type?: "GetInstanceProfileResponse";
   /**
    * <p>A structure containing details about the instance profile.</p>
@@ -2788,7 +2784,7 @@ export namespace GetLoginProfileRequest {
  * <p>Contains the response to a successful <a>GetLoginProfile</a> request.
  *     </p>
  */
-export interface GetLoginProfileResponse extends $MetadataBearer {
+export interface GetLoginProfileResponse {
   __type?: "GetLoginProfileResponse";
   /**
    * <p>A structure containing the user name and password create date for the user.</p>
@@ -2823,7 +2819,7 @@ export namespace GetOpenIDConnectProviderRequest {
  * <p>Contains the response to a successful <a>GetOpenIDConnectProvider</a>
  *       request. </p>
  */
-export interface GetOpenIDConnectProviderResponse extends $MetadataBearer {
+export interface GetOpenIDConnectProviderResponse {
   __type?: "GetOpenIDConnectProviderResponse";
   /**
    * <p>A list of client IDs (also known as audiences) that are associated with the specified
@@ -2897,7 +2893,7 @@ export namespace GetOrganizationsAccessReportRequest {
   }
 }
 
-export interface GetOrganizationsAccessReportResponse extends $MetadataBearer {
+export interface GetOrganizationsAccessReportResponse {
   __type?: "GetOrganizationsAccessReportResponse";
   /**
    * <p>An object that contains details about the most recent attempt to access the
@@ -2986,7 +2982,7 @@ export namespace GetPolicyRequest {
 /**
  * <p>Contains the response to a successful <a>GetPolicy</a> request. </p>
  */
-export interface GetPolicyResponse extends $MetadataBearer {
+export interface GetPolicyResponse {
   __type?: "GetPolicyResponse";
   /**
    * <p>A structure containing details about the policy.</p>
@@ -3029,7 +3025,7 @@ export namespace GetPolicyVersionRequest {
  * <p>Contains the response to a successful <a>GetPolicyVersion</a> request.
  *     </p>
  */
-export interface GetPolicyVersionResponse extends $MetadataBearer {
+export interface GetPolicyVersionResponse {
   __type?: "GetPolicyVersionResponse";
   /**
    * <p>A structure containing details about the policy version.</p>
@@ -3070,7 +3066,7 @@ export namespace GetRolePolicyRequest {
  * <p>Contains the response to a successful <a>GetRolePolicy</a> request.
  *     </p>
  */
-export interface GetRolePolicyResponse extends $MetadataBearer {
+export interface GetRolePolicyResponse {
   __type?: "GetRolePolicyResponse";
   /**
    * <p>The policy document.</p>
@@ -3116,7 +3112,7 @@ export namespace GetRoleRequest {
 /**
  * <p>Contains the response to a successful <a>GetRole</a> request. </p>
  */
-export interface GetRoleResponse extends $MetadataBearer {
+export interface GetRoleResponse {
   __type?: "GetRoleResponse";
   /**
    * <p>A structure containing details about the IAM role.</p>
@@ -3151,7 +3147,7 @@ export namespace GetSAMLProviderRequest {
  * <p>Contains the response to a successful <a>GetSAMLProvider</a> request.
  *     </p>
  */
-export interface GetSAMLProviderResponse extends $MetadataBearer {
+export interface GetSAMLProviderResponse {
   __type?: "GetSAMLProviderResponse";
   /**
    * <p>The date and time when the SAML provider was created.</p>
@@ -3209,7 +3205,7 @@ export namespace GetSSHPublicKeyRequest {
  * <p>Contains the response to a successful <a>GetSSHPublicKey</a>
  *       request.</p>
  */
-export interface GetSSHPublicKeyResponse extends $MetadataBearer {
+export interface GetSSHPublicKeyResponse {
   __type?: "GetSSHPublicKeyResponse";
   /**
    * <p>A structure containing details about the SSH public key.</p>
@@ -3243,7 +3239,7 @@ export namespace GetServerCertificateRequest {
  * <p>Contains the response to a successful <a>GetServerCertificate</a> request.
  *     </p>
  */
-export interface GetServerCertificateResponse extends $MetadataBearer {
+export interface GetServerCertificateResponse {
   __type?: "GetServerCertificateResponse";
   /**
    * <p>A structure containing details about the server certificate.</p>
@@ -3291,7 +3287,7 @@ export namespace GetServiceLastAccessedDetailsRequest {
   }
 }
 
-export interface GetServiceLastAccessedDetailsResponse extends $MetadataBearer {
+export interface GetServiceLastAccessedDetailsResponse {
   __type?: "GetServiceLastAccessedDetailsResponse";
   /**
    * <p>An object that contains details about the reason the operation failed.</p>
@@ -3398,8 +3394,7 @@ export namespace GetServiceLastAccessedDetailsWithEntitiesRequest {
   }
 }
 
-export interface GetServiceLastAccessedDetailsWithEntitiesResponse
-  extends $MetadataBearer {
+export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   __type?: "GetServiceLastAccessedDetailsWithEntitiesResponse";
   /**
    * <p>An <code>EntityDetailsList</code> object that contains details about when an IAM
@@ -3473,8 +3468,7 @@ export namespace GetServiceLinkedRoleDeletionStatusRequest {
   }
 }
 
-export interface GetServiceLinkedRoleDeletionStatusResponse
-  extends $MetadataBearer {
+export interface GetServiceLinkedRoleDeletionStatusResponse {
   __type?: "GetServiceLinkedRoleDeletionStatusResponse";
   /**
    * <p>An object that contains details about the reason the deletion failed.</p>
@@ -3520,7 +3514,7 @@ export namespace GetUserPolicyRequest {
  * <p>Contains the response to a successful <a>GetUserPolicy</a> request.
  *     </p>
  */
-export interface GetUserPolicyResponse extends $MetadataBearer {
+export interface GetUserPolicyResponse {
   __type?: "GetUserPolicyResponse";
   /**
    * <p>The policy document.</p>
@@ -3567,7 +3561,7 @@ export namespace GetUserRequest {
 /**
  * <p>Contains the response to a successful <a>GetUser</a> request. </p>
  */
-export interface GetUserResponse extends $MetadataBearer {
+export interface GetUserResponse {
   __type?: "GetUserResponse";
   /**
    * <p>A structure containing details about the IAM user.</p>
@@ -3945,7 +3939,7 @@ export namespace ListAccessKeysRequest {
  * <p>Contains the response to a successful <a>ListAccessKeys</a> request.
  *     </p>
  */
-export interface ListAccessKeysResponse extends $MetadataBearer {
+export interface ListAccessKeysResponse {
   __type?: "ListAccessKeysResponse";
   /**
    * <p>A list of objects containing metadata about the access keys.</p>
@@ -4009,7 +4003,7 @@ export namespace ListAccountAliasesRequest {
  * <p>Contains the response to a successful <a>ListAccountAliases</a> request.
  *     </p>
  */
-export interface ListAccountAliasesResponse extends $MetadataBearer {
+export interface ListAccountAliasesResponse {
   __type?: "ListAccountAliasesResponse";
   /**
    * <p>A list of aliases associated with the account. AWS supports only one alias per
@@ -4091,7 +4085,7 @@ export namespace ListAttachedGroupPoliciesRequest {
  * <p>Contains the response to a successful <a>ListAttachedGroupPolicies</a>
  *       request. </p>
  */
-export interface ListAttachedGroupPoliciesResponse extends $MetadataBearer {
+export interface ListAttachedGroupPoliciesResponse {
   __type?: "ListAttachedGroupPoliciesResponse";
   /**
    * <p>A list of the attached policies.</p>
@@ -4172,7 +4166,7 @@ export namespace ListAttachedRolePoliciesRequest {
  * <p>Contains the response to a successful <a>ListAttachedRolePolicies</a>
  *       request. </p>
  */
-export interface ListAttachedRolePoliciesResponse extends $MetadataBearer {
+export interface ListAttachedRolePoliciesResponse {
   __type?: "ListAttachedRolePoliciesResponse";
   /**
    * <p>A list of the attached policies.</p>
@@ -4253,7 +4247,7 @@ export namespace ListAttachedUserPoliciesRequest {
  * <p>Contains the response to a successful <a>ListAttachedUserPolicies</a>
  *       request. </p>
  */
-export interface ListAttachedUserPoliciesResponse extends $MetadataBearer {
+export interface ListAttachedUserPoliciesResponse {
   __type?: "ListAttachedUserPoliciesResponse";
   /**
    * <p>A list of the attached policies.</p>
@@ -4354,7 +4348,7 @@ export namespace ListEntitiesForPolicyRequest {
  * <p>Contains the response to a successful <a>ListEntitiesForPolicy</a> request.
  *     </p>
  */
-export interface ListEntitiesForPolicyResponse extends $MetadataBearer {
+export interface ListEntitiesForPolicyResponse {
   __type?: "ListEntitiesForPolicyResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4435,7 +4429,7 @@ export namespace ListGroupPoliciesRequest {
  * <p>Contains the response to a successful <a>ListGroupPolicies</a> request.
  *     </p>
  */
-export interface ListGroupPoliciesResponse extends $MetadataBearer {
+export interface ListGroupPoliciesResponse {
   __type?: "ListGroupPoliciesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4508,7 +4502,7 @@ export namespace ListGroupsForUserRequest {
  * <p>Contains the response to a successful <a>ListGroupsForUser</a> request.
  *     </p>
  */
-export interface ListGroupsForUserResponse extends $MetadataBearer {
+export interface ListGroupsForUserResponse {
   __type?: "ListGroupsForUserResponse";
   /**
    * <p>A list of groups.</p>
@@ -4583,7 +4577,7 @@ export namespace ListGroupsRequest {
 /**
  * <p>Contains the response to a successful <a>ListGroups</a> request. </p>
  */
-export interface ListGroupsResponse extends $MetadataBearer {
+export interface ListGroupsResponse {
   __type?: "ListGroupsResponse";
   /**
    * <p>A list of groups.</p>
@@ -4654,7 +4648,7 @@ export namespace ListInstanceProfilesForRoleRequest {
  * <p>Contains the response to a successful <a>ListInstanceProfilesForRole</a>
  *       request. </p>
  */
-export interface ListInstanceProfilesForRoleResponse extends $MetadataBearer {
+export interface ListInstanceProfilesForRoleResponse {
   __type?: "ListInstanceProfilesForRoleResponse";
   /**
    * <p>A list of instance profiles.</p>
@@ -4730,7 +4724,7 @@ export namespace ListInstanceProfilesRequest {
  * <p>Contains the response to a successful <a>ListInstanceProfiles</a> request.
  *     </p>
  */
-export interface ListInstanceProfilesResponse extends $MetadataBearer {
+export interface ListInstanceProfilesResponse {
   __type?: "ListInstanceProfilesResponse";
   /**
    * <p>A list of instance profiles.</p>
@@ -4801,7 +4795,7 @@ export namespace ListMFADevicesRequest {
  * <p>Contains the response to a successful <a>ListMFADevices</a> request.
  *     </p>
  */
-export interface ListMFADevicesResponse extends $MetadataBearer {
+export interface ListMFADevicesResponse {
   __type?: "ListMFADevicesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4846,7 +4840,7 @@ export namespace ListOpenIDConnectProvidersRequest {
  * <p>Contains the response to a successful <a>ListOpenIDConnectProviders</a>
  *       request. </p>
  */
-export interface ListOpenIDConnectProvidersResponse extends $MetadataBearer {
+export interface ListOpenIDConnectProvidersResponse {
   __type?: "ListOpenIDConnectProvidersResponse";
   /**
    * <p>The list of IAM OIDC provider resource objects defined in the AWS account.</p>
@@ -4927,8 +4921,7 @@ export namespace ListPoliciesGrantingServiceAccessRequest {
   }
 }
 
-export interface ListPoliciesGrantingServiceAccessResponse
-  extends $MetadataBearer {
+export interface ListPoliciesGrantingServiceAccessResponse {
   __type?: "ListPoliciesGrantingServiceAccessResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your results were
@@ -5032,7 +5025,7 @@ export namespace ListPoliciesRequest {
  * <p>Contains the response to a successful <a>ListPolicies</a> request.
  *     </p>
  */
-export interface ListPoliciesResponse extends $MetadataBearer {
+export interface ListPoliciesResponse {
   __type?: "ListPoliciesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5104,7 +5097,7 @@ export namespace ListPolicyVersionsRequest {
  * <p>Contains the response to a successful <a>ListPolicyVersions</a> request.
  *     </p>
  */
-export interface ListPolicyVersionsResponse extends $MetadataBearer {
+export interface ListPolicyVersionsResponse {
   __type?: "ListPolicyVersionsResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5177,7 +5170,7 @@ export namespace ListRolePoliciesRequest {
  * <p>Contains the response to a successful <a>ListRolePolicies</a> request.
  *     </p>
  */
-export interface ListRolePoliciesResponse extends $MetadataBearer {
+export interface ListRolePoliciesResponse {
   __type?: "ListRolePoliciesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5243,7 +5236,7 @@ export namespace ListRoleTagsRequest {
   }
 }
 
-export interface ListRoleTagsResponse extends $MetadataBearer {
+export interface ListRoleTagsResponse {
   __type?: "ListRoleTagsResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5318,7 +5311,7 @@ export namespace ListRolesRequest {
 /**
  * <p>Contains the response to a successful <a>ListRoles</a> request. </p>
  */
-export interface ListRolesResponse extends $MetadataBearer {
+export interface ListRolesResponse {
   __type?: "ListRolesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5363,7 +5356,7 @@ export namespace ListSAMLProvidersRequest {
  * <p>Contains the response to a successful <a>ListSAMLProviders</a> request.
  *     </p>
  */
-export interface ListSAMLProvidersResponse extends $MetadataBearer {
+export interface ListSAMLProvidersResponse {
   __type?: "ListSAMLProvidersResponse";
   /**
    * <p>The list of SAML provider resource objects defined in IAM for this AWS
@@ -5420,7 +5413,7 @@ export namespace ListSSHPublicKeysRequest {
  * <p>Contains the response to a successful <a>ListSSHPublicKeys</a>
  *       request.</p>
  */
-export interface ListSSHPublicKeysResponse extends $MetadataBearer {
+export interface ListSSHPublicKeysResponse {
   __type?: "ListSSHPublicKeysResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5496,7 +5489,7 @@ export namespace ListServerCertificatesRequest {
  * <p>Contains the response to a successful <a>ListServerCertificates</a> request.
  *     </p>
  */
-export interface ListServerCertificatesResponse extends $MetadataBearer {
+export interface ListServerCertificatesResponse {
   __type?: "ListServerCertificatesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5551,8 +5544,7 @@ export namespace ListServiceSpecificCredentialsRequest {
   }
 }
 
-export interface ListServiceSpecificCredentialsResponse
-  extends $MetadataBearer {
+export interface ListServiceSpecificCredentialsResponse {
   __type?: "ListServiceSpecificCredentialsResponse";
   /**
    * <p>A list of structures that each contain details about a service-specific
@@ -5607,7 +5599,7 @@ export namespace ListSigningCertificatesRequest {
  * <p>Contains the response to a successful <a>ListSigningCertificates</a>
  *       request. </p>
  */
-export interface ListSigningCertificatesResponse extends $MetadataBearer {
+export interface ListSigningCertificatesResponse {
   __type?: "ListSigningCertificatesResponse";
   /**
    * <p>A list of the user's signing certificate information.</p>
@@ -5678,7 +5670,7 @@ export namespace ListUserPoliciesRequest {
  * <p>Contains the response to a successful <a>ListUserPolicies</a> request.
  *     </p>
  */
-export interface ListUserPoliciesResponse extends $MetadataBearer {
+export interface ListUserPoliciesResponse {
   __type?: "ListUserPoliciesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5744,7 +5736,7 @@ export namespace ListUserTagsRequest {
   }
 }
 
-export interface ListUserTagsResponse extends $MetadataBearer {
+export interface ListUserTagsResponse {
   __type?: "ListUserTagsResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5819,7 +5811,7 @@ export namespace ListUsersRequest {
 /**
  * <p>Contains the response to a successful <a>ListUsers</a> request. </p>
  */
-export interface ListUsersResponse extends $MetadataBearer {
+export interface ListUsersResponse {
   __type?: "ListUsersResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5890,7 +5882,7 @@ export namespace ListVirtualMFADevicesRequest {
  * <p>Contains the response to a successful <a>ListVirtualMFADevices</a> request.
  *     </p>
  */
-export interface ListVirtualMFADevicesResponse extends $MetadataBearer {
+export interface ListVirtualMFADevicesResponse {
   __type?: "ListVirtualMFADevicesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -6927,8 +6919,7 @@ export namespace ResetServiceSpecificCredentialRequest {
   }
 }
 
-export interface ResetServiceSpecificCredentialResponse
-  extends $MetadataBearer {
+export interface ResetServiceSpecificCredentialResponse {
   __type?: "ResetServiceSpecificCredentialResponse";
   /**
    * <p>A structure with details about the updated service-specific credential, including the
@@ -7929,7 +7920,7 @@ export namespace SimulateCustomPolicyRequest {
  * <p>Contains the response to a successful <a>SimulatePrincipalPolicy</a> or
  *       <a>SimulateCustomPolicy</a> request.</p>
  */
-export interface SimulatePolicyResponse extends $MetadataBearer {
+export interface SimulatePolicyResponse {
   __type?: "SimulatePolicyResponse";
   /**
    * <p>The results of the simulation.</p>
@@ -8643,7 +8634,7 @@ export namespace UpdateRoleDescriptionRequest {
   }
 }
 
-export interface UpdateRoleDescriptionResponse extends $MetadataBearer {
+export interface UpdateRoleDescriptionResponse {
   __type?: "UpdateRoleDescriptionResponse";
   /**
    * <p>A structure that contains details about the modified role.</p>
@@ -8693,7 +8684,7 @@ export namespace UpdateRoleRequest {
   }
 }
 
-export interface UpdateRoleResponse extends $MetadataBearer {
+export interface UpdateRoleResponse {
   __type?: "UpdateRoleResponse";
 }
 
@@ -8732,7 +8723,7 @@ export namespace UpdateSAMLProviderRequest {
  * <p>Contains the response to a successful <a>UpdateSAMLProvider</a> request.
  *     </p>
  */
-export interface UpdateSAMLProviderResponse extends $MetadataBearer {
+export interface UpdateSAMLProviderResponse {
   __type?: "UpdateSAMLProviderResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider that was updated.</p>
@@ -8949,7 +8940,7 @@ export namespace UploadSSHPublicKeyRequest {
  * <p>Contains the response to a successful <a>UploadSSHPublicKey</a>
  *       request.</p>
  */
-export interface UploadSSHPublicKeyResponse extends $MetadataBearer {
+export interface UploadSSHPublicKeyResponse {
   __type?: "UploadSSHPublicKeyResponse";
   /**
    * <p>Contains information about the SSH public key.</p>
@@ -9065,7 +9056,7 @@ export namespace UploadServerCertificateRequest {
  * <p>Contains the response to a successful <a>UploadServerCertificate</a>
  *       request. </p>
  */
-export interface UploadServerCertificateResponse extends $MetadataBearer {
+export interface UploadServerCertificateResponse {
   __type?: "UploadServerCertificateResponse";
   /**
    * <p>The meta information of the uploaded server certificate without its certificate body,
@@ -9121,7 +9112,7 @@ export namespace UploadSigningCertificateRequest {
  * <p>Contains the response to a successful <a>UploadSigningCertificate</a>
  *       request. </p>
  */
-export interface UploadSigningCertificateResponse extends $MetadataBearer {
+export interface UploadSigningCertificateResponse {
   __type?: "UploadSigningCertificateResponse";
   /**
    * <p>Information about the certificate.</p>

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeInstanceCreditSpecificationsCommandInput = DescribeInstanceCreditSpecificationsRequest;
-export type DescribeInstanceCreditSpecificationsCommandOutput = DescribeInstanceCreditSpecificationsResult;
+export type DescribeInstanceCreditSpecificationsCommandOutput = DescribeInstanceCreditSpecificationsResult &
+  __MetadataBearer;
 
 export class DescribeInstanceCreditSpecificationsCommand extends $Command<
   DescribeInstanceCreditSpecificationsCommandInput,

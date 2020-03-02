@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLoggerDefinitionCommandInput = DeleteLoggerDefinitionRequest;
-export type DeleteLoggerDefinitionCommandOutput = DeleteLoggerDefinitionResponse;
+export type DeleteLoggerDefinitionCommandOutput = DeleteLoggerDefinitionResponse &
+  __MetadataBearer;
 
 export class DeleteLoggerDefinitionCommand extends $Command<
   DeleteLoggerDefinitionCommandInput,

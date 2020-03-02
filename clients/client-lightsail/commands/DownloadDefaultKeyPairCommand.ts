@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DownloadDefaultKeyPairCommandInput = DownloadDefaultKeyPairRequest;
-export type DownloadDefaultKeyPairCommandOutput = DownloadDefaultKeyPairResult;
+export type DownloadDefaultKeyPairCommandOutput = DownloadDefaultKeyPairResult &
+  __MetadataBearer;
 
 export class DownloadDefaultKeyPairCommand extends $Command<
   DownloadDefaultKeyPairCommandInput,

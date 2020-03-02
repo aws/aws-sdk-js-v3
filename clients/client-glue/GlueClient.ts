@@ -1,251 +1,495 @@
 import {
-  BatchCreatePartitionRequest,
-  BatchCreatePartitionResponse,
-  BatchDeleteConnectionRequest,
-  BatchDeleteConnectionResponse,
-  BatchDeletePartitionRequest,
-  BatchDeletePartitionResponse,
-  BatchDeleteTableRequest,
-  BatchDeleteTableResponse,
-  BatchDeleteTableVersionRequest,
-  BatchDeleteTableVersionResponse,
-  BatchGetCrawlersRequest,
-  BatchGetCrawlersResponse,
-  BatchGetDevEndpointsRequest,
-  BatchGetDevEndpointsResponse,
-  BatchGetJobsRequest,
-  BatchGetJobsResponse,
-  BatchGetPartitionRequest,
-  BatchGetPartitionResponse,
-  BatchGetTriggersRequest,
-  BatchGetTriggersResponse,
-  BatchGetWorkflowsRequest,
-  BatchGetWorkflowsResponse,
-  BatchStopJobRunRequest,
-  BatchStopJobRunResponse,
-  CancelMLTaskRunRequest,
-  CancelMLTaskRunResponse,
-  CreateClassifierRequest,
-  CreateClassifierResponse,
-  CreateConnectionRequest,
-  CreateConnectionResponse,
-  CreateCrawlerRequest,
-  CreateCrawlerResponse,
-  CreateDatabaseRequest,
-  CreateDatabaseResponse,
-  CreateDevEndpointRequest,
-  CreateDevEndpointResponse,
-  CreateJobRequest,
-  CreateJobResponse,
-  CreateMLTransformRequest,
-  CreateMLTransformResponse,
-  CreatePartitionRequest,
-  CreatePartitionResponse,
-  CreateScriptRequest,
-  CreateScriptResponse,
-  CreateSecurityConfigurationRequest,
-  CreateSecurityConfigurationResponse,
-  CreateTableRequest,
-  CreateTableResponse,
-  CreateTriggerRequest,
-  CreateTriggerResponse,
-  CreateUserDefinedFunctionRequest,
-  CreateUserDefinedFunctionResponse,
-  CreateWorkflowRequest,
-  CreateWorkflowResponse,
-  DeleteClassifierRequest,
-  DeleteClassifierResponse,
-  DeleteConnectionRequest,
-  DeleteConnectionResponse,
-  DeleteCrawlerRequest,
-  DeleteCrawlerResponse,
-  DeleteDatabaseRequest,
-  DeleteDatabaseResponse,
-  DeleteDevEndpointRequest,
-  DeleteDevEndpointResponse,
-  DeleteJobRequest,
-  DeleteJobResponse,
-  DeleteMLTransformRequest,
-  DeleteMLTransformResponse,
-  DeletePartitionRequest,
-  DeletePartitionResponse,
-  DeleteResourcePolicyRequest,
-  DeleteResourcePolicyResponse,
-  DeleteSecurityConfigurationRequest,
-  DeleteSecurityConfigurationResponse,
-  DeleteTableRequest,
-  DeleteTableResponse,
-  DeleteTableVersionRequest,
-  DeleteTableVersionResponse,
-  DeleteTriggerRequest,
-  DeleteTriggerResponse,
-  DeleteUserDefinedFunctionRequest,
-  DeleteUserDefinedFunctionResponse,
-  DeleteWorkflowRequest,
-  DeleteWorkflowResponse,
-  GetCatalogImportStatusRequest,
-  GetCatalogImportStatusResponse,
-  GetClassifierRequest,
-  GetClassifierResponse,
-  GetClassifiersRequest,
-  GetClassifiersResponse,
-  GetConnectionRequest,
-  GetConnectionResponse,
-  GetConnectionsRequest,
-  GetConnectionsResponse,
-  GetCrawlerMetricsRequest,
-  GetCrawlerMetricsResponse,
-  GetCrawlerRequest,
-  GetCrawlerResponse,
-  GetCrawlersRequest,
-  GetCrawlersResponse,
-  GetDataCatalogEncryptionSettingsRequest,
-  GetDataCatalogEncryptionSettingsResponse,
-  GetDatabaseRequest,
-  GetDatabaseResponse,
-  GetDatabasesRequest,
-  GetDatabasesResponse,
-  GetDataflowGraphRequest,
-  GetDataflowGraphResponse,
-  GetDevEndpointRequest,
-  GetDevEndpointResponse,
-  GetDevEndpointsRequest,
-  GetDevEndpointsResponse,
-  GetJobBookmarkRequest,
-  GetJobBookmarkResponse,
-  GetJobRequest,
-  GetJobResponse,
-  GetJobRunRequest,
-  GetJobRunResponse,
-  GetJobRunsRequest,
-  GetJobRunsResponse,
-  GetJobsRequest,
-  GetJobsResponse,
-  GetMLTaskRunRequest,
-  GetMLTaskRunResponse,
-  GetMLTaskRunsRequest,
-  GetMLTaskRunsResponse,
-  GetMLTransformRequest,
-  GetMLTransformResponse,
-  GetMLTransformsRequest,
-  GetMLTransformsResponse,
-  GetMappingRequest,
-  GetMappingResponse,
-  GetPartitionRequest,
-  GetPartitionResponse,
-  GetPartitionsRequest,
-  GetPartitionsResponse,
-  GetPlanRequest,
-  GetPlanResponse,
-  GetResourcePolicyRequest,
-  GetResourcePolicyResponse,
-  GetSecurityConfigurationRequest,
-  GetSecurityConfigurationResponse,
-  GetSecurityConfigurationsRequest,
-  GetSecurityConfigurationsResponse,
-  GetTableRequest,
-  GetTableResponse,
-  GetTableVersionRequest,
-  GetTableVersionResponse,
-  GetTableVersionsRequest,
-  GetTableVersionsResponse,
-  GetTablesRequest,
-  GetTablesResponse,
-  GetTagsRequest,
-  GetTagsResponse,
-  GetTriggerRequest,
-  GetTriggerResponse,
-  GetTriggersRequest,
-  GetTriggersResponse,
-  GetUserDefinedFunctionRequest,
-  GetUserDefinedFunctionResponse,
-  GetUserDefinedFunctionsRequest,
-  GetUserDefinedFunctionsResponse,
-  GetWorkflowRequest,
-  GetWorkflowResponse,
-  GetWorkflowRunPropertiesRequest,
-  GetWorkflowRunPropertiesResponse,
-  GetWorkflowRunRequest,
-  GetWorkflowRunResponse,
-  GetWorkflowRunsRequest,
-  GetWorkflowRunsResponse,
-  ImportCatalogToGlueRequest,
-  ImportCatalogToGlueResponse,
-  ListCrawlersRequest,
-  ListCrawlersResponse,
-  ListDevEndpointsRequest,
-  ListDevEndpointsResponse,
-  ListJobsRequest,
-  ListJobsResponse,
-  ListTriggersRequest,
-  ListTriggersResponse,
-  ListWorkflowsRequest,
-  ListWorkflowsResponse,
-  PutDataCatalogEncryptionSettingsRequest,
-  PutDataCatalogEncryptionSettingsResponse,
-  PutResourcePolicyRequest,
-  PutResourcePolicyResponse,
-  PutWorkflowRunPropertiesRequest,
-  PutWorkflowRunPropertiesResponse,
-  ResetJobBookmarkRequest,
-  ResetJobBookmarkResponse,
-  SearchTablesRequest,
-  SearchTablesResponse,
-  StartCrawlerRequest,
-  StartCrawlerResponse,
-  StartCrawlerScheduleRequest,
-  StartCrawlerScheduleResponse,
-  StartExportLabelsTaskRunRequest,
-  StartExportLabelsTaskRunResponse,
-  StartImportLabelsTaskRunRequest,
-  StartImportLabelsTaskRunResponse,
-  StartJobRunRequest,
-  StartJobRunResponse,
-  StartMLEvaluationTaskRunRequest,
-  StartMLEvaluationTaskRunResponse,
-  StartMLLabelingSetGenerationTaskRunRequest,
-  StartMLLabelingSetGenerationTaskRunResponse,
-  StartTriggerRequest,
-  StartTriggerResponse,
-  StartWorkflowRunRequest,
-  StartWorkflowRunResponse,
-  StopCrawlerRequest,
-  StopCrawlerResponse,
-  StopCrawlerScheduleRequest,
-  StopCrawlerScheduleResponse,
-  StopTriggerRequest,
-  StopTriggerResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateClassifierRequest,
-  UpdateClassifierResponse,
-  UpdateConnectionRequest,
-  UpdateConnectionResponse,
-  UpdateCrawlerRequest,
-  UpdateCrawlerResponse,
-  UpdateCrawlerScheduleRequest,
-  UpdateCrawlerScheduleResponse,
-  UpdateDatabaseRequest,
-  UpdateDatabaseResponse,
-  UpdateDevEndpointRequest,
-  UpdateDevEndpointResponse,
-  UpdateJobRequest,
-  UpdateJobResponse,
-  UpdateMLTransformRequest,
-  UpdateMLTransformResponse,
-  UpdatePartitionRequest,
-  UpdatePartitionResponse,
-  UpdateTableRequest,
-  UpdateTableResponse,
-  UpdateTriggerRequest,
-  UpdateTriggerResponse,
-  UpdateUserDefinedFunctionRequest,
-  UpdateUserDefinedFunctionResponse,
-  UpdateWorkflowRequest,
-  UpdateWorkflowResponse
-} from "./models/index";
+  BatchCreatePartitionCommandInput,
+  BatchCreatePartitionCommandOutput
+} from "./commands/BatchCreatePartitionCommand";
+import {
+  BatchDeleteConnectionCommandInput,
+  BatchDeleteConnectionCommandOutput
+} from "./commands/BatchDeleteConnectionCommand";
+import {
+  BatchDeletePartitionCommandInput,
+  BatchDeletePartitionCommandOutput
+} from "./commands/BatchDeletePartitionCommand";
+import {
+  BatchDeleteTableCommandInput,
+  BatchDeleteTableCommandOutput
+} from "./commands/BatchDeleteTableCommand";
+import {
+  BatchDeleteTableVersionCommandInput,
+  BatchDeleteTableVersionCommandOutput
+} from "./commands/BatchDeleteTableVersionCommand";
+import {
+  BatchGetCrawlersCommandInput,
+  BatchGetCrawlersCommandOutput
+} from "./commands/BatchGetCrawlersCommand";
+import {
+  BatchGetDevEndpointsCommandInput,
+  BatchGetDevEndpointsCommandOutput
+} from "./commands/BatchGetDevEndpointsCommand";
+import {
+  BatchGetJobsCommandInput,
+  BatchGetJobsCommandOutput
+} from "./commands/BatchGetJobsCommand";
+import {
+  BatchGetPartitionCommandInput,
+  BatchGetPartitionCommandOutput
+} from "./commands/BatchGetPartitionCommand";
+import {
+  BatchGetTriggersCommandInput,
+  BatchGetTriggersCommandOutput
+} from "./commands/BatchGetTriggersCommand";
+import {
+  BatchGetWorkflowsCommandInput,
+  BatchGetWorkflowsCommandOutput
+} from "./commands/BatchGetWorkflowsCommand";
+import {
+  BatchStopJobRunCommandInput,
+  BatchStopJobRunCommandOutput
+} from "./commands/BatchStopJobRunCommand";
+import {
+  CancelMLTaskRunCommandInput,
+  CancelMLTaskRunCommandOutput
+} from "./commands/CancelMLTaskRunCommand";
+import {
+  CreateClassifierCommandInput,
+  CreateClassifierCommandOutput
+} from "./commands/CreateClassifierCommand";
+import {
+  CreateConnectionCommandInput,
+  CreateConnectionCommandOutput
+} from "./commands/CreateConnectionCommand";
+import {
+  CreateCrawlerCommandInput,
+  CreateCrawlerCommandOutput
+} from "./commands/CreateCrawlerCommand";
+import {
+  CreateDatabaseCommandInput,
+  CreateDatabaseCommandOutput
+} from "./commands/CreateDatabaseCommand";
+import {
+  CreateDevEndpointCommandInput,
+  CreateDevEndpointCommandOutput
+} from "./commands/CreateDevEndpointCommand";
+import {
+  CreateJobCommandInput,
+  CreateJobCommandOutput
+} from "./commands/CreateJobCommand";
+import {
+  CreateMLTransformCommandInput,
+  CreateMLTransformCommandOutput
+} from "./commands/CreateMLTransformCommand";
+import {
+  CreatePartitionCommandInput,
+  CreatePartitionCommandOutput
+} from "./commands/CreatePartitionCommand";
+import {
+  CreateScriptCommandInput,
+  CreateScriptCommandOutput
+} from "./commands/CreateScriptCommand";
+import {
+  CreateSecurityConfigurationCommandInput,
+  CreateSecurityConfigurationCommandOutput
+} from "./commands/CreateSecurityConfigurationCommand";
+import {
+  CreateTableCommandInput,
+  CreateTableCommandOutput
+} from "./commands/CreateTableCommand";
+import {
+  CreateTriggerCommandInput,
+  CreateTriggerCommandOutput
+} from "./commands/CreateTriggerCommand";
+import {
+  CreateUserDefinedFunctionCommandInput,
+  CreateUserDefinedFunctionCommandOutput
+} from "./commands/CreateUserDefinedFunctionCommand";
+import {
+  CreateWorkflowCommandInput,
+  CreateWorkflowCommandOutput
+} from "./commands/CreateWorkflowCommand";
+import {
+  DeleteClassifierCommandInput,
+  DeleteClassifierCommandOutput
+} from "./commands/DeleteClassifierCommand";
+import {
+  DeleteConnectionCommandInput,
+  DeleteConnectionCommandOutput
+} from "./commands/DeleteConnectionCommand";
+import {
+  DeleteCrawlerCommandInput,
+  DeleteCrawlerCommandOutput
+} from "./commands/DeleteCrawlerCommand";
+import {
+  DeleteDatabaseCommandInput,
+  DeleteDatabaseCommandOutput
+} from "./commands/DeleteDatabaseCommand";
+import {
+  DeleteDevEndpointCommandInput,
+  DeleteDevEndpointCommandOutput
+} from "./commands/DeleteDevEndpointCommand";
+import {
+  DeleteJobCommandInput,
+  DeleteJobCommandOutput
+} from "./commands/DeleteJobCommand";
+import {
+  DeleteMLTransformCommandInput,
+  DeleteMLTransformCommandOutput
+} from "./commands/DeleteMLTransformCommand";
+import {
+  DeletePartitionCommandInput,
+  DeletePartitionCommandOutput
+} from "./commands/DeletePartitionCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput
+} from "./commands/DeleteResourcePolicyCommand";
+import {
+  DeleteSecurityConfigurationCommandInput,
+  DeleteSecurityConfigurationCommandOutput
+} from "./commands/DeleteSecurityConfigurationCommand";
+import {
+  DeleteTableCommandInput,
+  DeleteTableCommandOutput
+} from "./commands/DeleteTableCommand";
+import {
+  DeleteTableVersionCommandInput,
+  DeleteTableVersionCommandOutput
+} from "./commands/DeleteTableVersionCommand";
+import {
+  DeleteTriggerCommandInput,
+  DeleteTriggerCommandOutput
+} from "./commands/DeleteTriggerCommand";
+import {
+  DeleteUserDefinedFunctionCommandInput,
+  DeleteUserDefinedFunctionCommandOutput
+} from "./commands/DeleteUserDefinedFunctionCommand";
+import {
+  DeleteWorkflowCommandInput,
+  DeleteWorkflowCommandOutput
+} from "./commands/DeleteWorkflowCommand";
+import {
+  GetCatalogImportStatusCommandInput,
+  GetCatalogImportStatusCommandOutput
+} from "./commands/GetCatalogImportStatusCommand";
+import {
+  GetClassifierCommandInput,
+  GetClassifierCommandOutput
+} from "./commands/GetClassifierCommand";
+import {
+  GetClassifiersCommandInput,
+  GetClassifiersCommandOutput
+} from "./commands/GetClassifiersCommand";
+import {
+  GetConnectionCommandInput,
+  GetConnectionCommandOutput
+} from "./commands/GetConnectionCommand";
+import {
+  GetConnectionsCommandInput,
+  GetConnectionsCommandOutput
+} from "./commands/GetConnectionsCommand";
+import {
+  GetCrawlerCommandInput,
+  GetCrawlerCommandOutput
+} from "./commands/GetCrawlerCommand";
+import {
+  GetCrawlerMetricsCommandInput,
+  GetCrawlerMetricsCommandOutput
+} from "./commands/GetCrawlerMetricsCommand";
+import {
+  GetCrawlersCommandInput,
+  GetCrawlersCommandOutput
+} from "./commands/GetCrawlersCommand";
+import {
+  GetDataCatalogEncryptionSettingsCommandInput,
+  GetDataCatalogEncryptionSettingsCommandOutput
+} from "./commands/GetDataCatalogEncryptionSettingsCommand";
+import {
+  GetDatabaseCommandInput,
+  GetDatabaseCommandOutput
+} from "./commands/GetDatabaseCommand";
+import {
+  GetDatabasesCommandInput,
+  GetDatabasesCommandOutput
+} from "./commands/GetDatabasesCommand";
+import {
+  GetDataflowGraphCommandInput,
+  GetDataflowGraphCommandOutput
+} from "./commands/GetDataflowGraphCommand";
+import {
+  GetDevEndpointCommandInput,
+  GetDevEndpointCommandOutput
+} from "./commands/GetDevEndpointCommand";
+import {
+  GetDevEndpointsCommandInput,
+  GetDevEndpointsCommandOutput
+} from "./commands/GetDevEndpointsCommand";
+import {
+  GetJobBookmarkCommandInput,
+  GetJobBookmarkCommandOutput
+} from "./commands/GetJobBookmarkCommand";
+import {
+  GetJobCommandInput,
+  GetJobCommandOutput
+} from "./commands/GetJobCommand";
+import {
+  GetJobRunCommandInput,
+  GetJobRunCommandOutput
+} from "./commands/GetJobRunCommand";
+import {
+  GetJobRunsCommandInput,
+  GetJobRunsCommandOutput
+} from "./commands/GetJobRunsCommand";
+import {
+  GetJobsCommandInput,
+  GetJobsCommandOutput
+} from "./commands/GetJobsCommand";
+import {
+  GetMLTaskRunCommandInput,
+  GetMLTaskRunCommandOutput
+} from "./commands/GetMLTaskRunCommand";
+import {
+  GetMLTaskRunsCommandInput,
+  GetMLTaskRunsCommandOutput
+} from "./commands/GetMLTaskRunsCommand";
+import {
+  GetMLTransformCommandInput,
+  GetMLTransformCommandOutput
+} from "./commands/GetMLTransformCommand";
+import {
+  GetMLTransformsCommandInput,
+  GetMLTransformsCommandOutput
+} from "./commands/GetMLTransformsCommand";
+import {
+  GetMappingCommandInput,
+  GetMappingCommandOutput
+} from "./commands/GetMappingCommand";
+import {
+  GetPartitionCommandInput,
+  GetPartitionCommandOutput
+} from "./commands/GetPartitionCommand";
+import {
+  GetPartitionsCommandInput,
+  GetPartitionsCommandOutput
+} from "./commands/GetPartitionsCommand";
+import {
+  GetPlanCommandInput,
+  GetPlanCommandOutput
+} from "./commands/GetPlanCommand";
+import {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput
+} from "./commands/GetResourcePolicyCommand";
+import {
+  GetSecurityConfigurationCommandInput,
+  GetSecurityConfigurationCommandOutput
+} from "./commands/GetSecurityConfigurationCommand";
+import {
+  GetSecurityConfigurationsCommandInput,
+  GetSecurityConfigurationsCommandOutput
+} from "./commands/GetSecurityConfigurationsCommand";
+import {
+  GetTableCommandInput,
+  GetTableCommandOutput
+} from "./commands/GetTableCommand";
+import {
+  GetTableVersionCommandInput,
+  GetTableVersionCommandOutput
+} from "./commands/GetTableVersionCommand";
+import {
+  GetTableVersionsCommandInput,
+  GetTableVersionsCommandOutput
+} from "./commands/GetTableVersionsCommand";
+import {
+  GetTablesCommandInput,
+  GetTablesCommandOutput
+} from "./commands/GetTablesCommand";
+import {
+  GetTagsCommandInput,
+  GetTagsCommandOutput
+} from "./commands/GetTagsCommand";
+import {
+  GetTriggerCommandInput,
+  GetTriggerCommandOutput
+} from "./commands/GetTriggerCommand";
+import {
+  GetTriggersCommandInput,
+  GetTriggersCommandOutput
+} from "./commands/GetTriggersCommand";
+import {
+  GetUserDefinedFunctionCommandInput,
+  GetUserDefinedFunctionCommandOutput
+} from "./commands/GetUserDefinedFunctionCommand";
+import {
+  GetUserDefinedFunctionsCommandInput,
+  GetUserDefinedFunctionsCommandOutput
+} from "./commands/GetUserDefinedFunctionsCommand";
+import {
+  GetWorkflowCommandInput,
+  GetWorkflowCommandOutput
+} from "./commands/GetWorkflowCommand";
+import {
+  GetWorkflowRunCommandInput,
+  GetWorkflowRunCommandOutput
+} from "./commands/GetWorkflowRunCommand";
+import {
+  GetWorkflowRunPropertiesCommandInput,
+  GetWorkflowRunPropertiesCommandOutput
+} from "./commands/GetWorkflowRunPropertiesCommand";
+import {
+  GetWorkflowRunsCommandInput,
+  GetWorkflowRunsCommandOutput
+} from "./commands/GetWorkflowRunsCommand";
+import {
+  ImportCatalogToGlueCommandInput,
+  ImportCatalogToGlueCommandOutput
+} from "./commands/ImportCatalogToGlueCommand";
+import {
+  ListCrawlersCommandInput,
+  ListCrawlersCommandOutput
+} from "./commands/ListCrawlersCommand";
+import {
+  ListDevEndpointsCommandInput,
+  ListDevEndpointsCommandOutput
+} from "./commands/ListDevEndpointsCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  ListTriggersCommandInput,
+  ListTriggersCommandOutput
+} from "./commands/ListTriggersCommand";
+import {
+  ListWorkflowsCommandInput,
+  ListWorkflowsCommandOutput
+} from "./commands/ListWorkflowsCommand";
+import {
+  PutDataCatalogEncryptionSettingsCommandInput,
+  PutDataCatalogEncryptionSettingsCommandOutput
+} from "./commands/PutDataCatalogEncryptionSettingsCommand";
+import {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput
+} from "./commands/PutResourcePolicyCommand";
+import {
+  PutWorkflowRunPropertiesCommandInput,
+  PutWorkflowRunPropertiesCommandOutput
+} from "./commands/PutWorkflowRunPropertiesCommand";
+import {
+  ResetJobBookmarkCommandInput,
+  ResetJobBookmarkCommandOutput
+} from "./commands/ResetJobBookmarkCommand";
+import {
+  SearchTablesCommandInput,
+  SearchTablesCommandOutput
+} from "./commands/SearchTablesCommand";
+import {
+  StartCrawlerCommandInput,
+  StartCrawlerCommandOutput
+} from "./commands/StartCrawlerCommand";
+import {
+  StartCrawlerScheduleCommandInput,
+  StartCrawlerScheduleCommandOutput
+} from "./commands/StartCrawlerScheduleCommand";
+import {
+  StartExportLabelsTaskRunCommandInput,
+  StartExportLabelsTaskRunCommandOutput
+} from "./commands/StartExportLabelsTaskRunCommand";
+import {
+  StartImportLabelsTaskRunCommandInput,
+  StartImportLabelsTaskRunCommandOutput
+} from "./commands/StartImportLabelsTaskRunCommand";
+import {
+  StartJobRunCommandInput,
+  StartJobRunCommandOutput
+} from "./commands/StartJobRunCommand";
+import {
+  StartMLEvaluationTaskRunCommandInput,
+  StartMLEvaluationTaskRunCommandOutput
+} from "./commands/StartMLEvaluationTaskRunCommand";
+import {
+  StartMLLabelingSetGenerationTaskRunCommandInput,
+  StartMLLabelingSetGenerationTaskRunCommandOutput
+} from "./commands/StartMLLabelingSetGenerationTaskRunCommand";
+import {
+  StartTriggerCommandInput,
+  StartTriggerCommandOutput
+} from "./commands/StartTriggerCommand";
+import {
+  StartWorkflowRunCommandInput,
+  StartWorkflowRunCommandOutput
+} from "./commands/StartWorkflowRunCommand";
+import {
+  StopCrawlerCommandInput,
+  StopCrawlerCommandOutput
+} from "./commands/StopCrawlerCommand";
+import {
+  StopCrawlerScheduleCommandInput,
+  StopCrawlerScheduleCommandOutput
+} from "./commands/StopCrawlerScheduleCommand";
+import {
+  StopTriggerCommandInput,
+  StopTriggerCommandOutput
+} from "./commands/StopTriggerCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateClassifierCommandInput,
+  UpdateClassifierCommandOutput
+} from "./commands/UpdateClassifierCommand";
+import {
+  UpdateConnectionCommandInput,
+  UpdateConnectionCommandOutput
+} from "./commands/UpdateConnectionCommand";
+import {
+  UpdateCrawlerCommandInput,
+  UpdateCrawlerCommandOutput
+} from "./commands/UpdateCrawlerCommand";
+import {
+  UpdateCrawlerScheduleCommandInput,
+  UpdateCrawlerScheduleCommandOutput
+} from "./commands/UpdateCrawlerScheduleCommand";
+import {
+  UpdateDatabaseCommandInput,
+  UpdateDatabaseCommandOutput
+} from "./commands/UpdateDatabaseCommand";
+import {
+  UpdateDevEndpointCommandInput,
+  UpdateDevEndpointCommandOutput
+} from "./commands/UpdateDevEndpointCommand";
+import {
+  UpdateJobCommandInput,
+  UpdateJobCommandOutput
+} from "./commands/UpdateJobCommand";
+import {
+  UpdateMLTransformCommandInput,
+  UpdateMLTransformCommandOutput
+} from "./commands/UpdateMLTransformCommand";
+import {
+  UpdatePartitionCommandInput,
+  UpdatePartitionCommandOutput
+} from "./commands/UpdatePartitionCommand";
+import {
+  UpdateTableCommandInput,
+  UpdateTableCommandOutput
+} from "./commands/UpdateTableCommand";
+import {
+  UpdateTriggerCommandInput,
+  UpdateTriggerCommandOutput
+} from "./commands/UpdateTriggerCommand";
+import {
+  UpdateUserDefinedFunctionCommandInput,
+  UpdateUserDefinedFunctionCommandOutput
+} from "./commands/UpdateUserDefinedFunctionCommand";
+import {
+  UpdateWorkflowCommandInput,
+  UpdateWorkflowCommandOutput
+} from "./commands/UpdateWorkflowCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -299,254 +543,254 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchCreatePartitionRequest
-  | BatchDeleteConnectionRequest
-  | BatchDeletePartitionRequest
-  | BatchDeleteTableRequest
-  | BatchDeleteTableVersionRequest
-  | BatchGetCrawlersRequest
-  | BatchGetDevEndpointsRequest
-  | BatchGetJobsRequest
-  | BatchGetPartitionRequest
-  | BatchGetTriggersRequest
-  | BatchGetWorkflowsRequest
-  | BatchStopJobRunRequest
-  | CancelMLTaskRunRequest
-  | CreateClassifierRequest
-  | CreateConnectionRequest
-  | CreateCrawlerRequest
-  | CreateDatabaseRequest
-  | CreateDevEndpointRequest
-  | CreateJobRequest
-  | CreateMLTransformRequest
-  | CreatePartitionRequest
-  | CreateScriptRequest
-  | CreateSecurityConfigurationRequest
-  | CreateTableRequest
-  | CreateTriggerRequest
-  | CreateUserDefinedFunctionRequest
-  | CreateWorkflowRequest
-  | DeleteClassifierRequest
-  | DeleteConnectionRequest
-  | DeleteCrawlerRequest
-  | DeleteDatabaseRequest
-  | DeleteDevEndpointRequest
-  | DeleteJobRequest
-  | DeleteMLTransformRequest
-  | DeletePartitionRequest
-  | DeleteResourcePolicyRequest
-  | DeleteSecurityConfigurationRequest
-  | DeleteTableRequest
-  | DeleteTableVersionRequest
-  | DeleteTriggerRequest
-  | DeleteUserDefinedFunctionRequest
-  | DeleteWorkflowRequest
-  | GetCatalogImportStatusRequest
-  | GetClassifierRequest
-  | GetClassifiersRequest
-  | GetConnectionRequest
-  | GetConnectionsRequest
-  | GetCrawlerMetricsRequest
-  | GetCrawlerRequest
-  | GetCrawlersRequest
-  | GetDataCatalogEncryptionSettingsRequest
-  | GetDatabaseRequest
-  | GetDatabasesRequest
-  | GetDataflowGraphRequest
-  | GetDevEndpointRequest
-  | GetDevEndpointsRequest
-  | GetJobBookmarkRequest
-  | GetJobRequest
-  | GetJobRunRequest
-  | GetJobRunsRequest
-  | GetJobsRequest
-  | GetMLTaskRunRequest
-  | GetMLTaskRunsRequest
-  | GetMLTransformRequest
-  | GetMLTransformsRequest
-  | GetMappingRequest
-  | GetPartitionRequest
-  | GetPartitionsRequest
-  | GetPlanRequest
-  | GetResourcePolicyRequest
-  | GetSecurityConfigurationRequest
-  | GetSecurityConfigurationsRequest
-  | GetTableRequest
-  | GetTableVersionRequest
-  | GetTableVersionsRequest
-  | GetTablesRequest
-  | GetTagsRequest
-  | GetTriggerRequest
-  | GetTriggersRequest
-  | GetUserDefinedFunctionRequest
-  | GetUserDefinedFunctionsRequest
-  | GetWorkflowRequest
-  | GetWorkflowRunPropertiesRequest
-  | GetWorkflowRunRequest
-  | GetWorkflowRunsRequest
-  | ImportCatalogToGlueRequest
-  | ListCrawlersRequest
-  | ListDevEndpointsRequest
-  | ListJobsRequest
-  | ListTriggersRequest
-  | ListWorkflowsRequest
-  | PutDataCatalogEncryptionSettingsRequest
-  | PutResourcePolicyRequest
-  | PutWorkflowRunPropertiesRequest
-  | ResetJobBookmarkRequest
-  | SearchTablesRequest
-  | StartCrawlerRequest
-  | StartCrawlerScheduleRequest
-  | StartExportLabelsTaskRunRequest
-  | StartImportLabelsTaskRunRequest
-  | StartJobRunRequest
-  | StartMLEvaluationTaskRunRequest
-  | StartMLLabelingSetGenerationTaskRunRequest
-  | StartTriggerRequest
-  | StartWorkflowRunRequest
-  | StopCrawlerRequest
-  | StopCrawlerScheduleRequest
-  | StopTriggerRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateClassifierRequest
-  | UpdateConnectionRequest
-  | UpdateCrawlerRequest
-  | UpdateCrawlerScheduleRequest
-  | UpdateDatabaseRequest
-  | UpdateDevEndpointRequest
-  | UpdateJobRequest
-  | UpdateMLTransformRequest
-  | UpdatePartitionRequest
-  | UpdateTableRequest
-  | UpdateTriggerRequest
-  | UpdateUserDefinedFunctionRequest
-  | UpdateWorkflowRequest;
+  | BatchCreatePartitionCommandInput
+  | BatchDeleteConnectionCommandInput
+  | BatchDeletePartitionCommandInput
+  | BatchDeleteTableCommandInput
+  | BatchDeleteTableVersionCommandInput
+  | BatchGetCrawlersCommandInput
+  | BatchGetDevEndpointsCommandInput
+  | BatchGetJobsCommandInput
+  | BatchGetPartitionCommandInput
+  | BatchGetTriggersCommandInput
+  | BatchGetWorkflowsCommandInput
+  | BatchStopJobRunCommandInput
+  | CancelMLTaskRunCommandInput
+  | CreateClassifierCommandInput
+  | CreateConnectionCommandInput
+  | CreateCrawlerCommandInput
+  | CreateDatabaseCommandInput
+  | CreateDevEndpointCommandInput
+  | CreateJobCommandInput
+  | CreateMLTransformCommandInput
+  | CreatePartitionCommandInput
+  | CreateScriptCommandInput
+  | CreateSecurityConfigurationCommandInput
+  | CreateTableCommandInput
+  | CreateTriggerCommandInput
+  | CreateUserDefinedFunctionCommandInput
+  | CreateWorkflowCommandInput
+  | DeleteClassifierCommandInput
+  | DeleteConnectionCommandInput
+  | DeleteCrawlerCommandInput
+  | DeleteDatabaseCommandInput
+  | DeleteDevEndpointCommandInput
+  | DeleteJobCommandInput
+  | DeleteMLTransformCommandInput
+  | DeletePartitionCommandInput
+  | DeleteResourcePolicyCommandInput
+  | DeleteSecurityConfigurationCommandInput
+  | DeleteTableCommandInput
+  | DeleteTableVersionCommandInput
+  | DeleteTriggerCommandInput
+  | DeleteUserDefinedFunctionCommandInput
+  | DeleteWorkflowCommandInput
+  | GetCatalogImportStatusCommandInput
+  | GetClassifierCommandInput
+  | GetClassifiersCommandInput
+  | GetConnectionCommandInput
+  | GetConnectionsCommandInput
+  | GetCrawlerCommandInput
+  | GetCrawlerMetricsCommandInput
+  | GetCrawlersCommandInput
+  | GetDataCatalogEncryptionSettingsCommandInput
+  | GetDatabaseCommandInput
+  | GetDatabasesCommandInput
+  | GetDataflowGraphCommandInput
+  | GetDevEndpointCommandInput
+  | GetDevEndpointsCommandInput
+  | GetJobBookmarkCommandInput
+  | GetJobCommandInput
+  | GetJobRunCommandInput
+  | GetJobRunsCommandInput
+  | GetJobsCommandInput
+  | GetMLTaskRunCommandInput
+  | GetMLTaskRunsCommandInput
+  | GetMLTransformCommandInput
+  | GetMLTransformsCommandInput
+  | GetMappingCommandInput
+  | GetPartitionCommandInput
+  | GetPartitionsCommandInput
+  | GetPlanCommandInput
+  | GetResourcePolicyCommandInput
+  | GetSecurityConfigurationCommandInput
+  | GetSecurityConfigurationsCommandInput
+  | GetTableCommandInput
+  | GetTableVersionCommandInput
+  | GetTableVersionsCommandInput
+  | GetTablesCommandInput
+  | GetTagsCommandInput
+  | GetTriggerCommandInput
+  | GetTriggersCommandInput
+  | GetUserDefinedFunctionCommandInput
+  | GetUserDefinedFunctionsCommandInput
+  | GetWorkflowCommandInput
+  | GetWorkflowRunCommandInput
+  | GetWorkflowRunPropertiesCommandInput
+  | GetWorkflowRunsCommandInput
+  | ImportCatalogToGlueCommandInput
+  | ListCrawlersCommandInput
+  | ListDevEndpointsCommandInput
+  | ListJobsCommandInput
+  | ListTriggersCommandInput
+  | ListWorkflowsCommandInput
+  | PutDataCatalogEncryptionSettingsCommandInput
+  | PutResourcePolicyCommandInput
+  | PutWorkflowRunPropertiesCommandInput
+  | ResetJobBookmarkCommandInput
+  | SearchTablesCommandInput
+  | StartCrawlerCommandInput
+  | StartCrawlerScheduleCommandInput
+  | StartExportLabelsTaskRunCommandInput
+  | StartImportLabelsTaskRunCommandInput
+  | StartJobRunCommandInput
+  | StartMLEvaluationTaskRunCommandInput
+  | StartMLLabelingSetGenerationTaskRunCommandInput
+  | StartTriggerCommandInput
+  | StartWorkflowRunCommandInput
+  | StopCrawlerCommandInput
+  | StopCrawlerScheduleCommandInput
+  | StopTriggerCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateClassifierCommandInput
+  | UpdateConnectionCommandInput
+  | UpdateCrawlerCommandInput
+  | UpdateCrawlerScheduleCommandInput
+  | UpdateDatabaseCommandInput
+  | UpdateDevEndpointCommandInput
+  | UpdateJobCommandInput
+  | UpdateMLTransformCommandInput
+  | UpdatePartitionCommandInput
+  | UpdateTableCommandInput
+  | UpdateTriggerCommandInput
+  | UpdateUserDefinedFunctionCommandInput
+  | UpdateWorkflowCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchCreatePartitionResponse
-  | BatchDeleteConnectionResponse
-  | BatchDeletePartitionResponse
-  | BatchDeleteTableResponse
-  | BatchDeleteTableVersionResponse
-  | BatchGetCrawlersResponse
-  | BatchGetDevEndpointsResponse
-  | BatchGetJobsResponse
-  | BatchGetPartitionResponse
-  | BatchGetTriggersResponse
-  | BatchGetWorkflowsResponse
-  | BatchStopJobRunResponse
-  | CancelMLTaskRunResponse
-  | CreateClassifierResponse
-  | CreateConnectionResponse
-  | CreateCrawlerResponse
-  | CreateDatabaseResponse
-  | CreateDevEndpointResponse
-  | CreateJobResponse
-  | CreateMLTransformResponse
-  | CreatePartitionResponse
-  | CreateScriptResponse
-  | CreateSecurityConfigurationResponse
-  | CreateTableResponse
-  | CreateTriggerResponse
-  | CreateUserDefinedFunctionResponse
-  | CreateWorkflowResponse
-  | DeleteClassifierResponse
-  | DeleteConnectionResponse
-  | DeleteCrawlerResponse
-  | DeleteDatabaseResponse
-  | DeleteDevEndpointResponse
-  | DeleteJobResponse
-  | DeleteMLTransformResponse
-  | DeletePartitionResponse
-  | DeleteResourcePolicyResponse
-  | DeleteSecurityConfigurationResponse
-  | DeleteTableResponse
-  | DeleteTableVersionResponse
-  | DeleteTriggerResponse
-  | DeleteUserDefinedFunctionResponse
-  | DeleteWorkflowResponse
-  | GetCatalogImportStatusResponse
-  | GetClassifierResponse
-  | GetClassifiersResponse
-  | GetConnectionResponse
-  | GetConnectionsResponse
-  | GetCrawlerMetricsResponse
-  | GetCrawlerResponse
-  | GetCrawlersResponse
-  | GetDataCatalogEncryptionSettingsResponse
-  | GetDatabaseResponse
-  | GetDatabasesResponse
-  | GetDataflowGraphResponse
-  | GetDevEndpointResponse
-  | GetDevEndpointsResponse
-  | GetJobBookmarkResponse
-  | GetJobResponse
-  | GetJobRunResponse
-  | GetJobRunsResponse
-  | GetJobsResponse
-  | GetMLTaskRunResponse
-  | GetMLTaskRunsResponse
-  | GetMLTransformResponse
-  | GetMLTransformsResponse
-  | GetMappingResponse
-  | GetPartitionResponse
-  | GetPartitionsResponse
-  | GetPlanResponse
-  | GetResourcePolicyResponse
-  | GetSecurityConfigurationResponse
-  | GetSecurityConfigurationsResponse
-  | GetTableResponse
-  | GetTableVersionResponse
-  | GetTableVersionsResponse
-  | GetTablesResponse
-  | GetTagsResponse
-  | GetTriggerResponse
-  | GetTriggersResponse
-  | GetUserDefinedFunctionResponse
-  | GetUserDefinedFunctionsResponse
-  | GetWorkflowResponse
-  | GetWorkflowRunPropertiesResponse
-  | GetWorkflowRunResponse
-  | GetWorkflowRunsResponse
-  | ImportCatalogToGlueResponse
-  | ListCrawlersResponse
-  | ListDevEndpointsResponse
-  | ListJobsResponse
-  | ListTriggersResponse
-  | ListWorkflowsResponse
-  | PutDataCatalogEncryptionSettingsResponse
-  | PutResourcePolicyResponse
-  | PutWorkflowRunPropertiesResponse
-  | ResetJobBookmarkResponse
-  | SearchTablesResponse
-  | StartCrawlerResponse
-  | StartCrawlerScheduleResponse
-  | StartExportLabelsTaskRunResponse
-  | StartImportLabelsTaskRunResponse
-  | StartJobRunResponse
-  | StartMLEvaluationTaskRunResponse
-  | StartMLLabelingSetGenerationTaskRunResponse
-  | StartTriggerResponse
-  | StartWorkflowRunResponse
-  | StopCrawlerResponse
-  | StopCrawlerScheduleResponse
-  | StopTriggerResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateClassifierResponse
-  | UpdateConnectionResponse
-  | UpdateCrawlerResponse
-  | UpdateCrawlerScheduleResponse
-  | UpdateDatabaseResponse
-  | UpdateDevEndpointResponse
-  | UpdateJobResponse
-  | UpdateMLTransformResponse
-  | UpdatePartitionResponse
-  | UpdateTableResponse
-  | UpdateTriggerResponse
-  | UpdateUserDefinedFunctionResponse
-  | UpdateWorkflowResponse;
+  | BatchCreatePartitionCommandOutput
+  | BatchDeleteConnectionCommandOutput
+  | BatchDeletePartitionCommandOutput
+  | BatchDeleteTableCommandOutput
+  | BatchDeleteTableVersionCommandOutput
+  | BatchGetCrawlersCommandOutput
+  | BatchGetDevEndpointsCommandOutput
+  | BatchGetJobsCommandOutput
+  | BatchGetPartitionCommandOutput
+  | BatchGetTriggersCommandOutput
+  | BatchGetWorkflowsCommandOutput
+  | BatchStopJobRunCommandOutput
+  | CancelMLTaskRunCommandOutput
+  | CreateClassifierCommandOutput
+  | CreateConnectionCommandOutput
+  | CreateCrawlerCommandOutput
+  | CreateDatabaseCommandOutput
+  | CreateDevEndpointCommandOutput
+  | CreateJobCommandOutput
+  | CreateMLTransformCommandOutput
+  | CreatePartitionCommandOutput
+  | CreateScriptCommandOutput
+  | CreateSecurityConfigurationCommandOutput
+  | CreateTableCommandOutput
+  | CreateTriggerCommandOutput
+  | CreateUserDefinedFunctionCommandOutput
+  | CreateWorkflowCommandOutput
+  | DeleteClassifierCommandOutput
+  | DeleteConnectionCommandOutput
+  | DeleteCrawlerCommandOutput
+  | DeleteDatabaseCommandOutput
+  | DeleteDevEndpointCommandOutput
+  | DeleteJobCommandOutput
+  | DeleteMLTransformCommandOutput
+  | DeletePartitionCommandOutput
+  | DeleteResourcePolicyCommandOutput
+  | DeleteSecurityConfigurationCommandOutput
+  | DeleteTableCommandOutput
+  | DeleteTableVersionCommandOutput
+  | DeleteTriggerCommandOutput
+  | DeleteUserDefinedFunctionCommandOutput
+  | DeleteWorkflowCommandOutput
+  | GetCatalogImportStatusCommandOutput
+  | GetClassifierCommandOutput
+  | GetClassifiersCommandOutput
+  | GetConnectionCommandOutput
+  | GetConnectionsCommandOutput
+  | GetCrawlerCommandOutput
+  | GetCrawlerMetricsCommandOutput
+  | GetCrawlersCommandOutput
+  | GetDataCatalogEncryptionSettingsCommandOutput
+  | GetDatabaseCommandOutput
+  | GetDatabasesCommandOutput
+  | GetDataflowGraphCommandOutput
+  | GetDevEndpointCommandOutput
+  | GetDevEndpointsCommandOutput
+  | GetJobBookmarkCommandOutput
+  | GetJobCommandOutput
+  | GetJobRunCommandOutput
+  | GetJobRunsCommandOutput
+  | GetJobsCommandOutput
+  | GetMLTaskRunCommandOutput
+  | GetMLTaskRunsCommandOutput
+  | GetMLTransformCommandOutput
+  | GetMLTransformsCommandOutput
+  | GetMappingCommandOutput
+  | GetPartitionCommandOutput
+  | GetPartitionsCommandOutput
+  | GetPlanCommandOutput
+  | GetResourcePolicyCommandOutput
+  | GetSecurityConfigurationCommandOutput
+  | GetSecurityConfigurationsCommandOutput
+  | GetTableCommandOutput
+  | GetTableVersionCommandOutput
+  | GetTableVersionsCommandOutput
+  | GetTablesCommandOutput
+  | GetTagsCommandOutput
+  | GetTriggerCommandOutput
+  | GetTriggersCommandOutput
+  | GetUserDefinedFunctionCommandOutput
+  | GetUserDefinedFunctionsCommandOutput
+  | GetWorkflowCommandOutput
+  | GetWorkflowRunCommandOutput
+  | GetWorkflowRunPropertiesCommandOutput
+  | GetWorkflowRunsCommandOutput
+  | ImportCatalogToGlueCommandOutput
+  | ListCrawlersCommandOutput
+  | ListDevEndpointsCommandOutput
+  | ListJobsCommandOutput
+  | ListTriggersCommandOutput
+  | ListWorkflowsCommandOutput
+  | PutDataCatalogEncryptionSettingsCommandOutput
+  | PutResourcePolicyCommandOutput
+  | PutWorkflowRunPropertiesCommandOutput
+  | ResetJobBookmarkCommandOutput
+  | SearchTablesCommandOutput
+  | StartCrawlerCommandOutput
+  | StartCrawlerScheduleCommandOutput
+  | StartExportLabelsTaskRunCommandOutput
+  | StartImportLabelsTaskRunCommandOutput
+  | StartJobRunCommandOutput
+  | StartMLEvaluationTaskRunCommandOutput
+  | StartMLLabelingSetGenerationTaskRunCommandOutput
+  | StartTriggerCommandOutput
+  | StartWorkflowRunCommandOutput
+  | StopCrawlerCommandOutput
+  | StopCrawlerScheduleCommandOutput
+  | StopTriggerCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateClassifierCommandOutput
+  | UpdateConnectionCommandOutput
+  | UpdateCrawlerCommandOutput
+  | UpdateCrawlerScheduleCommandOutput
+  | UpdateDatabaseCommandOutput
+  | UpdateDevEndpointCommandOutput
+  | UpdateJobCommandOutput
+  | UpdateMLTransformCommandOutput
+  | UpdatePartitionCommandOutput
+  | UpdateTableCommandOutput
+  | UpdateTriggerCommandOutput
+  | UpdateUserDefinedFunctionCommandOutput
+  | UpdateWorkflowCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

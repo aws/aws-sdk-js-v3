@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDeleteClusterSnapshotsCommandInput = BatchDeleteClusterSnapshotsRequest;
-export type BatchDeleteClusterSnapshotsCommandOutput = BatchDeleteClusterSnapshotsResult;
+export type BatchDeleteClusterSnapshotsCommandOutput = BatchDeleteClusterSnapshotsResult &
+  __MetadataBearer;
 
 export class BatchDeleteClusterSnapshotsCommand extends $Command<
   BatchDeleteClusterSnapshotsCommandInput,

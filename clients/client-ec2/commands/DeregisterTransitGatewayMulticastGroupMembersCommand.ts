@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterTransitGatewayMulticastGroupMembersCommandInput = DeregisterTransitGatewayMulticastGroupMembersRequest;
-export type DeregisterTransitGatewayMulticastGroupMembersCommandOutput = DeregisterTransitGatewayMulticastGroupMembersResult;
+export type DeregisterTransitGatewayMulticastGroupMembersCommandOutput = DeregisterTransitGatewayMulticastGroupMembersResult &
+  __MetadataBearer;
 
 export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Command<
   DeregisterTransitGatewayMulticastGroupMembersCommandInput,

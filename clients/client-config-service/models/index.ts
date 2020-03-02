@@ -406,8 +406,7 @@ export namespace BatchGetAggregateResourceConfigRequest {
   }
 }
 
-export interface BatchGetAggregateResourceConfigResponse
-  extends $MetadataBearer {
+export interface BatchGetAggregateResourceConfigResponse {
   __type?: "BatchGetAggregateResourceConfigResponse";
   /**
    * <p>A list that contains the current configuration of one or more resources.</p>
@@ -442,7 +441,7 @@ export namespace BatchGetResourceConfigRequest {
   }
 }
 
-export interface BatchGetResourceConfigResponse extends $MetadataBearer {
+export interface BatchGetResourceConfigResponse {
   __type?: "BatchGetResourceConfigResponse";
   /**
    * <p>A list that contains the current configuration of one or more
@@ -1836,7 +1835,7 @@ export namespace DeleteEvaluationResultsRequest {
  * <p>The output when you delete the evaluation results for the
  * 			specified AWS Config rule.</p>
  */
-export interface DeleteEvaluationResultsResponse extends $MetadataBearer {
+export interface DeleteEvaluationResultsResponse {
   __type?: "DeleteEvaluationResultsResponse";
 }
 
@@ -1913,8 +1912,7 @@ export namespace DeleteRemediationConfigurationRequest {
   }
 }
 
-export interface DeleteRemediationConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteRemediationConfigurationResponse {
   __type?: "DeleteRemediationConfigurationResponse";
 }
 
@@ -1943,7 +1941,7 @@ export namespace DeleteRemediationExceptionsRequest {
   }
 }
 
-export interface DeleteRemediationExceptionsResponse extends $MetadataBearer {
+export interface DeleteRemediationExceptionsResponse {
   __type?: "DeleteRemediationExceptionsResponse";
   /**
    * <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
@@ -2013,7 +2011,7 @@ export namespace DeliverConfigSnapshotRequest {
  * <p>The output for the <a>DeliverConfigSnapshot</a>
  * 			action, in JSON format.</p>
  */
-export interface DeliverConfigSnapshotResponse extends $MetadataBearer {
+export interface DeliverConfigSnapshotResponse {
   __type?: "DeliverConfigSnapshotResponse";
   /**
    * <p>The ID of the snapshot that is being created.</p>
@@ -2162,8 +2160,7 @@ export namespace DescribeAggregateComplianceByConfigRulesRequest {
   }
 }
 
-export interface DescribeAggregateComplianceByConfigRulesResponse
-  extends $MetadataBearer {
+export interface DescribeAggregateComplianceByConfigRulesResponse {
   __type?: "DescribeAggregateComplianceByConfigRulesResponse";
   /**
    * <p>Returns a list of AggregateComplianceByConfigRule
@@ -2208,8 +2205,7 @@ export namespace DescribeAggregationAuthorizationsRequest {
   }
 }
 
-export interface DescribeAggregationAuthorizationsResponse
-  extends $MetadataBearer {
+export interface DescribeAggregationAuthorizationsResponse {
   __type?: "DescribeAggregationAuthorizationsResponse";
   /**
    * <p>Returns a list of authorizations granted to various aggregator
@@ -2264,8 +2260,7 @@ export namespace DescribeComplianceByConfigRuleRequest {
 /**
  * <p></p>
  */
-export interface DescribeComplianceByConfigRuleResponse
-  extends $MetadataBearer {
+export interface DescribeComplianceByConfigRuleResponse {
   __type?: "DescribeComplianceByConfigRuleResponse";
   /**
    * <p>Indicates whether each of the specified AWS Config rules is
@@ -2337,7 +2332,7 @@ export namespace DescribeComplianceByResourceRequest {
 /**
  * <p></p>
  */
-export interface DescribeComplianceByResourceResponse extends $MetadataBearer {
+export interface DescribeComplianceByResourceResponse {
   __type?: "DescribeComplianceByResourceResponse";
   /**
    * <p>Indicates whether the specified AWS resource complies with all
@@ -2400,8 +2395,7 @@ export namespace DescribeConfigRuleEvaluationStatusRequest {
 /**
  * <p></p>
  */
-export interface DescribeConfigRuleEvaluationStatusResponse
-  extends $MetadataBearer {
+export interface DescribeConfigRuleEvaluationStatusResponse {
   __type?: "DescribeConfigRuleEvaluationStatusResponse";
   /**
    * <p>Status information about your AWS managed Config
@@ -2451,7 +2445,7 @@ export namespace DescribeConfigRulesRequest {
 /**
  * <p></p>
  */
-export interface DescribeConfigRulesResponse extends $MetadataBearer {
+export interface DescribeConfigRulesResponse {
   __type?: "DescribeConfigRulesResponse";
   /**
    * <p>The details about your AWS Config rules.</p>
@@ -2519,8 +2513,7 @@ export namespace DescribeConfigurationAggregatorSourcesStatusRequest {
   }
 }
 
-export interface DescribeConfigurationAggregatorSourcesStatusResponse
-  extends $MetadataBearer {
+export interface DescribeConfigurationAggregatorSourcesStatusResponse {
   __type?: "DescribeConfigurationAggregatorSourcesStatusResponse";
   /**
    * <p>Returns an AggregatedSourceStatus object.
@@ -2570,8 +2563,7 @@ export namespace DescribeConfigurationAggregatorsRequest {
   }
 }
 
-export interface DescribeConfigurationAggregatorsResponse
-  extends $MetadataBearer {
+export interface DescribeConfigurationAggregatorsResponse {
   __type?: "DescribeConfigurationAggregatorsResponse";
   /**
    * <p>Returns a ConfigurationAggregators object.</p>
@@ -2615,8 +2607,7 @@ export namespace DescribeConfigurationRecorderStatusRequest {
  * <p>The output for the <a>DescribeConfigurationRecorderStatus</a> action, in JSON
  * 			format.</p>
  */
-export interface DescribeConfigurationRecorderStatusResponse
-  extends $MetadataBearer {
+export interface DescribeConfigurationRecorderStatusResponse {
   __type?: "DescribeConfigurationRecorderStatusResponse";
   /**
    * <p>A list that contains status of the specified
@@ -2653,8 +2644,7 @@ export namespace DescribeConfigurationRecordersRequest {
 /**
  * <p>The output for the <a>DescribeConfigurationRecorders</a> action.</p>
  */
-export interface DescribeConfigurationRecordersResponse
-  extends $MetadataBearer {
+export interface DescribeConfigurationRecordersResponse {
   __type?: "DescribeConfigurationRecordersResponse";
   /**
    * <p>A list that contains the descriptions of the specified
@@ -2698,8 +2688,7 @@ export namespace DescribeConformancePackComplianceRequest {
   }
 }
 
-export interface DescribeConformancePackComplianceResponse
-  extends $MetadataBearer {
+export interface DescribeConformancePackComplianceResponse {
   __type?: "DescribeConformancePackComplianceResponse";
   /**
    * <p>Name of the conformance pack.</p>
@@ -2749,7 +2738,7 @@ export namespace DescribeConformancePackStatusRequest {
   }
 }
 
-export interface DescribeConformancePackStatusResponse extends $MetadataBearer {
+export interface DescribeConformancePackStatusResponse {
   __type?: "DescribeConformancePackStatusResponse";
   /**
    * <p>A list of <code>ConformancePackStatusDetail</code> objects.</p>
@@ -2792,7 +2781,7 @@ export namespace DescribeConformancePacksRequest {
   }
 }
 
-export interface DescribeConformancePacksResponse extends $MetadataBearer {
+export interface DescribeConformancePacksResponse {
   __type?: "DescribeConformancePacksResponse";
   /**
    * <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
@@ -2832,7 +2821,7 @@ export namespace DescribeDeliveryChannelStatusRequest {
 /**
  * <p>The output for the <a>DescribeDeliveryChannelStatus</a> action.</p>
  */
-export interface DescribeDeliveryChannelStatusResponse extends $MetadataBearer {
+export interface DescribeDeliveryChannelStatusResponse {
   __type?: "DescribeDeliveryChannelStatusResponse";
   /**
    * <p>A list that contains the status of a specified delivery
@@ -2869,7 +2858,7 @@ export namespace DescribeDeliveryChannelsRequest {
  * <p>The output for the <a>DescribeDeliveryChannels</a>
  * 			action.</p>
  */
-export interface DescribeDeliveryChannelsResponse extends $MetadataBearer {
+export interface DescribeDeliveryChannelsResponse {
   __type?: "DescribeDeliveryChannelsResponse";
   /**
    * <p>A list that contains the descriptions of the specified delivery
@@ -2910,8 +2899,7 @@ export namespace DescribeOrganizationConfigRuleStatusesRequest {
   }
 }
 
-export interface DescribeOrganizationConfigRuleStatusesResponse
-  extends $MetadataBearer {
+export interface DescribeOrganizationConfigRuleStatusesResponse {
   __type?: "DescribeOrganizationConfigRuleStatusesResponse";
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -2956,8 +2944,7 @@ export namespace DescribeOrganizationConfigRulesRequest {
   }
 }
 
-export interface DescribeOrganizationConfigRulesResponse
-  extends $MetadataBearer {
+export interface DescribeOrganizationConfigRulesResponse {
   __type?: "DescribeOrganizationConfigRulesResponse";
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -3004,8 +2991,7 @@ export namespace DescribeOrganizationConformancePackStatusesRequest {
   }
 }
 
-export interface DescribeOrganizationConformancePackStatusesResponse
-  extends $MetadataBearer {
+export interface DescribeOrganizationConformancePackStatusesResponse {
   __type?: "DescribeOrganizationConformancePackStatusesResponse";
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -3056,8 +3042,7 @@ export namespace DescribeOrganizationConformancePacksRequest {
   }
 }
 
-export interface DescribeOrganizationConformancePacksResponse
-  extends $MetadataBearer {
+export interface DescribeOrganizationConformancePacksResponse {
   __type?: "DescribeOrganizationConformancePacksResponse";
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a
@@ -3101,8 +3086,7 @@ export namespace DescribePendingAggregationRequestsRequest {
   }
 }
 
-export interface DescribePendingAggregationRequestsResponse
-  extends $MetadataBearer {
+export interface DescribePendingAggregationRequestsResponse {
   __type?: "DescribePendingAggregationRequestsResponse";
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
@@ -3136,8 +3120,7 @@ export namespace DescribeRemediationConfigurationsRequest {
   }
 }
 
-export interface DescribeRemediationConfigurationsResponse
-  extends $MetadataBearer {
+export interface DescribeRemediationConfigurationsResponse {
   __type?: "DescribeRemediationConfigurationsResponse";
   /**
    * <p>Returns a remediation configuration object.</p>
@@ -3180,7 +3163,7 @@ export namespace DescribeRemediationExceptionsRequest {
   }
 }
 
-export interface DescribeRemediationExceptionsResponse extends $MetadataBearer {
+export interface DescribeRemediationExceptionsResponse {
   __type?: "DescribeRemediationExceptionsResponse";
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -3228,8 +3211,7 @@ export namespace DescribeRemediationExecutionStatusRequest {
   }
 }
 
-export interface DescribeRemediationExecutionStatusResponse
-  extends $MetadataBearer {
+export interface DescribeRemediationExecutionStatusResponse {
   __type?: "DescribeRemediationExecutionStatusResponse";
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -3275,8 +3257,7 @@ export namespace DescribeRetentionConfigurationsRequest {
   }
 }
 
-export interface DescribeRetentionConfigurationsResponse
-  extends $MetadataBearer {
+export interface DescribeRetentionConfigurationsResponse {
   __type?: "DescribeRetentionConfigurationsResponse";
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -3627,8 +3608,7 @@ export namespace GetAggregateComplianceDetailsByConfigRuleRequest {
   }
 }
 
-export interface GetAggregateComplianceDetailsByConfigRuleResponse
-  extends $MetadataBearer {
+export interface GetAggregateComplianceDetailsByConfigRuleResponse {
   __type?: "GetAggregateComplianceDetailsByConfigRuleResponse";
   /**
    * <p>Returns an AggregateEvaluationResults object.</p>
@@ -3690,8 +3670,7 @@ export namespace GetAggregateConfigRuleComplianceSummaryRequest {
   }
 }
 
-export interface GetAggregateConfigRuleComplianceSummaryResponse
-  extends $MetadataBearer {
+export interface GetAggregateConfigRuleComplianceSummaryResponse {
   __type?: "GetAggregateConfigRuleComplianceSummaryResponse";
   /**
    * <p>Returns a list of AggregateComplianceCounts object.</p>
@@ -3754,8 +3733,7 @@ export namespace GetAggregateDiscoveredResourceCountsRequest {
   }
 }
 
-export interface GetAggregateDiscoveredResourceCountsResponse
-  extends $MetadataBearer {
+export interface GetAggregateDiscoveredResourceCountsResponse {
   __type?: "GetAggregateDiscoveredResourceCountsResponse";
   /**
    * <p>The key passed into the request object. If <code>GroupByKey</code> is not provided, the result will be empty.</p>
@@ -3805,7 +3783,7 @@ export namespace GetAggregateResourceConfigRequest {
   }
 }
 
-export interface GetAggregateResourceConfigResponse extends $MetadataBearer {
+export interface GetAggregateResourceConfigResponse {
   __type?: "GetAggregateResourceConfigResponse";
   /**
    * <p>Returns a <code>ConfigurationItem</code> object.</p>
@@ -3862,8 +3840,7 @@ export namespace GetComplianceDetailsByConfigRuleRequest {
 /**
  * <p></p>
  */
-export interface GetComplianceDetailsByConfigRuleResponse
-  extends $MetadataBearer {
+export interface GetComplianceDetailsByConfigRuleResponse {
   __type?: "GetComplianceDetailsByConfigRuleResponse";
   /**
    * <p>Indicates whether the AWS resource complies with the specified
@@ -3926,8 +3903,7 @@ export namespace GetComplianceDetailsByResourceRequest {
 /**
  * <p></p>
  */
-export interface GetComplianceDetailsByResourceResponse
-  extends $MetadataBearer {
+export interface GetComplianceDetailsByResourceResponse {
   __type?: "GetComplianceDetailsByResourceResponse";
   /**
    * <p>Indicates whether the specified AWS resource complies each AWS
@@ -3951,8 +3927,7 @@ export namespace GetComplianceDetailsByResourceResponse {
 /**
  * <p></p>
  */
-export interface GetComplianceSummaryByConfigRuleResponse
-  extends $MetadataBearer {
+export interface GetComplianceSummaryByConfigRuleResponse {
   __type?: "GetComplianceSummaryByConfigRuleResponse";
   /**
    * <p>The number of AWS Config rules that are compliant and the
@@ -3994,8 +3969,7 @@ export namespace GetComplianceSummaryByResourceTypeRequest {
 /**
  * <p></p>
  */
-export interface GetComplianceSummaryByResourceTypeResponse
-  extends $MetadataBearer {
+export interface GetComplianceSummaryByResourceTypeResponse {
   __type?: "GetComplianceSummaryByResourceTypeResponse";
   /**
    * <p>The number of resources that are compliant and the number that
@@ -4041,8 +4015,7 @@ export namespace GetConformancePackComplianceDetailsRequest {
   }
 }
 
-export interface GetConformancePackComplianceDetailsResponse
-  extends $MetadataBearer {
+export interface GetConformancePackComplianceDetailsResponse {
   __type?: "GetConformancePackComplianceDetailsResponse";
   /**
    * <p>Name of the conformance pack.</p>
@@ -4092,8 +4065,7 @@ export namespace GetConformancePackComplianceSummaryRequest {
   }
 }
 
-export interface GetConformancePackComplianceSummaryResponse
-  extends $MetadataBearer {
+export interface GetConformancePackComplianceSummaryResponse {
   __type?: "GetConformancePackComplianceSummaryResponse";
   /**
    * <p>A list of <code>ConformancePackComplianceSummary</code> objects. </p>
@@ -4159,7 +4131,7 @@ export namespace GetDiscoveredResourceCountsRequest {
   }
 }
 
-export interface GetDiscoveredResourceCountsResponse extends $MetadataBearer {
+export interface GetDiscoveredResourceCountsResponse {
   __type?: "GetDiscoveredResourceCountsResponse";
   /**
    * <p>The string that you use in a subsequent request to get the next
@@ -4243,8 +4215,7 @@ export namespace GetOrganizationConfigRuleDetailedStatusRequest {
   }
 }
 
-export interface GetOrganizationConfigRuleDetailedStatusResponse
-  extends $MetadataBearer {
+export interface GetOrganizationConfigRuleDetailedStatusResponse {
   __type?: "GetOrganizationConfigRuleDetailedStatusResponse";
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -4297,8 +4268,7 @@ export namespace GetOrganizationConformancePackDetailedStatusRequest {
   }
 }
 
-export interface GetOrganizationConformancePackDetailedStatusResponse
-  extends $MetadataBearer {
+export interface GetOrganizationConformancePackDetailedStatusResponse {
   __type?: "GetOrganizationConformancePackDetailedStatusResponse";
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -4384,7 +4354,7 @@ export namespace GetResourceConfigHistoryRequest {
  * <p>The output for the <a>GetResourceConfigHistory</a>
  * 			action.</p>
  */
-export interface GetResourceConfigHistoryResponse extends $MetadataBearer {
+export interface GetResourceConfigHistoryResponse {
   __type?: "GetResourceConfigHistoryResponse";
   /**
    * <p>A list that contains the configuration history of one or more
@@ -4815,8 +4785,7 @@ export namespace ListAggregateDiscoveredResourcesRequest {
   }
 }
 
-export interface ListAggregateDiscoveredResourcesResponse
-  extends $MetadataBearer {
+export interface ListAggregateDiscoveredResourcesResponse {
   __type?: "ListAggregateDiscoveredResourcesResponse";
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -4892,7 +4861,7 @@ export namespace ListDiscoveredResourcesRequest {
 /**
  * <p></p>
  */
-export interface ListDiscoveredResourcesResponse extends $MetadataBearer {
+export interface ListDiscoveredResourcesResponse {
   __type?: "ListDiscoveredResourcesResponse";
   /**
    * <p>The string that you use in a subsequent request to get the next
@@ -4938,7 +4907,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -6335,7 +6304,7 @@ export namespace PutAggregationAuthorizationRequest {
   }
 }
 
-export interface PutAggregationAuthorizationResponse extends $MetadataBearer {
+export interface PutAggregationAuthorizationResponse {
   __type?: "PutAggregationAuthorizationResponse";
   /**
    * <p>Returns an AggregationAuthorization object.
@@ -6401,7 +6370,7 @@ export namespace PutConfigurationAggregatorRequest {
   }
 }
 
-export interface PutConfigurationAggregatorResponse extends $MetadataBearer {
+export interface PutConfigurationAggregatorResponse {
   __type?: "PutConfigurationAggregatorResponse";
   /**
    * <p>Returns a ConfigurationAggregator object.</p>
@@ -6479,7 +6448,7 @@ export namespace PutConformancePackRequest {
   }
 }
 
-export interface PutConformancePackResponse extends $MetadataBearer {
+export interface PutConformancePackResponse {
   __type?: "PutConformancePackResponse";
   /**
    * <p>ARN of the conformance pack.</p>
@@ -6559,7 +6528,7 @@ export namespace PutEvaluationsRequest {
 /**
  * <p></p>
  */
-export interface PutEvaluationsResponse extends $MetadataBearer {
+export interface PutEvaluationsResponse {
   __type?: "PutEvaluationsResponse";
   /**
    * <p>Requests that failed because of a client or server
@@ -6603,7 +6572,7 @@ export namespace PutOrganizationConfigRuleRequest {
   }
 }
 
-export interface PutOrganizationConfigRuleResponse extends $MetadataBearer {
+export interface PutOrganizationConfigRuleResponse {
   __type?: "PutOrganizationConfigRuleResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of an organization config rule.</p>
@@ -6669,8 +6638,7 @@ export namespace PutOrganizationConformancePackRequest {
   }
 }
 
-export interface PutOrganizationConformancePackResponse
-  extends $MetadataBearer {
+export interface PutOrganizationConformancePackResponse {
   __type?: "PutOrganizationConformancePackResponse";
   /**
    * <p>ARN of the organization conformance pack.</p>
@@ -6698,7 +6666,7 @@ export namespace PutRemediationConfigurationsRequest {
   }
 }
 
-export interface PutRemediationConfigurationsResponse extends $MetadataBearer {
+export interface PutRemediationConfigurationsResponse {
   __type?: "PutRemediationConfigurationsResponse";
   /**
    * <p>Returns a list of failed remediation batch objects.</p>
@@ -6741,7 +6709,7 @@ export namespace PutRemediationExceptionsRequest {
   }
 }
 
-export interface PutRemediationExceptionsResponse extends $MetadataBearer {
+export interface PutRemediationExceptionsResponse {
   __type?: "PutRemediationExceptionsResponse";
   /**
    * <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
@@ -6819,7 +6787,7 @@ export namespace PutRetentionConfigurationRequest {
   }
 }
 
-export interface PutRetentionConfigurationResponse extends $MetadataBearer {
+export interface PutRetentionConfigurationResponse {
   __type?: "PutRetentionConfigurationResponse";
   /**
    * <p>Returns a retention configuration object.</p>
@@ -7687,7 +7655,7 @@ export namespace SelectResourceConfigRequest {
   }
 }
 
-export interface SelectResourceConfigResponse extends $MetadataBearer {
+export interface SelectResourceConfigResponse {
   __type?: "SelectResourceConfigResponse";
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
@@ -7884,7 +7852,7 @@ export namespace StartConfigRulesEvaluationRequest {
  * <p>The output when you start the evaluation for the specified AWS
  * 			Config rule.</p>
  */
-export interface StartConfigRulesEvaluationResponse extends $MetadataBearer {
+export interface StartConfigRulesEvaluationResponse {
   __type?: "StartConfigRulesEvaluationResponse";
 }
 
@@ -7932,7 +7900,7 @@ export namespace StartRemediationExecutionRequest {
   }
 }
 
-export interface StartRemediationExecutionResponse extends $MetadataBearer {
+export interface StartRemediationExecutionResponse {
   __type?: "StartRemediationExecutionResponse";
   /**
    * <p>For resources that have failed to start execution, the API returns a resource key object.</p>

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteUserDefinedFunctionCommandInput = DeleteUserDefinedFunctionRequest;
-export type DeleteUserDefinedFunctionCommandOutput = DeleteUserDefinedFunctionResponse;
+export type DeleteUserDefinedFunctionCommandOutput = DeleteUserDefinedFunctionResponse &
+  __MetadataBearer;
 
 export class DeleteUserDefinedFunctionCommand extends $Command<
   DeleteUserDefinedFunctionCommandInput,

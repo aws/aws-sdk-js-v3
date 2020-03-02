@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterJobDefinitionCommandInput = DeregisterJobDefinitionRequest;
-export type DeregisterJobDefinitionCommandOutput = DeregisterJobDefinitionResponse;
+export type DeregisterJobDefinitionCommandOutput = DeregisterJobDefinitionResponse &
+  __MetadataBearer;
 
 export class DeregisterJobDefinitionCommand extends $Command<
   DeregisterJobDefinitionCommandInput,

@@ -1,43 +1,79 @@
 import {
-  CreateSignalingChannelInput,
-  CreateSignalingChannelOutput,
-  CreateStreamInput,
-  CreateStreamOutput,
-  DeleteSignalingChannelInput,
-  DeleteSignalingChannelOutput,
-  DeleteStreamInput,
-  DeleteStreamOutput,
-  DescribeSignalingChannelInput,
-  DescribeSignalingChannelOutput,
-  DescribeStreamInput,
-  DescribeStreamOutput,
-  GetDataEndpointInput,
-  GetDataEndpointOutput,
-  GetSignalingChannelEndpointInput,
-  GetSignalingChannelEndpointOutput,
-  ListSignalingChannelsInput,
-  ListSignalingChannelsOutput,
-  ListStreamsInput,
-  ListStreamsOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  ListTagsForStreamInput,
-  ListTagsForStreamOutput,
-  TagResourceInput,
-  TagResourceOutput,
-  TagStreamInput,
-  TagStreamOutput,
-  UntagResourceInput,
-  UntagResourceOutput,
-  UntagStreamInput,
-  UntagStreamOutput,
-  UpdateDataRetentionInput,
-  UpdateDataRetentionOutput,
-  UpdateSignalingChannelInput,
-  UpdateSignalingChannelOutput,
-  UpdateStreamInput,
-  UpdateStreamOutput
-} from "./models/index";
+  CreateSignalingChannelCommandInput,
+  CreateSignalingChannelCommandOutput
+} from "./commands/CreateSignalingChannelCommand";
+import {
+  CreateStreamCommandInput,
+  CreateStreamCommandOutput
+} from "./commands/CreateStreamCommand";
+import {
+  DeleteSignalingChannelCommandInput,
+  DeleteSignalingChannelCommandOutput
+} from "./commands/DeleteSignalingChannelCommand";
+import {
+  DeleteStreamCommandInput,
+  DeleteStreamCommandOutput
+} from "./commands/DeleteStreamCommand";
+import {
+  DescribeSignalingChannelCommandInput,
+  DescribeSignalingChannelCommandOutput
+} from "./commands/DescribeSignalingChannelCommand";
+import {
+  DescribeStreamCommandInput,
+  DescribeStreamCommandOutput
+} from "./commands/DescribeStreamCommand";
+import {
+  GetDataEndpointCommandInput,
+  GetDataEndpointCommandOutput
+} from "./commands/GetDataEndpointCommand";
+import {
+  GetSignalingChannelEndpointCommandInput,
+  GetSignalingChannelEndpointCommandOutput
+} from "./commands/GetSignalingChannelEndpointCommand";
+import {
+  ListSignalingChannelsCommandInput,
+  ListSignalingChannelsCommandOutput
+} from "./commands/ListSignalingChannelsCommand";
+import {
+  ListStreamsCommandInput,
+  ListStreamsCommandOutput
+} from "./commands/ListStreamsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTagsForStreamCommandInput,
+  ListTagsForStreamCommandOutput
+} from "./commands/ListTagsForStreamCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  TagStreamCommandInput,
+  TagStreamCommandOutput
+} from "./commands/TagStreamCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UntagStreamCommandInput,
+  UntagStreamCommandOutput
+} from "./commands/UntagStreamCommand";
+import {
+  UpdateDataRetentionCommandInput,
+  UpdateDataRetentionCommandOutput
+} from "./commands/UpdateDataRetentionCommand";
+import {
+  UpdateSignalingChannelCommandInput,
+  UpdateSignalingChannelCommandOutput
+} from "./commands/UpdateSignalingChannelCommand";
+import {
+  UpdateStreamCommandInput,
+  UpdateStreamCommandOutput
+} from "./commands/UpdateStreamCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -91,46 +127,46 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateSignalingChannelInput
-  | CreateStreamInput
-  | DeleteSignalingChannelInput
-  | DeleteStreamInput
-  | DescribeSignalingChannelInput
-  | DescribeStreamInput
-  | GetDataEndpointInput
-  | GetSignalingChannelEndpointInput
-  | ListSignalingChannelsInput
-  | ListStreamsInput
-  | ListTagsForResourceInput
-  | ListTagsForStreamInput
-  | TagResourceInput
-  | TagStreamInput
-  | UntagResourceInput
-  | UntagStreamInput
-  | UpdateDataRetentionInput
-  | UpdateSignalingChannelInput
-  | UpdateStreamInput;
+  | CreateSignalingChannelCommandInput
+  | CreateStreamCommandInput
+  | DeleteSignalingChannelCommandInput
+  | DeleteStreamCommandInput
+  | DescribeSignalingChannelCommandInput
+  | DescribeStreamCommandInput
+  | GetDataEndpointCommandInput
+  | GetSignalingChannelEndpointCommandInput
+  | ListSignalingChannelsCommandInput
+  | ListStreamsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTagsForStreamCommandInput
+  | TagResourceCommandInput
+  | TagStreamCommandInput
+  | UntagResourceCommandInput
+  | UntagStreamCommandInput
+  | UpdateDataRetentionCommandInput
+  | UpdateSignalingChannelCommandInput
+  | UpdateStreamCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateSignalingChannelOutput
-  | CreateStreamOutput
-  | DeleteSignalingChannelOutput
-  | DeleteStreamOutput
-  | DescribeSignalingChannelOutput
-  | DescribeStreamOutput
-  | GetDataEndpointOutput
-  | GetSignalingChannelEndpointOutput
-  | ListSignalingChannelsOutput
-  | ListStreamsOutput
-  | ListTagsForResourceOutput
-  | ListTagsForStreamOutput
-  | TagResourceOutput
-  | TagStreamOutput
-  | UntagResourceOutput
-  | UntagStreamOutput
-  | UpdateDataRetentionOutput
-  | UpdateSignalingChannelOutput
-  | UpdateStreamOutput;
+  | CreateSignalingChannelCommandOutput
+  | CreateStreamCommandOutput
+  | DeleteSignalingChannelCommandOutput
+  | DeleteStreamCommandOutput
+  | DescribeSignalingChannelCommandOutput
+  | DescribeStreamCommandOutput
+  | GetDataEndpointCommandOutput
+  | GetSignalingChannelEndpointCommandOutput
+  | ListSignalingChannelsCommandOutput
+  | ListStreamsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTagsForStreamCommandOutput
+  | TagResourceCommandOutput
+  | TagStreamCommandOutput
+  | UntagResourceCommandOutput
+  | UntagStreamCommandOutput
+  | UpdateDataRetentionCommandOutput
+  | UpdateSignalingChannelCommandOutput
+  | UpdateStreamCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

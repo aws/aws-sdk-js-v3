@@ -32,8 +32,7 @@ export namespace AddApplicationCloudWatchLoggingOptionRequest {
   }
 }
 
-export interface AddApplicationCloudWatchLoggingOptionResponse
-  extends $MetadataBearer {
+export interface AddApplicationCloudWatchLoggingOptionResponse {
   __type?: "AddApplicationCloudWatchLoggingOptionResponse";
 }
 
@@ -79,8 +78,7 @@ export namespace AddApplicationInputProcessingConfigurationRequest {
   }
 }
 
-export interface AddApplicationInputProcessingConfigurationResponse
-  extends $MetadataBearer {
+export interface AddApplicationInputProcessingConfigurationResponse {
   __type?: "AddApplicationInputProcessingConfigurationResponse";
 }
 
@@ -123,7 +121,7 @@ export namespace AddApplicationInputRequest {
 /**
  * <p></p>
  */
-export interface AddApplicationInputResponse extends $MetadataBearer {
+export interface AddApplicationInputResponse {
   __type?: "AddApplicationInputResponse";
 }
 
@@ -169,7 +167,7 @@ export namespace AddApplicationOutputRequest {
 /**
  * <p></p>
  */
-export interface AddApplicationOutputResponse extends $MetadataBearer {
+export interface AddApplicationOutputResponse {
   __type?: "AddApplicationOutputResponse";
 }
 
@@ -212,8 +210,7 @@ export namespace AddApplicationReferenceDataSourceRequest {
 /**
  * <p></p>
  */
-export interface AddApplicationReferenceDataSourceResponse
-  extends $MetadataBearer {
+export interface AddApplicationReferenceDataSourceResponse {
   __type?: "AddApplicationReferenceDataSourceResponse";
 }
 
@@ -624,7 +621,7 @@ export namespace CreateApplicationRequest {
 /**
  * <p>TBD</p>
  */
-export interface CreateApplicationResponse extends $MetadataBearer {
+export interface CreateApplicationResponse {
   __type?: "CreateApplicationResponse";
   /**
    * <p>In response to your <code>CreateApplication</code> request, Amazon Kinesis Analytics returns a
@@ -667,8 +664,7 @@ export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
   }
 }
 
-export interface DeleteApplicationCloudWatchLoggingOptionResponse
-  extends $MetadataBearer {
+export interface DeleteApplicationCloudWatchLoggingOptionResponse {
   __type?: "DeleteApplicationCloudWatchLoggingOptionResponse";
 }
 
@@ -707,8 +703,7 @@ export namespace DeleteApplicationInputProcessingConfigurationRequest {
   }
 }
 
-export interface DeleteApplicationInputProcessingConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteApplicationInputProcessingConfigurationResponse {
   __type?: "DeleteApplicationInputProcessingConfigurationResponse";
 }
 
@@ -761,7 +756,7 @@ export namespace DeleteApplicationOutputRequest {
 /**
  * <p></p>
  */
-export interface DeleteApplicationOutputResponse extends $MetadataBearer {
+export interface DeleteApplicationOutputResponse {
   __type?: "DeleteApplicationOutputResponse";
 }
 
@@ -804,8 +799,7 @@ export namespace DeleteApplicationReferenceDataSourceRequest {
   }
 }
 
-export interface DeleteApplicationReferenceDataSourceResponse
-  extends $MetadataBearer {
+export interface DeleteApplicationReferenceDataSourceResponse {
   __type?: "DeleteApplicationReferenceDataSourceResponse";
 }
 
@@ -844,7 +838,7 @@ export namespace DeleteApplicationRequest {
 /**
  * <p></p>
  */
-export interface DeleteApplicationResponse extends $MetadataBearer {
+export interface DeleteApplicationResponse {
   __type?: "DeleteApplicationResponse";
 }
 
@@ -874,7 +868,7 @@ export namespace DescribeApplicationRequest {
 /**
  * <p></p>
  */
-export interface DescribeApplicationResponse extends $MetadataBearer {
+export interface DescribeApplicationResponse {
   __type?: "DescribeApplicationResponse";
   /**
    * <p>Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.</p>
@@ -948,7 +942,7 @@ export namespace DiscoverInputSchemaRequest {
 /**
  * <p></p>
  */
-export interface DiscoverInputSchemaResponse extends $MetadataBearer {
+export interface DiscoverInputSchemaResponse {
   __type?: "DiscoverInputSchemaResponse";
   /**
    * <p>Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.</p>
@@ -1919,7 +1913,7 @@ export namespace ListApplicationsRequest {
 /**
  * <p></p>
  */
-export interface ListApplicationsResponse extends $MetadataBearer {
+export interface ListApplicationsResponse {
   __type?: "ListApplicationsResponse";
   /**
    * <p>List of <code>ApplicationSummary</code> objects. </p>
@@ -1952,7 +1946,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The key-value tags assigned to the application.</p>
@@ -2542,7 +2536,7 @@ export namespace StartApplicationRequest {
 /**
  * <p></p>
  */
-export interface StartApplicationResponse extends $MetadataBearer {
+export interface StartApplicationResponse {
   __type?: "StartApplicationResponse";
 }
 
@@ -2572,7 +2566,7 @@ export namespace StopApplicationRequest {
 /**
  * <p></p>
  */
-export interface StopApplicationResponse extends $MetadataBearer {
+export interface StopApplicationResponse {
   __type?: "StopApplicationResponse";
 }
 
@@ -2625,7 +2619,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -2708,7 +2702,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -2743,7 +2737,7 @@ export namespace UpdateApplicationRequest {
   }
 }
 
-export interface UpdateApplicationResponse extends $MetadataBearer {
+export interface UpdateApplicationResponse {
   __type?: "UpdateApplicationResponse";
 }
 

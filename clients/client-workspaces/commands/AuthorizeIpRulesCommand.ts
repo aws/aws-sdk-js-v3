@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AuthorizeIpRulesCommandInput = AuthorizeIpRulesRequest;
-export type AuthorizeIpRulesCommandOutput = AuthorizeIpRulesResult;
+export type AuthorizeIpRulesCommandOutput = AuthorizeIpRulesResult &
+  __MetadataBearer;
 
 export class AuthorizeIpRulesCommand extends $Command<
   AuthorizeIpRulesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAvailableManagementCidrRangesCommandInput = ListAvailableManagementCidrRangesRequest;
-export type ListAvailableManagementCidrRangesCommandOutput = ListAvailableManagementCidrRangesResult;
+export type ListAvailableManagementCidrRangesCommandOutput = ListAvailableManagementCidrRangesResult &
+  __MetadataBearer;
 
 export class ListAvailableManagementCidrRangesCommand extends $Command<
   ListAvailableManagementCidrRangesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListServiceSpecificCredentialsCommandInput = ListServiceSpecificCredentialsRequest;
-export type ListServiceSpecificCredentialsCommandOutput = ListServiceSpecificCredentialsResponse;
+export type ListServiceSpecificCredentialsCommandOutput = ListServiceSpecificCredentialsResponse &
+  __MetadataBearer;
 
 export class ListServiceSpecificCredentialsCommand extends $Command<
   ListServiceSpecificCredentialsCommandInput,

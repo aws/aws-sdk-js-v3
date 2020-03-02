@@ -1,19 +1,31 @@
 import {
-  CloseTunnelRequest,
-  CloseTunnelResponse,
-  DescribeTunnelRequest,
-  DescribeTunnelResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTunnelsRequest,
-  ListTunnelsResponse,
-  OpenTunnelRequest,
-  OpenTunnelResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse
-} from "./models/index";
+  CloseTunnelCommandInput,
+  CloseTunnelCommandOutput
+} from "./commands/CloseTunnelCommand";
+import {
+  DescribeTunnelCommandInput,
+  DescribeTunnelCommandOutput
+} from "./commands/DescribeTunnelCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTunnelsCommandInput,
+  ListTunnelsCommandOutput
+} from "./commands/ListTunnelsCommand";
+import {
+  OpenTunnelCommandInput,
+  OpenTunnelCommandOutput
+} from "./commands/OpenTunnelCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -67,22 +79,22 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CloseTunnelRequest
-  | DescribeTunnelRequest
-  | ListTagsForResourceRequest
-  | ListTunnelsRequest
-  | OpenTunnelRequest
-  | TagResourceRequest
-  | UntagResourceRequest;
+  | CloseTunnelCommandInput
+  | DescribeTunnelCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTunnelsCommandInput
+  | OpenTunnelCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | CloseTunnelResponse
-  | DescribeTunnelResponse
-  | ListTagsForResourceResponse
-  | ListTunnelsResponse
-  | OpenTunnelResponse
-  | TagResourceResponse
-  | UntagResourceResponse;
+  | CloseTunnelCommandOutput
+  | DescribeTunnelCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTunnelsCommandOutput
+  | OpenTunnelCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

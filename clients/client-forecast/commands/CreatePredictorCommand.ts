@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePredictorCommandInput = CreatePredictorRequest;
-export type CreatePredictorCommandOutput = CreatePredictorResponse;
+export type CreatePredictorCommandOutput = CreatePredictorResponse &
+  __MetadataBearer;
 
 export class CreatePredictorCommand extends $Command<
   CreatePredictorCommandInput,

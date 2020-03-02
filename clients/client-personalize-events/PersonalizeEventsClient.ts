@@ -1,4 +1,7 @@
-import { PutEventsRequest } from "./models/index";
+import {
+  PutEventsCommandInput,
+  PutEventsCommandOutput
+} from "./commands/PutEventsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -46,15 +49,14 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = PutEventsRequest;
+export type ServiceInputTypes = PutEventsCommandInput;
 
-export type ServiceOutputTypes = __MetadataBearer;
+export type ServiceOutputTypes = PutEventsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

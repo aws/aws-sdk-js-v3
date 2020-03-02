@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTableVersionsCommandInput = GetTableVersionsRequest;
-export type GetTableVersionsCommandOutput = GetTableVersionsResponse;
+export type GetTableVersionsCommandOutput = GetTableVersionsResponse &
+  __MetadataBearer;
 
 export class GetTableVersionsCommand extends $Command<
   GetTableVersionsCommandInput,

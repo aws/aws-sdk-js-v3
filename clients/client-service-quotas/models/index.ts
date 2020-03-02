@@ -49,7 +49,7 @@ export namespace AssociateServiceQuotaTemplateRequest {
   }
 }
 
-export interface AssociateServiceQuotaTemplateResponse extends $MetadataBearer {
+export interface AssociateServiceQuotaTemplateResponse {
   __type?: "AssociateServiceQuotaTemplateResponse";
 }
 
@@ -85,8 +85,7 @@ export namespace DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
   }
 }
 
-export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse
-  extends $MetadataBearer {
+export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
   __type?: "DeleteServiceQuotaIncreaseRequestFromTemplateResponse";
 }
 
@@ -125,8 +124,7 @@ export namespace DisassociateServiceQuotaTemplateRequest {
   }
 }
 
-export interface DisassociateServiceQuotaTemplateResponse
-  extends $MetadataBearer {
+export interface DisassociateServiceQuotaTemplateResponse {
   __type?: "DisassociateServiceQuotaTemplateResponse";
 }
 
@@ -198,7 +196,7 @@ export namespace GetAWSDefaultServiceQuotaRequest {
   }
 }
 
-export interface GetAWSDefaultServiceQuotaResponse extends $MetadataBearer {
+export interface GetAWSDefaultServiceQuotaResponse {
   __type?: "GetAWSDefaultServiceQuotaResponse";
   /**
    * <p>Returns the <a>ServiceQuota</a> object which contains all values for a
@@ -225,8 +223,7 @@ export namespace GetAssociationForServiceQuotaTemplateRequest {
   }
 }
 
-export interface GetAssociationForServiceQuotaTemplateResponse
-  extends $MetadataBearer {
+export interface GetAssociationForServiceQuotaTemplateResponse {
   __type?: "GetAssociationForServiceQuotaTemplateResponse";
   /**
    * <p>Specifies whether the template is <code>ASSOCIATED</code> or <code>DISASSOCIATED</code>.
@@ -260,8 +257,7 @@ export namespace GetRequestedServiceQuotaChangeRequest {
   }
 }
 
-export interface GetRequestedServiceQuotaChangeResponse
-  extends $MetadataBearer {
+export interface GetRequestedServiceQuotaChangeResponse {
   __type?: "GetRequestedServiceQuotaChangeResponse";
   /**
    * <p>Returns the <code>RequestedServiceQuotaChange</code> object for the specific increase
@@ -302,8 +298,7 @@ export namespace GetServiceQuotaIncreaseRequestFromTemplateRequest {
   }
 }
 
-export interface GetServiceQuotaIncreaseRequestFromTemplateResponse
-  extends $MetadataBearer {
+export interface GetServiceQuotaIncreaseRequestFromTemplateResponse {
   __type?: "GetServiceQuotaIncreaseRequestFromTemplateResponse";
   /**
    * <p>This object contains the details about the quota increase request.</p>
@@ -338,7 +333,7 @@ export namespace GetServiceQuotaRequest {
   }
 }
 
-export interface GetServiceQuotaResponse extends $MetadataBearer {
+export interface GetServiceQuotaResponse {
   __type?: "GetServiceQuotaResponse";
   /**
    * <p>Returns the <a>ServiceQuota</a> object which contains all values for a
@@ -441,7 +436,7 @@ export namespace ListAWSDefaultServiceQuotasRequest {
   }
 }
 
-export interface ListAWSDefaultServiceQuotasResponse extends $MetadataBearer {
+export interface ListAWSDefaultServiceQuotasResponse {
   __type?: "ListAWSDefaultServiceQuotasResponse";
   /**
    * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
@@ -508,8 +503,7 @@ export namespace ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
   }
 }
 
-export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse
-  extends $MetadataBearer {
+export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
   __type?: "ListRequestedServiceQuotaChangeHistoryByQuotaResponse";
   /**
    * <p>If present in the response, this value indicates there's more output available that what's
@@ -575,8 +569,7 @@ export namespace ListRequestedServiceQuotaChangeHistoryRequest {
   }
 }
 
-export interface ListRequestedServiceQuotaChangeHistoryResponse
-  extends $MetadataBearer {
+export interface ListRequestedServiceQuotaChangeHistoryResponse {
   __type?: "ListRequestedServiceQuotaChangeHistoryResponse";
   /**
    * <p>If present in the response, this value indicates there's more output available that what's
@@ -643,8 +636,7 @@ export namespace ListServiceQuotaIncreaseRequestsInTemplateRequest {
   }
 }
 
-export interface ListServiceQuotaIncreaseRequestsInTemplateResponse
-  extends $MetadataBearer {
+export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
   __type?: "ListServiceQuotaIncreaseRequestsInTemplateResponse";
   /**
    * <p>If present in the response, this value indicates there's more output available that what's
@@ -706,7 +698,7 @@ export namespace ListServiceQuotasRequest {
   }
 }
 
-export interface ListServiceQuotasResponse extends $MetadataBearer {
+export interface ListServiceQuotasResponse {
   __type?: "ListServiceQuotasResponse";
   /**
    * <p>If present in the response, this value indicates there's more output available that what's
@@ -759,7 +751,7 @@ export namespace ListServicesRequest {
   }
 }
 
-export interface ListServicesResponse extends $MetadataBearer {
+export interface ListServicesResponse {
   __type?: "ListServicesResponse";
   /**
    * <p>If present in the response, this value indicates there's more output available that what's
@@ -915,8 +907,7 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateRequest {
   }
 }
 
-export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse
-  extends $MetadataBearer {
+export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse {
   __type?: "PutServiceQuotaIncreaseRequestIntoTemplateResponse";
   /**
    * <p>A structure that contains information about one service quota increase request.</p>
@@ -996,7 +987,7 @@ export namespace RequestServiceQuotaIncreaseRequest {
   }
 }
 
-export interface RequestServiceQuotaIncreaseResponse extends $MetadataBearer {
+export interface RequestServiceQuotaIncreaseResponse {
   __type?: "RequestServiceQuotaIncreaseResponse";
   /**
    * <p>Returns a list of service quota requests.</p>

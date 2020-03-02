@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDRTAccessCommandInput = DescribeDRTAccessRequest;
-export type DescribeDRTAccessCommandOutput = DescribeDRTAccessResponse;
+export type DescribeDRTAccessCommandOutput = DescribeDRTAccessResponse &
+  __MetadataBearer;
 
 export class DescribeDRTAccessCommand extends $Command<
   DescribeDRTAccessCommandInput,

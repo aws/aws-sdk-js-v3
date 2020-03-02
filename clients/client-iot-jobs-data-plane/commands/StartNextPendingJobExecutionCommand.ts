@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartNextPendingJobExecutionCommandInput = StartNextPendingJobExecutionRequest;
-export type StartNextPendingJobExecutionCommandOutput = StartNextPendingJobExecutionResponse;
+export type StartNextPendingJobExecutionCommandOutput = StartNextPendingJobExecutionResponse &
+  __MetadataBearer;
 
 export class StartNextPendingJobExecutionCommand extends $Command<
   StartNextPendingJobExecutionCommandInput,

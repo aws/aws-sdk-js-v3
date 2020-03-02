@@ -104,7 +104,7 @@ export namespace GetIceServerConfigRequest {
   }
 }
 
-export interface GetIceServerConfigResponse extends $MetadataBearer {
+export interface GetIceServerConfigResponse {
   __type?: "GetIceServerConfigResponse";
   /**
    * <p>The list of ICE server information objects.</p>
@@ -194,7 +194,7 @@ export namespace SendAlexaOfferToMasterRequest {
   }
 }
 
-export interface SendAlexaOfferToMasterResponse extends $MetadataBearer {
+export interface SendAlexaOfferToMasterResponse {
   __type?: "SendAlexaOfferToMasterResponse";
   /**
    * <p>The base64-encoded SDP answer content.</p>

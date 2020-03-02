@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RunTaskCommandInput = RunTaskRequest;
-export type RunTaskCommandOutput = RunTaskResponse;
+export type RunTaskCommandOutput = RunTaskResponse & __MetadataBearer;
 
 export class RunTaskCommand extends $Command<
   RunTaskCommandInput,

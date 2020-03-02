@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableDomainTransferLockCommandInput = DisableDomainTransferLockRequest;
-export type DisableDomainTransferLockCommandOutput = DisableDomainTransferLockResponse;
+export type DisableDomainTransferLockCommandOutput = DisableDomainTransferLockResponse &
+  __MetadataBearer;
 
 export class DisableDomainTransferLockCommand extends $Command<
   DisableDomainTransferLockCommandInput,

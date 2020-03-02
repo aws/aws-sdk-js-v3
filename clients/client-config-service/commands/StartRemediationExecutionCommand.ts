@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartRemediationExecutionCommandInput = StartRemediationExecutionRequest;
-export type StartRemediationExecutionCommandOutput = StartRemediationExecutionResponse;
+export type StartRemediationExecutionCommandOutput = StartRemediationExecutionResponse &
+  __MetadataBearer;
 
 export class StartRemediationExecutionCommand extends $Command<
   StartRemediationExecutionCommandInput,

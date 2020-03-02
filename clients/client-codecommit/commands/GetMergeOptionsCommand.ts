@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMergeOptionsCommandInput = GetMergeOptionsInput;
-export type GetMergeOptionsCommandOutput = GetMergeOptionsOutput;
+export type GetMergeOptionsCommandOutput = GetMergeOptionsOutput &
+  __MetadataBearer;
 
 export class GetMergeOptionsCommand extends $Command<
   GetMergeOptionsCommandInput,

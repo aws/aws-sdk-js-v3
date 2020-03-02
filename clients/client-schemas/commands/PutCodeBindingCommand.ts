@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutCodeBindingCommandInput = PutCodeBindingRequest;
-export type PutCodeBindingCommandOutput = PutCodeBindingResponse;
+export type PutCodeBindingCommandOutput = PutCodeBindingResponse &
+  __MetadataBearer;
 
 export class PutCodeBindingCommand extends $Command<
   PutCodeBindingCommandInput,

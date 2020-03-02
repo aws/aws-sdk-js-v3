@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterEcsClusterCommandInput = RegisterEcsClusterRequest;
-export type RegisterEcsClusterCommandOutput = RegisterEcsClusterResult;
+export type RegisterEcsClusterCommandOutput = RegisterEcsClusterResult &
+  __MetadataBearer;
 
 export class RegisterEcsClusterCommand extends $Command<
   RegisterEcsClusterCommandInput,

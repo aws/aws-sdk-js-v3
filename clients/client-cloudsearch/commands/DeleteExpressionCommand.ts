@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteExpressionCommandInput = DeleteExpressionRequest;
-export type DeleteExpressionCommandOutput = DeleteExpressionResponse;
+export type DeleteExpressionCommandOutput = DeleteExpressionResponse &
+  __MetadataBearer;
 
 export class DeleteExpressionCommand extends $Command<
   DeleteExpressionCommandInput,

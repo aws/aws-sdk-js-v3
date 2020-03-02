@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyProductCommandInput = CopyProductInput;
-export type CopyProductCommandOutput = CopyProductOutput;
+export type CopyProductCommandOutput = CopyProductOutput & __MetadataBearer;
 
 export class CopyProductCommand extends $Command<
   CopyProductCommandInput,

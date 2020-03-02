@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMultiplexProgramCommandInput = DeleteMultiplexProgramRequest;
-export type DeleteMultiplexProgramCommandOutput = DeleteMultiplexProgramResponse;
+export type DeleteMultiplexProgramCommandOutput = DeleteMultiplexProgramResponse &
+  __MetadataBearer;
 
 export class DeleteMultiplexProgramCommand extends $Command<
   DeleteMultiplexProgramCommandInput,

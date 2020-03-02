@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopDBInstanceCommandInput = StopDBInstanceMessage;
-export type StopDBInstanceCommandOutput = StopDBInstanceResult;
+export type StopDBInstanceCommandOutput = StopDBInstanceResult &
+  __MetadataBearer;
 
 export class StopDBInstanceCommand extends $Command<
   StopDBInstanceCommandInput,

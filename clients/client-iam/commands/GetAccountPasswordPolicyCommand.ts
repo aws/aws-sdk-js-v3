@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccountPasswordPolicyCommandInput = {};
-export type GetAccountPasswordPolicyCommandOutput = GetAccountPasswordPolicyResponse;
+export type GetAccountPasswordPolicyCommandOutput = GetAccountPasswordPolicyResponse &
+  __MetadataBearer;
 
 export class GetAccountPasswordPolicyCommand extends $Command<
   GetAccountPasswordPolicyCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyCurrentDBClusterCapacityCommandInput = ModifyCurrentDBClusterCapacityMessage;
-export type ModifyCurrentDBClusterCapacityCommandOutput = DBClusterCapacityInfo;
+export type ModifyCurrentDBClusterCapacityCommandOutput = DBClusterCapacityInfo &
+  __MetadataBearer;
 
 export class ModifyCurrentDBClusterCapacityCommand extends $Command<
   ModifyCurrentDBClusterCapacityCommandInput,

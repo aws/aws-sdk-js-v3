@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListEnabledProductsForImportCommandInput = ListEnabledProductsForImportRequest;
-export type ListEnabledProductsForImportCommandOutput = ListEnabledProductsForImportResponse;
+export type ListEnabledProductsForImportCommandOutput = ListEnabledProductsForImportResponse &
+  __MetadataBearer;
 
 export class ListEnabledProductsForImportCommand extends $Command<
   ListEnabledProductsForImportCommandInput,

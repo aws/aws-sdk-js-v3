@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateVpcCidrBlockCommandInput = DisassociateVpcCidrBlockRequest;
-export type DisassociateVpcCidrBlockCommandOutput = DisassociateVpcCidrBlockResult;
+export type DisassociateVpcCidrBlockCommandOutput = DisassociateVpcCidrBlockResult &
+  __MetadataBearer;
 
 export class DisassociateVpcCidrBlockCommand extends $Command<
   DisassociateVpcCidrBlockCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRepositoryAssociationCommandInput = DescribeRepositoryAssociationRequest;
-export type DescribeRepositoryAssociationCommandOutput = DescribeRepositoryAssociationResponse;
+export type DescribeRepositoryAssociationCommandOutput = DescribeRepositoryAssociationResponse &
+  __MetadataBearer;
 
 export class DescribeRepositoryAssociationCommand extends $Command<
   DescribeRepositoryAssociationCommandInput,

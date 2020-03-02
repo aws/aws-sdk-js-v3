@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateTrialComponentCommandInput = DisassociateTrialComponentRequest;
-export type DisassociateTrialComponentCommandOutput = DisassociateTrialComponentResponse;
+export type DisassociateTrialComponentCommandOutput = DisassociateTrialComponentResponse &
+  __MetadataBearer;
 
 export class DisassociateTrialComponentCommand extends $Command<
   DisassociateTrialComponentCommandInput,

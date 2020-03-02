@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateQueryLoggingConfigCommandInput = CreateQueryLoggingConfigRequest;
-export type CreateQueryLoggingConfigCommandOutput = CreateQueryLoggingConfigResponse;
+export type CreateQueryLoggingConfigCommandOutput = CreateQueryLoggingConfigResponse &
+  __MetadataBearer;
 
 export class CreateQueryLoggingConfigCommand extends $Command<
   CreateQueryLoggingConfigCommandInput,
