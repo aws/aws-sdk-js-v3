@@ -209,33 +209,3 @@ Feature: Working with Objects in S3
     Given I use signatureVersion "v4"
     When I put "" to the key "foo" with bucket suffix "/a/b/"
     Then the object "a/b//foo" should exist
-
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with trailing slash
-    Given I use signatureVersion "v2"
-    When I put "" to the key "" with bucket suffix "/"
-    Then the object "/" should exist
-  
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with double trailing slashes
-    Given I use signatureVersion "v2"
-    When I put "" to the key "" with bucket suffix "//"
-    Then the object "//" should exist
-
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with slashes without trailing slash
-    Given I use signatureVersion "v2"
-    When I put "" to the key "" with bucket suffix "/a/b"
-    Then the object "a/b/" should exist
-
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with slashes with Key
-    Given I use signatureVersion "v2"
-    When I put "" to the key "foo" with bucket suffix "/a/b"
-    Then the object "a/b/foo" should exist
-
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with trailing slashes with Key
-    Given I use signatureVersion "v2"
-    When I put "" to the key "foo" with bucket suffix "/a/b/"
-    Then the object "a/b//foo" should exist
