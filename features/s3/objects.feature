@@ -145,24 +145,6 @@ Feature: Working with Objects in S3
 
     And I teardown the local proxy server
 
-  @pagination
-  Scenario: Paginating responses
-    Given an empty bucket
-    And I put "data" to the key "obj0"
-    And I put "data" to the key "obj1"
-    And I put "data" to the key "obj2"
-    And I put "data" to the key "obj3"
-    And I put "data" to the key "obj4"
-    And I put "data" to the key "obj5"
-    And I put "data" to the key "obj6"
-    And I put "data" to the key "obj7"
-    And I put "data" to the key "obj8"
-    And I put "data" to the key "obj9"
-    And the object "obj9" should exist
-    And I setup the listObjects request for the bucket
-    When I paginate the "listObjects" operation with limit 3
-    Then I should get 4 pages
-
   @error
   Scenario: Error handling
     Given I put "data" to the invalid key ""
