@@ -133,42 +133,6 @@ Feature: Working with Objects in S3
     Then the object "presignedPost" should contain "PRESIGNED POST CONTENTS"
     Then the HTTP response should have a content length of 23
 
-  @streams
-  Scenario: Streaming objects
-    Given I put "STREAMING CONTENT" to the key "streaming_object"
-    Then the object "streaming_object" should exist
-    When I stream key "streaming_object"
-    Then the streamed data should contain "STREAMING CONTENT"
-    When I stream2 key "streaming_object"
-    Then the streamed data should contain "STREAMING CONTENT"
-
-  @streams
-  Scenario: Streaming empty objects
-    Given I put an empty buffer to the key "empty_streaming_object"
-    Then the object "empty_streaming_object" should exist
-    When I stream key "empty_streaming_object"
-    Then the streamed data content length should equal 0
-    When I stream2 key "empty_streaming_object"
-    Then the streamed data content length should equal 0
-
-  @streams
-  Scenario: Streaming small objects
-    Given I put a small buffer to the key "small_streaming_object"
-    Then the object "small_streaming_object" should exist
-    When I stream key "small_streaming_object"
-    Then the streamed data content length should equal 1048576
-    When I stream2 key "small_streaming_object"
-    Then the streamed data content length should equal 1048576
-
-  @streams
-  Scenario: Streaming large objects
-    Given I put a large buffer to the key "large_streaming_object"
-    Then the object "large_streaming_object" should exist
-    When I stream key "large_streaming_object"
-    Then the streamed data content length should equal 20971520
-    When I stream2 key "large_streaming_object"
-    Then the streamed data content length should equal 20971520
-
   @progress
   Scenario: Progress events
     When I put a 2MB buffer to the key "progress_object" with progress events
