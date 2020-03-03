@@ -133,18 +133,6 @@ Feature: Working with Objects in S3
     Then the object "presignedPost" should contain "PRESIGNED POST CONTENTS"
     Then the HTTP response should have a content length of 23
 
-  @progress
-  Scenario: Progress events
-    When I put a 2MB buffer to the key "progress_object" with progress events
-    Then more than 0 "httpUploadProgress" event should fire
-    And the "total" value of the progress event should equal 2MB
-    And the "loaded" value of the first progress event should be greater than 10 bytes
-
-    When I read the key "progress_object" with progress events
-    Then more than 0 "httpDownloadProgress" event should fire
-    And the "total" value of the progress event should equal 2MB
-    And the "loaded" value of the first progress event should be greater than 10 bytes
-
   @proxy
   Scenario: Proxy support
     When I put "world" to the key "proxy_object"
