@@ -79,13 +79,17 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
     protected void deserializeMap(GenerationContext context, MapShape shape) {
         TypeScriptWriter writer = context.getWriter();
         Shape target = context.getModel().expectShape(shape.getValue().getTarget());
+        String keyLocation = shape.getKey().getTrait(XmlNameTrait.class).map(XmlNameTrait::getValue).orElse("key");
+        String valueLocation = shape.getValue().getTrait(XmlNameTrait.class).map(XmlNameTrait::getValue)
+                .orElse("value");
 
         // Get the right serialization for each entry in the map. Undefined
         // outputs won't have this deserializer invoked.
         writer.write("const mapParams: any = {};");
-        writer.openBlock("Object.keys(output).forEach(key => {", "});", () -> {
+        writer.openBlock("output.forEach((pair: any) => {", "});", () -> {
             // Dispatch to the output value provider for any additional handling.
-            writer.write("mapParams[key] = $L;", target.accept(getMemberVisitor("output[key]")));
+            writer.write("mapParams[pair[$S]] = $L;", keyLocation, target.accept(
+                    getMemberVisitor("pair[\"" + valueLocation + "\"]")));
         });
         writer.write("return mapParams;");
     }
