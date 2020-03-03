@@ -5,7 +5,7 @@ Feature: Working with Objects in S3
   As a user of S3 I need to be able to work with objects in a bucket.
 
   Background:
-    Given I create a shared bucket
+    Given I have a shared bucket
 
   @crud
   Scenario: CRUD objects

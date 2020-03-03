@@ -1,4 +1,7 @@
 var { S3 } = require("../../../clients/client-s3");
+var { streamCollector } = require("../../../packages/stream-collector-node");
+var { toUtf8 } = require("../../../packages/util-utf8-node");
+var { Md5 } = require("../../../packages/md5-js");
 
 module.exports = function() {
   this.When(/^I put "([^"]*)" to the(?: invalid)? key "([^"]*)"$/, function(
@@ -70,16 +73,18 @@ module.exports = function() {
     contents,
     next
   ) {
-    this.assert.equal(this.data.Body.toString().replace("\n", ""), contents);
-    next();
+    streamCollector(this.data.Body).then(body => {
+      this.assert.equal(toUtf8(body), contents);
+      next();
+    });
   });
 
   this.Then(
     /^the HTTP response should have a content length of (\d+)$/,
     function(contentLength, next) {
       this.assert.equal(
-        this.response.httpResponse.body.length,
-        parseInt(contentLength)
+        this.data.Body.headers["content-length"],
+        contentLength
       );
       next();
     }
@@ -118,7 +123,7 @@ module.exports = function() {
     this.eventually(next, function(retry) {
       retry.condition = function() {
         if (shouldNotExist) {
-          return this.error && this.error.code === "NotFound";
+          return this.error && this.error.name === "NotFound";
         } else {
           return !this.error;
         }
@@ -134,7 +139,7 @@ module.exports = function() {
     };
     var world = this;
     this.result = "";
-    var s = this.service.getObject(params).createReadStream();
+    var s = this.service.getObject(params);
 
     setTimeout(function() {
       s.on("end", function() {
@@ -477,19 +482,21 @@ module.exports = function() {
     data,
     next
   ) {
-    this.sentContentMD5 = this.AWS.util.crypto.md5(data, "base64");
+    const hash = new Md5();
+    hash.update(data);
+    this.sentContentMD5 = hash.digest().toString();
     next();
   });
 
   this.Then(
     /^the MD5 checksum of the response data should equal the generated checksum$/,
     function(next) {
-      var receivedContentMD5 = this.AWS.util.crypto.md5(
-        this.data.Body.toString(),
-        "base64"
-      );
-      this.assert.equal(receivedContentMD5, this.sentContentMD5);
-      next();
+      const hash = new Md5();
+      streamCollector(this.data.Body).then(body => {
+        hash.update(body);
+        this.assert.equal(hash.digest(), this.sentContentMD5);
+        next();
+      });
     }
   );
 
@@ -515,30 +522,4 @@ module.exports = function() {
       }
     });
   });
-
-  this.Given(/^I use signatureVersion "([^"]*)"$/, function(
-    signatureVersion,
-    next
-  ) {
-    this.s3Slashes = new S3({
-      signatureVersion: signatureVersion
-    });
-    next();
-  });
-
-  this.When(
-    /^I put "([^"]*)" to the key "([^"]*)" with bucket suffix "([^"]*)"$/,
-    function(data, key, suffix, next) {
-      var world = this;
-      var params = {
-        Bucket: this.sharedBucket + suffix,
-        Key: key,
-        Body: data
-      };
-      this.s3Slashes.putObject(params, function(err, data) {
-        world.assert.equal(!!err, false);
-        next();
-      });
-    }
-  );
 };

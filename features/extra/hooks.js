@@ -37,6 +37,15 @@ module.exports = function() {
     });
   });
 
+  /* Global S3 steps */
+  this.Given(/^I have a shared bucket$/, function(callback) {
+    if (this.sharedBucket) return callback();
+
+    this.sharedBucket = "sdk-js-integration-s3";
+
+    callback();
+  });
+
   this.Given(/^I create a bucket$/, function(callback) {
     var bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
     this.request("s3", "createBucket", { Bucket: this.bucket }, function(
