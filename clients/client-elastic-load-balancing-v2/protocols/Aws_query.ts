@@ -6133,8 +6133,8 @@ const deserializeAws_queryAuthenticateCognitoActionAuthenticationRequestExtraPar
   context: __SerdeContext
 ): { [key: string]: string } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = pair["value"];
   });
   return mapParams;
 };
@@ -6199,8 +6199,8 @@ const deserializeAws_queryAuthenticateOidcActionAuthenticationRequestExtraParams
   context: __SerdeContext
 ): { [key: string]: string } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = pair["value"];
   });
   return mapParams;
 };
