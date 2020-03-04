@@ -196,5 +196,40 @@ module.exports = {
     }
     buffer.fill("x");
     return buffer;
+  },
+
+  /**
+   * Waits for the bucketExists state by periodically calling the underlying S3.headBucket() operation
+   * every 5 seconds (at most 20 times).
+   */
+  waitForBucketExists: function(s3client, params, callback) {
+    // Iterate maxAttempts times
+    const maxAttempts = 20;
+    let currentAttempt = 0;
+    const delay = 5000;
+
+    const checkForBucketExists = () => {
+      currentAttempt++;
+      s3client.headBucket(params, function(err, data) {
+        if (err) {
+          if (currentAttempt > maxAttempts) {
+            callback.fail(err);
+          }
+          setTimeout(function() {
+            checkForBucketExists();
+          }, delay);
+        } else if (data) {
+          callback();
+        } else {
+          if (currentAttempt > maxAttempts) {
+            callback.fail(err);
+          }
+          setTimeout(function() {
+            checkForBucketExists();
+          }, delay);
+        }
+      });
+    };
+    checkForBucketExists();
   }
 };
