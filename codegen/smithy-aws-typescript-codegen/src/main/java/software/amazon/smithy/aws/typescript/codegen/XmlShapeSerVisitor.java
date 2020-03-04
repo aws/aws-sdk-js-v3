@@ -70,8 +70,8 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Set up a location to store all of the child node(s).
         writer.write("const collectedNodes: any = [];");
-        // Dispatch to the input value provider for any additional handling.
-        writer.openBlock("(input || []).map(entry => {", "});", () -> {
+        writer.openBlock("for (let entry of input) {", "}", () -> {
+            // Dispatch to the input value provider for any additional handling.
             writer.write("const node = $L;", target.accept(getMemberVisitor("entry")));
             writer.write("collectedNodes.push(node.withName($S));", locationName);
         });

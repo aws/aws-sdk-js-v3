@@ -64,8 +64,8 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         writer.write("const entries: any = {};");
         // Set up a counter to increment the member entries.
         writer.write("let counter = 1;");
-        // Dispatch to the input value provider for any additional handling.
-        writer.openBlock("(input || []).map(entry => {", "});", () -> {
+        writer.openBlock("for (let entry of input) {", "}", () -> {
+            // Dispatch to the input value provider for any additional handling.
             serializeUnnamedMemberEntryList(context, target, "entry", locationName);
             writer.write("counter++;");
         });
