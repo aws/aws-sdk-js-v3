@@ -36,8 +36,8 @@ module.exports = function() {
         if (err) {
           return callback(err);
         }
-        this.s3.waitFor(
-          "bucketExists",
+        this.waitForBucketExists(
+          this.s3,
           {
             Bucket: bucket
           },
@@ -243,8 +243,8 @@ module.exports = function() {
           if (err) {
             return callback(err);
           }
-          this.s3.waitFor(
-            "bucketExists",
+          this.waitForBucketExists(
+            this.s3,
             {
               Bucket: bucket
             },

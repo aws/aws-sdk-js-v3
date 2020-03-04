@@ -32,7 +32,7 @@ module.exports = function() {
         if (err) {
           return callback(err);
         }
-        this.s3.waitFor("bucketExists", { Bucket: bucket }, callback);
+        this.waitForBucketExists(this.s3, { Bucket: bucket }, callback);
       }
     });
   });
@@ -55,7 +55,7 @@ module.exports = function() {
       if (err) {
         return callback(err);
       }
-      this.s3.waitFor("bucketExists", { Bucket: bucket }, callback);
+      this.waitForBucketExists(this.s3, { Bucket: bucket }, callback);
     });
   });
 
@@ -64,7 +64,7 @@ module.exports = function() {
   });
 
   this.Then(/^the bucket should exist$/, function(next) {
-    this.s3.waitFor("bucketExists", { Bucket: this.bucket }, next);
+    this.waitForBucketExists(this.s3, { Bucket: this.bucket }, next);
   });
 
   this.Then(/^the bucket should not exist$/, function(callback) {
