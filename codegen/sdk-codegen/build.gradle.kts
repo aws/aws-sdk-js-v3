@@ -35,17 +35,15 @@ tasks.create<SmithyBuild>("buildSdk") {
     addRuntimeClasspath = true
 }
 
-val modelsDirProp: String by project
-
 // Generates a smithy-build.json file by creating a new projection for every
 // JSON file found in aws-models/. The generated smithy-build.json file is
 // not committed to git since it's rebuilt each time codegen is performed.
 tasks.register("generate-smithy-build") {
     doLast {
         val projectionsBuilder = Node.objectNodeBuilder()
+        val modelsDirProp: String by project
+        val models = file(modelsDirProp)
 
-        val models = modelsDirProp
-        println(models)
         fileTree(models).filter { it.isFile }.files.forEach { file ->
             val (sdkId, version, remaining) = file.name.split(".")
             var manifestOverwrites = Node.parse(
@@ -53,7 +51,7 @@ tasks.register("generate-smithy-build") {
                             .readText()
             ).expectObjectNode()
             val projectionContents = Node.objectNodeBuilder()
-                    .withMember("imports", Node.fromStrings(models + "/" + file.name))
+                    .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
                             .withMember("typescript-codegen", Node.objectNodeBuilder()
                                     .withMember("package", "@aws-sdk/client-" + sdkId.toLowerCase())
