@@ -2,9 +2,7 @@ const { join, normalize } = require("path");
 
 const CODE_GEN_ROOT = normalize(join(__dirname, "..", "..", "codegen"));
 
-const CODE_GEN_INPUT_DIR = normalize(
-  join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models")
-);
+const TEMP_CODE_GEN_INPUT_DIR = normalize(join(__dirname, ".aws-models"));
 
 const CODE_GEN_OUTPUT_DIR = normalize(
   join(
@@ -21,6 +19,6 @@ const CODE_GEN_OUTPUT_DIR = normalize(
 
 module.exports = {
   CODE_GEN_ROOT,
-  CODE_GEN_INPUT_DIR,
-  CODE_GEN_OUTPUT_DIR
+  CODE_GEN_OUTPUT_DIR,
+  TEMP_CODE_GEN_INPUT_DIR
 };
