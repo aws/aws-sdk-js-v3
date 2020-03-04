@@ -53,7 +53,7 @@
 # @s3
 @ses
 @sns
-@sqs
+# @sqs
 @ssm
 @storagegateway
 @sts
