@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-This script requires Nodejs >= 12
+This script requires Node.js >= 12
 
 ## Options:
 
@@ -10,7 +10,7 @@ This script requires Nodejs >= 12
   -m, --models  The directory of models.                                [string]
   -g, --globs   A list of smithy model globs                             [array]
   -o, --output  The output directory for built clients
-           [string] [default: "/Users/zheallan/workspace/aws-sdk-js-v3/clients"]
+           [string] [default: "../../clients"]
   --help        Show help                                              [boolean]
 ```
 
@@ -20,7 +20,7 @@ This script requires Nodejs >= 12
 
   `yarn generate-clients -m path/to/model`
 
-- Generate clients from a glob(e.g. generating S3, S3Control and DynamoDB clients):
+- Generate clients from a glob (e.g. generating S3, S3Control and DynamoDB clients):
 
   `yarn generate-clients -g path/to/models/s3*.json path/to/another/dynamodb*.json`
 
