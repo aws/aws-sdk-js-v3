@@ -48,7 +48,7 @@ export class PostContentCommand
     };
     stack.add(
       __aws_sdk_middleware_header_default.headerDefault({
-        "X-Amz-Content-Sha256": "UNSIGNED_PAYLOAD"
+        "X-Amz-Content-Sha256": "UNSIGNED-PAYLOAD"
       }),
       {
         step: "build",

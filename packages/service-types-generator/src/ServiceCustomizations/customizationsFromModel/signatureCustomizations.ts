@@ -185,7 +185,7 @@ function clientCustomizationsForAuthType(
       tags: "{UNSIGNED_PAYLOAD: true}",
       expression: `${packageNameToVariable(
         "@aws-sdk/middleware-header-default"
-      )}.headerDefault({'X-Amz-Content-Sha256': 'UNSIGNED_PAYLOAD'})`
+      )}.headerDefault({'X-Amz-Content-Sha256': 'UNSIGNED-PAYLOAD'})`
     });
   }
 
@@ -235,7 +235,7 @@ function commandCustomizationsForAuthType(
       tags: "{UNSIGNED_PAYLOAD: true}",
       expression: `${packageNameToVariable(
         "@aws-sdk/middleware-header-default"
-      )}.headerDefault({'X-Amz-Content-Sha256': 'UNSIGNED_PAYLOAD'})`
+      )}.headerDefault({'X-Amz-Content-Sha256': 'UNSIGNED-PAYLOAD'})`
     });
   }
 
