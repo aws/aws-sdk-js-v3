@@ -2696,9 +2696,11 @@ const serializeAws_json1_0LogDestinationList = (
   input: Array<LogDestination>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_0LogDestination(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_0LogDestination(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_0LoggingConfiguration = (
@@ -3016,14 +3018,22 @@ const serializeAws_json1_0TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_0TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_0Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_0Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_0TagResourceInput = (

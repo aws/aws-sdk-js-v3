@@ -988,9 +988,11 @@ const serializeAws_restJson1_1ArrayOfArray = (
   input: Array<ArrayValue>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ArrayValue(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1ArrayValue(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ArrayValue = (
@@ -1012,14 +1014,22 @@ const serializeAws_restJson1_1BooleanArray = (
   input: Array<boolean>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DoubleArray = (
   input: Array<number>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Field = (
@@ -1042,7 +1052,11 @@ const serializeAws_restJson1_1LongArray = (
   input: Array<number>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SqlParameter = (
@@ -1063,25 +1077,33 @@ const serializeAws_restJson1_1SqlParameterSets = (
   input: Array<Array<SqlParameter>>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SqlParametersList(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SqlParametersList(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SqlParametersList = (
   input: Array<SqlParameter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SqlParameter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SqlParameter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1StringArray = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1ArrayOfArray = (

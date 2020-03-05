@@ -1153,28 +1153,44 @@ const serializeAws_restJson1_1CurrencyList = (
   input: Array<CurrencyCode | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DurationsList = (
   input: Array<number>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1FilterValuesList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanDescriptionsList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingFilterElement = (
@@ -1198,9 +1214,13 @@ const serializeAws_restJson1_1SavingsPlanOfferingFiltersList = (
   input: Array<SavingsPlanOfferingFilterElement>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SavingsPlanOfferingFilterElement(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1SavingsPlanOfferingFilterElement(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement = (
@@ -1224,93 +1244,148 @@ const serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList = (
   input: Array<SavingsPlanOfferingRateFilterElement>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement(
+        entry,
+        context
+      )
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1UUIDs = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanOperationList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanPaymentOptionList = (
   input: Array<SavingsPlanPaymentOption | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanProductTypeList = (
   input: Array<SavingsPlanProductType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanRateOperationList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanRateServiceCodeList = (
   input: Array<SavingsPlanRateServiceCode | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanRateUsageTypeList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanServiceCodeList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanTypeList = (
   input: Array<SavingsPlanType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanUsageTypeList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfStrings = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanFilter = (
@@ -1334,16 +1409,22 @@ const serializeAws_restJson1_1SavingsPlanFilterList = (
   input: Array<SavingsPlanFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SavingsPlanFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SavingsPlanFilter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanRateFilter = (
@@ -1367,23 +1448,35 @@ const serializeAws_restJson1_1SavingsPlanRateFilterList = (
   input: Array<SavingsPlanRateFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SavingsPlanRateFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1SavingsPlanRateFilter(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SavingsPlanStateList = (
   input: Array<SavingsPlanState | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagMap = (

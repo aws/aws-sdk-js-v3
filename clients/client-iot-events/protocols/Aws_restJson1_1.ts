@@ -2522,9 +2522,11 @@ const serializeAws_restJson1_1Actions = (
   input: Array<Action>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Action(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Action(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Attribute = (
@@ -2542,9 +2544,11 @@ const serializeAws_restJson1_1Attributes = (
   input: Array<Attribute>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Attribute(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Attribute(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ClearTimerAction = (
@@ -2576,9 +2580,11 @@ const serializeAws_restJson1_1DetectorDebugOptions = (
   input: Array<DetectorDebugOption>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1DetectorDebugOption(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1DetectorDebugOption(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DetectorModelDefinition = (
@@ -2622,9 +2628,11 @@ const serializeAws_restJson1_1Events = (
   input: Array<Event>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Event(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Event(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1FirehoseAction = (
@@ -2858,9 +2866,11 @@ const serializeAws_restJson1_1States = (
   input: Array<State>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1State(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1State(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -2881,9 +2891,11 @@ const serializeAws_restJson1_1Tags = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Tag(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TransitionEvent = (
@@ -2913,9 +2925,11 @@ const serializeAws_restJson1_1TransitionEvents = (
   input: Array<TransitionEvent>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1TransitionEvent(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1TransitionEvent(entry, context));
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1Action = (

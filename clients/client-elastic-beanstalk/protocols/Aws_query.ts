@@ -4375,10 +4375,10 @@ const serializeAws_queryApplicationNamesList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -4532,7 +4532,7 @@ const serializeAws_queryConfigurationOptionSettingsList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryConfigurationOptionSetting(
       entry,
       context
@@ -4541,7 +4541,7 @@ const serializeAws_queryConfigurationOptionSettingsList = (
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5181,10 +5181,10 @@ const serializeAws_queryEnvironmentHealthAttributes = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5194,10 +5194,10 @@ const serializeAws_queryEnvironmentIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5207,10 +5207,10 @@ const serializeAws_queryEnvironmentNamesList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5237,10 +5237,10 @@ const serializeAws_queryInstancesHealthAttributes = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5336,13 +5336,13 @@ const serializeAws_queryOptionsSpecifierList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryOptionSpecification(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5376,10 +5376,10 @@ const serializeAws_queryPlatformFilterValueList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5389,13 +5389,13 @@ const serializeAws_queryPlatformFilters = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryPlatformFilter(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5543,10 +5543,10 @@ const serializeAws_queryTagKeyList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5556,13 +5556,13 @@ const serializeAws_queryTagList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5572,13 +5572,13 @@ const serializeAws_queryTags = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5817,10 +5817,10 @@ const serializeAws_queryVersionLabels = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5830,10 +5830,10 @@ const serializeAws_queryVersionLabelsList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 

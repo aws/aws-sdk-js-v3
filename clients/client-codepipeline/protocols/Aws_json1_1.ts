@@ -4690,9 +4690,13 @@ const serializeAws_json1_1ActionConfigurationPropertyList = (
   input: Array<ActionConfigurationProperty>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ActionConfigurationProperty(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1ActionConfigurationProperty(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ActionDeclaration = (
@@ -5092,9 +5096,11 @@ const serializeAws_json1_1InputArtifactList = (
   input: Array<InputArtifact>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1InputArtifact(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1InputArtifact(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ListActionExecutionsInput = (
@@ -5208,9 +5214,11 @@ const serializeAws_json1_1OutputArtifactList = (
   input: Array<OutputArtifact>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1OutputArtifact(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1OutputArtifact(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PipelineDeclaration = (
@@ -5252,9 +5260,11 @@ const serializeAws_json1_1PipelineStageDeclarationList = (
   input: Array<StageDeclaration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1StageDeclaration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1StageDeclaration(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PollForJobsInput = (
@@ -5496,18 +5506,22 @@ const serializeAws_json1_1StageActionDeclarationList = (
   input: Array<ActionDeclaration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ActionDeclaration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ActionDeclaration(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1StageBlockerDeclarationList = (
   input: Array<BlockerDeclaration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1BlockerDeclaration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1BlockerDeclaration(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1StageDeclaration = (
@@ -5585,14 +5599,22 @@ const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagResourceInput = (
@@ -5706,9 +5728,11 @@ const serializeAws_json1_1WebhookFilters = (
   input: Array<WebhookFilterRule>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1WebhookFilterRule(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1WebhookFilterRule(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ActionConfigurationMap = (

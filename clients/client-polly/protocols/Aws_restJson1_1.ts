@@ -1626,14 +1626,22 @@ const serializeAws_restJson1_1LexiconNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SpeechMarkTypeList = (
   input: Array<SpeechMarkType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1EngineList = (

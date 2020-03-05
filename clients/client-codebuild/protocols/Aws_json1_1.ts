@@ -3146,7 +3146,11 @@ const serializeAws_json1_1BuildIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CloudWatchLogsConfig = (
@@ -3407,27 +3411,33 @@ const serializeAws_json1_1EnvironmentVariables = (
   input: Array<EnvironmentVariable>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1EnvironmentVariable(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1EnvironmentVariable(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1FilterGroup = (
   input: Array<WebhookFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1WebhookFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1WebhookFilter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1FilterGroups = (
   input: Array<Array<WebhookFilter>>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1FilterGroup(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1FilterGroup(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1GetResourcePolicyInput = (
@@ -3718,9 +3728,11 @@ const serializeAws_json1_1ProjectArtifactsList = (
   input: Array<ProjectArtifacts>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ProjectArtifacts(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ProjectArtifacts(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ProjectCache = (
@@ -3747,7 +3759,11 @@ const serializeAws_json1_1ProjectCacheModes = (
   input: Array<CacheMode | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ProjectEnvironment = (
@@ -3794,16 +3810,22 @@ const serializeAws_json1_1ProjectNames = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ProjectSecondarySourceVersions = (
   input: Array<ProjectSourceVersion>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ProjectSourceVersion(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ProjectSourceVersion(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ProjectSource = (
@@ -3862,9 +3884,11 @@ const serializeAws_json1_1ProjectSources = (
   input: Array<ProjectSource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ProjectSource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ProjectSource(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PutResourcePolicyInput = (
@@ -3899,7 +3923,11 @@ const serializeAws_json1_1ReportArns = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ReportExportConfig = (
@@ -3934,7 +3962,11 @@ const serializeAws_json1_1ReportGroupArns = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1S3LogsConfig = (
@@ -3981,7 +4013,11 @@ const serializeAws_json1_1SecurityGroupIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SourceAuth = (
@@ -4150,7 +4186,11 @@ const serializeAws_json1_1Subnets = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -4168,7 +4208,11 @@ const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TestCaseFilter = (
