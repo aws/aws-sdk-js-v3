@@ -9548,9 +9548,9 @@ const deserializeAws_queryDkimAttributes = (
   context: __SerdeContext
 ): { [key: string]: IdentityDkimAttributes } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_queryIdentityDkimAttributes(
-      output[key],
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = deserializeAws_queryIdentityDkimAttributes(
+      pair["value"],
       context
     );
   });
@@ -10567,9 +10567,11 @@ const deserializeAws_queryMailFromDomainAttributes = (
   context: __SerdeContext
 ): { [key: string]: IdentityMailFromDomainAttributes } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_queryIdentityMailFromDomainAttributes(
-      output[key],
+  output.forEach((pair: any) => {
+    mapParams[
+      pair["key"]
+    ] = deserializeAws_queryIdentityMailFromDomainAttributes(
+      pair["value"],
       context
     );
   });
@@ -10627,9 +10629,9 @@ const deserializeAws_queryNotificationAttributes = (
   context: __SerdeContext
 ): { [key: string]: IdentityNotificationAttributes } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_queryIdentityNotificationAttributes(
-      output[key],
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = deserializeAws_queryIdentityNotificationAttributes(
+      pair["value"],
       context
     );
   });
@@ -10641,8 +10643,8 @@ const deserializeAws_queryPolicyMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = pair["value"];
   });
   return mapParams;
 };
@@ -11438,9 +11440,9 @@ const deserializeAws_queryVerificationAttributes = (
   context: __SerdeContext
 ): { [key: string]: IdentityVerificationAttributes } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_queryIdentityVerificationAttributes(
-      output[key],
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = deserializeAws_queryIdentityVerificationAttributes(
+      pair["value"],
       context
     );
   });

@@ -16649,8 +16649,8 @@ const deserializeAws_queryEvalDecisionDetailsType = (
   context: __SerdeContext
 ): { [key: string]: PolicyEvaluationDecisionType | string } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = pair["value"];
   });
   return mapParams;
 };
@@ -20514,8 +20514,8 @@ const deserializeAws_querysummaryMapType = (
   context: __SerdeContext
 ): { [key: string]: number } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = parseInt(output[key]);
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = parseInt(pair["value"]);
   });
   return mapParams;
 };

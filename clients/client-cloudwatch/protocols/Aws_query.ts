@@ -4403,8 +4403,8 @@ const deserializeAws_queryDatapointValueMap = (
   context: __SerdeContext
 ): { [key: string]: number } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = parseFloat(output[key]);
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = parseFloat(pair["value"]);
   });
   return mapParams;
 };
