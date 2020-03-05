@@ -4539,8 +4539,8 @@ const deserializeAws_queryDomainNameMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
+  output.forEach((pair: any) => {
+    mapParams[pair["key"]] = pair["value"];
   });
   return mapParams;
 };

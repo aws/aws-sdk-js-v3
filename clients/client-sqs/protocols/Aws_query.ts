@@ -3182,9 +3182,9 @@ const deserializeAws_queryMessageBodyAttributeMap = (
   context: __SerdeContext
 ): { [key: string]: MessageAttributeValue } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_queryMessageAttributeValue(
-      output[key],
+  output.forEach((pair: any) => {
+    mapParams[pair["Name"]] = deserializeAws_queryMessageAttributeValue(
+      pair["Value"],
       context
     );
   });
@@ -3215,8 +3215,8 @@ const deserializeAws_queryMessageSystemAttributeMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
+  output.forEach((pair: any) => {
+    mapParams[pair["Name"]] = pair["Value"];
   });
   return mapParams;
 };
@@ -3246,8 +3246,8 @@ const deserializeAws_queryQueueAttributeMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
+  output.forEach((pair: any) => {
+    mapParams[pair["Name"]] = pair["Value"];
   });
   return mapParams;
 };
@@ -3445,8 +3445,8 @@ const deserializeAws_queryTagMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
+  output.forEach((pair: any) => {
+    mapParams[pair["Key"]] = pair["Value"];
   });
   return mapParams;
 };
