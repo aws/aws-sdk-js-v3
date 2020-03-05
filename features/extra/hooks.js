@@ -68,7 +68,7 @@ module.exports = function() {
   });
 
   this.Then(/^the bucket should not exist$/, function(callback) {
-    this.s3.waitFor("bucketNotExists", { Bucket: this.bucket }, callback);
+    this.waitForBucketNotExists(this.s3, { Bucket: this.bucket }, callback);
   });
 
   /* Global error code steps */

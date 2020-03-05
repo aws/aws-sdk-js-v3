@@ -231,5 +231,41 @@ module.exports = {
       });
     };
     checkForBucketExists();
+  },
+
+  /**
+   * Waits for the bucketNotExists state by periodically calling the underlying S3.headBucket() operation
+   * every 5 seconds (at most 20 times).
+   */
+  waitForBucketNotExists: function(s3client, params, callback) {
+    // Iterate maxAttempts times
+    const maxAttempts = 20;
+    let currentAttempt = 0;
+    const delay = 5000;
+
+    const checkForBucketNotExists = () => {
+      currentAttempt++;
+      s3client.headBucket(params, function(err, data) {
+        if (err) {
+          if (currentAttempt > maxAttempts) {
+            callback.fail(err);
+          }
+          if (err.name === "NotFound") {
+            callback();
+          }
+          setTimeout(function() {
+            checkForBucketNotExists();
+          }, delay);
+        } else if (data) {
+          if (currentAttempt > maxAttempts) {
+            callback.fail(err);
+          }
+          setTimeout(function() {
+            checkForBucketNotExists();
+          }, delay);
+        }
+      });
+    };
+    checkForBucketNotExists();
   }
 };
