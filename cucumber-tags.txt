@@ -30,7 +30,7 @@
 @efs
 @elasticache
 @elasticbeanstalk
-# @elastictranscoder
+@elastictranscoder
 @elb
 @elbv2
 @emr
