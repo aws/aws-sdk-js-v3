@@ -4516,7 +4516,11 @@ const serializeAws_json1_1BundleIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ClientProperties = (
@@ -4839,7 +4843,11 @@ const serializeAws_json1_1DirectoryIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1DisassociateIpGroupsRequest = (
@@ -4886,14 +4894,22 @@ const serializeAws_json1_1IpGroupIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1IpRevokedRuleList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1IpRuleItem = (
@@ -4914,9 +4930,11 @@ const serializeAws_json1_1IpRuleList = (
   input: Array<IpRuleItem>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1IpRuleItem(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1IpRuleItem(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
@@ -5086,9 +5104,11 @@ const serializeAws_json1_1RebootWorkspaceRequests = (
   input: Array<RebootRequest>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1RebootRequest(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1RebootRequest(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RebootWorkspacesRequest = (
@@ -5122,9 +5142,11 @@ const serializeAws_json1_1RebuildWorkspaceRequests = (
   input: Array<RebuildRequest>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1RebuildRequest(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1RebuildRequest(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RebuildWorkspacesRequest = (
@@ -5176,7 +5198,11 @@ const serializeAws_json1_1ResourceIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RestoreWorkspaceRequest = (
@@ -5245,9 +5271,11 @@ const serializeAws_json1_1StartWorkspaceRequests = (
   input: Array<StartRequest>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1StartRequest(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1StartRequest(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1StartWorkspacesRequest = (
@@ -5281,9 +5309,11 @@ const serializeAws_json1_1StopWorkspaceRequests = (
   input: Array<StopRequest>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1StopRequest(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1StopRequest(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1StopWorkspacesRequest = (
@@ -5306,7 +5336,11 @@ const serializeAws_json1_1SubnetIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -5324,14 +5358,22 @@ const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TerminateRequest = (
@@ -5349,9 +5391,11 @@ const serializeAws_json1_1TerminateWorkspaceRequests = (
   input: Array<TerminateRequest>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1TerminateRequest(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1TerminateRequest(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TerminateWorkspacesRequest = (
@@ -5444,14 +5488,22 @@ const serializeAws_json1_1WorkspaceIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1WorkspaceImageIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1WorkspaceProperties = (
@@ -5519,9 +5571,11 @@ const serializeAws_json1_1WorkspaceRequestList = (
   input: Array<WorkspaceRequest>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1WorkspaceRequest(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1WorkspaceRequest(entry, context));
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

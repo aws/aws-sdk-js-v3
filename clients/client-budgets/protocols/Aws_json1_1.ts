@@ -2255,7 +2255,11 @@ const serializeAws_json1_1DimensionValues = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Notification = (
@@ -2305,9 +2309,13 @@ const serializeAws_json1_1NotificationWithSubscribersList = (
   input: Array<NotificationWithSubscribers>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1NotificationWithSubscribers(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1NotificationWithSubscribers(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PlannedBudgetLimits = (
@@ -2353,9 +2361,11 @@ const serializeAws_json1_1Subscribers = (
   input: Array<Subscriber>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Subscriber(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Subscriber(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TimePeriod = (

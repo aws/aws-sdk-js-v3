@@ -2316,9 +2316,11 @@ const serializeAws_json1_1EndpointConfigurations = (
   input: Array<EndpointConfiguration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1EndpointConfiguration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1EndpointConfiguration(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ListAcceleratorsRequest = (
@@ -2387,9 +2389,11 @@ const serializeAws_json1_1PortRanges = (
   input: Array<PortRange>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1PortRange(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1PortRange(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1UpdateAcceleratorAttributesRequest = (

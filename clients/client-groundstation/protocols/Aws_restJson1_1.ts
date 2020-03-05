@@ -3349,16 +3349,22 @@ const serializeAws_restJson1_1DataflowEdge = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DataflowEdgeList = (
   input: Array<Array<string>>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1DataflowEdge(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1DataflowEdge(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DataflowEndpoint = (
@@ -3438,16 +3444,22 @@ const serializeAws_restJson1_1EndpointDetailsList = (
   input: Array<EndpointDetails>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1EndpointDetails(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1EndpointDetails(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1StatusList = (
   input: Array<ContactStatus | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TrackingConfig = (
@@ -3546,7 +3558,11 @@ const serializeAws_restJson1_1SecurityGroupIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SocketAddress = (
@@ -3590,7 +3606,11 @@ const serializeAws_restJson1_1SubnetList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagsMap = (

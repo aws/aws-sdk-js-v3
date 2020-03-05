@@ -4700,16 +4700,22 @@ const serializeAws_json1_1InputLogEvents = (
   input: Array<InputLogEvent>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1InputLogEvent(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1InputLogEvent(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1InputLogStreamNames = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ListTagsLogGroupRequest = (
@@ -4727,7 +4733,11 @@ const serializeAws_json1_1LogGroupNames = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1MetricTransformation = (
@@ -4754,9 +4764,11 @@ const serializeAws_json1_1MetricTransformations = (
   input: Array<MetricTransformation>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1MetricTransformation(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1MetricTransformation(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PutDestinationPolicyRequest = (
@@ -4936,7 +4948,11 @@ const serializeAws_json1_1TagList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagLogGroupRequest = (
@@ -4968,7 +4984,11 @@ const serializeAws_json1_1TestEventMessages = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TestMetricFilterRequest = (

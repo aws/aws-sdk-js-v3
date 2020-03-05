@@ -2035,10 +2035,10 @@ const serializeAws_queryAWSAccountIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -2048,10 +2048,10 @@ const serializeAws_queryActionNameList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -2095,10 +2095,10 @@ const serializeAws_queryAttributeNameList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -2108,10 +2108,10 @@ const serializeAws_queryBinaryList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`BinaryListValue.${counter}`] = context.base64Encoder(entry);
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -2161,7 +2161,7 @@ const serializeAws_queryChangeMessageVisibilityBatchRequestEntryList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryChangeMessageVisibilityBatchRequestEntry(
       entry,
       context
@@ -2170,7 +2170,7 @@ const serializeAws_queryChangeMessageVisibilityBatchRequestEntryList = (
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -2262,7 +2262,7 @@ const serializeAws_queryDeleteMessageBatchRequestEntryList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryDeleteMessageBatchRequestEntry(
       entry,
       context
@@ -2271,7 +2271,7 @@ const serializeAws_queryDeleteMessageBatchRequestEntryList = (
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -2374,10 +2374,10 @@ const serializeAws_queryMessageAttributeNameList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -2651,7 +2651,7 @@ const serializeAws_querySendMessageBatchRequestEntryList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_querySendMessageBatchRequestEntry(
       entry,
       context
@@ -2660,7 +2660,7 @@ const serializeAws_querySendMessageBatchRequestEntryList = (
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -2736,10 +2736,10 @@ const serializeAws_queryStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`StringListValue.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -2749,10 +2749,10 @@ const serializeAws_queryTagKeyList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 

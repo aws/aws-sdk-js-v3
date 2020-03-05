@@ -14923,10 +14923,10 @@ const serializeAws_queryActionNameListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -15058,13 +15058,13 @@ const serializeAws_queryContextEntryListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryContextEntry(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -15074,10 +15074,10 @@ const serializeAws_queryContextKeyValueListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -16646,10 +16646,10 @@ const serializeAws_queryResourceNameListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -16839,10 +16839,10 @@ const serializeAws_querySimulationPolicyListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -17243,10 +17243,10 @@ const serializeAws_queryclientIDListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -17256,10 +17256,10 @@ const serializeAws_queryentityListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -17269,10 +17269,10 @@ const serializeAws_queryserviceNamespaceListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -17282,10 +17282,10 @@ const serializeAws_querytagKeyListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -17295,13 +17295,13 @@ const serializeAws_querytagListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -17311,10 +17311,10 @@ const serializeAws_querythumbprintListType = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 

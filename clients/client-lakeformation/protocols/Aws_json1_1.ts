@@ -1535,9 +1535,13 @@ const serializeAws_json1_1BatchPermissionsRequestEntryList = (
   input: Array<BatchPermissionsRequestEntry>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1BatchPermissionsRequestEntry(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1BatchPermissionsRequestEntry(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1BatchRevokePermissionsRequest = (
@@ -1571,7 +1575,11 @@ const serializeAws_json1_1ColumnNames = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ColumnWildcard = (
@@ -1604,9 +1612,11 @@ const serializeAws_json1_1DataLakePrincipalList = (
   input: Array<DataLakePrincipal>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1DataLakePrincipal(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1DataLakePrincipal(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1DataLakeSettings = (
@@ -1807,7 +1817,11 @@ const serializeAws_json1_1PermissionList = (
   input: Array<Permission | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PrincipalPermissions = (
@@ -1834,9 +1848,11 @@ const serializeAws_json1_1PrincipalPermissionsList = (
   input: Array<PrincipalPermissions>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1PrincipalPermissions(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1PrincipalPermissions(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PutDataLakeSettingsRequest = (
@@ -2028,16 +2044,22 @@ const serializeAws_json1_1FilterConditionList = (
   input: Array<FilterCondition>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1FilterCondition(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1FilterCondition(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1StringValueList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1BatchGrantPermissionsResponse = (

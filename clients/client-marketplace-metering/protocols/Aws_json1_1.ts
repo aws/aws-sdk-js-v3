@@ -946,9 +946,11 @@ const serializeAws_json1_1UsageRecordList = (
   input: Array<UsageRecord>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1UsageRecord(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1UsageRecord(entry, context));
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1BatchMeterUsageResult = (

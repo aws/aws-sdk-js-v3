@@ -21721,32 +21721,44 @@ const serializeAws_restJson1_1ListOfARNs = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfApiStage = (
   input: Array<ApiStage>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ApiStage(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1ApiStage(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfEndpointType = (
   input: Array<EndpointType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfStageKeys = (
   input: Array<StageKey>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1StageKey(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1StageKey(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1MapOfApiStageThrottleSettings = (
@@ -21845,16 +21857,22 @@ const serializeAws_restJson1_1ListOfPatchOperation = (
   input: Array<PatchOperation>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1PatchOperation(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1PatchOperation(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfString = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1PatchOperation = (

@@ -3335,16 +3335,22 @@ const serializeAws_restJson1_1__listOfBrokerEBSVolumeInfo = (
   input: Array<BrokerEBSVolumeInfo>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1BrokerEBSVolumeInfo(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1BrokerEBSVolumeInfo(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOf__string = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__mapOf__string = (

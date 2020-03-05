@@ -2834,18 +2834,24 @@ const serializeAws_json1_1CloudWatchLoggingOptionUpdates = (
   input: Array<CloudWatchLoggingOptionUpdate>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1CloudWatchLoggingOptionUpdate(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1CloudWatchLoggingOptionUpdate(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CloudWatchLoggingOptions = (
   input: Array<CloudWatchLoggingOption>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1CloudWatchLoggingOption(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1CloudWatchLoggingOption(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CreateApplicationRequest = (
@@ -3096,9 +3102,11 @@ const serializeAws_json1_1InputConfigurations = (
   input: Array<InputConfiguration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1InputConfiguration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1InputConfiguration(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1InputLambdaProcessor = (
@@ -3273,16 +3281,22 @@ const serializeAws_json1_1InputUpdates = (
   input: Array<InputUpdate>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1InputUpdate(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1InputUpdate(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Inputs = (
   input: Array<Input>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Input(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Input(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1JSONMappingParameters = (
@@ -3573,16 +3587,22 @@ const serializeAws_json1_1OutputUpdates = (
   input: Array<OutputUpdate>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1OutputUpdate(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1OutputUpdate(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Outputs = (
   input: Array<Output>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Output(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Output(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RecordColumn = (
@@ -3606,9 +3626,11 @@ const serializeAws_json1_1RecordColumns = (
   input: Array<RecordColumn>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1RecordColumn(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1RecordColumn(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RecordFormat = (
@@ -3685,9 +3707,13 @@ const serializeAws_json1_1ReferenceDataSourceUpdates = (
   input: Array<ReferenceDataSourceUpdate>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ReferenceDataSourceUpdate(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1ReferenceDataSourceUpdate(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1S3Configuration = (
@@ -3807,7 +3833,11 @@ const serializeAws_json1_1TagKeys = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -3828,7 +3858,11 @@ const serializeAws_json1_1Tags = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
