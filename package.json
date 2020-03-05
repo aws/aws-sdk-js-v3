@@ -28,7 +28,7 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "glob": "^7.1.2",
+    "glob": "^7.1.6",
     "rimraf": "^2.6.2",
     "yargs": "^15.1.0"
   },
