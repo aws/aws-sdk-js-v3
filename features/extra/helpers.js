@@ -203,7 +203,6 @@ module.exports = {
    * every 5 seconds (at most 20 times).
    */
   waitForBucketExists: function(s3client, params, callback) {
-    // Iterate maxAttempts times
     const maxAttempts = 20;
     let currentAttempt = 0;
     const delay = 5000;
@@ -211,19 +210,11 @@ module.exports = {
     const checkForBucketExists = () => {
       currentAttempt++;
       s3client.headBucket(params, function(err, data) {
-        if (err) {
-          if (currentAttempt > maxAttempts) {
-            callback.fail(err);
-          }
-          setTimeout(function() {
-            checkForBucketExists();
-          }, delay);
+        if (currentAttempt > maxAttempts) {
+          callback.fail();
         } else if (data) {
           callback();
         } else {
-          if (currentAttempt > maxAttempts) {
-            callback.fail(err);
-          }
           setTimeout(function() {
             checkForBucketExists();
           }, delay);
@@ -238,7 +229,6 @@ module.exports = {
    * every 5 seconds (at most 20 times).
    */
   waitForBucketNotExists: function(s3client, params, callback) {
-    // Iterate maxAttempts times
     const maxAttempts = 20;
     let currentAttempt = 0;
     const delay = 5000;
@@ -246,20 +236,11 @@ module.exports = {
     const checkForBucketNotExists = () => {
       currentAttempt++;
       s3client.headBucket(params, function(err, data) {
-        if (err) {
-          if (currentAttempt > maxAttempts) {
-            callback.fail(err);
-          }
-          if (err.name === "NotFound") {
-            callback();
-          }
-          setTimeout(function() {
-            checkForBucketNotExists();
-          }, delay);
-        } else if (data) {
-          if (currentAttempt > maxAttempts) {
-            callback.fail(err);
-          }
+        if (currentAttempt > maxAttempts) {
+          callback.fail();
+        } else if (err && err.name === "NotFound") {
+          callback();
+        } else {
           setTimeout(function() {
             checkForBucketNotExists();
           }, delay);

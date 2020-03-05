@@ -10,31 +10,21 @@ function waitForTableExists(world, callback) {
     TableName: world.tableName
   };
 
-  const totalTries = 25;
+  const maxAttempts = 25;
   const delay = 5000;
-  let currentTry = 0;
+  let currentAttempt = 0;
 
   const checkForTableExists = () => {
-    currentTry++;
+    currentAttempt++;
     world.service.describeTable(params, function(err, data) {
-      if (err) {
-        if (currentTry > totalTries) {
-          callback.fail(err);
-        } else {
-          setTimeout(function() {
-            checkForTableExists();
-          }, delay);
-        }
-      } else if (data) {
-        if (data.Table && data.Table.TableStatus === "ACTIVE") {
-          callback();
-        } else if (currentTry > totalTries) {
-          callback.fail(err);
-        } else {
-          setTimeout(function() {
-            checkForTableExists();
-          }, delay);
-        }
+      if (currentAttempt > maxAttempts) {
+        callback.fail();
+      } else if (data && data.Table && data.Table.TableStatus === "ACTIVE") {
+        callback();
+      } else {
+        setTimeout(function() {
+          checkForTableExists();
+        }, delay);
       }
     });
   };
@@ -50,31 +40,21 @@ function waitForTableNotExists(world, callback) {
     TableName: world.tableName
   };
 
-  const totalTries = 25;
+  const maxAttempts = 25;
   const delay = 5000;
-  let currentTry = 0;
+  let currentAttempt = 0;
 
   const checkForTableNotExists = () => {
-    currentTry++;
+    currentAttempt++;
     world.service.describeTable(params, function(err, data) {
-      if (err) {
-        if (currentTry > totalTries) {
-          callback.fail(err);
-        } else if (err.name === "ResourceNotFoundException") {
-          callback();
-        } else {
-          setTimeout(function() {
-            checkForTableNotExists();
-          }, delay);
-        }
-      } else if (data) {
-        if (currentTry > totalTries) {
-          callback.fail(err);
-        } else {
-          setTimeout(function() {
-            checkForTableNotExists();
-          }, delay);
-        }
+      if (currentAttempt > maxAttempts) {
+        callback.fail();
+      } else if (err && err.name === "ResourceNotFoundException") {
+        callback();
+      } else {
+        setTimeout(function() {
+          checkForTableNotExists();
+        }, delay);
       }
     });
   };
