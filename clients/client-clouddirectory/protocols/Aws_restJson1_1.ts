@@ -12379,18 +12379,22 @@ const serializeAws_restJson1_1AttributeKeyAndValueList = (
   input: Array<AttributeKeyAndValue>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AttributeKeyAndValue(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1AttributeKeyAndValue(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AttributeKeyList = (
   input: Array<AttributeKey>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AttributeKey(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1AttributeKey(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AttributeNameAndValue = (
@@ -12414,16 +12418,24 @@ const serializeAws_restJson1_1AttributeNameAndValueList = (
   input: Array<AttributeNameAndValue>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AttributeNameAndValue(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1AttributeNameAndValue(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AttributeNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1BatchAddFacetToObject = (
@@ -13160,9 +13172,11 @@ const serializeAws_restJson1_1BatchReadOperationList = (
   input: Array<BatchReadOperation>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1BatchReadOperation(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1BatchReadOperation(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1BatchRemoveFacetFromObject = (
@@ -13347,9 +13361,11 @@ const serializeAws_restJson1_1BatchWriteOperationList = (
   input: Array<BatchWriteOperation>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1BatchWriteOperation(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1BatchWriteOperation(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1FacetAttribute = (
@@ -13409,9 +13425,11 @@ const serializeAws_restJson1_1FacetAttributeList = (
   input: Array<FacetAttribute>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1FacetAttribute(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1FacetAttribute(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1FacetAttributeReference = (
@@ -13449,9 +13467,11 @@ const serializeAws_restJson1_1FacetAttributeUpdateList = (
   input: Array<FacetAttributeUpdate>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1FacetAttributeUpdate(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1FacetAttributeUpdate(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1LinkAttributeAction = (
@@ -13497,9 +13517,11 @@ const serializeAws_restJson1_1LinkAttributeUpdateList = (
   input: Array<LinkAttributeUpdate>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1LinkAttributeUpdate(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1LinkAttributeUpdate(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ObjectAttributeAction = (
@@ -13545,9 +13567,11 @@ const serializeAws_restJson1_1ObjectAttributeRangeList = (
   input: Array<ObjectAttributeRange>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ObjectAttributeRange(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1ObjectAttributeRange(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ObjectAttributeUpdate = (
@@ -13576,9 +13600,13 @@ const serializeAws_restJson1_1ObjectAttributeUpdateList = (
   input: Array<ObjectAttributeUpdate>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ObjectAttributeUpdate(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1ObjectAttributeUpdate(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ObjectReference = (
@@ -13649,9 +13677,11 @@ const serializeAws_restJson1_1SchemaFacetList = (
   input: Array<SchemaFacet>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SchemaFacet(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SchemaFacet(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -13672,16 +13702,22 @@ const serializeAws_restJson1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Tag(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TypedAttributeValue = (
@@ -13768,9 +13804,13 @@ const serializeAws_restJson1_1TypedLinkAttributeDefinitionList = (
   input: Array<TypedLinkAttributeDefinition>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1TypedLinkAttributeDefinition(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1TypedLinkAttributeDefinition(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TypedLinkAttributeRange = (
@@ -13794,9 +13834,13 @@ const serializeAws_restJson1_1TypedLinkAttributeRangeList = (
   input: Array<TypedLinkAttributeRange>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1TypedLinkAttributeRange(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1TypedLinkAttributeRange(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TypedLinkFacet = (
@@ -13849,9 +13893,13 @@ const serializeAws_restJson1_1TypedLinkFacetAttributeUpdateList = (
   input: Array<TypedLinkFacetAttributeUpdate>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1TypedLinkFacetAttributeUpdate(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1TypedLinkFacetAttributeUpdate(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TypedLinkSchemaAndFacetName = (

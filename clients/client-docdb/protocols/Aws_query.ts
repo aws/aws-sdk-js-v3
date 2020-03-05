@@ -5747,10 +5747,10 @@ const serializeAws_queryAttributeValueList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`AttributeValue.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -5760,10 +5760,10 @@ const serializeAws_queryAvailabilityZones = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`AvailabilityZone.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -6504,10 +6504,10 @@ const serializeAws_queryEventCategoriesList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`EventCategory.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -6552,13 +6552,13 @@ const serializeAws_queryFilterList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryFilter(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Filter.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -6568,10 +6568,10 @@ const serializeAws_queryFilterValueList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Value.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -6581,10 +6581,10 @@ const serializeAws_queryKeyList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -6612,10 +6612,10 @@ const serializeAws_queryLogTypeList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -6835,13 +6835,13 @@ const serializeAws_queryParametersList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryParameter(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Parameter.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -7057,10 +7057,10 @@ const serializeAws_querySubnetIdentifierList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SubnetIdentifier.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -7081,13 +7081,13 @@ const serializeAws_queryTagList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Tag.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -7097,10 +7097,10 @@ const serializeAws_queryVpcSecurityGroupIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`VpcSecurityGroupId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 

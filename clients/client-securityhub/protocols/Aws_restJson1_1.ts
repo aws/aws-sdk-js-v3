@@ -5350,23 +5350,33 @@ const serializeAws_restJson1_1AccountDetailsList = (
   input: Array<AccountDetails>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AccountDetails(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1AccountDetails(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AccountIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AvailabilityZone = (
@@ -5387,9 +5397,11 @@ const serializeAws_restJson1_1AvailabilityZones = (
   input: Array<AvailabilityZone>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AvailabilityZone(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1AvailabilityZone(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AwsCloudFrontDistributionDetails = (
@@ -5472,9 +5484,16 @@ const serializeAws_restJson1_1AwsCloudFrontDistributionOriginItemList = (
   input: Array<AwsCloudFrontDistributionOriginItem>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AwsCloudFrontDistributionOriginItem(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1AwsCloudFrontDistributionOriginItem(
+        entry,
+        context
+      )
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AwsCloudFrontDistributionOrigins = (
@@ -5832,9 +5851,13 @@ const serializeAws_restJson1_1AwsLambdaFunctionLayerList = (
   input: Array<AwsLambdaFunctionLayer>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AwsLambdaFunctionLayer(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1AwsLambdaFunctionLayer(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AwsLambdaFunctionTracingConfig = (
@@ -6587,9 +6610,11 @@ const serializeAws_restJson1_1AwsSecurityFindingList = (
   input: Array<AwsSecurityFinding>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AwsSecurityFinding(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1AwsSecurityFinding(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AwsSnsTopicDetails = (
@@ -6635,9 +6660,13 @@ const serializeAws_restJson1_1AwsSnsTopicSubscriptionList = (
   input: Array<AwsSnsTopicSubscription>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AwsSnsTopicSubscription(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1AwsSnsTopicSubscription(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AwsSqsQueueDetails = (
@@ -6716,9 +6745,11 @@ const serializeAws_restJson1_1DateFilterList = (
   input: Array<DateFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1DateFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1DateFilter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DateRange = (
@@ -6761,9 +6792,11 @@ const serializeAws_restJson1_1IpFilterList = (
   input: Array<IpFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1IpFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1IpFilter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1KeywordFilter = (
@@ -6781,9 +6814,11 @@ const serializeAws_restJson1_1KeywordFilterList = (
   input: Array<KeywordFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1KeywordFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1KeywordFilter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1LoadBalancerState = (
@@ -6824,9 +6859,11 @@ const serializeAws_restJson1_1MalwareList = (
   input: Array<Malware>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Malware(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Malware(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1MapFilter = (
@@ -6850,9 +6887,11 @@ const serializeAws_restJson1_1MapFilterList = (
   input: Array<MapFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1MapFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1MapFilter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Network = (
@@ -6900,7 +6939,11 @@ const serializeAws_restJson1_1NonEmptyStringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Note = (
@@ -6955,9 +6998,11 @@ const serializeAws_restJson1_1NumberFilterList = (
   input: Array<NumberFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1NumberFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1NumberFilter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ProcessDetails = (
@@ -7018,9 +7063,11 @@ const serializeAws_restJson1_1RelatedFindingList = (
   input: Array<RelatedFinding>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1RelatedFinding(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1RelatedFinding(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Remediation = (
@@ -7160,16 +7207,22 @@ const serializeAws_restJson1_1ResourceList = (
   input: Array<Resource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Resource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Resource(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SecurityGroups = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Severity = (
@@ -7190,9 +7243,11 @@ const serializeAws_restJson1_1SortCriteria = (
   input: Array<SortCriterion>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SortCriterion(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SortCriterion(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SortCriterion = (
@@ -7224,7 +7279,11 @@ const serializeAws_restJson1_1StandardsSubscriptionArns = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1StandardsSubscriptionRequest = (
@@ -7250,9 +7309,13 @@ const serializeAws_restJson1_1StandardsSubscriptionRequests = (
   input: Array<StandardsSubscriptionRequest>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1StandardsSubscriptionRequest(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1StandardsSubscriptionRequest(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1StringFilter = (
@@ -7273,16 +7336,22 @@ const serializeAws_restJson1_1StringFilterList = (
   input: Array<StringFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1StringFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1StringFilter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1StringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagMap = (
@@ -7326,16 +7395,22 @@ const serializeAws_restJson1_1ThreatIntelIndicatorList = (
   input: Array<ThreatIntelIndicator>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ThreatIntelIndicator(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1ThreatIntelIndicator(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TypeList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1ActionTarget = (

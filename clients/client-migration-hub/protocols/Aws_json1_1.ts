@@ -2677,7 +2677,11 @@ const serializeAws_json1_1ApplicationIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1AssociateCreatedArtifactRequest = (
@@ -3048,9 +3052,11 @@ const serializeAws_json1_1ResourceAttributeList = (
   input: Array<ResourceAttribute>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ResourceAttribute(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ResourceAttribute(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Task = (

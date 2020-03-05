@@ -10170,12 +10170,12 @@ const serializeAws_restXmlAllowedHeaders = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("AllowedHeader").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -10184,12 +10184,12 @@ const serializeAws_restXmlAllowedMethods = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("AllowedMethod").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -10198,12 +10198,12 @@ const serializeAws_restXmlAllowedOrigins = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("AllowedOrigin").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -10432,10 +10432,10 @@ const serializeAws_restXmlCORSRules = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlCORSRule(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -10567,10 +10567,10 @@ const serializeAws_restXmlCompletedPartList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlCompletedPart(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -10782,10 +10782,10 @@ const serializeAws_restXmlEventList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("Event").addChildNode(new __XmlText(entry));
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -10808,12 +10808,12 @@ const serializeAws_restXmlExposeHeaders = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("ExposeHeader").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -10842,10 +10842,10 @@ const serializeAws_restXmlFilterRuleList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlFilterRule(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -10925,10 +10925,10 @@ const serializeAws_restXmlGrants = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlGrant(entry, context);
     collectedNodes.push(node.withName("Grant"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -11080,12 +11080,12 @@ const serializeAws_restXmlInventoryOptionalFields = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("InventoryOptionalField").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("Field"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -11209,13 +11209,13 @@ const serializeAws_restXmlLambdaFunctionConfigurationList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlLambdaFunctionConfiguration(
       entry,
       context
     );
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -11372,10 +11372,10 @@ const serializeAws_restXmlLifecycleRules = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlLifecycleRule(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -11551,13 +11551,13 @@ const serializeAws_restXmlNoncurrentVersionTransitionList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlNoncurrentVersionTransition(
       entry,
       context
     );
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -11636,10 +11636,10 @@ const serializeAws_restXmlObjectIdentifierList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlObjectIdentifier(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -11837,10 +11837,10 @@ const serializeAws_restXmlQueueConfigurationList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlQueueConfiguration(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -12041,10 +12041,10 @@ const serializeAws_restXmlReplicationRules = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlReplicationRule(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -12185,10 +12185,10 @@ const serializeAws_restXmlRoutingRules = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlRoutingRule(entry, context);
     collectedNodes.push(node.withName("RoutingRule"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -12405,10 +12405,10 @@ const serializeAws_restXmlServerSideEncryptionRules = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlServerSideEncryptionRule(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -12499,10 +12499,10 @@ const serializeAws_restXmlTagSet = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlTag(entry, context);
     collectedNodes.push(node.withName("Tag"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -12545,10 +12545,10 @@ const serializeAws_restXmlTargetGrants = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlTargetGrant(entry, context);
     collectedNodes.push(node.withName("Grant"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -12591,10 +12591,10 @@ const serializeAws_restXmlTopicConfigurationList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlTopicConfiguration(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -12629,10 +12629,10 @@ const serializeAws_restXmlTransitionList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlTransition(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -12641,10 +12641,10 @@ const serializeAws_restXmlUserMetadata = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlMetadataEntry(entry, context);
     collectedNodes.push(node.withName("MetadataEntry"));
-  });
+  }
   return collectedNodes;
 };
 

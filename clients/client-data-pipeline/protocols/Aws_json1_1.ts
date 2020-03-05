@@ -2373,9 +2373,11 @@ const serializeAws_json1_1ParameterAttributeList = (
   input: Array<ParameterAttribute>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ParameterAttribute(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ParameterAttribute(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ParameterObject = (
@@ -2399,9 +2401,11 @@ const serializeAws_json1_1ParameterObjectList = (
   input: Array<ParameterObject>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ParameterObject(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ParameterObject(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ParameterValue = (
@@ -2422,9 +2426,11 @@ const serializeAws_json1_1ParameterValueList = (
   input: Array<ParameterValue>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ParameterValue(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ParameterValue(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PipelineObject = (
@@ -2448,9 +2454,11 @@ const serializeAws_json1_1PipelineObjectList = (
   input: Array<PipelineObject>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1PipelineObject(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1PipelineObject(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PollForTaskInput = (
@@ -2608,9 +2616,11 @@ const serializeAws_json1_1SelectorList = (
   input: Array<Selector>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Selector(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Selector(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SetStatusInput = (
@@ -2700,28 +2710,44 @@ const serializeAws_json1_1fieldList = (
   input: Array<Field>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Field(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Field(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1idList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1stringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1tagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1ActivatePipelineOutput = (

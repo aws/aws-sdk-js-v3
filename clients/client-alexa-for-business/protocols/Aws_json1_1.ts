@@ -8429,14 +8429,22 @@ const serializeAws_json1_1FilterList = (
   input: Array<Filter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Filter(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Filter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1FilterValueList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1IPDialIn = (
@@ -8502,7 +8510,11 @@ const serializeAws_json1_1AudioList = (
   input: Array<Audio>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Audio(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Audio(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Content = (
@@ -8575,7 +8587,11 @@ const serializeAws_json1_1SsmlList = (
   input: Array<Ssml>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Ssml(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Ssml(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Text = (
@@ -8596,7 +8612,11 @@ const serializeAws_json1_1TextList = (
   input: Array<Text>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Text(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Text(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1DeleteDeviceUsageDataRequest = (
@@ -9383,14 +9403,22 @@ const serializeAws_json1_1EndOfMeetingReminderMinutesList = (
   input: Array<number>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Features = (
   input: Array<Feature | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ForgetSmartHomeAppliancesRequest = (
@@ -9732,9 +9760,11 @@ const serializeAws_json1_1PhoneNumberList = (
   input: Array<PhoneNumber>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1PhoneNumber(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1PhoneNumber(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PutConferencePreferenceRequest = (
@@ -10112,7 +10142,11 @@ const serializeAws_json1_1ShortSkillIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SipAddress = (
@@ -10133,9 +10167,11 @@ const serializeAws_json1_1SipAddressList = (
   input: Array<SipAddress>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1SipAddress(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1SipAddress(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Sort = (
@@ -10156,7 +10192,11 @@ const serializeAws_json1_1SortList = (
   input: Array<Sort>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Sort(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Sort(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1StartDeviceSyncRequest = (
@@ -10205,14 +10245,22 @@ const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -10233,7 +10281,11 @@ const serializeAws_json1_1TrustAnchorList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1UntagResourceRequest = (

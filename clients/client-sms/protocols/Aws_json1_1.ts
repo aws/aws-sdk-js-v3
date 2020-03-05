@@ -3583,7 +3583,11 @@ const serializeAws_json1_1AppIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CreateAppRequest = (
@@ -4016,9 +4020,13 @@ const serializeAws_json1_1ServerGroupLaunchConfigurations = (
   input: Array<ServerGroupLaunchConfiguration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ServerGroupLaunchConfiguration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1ServerGroupLaunchConfiguration(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ServerGroupReplicationConfiguration = (
@@ -4044,18 +4052,24 @@ const serializeAws_json1_1ServerGroupReplicationConfigurations = (
   input: Array<ServerGroupReplicationConfiguration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ServerGroupReplicationConfiguration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1ServerGroupReplicationConfiguration(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ServerGroups = (
   input: Array<ServerGroup>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ServerGroup(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ServerGroup(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ServerLaunchConfiguration = (
@@ -4100,16 +4114,24 @@ const serializeAws_json1_1ServerLaunchConfigurations = (
   input: Array<ServerLaunchConfiguration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ServerLaunchConfiguration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1ServerLaunchConfiguration(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ServerList = (
   input: Array<Server>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Server(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Server(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ServerReplicationConfiguration = (
@@ -4135,9 +4157,13 @@ const serializeAws_json1_1ServerReplicationConfigurations = (
   input: Array<ServerReplicationConfiguration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ServerReplicationConfiguration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1ServerReplicationConfiguration(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ServerReplicationParameters = (
@@ -4220,7 +4246,11 @@ const serializeAws_json1_1Tags = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TerminateAppRequest = (
@@ -4358,9 +4388,11 @@ const serializeAws_json1_1VmServerAddressList = (
   input: Array<VmServerAddress>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1VmServerAddress(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1VmServerAddress(entry, context));
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1AppSummary = (

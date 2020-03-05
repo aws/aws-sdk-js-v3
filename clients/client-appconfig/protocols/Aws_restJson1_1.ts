@@ -4331,9 +4331,11 @@ const serializeAws_restJson1_1MonitorList = (
   input: Array<Monitor>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Monitor(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Monitor(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagMap = (
@@ -4365,9 +4367,11 @@ const serializeAws_restJson1_1ValidatorList = (
   input: Array<Validator>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Validator(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Validator(entry, context));
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1Application = (

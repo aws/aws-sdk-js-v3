@@ -5591,7 +5591,11 @@ const serializeAws_restJson1_1Arns = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DataSourceConfig = (
@@ -5618,9 +5622,11 @@ const serializeAws_restJson1_1DataSourceConfigs = (
   input: Array<DataSourceConfig>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1DataSourceConfig(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1DataSourceConfig(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DeploymentApplicationConfig = (
@@ -5647,9 +5653,13 @@ const serializeAws_restJson1_1DeploymentApplicationConfigs = (
   input: Array<DeploymentApplicationConfig>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1DeploymentApplicationConfig(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1DeploymentApplicationConfig(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DeploymentConfig = (
@@ -5737,16 +5747,22 @@ const serializeAws_restJson1_1FilterValues = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Filters = (
   input: Array<Filter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Filter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Filter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1LaunchConfig = (
@@ -5839,9 +5855,11 @@ const serializeAws_restJson1_1PortMappingList = (
   input: Array<PortMapping>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1PortMapping(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1PortMapping(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1RenderingEngine = (
@@ -5882,9 +5900,13 @@ const serializeAws_restJson1_1RobotApplicationConfigs = (
   input: Array<RobotApplicationConfig>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1RobotApplicationConfig(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1RobotApplicationConfig(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1RobotSoftwareSuite = (
@@ -5905,7 +5927,11 @@ const serializeAws_restJson1_1S3Keys = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1S3Object = (
@@ -5929,7 +5955,11 @@ const serializeAws_restJson1_1SecurityGroups = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SimulationApplicationConfig = (
@@ -5956,9 +5986,13 @@ const serializeAws_restJson1_1SimulationApplicationConfigs = (
   input: Array<SimulationApplicationConfig>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SimulationApplicationConfig(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1SimulationApplicationConfig(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SimulationSoftwareSuite = (
@@ -5996,16 +6030,22 @@ const serializeAws_restJson1_1SourceConfigs = (
   input: Array<SourceConfig>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SourceConfig(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SourceConfig(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Subnets = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagMap = (

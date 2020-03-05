@@ -513,7 +513,11 @@ const serializeAws_json1_1Filters = (
   input: Array<Filter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Filter(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Filter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1GetAttributeValuesRequest = (

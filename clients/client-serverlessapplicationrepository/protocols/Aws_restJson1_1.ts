@@ -2464,43 +2464,57 @@ const serializeAws_restJson1_1__listOfApplicationPolicyStatement = (
   input: Array<ApplicationPolicyStatement>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ApplicationPolicyStatement(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1ApplicationPolicyStatement(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfParameterValue = (
   input: Array<ParameterValue>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ParameterValue(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1ParameterValue(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfRollbackTrigger = (
   input: Array<RollbackTrigger>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1RollbackTrigger(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1RollbackTrigger(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfTag = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Tag(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOf__string = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1ApplicationDependencySummary = (

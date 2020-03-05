@@ -2721,7 +2721,11 @@ const serializeAws_json1_1ArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CategoricalParameterRange = (
@@ -2742,9 +2746,13 @@ const serializeAws_json1_1CategoricalParameterRanges = (
   input: Array<CategoricalParameterRange>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1CategoricalParameterRange(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1CategoricalParameterRange(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ContinuousParameterRange = (
@@ -2771,9 +2779,11 @@ const serializeAws_json1_1ContinuousParameterRanges = (
   input: Array<ContinuousParameterRange>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ContinuousParameterRange(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ContinuousParameterRange(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CreateDatasetGroupRequest = (
@@ -3213,18 +3223,22 @@ const serializeAws_json1_1FeaturizationPipeline = (
   input: Array<FeaturizationMethod>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1FeaturizationMethod(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1FeaturizationMethod(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Featurizations = (
   input: Array<Featurization>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Featurization(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Featurization(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Filter = (
@@ -3248,21 +3262,33 @@ const serializeAws_json1_1Filters = (
   input: Array<Filter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Filter(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Filter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ForecastDimensions = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ForecastTypes = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1GetAccuracyMetricsRequest = (
@@ -3333,9 +3359,11 @@ const serializeAws_json1_1IntegerParameterRanges = (
   input: Array<IntegerParameterRange>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1IntegerParameterRange(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1IntegerParameterRange(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ListDatasetGroupsRequest = (
@@ -3515,9 +3543,11 @@ const serializeAws_json1_1SchemaAttributes = (
   input: Array<SchemaAttribute>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1SchemaAttribute(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1SchemaAttribute(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SupplementaryFeature = (
@@ -3538,9 +3568,11 @@ const serializeAws_json1_1SupplementaryFeatures = (
   input: Array<SupplementaryFeature>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1SupplementaryFeature(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1SupplementaryFeature(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TrainingParameters = (
@@ -3575,7 +3607,11 @@ const serializeAws_json1_1Values = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1ArnList = (

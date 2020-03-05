@@ -15027,9 +15027,11 @@ const serializeAws_json1_1AddOnRequestList = (
   input: Array<AddOnRequest>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1AddOnRequest(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1AddOnRequest(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1AllocateStaticIpRequest = (
@@ -15829,9 +15831,11 @@ const serializeAws_json1_1DiskMapList = (
   input: Array<DiskMap>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1DiskMap(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1DiskMap(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1DomainEntry = (
@@ -15878,7 +15882,11 @@ const serializeAws_json1_1DomainNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1DownloadDefaultKeyPairRequest = (
@@ -16549,9 +16557,11 @@ const serializeAws_json1_1InstanceEntryList = (
   input: Array<InstanceEntry>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1InstanceEntry(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1InstanceEntry(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1IsVpcPeeredRequest = (
@@ -16566,7 +16576,11 @@ const serializeAws_json1_1MetricStatisticList = (
   input: Array<MetricStatistic | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1OpenInstancePublicPortsRequest = (
@@ -16615,9 +16629,11 @@ const serializeAws_json1_1PortInfoList = (
   input: Array<PortInfo>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1PortInfo(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1PortInfo(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PutInstancePublicPortsRequest = (
@@ -16695,9 +16711,13 @@ const serializeAws_json1_1RelationalDatabaseParameterList = (
   input: Array<RelationalDatabaseParameter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1RelationalDatabaseParameter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1RelationalDatabaseParameter(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ReleaseStaticIpRequest = (
@@ -16715,7 +16735,11 @@ const serializeAws_json1_1ResourceNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1StartInstanceRequest = (
@@ -16773,7 +16797,11 @@ const serializeAws_json1_1StringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -16791,14 +16819,22 @@ const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagResourceRequest = (
