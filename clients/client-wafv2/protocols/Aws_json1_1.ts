@@ -4589,7 +4589,11 @@ const serializeAws_json1_1CountryCodes = (
   input: Array<CountryCode | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CreateIPSetRequest = (
@@ -4864,9 +4868,11 @@ const serializeAws_json1_1ExcludedRules = (
   input: Array<ExcludedRule>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ExcludedRule(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ExcludedRule(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1FieldToMatch = (
@@ -5064,7 +5070,11 @@ const serializeAws_json1_1IPAddresses = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1IPSetReferenceStatement = (
@@ -5215,7 +5225,11 @@ const serializeAws_json1_1LogDestinationConfigs = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1LoggingConfiguration = (
@@ -5369,9 +5383,11 @@ const serializeAws_json1_1RedactedFields = (
   input: Array<FieldToMatch>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1FieldToMatch(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1FieldToMatch(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Regex = (
@@ -5412,7 +5428,11 @@ const serializeAws_json1_1RegularExpressionList = (
   input: Array<Regex>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Regex(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Regex(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Rule = (
@@ -5491,7 +5511,11 @@ const serializeAws_json1_1Rules = (
   input: Array<Rule>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Rule(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Rule(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SingleHeader = (
@@ -5662,9 +5686,11 @@ const serializeAws_json1_1Statements = (
   input: Array<Statement>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Statement(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Statement(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -5682,14 +5708,22 @@ const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -5724,9 +5758,11 @@ const serializeAws_json1_1TextTransformations = (
   input: Array<TextTransformation>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1TextTransformation(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1TextTransformation(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TimeWindow = (

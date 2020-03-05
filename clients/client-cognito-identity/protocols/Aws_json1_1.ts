@@ -2969,9 +2969,11 @@ const serializeAws_json1_1CognitoIdentityProviderList = (
   input: Array<CognitoIdentityProvider>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1CognitoIdentityProvider(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1CognitoIdentityProvider(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CreateIdentityPoolInput = (
@@ -3161,7 +3163,11 @@ const serializeAws_json1_1IdentityIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1IdentityPool = (
@@ -3228,7 +3234,11 @@ const serializeAws_json1_1IdentityPoolTagsListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1IdentityPoolTagsType = (
@@ -3302,7 +3312,11 @@ const serializeAws_json1_1LoginsList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1LoginsMap = (
@@ -3363,9 +3377,11 @@ const serializeAws_json1_1MappingRulesList = (
   input: Array<MappingRule>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1MappingRule(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1MappingRule(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1MergeDeveloperIdentitiesInput = (
@@ -3392,7 +3408,11 @@ const serializeAws_json1_1OIDCProviderList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RoleMapping = (
@@ -3457,7 +3477,11 @@ const serializeAws_json1_1SAMLProviderList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SetIdentityPoolRolesInput = (

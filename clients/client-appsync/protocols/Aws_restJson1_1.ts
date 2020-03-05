@@ -6212,9 +6212,13 @@ const serializeAws_restJson1_1AdditionalAuthenticationProviders = (
   input: Array<AdditionalAuthenticationProvider>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AdditionalAuthenticationProvider(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1AdditionalAuthenticationProvider(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AuthorizationConfig = (
@@ -6269,7 +6273,11 @@ const serializeAws_restJson1_1CachingKeys = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1CognitoUserPoolConfig = (
@@ -6350,7 +6358,11 @@ const serializeAws_restJson1_1FunctionsIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1HttpDataSourceConfig = (

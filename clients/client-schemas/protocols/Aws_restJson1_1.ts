@@ -4723,7 +4723,11 @@ const serializeAws_restJson1_1__listOfGetDiscoveredSchemaVersionItemInput = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1DiscovererSummary = (

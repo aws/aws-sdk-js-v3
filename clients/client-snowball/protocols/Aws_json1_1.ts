@@ -2206,9 +2206,11 @@ const serializeAws_json1_1Ec2AmiResourceList = (
   input: Array<Ec2AmiResource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Ec2AmiResource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Ec2AmiResource(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1EventTriggerDefinition = (
@@ -2226,9 +2228,11 @@ const serializeAws_json1_1EventTriggerDefinitionList = (
   input: Array<EventTriggerDefinition>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1EventTriggerDefinition(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1EventTriggerDefinition(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1GetJobManifestRequest = (
@@ -2302,7 +2306,11 @@ const serializeAws_json1_1JobStateList = (
   input: Array<JobState | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1KeyRange = (
@@ -2342,9 +2350,11 @@ const serializeAws_json1_1LambdaResourceList = (
   input: Array<LambdaResource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1LambdaResource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1LambdaResource(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ListClusterJobsRequest = (
@@ -2447,9 +2457,11 @@ const serializeAws_json1_1S3ResourceList = (
   input: Array<S3Resource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1S3Resource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1S3Resource(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1UpdateClusterRequest = (

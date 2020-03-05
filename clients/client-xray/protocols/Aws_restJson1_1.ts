@@ -2449,9 +2449,13 @@ const serializeAws_restJson1_1SamplingStatisticsDocumentList = (
   input: Array<SamplingStatisticsDocument>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SamplingStatisticsDocument(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1SamplingStatisticsDocument(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SamplingStrategy = (
@@ -2503,23 +2507,33 @@ const serializeAws_restJson1_1TelemetryRecordList = (
   input: Array<TelemetryRecord>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1TelemetryRecord(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1TelemetryRecord(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TraceIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TraceSegmentDocumentList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1Alias = (

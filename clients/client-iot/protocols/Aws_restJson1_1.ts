@@ -29820,7 +29820,11 @@ const serializeAws_restJson1_1PolicyNames = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -29841,16 +29845,22 @@ const serializeAws_restJson1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Tag(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Action = (
@@ -29968,9 +29978,11 @@ const serializeAws_restJson1_1ActionList = (
   input: Array<Action>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Action(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Action(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AssetPropertyTimestamp = (
@@ -30014,9 +30026,11 @@ const serializeAws_restJson1_1AssetPropertyValueList = (
   input: Array<AssetPropertyValue>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AssetPropertyValue(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1AssetPropertyValue(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AssetPropertyVariant = (
@@ -30184,9 +30198,11 @@ const serializeAws_restJson1_1HeaderList = (
   input: Array<HttpActionHeader>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1HttpActionHeader(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1HttpActionHeader(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1HttpAction = (
@@ -30395,9 +30411,13 @@ const serializeAws_restJson1_1PutAssetPropertyValueEntryList = (
   input: Array<PutAssetPropertyValueEntry>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1PutAssetPropertyValueEntry(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1PutAssetPropertyValueEntry(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1PutItemInput = (
@@ -30599,9 +30619,11 @@ const serializeAws_restJson1_1AuthInfos = (
   input: Array<AuthInfo>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AuthInfo(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1AuthInfo(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AuthorizerConfig = (
@@ -30703,14 +30725,22 @@ const serializeAws_restJson1_1Resources = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ServerCertificateArns = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TlsContext = (
@@ -30742,16 +30772,22 @@ const serializeAws_restJson1_1Fields = (
   input: Array<Field>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Field(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Field(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1PercentList = (
   input: Array<number>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ThingGroupIndexingConfiguration = (
@@ -30842,9 +30878,11 @@ const serializeAws_restJson1_1AbortCriteriaList = (
   input: Array<AbortCriteria>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1AbortCriteria(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1AbortCriteria(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ExponentialRolloutRate = (
@@ -30892,7 +30930,11 @@ const serializeAws_restJson1_1JobTargets = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1PresignedUrlConfig = (
@@ -31137,16 +31179,22 @@ const serializeAws_restJson1_1OTAUpdateFiles = (
   input: Array<OTAUpdateFile>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1OTAUpdateFile(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1OTAUpdateFile(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Protocols = (
   input: Array<Protocol | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1S3Destination = (
@@ -31223,7 +31271,11 @@ const serializeAws_restJson1_1Targets = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AttributePayload = (
@@ -31269,14 +31321,22 @@ const serializeAws_restJson1_1SearchableAttributes = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ThingGroupList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ThingGroupProperties = (
@@ -31428,7 +31488,11 @@ const serializeAws_restJson1_1ThingGroupNames = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1UpdateCACertificateParams = (
@@ -31566,14 +31630,22 @@ const serializeAws_restJson1_1FindingIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1MitigationActionNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1PolicyVersionIdentifier = (
@@ -31594,7 +31666,11 @@ const serializeAws_restJson1_1ReasonForNonComplianceCodes = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ResourceIdentifier = (
@@ -31638,14 +31714,22 @@ const serializeAws_restJson1_1TargetAuditCheckNames = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AdditionalMetricsToRetainList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AlertTarget = (
@@ -31733,16 +31817,22 @@ const serializeAws_restJson1_1Behaviors = (
   input: Array<Behavior>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Behavior(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Behavior(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Cidrs = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1MetricValue = (
@@ -31766,7 +31856,11 @@ const serializeAws_restJson1_1Ports = (
   input: Array<number>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1StatisticalThreshold = (
@@ -31801,9 +31895,11 @@ const serializeAws_restJson1_1StreamFiles = (
   input: Array<StreamFile>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1StreamFile(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1StreamFile(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1S3Location = (

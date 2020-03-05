@@ -16319,7 +16319,11 @@ const serializeAws_json1_1AliasAttributesListType = (
   input: Array<AliasAttributeType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1AnalyticsConfigurationType = (
@@ -16371,9 +16375,11 @@ const serializeAws_json1_1AttributeListType = (
   input: Array<AttributeType>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1AttributeType(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1AttributeType(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1AttributeMappingType = (
@@ -16391,7 +16397,11 @@ const serializeAws_json1_1AttributeNameListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1AttributeType = (
@@ -16423,14 +16433,22 @@ const serializeAws_json1_1BlockedIPRangeListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CallbackURLsListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ChallengeResponsesType = (
@@ -16476,7 +16494,11 @@ const serializeAws_json1_1ClientPermissionListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CompromisedCredentialsActionsType = (
@@ -16985,9 +17007,11 @@ const serializeAws_json1_1CustomAttributesListType = (
   input: Array<SchemaAttributeType>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1SchemaAttributeType(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1SchemaAttributeType(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CustomDomainConfigType = (
@@ -17116,7 +17140,11 @@ const serializeAws_json1_1DeliveryMediumListType = (
   input: Array<DeliveryMediumType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1DescribeIdentityProviderRequest = (
@@ -17268,14 +17296,22 @@ const serializeAws_json1_1EventFiltersType = (
   input: Array<EventFilterType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ExplicitAuthFlowsListType = (
   input: Array<ExplicitAuthFlowsType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ForgetDeviceRequest = (
@@ -17476,16 +17512,22 @@ const serializeAws_json1_1HttpHeaderList = (
   input: Array<HttpHeader>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1HttpHeader(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1HttpHeader(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1IdpIdentifiersListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1InitiateAuthRequest = (
@@ -17744,16 +17786,22 @@ const serializeAws_json1_1LogoutURLsListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1MFAOptionListType = (
   input: Array<MFAOptionType>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1MFAOptionType(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1MFAOptionType(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1MFAOptionType = (
@@ -17857,7 +17905,11 @@ const serializeAws_json1_1OAuthFlowsType = (
   input: Array<OAuthFlowType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PasswordPolicyType = (
@@ -17919,9 +17971,11 @@ const serializeAws_json1_1RecoveryMechanismsType = (
   input: Array<RecoveryOptionType>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1RecoveryOptionType(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1RecoveryOptionType(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RecoveryOptionType = (
@@ -17977,9 +18031,11 @@ const serializeAws_json1_1ResourceServerScopeListType = (
   input: Array<ResourceServerScopeType>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ResourceServerScopeType(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ResourceServerScopeType(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ResourceServerScopeType = (
@@ -18120,23 +18176,33 @@ const serializeAws_json1_1SchemaAttributesListType = (
   input: Array<SchemaAttributeType>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1SchemaAttributeType(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1SchemaAttributeType(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ScopeListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SearchedAttributeNamesListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SetRiskConfigurationRequest = (
@@ -18321,7 +18387,11 @@ const serializeAws_json1_1SkippedIPRangeListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SmsConfigurationType = (
@@ -18426,7 +18496,11 @@ const serializeAws_json1_1SupportedIdentityProvidersListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -18862,7 +18936,11 @@ const serializeAws_json1_1UserPoolTagsListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1UserPoolTagsType = (
@@ -18880,7 +18958,11 @@ const serializeAws_json1_1UsernameAttributesListType = (
   input: Array<UsernameAttributeType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1VerificationMessageTemplateType = (
@@ -18913,7 +18995,11 @@ const serializeAws_json1_1VerifiedAttributesListType = (
   input: Array<VerifiedAttributeType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1VerifySoftwareTokenRequest = (

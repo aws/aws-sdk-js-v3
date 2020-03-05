@@ -6605,9 +6605,11 @@ const serializeAws_json1_1BlockDeviceMappings = (
   input: Array<BlockDeviceMapping>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1BlockDeviceMapping(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1BlockDeviceMapping(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ChefConfiguration = (
@@ -6777,9 +6779,11 @@ const serializeAws_json1_1CloudWatchLogsLogStreams = (
   input: Array<CloudWatchLogsLogStream>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1CloudWatchLogsLogStream(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1CloudWatchLogsLogStream(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CreateAppRequest = (
@@ -7167,9 +7171,11 @@ const serializeAws_json1_1DataSources = (
   input: Array<DataSource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1DataSource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1DataSource(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1DeleteAppRequest = (
@@ -7724,9 +7730,11 @@ const serializeAws_json1_1EnvironmentVariables = (
   input: Array<EnvironmentVariable>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1EnvironmentVariable(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1EnvironmentVariable(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1GetHostnameSuggestionRequest = (
@@ -8149,14 +8157,22 @@ const serializeAws_json1_1Strings = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagKeys = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -8597,9 +8613,11 @@ const serializeAws_json1_1VolumeConfigurations = (
   input: Array<VolumeConfiguration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1VolumeConfiguration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1VolumeConfiguration(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1WeeklyAutoScalingSchedule = (

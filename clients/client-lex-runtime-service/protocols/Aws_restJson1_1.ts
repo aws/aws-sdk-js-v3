@@ -1396,9 +1396,11 @@ const serializeAws_restJson1_1IntentSummaryList = (
   input: Array<IntentSummary>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1IntentSummary(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1IntentSummary(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1StringMap = (

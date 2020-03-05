@@ -4979,7 +4979,11 @@ const serializeAws_restJson1_1AttributeNames = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ChannelActivity = (
@@ -5114,9 +5118,11 @@ const serializeAws_restJson1_1DatasetActions = (
   input: Array<DatasetAction>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1DatasetAction(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1DatasetAction(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DatasetContentDeliveryDestination = (
@@ -5166,9 +5172,13 @@ const serializeAws_restJson1_1DatasetContentDeliveryRules = (
   input: Array<DatasetContentDeliveryRule>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1DatasetContentDeliveryRule(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1DatasetContentDeliveryRule(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DatasetContentVersionValue = (
@@ -5206,9 +5216,11 @@ const serializeAws_restJson1_1DatasetTriggers = (
   input: Array<DatasetTrigger>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1DatasetTrigger(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1DatasetTrigger(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DatastoreActivity = (
@@ -5415,7 +5427,11 @@ const serializeAws_restJson1_1MessagePayloads = (
   input: Array<Uint8Array>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => context.base64Encoder(entry));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(context.base64Encoder(entry));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1OutputFileUriValue = (
@@ -5433,9 +5449,11 @@ const serializeAws_restJson1_1PipelineActivities = (
   input: Array<PipelineActivity>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1PipelineActivity(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1PipelineActivity(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1PipelineActivity = (
@@ -5532,9 +5550,11 @@ const serializeAws_restJson1_1QueryFilters = (
   input: Array<QueryFilter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1QueryFilter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1QueryFilter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1RemoveAttributesActivity = (
@@ -5690,9 +5710,11 @@ const serializeAws_restJson1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Tag(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TriggeringDataset = (
@@ -5743,9 +5765,11 @@ const serializeAws_restJson1_1Variables = (
   input: Array<Variable>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Variable(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Variable(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1VersioningConfiguration = (
@@ -5780,9 +5804,11 @@ const serializeAws_restJson1_1Messages = (
   input: Array<Message>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Message(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Message(entry, context));
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1AddAttributesActivity = (

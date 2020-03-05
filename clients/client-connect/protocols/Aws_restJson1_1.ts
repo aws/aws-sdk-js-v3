@@ -4554,7 +4554,11 @@ const serializeAws_restJson1_1Channels = (
   input: Array<Channel | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1CurrentMetric = (
@@ -4575,9 +4579,11 @@ const serializeAws_restJson1_1CurrentMetrics = (
   input: Array<CurrentMetric>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1CurrentMetric(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1CurrentMetric(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Filters = (
@@ -4604,7 +4610,11 @@ const serializeAws_restJson1_1Groupings = (
   input: Array<Grouping | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1HistoricalMetric = (
@@ -4634,16 +4644,22 @@ const serializeAws_restJson1_1HistoricalMetrics = (
   input: Array<HistoricalMetric>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1HistoricalMetric(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1HistoricalMetric(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Queues = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Threshold = (
@@ -4664,7 +4680,11 @@ const serializeAws_restJson1_1SecurityProfileIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagMap = (

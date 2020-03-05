@@ -959,27 +959,35 @@ const serializeAws_json1_1S3Resources = (
   input: Array<S3Resource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1S3Resource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1S3Resource(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1S3ResourcesClassification = (
   input: Array<S3ResourceClassification>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1S3ResourceClassification(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1S3ResourceClassification(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1S3ResourcesClassificationUpdate = (
   input: Array<S3ResourceClassificationUpdate>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1S3ResourceClassificationUpdate(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1S3ResourceClassificationUpdate(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1UpdateS3ResourcesRequest = (

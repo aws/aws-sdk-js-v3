@@ -2625,7 +2625,11 @@ const serializeAws_restJson1_1AccessControls = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Artwork = (
@@ -2664,9 +2668,11 @@ const serializeAws_restJson1_1Artworks = (
   input: Array<Artwork>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Artwork(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Artwork(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1AudioCodecOptions = (
@@ -2742,9 +2748,11 @@ const serializeAws_restJson1_1CaptionFormats = (
   input: Array<CaptionFormat>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1CaptionFormat(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1CaptionFormat(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1CaptionSource = (
@@ -2777,9 +2785,11 @@ const serializeAws_restJson1_1CaptionSources = (
   input: Array<CaptionSource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1CaptionSource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1CaptionSource(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Captions = (
@@ -2834,9 +2844,11 @@ const serializeAws_restJson1_1Composition = (
   input: Array<Clip>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Clip(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Clip(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1CreateJobOutput = (
@@ -2902,9 +2914,11 @@ const serializeAws_restJson1_1CreateJobOutputs = (
   input: Array<CreateJobOutput>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1CreateJobOutput(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1CreateJobOutput(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1CreateJobPlaylist = (
@@ -2945,9 +2959,11 @@ const serializeAws_restJson1_1CreateJobPlaylists = (
   input: Array<CreateJobPlaylist>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1CreateJobPlaylist(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1CreateJobPlaylist(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DetectedProperties = (
@@ -3109,9 +3125,11 @@ const serializeAws_restJson1_1JobInputs = (
   input: Array<JobInput>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1JobInput(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1JobInput(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1JobWatermark = (
@@ -3138,9 +3156,11 @@ const serializeAws_restJson1_1JobWatermarks = (
   input: Array<JobWatermark>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1JobWatermark(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1JobWatermark(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Notifications = (
@@ -3167,7 +3187,11 @@ const serializeAws_restJson1_1OutputKeys = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Permission = (
@@ -3194,9 +3218,11 @@ const serializeAws_restJson1_1Permissions = (
   input: Array<Permission>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Permission(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Permission(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1PipelineOutputConfig = (
@@ -3287,16 +3313,22 @@ const serializeAws_restJson1_1PresetWatermarks = (
   input: Array<PresetWatermark>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1PresetWatermark(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1PresetWatermark(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1SnsTopics = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Thumbnails = (
