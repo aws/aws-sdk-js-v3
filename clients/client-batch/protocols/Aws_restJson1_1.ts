@@ -1885,9 +1885,13 @@ const serializeAws_restJson1_1ComputeEnvironmentOrders = (
   input: Array<ComputeEnvironmentOrder>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ComputeEnvironmentOrder(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1ComputeEnvironmentOrder(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ComputeResource = (
@@ -2114,25 +2118,33 @@ const serializeAws_restJson1_1DeviceCgroupPermissions = (
   input: Array<DeviceCgroupPermission | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1DevicesList = (
   input: Array<Device>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Device(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Device(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1EnvironmentVariables = (
   input: Array<KeyValuePair>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1KeyValuePair(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1KeyValuePair(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Host = (
@@ -2164,9 +2176,11 @@ const serializeAws_restJson1_1JobDependencyList = (
   input: Array<JobDependency>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1JobDependency(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1JobDependency(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1JobTimeout = (
@@ -2246,9 +2260,11 @@ const serializeAws_restJson1_1MountPoints = (
   input: Array<MountPoint>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1MountPoint(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1MountPoint(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1NodeOverrides = (
@@ -2315,18 +2331,22 @@ const serializeAws_restJson1_1NodePropertyOverrides = (
   input: Array<NodePropertyOverride>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1NodePropertyOverride(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1NodePropertyOverride(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1NodeRangeProperties = (
   input: Array<NodeRangeProperty>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1NodeRangeProperty(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1NodeRangeProperty(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1NodeRangeProperty = (
@@ -2375,9 +2395,11 @@ const serializeAws_restJson1_1ResourceRequirements = (
   input: Array<ResourceRequirement>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ResourceRequirement(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1ResourceRequirement(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1RetryStrategy = (
@@ -2395,7 +2417,11 @@ const serializeAws_restJson1_1StringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1TagsMap = (
@@ -2430,9 +2456,11 @@ const serializeAws_restJson1_1Ulimits = (
   input: Array<Ulimit>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Ulimit(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Ulimit(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Volume = (
@@ -2453,9 +2481,11 @@ const serializeAws_restJson1_1Volumes = (
   input: Array<Volume>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Volume(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Volume(entry, context));
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1ArrayJobStatusSummary = (

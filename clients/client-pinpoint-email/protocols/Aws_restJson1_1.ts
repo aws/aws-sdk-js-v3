@@ -5461,9 +5461,11 @@ const serializeAws_restJson1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Tag(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Body = (
@@ -5517,9 +5519,13 @@ const serializeAws_restJson1_1CloudWatchDimensionConfigurations = (
   input: Array<CloudWatchDimensionConfiguration>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1CloudWatchDimensionConfiguration(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1CloudWatchDimensionConfiguration(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Content = (
@@ -5604,16 +5610,24 @@ const serializeAws_restJson1_1DomainDeliverabilityTrackingOptions = (
   input: Array<DomainDeliverabilityTrackingOption>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1DomainDeliverabilityTrackingOption(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1DomainDeliverabilityTrackingOption(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1EmailAddressList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1EmailContent = (
@@ -5690,7 +5704,11 @@ const serializeAws_restJson1_1EventTypes = (
   input: Array<EventType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1InboxPlacementTrackingOption = (
@@ -5714,7 +5732,11 @@ const serializeAws_restJson1_1IspNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1KinesisFirehoseDestination = (
@@ -5766,9 +5788,11 @@ const serializeAws_restJson1_1MessageTagList = (
   input: Array<MessageTag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1MessageTag(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1MessageTag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1PinpointDestination = (

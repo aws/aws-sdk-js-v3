@@ -8610,10 +8610,10 @@ const serializeAws_restXmlChanges = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlChange(entry, context);
     collectedNodes.push(node.withName("Change"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -8622,12 +8622,12 @@ const serializeAws_restXmlChildHealthCheckList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("HealthCheckId").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("ChildHealthCheck"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -8783,12 +8783,12 @@ const serializeAws_restXmlHealthCheckRegionList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("HealthCheckRegion").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("Region"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -8817,12 +8817,12 @@ const serializeAws_restXmlResettableElementNameList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("ResettableElementName").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("ResettableElementName"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -8938,10 +8938,10 @@ const serializeAws_restXmlResourceRecords = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlResourceRecord(entry, context);
     collectedNodes.push(node.withName("ResourceRecord"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -8967,10 +8967,10 @@ const serializeAws_restXmlTagKeyList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("TagKey").addChildNode(new __XmlText(entry));
     collectedNodes.push(node.withName("Key"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -8979,10 +8979,10 @@ const serializeAws_restXmlTagList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlTag(entry, context);
     collectedNodes.push(node.withName("Tag"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -8991,12 +8991,12 @@ const serializeAws_restXmlTagResourceIdList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("TagResourceId").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("ResourceId"));
-  });
+  }
   return collectedNodes;
 };
 

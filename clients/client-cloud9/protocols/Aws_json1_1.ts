@@ -1590,7 +1590,11 @@ const serializeAws_json1_1BoundedEnvironmentIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CreateEnvironmentEC2Request = (
@@ -1733,7 +1737,11 @@ const serializeAws_json1_1PermissionsList = (
   input: Array<Permissions | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1UpdateEnvironmentMembershipRequest = (

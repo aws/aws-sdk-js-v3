@@ -3681,7 +3681,11 @@ const serializeAws_json1_1MetricsNameList = (
   input: Array<MetricsName | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PutRecordInput = (
@@ -3745,9 +3749,11 @@ const serializeAws_json1_1PutRecordsRequestEntryList = (
   input: Array<PutRecordsRequestEntry>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1PutRecordsRequestEntry(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1PutRecordsRequestEntry(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RegisterStreamConsumerInput = (
@@ -3873,7 +3879,11 @@ const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagMap = (

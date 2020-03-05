@@ -17974,79 +17974,103 @@ const serializeAws_restJson1_1ListOfEndpointBatchItem = (
   input: Array<EndpointBatchItem>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1EndpointBatchItem(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1EndpointBatchItem(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfMultiConditionalBranch = (
   input: Array<MultiConditionalBranch>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1MultiConditionalBranch(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1MultiConditionalBranch(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfRandomSplitEntry = (
   input: Array<RandomSplitEntry>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1RandomSplitEntry(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1RandomSplitEntry(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfSegmentDimensions = (
   input: Array<SegmentDimensions>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SegmentDimensions(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SegmentDimensions(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfSegmentGroup = (
   input: Array<SegmentGroup>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SegmentGroup(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SegmentGroup(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfSegmentReference = (
   input: Array<SegmentReference>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SegmentReference(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SegmentReference(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfSimpleCondition = (
   input: Array<SimpleCondition>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1SimpleCondition(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1SimpleCondition(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOfWriteTreatmentResource = (
   input: Array<WriteTreatmentResource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1WriteTreatmentResource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_restJson1_1WriteTreatmentResource(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1ListOf__string = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1MapOfActivity = (

@@ -1932,12 +1932,12 @@ const serializeAws_restXmlJobManifestFieldList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = new __XmlNode("JobManifestFieldName").addChildNode(
       new __XmlText(entry)
     );
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -2295,10 +2295,10 @@ const serializeAws_restXmlS3GrantList = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlS3Grant(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 
@@ -2503,10 +2503,10 @@ const serializeAws_restXmlS3TagSet = (
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
-  (input || []).map(entry => {
+  for (let entry of input) {
     const node = serializeAws_restXmlS3Tag(entry, context);
     collectedNodes.push(node.withName("member"));
-  });
+  }
   return collectedNodes;
 };
 

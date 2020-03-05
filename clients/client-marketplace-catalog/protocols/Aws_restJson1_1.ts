@@ -1128,18 +1128,22 @@ const serializeAws_restJson1_1FilterList = (
   input: Array<Filter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Filter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Filter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1RequestedChangeList = (
   input: Array<Change>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Change(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Change(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1Sort = (
@@ -1160,7 +1164,11 @@ const serializeAws_restJson1_1ValueList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1ChangeSetDescription = (

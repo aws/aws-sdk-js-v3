@@ -7197,10 +7197,10 @@ const serializeAws_queryAvailabilityZonesList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`AvailabilityZone.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -7272,10 +7272,10 @@ const serializeAws_queryCacheClusterIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -7285,10 +7285,10 @@ const serializeAws_queryCacheNodeIdsList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`CacheNodeId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -7298,10 +7298,10 @@ const serializeAws_queryCacheSecurityGroupNameList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`CacheSecurityGroupName.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -7701,7 +7701,7 @@ const serializeAws_queryCustomerNodeEndpointList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryCustomerNodeEndpoint(
       entry,
       context
@@ -7710,7 +7710,7 @@ const serializeAws_queryCustomerNodeEndpointList = (
       entries[`member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8235,10 +8235,10 @@ const serializeAws_queryKeyList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8570,7 +8570,7 @@ const serializeAws_queryNodeGroupConfigurationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryNodeGroupConfiguration(
       entry,
       context
@@ -8579,7 +8579,7 @@ const serializeAws_queryNodeGroupConfigurationList = (
       entries[`NodeGroupConfiguration.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8589,10 +8589,10 @@ const serializeAws_queryNodeGroupsToRemoveList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`NodeGroupToRemove.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8602,10 +8602,10 @@ const serializeAws_queryNodeGroupsToRetainList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`NodeGroupToRetain.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8629,13 +8629,13 @@ const serializeAws_queryParameterNameValueList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryParameterNameValue(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`ParameterNameValue.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8645,10 +8645,10 @@ const serializeAws_queryPreferredAvailabilityZoneList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`PreferredAvailabilityZone.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8697,10 +8697,10 @@ const serializeAws_queryRemoveReplicasList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8728,13 +8728,13 @@ const serializeAws_queryReplicaConfigurationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryConfigureShard(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`ConfigureShard.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8744,10 +8744,10 @@ const serializeAws_queryReplicationGroupIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8802,7 +8802,7 @@ const serializeAws_queryReshardingConfigurationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryReshardingConfiguration(
       entry,
       context
@@ -8811,7 +8811,7 @@ const serializeAws_queryReshardingConfigurationList = (
       entries[`ReshardingConfiguration.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8838,10 +8838,10 @@ const serializeAws_querySecurityGroupIdsList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SecurityGroupId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8851,10 +8851,10 @@ const serializeAws_queryServiceUpdateStatusList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8864,10 +8864,10 @@ const serializeAws_querySnapshotArnsList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SnapshotArn.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8898,10 +8898,10 @@ const serializeAws_querySubnetIdentifierList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SubnetIdentifier.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8922,13 +8922,13 @@ const serializeAws_queryTagList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Tag.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -8966,10 +8966,10 @@ const serializeAws_queryUpdateActionStatusList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 

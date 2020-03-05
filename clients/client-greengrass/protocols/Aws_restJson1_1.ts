@@ -10646,95 +10646,121 @@ const serializeAws_restJson1_1UpdateTargets = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfConnectivityInfo = (
   input: Array<ConnectivityInfo>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ConnectivityInfo(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1ConnectivityInfo(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfConnector = (
   input: Array<Connector>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Connector(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Connector(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfCore = (
   input: Array<Core>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Core(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Core(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfDevice = (
   input: Array<Device>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Device(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Device(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfFunction = (
   input: Array<Function>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Function(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Function(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfLogger = (
   input: Array<Logger>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Logger(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Logger(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfResource = (
   input: Array<Resource>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Resource(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Resource(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfResourceAccessPolicy = (
   input: Array<ResourceAccessPolicy>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1ResourceAccessPolicy(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1ResourceAccessPolicy(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOfSubscription = (
   input: Array<Subscription>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_restJson1_1Subscription(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_restJson1_1Subscription(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__listOf__string = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_restJson1_1__mapOf__string = (

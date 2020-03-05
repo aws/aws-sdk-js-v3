@@ -1069,14 +1069,22 @@ const serializeAws_json1_0AccountIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_0AutoScalingGroupArns = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_0Filter = (
@@ -1100,14 +1108,22 @@ const serializeAws_json1_0FilterValues = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_0Filters = (
   input: Array<Filter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_0Filter(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_0Filter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest = (
@@ -1225,7 +1241,11 @@ const serializeAws_json1_0InstanceArns = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_0UpdateEnrollmentStatusRequest = (

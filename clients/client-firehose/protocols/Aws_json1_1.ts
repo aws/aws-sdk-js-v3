@@ -2065,14 +2065,22 @@ const serializeAws_json1_1ListOfNonEmptyStrings = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ListTagsForDeliveryStreamInput = (
@@ -2238,9 +2246,11 @@ const serializeAws_json1_1ProcessorList = (
   input: Array<Processor>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Processor(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Processor(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ProcessorParameter = (
@@ -2261,9 +2271,11 @@ const serializeAws_json1_1ProcessorParameterList = (
   input: Array<ProcessorParameter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ProcessorParameter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ProcessorParameter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PutRecordBatchInput = (
@@ -2287,9 +2299,11 @@ const serializeAws_json1_1PutRecordBatchRequestEntryList = (
   input: Array<_Record>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1_Record(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1_Record(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PutRecordInput = (
@@ -2773,14 +2787,22 @@ const serializeAws_json1_1TagDeliveryStreamInputTagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1UntagDeliveryStreamInput = (

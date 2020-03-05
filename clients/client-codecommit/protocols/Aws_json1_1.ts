@@ -19498,14 +19498,22 @@ const serializeAws_json1_1BranchNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CommitIdsInputList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ConflictResolution = (
@@ -19761,9 +19769,11 @@ const serializeAws_json1_1DeleteFileEntries = (
   input: Array<DeleteFileEntry>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1DeleteFileEntry(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1DeleteFileEntry(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1DeleteFileEntry = (
@@ -19924,7 +19934,11 @@ const serializeAws_json1_1FilePaths = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1GetApprovalRuleTemplateInput = (
@@ -20690,9 +20704,11 @@ const serializeAws_json1_1PutFileEntries = (
   input: Array<PutFileEntry>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1PutFileEntry(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1PutFileEntry(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1PutFileEntry = (
@@ -20774,9 +20790,11 @@ const serializeAws_json1_1ReplaceContentEntries = (
   input: Array<ReplaceContentEntry>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ReplaceContentEntry(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ReplaceContentEntry(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ReplaceContentEntry = (
@@ -20803,7 +20821,11 @@ const serializeAws_json1_1RepositoryNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RepositoryTrigger = (
@@ -20839,25 +20861,33 @@ const serializeAws_json1_1RepositoryTriggerEventList = (
   input: Array<RepositoryTriggerEventEnum | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1RepositoryTriggersList = (
   input: Array<RepositoryTrigger>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1RepositoryTrigger(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1RepositoryTrigger(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SetFileModeEntries = (
   input: Array<SetFileModeEntry>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1SetFileModeEntry(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1SetFileModeEntry(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SetFileModeEntry = (
@@ -20892,7 +20922,11 @@ const serializeAws_json1_1TagKeysList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TagResourceInput = (
@@ -20941,7 +20975,11 @@ const serializeAws_json1_1TargetList = (
   input: Array<Target>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Target(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Target(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TestRepositoryTriggersInput = (

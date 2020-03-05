@@ -31962,10 +31962,10 @@ const serializeAws_ec2AccountAttributeNameStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`AttributeName.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -32054,10 +32054,10 @@ const serializeAws_ec2AllocationIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`AllocationId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -32342,10 +32342,10 @@ const serializeAws_ec2AssociationIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`AssociationId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -32597,10 +32597,10 @@ const serializeAws_ec2AvailabilityZoneStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`AvailabilityZone.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -32610,10 +32610,10 @@ const serializeAws_ec2BillingProductList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -32658,13 +32658,13 @@ const serializeAws_ec2BlockDeviceMappingList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2BlockDeviceMapping(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -32674,13 +32674,13 @@ const serializeAws_ec2BlockDeviceMappingRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2BlockDeviceMapping(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`BlockDeviceMapping.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -32690,10 +32690,10 @@ const serializeAws_ec2BundleIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`BundleId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -32855,10 +32855,10 @@ const serializeAws_ec2CapacityReservationIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -32949,13 +32949,13 @@ const serializeAws_ec2ClassicLoadBalancers = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ClassicLoadBalancer(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -33034,7 +33034,7 @@ const serializeAws_ec2ClientVpnAuthenticationRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ClientVpnAuthenticationRequest(
       entry,
       context
@@ -33043,7 +33043,7 @@ const serializeAws_ec2ClientVpnAuthenticationRequestList = (
       entries[`Member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -33053,10 +33053,10 @@ const serializeAws_ec2ClientVpnSecurityGroupIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -33066,10 +33066,10 @@ const serializeAws_ec2CoipPoolIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -33113,10 +33113,10 @@ const serializeAws_ec2ConversionIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -34684,7 +34684,7 @@ const serializeAws_ec2CreateVolumePermissionList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2CreateVolumePermission(
       entry,
       context
@@ -34693,7 +34693,7 @@ const serializeAws_ec2CreateVolumePermissionList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -35031,10 +35031,10 @@ const serializeAws_ec2CustomerGatewayIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`CustomerGatewayId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -35373,10 +35373,10 @@ const serializeAws_ec2DeleteQueuedReservedInstancesIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -39512,10 +39512,10 @@ const serializeAws_ec2DhcpOptionsIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`DhcpOptionsId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -39802,13 +39802,13 @@ const serializeAws_ec2DiskImageList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2DiskImage(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -39882,10 +39882,10 @@ const serializeAws_ec2EgressOnlyInternetGatewayIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -39895,10 +39895,10 @@ const serializeAws_ec2ElasticGpuIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -39919,7 +39919,7 @@ const serializeAws_ec2ElasticGpuSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ElasticGpuSpecification(
       entry,
       context
@@ -39928,7 +39928,7 @@ const serializeAws_ec2ElasticGpuSpecificationList = (
       entries[`ElasticGpuSpecification.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -39938,7 +39938,7 @@ const serializeAws_ec2ElasticGpuSpecifications = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ElasticGpuSpecification(
       entry,
       context
@@ -39947,7 +39947,7 @@ const serializeAws_ec2ElasticGpuSpecifications = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -39971,7 +39971,7 @@ const serializeAws_ec2ElasticInferenceAccelerators = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ElasticInferenceAccelerator(
       entry,
       context
@@ -39980,7 +39980,7 @@ const serializeAws_ec2ElasticInferenceAccelerators = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40102,10 +40102,10 @@ const serializeAws_ec2ExecutableByStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ExecutableBy.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40182,10 +40182,10 @@ const serializeAws_ec2ExportImageTaskIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ExportImageTaskId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40195,10 +40195,10 @@ const serializeAws_ec2ExportTaskIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ExportTaskId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40287,13 +40287,13 @@ const serializeAws_ec2FilterList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2Filter(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Filter.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40303,10 +40303,10 @@ const serializeAws_ec2FleetIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40316,7 +40316,7 @@ const serializeAws_ec2FleetLaunchTemplateConfigListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2FleetLaunchTemplateConfigRequest(
       entry,
       context
@@ -40325,7 +40325,7 @@ const serializeAws_ec2FleetLaunchTemplateConfigListRequest = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40363,7 +40363,7 @@ const serializeAws_ec2FleetLaunchTemplateOverridesListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2FleetLaunchTemplateOverridesRequest(
       entry,
       context
@@ -40372,7 +40372,7 @@ const serializeAws_ec2FleetLaunchTemplateOverridesListRequest = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40449,10 +40449,10 @@ const serializeAws_ec2FpgaImageIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40788,10 +40788,10 @@ const serializeAws_ec2GroupIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`GroupId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40815,13 +40815,13 @@ const serializeAws_ec2GroupIdentifierList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2GroupIdentifier(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40831,10 +40831,10 @@ const serializeAws_ec2GroupIds = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40844,10 +40844,10 @@ const serializeAws_ec2GroupNameStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`GroupName.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40868,10 +40868,10 @@ const serializeAws_ec2HostReservationIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40881,7 +40881,7 @@ const serializeAws_ec2IKEVersionsRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2IKEVersionsRequestListValue(
       entry,
       context
@@ -40890,7 +40890,7 @@ const serializeAws_ec2IKEVersionsRequestList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40969,13 +40969,13 @@ const serializeAws_ec2ImageDiskContainerList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ImageDiskContainer(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -40985,10 +40985,10 @@ const serializeAws_ec2ImageIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ImageId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41026,7 +41026,7 @@ const serializeAws_ec2ImportImageLicenseSpecificationListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ImportImageLicenseConfigurationRequest(
       entry,
       context
@@ -41035,7 +41035,7 @@ const serializeAws_ec2ImportImageLicenseSpecificationListRequest = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41275,10 +41275,10 @@ const serializeAws_ec2ImportTaskIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ImportTaskId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41346,7 +41346,7 @@ const serializeAws_ec2InstanceBlockDeviceMappingSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2InstanceBlockDeviceMappingSpecification(
       entry,
       context
@@ -41355,7 +41355,7 @@ const serializeAws_ec2InstanceBlockDeviceMappingSpecificationList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41365,7 +41365,7 @@ const serializeAws_ec2InstanceCreditSpecificationListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2InstanceCreditSpecificationRequest(
       entry,
       context
@@ -41374,7 +41374,7 @@ const serializeAws_ec2InstanceCreditSpecificationListRequest = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41398,10 +41398,10 @@ const serializeAws_ec2InstanceIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`InstanceId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41422,13 +41422,13 @@ const serializeAws_ec2InstanceIpv6AddressList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2InstanceIpv6Address(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41438,7 +41438,7 @@ const serializeAws_ec2InstanceIpv6AddressListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2InstanceIpv6AddressRequest(
       entry,
       context
@@ -41447,7 +41447,7 @@ const serializeAws_ec2InstanceIpv6AddressListRequest = (
       entries[`InstanceIpv6Address.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41575,7 +41575,7 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2InstanceNetworkInterfaceSpecification(
       entry,
       context
@@ -41584,7 +41584,7 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41608,10 +41608,10 @@ const serializeAws_ec2InstanceTypeList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41675,13 +41675,13 @@ const serializeAws_ec2IpPermissionList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2IpPermission(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41705,13 +41705,13 @@ const serializeAws_ec2IpRangeList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2IpRange(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41721,10 +41721,10 @@ const serializeAws_ec2Ipv6AddressList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41748,13 +41748,13 @@ const serializeAws_ec2Ipv6RangeList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2Ipv6Range(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41764,10 +41764,10 @@ const serializeAws_ec2KeyNameStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`KeyName.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41777,10 +41777,10 @@ const serializeAws_ec2KeyPairIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`KeyPairId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41804,13 +41804,13 @@ const serializeAws_ec2LaunchPermissionList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LaunchPermission(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41848,7 +41848,7 @@ const serializeAws_ec2LaunchSpecsList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2SpotFleetLaunchSpecification(
       entry,
       context
@@ -41857,7 +41857,7 @@ const serializeAws_ec2LaunchSpecsList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41894,7 +41894,7 @@ const serializeAws_ec2LaunchTemplateBlockDeviceMappingRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LaunchTemplateBlockDeviceMappingRequest(
       entry,
       context
@@ -41903,7 +41903,7 @@ const serializeAws_ec2LaunchTemplateBlockDeviceMappingRequestList = (
       entries[`BlockDeviceMapping.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -41963,13 +41963,13 @@ const serializeAws_ec2LaunchTemplateConfigList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LaunchTemplateConfig(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42036,7 +42036,7 @@ const serializeAws_ec2LaunchTemplateElasticInferenceAcceleratorList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LaunchTemplateElasticInferenceAccelerator(
       entry,
       context
@@ -42045,7 +42045,7 @@ const serializeAws_ec2LaunchTemplateElasticInferenceAcceleratorList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42187,7 +42187,7 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest(
       entry,
       context
@@ -42197,7 +42197,7 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
         memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42218,7 +42218,7 @@ const serializeAws_ec2LaunchTemplateLicenseSpecificationListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LaunchTemplateLicenseConfigurationRequest(
       entry,
       context
@@ -42227,7 +42227,7 @@ const serializeAws_ec2LaunchTemplateLicenseSpecificationListRequest = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42237,10 +42237,10 @@ const serializeAws_ec2LaunchTemplateNameStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42276,7 +42276,7 @@ const serializeAws_ec2LaunchTemplateOverridesList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LaunchTemplateOverrides(
       entry,
       context
@@ -42285,7 +42285,7 @@ const serializeAws_ec2LaunchTemplateOverridesList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42386,7 +42386,7 @@ const serializeAws_ec2LaunchTemplateTagSpecificationRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LaunchTemplateTagSpecificationRequest(
       entry,
       context
@@ -42396,7 +42396,7 @@ const serializeAws_ec2LaunchTemplateTagSpecificationRequestList = (
         memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42428,7 +42428,7 @@ const serializeAws_ec2LicenseSpecificationListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LicenseConfigurationRequest(
       entry,
       context
@@ -42437,7 +42437,7 @@ const serializeAws_ec2LicenseSpecificationListRequest = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42475,13 +42475,13 @@ const serializeAws_ec2LoadPermissionListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2LoadPermissionRequest(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42533,10 +42533,10 @@ const serializeAws_ec2LocalGatewayIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42546,10 +42546,10 @@ const serializeAws_ec2LocalGatewayRouteTableIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42559,10 +42559,10 @@ const serializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSe
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42572,10 +42572,10 @@ const serializeAws_ec2LocalGatewayRouteTableVpcAssociationIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42585,10 +42585,10 @@ const serializeAws_ec2LocalGatewayVirtualInterfaceGroupIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -42598,10 +42598,10 @@ const serializeAws_ec2LocalGatewayVirtualInterfaceIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44159,10 +44159,10 @@ const serializeAws_ec2NetworkInterfaceIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44172,10 +44172,10 @@ const serializeAws_ec2NetworkInterfacePermissionIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44206,13 +44206,13 @@ const serializeAws_ec2NewDhcpConfigurationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2NewDhcpConfiguration(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44222,10 +44222,10 @@ const serializeAws_ec2OccurrenceDayRequestSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`OccurenceDay.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44268,10 +44268,10 @@ const serializeAws_ec2OwnerStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Owner.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44301,7 +44301,7 @@ const serializeAws_ec2Phase1DHGroupNumbersRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2Phase1DHGroupNumbersRequestListValue(
       entry,
       context
@@ -44310,7 +44310,7 @@ const serializeAws_ec2Phase1DHGroupNumbersRequestList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44331,7 +44331,7 @@ const serializeAws_ec2Phase1EncryptionAlgorithmsRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2Phase1EncryptionAlgorithmsRequestListValue(
       entry,
       context
@@ -44340,7 +44340,7 @@ const serializeAws_ec2Phase1EncryptionAlgorithmsRequestList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44361,7 +44361,7 @@ const serializeAws_ec2Phase1IntegrityAlgorithmsRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2Phase1IntegrityAlgorithmsRequestListValue(
       entry,
       context
@@ -44370,7 +44370,7 @@ const serializeAws_ec2Phase1IntegrityAlgorithmsRequestList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44391,7 +44391,7 @@ const serializeAws_ec2Phase2DHGroupNumbersRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2Phase2DHGroupNumbersRequestListValue(
       entry,
       context
@@ -44400,7 +44400,7 @@ const serializeAws_ec2Phase2DHGroupNumbersRequestList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44421,7 +44421,7 @@ const serializeAws_ec2Phase2EncryptionAlgorithmsRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2Phase2EncryptionAlgorithmsRequestListValue(
       entry,
       context
@@ -44430,7 +44430,7 @@ const serializeAws_ec2Phase2EncryptionAlgorithmsRequestList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44451,7 +44451,7 @@ const serializeAws_ec2Phase2IntegrityAlgorithmsRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2Phase2IntegrityAlgorithmsRequestListValue(
       entry,
       context
@@ -44460,7 +44460,7 @@ const serializeAws_ec2Phase2IntegrityAlgorithmsRequestList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44513,10 +44513,10 @@ const serializeAws_ec2PlacementGroupIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`GroupId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44526,10 +44526,10 @@ const serializeAws_ec2PlacementGroupStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44567,13 +44567,13 @@ const serializeAws_ec2PrefixListIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2PrefixListId(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44600,7 +44600,7 @@ const serializeAws_ec2PriceScheduleSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2PriceScheduleSpecification(
       entry,
       context
@@ -44609,7 +44609,7 @@ const serializeAws_ec2PriceScheduleSpecificationList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44619,7 +44619,7 @@ const serializeAws_ec2PrivateIpAddressConfigSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ScheduledInstancesPrivateIpAddressConfig(
       entry,
       context
@@ -44629,7 +44629,7 @@ const serializeAws_ec2PrivateIpAddressConfigSet = (
         memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44653,7 +44653,7 @@ const serializeAws_ec2PrivateIpAddressSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2PrivateIpAddressSpecification(
       entry,
       context
@@ -44662,7 +44662,7 @@ const serializeAws_ec2PrivateIpAddressSpecificationList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44672,10 +44672,10 @@ const serializeAws_ec2PrivateIpAddressStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`PrivateIpAddress.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44685,10 +44685,10 @@ const serializeAws_ec2ProductCodeStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ProductCode.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44698,10 +44698,10 @@ const serializeAws_ec2ProductDescriptionList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44741,10 +44741,10 @@ const serializeAws_ec2PublicIpStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`PublicIp.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44798,13 +44798,13 @@ const serializeAws_ec2PurchaseRequestSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2PurchaseRequest(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`PurchaseRequest.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44871,10 +44871,10 @@ const serializeAws_ec2ReasonCodesList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -44905,10 +44905,10 @@ const serializeAws_ec2RegionNameStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`RegionName.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -45356,10 +45356,10 @@ const serializeAws_ec2RequestHostIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -45369,10 +45369,10 @@ const serializeAws_ec2RequestHostIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -45382,10 +45382,10 @@ const serializeAws_ec2RequestInstanceTypeList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -45783,10 +45783,10 @@ const serializeAws_ec2ReservedInstanceIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ReservedInstanceId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -45833,7 +45833,7 @@ const serializeAws_ec2ReservedInstancesConfigurationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ReservedInstancesConfiguration(
       entry,
       context
@@ -45842,7 +45842,7 @@ const serializeAws_ec2ReservedInstancesConfigurationList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -45852,10 +45852,10 @@ const serializeAws_ec2ReservedInstancesIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ReservedInstancesId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -45865,10 +45865,10 @@ const serializeAws_ec2ReservedInstancesModificationIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ReservedInstancesModificationId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -45878,10 +45878,10 @@ const serializeAws_ec2ReservedInstancesOfferingIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -45987,10 +45987,10 @@ const serializeAws_ec2ResourceIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -46000,10 +46000,10 @@ const serializeAws_ec2ResourceList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -46013,10 +46013,10 @@ const serializeAws_ec2RestorableByStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -46468,10 +46468,10 @@ const serializeAws_ec2ScheduledInstanceIdRequestSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ScheduledInstanceId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -46538,7 +46538,7 @@ const serializeAws_ec2ScheduledInstancesBlockDeviceMappingSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ScheduledInstancesBlockDeviceMapping(
       entry,
       context
@@ -46547,7 +46547,7 @@ const serializeAws_ec2ScheduledInstancesBlockDeviceMappingSet = (
       entries[`BlockDeviceMapping.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -46608,7 +46608,7 @@ const serializeAws_ec2ScheduledInstancesIpv6AddressList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ScheduledInstancesIpv6Address(
       entry,
       context
@@ -46617,7 +46617,7 @@ const serializeAws_ec2ScheduledInstancesIpv6AddressList = (
       entries[`Ipv6Address.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -46798,7 +46798,7 @@ const serializeAws_ec2ScheduledInstancesNetworkInterfaceSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2ScheduledInstancesNetworkInterface(
       entry,
       context
@@ -46807,7 +46807,7 @@ const serializeAws_ec2ScheduledInstancesNetworkInterfaceSet = (
       entries[`NetworkInterface.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -46845,10 +46845,10 @@ const serializeAws_ec2ScheduledInstancesSecurityGroupIdSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SecurityGroupId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -46937,10 +46937,10 @@ const serializeAws_ec2SecurityGroupIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SecurityGroupId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -46950,10 +46950,10 @@ const serializeAws_ec2SecurityGroupStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SecurityGroup.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47029,10 +47029,10 @@ const serializeAws_ec2SnapshotIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SnapshotId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47282,7 +47282,7 @@ const serializeAws_ec2SpotFleetTagSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2SpotFleetTagSpecification(
       entry,
       context
@@ -47291,7 +47291,7 @@ const serializeAws_ec2SpotFleetTagSpecificationList = (
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47301,10 +47301,10 @@ const serializeAws_ec2SpotInstanceRequestIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SpotInstanceRequestId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47479,10 +47479,10 @@ const serializeAws_ec2SubnetIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`SubnetId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47503,13 +47503,13 @@ const serializeAws_ec2TagList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2Tag(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47537,13 +47537,13 @@ const serializeAws_ec2TagSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2TagSpecification(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47587,7 +47587,7 @@ const serializeAws_ec2TargetConfigurationRequestSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2TargetConfigurationRequest(
       entry,
       context
@@ -47597,7 +47597,7 @@ const serializeAws_ec2TargetConfigurationRequestSet = (
         memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47618,13 +47618,13 @@ const serializeAws_ec2TargetGroups = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2TargetGroup(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47693,10 +47693,10 @@ const serializeAws_ec2TrafficMirrorFilterRuleFieldList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47706,10 +47706,10 @@ const serializeAws_ec2TrafficMirrorNetworkServiceList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47733,10 +47733,10 @@ const serializeAws_ec2TrafficMirrorSessionFieldList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47746,10 +47746,10 @@ const serializeAws_ec2TransitGatewayAttachmentIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Member.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47759,10 +47759,10 @@ const serializeAws_ec2TransitGatewayIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47772,10 +47772,10 @@ const serializeAws_ec2TransitGatewayMulticastDomainIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47816,10 +47816,10 @@ const serializeAws_ec2TransitGatewayRouteTableIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -47971,10 +47971,10 @@ const serializeAws_ec2UserGroupStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`UserGroup.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48013,13 +48013,13 @@ const serializeAws_ec2UserIdGroupPairList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2UserIdGroupPair(entry, context);
     Object.keys(memberEntries).forEach(key => {
       entries[`Item.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48029,10 +48029,10 @@ const serializeAws_ec2UserIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`UserId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48042,10 +48042,10 @@ const serializeAws_ec2ValueStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48055,10 +48055,10 @@ const serializeAws_ec2VersionStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`Item.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48079,10 +48079,10 @@ const serializeAws_ec2VolumeIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`VolumeId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48092,10 +48092,10 @@ const serializeAws_ec2VpcClassicLinkIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`VpcId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48105,10 +48105,10 @@ const serializeAws_ec2VpcIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`VpcId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48118,10 +48118,10 @@ const serializeAws_ec2VpnConnectionIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`VpnConnectionId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48155,10 +48155,10 @@ const serializeAws_ec2VpnGatewayIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`VpnGatewayId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48278,7 +48278,7 @@ const serializeAws_ec2VpnTunnelOptionsSpecificationsList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     const memberEntries = serializeAws_ec2VpnTunnelOptionsSpecification(
       entry,
       context
@@ -48287,7 +48287,7 @@ const serializeAws_ec2VpnTunnelOptionsSpecificationsList = (
       entries[`Member.${counter}.${key}`] = memberEntries[key];
     });
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48311,10 +48311,10 @@ const serializeAws_ec2ZoneIdStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ZoneId.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 
@@ -48324,10 +48324,10 @@ const serializeAws_ec2ZoneNameStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  (input || []).map(entry => {
+  for (let entry of input) {
     entries[`ZoneName.${counter}`] = entry;
     counter++;
-  });
+  }
   return entries;
 };
 

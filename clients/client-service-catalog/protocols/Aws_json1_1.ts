@@ -8380,7 +8380,11 @@ const serializeAws_json1_1AddTags = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1AssociateBudgetWithResourceInput = (
@@ -8499,7 +8503,11 @@ const serializeAws_json1_1CopyOptions = (
   input: Array<CopyOption | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1CopyProductInput = (
@@ -9274,7 +9282,11 @@ const serializeAws_json1_1ExecutionParameterValueList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1GetAWSOrganizationsAccessStatusInput = (
@@ -9631,7 +9643,11 @@ const serializeAws_json1_1NotificationArns = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1OrganizationNode = (
@@ -9652,7 +9668,11 @@ const serializeAws_json1_1ProductViewFilterValues = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ProductViewFilters = (
@@ -9752,7 +9772,11 @@ const serializeAws_json1_1ProvisionedProductViewFilterValues = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ProvisioningArtifactInfo = (
@@ -9810,9 +9834,11 @@ const serializeAws_json1_1ProvisioningParameters = (
   input: Array<ProvisioningParameter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ProvisioningParameter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ProvisioningParameter(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ProvisioningPreferences = (
@@ -10011,9 +10037,11 @@ const serializeAws_json1_1ServiceActionAssociations = (
   input: Array<ServiceActionAssociation>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1ServiceActionAssociation(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1ServiceActionAssociation(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1ServiceActionDefinitionMap = (
@@ -10031,9 +10059,16 @@ const serializeAws_json1_1SourceProvisioningArtifactProperties = (
   input: Array<{ [key: string]: string }>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1SourceProvisioningArtifactPropertiesMap(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1SourceProvisioningArtifactPropertiesMap(
+        entry,
+        context
+      )
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1SourceProvisioningArtifactPropertiesMap = (
@@ -10051,14 +10086,22 @@ const serializeAws_json1_1StackSetAccounts = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1StackSetRegions = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -10076,14 +10119,22 @@ const serializeAws_json1_1TagKeys = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
+  const contents = [];
+  for (let entry of input) {
+    contents.push(entry);
+  }
+  return contents;
 };
 
 const serializeAws_json1_1Tags = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+  const contents = [];
+  for (let entry of input) {
+    contents.push(serializeAws_json1_1Tag(entry, context));
+  }
+  return contents;
 };
 
 const serializeAws_json1_1TerminateProvisionedProductInput = (
@@ -10337,9 +10388,13 @@ const serializeAws_json1_1UpdateProvisioningParameters = (
   input: Array<UpdateProvisioningParameter>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1UpdateProvisioningParameter(entry, context)
-  );
+  const contents = [];
+  for (let entry of input) {
+    contents.push(
+      serializeAws_json1_1UpdateProvisioningParameter(entry, context)
+    );
+  }
+  return contents;
 };
 
 const serializeAws_json1_1UpdateProvisioningPreferences = (
