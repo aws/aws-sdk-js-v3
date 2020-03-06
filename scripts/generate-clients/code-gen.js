@@ -2,7 +2,11 @@ const path = require("path");
 const { copyFileSync, emptyDirSync } = require("fs-extra");
 const { readdirSync, lstatSync } = require("fs");
 const { spawnProcess } = require("./spawn-process");
-const { CODE_GEN_ROOT, TEMP_CODE_GEN_INPUT_DIR } = require("./code-gen-dir");
+const {
+  CODE_GEN_ROOT,
+  CODE_GEN_TASK_ROOT,
+  TEMP_CODE_GEN_INPUT_DIR
+} = require("./code-gen-dir");
 const Glob = require("glob");
 
 async function generateClients(models) {
@@ -47,7 +51,12 @@ async function generateClients(models) {
   }
   const options = [":sdk-codegen:clean", ":sdk-codegen:build"];
   if (designatedModels) {
-    options.push(`-PmodelsDirProp=${TEMP_CODE_GEN_INPUT_DIR}`);
+    options.push(
+      `-PmodelsDirProp=${path.relative(
+        CODE_GEN_TASK_ROOT,
+        TEMP_CODE_GEN_INPUT_DIR
+      )}`
+    );
   }
   await spawnProcess("./gradlew", options, {
     cwd: CODE_GEN_ROOT
