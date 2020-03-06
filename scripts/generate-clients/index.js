@@ -14,7 +14,7 @@ const CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 const { models, globs, output: clientsDir } = yargs
   .alias("m", "models")
   .string("m")
-  .describe("m", "The directory of models.")
+  .describe("m", "The path to directory with models.")
   .alias("g", "globs")
   .array("g")
   .describe("g", "A list of smithy model globs")
