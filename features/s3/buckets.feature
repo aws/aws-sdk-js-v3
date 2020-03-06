@@ -6,15 +6,15 @@ Feature: Working with Buckets
     Given I am using the S3 "us-east-1" region
     When I create a bucket
     Then the bucket should exist
-    When I delete the bucket
-    Then the bucket should not exist
+    Then I delete the bucket
+    # Then the bucket should not exist
 
   Scenario: CRUD buckets using a regional endpoint
     Given I am using the S3 "us-west-2" region
     When I create a bucket
     Then the bucket should exist
-    When I delete the bucket
-    Then the bucket should not exist
+    Then I delete the bucket
+    # Then the bucket should not exist
 
   @cors
   Scenario: Bucket CORS
@@ -55,8 +55,8 @@ Feature: Working with Buckets
   Scenario: Working with bucket names that contain '.'
     When I create a bucket with a DNS compatible name that contains a dot
     Then the bucket should exist
-    When I delete the bucket
-    Then the bucket should not exist
+    Then I delete the bucket
+    # Then the bucket should not exist
 
   @path-style
   Scenario: Operating on a bucket using path style
