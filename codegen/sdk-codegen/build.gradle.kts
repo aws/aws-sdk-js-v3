@@ -42,7 +42,7 @@ tasks.register("generate-smithy-build") {
     doLast {
         val projectionsBuilder = Node.objectNodeBuilder()
         val modelsDirProp: String by project
-        val models = File(modelsDirProp)
+        val models = project.file(modelsDirProp);
 
         fileTree(models).filter { it.isFile }.files.forEach { file ->
             val (sdkId, version, remaining) = file.name.split(".")
