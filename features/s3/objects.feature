@@ -44,11 +44,12 @@ Feature: Working with Objects in S3
     Then the object "byebye" should contain "world"
     Then I delete the object "byebye"
 
-  @unauthenticated
-  Scenario: Unauthenticated requests
-    When I put "world" to the public key "hello"
-    And I make an unauthenticated request to read object "hello"
-    Then the object "hello" should contain "world"
+  # Blocked on the support for makeUnauthenticatedRequest https://github.com/aws/aws-sdk-js-v3/issues/984
+  # @unauthenticated
+  # Scenario: Unauthenticated requests
+  #   When I put "world" to the public key "hello"
+  #   And I make an unauthenticated request to read object "hello"
+  #   Then the object "hello" should contain "world"
 
   @blank
   Scenario: Putting nothing to an object
