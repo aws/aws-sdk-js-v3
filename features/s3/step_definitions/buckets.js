@@ -72,17 +72,21 @@ module.exports = function() {
         LifecycleConfiguration: {
           Rules: [
             {
-              Prefix: prefix,
+              Filter: {
+                Prefix: prefix
+              },
               Status: "Enabled",
-              Transition: {
-                Days: 0,
-                StorageClass: "GLACIER"
-              }
+              Transitions: [
+                {
+                  Days: 0,
+                  StorageClass: "GLACIER"
+                }
+              ]
             }
           ]
         }
       };
-      this.request("s3", "putBucketLifecycle", params, callback);
+      this.request("s3", "putBucketLifecycleConfiguration", params, callback);
     }
   );
 
@@ -92,7 +96,7 @@ module.exports = function() {
       this.eventually(callback, function(next) {
         this.request(
           "s3",
-          "getBucketLifecycle",
+          "getBucketLifecycleConfiguration",
           {
             Bucket: this.bucket
           },
@@ -105,7 +109,7 @@ module.exports = function() {
   this.Then(
     /^the lifecycle configuration should have transition days of (\d+)$/,
     function(days, callback) {
-      this.assert.equal(this.data.Rules[0].Transition.Days, 0);
+      this.assert.equal(this.data.Rules[0].Transitions[0].Days, 0);
       callback();
     }
   );
@@ -113,7 +117,7 @@ module.exports = function() {
   this.Then(
     /^the lifecycle configuration should have transition storage class of "([^"]*)"$/,
     function(value, callback) {
-      this.assert.equal(this.data.Rules[0].Transition.StorageClass, value);
+      this.assert.equal(this.data.Rules[0].Transitions[0].StorageClass, value);
       callback();
     }
   );
