@@ -60,7 +60,7 @@
     "@aws-sdk/util-utf8-browser": "^1.0.0-alpha.2",
     "@aws-sdk/util-utf8-node": "^1.0.0-alpha.2",
     "tslib": "^1.8.0",
-    "uuid": "^3.4.0"
+    "uuid": "^7.0.0"
   },
   "devDependencies": {
     "@types/node": "^12.7.5",
