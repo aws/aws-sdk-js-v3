@@ -26,15 +26,7 @@ export function locationConstraintMiddleware(
     const { CreateBucketConfiguration } = args.input;
     //After region config resolution, region is a Provider<string>
     const region = await options.region();
-    if (region === "us-east-1") {
-      args = {
-        ...args,
-        input: {
-          ...args.input,
-          CreateBucketConfiguration: undefined
-        }
-      };
-    } else if (
+    if (
       !CreateBucketConfiguration ||
       !CreateBucketConfiguration.LocationConstraint
     ) {
@@ -42,7 +34,8 @@ export function locationConstraintMiddleware(
         ...args,
         input: {
           ...args.input,
-          CreateBucketConfiguration: { LocationConstraint: region }
+          CreateBucketConfiguration:
+            region === "us-east-1" ? undefined : { LocationConstraint: region }
         }
       };
     }
