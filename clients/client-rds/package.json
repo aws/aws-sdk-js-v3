@@ -65,6 +65,7 @@
   },
   "devDependencies": {
     "@types/node": "^12.7.5",
+    "jest": "^24.7.1",
     "rimraf": "^3.0.0",
     "tslib": "^1.8.0",
     "typedoc": "^0.15.0",
