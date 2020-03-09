@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-workspaces",
   "description": "@aws-sdk/client-workspaces client",
-  "version": "1.0.0-alpha.22",
+  "version": "1.0.0-alpha.23",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
@@ -45,9 +45,9 @@
     "@aws-sdk/protocol-http": "^1.0.0-alpha.7",
     "@aws-sdk/region-provider": "^1.0.0-alpha.5",
     "@aws-sdk/smithy-client": "^1.0.0-alpha.8",
-    "@aws-sdk/stream-collector-browser": "^1.0.0-alpha.5",
+    "@aws-sdk/stream-collector-browser": "^1.0.0-alpha.6",
     "@aws-sdk/stream-collector-node": "^1.0.0-alpha.5",
-    "@aws-sdk/stream-collector-rn": "^1.0.0-alpha.2",
+    "@aws-sdk/stream-collector-rn": "^1.0.0-alpha.3",
     "@aws-sdk/types": "^1.0.0-alpha.5",
     "@aws-sdk/url-parser-browser": "^1.0.0-alpha.5",
     "@aws-sdk/url-parser-node": "^1.0.0-alpha.6",
