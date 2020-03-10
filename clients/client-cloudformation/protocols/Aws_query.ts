@@ -10730,7 +10730,8 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
         parseNodeValue: false,
         tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
       });
-      return parsedObj[Object.keys(parsedObj)[0]];
+      const key = Object.keys(parsedObj)[0];
+      return { [key]: parsedObj[key]["#text"], ...parsedObj[key] };
     }
     return {};
   });
