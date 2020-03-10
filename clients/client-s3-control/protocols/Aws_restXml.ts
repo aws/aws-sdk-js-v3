@@ -754,6 +754,9 @@ export async function deserializeAws_restXmlCreateJobCommand(
     JobId: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.JobId = data["#text"];
+  }
   if (data["JobId"] !== undefined) {
     contents.JobId = data["JobId"];
   }
@@ -981,6 +984,9 @@ export async function deserializeAws_restXmlDescribeJobCommand(
     Job: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.Job = data["#text"];
+  }
   if (data["Job"] !== undefined) {
     contents.Job = deserializeAws_restXmlJobDescriptor(data["Job"], context);
   }
@@ -1148,6 +1154,9 @@ export async function deserializeAws_restXmlGetAccessPointPolicyCommand(
     Policy: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.Policy = data["#text"];
+  }
   if (data["Policy"] !== undefined) {
     contents.Policy = data["Policy"];
   }
@@ -1200,6 +1209,9 @@ export async function deserializeAws_restXmlGetAccessPointPolicyStatusCommand(
     PolicyStatus: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.PolicyStatus = data["#text"];
+  }
   if (data["PolicyStatus"] !== undefined) {
     contents.PolicyStatus = deserializeAws_restXmlPolicyStatus(
       data["PolicyStatus"],
@@ -1766,6 +1778,9 @@ const deserializeAws_restXmlBadRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["#text"] !== undefined) {
+    contents.Message = data["#text"];
+  }
   if (data["Message"] !== undefined) {
     contents.Message = data["Message"];
   }
@@ -1783,6 +1798,9 @@ const deserializeAws_restXmlIdempotencyExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["#text"] !== undefined) {
+    contents.Message = data["#text"];
+  }
   if (data["Message"] !== undefined) {
     contents.Message = data["Message"];
   }
@@ -1800,6 +1818,9 @@ const deserializeAws_restXmlInternalServiceExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["#text"] !== undefined) {
+    contents.Message = data["#text"];
+  }
   if (data["Message"] !== undefined) {
     contents.Message = data["Message"];
   }
@@ -1817,6 +1838,9 @@ const deserializeAws_restXmlInvalidNextTokenExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["#text"] !== undefined) {
+    contents.Message = data["#text"];
+  }
   if (data["Message"] !== undefined) {
     contents.Message = data["Message"];
   }
@@ -1834,6 +1858,9 @@ const deserializeAws_restXmlInvalidRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["#text"] !== undefined) {
+    contents.Message = data["#text"];
+  }
   if (data["Message"] !== undefined) {
     contents.Message = data["Message"];
   }
@@ -1851,6 +1878,9 @@ const deserializeAws_restXmlJobStatusExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["#text"] !== undefined) {
+    contents.Message = data["#text"];
+  }
   if (data["Message"] !== undefined) {
     contents.Message = data["Message"];
   }
@@ -1868,6 +1898,9 @@ const deserializeAws_restXmlNoSuchPublicAccessBlockConfigurationResponse = async
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["#text"] !== undefined) {
+    contents.Message = data["#text"];
+  }
   if (data["Message"] !== undefined) {
     contents.Message = data["Message"];
   }
@@ -1885,6 +1918,9 @@ const deserializeAws_restXmlNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["#text"] !== undefined) {
+    contents.Message = data["#text"];
+  }
   if (data["Message"] !== undefined) {
     contents.Message = data["Message"];
   }
@@ -1902,6 +1938,9 @@ const deserializeAws_restXmlTooManyRequestsExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["#text"] !== undefined) {
+    contents.Message = data["#text"];
+  }
   if (data["Message"] !== undefined) {
     contents.Message = data["Message"];
   }

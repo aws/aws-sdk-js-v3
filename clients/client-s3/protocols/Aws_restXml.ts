@@ -5839,6 +5839,9 @@ export async function deserializeAws_restXmlGetBucketAccelerateConfigurationComm
     Status: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.Status = data["#text"];
+  }
   if (data["Status"] !== undefined) {
     contents.Status = data["Status"];
   }
@@ -6001,6 +6004,9 @@ export async function deserializeAws_restXmlGetBucketCorsCommand(
     CORSRules: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.CORSRules = data["#text"];
+  }
   if (data.CORSRule === "") {
     contents.CORSRules = [];
   }
@@ -6161,6 +6167,9 @@ export async function deserializeAws_restXmlGetBucketLifecycleConfigurationComma
     Rules: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.Rules = data["#text"];
+  }
   if (data.Rule === "") {
     contents.Rules = [];
   }
@@ -6214,6 +6223,9 @@ export async function deserializeAws_restXmlGetBucketLocationCommand(
     LocationConstraint: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.LocationConstraint = data["#text"];
+  }
   if (data["LocationConstraint"] !== undefined) {
     contents.LocationConstraint = data["LocationConstraint"];
   }
@@ -6262,6 +6274,9 @@ export async function deserializeAws_restXmlGetBucketLoggingCommand(
     LoggingEnabled: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.LoggingEnabled = data["#text"];
+  }
   if (data["LoggingEnabled"] !== undefined) {
     contents.LoggingEnabled = deserializeAws_restXmlLoggingEnabled(
       data["LoggingEnabled"],
@@ -6454,6 +6469,9 @@ export async function deserializeAws_restXmlGetBucketPolicyCommand(
     Policy: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.Policy = data["#text"];
+  }
   if (data["Policy"] !== undefined) {
     contents.Policy = data["Policy"];
   }
@@ -6606,6 +6624,9 @@ export async function deserializeAws_restXmlGetBucketRequestPaymentCommand(
     Payer: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.Payer = data["#text"];
+  }
   if (data["Payer"] !== undefined) {
     contents.Payer = data["Payer"];
   }
@@ -6654,6 +6675,9 @@ export async function deserializeAws_restXmlGetBucketTaggingCommand(
     TagSet: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.TagSet = data["#text"];
+  }
   if (data.TagSet === "") {
     contents.TagSet = [];
   }
@@ -7273,6 +7297,9 @@ export async function deserializeAws_restXmlGetObjectTaggingCommand(
     contents.VersionId = output.headers["x-amz-version-id"];
   }
   const data: any = await parseBody(output.body, context);
+  if (data["#text"] !== undefined) {
+    contents.TagSet = data["#text"];
+  }
   if (data.TagSet === "") {
     contents.TagSet = [];
   }
