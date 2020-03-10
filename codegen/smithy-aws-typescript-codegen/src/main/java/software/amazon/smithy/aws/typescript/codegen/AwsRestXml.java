@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.List;
 import java.util.Set;
+
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.codegen.core.SymbolReference;
@@ -231,6 +232,16 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     ) {
         SymbolProvider symbolProvider = context.getSymbolProvider();
         XmlShapeDeserVisitor shapeVisitor = new XmlShapeDeserVisitor(context);
+
+        // For exceptions like https://github.com/aws/aws-sdk-js-v3/issues/987
+        if (documentBindings.size() == 1) {
+            TypeScriptWriter writer = context.getWriter();
+            writer.openBlock("if ($L) {", "}", "data[\"#text\"] !== undefined", () -> {
+                MemberShape memberShape = documentBindings.get(0).getMember();
+                String memberName = symbolProvider.toMemberName(memberShape);
+                writer.write("contents.$L = data[\"#text\"];", memberName);
+            });
+        }
 
         for (HttpBinding binding : documentBindings) {
             MemberShape memberShape = binding.getMember();
