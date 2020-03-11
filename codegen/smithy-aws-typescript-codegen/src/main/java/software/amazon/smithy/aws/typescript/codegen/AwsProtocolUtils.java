@@ -126,7 +126,14 @@ final class AwsProtocolUtils {
                     writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
                             + "ignoreAttributes: false, parseNodeValue: false, tagValueProcessor: (val, tagName) "
                             + "=> decodeEscapedXML(val) });");
-                    writer.write("return parsedObj[Object.keys(parsedObj)[0]];");
+                    writer.write("const textNodeName = '#text';");
+                    writer.write("const key = Object.keys(parsedObj)[0];");
+                    writer.write("const parsedObjToReturn = parsedObj[key];");
+                    writer.openBlock("if (parsedObjToReturn[textNodeName]) {", "}", () -> {
+                        writer.write("parsedObjToReturn[key] = parsedObjToReturn[textNodeName];");
+                        writer.write("delete parsedObjToReturn[textNodeName];");
+                    });
+                    writer.write("return parsedObjToReturn;");
                 });
                 writer.write("return {};");
             });
