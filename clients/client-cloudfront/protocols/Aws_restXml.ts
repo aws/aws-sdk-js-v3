@@ -13650,8 +13650,14 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
         parseNodeValue: false,
         tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
       });
+      const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
-      return { [key]: parsedObj[key]["#text"], ...parsedObj[key] };
+      const parsedObjToReturn = parsedObj[key];
+      if (parsedObjToReturn[textNodeName]) {
+        parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
+        delete parsedObjToReturn[textNodeName];
+      }
+      return parsedObjToReturn;
     }
     return {};
   });
