@@ -45,13 +45,12 @@ Feature: Working with Buckets
     Then the first tag in the tag set should have key and value "KEY", "VALUE"
     Then I delete the bucket
 
-  # Pending discussion in https://github.com/aws/aws-sdk-js-v3/issues/983
-  # Scenario: Access bucket following 307 redirects
-  #   Given I am using the S3 "us-east-1" region with signatureVersion "s3"
-  #   When I create a bucket with the location constraint "EU"
-  #   Then the bucket should exist
-  #   Then the bucket should have a location constraint of "EU"
-  #   Then I delete the bucket
+  Scenario: Access bucket following 307 redirects
+    Given I am using the S3 "us-east-1" region with signatureVersion "s3"
+    When I create a bucket with the location constraint "EU"
+    Then the bucket should exist
+    Then the bucket should have a location constraint of "EU"
+    Then I delete the bucket
 
   Scenario: Working with bucket names that contain '.'
     When I create a bucket with a DNS compatible name that contains a dot
