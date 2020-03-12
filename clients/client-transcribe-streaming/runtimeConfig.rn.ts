@@ -13,7 +13,10 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   urlParser: parseUrl,
   defaultUserAgent: `aws-sdk-js-v3-react-native-${name}/${version}`,
   runtime: "react-native",
-  eventStreamSerdeProvider: invalidFunction(
-    "event stream is not supported in ReactNative"
-  ) as any
+  eventStreamSerdeProvider: () => ({
+    serialize: invalidFunction("event stream is not supported in ReactNative."),
+    deserialize: invalidFunction(
+      "event stream is not supported in ReactNative."
+    )
+  })
 };
