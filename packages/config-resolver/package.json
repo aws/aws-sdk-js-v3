@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/config-resolver",
-  "version": "1.0.0-alpha.12",
+  "version": "1.0.0-alpha.13",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -20,7 +20,7 @@
     "typescript": "~3.4.0"
   },
   "dependencies": {
-    "@aws-sdk/signature-v4": "^1.0.0-alpha.12",
+    "@aws-sdk/signature-v4": "^1.0.0-alpha.13",
     "@aws-sdk/types": "^1.0.0-alpha.5",
     "tslib": "^1.8.0"
   }
