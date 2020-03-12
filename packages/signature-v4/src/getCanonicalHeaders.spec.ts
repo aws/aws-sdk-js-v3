@@ -31,6 +31,7 @@ describe("getCanonicalHeaders", () => {
       protocol: "https:",
       path: "/",
       headers: {
+        "x-amz-user-agent": "aws-sdk-js-v3",
         host: "foo.us-east-1.amazonaws.com",
         foo: "bar"
       },
@@ -41,6 +42,7 @@ describe("getCanonicalHeaders", () => {
     }
 
     expect(getCanonicalHeaders(request)).toEqual({
+      "x-amz-user-agent": "aws-sdk-js-v3",
       host: "foo.us-east-1.amazonaws.com",
       foo: "bar"
     });
