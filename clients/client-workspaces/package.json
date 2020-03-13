@@ -29,6 +29,7 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-crypto/sha256-browser": "^1.0.0-alpha.0",
+    "@aws-crypto/sha256-js": "^1.0.0-alpha.0",
     "@aws-sdk/config-resolver": "^1.0.0-alpha.13",
     "@aws-sdk/credential-provider-node": "^1.0.0-alpha.6",
     "@aws-sdk/fetch-http-handler": "^1.0.0-alpha.8",
