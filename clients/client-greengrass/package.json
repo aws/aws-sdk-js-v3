@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-greengrass",
   "description": "@aws-sdk/client-greengrass client",
-  "version": "1.0.0-alpha.20",
+  "version": "1.0.0-alpha.21",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
