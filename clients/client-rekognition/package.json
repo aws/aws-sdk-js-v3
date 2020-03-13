@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-rekognition",
   "description": "@aws-sdk/client-rekognition client",
-  "version": "1.0.0-alpha.24",
+  "version": "1.0.0-alpha.25",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
