@@ -1,9 +1,38 @@
-var { S3 } = require("../../../clients/client-s3");
+var {
+  S3,
+  GetObjectCommand,
+  PutObjectCommand
+} = require("../../../clients/client-s3");
 var { streamCollector } = require("../../../packages/stream-collector-node");
 var { toUtf8 } = require("../../../packages/util-utf8-node");
 var { Md5 } = require("../../../packages/md5-js");
 
+const {
+  S3RequestPresigner
+} = require("../../../packages/s3-request-presigner");
+const { createRequest } = require("../../../packages/util-create-request");
+const { formatUrl } = require("../../../packages/util-format-url");
+
 module.exports = function() {
+  function getSignedUrl(client, command, params, callback) {
+    const signer = new S3RequestPresigner({ ...client.config });
+    createRequest(client, new command(params))
+      .then(request => {
+        const expiration = new Date(Date.now() + 1 * 60 * 60 * 1000);
+        signer
+          .presignRequest(request, expiration)
+          .then(data => {
+            callback(null, formatUrl(data));
+          })
+          .catch(err => {
+            callback(err);
+          });
+      })
+      .catch(err => {
+        callback(err);
+      });
+  }
+
   this.When(/^I put "([^"]*)" to the(?: invalid)? key "([^"]*)"$/, function(
     data,
     key,
@@ -192,8 +221,9 @@ module.exports = function() {
     callback
   ) {
     var world = this;
-    this.s3.getSignedUrl(
-      "getObject",
+    getSignedUrl(
+      this.s3,
+      GetObjectCommand,
       {
         Bucket: this.sharedBucket,
         Key: key
@@ -228,7 +258,7 @@ module.exports = function() {
         Key: key
       };
       if (body) params.Body = body;
-      this.s3.getSignedUrl("putObject", params, function(err, url) {
+      getSignedUrl(this.s3, PutObjectCommand, params, function(err, url) {
         world.signedUrl = url;
         callback();
       });
