@@ -261,7 +261,7 @@ module.exports = function() {
 
   this.Given(/^I force path style requests$/, function(callback) {
     this.s3 = new S3({
-      s3ForcePathStyle: true
+      forcePathStyle: true
     });
     callback();
   });
@@ -269,7 +269,7 @@ module.exports = function() {
   this.Then(/^the bucket name should be in the request path$/, function(
     callback
   ) {
-    var path = this.response.request.httpRequest.path.split("/");
+    var path = this.data.Body.req.path.split("/");
     this.assert.equal(path[1], this.bucket);
     callback();
   });
@@ -277,7 +277,7 @@ module.exports = function() {
   this.Then(/^the bucket name should not be in the request host$/, function(
     callback
   ) {
-    var host = this.response.request.httpRequest.endpoint.host;
+    var host = this.data.Body.client.servername;
     this.assert.compare(host.indexOf(this.bucket), "<", 0);
     callback();
   });
@@ -293,6 +293,14 @@ module.exports = function() {
       Body: data
     };
     this.request("s3", "putObject", params, next, false);
+  });
+
+  this.When(/^I get the key "([^"]*)" in the bucket$/, function(key, next) {
+    var params = {
+      Bucket: this.bucket,
+      Key: key
+    };
+    this.request("s3", "getObject", params, next, false);
   });
 
   this.Then(/^I delete the object "([^"]*)" from the bucket$/, function(

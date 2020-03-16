@@ -63,6 +63,7 @@ Feature: Working with Buckets
     Given I force path style requests
     And I create a bucket
     When I put "abc" to the key "hello" in the bucket
+    And I get the key "hello" in the bucket
     Then the bucket name should be in the request path
     And the bucket name should not be in the request host
     Then I delete the object "hello" from the bucket
