@@ -1,6 +1,5 @@
 import {
   Credentials,
-  DateInput,
   Endpoint,
   HashConstructor,
   InitializeHandler,
@@ -81,7 +80,7 @@ export function copySnapshotPresignedUrlMiddleware(
   };
 }
 
-function expirationTime(durationSeconds: number): DateInput {
+function expirationTime(durationSeconds: number): number {
   return Math.round((new Date().valueOf() + durationSeconds * 1000) / 1000);
 }
 
