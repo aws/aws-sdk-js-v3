@@ -1,9 +1,7 @@
 import { DateInput } from "@aws-sdk/types";
 
-export function iso8601(time: DateInput): string {
-  return toDate(time)
-    .toISOString()
-    .replace(/\.\d{3}Z$/, "Z");
+export function iso8601(date: Date): string {
+  return date.toISOString().replace(/\.\d{3}Z$/, "Z");
 }
 
 export function toDate(time: DateInput): Date {

@@ -9,17 +9,6 @@ describe("iso8601", () => {
   it("should convert date objects to ISO-8601 strings", () => {
     expect(iso8601(new Date(toIsoString))).toBe(iso8601String);
   });
-
-  it("should convert parseable date strings to ISO-8601 strings", () => {
-    let date = new Date(toIsoString);
-
-    expect(iso8601(date.toUTCString())).toBe(iso8601String);
-    expect(iso8601(date.toISOString())).toBe(iso8601String);
-  });
-
-  it("should assume numbers are epoch timestamps and convert them to ISO-8601 strings accordingly", () => {
-    expect(iso8601(epochTs)).toBe(iso8601String);
-  });
 });
 
 describe("toDate", () => {

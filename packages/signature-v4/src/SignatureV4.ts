@@ -143,7 +143,7 @@ export class SignatureV4
       signableHeaders
     } = options;
 
-    const { longDate, shortDate } = formatDate(signingDate);
+    const { longDate, shortDate } = formatDate(toDate(signingDate));
     const ttl = getTtl(signingDate, expiration);
     if (ttl > MAX_PRESIGNED_TTL) {
       return Promise.reject(
@@ -242,7 +242,7 @@ export class SignatureV4
       this.credentialProvider()
     ]);
     const { signingDate = new Date(), priorSignature } = options;
-    const { shortDate, longDate } = formatDate(signingDate);
+    const { shortDate, longDate } = formatDate(toDate(signingDate));
     const scope = createScope(shortDate, region, this.service);
     const hashedPayload = await getPayloadHash(
       { headers: {}, body: payload } as any,
@@ -268,7 +268,7 @@ export class SignatureV4
     region: string,
     credentials: Credentials
   ): Promise<string> {
-    const { shortDate } = formatDate(signingDate);
+    const { shortDate } = formatDate(toDate(signingDate));
 
     const hash = new this.sha256(
       await this.getSigningKey(credentials, region, shortDate)
@@ -286,7 +286,7 @@ export class SignatureV4
     signableHeaders?: Set<string>
   ): Promise<HttpRequest> {
     const request = prepareRequest(originalRequest);
-    const { longDate, shortDate } = formatDate(signingDate);
+    const { longDate, shortDate } = formatDate(toDate(signingDate));
     const scope = createScope(shortDate, region, this.service);
 
     request.headers[AMZ_DATE_HEADER] = longDate;
@@ -391,8 +391,8 @@ ${toHex(hashedRequest)}`;
   }
 }
 
-function formatDate(now: DateInput): { longDate: string; shortDate: string } {
-  const longDate = iso8601(now).replace(/[\-:]/g, "");
+function formatDate(date: Date): { longDate: string; shortDate: string } {
+  const longDate = iso8601(date).replace(/[\-:]/g, "");
   return {
     longDate,
     shortDate: longDate.substr(0, 8)
