@@ -1,10 +1,12 @@
-export function iso8601(time: number | string | Date): string {
+import { DateInput } from "@aws-sdk/types";
+
+export function iso8601(time: DateInput): string {
   return toDate(time)
     .toISOString()
     .replace(/\.\d{3}Z$/, "Z");
 }
 
-export function toDate(time: number | string | Date): Date {
+export function toDate(time: DateInput): Date {
   if (typeof time === "number") {
     return new Date(time * 1000);
   }
