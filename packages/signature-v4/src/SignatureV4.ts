@@ -406,6 +406,6 @@ function getCanonicalHeaderList(headers: object): string {
     .join(";");
 }
 
-function getTtl(startDate: Date, expiration: Date): number {
-  return Math.floor((expiration.valueOf() - startDate.valueOf()) / 1000);
+function getTtl(startDate: Date, expireDate: Date): number {
+  return Math.floor((expireDate.valueOf() - startDate.valueOf()) / 1000);
 }
