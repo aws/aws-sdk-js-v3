@@ -143,8 +143,9 @@ export class SignatureV4
       signableHeaders
     } = options;
 
-    const { longDate, shortDate } = formatDate(toDate(signingDate));
-    const ttl = getTtl(signingDate, expiration);
+    const signingDateObj = toDate(signingDate);
+    const { longDate, shortDate } = formatDate(signingDateObj);
+    const ttl = getTtl(signingDateObj, toDate(expiration));
     if (ttl > MAX_PRESIGNED_TTL) {
       return Promise.reject(
         "Signature version 4 presigned URLs" +
@@ -405,8 +406,6 @@ function getCanonicalHeaderList(headers: object): string {
     .join(";");
 }
 
-function getTtl(start: DateInput, expiration: DateInput): number {
-  return Math.floor(
-    (toDate(expiration).valueOf() - toDate(start).valueOf()) / 1000
-  );
+function getTtl(startDate: Date, expiration: Date): number {
+  return Math.floor((expiration.valueOf() - startDate.valueOf()) / 1000);
 }
