@@ -207,12 +207,7 @@ export class SignatureV4
     ]);
 
     if (typeof toSign === "string") {
-      return this.signString(
-        toSign,
-        signingDate,
-        region,
-        credentials
-      ) as Promise<string>;
+      return this.signString(toSign, options);
     } else {
       const {
         unsignableHeaders,
@@ -234,7 +229,7 @@ export class SignatureV4
     { headers, payload }: FormattedEvent,
     options: EventSigningArguments
   ): Promise<string> {
-    const [region, credentials] = await Promise.all([
+    const [region] = await Promise.all([
       this.regionProvider(),
       this.credentialProvider()
     ]);
@@ -256,15 +251,17 @@ export class SignatureV4
       hashedHeaders,
       hashedPayload
     ].join("\n");
-    return this.signString(stringToSign, signingDate, region, credentials);
+    return this.signString(stringToSign, { signingDate });
   }
 
   private async signString(
     stringToSign: string,
-    signingDate: DateInput,
-    region: string,
-    credentials: Credentials
+    { signingDate = new Date() }: SigningArguments
   ): Promise<string> {
+    const [region, credentials] = await Promise.all([
+      this.regionProvider(),
+      this.credentialProvider()
+    ]);
     const { shortDate } = formatDate(signingDate);
 
     const hash = new this.sha256(
