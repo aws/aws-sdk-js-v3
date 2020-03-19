@@ -77,4 +77,23 @@ describe("s3 presigner", () => {
     });
     expect(minimalRequest).toMatchObject(originalRequest);
   });
+
+  it("should not sign content-type header", async () => {
+    const signer = new S3RequestPresigner(s3ResolvedConfig);
+    const requestWithContentTypeHeader = {
+      ...minimalRequest,
+      headers: {
+        ...minimalRequest.headers,
+        "Content-Type": "application/octet-stream"
+      }
+    };
+    const signed = await signer.presignRequest(
+      requestWithContentTypeHeader,
+      expiration,
+      presigningOptions
+    );
+    expect(signed.query).toMatchObject({
+      [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER
+    });
+  });
 });
