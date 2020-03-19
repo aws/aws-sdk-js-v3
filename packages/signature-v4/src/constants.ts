@@ -19,6 +19,8 @@ export const ALWAYS_UNSIGNABLE_HEADERS = {
   authorization: true,
   "cache-control": true,
   connection: true,
+  "content-type": true,
+  "content-length": true,
   expect: true,
   from: true,
   "keep-alive": true,
