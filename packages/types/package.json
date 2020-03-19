@@ -5,7 +5,7 @@
   "types": "./build/index.d.ts",
   "description": "Types for the AWS SDK",
   "devDependencies": {
-    "typescript": "~3.4.0"
+    "typescript": "~3.8.3"
   },
   "scripts": {
     "prepublishOnly": "tsc",

@@ -22,6 +22,6 @@
     "@aws-sdk/protocol-http": "^1.0.0-alpha.7",
     "@types/jest": "^24.0.12",
     "jest": "^24.7.1",
-    "typescript": "~3.4.0"
+    "typescript": "~3.8.3"
   }
 }
