@@ -1,78 +1,64 @@
 var jmespath = require("jmespath");
-var { DynamoDB } = require("../../../clients/node/client-dynamodb-node");
+var { DynamoDB } = require("../../../clients/client-dynamodb");
 
-function waitForTableExists(tableName, callback) {
-  const db = new DynamoDB({});
+/**
+ * Waits for the tableExists state by periodically calling the underlying
+ * DynamoDB.describeTable() operation every 5 seconds (at most 25 times).
+ */
+function waitForTableExists(world, callback) {
   const params = {
-    TableName: tableName
+    TableName: world.tableName
   };
 
-  // Iterate totalTries times
-  const totalTries = 25;
-  let currentTry = 0;
+  const maxAttempts = 25;
+  const delay = 5000;
+  let currentAttempt = 0;
 
-  const checkForTableExists = (params, callback) => {
-    currentTry++;
-    db.describeTable(params, function(err, data) {
-      if (err) {
-        if (currentTry > totalTries) {
-          callback.fail(err);
-        }
+  const checkForTableExists = () => {
+    currentAttempt++;
+    world.service.describeTable(params, function(err, data) {
+      if (currentAttempt > maxAttempts) {
+        callback.fail();
+      } else if (data && data.Table && data.Table.TableStatus === "ACTIVE") {
+        callback();
+      } else {
         setTimeout(function() {
-          checkForTableExists(params, callback);
-        }, 20000);
-      } else if (data) {
-        if (data.Table && data.Table.TableStatus === "ACTIVE") {
-          callback();
-        } else {
-          if (currentTry > totalTries) {
-            callback.fail(err);
-          }
-          setTimeout(function() {
-            checkForTableExists(params, callback);
-          }, 20000);
-        }
+          checkForTableExists();
+        }, delay);
       }
     });
   };
-  checkForTableExists(params, callback);
+  checkForTableExists();
 }
 
-function waitForTableNotExists(tableName, callback) {
-  const db = new DynamoDB({});
+/**
+ * Waits for the tableNotExists state by periodically calling the underlying
+ * DynamoDB.describeTable() operation every 5 seconds (at most 25 times).
+ */
+function waitForTableNotExists(world, callback) {
   const params = {
-    TableName: tableName
+    TableName: world.tableName
   };
 
-  // Iterate totalTries times
-  const totalTries = 25;
-  let currentTry = 0;
+  const maxAttempts = 25;
+  const delay = 5000;
+  let currentAttempt = 0;
 
-  const checkForTableNotExists = (params, callback) => {
-    currentTry++;
-    db.describeTable(params, function(err, data) {
-      if (err) {
-        if (currentTry > totalTries) {
-          callback.fail(err);
-        }
-        if (e.name === "ResourceNotFoundException") {
-          callback();
-        }
+  const checkForTableNotExists = () => {
+    currentAttempt++;
+    world.service.describeTable(params, function(err, data) {
+      if (currentAttempt > maxAttempts) {
+        callback.fail();
+      } else if (err && err.name === "ResourceNotFoundException") {
+        callback();
+      } else {
         setTimeout(function() {
-          checkForTableNotExists(params, callback);
-        }, 20000);
-      } else if (data) {
-        if (currentTry > totalTries) {
-          callback.fail(err);
-        }
-        setTimeout(function() {
-          checkForTableNotExists(params, callback);
-        }, 20000);
+          checkForTableNotExists();
+        }, delay);
       }
     });
-    checkForTableNotExists(params, callback);
   };
-  checkForTableNotExists(params, callback);
+  checkForTableNotExists();
 }
 
 module.exports = function() {
@@ -84,8 +70,6 @@ module.exports = function() {
   });
 
   function createTable(world, callback) {
-    var db = new DynamoDB({});
-
     var params = {
       TableName: world.tableName,
       AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],
@@ -96,18 +80,31 @@ module.exports = function() {
       }
     };
 
-    db.createTable(params, function(err, data) {
+    world.service.createTable(params, function(err, data) {
       if (err) {
         callback.fail(err);
         return;
       }
-      waitForTableExists(world.tableName, callback);
+      waitForTableExists(world, callback);
     });
   }
 
   this.Given(/^I have a table$/, function(callback) {
     var world = this;
-    this.tableName = "aws-sdk-js-integration-test";
+    this.service.listTables({}, function(err, data) {
+      for (var i = 0; i < data.TableNames.length; i++) {
+        if (data.TableNames[i] == world.tableName) {
+          callback();
+          return;
+        }
+      }
+      createTable(world, callback);
+    });
+  });
+
+  this.When(/^I create a table$/, function(callback) {
+    var world = this;
+    this.tableName = this.uniqueName("aws-sdk-js-integration");
     this.service.listTables({}, function(err, data) {
       for (var i = 0; i < data.TableNames.length; i++) {
         if (data.TableNames[i] == world.tableName) {
@@ -121,6 +118,31 @@ module.exports = function() {
 
   this.When(/^I put the item:$/, function(string, next) {
     var params = { TableName: this.tableName, Item: JSON.parse(string) };
+    this.request(null, "putItem", params, next);
+  });
+
+  this.When(/^I put a recursive item$/, function(next) {
+    var params = {
+      TableName: this.tableName,
+      Item: {
+        id: { S: "fooRecursive" },
+        data: {
+          M: {
+            attr1: {
+              L: [{ S: "value1" }, { L: [{ M: { attr12: { S: "value2" } } }] }]
+            },
+            attr2: {
+              L: [
+                { B: new Uint8Array([0]) },
+                { B: new Uint8Array([1]) },
+                { NULL: true },
+                { BOOL: true }
+              ]
+            }
+          }
+        }
+      }
+    };
     this.request(null, "putItem", params, next);
   });
 
@@ -142,8 +164,12 @@ module.exports = function() {
     this.request(null, "deleteTable", params, next);
   });
 
+  this.Then(/^the table should eventually exist$/, function(callback) {
+    waitForTableExists(this, callback);
+  });
+
   this.Then(/^the table should eventually not exist$/, function(callback) {
-    waitForTableNotExists(this.tableName, calback);
+    waitForTableNotExists(this, callback);
   });
 
   this.Given(

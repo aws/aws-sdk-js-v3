@@ -1,56 +1,41 @@
-var { EC2 } = require("../../../clients/node/client-ec2-node");
+var { EC2 } = require("../../../clients/client-ec2");
 
-const waitForVolumeAvailable = (ec2, params, callback) => {
-  // Iterate totalTries times
+/**
+ * Waits for the volumeAvailable state by periodically calling the underlying
+ * EC2.describeVolumes() operation every 5 seconds (at most 40 times)
+ */
+const waitForVolumeAvailable = (ec2, volumeId, callback) => {
   const maxAttempts = 40;
   let currentAttempt = 0;
-  const delay = 15000;
+  const delay = 5000;
 
-  const checkForVolumeAvailable = (params, callback) => {
+  const checkForVolumeAvailable = () => {
     currentAttempt++;
-    ec2.describeVolumes(params, (err, data) => {
-      if (err) {
-        if (currentAttempt > maxAttempts) {
-          callback.fail(err);
-        }
-        setTimeout(function() {
-          checkForVolumeAvailable(params, callback);
-        }, delay);
-      } else if (data) {
-        if (data.Volumes) {
-          // iterate through array and check for success and failure
-          let isSuccess = true;
-          for (let i = 0; i < data.Volumes.length; i++) {
-            if (data.Volumes[i].State === "deleted") {
-              isSuccess = false;
-              callback(
-                new Error(
-                  `VolumeId ${data.Volumes[i].VolumeId} is in failure state`
-                )
-              );
-              break;
-            } else if (data.Volumes[i].State !== "available") {
-              isSuccess = false;
-              setTimeout(function() {
-                checkForVolumeAvailable(params, callback);
-              }, delay);
-              break;
-            }
-          }
-          if (isSuccess) {
-            callback();
-          }
+    ec2.describeVolumes({ VolumeIds: [volumeId] }, (err, data) => {
+      if (currentAttempt > maxAttempts) {
+        callback.fail();
+      } else if (data && data.Volumes) {
+        if (data.Volumes[0].State === "available") {
+          callback();
+        } else if (data.Volumes[0].State === "deleted") {
+          callback(
+            new Error(
+              `VolumeId ${data.Volumes[i].VolumeId} is in failure state`
+            )
+          );
         } else {
           setTimeout(function() {
-            checkForVolumeAvailable(params, callback);
+            checkForVolumeAvailable();
           }, delay);
         }
       } else {
-        callback();
+        setTimeout(function() {
+          checkForVolumeAvailable();
+        }, delay);
       }
     });
   };
-  checkForVolumeAvailable(params, callback);
+  checkForVolumeAvailable();
 };
 
 module.exports = function() {
@@ -116,7 +101,7 @@ module.exports = function() {
         }
         volId = data.VolumeId;
 
-        waitForVolumeAvailable(srcEc2, { VolumeIds: [volId] }, function(err) {
+        waitForVolumeAvailable(srcEc2, volId, function(err) {
           if (err) {
             teardown();
             return callback(err);

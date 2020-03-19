@@ -1,6 +1,4 @@
-var {
-  CloudFormation
-} = require("../../../clients/node/client-cloudformation-node");
+var { CloudFormation } = require("../../../clients/client-cloudformation");
 
 module.exports = function() {
   this.Before("@cloudformation", function(callback) {

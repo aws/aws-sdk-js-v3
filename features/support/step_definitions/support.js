@@ -1,4 +1,4 @@
-var { Support } = require("../../../clients/node/client-support-node");
+var { Support } = require("../../../clients/client-support");
 
 module.exports = function() {
   this.Before("@support", function(callback) {

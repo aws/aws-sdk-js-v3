@@ -1,6 +1,4 @@
-var {
-  CognitoIdentity
-} = require("../../../clients/node/client-cognito-identity-node");
+var { CognitoIdentity } = require("../../../clients/client-cognito-identity");
 
 module.exports = function() {
   this.Before("@cognitoidentity", function(callback) {

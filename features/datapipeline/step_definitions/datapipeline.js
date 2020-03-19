@@ -1,6 +1,4 @@
-var {
-  DataPipeline
-} = require("../../../clients/node/client-data-pipeline-node");
+var { DataPipeline } = require("../../../clients/client-data-pipeline");
 
 module.exports = function() {
   this.Before("@datapipeline", function(callback) {

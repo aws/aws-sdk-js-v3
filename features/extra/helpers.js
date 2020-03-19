@@ -36,7 +36,8 @@ module.exports = {
     if (!options.maxTime) options.maxTime = 5;
 
     var delay = options.delay;
-    var started = this.AWS.util.date.getDate();
+    //TODO: apply clock offset
+    var started = new Date();
 
     var self = this;
     var retry = function() {
@@ -195,5 +196,57 @@ module.exports = {
     }
     buffer.fill("x");
     return buffer;
+  },
+
+  /**
+   * Waits for the bucketExists state by periodically calling the underlying S3.headBucket() operation
+   * every 5 seconds (at most 20 times).
+   */
+  waitForBucketExists: function(s3client, params, callback) {
+    const maxAttempts = 20;
+    let currentAttempt = 0;
+    const delay = 5000;
+
+    const checkForBucketExists = () => {
+      currentAttempt++;
+      s3client.headBucket(params, function(err, data) {
+        if (currentAttempt > maxAttempts) {
+          callback.fail();
+        } else if (data) {
+          callback();
+        } else {
+          setTimeout(function() {
+            checkForBucketExists();
+          }, delay);
+        }
+      });
+    };
+    checkForBucketExists();
+  },
+
+  /**
+   * Waits for the bucketNotExists state by periodically calling the underlying S3.headBucket() operation
+   * every 5 seconds (at most 20 times).
+   */
+  waitForBucketNotExists: function(s3client, params, callback) {
+    const maxAttempts = 20;
+    let currentAttempt = 0;
+    const delay = 5000;
+
+    const checkForBucketNotExists = () => {
+      currentAttempt++;
+      s3client.headBucket(params, function(err, data) {
+        if (currentAttempt > maxAttempts) {
+          callback.fail();
+        } else if (err && err.name === "NotFound") {
+          callback();
+        } else {
+          setTimeout(function() {
+            checkForBucketNotExists();
+          }, delay);
+        }
+      });
+    };
+    checkForBucketNotExists();
   }
 };

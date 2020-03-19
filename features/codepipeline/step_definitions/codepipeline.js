@@ -1,6 +1,4 @@
-var {
-  CodePipeline
-} = require("../../../clients/node/client-codepipeline-node");
+var { CodePipeline } = require("../../../clients/client-codepipeline");
 
 module.exports = function() {
   this.Before("@codepipeline", function(callback) {
