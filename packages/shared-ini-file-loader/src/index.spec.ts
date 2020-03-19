@@ -77,7 +77,7 @@ const FIZZ_CREDS = {
   sessionToken: "pop"
 };
 
-const envAtLoadTime: { [key: string]: string } = [
+const envAtLoadTime: { [key: string]: string | undefined } = [
   ENV_CONFIG_PATH,
   ENV_CREDENTIALS_PATH,
   "HOME",
