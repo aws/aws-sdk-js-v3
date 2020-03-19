@@ -125,14 +125,15 @@ Feature: Working with Objects in S3
     And I access the URL via HTTP PUT with data "NOT CHECKSUMMED"
     Then the HTTP response should contain "SignatureDoesNotMatch"
 
-  @presigned_post
-  Scenario: POSTing an object with a presigned form
-    Given I create a presigned form to POST the key "presignedPost" with the data "PRESIGNED POST CONTENTS"
-    And I POST the form
-    Then the object "presignedPost" should exist
-    When I get the object "presignedPost"
-    Then the object "presignedPost" should contain "PRESIGNED POST CONTENTS"
-    Then the HTTP response should have a content length of 23
+  # Blocked on parity https://github.com/aws/aws-sdk-js-v3/issues/1001
+  # @presigned_post
+  # Scenario: POSTing an object with a presigned form
+  #   Given I create a presigned form to POST the key "presignedPost" with the data "PRESIGNED POST CONTENTS"
+  #   And I POST the form
+  #   Then the object "presignedPost" should exist
+  #   When I get the object "presignedPost"
+  #   Then the object "presignedPost" should contain "PRESIGNED POST CONTENTS"
+  #   Then the HTTP response should have a content length of 23
 
   @proxy
   Scenario: Proxy support
