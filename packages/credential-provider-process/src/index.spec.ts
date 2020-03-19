@@ -134,7 +134,7 @@ const FOO_CREDS_JSON = `
     "Version":1
 }`;
 
-const envAtLoadTime: { [key: string]: string } = [
+const envAtLoadTime: { [key: string]: string | undefined } = [
   ENV_CONFIG_PATH,
   ENV_CREDENTIALS_PATH,
   ENV_PROFILE,

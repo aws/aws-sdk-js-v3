@@ -36,6 +36,7 @@ export function getChunkedStream(
             return;
           }
 
+          // @ts-ignore error TS2532: Object is possibly 'undefined' for value
           const chunkLength = value.length;
           let currentOffset = 0;
 
@@ -54,6 +55,7 @@ export function getChunkedStream(
               );
 
               messageLengthBuffer.set(
+                // @ts-ignore error TS2532: Object is possibly 'undefined' for value
                 value.slice(currentOffset, currentOffset + numBytesForTotal),
                 currentMessagePendingLength
               );
@@ -77,6 +79,7 @@ export function getChunkedStream(
               chunkLength - currentOffset // number of bytes left in the original chunk
             );
             currentMessage!.set(
+              // @ts-ignore error TS2532: Object is possibly 'undefined' for value
               value.slice(currentOffset, currentOffset + numBytesToWrite),
               currentMessagePendingLength
             );
