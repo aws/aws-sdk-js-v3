@@ -194,6 +194,10 @@ export class SignatureV4
     options?: SigningArguments
   ): Promise<string>;
   public async sign(
+    event: FormattedEvent,
+    options: EventSigningArguments
+  ): Promise<string>;
+  public async sign(
     requestToSign: HttpRequest,
     options?: RequestSigningArguments
   ): Promise<HttpRequest>;
@@ -203,12 +207,14 @@ export class SignatureV4
   ): Promise<any> {
     if (typeof toSign === "string") {
       return this.signString(toSign, options);
+    } else if (toSign.headers && toSign.payload) {
+      return this.signEvent(toSign, options);
     } else {
       return this.signRequest(toSign, options);
     }
   }
 
-  public async signEvent(
+  private async signEvent(
     { headers, payload }: FormattedEvent,
     options: EventSigningArguments
   ): Promise<string> {

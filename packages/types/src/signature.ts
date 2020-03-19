@@ -88,8 +88,5 @@ export interface EventSigner {
   /**
    * Sign the individual event of the event stream.
    */
-  signEvent(
-    event: FormattedEvent,
-    options: EventSigningArguments
-  ): Promise<string>;
+  sign(event: FormattedEvent, options: EventSigningArguments): Promise<string>;
 }
