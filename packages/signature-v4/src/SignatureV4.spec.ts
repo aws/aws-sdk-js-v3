@@ -608,7 +608,7 @@ describe("SignatureV4", () => {
     });
   });
 
-  describe("#signEvent", () => {
+  describe("#sign (event)", () => {
     //adopt to Ruby SDK: https://github.com/aws/aws-sdk-ruby/blob/3c47c05aa77bdbb7b803a3ff932b3a89c32276ac/gems/aws-sigv4/spec/signer_spec.rb#L274
     it("support event signing", async () => {
       const signer = new SignatureV4({
@@ -620,7 +620,7 @@ describe("SignatureV4", () => {
         },
         sha256: Sha256
       });
-      const eventSignature = await signer.signEvent(
+      const eventSignature = await signer.sign(
         {
           headers: Uint8Array.from([
             5,
