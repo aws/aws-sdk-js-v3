@@ -1,4 +1,4 @@
-var { Inspector } = require("../../../clients/node/client-inspector-node");
+var { Inspector } = require("../../../clients/client-inspector");
 
 module.exports = function() {
   this.Before("@inspector", function(callback) {

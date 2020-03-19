@@ -1,6 +1,4 @@
-var {
-  DirectConnect
-} = require("../../../clients/node/client-direct-connect-node");
+var { DirectConnect } = require("../../../clients/client-direct-connect");
 
 module.exports = function() {
   this.Before("@directconnect", function(callback) {

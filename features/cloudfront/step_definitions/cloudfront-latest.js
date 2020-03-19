@@ -1,3 +1,5 @@
+var { CloudFront } = require("../../../clients/client-cloudfront");
+
 module.exports = function() {
   var createParams = {
     CallerReference: "",
@@ -23,7 +25,9 @@ module.exports = function() {
       TargetOriginId: "origin",
       ForwardedValues: {
         QueryString: false,
-        Cookies: { Forward: "all" }
+        Cookies: {
+          Forward: "all"
+        }
       },
       TrustedSigners: {
         Items: [],
@@ -49,7 +53,7 @@ module.exports = function() {
   };
 
   this.Before("@cloudfront", function(callback) {
-    this.service = new this.AWS.CloudFront();
+    this.service = new CloudFront({});
     this.cfCreateParams = createParams;
     callback();
   });

@@ -1,4 +1,4 @@
-var { Lambda } = require("../../../clients/node/client-lambda-node");
+var { Lambda } = require("../../../clients/client-lambda");
 
 module.exports = function() {
   this.Before("@lambda", function(callback) {

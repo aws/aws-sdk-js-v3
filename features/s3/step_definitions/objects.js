@@ -1,15 +1,56 @@
+var {
+  S3,
+  GetObjectCommand,
+  PutObjectCommand
+} = require("../../../clients/client-s3");
+var { streamCollector } = require("../../../packages/stream-collector-node");
+var { toUtf8 } = require("../../../packages/util-utf8-node");
+var { Md5 } = require("../../../packages/md5-js");
+
+const {
+  S3RequestPresigner
+} = require("../../../packages/s3-request-presigner");
+const { createRequest } = require("../../../packages/util-create-request");
+const { formatUrl } = require("../../../packages/util-format-url");
+
 module.exports = function() {
+  function getSignedUrl(client, command, params, callback) {
+    const signer = new S3RequestPresigner({ ...client.config });
+    createRequest(client, new command(params))
+      .then(request => {
+        const expiration = new Date(Date.now() + 1 * 60 * 60 * 1000);
+        signer
+          .presignRequest(request, expiration)
+          .then(data => {
+            callback(null, formatUrl(data));
+          })
+          .catch(err => {
+            callback(err);
+          });
+      })
+      .catch(err => {
+        callback(err);
+      });
+  }
+
   this.When(/^I put "([^"]*)" to the(?: invalid)? key "([^"]*)"$/, function(
     data,
     key,
     next
   ) {
-    var params = { Bucket: this.sharedBucket, Key: key, Body: data };
+    var params = {
+      Bucket: this.sharedBucket,
+      Key: key,
+      Body: data
+    };
     this.request("s3", "putObject", params, next, false);
   });
 
   this.When(/^I get the object "([^"]*)"$/, function(key, next) {
-    var params = { Bucket: this.sharedBucket, Key: key };
+    var params = {
+      Bucket: this.sharedBucket,
+      Key: key
+    };
     this.request("s3", "getObject", params, next, false);
   });
 
@@ -17,7 +58,11 @@ module.exports = function() {
     /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)"$/,
     function(size, key, next) {
       var body = this.createBuffer(size);
-      var params = { Bucket: this.sharedBucket, Key: key, Body: body };
+      var params = {
+        Bucket: this.sharedBucket,
+        Key: key,
+        Body: body
+      };
       this.request("s3", "putObject", params, next);
     }
   );
@@ -45,7 +90,9 @@ module.exports = function() {
         Body: contents,
         ContentLength: parseInt(contentLength)
       };
-      this.s3nochecksums = new this.AWS.S3({ computeChecksums: false });
+      this.s3nochecksums = new S3({
+        computeChecksums: false
+      });
       this.request("s3nochecksums", "putObject", params, next);
     }
   );
@@ -55,16 +102,18 @@ module.exports = function() {
     contents,
     next
   ) {
-    this.assert.equal(this.data.Body.toString().replace("\n", ""), contents);
-    next();
+    streamCollector(this.data.Body).then(body => {
+      this.assert.equal(toUtf8(body), contents);
+      next();
+    });
   });
 
   this.Then(
     /^the HTTP response should have a content length of (\d+)$/,
     function(contentLength, next) {
       this.assert.equal(
-        this.response.httpResponse.body.length,
-        parseInt(contentLength)
+        this.data.Body.headers["content-length"],
+        contentLength
       );
       next();
     }
@@ -84,7 +133,10 @@ module.exports = function() {
   });
 
   this.When(/^I delete the object "([^"]*)"$/, function(key, next) {
-    var params = { Bucket: this.sharedBucket, Key: key };
+    var params = {
+      Bucket: this.sharedBucket,
+      Key: key
+    };
     this.request("s3", "deleteObject", params, next);
   });
 
@@ -93,11 +145,14 @@ module.exports = function() {
     shouldNotExist,
     next
   ) {
-    var params = { Bucket: this.sharedBucket, Key: key };
+    var params = {
+      Bucket: this.sharedBucket,
+      Key: key
+    };
     this.eventually(next, function(retry) {
       retry.condition = function() {
         if (shouldNotExist) {
-          return this.error && this.error.code === "NotFound";
+          return this.error && this.error.name === "NotFound";
         } else {
           return !this.error;
         }
@@ -107,10 +162,13 @@ module.exports = function() {
   });
 
   this.When(/^I stream key "([^"]*)"$/, function(key, callback) {
-    var params = { Bucket: this.sharedBucket, Key: key };
+    var params = {
+      Bucket: this.sharedBucket,
+      Key: key
+    };
     var world = this;
     this.result = "";
-    var s = this.service.getObject(params).createReadStream();
+    var s = this.service.getObject(params);
 
     setTimeout(function() {
       s.on("end", function() {
@@ -124,7 +182,10 @@ module.exports = function() {
 
   this.When(/^I stream2 key "([^"]*)"$/, function(key, callback) {
     if (!require("stream").Readable) return callback();
-    var params = { Bucket: this.sharedBucket, Key: key };
+    var params = {
+      Bucket: this.sharedBucket,
+      Key: key
+    };
     var world = this;
     this.result = "";
     var stream = this.service.getObject(params).createReadStream();
@@ -160,9 +221,13 @@ module.exports = function() {
     callback
   ) {
     var world = this;
-    this.s3.getSignedUrl(
-      "getObject",
-      { Bucket: this.sharedBucket, Key: key },
+    getSignedUrl(
+      this.s3,
+      GetObjectCommand,
+      {
+        Bucket: this.sharedBucket,
+        Key: key
+      },
       function(err, url) {
         world.signedUrl = url;
         callback();
@@ -188,9 +253,12 @@ module.exports = function() {
     /^I get a pre\-signed URL to PUT the key "([^"]*)"(?: with data "([^"]*)")?$/,
     function(key, body, callback) {
       var world = this;
-      var params = { Bucket: this.sharedBucket, Key: key };
+      var params = {
+        Bucket: this.sharedBucket,
+        Key: key
+      };
       if (body) params.Body = body;
-      this.s3.getSignedUrl("putObject", params, function(err, url) {
+      getSignedUrl(this.s3, PutObjectCommand, params, function(err, url) {
         world.signedUrl = url;
         callback();
       });
@@ -207,7 +275,9 @@ module.exports = function() {
     var data = body;
     var options = require("url").parse(this.signedUrl);
     options.method = "PUT";
-    options.headers = { "Content-Length": data.length };
+    options.headers = {
+      "Content-Length": data.length
+    };
 
     require("https")
       .request(options, function(res) {
@@ -232,7 +302,9 @@ module.exports = function() {
         ],
         params = {
           Bucket: this.sharedBucket,
-          Fields: { key: key },
+          Fields: {
+            key: key
+          },
           Conditions: conditions
         };
       this.s3.createPresignedPost(params, function(err, postData) {
@@ -304,7 +376,9 @@ module.exports = function() {
   this.Given(/^I setup the listObjects request for the bucket$/, function(
     callback
   ) {
-    this.params = { Bucket: this.sharedBucket };
+    this.params = {
+      Bucket: this.sharedBucket
+    };
     callback();
   });
 
@@ -359,7 +433,10 @@ module.exports = function() {
   ) {
     var self = this;
     this.progress = [];
-    var req = this.s3.getObject({ Bucket: this.sharedBucket, Key: key });
+    var req = this.s3.getObject({
+      Bucket: this.sharedBucket,
+      Key: key
+    });
     req.on("httpDownloadProgress", function(p) {
       self.progress.push(p);
     });
@@ -375,7 +452,12 @@ module.exports = function() {
     var acl;
     if (access === "public") acl = "public-read";
     else if (access === "private") acl = access;
-    var params = { Bucket: this.sharedBucket, Key: key, Body: data, ACL: acl };
+    var params = {
+      Bucket: this.sharedBucket,
+      Key: key,
+      Body: data,
+      ACL: acl
+    };
     this.request("s3", "putObject", params, next);
   });
 
@@ -410,7 +492,10 @@ module.exports = function() {
   this.Then(
     /^I make an unauthenticated request to read object "([^"]*)"$/,
     function(key, next) {
-      var params = { Bucket: this.sharedBucket, Key: key };
+      var params = {
+        Bucket: this.sharedBucket,
+        Key: key
+      };
       this.s3.makeUnauthenticatedRequest(
         "getObject",
         params,
@@ -427,31 +512,39 @@ module.exports = function() {
     data,
     next
   ) {
-    this.sentContentMD5 = this.AWS.util.crypto.md5(data, "base64");
+    const hash = new Md5();
+    hash.update(data);
+    this.sentContentMD5 = hash.digest().toString();
     next();
   });
 
   this.Then(
     /^the MD5 checksum of the response data should equal the generated checksum$/,
     function(next) {
-      var receivedContentMD5 = this.AWS.util.crypto.md5(
-        this.data.Body.toString(),
-        "base64"
-      );
-      this.assert.equal(receivedContentMD5, this.sentContentMD5);
-      next();
+      const hash = new Md5();
+      streamCollector(this.data.Body).then(body => {
+        hash.update(body);
+        this.assert.equal(hash.digest(), this.sentContentMD5);
+        next();
+      });
     }
   );
 
   this.Given(/^an empty bucket$/, function(next) {
     var self = this;
-    var params = { Bucket: this.sharedBucket };
+    var params = {
+      Bucket: this.sharedBucket
+    };
     self.s3.listObjects(params, function(err, data) {
       if (err) return next(err);
       if (data.Contents.length > 0) {
-        params.Delete = { Objects: [] };
+        params.Delete = {
+          Objects: []
+        };
         data.Contents.forEach(function(item) {
-          params.Delete.Objects.push({ Key: item.Key });
+          params.Delete.Objects.push({
+            Key: item.Key
+          });
         });
         self.request("s3", "deleteObjects", params, next);
       } else {
@@ -459,28 +552,4 @@ module.exports = function() {
       }
     });
   });
-
-  this.Given(/^I use signatureVersion "([^"]*)"$/, function(
-    signatureVersion,
-    next
-  ) {
-    this.s3Slashes = new this.AWS.S3({ signatureVersion: signatureVersion });
-    next();
-  });
-
-  this.When(
-    /^I put "([^"]*)" to the key "([^"]*)" with bucket suffix "([^"]*)"$/,
-    function(data, key, suffix, next) {
-      var world = this;
-      var params = {
-        Bucket: this.sharedBucket + suffix,
-        Key: key,
-        Body: data
-      };
-      this.s3Slashes.putObject(params, function(err, data) {
-        world.assert.equal(!!err, false);
-        next();
-      });
-    }
-  );
 };

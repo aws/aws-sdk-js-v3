@@ -1,4 +1,4 @@
-var { WorkSpaces } = require("../../../clients/node/client-workspaces-node");
+var { WorkSpaces } = require("../../../clients/client-workspaces");
 
 module.exports = function() {
   this.Before("@workspaces", function(callback) {

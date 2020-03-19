@@ -1,4 +1,4 @@
-var { CognitoSync } = require("../../../clients/node/client-cognito-sync-node");
+var { CognitoSync } = require("../../../clients/client-cognito-sync");
 
 module.exports = function() {
   this.Before("@cognitosync", function(callback) {

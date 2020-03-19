@@ -1,6 +1,12 @@
 var util = require("util");
 var jmespath = require("jmespath");
 
+const isType = (obj, type) => {
+  // handle cross-"frame" objects
+  if (typeof type === "function") type = util.typeName(type);
+  return Object.prototype.toString.call(obj) === "[object " + type + "]";
+};
+
 module.exports = function() {
   this.World = require("./world.js").World;
 
@@ -26,7 +32,7 @@ module.exports = function() {
         if (err) {
           return callback(err);
         }
-        this.s3.waitFor("bucketExists", { Bucket: bucket }, callback);
+        this.waitForBucketExists(this.s3, { Bucket: bucket }, callback);
       }
     });
   });
@@ -40,7 +46,7 @@ module.exports = function() {
       if (err) {
         return callback(err);
       }
-      this.s3.waitFor("bucketExists", { Bucket: bucket }, callback);
+      this.waitForBucketExists(this.s3, { Bucket: bucket }, callback);
     });
   });
 
@@ -49,11 +55,11 @@ module.exports = function() {
   });
 
   this.Then(/^the bucket should exist$/, function(next) {
-    this.s3.waitFor("bucketExists", { Bucket: this.bucket }, next);
+    this.waitForBucketExists(this.s3, { Bucket: this.bucket }, next);
   });
 
   this.Then(/^the bucket should not exist$/, function(callback) {
-    this.s3.waitFor("bucketNotExists", { Bucket: this.bucket }, callback);
+    this.waitForBucketNotExists(this.s3, { Bucket: this.bucket }, callback);
   });
 
   /* Global error code steps */
@@ -159,7 +165,7 @@ module.exports = function() {
     region,
     callback
   ) {
-    this.service = new this.AWS[svc]({ region: region });
+    this.service = new this.service.constructor({ region: region });
     callback();
   });
 
@@ -225,10 +231,7 @@ module.exports = function() {
     /^the result at (\w+) should contain a property (\w+) with an? (\w+)$/,
     function(wrapper, property, type, callback) {
       if (type === "Array" || type === "Date") {
-        this.assert.equal(
-          this.AWS.util.isType(this.data[wrapper][property], type),
-          true
-        );
+        this.assert.equal(isType(this.data[wrapper][property], type), true);
       } else {
         this.assert.equal(typeof this.data[wrapper][property], type);
       }
@@ -240,10 +243,7 @@ module.exports = function() {
     /^the result should contain a property (\w+) with an? (\w+)$/,
     function(property, type, callback) {
       if (type === "Array" || type === "Date") {
-        this.assert.equal(
-          this.AWS.util.isType(this.data[property], type),
-          true
-        );
+        this.assert.equal(isType(this.data[property], type), true);
       } else {
         this.assert.equal(typeof this.data[property], type);
       }

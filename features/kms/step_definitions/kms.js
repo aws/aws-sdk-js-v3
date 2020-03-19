@@ -1,4 +1,4 @@
-var { KMS } = require("../../../clients/node/client-kms-node");
+var { KMS } = require("../../../clients/client-kms");
 
 module.exports = function() {
   this.Before("@kms", function(callback) {

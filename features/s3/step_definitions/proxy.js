@@ -1,19 +1,22 @@
 var url = require("url");
 var http = require("http");
+var { S3 } = require("../../../clients/client-s3");
 
 module.exports = function() {
   this.Before("@s3", "@proxy", function(callback) {
     setupProxyServer.call(this);
 
-    this.service = this.s3 = new this.AWS.S3({
-      httpOptions: { proxy: "http://localhost:" + this.proxyPort }
+    this.service = this.s3 = new S3({
+      httpOptions: {
+        proxy: "http://localhost:" + this.proxyPort
+      }
     });
 
     callback();
   });
 
   this.Then(/^I teardown the local proxy server$/, function(callback) {
-    this.service = this.s3 = new this.AWS.S3();
+    this.service = this.s3 = new S3();
     this.proxyServer.close(callback);
   });
 

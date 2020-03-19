@@ -1,4 +1,4 @@
-var { EMR } = require("../../../clients/node/client-emr-node");
+var { EMR } = require("../../../clients/client-emr");
 
 module.exports = function() {
   this.Before("@emr", function(callback) {
