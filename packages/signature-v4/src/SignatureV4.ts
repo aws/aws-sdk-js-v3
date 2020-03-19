@@ -201,27 +201,10 @@ export class SignatureV4
     toSign: any,
     { signingDate = new Date(), ...options }: any
   ): Promise<any> {
-    const [region, credentials] = await Promise.all([
-      this.regionProvider(),
-      this.credentialProvider()
-    ]);
-
     if (typeof toSign === "string") {
       return this.signString(toSign, options);
     } else {
-      const {
-        unsignableHeaders,
-        signableHeaders
-      } = options as RequestSigningArguments;
-
-      return this.signRequest(
-        toSign as HttpRequest,
-        signingDate,
-        region,
-        credentials,
-        unsignableHeaders,
-        signableHeaders
-      ) as Promise<HttpRequest>;
+      return this.signRequest(toSign, options);
     }
   }
 
@@ -272,14 +255,18 @@ export class SignatureV4
   }
 
   private async signRequest(
-    originalRequest: HttpRequest,
-    signingDate: DateInput,
-    region: string,
-    credentials: Credentials,
-    unsignableHeaders?: Set<string>,
-    signableHeaders?: Set<string>
+    requestToSign: HttpRequest,
+    {
+      signingDate = new Date(),
+      signableHeaders,
+      unsignableHeaders
+    }: RequestSigningArguments
   ): Promise<HttpRequest> {
-    const request = prepareRequest(originalRequest);
+    const [region, credentials] = await Promise.all([
+      this.regionProvider(),
+      this.credentialProvider()
+    ]);
+    const request = prepareRequest(requestToSign);
     const { longDate, shortDate } = formatDate(signingDate);
     const scope = createScope(shortDate, region, this.service);
 
