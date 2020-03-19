@@ -189,21 +189,18 @@ export class SignatureV4
     return request;
   }
 
-  public sign(
+  public async sign(
     stringToSign: string,
     options?: SigningArguments
   ): Promise<string>;
-  public sign(
+  public async sign(
     requestToSign: HttpRequest,
     options?: RequestSigningArguments
   ): Promise<HttpRequest>;
-  public async sign<T extends string | HttpRequest>(
-    toSign: T,
-    {
-      signingDate = new Date(),
-      ...options
-    }: RequestSigningArguments | SigningArguments = {}
-  ): Promise<T> {
+  public async sign(
+    toSign: any,
+    { signingDate = new Date(), ...options }: any
+  ): Promise<any> {
     const [region, credentials] = await Promise.all([
       this.regionProvider(),
       this.credentialProvider()
@@ -215,7 +212,7 @@ export class SignatureV4
         signingDate,
         region,
         credentials
-      ) as Promise<T>;
+      ) as Promise<string>;
     } else {
       const {
         unsignableHeaders,
@@ -229,7 +226,7 @@ export class SignatureV4
         credentials,
         unsignableHeaders,
         signableHeaders
-      ) as Promise<T>;
+      ) as Promise<HttpRequest>;
     }
   }
 
