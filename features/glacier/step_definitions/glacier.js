@@ -1,12 +1,16 @@
+var { Glacier } = require("../../../clients/client-glacier");
+
 module.exports = function() {
   this.Before("@glacier", function(callback) {
-    this.service = new this.AWS.Glacier();
+    this.service = new Glacier({});
     callback();
   });
 
   this.Given(/^I have a Glacier vault$/, function(callback) {
     this.vaultName = "aws-sdk-js-integration";
-    var params = { vaultName: this.vaultName };
+    var params = {
+      vaultName: this.vaultName
+    };
     this.request(null, "createVault", params, callback, false);
   });
 
@@ -15,7 +19,10 @@ module.exports = function() {
     function(size, invalid, callback) {
       var data = Buffer.alloc(parseFloat(size) * 1024 * 1024);
       data.fill("0");
-      var params = { vaultName: this.vaultName, body: data };
+      var params = {
+        vaultName: this.vaultName,
+        body: data
+      };
       if (invalid) {
         if (invalid.match("invalid")) params.checksum = "000";
         else params.checksum = "00000000000000000000000000000000";
@@ -34,25 +41,30 @@ module.exports = function() {
   this.Then(/^the result should contain the same tree hash checksum$/, function(
     callback
   ) {
-    var hash = this.response.request.httpRequest.headers[
-      "x-amz-sha256-tree-hash"
-    ];
+    var hash = this.data.$metadata.httpHeaders["x-amz-sha256-tree-hash"];
     this.assert.equal(this.data.checksum, hash);
     callback();
   });
 
   this.When(/^I describe the Glacier vault$/, function(callback) {
-    var params = { vaultName: this.vaultName };
+    var params = {
+      vaultName: this.vaultName
+    };
     this.request(null, "describeVault", params, callback);
   });
 
   this.Then(/^I delete the Glacier archive$/, function(callback) {
-    var params = { vaultName: this.vaultName, archiveId: this.archiveId };
+    var params = {
+      vaultName: this.vaultName,
+      archiveId: this.archiveId
+    };
     this.request(null, "deleteArchive", params, callback);
   });
 
   this.Then(/^I delete the Glacier vault$/, function(callback) {
-    var params = { vaultName: this.vaultName };
+    var params = {
+      vaultName: this.vaultName
+    };
     this.eventually(callback, function(next) {
       this.request(null, "deleteVault", params, next);
     });
@@ -64,7 +76,9 @@ module.exports = function() {
       // setup multi-part upload
       this.uploadData = Buffer.alloc(totalSize * 1024 * 1024);
       this.uploadData.fill("0");
-      this.checksums = this.service.computeChecksums(this.uploadData);
+      // Computed by running bodyChecksumGenerator from body-checksum-node
+      this.treeHash =
+        "86118ad0c187fd240db59a37360e0e7f8a3a0c608eed740b4cd7b4271ab45171";
       this.partCounter = 0;
       this.partSize = partSize * 1024 * 1024;
 
@@ -122,7 +136,7 @@ module.exports = function() {
       vaultName: this.vaultName,
       uploadId: this.uploadId,
       archiveSize: this.uploadData.length.toString(),
-      checksum: this.checksums.treeHash
+      checksum: this.treeHash
     };
     this.request(null, "completeMultipartUpload", params, callback);
   });

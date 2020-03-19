@@ -1,4 +1,4 @@
-var { Kinesis } = require("../../../clients/node/client-kinesis-node");
+var { Kinesis } = require("../../../clients/client-kinesis");
 
 module.exports = function() {
   this.Before("@kinesis", function(callback) {

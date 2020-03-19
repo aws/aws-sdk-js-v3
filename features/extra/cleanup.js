@@ -8,24 +8,23 @@ module.exports = function() {
     var path = require("path");
     var fs = require("fs");
 
-    // Reintroduce when writing S3 integration tests
-    // try {
-    //   var filePath = path.resolve('integ.buckets.json');
-    //   if (!fs.existsSync(filePath)) return callback();
-    //   deleteFixtures();
-    //   var cache = JSON.parse(fs.readFileSync(filePath));
-    //   var buckets = cache.buckets;
-    //   if (buckets.length) {
-    //     eachSeries(buckets, cleanBucket, function(err) {
-    //       fs.unlinkSync(filePath);
-    //       callback(err);
-    //     });
-    //   } else {
-    //     callback();
-    //   }
-    // } catch (fileErr) {
-    //   callback(fileErr);
-    // }
+    try {
+      var filePath = path.resolve("integ.buckets.json");
+      if (!fs.existsSync(filePath)) return callback();
+      deleteFixtures();
+      var cache = JSON.parse(fs.readFileSync(filePath));
+      var buckets = cache.buckets;
+      if (buckets.length) {
+        eachSeries(buckets, cleanBucket, function(err) {
+          fs.unlinkSync(filePath);
+          callback(err);
+        });
+      } else {
+        callback();
+      }
+    } catch (fileErr) {
+      callback(fileErr);
+    }
   });
 
   /**

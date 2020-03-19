@@ -1,4 +1,4 @@
-var { CodeCommit } = require("../../../clients/node/client-codecommit-node");
+var { CodeCommit } = require("../../../clients/client-codecommit");
 
 module.exports = function() {
   this.Before("@codecommit", function(callback) {

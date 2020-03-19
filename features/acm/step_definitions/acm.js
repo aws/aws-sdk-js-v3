@@ -1,4 +1,4 @@
-var { ACM } = require("../../../clients/node/client-acm-node");
+var { ACM } = require("../../../clients/client-acm");
 
 module.exports = function() {
   this.Before("@acm", function(callback) {

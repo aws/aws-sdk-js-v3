@@ -1,4 +1,4 @@
-var { SSM } = require("../../../clients/node/client-ssm-node");
+var { SSM } = require("../../../clients/client-ssm");
 
 module.exports = function() {
   this.Before("@ssm", function(callback) {

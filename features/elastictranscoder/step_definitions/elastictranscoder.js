@@ -1,8 +1,14 @@
+var {
+  ElasticTranscoder
+} = require("../../../clients/client-elastic-transcoder");
+var { S3 } = require("../../../clients/client-s3");
+var { IAM } = require("../../../clients/client-iam");
+
 module.exports = function() {
   this.Before("@elastictranscoder", function(callback) {
-    this.iam = new this.AWS.IAM();
-    this.s3 = new this.AWS.S3();
-    this.service = new this.AWS.ElasticTranscoder();
+    this.iam = new IAM({});
+    this.s3 = new S3({});
+    this.service = new ElasticTranscoder({});
     callback();
   });
 
@@ -49,13 +55,23 @@ module.exports = function() {
     this.request(
       null,
       "updatePipelineStatus",
-      { Id: this.pipelineId, Status: "Paused" },
+      {
+        Id: this.pipelineId,
+        Status: "Paused"
+      },
       callback
     );
   });
 
   this.Then(/^I read the pipeline$/, function(callback) {
-    this.request(null, "readPipeline", { Id: this.pipelineId }, callback);
+    this.request(
+      null,
+      "readPipeline",
+      {
+        Id: this.pipelineId
+      },
+      callback
+    );
   });
 
   this.Then(/^the pipeline status should be "([^"]*)"$/, function(
@@ -67,6 +83,13 @@ module.exports = function() {
   });
 
   this.Then(/^I delete the pipeline$/, function(callback) {
-    this.request(null, "deletePipeline", { Id: this.pipelineId }, callback);
+    this.request(
+      null,
+      "deletePipeline",
+      {
+        Id: this.pipelineId
+      },
+      callback
+    );
   });
 };

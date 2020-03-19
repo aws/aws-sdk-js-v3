@@ -1,4 +1,4 @@
-var { GameLift } = require("../../../clients/node/client-gamelift-node");
+var { GameLift } = require("../../../clients/client-gamelift");
 
 module.exports = function() {
   this.Before("@gamelift", function(callback) {
