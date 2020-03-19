@@ -44,11 +44,12 @@ Feature: Working with Objects in S3
     Then the object "byebye" should contain "world"
     Then I delete the object "byebye"
 
-  @unauthenticated
-  Scenario: Unauthenticated requests
-    When I put "world" to the public key "hello"
-    And I make an unauthenticated request to read object "hello"
-    Then the object "hello" should contain "world"
+  # Blocked on the support for makeUnauthenticatedRequest https://github.com/aws/aws-sdk-js-v3/issues/984
+  # @unauthenticated
+  # Scenario: Unauthenticated requests
+  #   When I put "world" to the public key "hello"
+  #   And I make an unauthenticated request to read object "hello"
+  #   Then the object "hello" should contain "world"
 
   @blank
   Scenario: Putting nothing to an object
@@ -124,62 +125,15 @@ Feature: Working with Objects in S3
     And I access the URL via HTTP PUT with data "NOT CHECKSUMMED"
     Then the HTTP response should contain "SignatureDoesNotMatch"
 
-  @presigned_post
-  Scenario: POSTing an object with a presigned form
-    Given I create a presigned form to POST the key "presignedPost" with the data "PRESIGNED POST CONTENTS"
-    And I POST the form
-    Then the object "presignedPost" should exist
-    When I get the object "presignedPost"
-    Then the object "presignedPost" should contain "PRESIGNED POST CONTENTS"
-    Then the HTTP response should have a content length of 23
-
-  @streams
-  Scenario: Streaming objects
-    Given I put "STREAMING CONTENT" to the key "streaming_object"
-    Then the object "streaming_object" should exist
-    When I stream key "streaming_object"
-    Then the streamed data should contain "STREAMING CONTENT"
-    When I stream2 key "streaming_object"
-    Then the streamed data should contain "STREAMING CONTENT"
-
-  @streams
-  Scenario: Streaming empty objects
-    Given I put an empty buffer to the key "empty_streaming_object"
-    Then the object "empty_streaming_object" should exist
-    When I stream key "empty_streaming_object"
-    Then the streamed data content length should equal 0
-    When I stream2 key "empty_streaming_object"
-    Then the streamed data content length should equal 0
-
-  @streams
-  Scenario: Streaming small objects
-    Given I put a small buffer to the key "small_streaming_object"
-    Then the object "small_streaming_object" should exist
-    When I stream key "small_streaming_object"
-    Then the streamed data content length should equal 1048576
-    When I stream2 key "small_streaming_object"
-    Then the streamed data content length should equal 1048576
-
-  @streams
-  Scenario: Streaming large objects
-    Given I put a large buffer to the key "large_streaming_object"
-    Then the object "large_streaming_object" should exist
-    When I stream key "large_streaming_object"
-    Then the streamed data content length should equal 20971520
-    When I stream2 key "large_streaming_object"
-    Then the streamed data content length should equal 20971520
-
-  @progress
-  Scenario: Progress events
-    When I put a 2MB buffer to the key "progress_object" with progress events
-    Then more than 0 "httpUploadProgress" event should fire
-    And the "total" value of the progress event should equal 2MB
-    And the "loaded" value of the first progress event should be greater than 10 bytes
-
-    When I read the key "progress_object" with progress events
-    Then more than 0 "httpDownloadProgress" event should fire
-    And the "total" value of the progress event should equal 2MB
-    And the "loaded" value of the first progress event should be greater than 10 bytes
+  # Blocked on parity https://github.com/aws/aws-sdk-js-v3/issues/1001
+  # @presigned_post
+  # Scenario: POSTing an object with a presigned form
+  #   Given I create a presigned form to POST the key "presignedPost" with the data "PRESIGNED POST CONTENTS"
+  #   And I POST the form
+  #   Then the object "presignedPost" should exist
+  #   When I get the object "presignedPost"
+  #   Then the object "presignedPost" should contain "PRESIGNED POST CONTENTS"
+  #   Then the HTTP response should have a content length of 23
 
   @proxy
   Scenario: Proxy support
@@ -193,85 +147,10 @@ Feature: Working with Objects in S3
 
     And I teardown the local proxy server
 
-  @pagination
-  Scenario: Paginating responses
-    Given an empty bucket
-    And I put "data" to the key "obj0"
-    And I put "data" to the key "obj1"
-    And I put "data" to the key "obj2"
-    And I put "data" to the key "obj3"
-    And I put "data" to the key "obj4"
-    And I put "data" to the key "obj5"
-    And I put "data" to the key "obj6"
-    And I put "data" to the key "obj7"
-    And I put "data" to the key "obj8"
-    And I put "data" to the key "obj9"
-    And the object "obj9" should exist
-    And I setup the listObjects request for the bucket
-    When I paginate the "listObjects" operation with limit 3
-    Then I should get 4 pages
-
   @error
   Scenario: Error handling
     Given I put "data" to the invalid key ""
-    Then the error code should be "UriParameterError"
-
-  @bucket-slashes
-  Scenario: Sigv4 Bucket with trailing slash
-    Given I use signatureVersion "v4"
-    When I put "" to the key "" with bucket suffix "/"
-    Then the object "/" should exist
-  
-  @bucket-slashes
-  Scenario: Sigv4 Bucket with dobule trailing slashes
-    Given I use signatureVersion "v4"
-    When I put "" to the key "" with bucket suffix "//"
-    Then the object "//" should exist
-
-  @bucket-slashes
-  Scenario: Sigv4 Bucket with slashes without trailing slash
-    Given I use signatureVersion "v4"
-    When I put "" to the key "" with bucket suffix "/a/b"
-    Then the object "a/b/" should exist
-
-  @bucket-slashes
-  Scenario: Sigv4 Bucket with slashes with Key
-    Given I use signatureVersion "v4"
-    When I put "" to the key "foo" with bucket suffix "/a/b"
-    Then the object "a/b/foo" should exist
-
-  @bucket-slashes
-  Scenario: Sigv4 Bucket with trailing slashes with Key
-    Given I use signatureVersion "v4"
-    When I put "" to the key "foo" with bucket suffix "/a/b/"
-    Then the object "a/b//foo" should exist
-
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with trailing slash
-    Given I use signatureVersion "v2"
-    When I put "" to the key "" with bucket suffix "/"
-    Then the object "/" should exist
-  
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with double trailing slashes
-    Given I use signatureVersion "v2"
-    When I put "" to the key "" with bucket suffix "//"
-    Then the object "//" should exist
-
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with slashes without trailing slash
-    Given I use signatureVersion "v2"
-    When I put "" to the key "" with bucket suffix "/a/b"
-    Then the object "a/b/" should exist
-
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with slashes with Key
-    Given I use signatureVersion "v2"
-    When I put "" to the key "foo" with bucket suffix "/a/b"
-    Then the object "a/b/foo" should exist
-
-  @bucket-slashes
-  Scenario: Sigv2 Bucket with trailing slashes with Key
-    Given I use signatureVersion "v2"
-    When I put "" to the key "foo" with bucket suffix "/a/b/"
-    Then the object "a/b//foo" should exist
+    Then the error message should be:
+    """
+    Empty value provided for input HTTP label: Key.
+    """

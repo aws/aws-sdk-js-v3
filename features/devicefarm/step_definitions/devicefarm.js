@@ -1,4 +1,4 @@
-var { DeviceFarm } = require("../../../clients/node/client-device-farm-node");
+var { DeviceFarm } = require("../../../clients/client-device-farm");
 
 module.exports = function() {
   this.Before("@devicefarm", function(callback) {

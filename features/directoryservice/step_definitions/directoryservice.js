@@ -1,6 +1,4 @@
-var {
-  DirectoryService
-} = require("../../../clients/node/client-directory-service-node");
+var { DirectoryService } = require("../../../clients/client-directory-service");
 
 module.exports = function() {
   this.Before("@directoryservice", function(callback) {

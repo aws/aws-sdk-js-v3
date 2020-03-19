@@ -1,4 +1,4 @@
-var { SWF } = require("../../../clients/node/client-swf-node");
+var { SWF } = require("../../../clients/client-swf");
 
 module.exports = function() {
   this.Before("@swf", function(callback) {

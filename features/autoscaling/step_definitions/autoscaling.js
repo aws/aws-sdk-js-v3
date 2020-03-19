@@ -1,4 +1,4 @@
-var { AutoScaling } = require("../../../clients/node/client-auto-scaling-node");
+var { AutoScaling } = require("../../../clients/client-auto-scaling");
 
 module.exports = function() {
   this.Before("@autoscaling", function(callback) {

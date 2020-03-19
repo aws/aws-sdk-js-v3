@@ -1,6 +1,4 @@
-var {
-  ConfigService
-} = require("../../../clients/node/client-config-service-node");
+var { ConfigService } = require("../../../clients/client-config-service");
 
 module.exports = function() {
   this.Before("@configservice", function(callback) {

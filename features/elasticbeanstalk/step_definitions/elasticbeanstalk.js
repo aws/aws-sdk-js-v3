@@ -1,6 +1,4 @@
-var {
-  ElasticBeanstalk
-} = require("../../../clients/node/client-elastic-beanstalk-node");
+var { ElasticBeanstalk } = require("../../../clients/client-elastic-beanstalk");
 
 module.exports = function() {
   this.Before("@elasticbeanstalk", function(callback) {
