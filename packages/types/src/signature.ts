@@ -35,7 +35,7 @@ export interface RequestSigningArguments extends SigningArguments {
   signableHeaders?: Set<string>;
 }
 
-export interface EventSigningArguments extends RequestSigningArguments {
+export interface EventSigningArguments extends SigningArguments {
   priorSignature: string;
 }
 
@@ -88,8 +88,5 @@ export interface EventSigner {
   /**
    * Sign the individual event of the event stream.
    */
-  signEvent(
-    event: FormattedEvent,
-    options: EventSigningArguments
-  ): Promise<string>;
+  sign(event: FormattedEvent, options: EventSigningArguments): Promise<string>;
 }
