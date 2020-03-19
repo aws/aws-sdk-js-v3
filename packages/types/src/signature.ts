@@ -35,7 +35,7 @@ export interface RequestSigningArguments extends SigningArguments {
   signableHeaders?: Set<string>;
 }
 
-export interface EventSigningArguments extends RequestSigningArguments {
+export interface EventSigningArguments extends SigningArguments {
   priorSignature: string;
 }
 
