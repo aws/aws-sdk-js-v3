@@ -213,13 +213,12 @@ export class SignatureV4
 
   private async signEvent(
     { headers, payload }: FormattedEvent,
-    options: EventSigningArguments
+    { signingDate = new Date(), priorSignature }: EventSigningArguments
   ): Promise<string> {
     const [region] = await Promise.all([
       this.regionProvider(),
       this.credentialProvider()
     ]);
-    const { signingDate = new Date(), priorSignature } = options;
     const { shortDate, longDate } = formatDate(signingDate);
     const scope = createScope(shortDate, region, this.service);
     const hashedPayload = await getPayloadHash(
@@ -242,7 +241,7 @@ export class SignatureV4
 
   private async signString(
     stringToSign: string,
-    { signingDate = new Date() }: SigningArguments
+    { signingDate = new Date() }: SigningArguments = {}
   ): Promise<string> {
     const [region, credentials] = await Promise.all([
       this.regionProvider(),
@@ -263,7 +262,7 @@ export class SignatureV4
       signingDate = new Date(),
       signableHeaders,
       unsignableHeaders
-    }: RequestSigningArguments
+    }: RequestSigningArguments = {}
   ): Promise<HttpRequest> {
     const [region, credentials] = await Promise.all([
       this.regionProvider(),
