@@ -201,10 +201,7 @@ export class SignatureV4
     requestToSign: HttpRequest,
     options?: RequestSigningArguments
   ): Promise<HttpRequest>;
-  public async sign(
-    toSign: any,
-    { signingDate = new Date(), ...options }: any
-  ): Promise<any> {
+  public async sign(toSign: any, options: any): Promise<any> {
     if (typeof toSign === "string") {
       return this.signString(toSign, options);
     } else if (toSign.headers && toSign.payload) {
