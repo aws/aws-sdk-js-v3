@@ -15,6 +15,8 @@ export function getEventMessageStream(
             return;
           }
 
+          // @ts-ignore: error TS2345: Argument of type 'Uint8Array | undefined'
+          // is not assignable to parameter of type 'ArrayBufferView'
           const message = eventMarshaller.unmarshall(value);
           const { value: messageType } = message.headers[":message-type"];
           if (messageType === "error") {
