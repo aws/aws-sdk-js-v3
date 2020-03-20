@@ -15,7 +15,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/chunked-blob-reader": "^1.0.0-alpha.2",
-    "@aws-sdk/chunked-blob-reader-rn": "^1.0.0-alpha.1",
+    "@aws-sdk/chunked-blob-reader-native": "^1.0.0-alpha.0",
     "@aws-sdk/types": "^1.0.0-alpha.5",
     "tslib": "^1.8.0"
   },
@@ -33,6 +33,6 @@
     "typescript": "~3.8.3"
   },
   "react-native": {
-    "@aws-sdk/chunked-blob-reader": "@aws-sdk/chunked-blob-reader-rn"
+    "@aws-sdk/chunked-blob-reader": "@aws-sdk/chunked-blob-reader-native"
   }
 }
