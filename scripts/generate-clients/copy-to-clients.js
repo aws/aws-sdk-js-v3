@@ -18,7 +18,7 @@ const getOverwritablePredicate = packageName => pathName => {
     "runtimeConfig.ts",
     "runtimeConfig.browser.ts",
     "runtimeConfig.shared.ts",
-    "runtimeConfig.rn.ts",
+    "runtimeConfig.native.ts",
     "index.ts",
     "endpoints.ts"
   ];
