@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-node",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
     "node": ">=8.10"
@@ -21,16 +21,16 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/credential-provider-env": "^1.0.0-alpha.6",
-    "@aws-sdk/credential-provider-imds": "^1.0.0-alpha.5",
-    "@aws-sdk/credential-provider-ini": "^1.0.0-alpha.5",
-    "@aws-sdk/credential-provider-process": "^1.0.0-alpha.5",
-    "@aws-sdk/property-provider": "^1.0.0-alpha.5",
-    "@aws-sdk/types": "^1.0.0-alpha.5",
+    "@aws-sdk/credential-provider-env": "^1.0.0-alpha.7",
+    "@aws-sdk/credential-provider-imds": "^1.0.0-alpha.6",
+    "@aws-sdk/credential-provider-ini": "^1.0.0-alpha.6",
+    "@aws-sdk/credential-provider-process": "^1.0.0-alpha.6",
+    "@aws-sdk/property-provider": "^1.0.0-alpha.6",
+    "@aws-sdk/types": "^1.0.0-alpha.6",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/shared-ini-file-loader": "^1.0.0-alpha.2",
+    "@aws-sdk/shared-ini-file-loader": "^1.0.0-alpha.3",
     "@types/jest": "^24.0.12",
     "@types/node": "^10.0.0",
     "jest": "^24.7.1",

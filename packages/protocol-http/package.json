@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/protocol-http",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -15,7 +15,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "^1.0.0-alpha.5",
+    "@aws-sdk/types": "^1.0.0-alpha.6",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

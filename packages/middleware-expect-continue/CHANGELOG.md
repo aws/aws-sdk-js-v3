@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-expect-continue@0.1.0-preview.2...@aws-sdk/middleware-expect-continue@1.0.0-alpha.8) (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* add argument to plugin ([#562](https://github.com/aws/aws-sdk-js-v3/issues/562)) ([cd96262](https://github.com/aws/aws-sdk-js-v3/commit/cd9626235f0405919159847ce5f4846c6e018518))
+* apply header only in node ([#582](https://github.com/aws/aws-sdk-js-v3/issues/582)) ([f560aba](https://github.com/aws/aws-sdk-js-v3/commit/f560aba9b6c5de301607f6d38e15106bf8855204))
+
+
+
+# 0.7.0 (2019-11-19)
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10cb6b0ebc32004b797556bfc171c96bbf16))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab4ac5343058eaf7d448a428d8c4b72c844))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
 # [1.0.0-alpha.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-expect-continue@0.1.0-preview.2...@aws-sdk/middleware-expect-continue@1.0.0-alpha.7) (2020-02-19)
 
 

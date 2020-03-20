@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/service-error-classification",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",

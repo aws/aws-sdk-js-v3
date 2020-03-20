@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-ec2",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,10 +14,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/signature-v4": "^1.0.0-alpha.13",
-    "@aws-sdk/types": "^1.0.0-alpha.5",
-    "@aws-sdk/util-format-url": "^1.0.0-alpha.5",
-    "@aws-sdk/util-uri-escape": "^1.0.0-alpha.2",
+    "@aws-sdk/signature-v4": "^1.0.0-alpha.14",
+    "@aws-sdk/types": "^1.0.0-alpha.6",
+    "@aws-sdk/util-format-url": "^1.0.0-alpha.6",
+    "@aws-sdk/util-uri-escape": "^1.0.0-alpha.3",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-signing",
-  "version": "1.0.0-alpha.14",
+  "version": "1.0.0-alpha.15",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -19,9 +19,9 @@
     "typescript": "~3.8.3"
   },
   "dependencies": {
-    "@aws-sdk/protocol-http": "^1.0.0-alpha.7",
-    "@aws-sdk/signature-v4": "^1.0.0-alpha.13",
-    "@aws-sdk/types": "^1.0.0-alpha.5",
+    "@aws-sdk/protocol-http": "^1.0.0-alpha.8",
+    "@aws-sdk/signature-v4": "^1.0.0-alpha.14",
+    "@aws-sdk/types": "^1.0.0-alpha.6",
     "tslib": "^1.8.0"
   }
 }
