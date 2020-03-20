@@ -401,7 +401,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
         : defaultAnchorValue;
       let relativeEntry = prev;
       //reverse relative entry linked list and add to ordered handler list
-      while (relativeEntry && relativeEntry.prev) {
+      while (relativeEntry?.prev) {
         relativeEntry = relativeEntry.prev;
       }
       while (relativeEntry) {

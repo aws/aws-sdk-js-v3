@@ -36,11 +36,11 @@ export class FetchHttpHandler implements HttpHandler {
     request: HttpRequest,
     options: HttpHandlerOptions
   ): Promise<{ response: HttpResponse }> {
-    const abortSignal = options && options.abortSignal;
+    const abortSignal = options?.abortSignal;
     const requestTimeoutInMs = this.httpOptions.requestTimeout;
 
     // if the request was already aborted, prevent doing extra work
-    if (abortSignal && abortSignal.aborted) {
+    if (abortSignal?.aborted) {
       const abortError = new Error("Request aborted");
       abortError.name = "AbortError";
       return Promise.reject(abortError);

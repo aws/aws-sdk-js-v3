@@ -2,8 +2,8 @@ import { localStorage } from "./localStorage";
 import { IndexedDbStorage } from "./IndexedDbStorage";
 
 describe("localStorage", () => {
-  const storageAtInit: Storage | undefined = window && window.localStorage;
-  const idbAtInit: IDBFactory | undefined = self && self.indexedDB;
+  const storageAtInit: Storage | undefined = window?.localStorage;
+  const idbAtInit: IDBFactory | undefined = self?.indexedDB;
 
   beforeEach(() => {
     if (window) {
