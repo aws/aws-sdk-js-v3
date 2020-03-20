@@ -19,11 +19,15 @@ export function getCanonicalHeaders(
     if (
       canonicalHeaderName in ALWAYS_UNSIGNABLE_HEADERS ||
       unsignableHeaders?.has(canonicalHeaderName) ||
-      (signableHeaders && !signableHeaders.has(canonicalHeaderName)) ||
       PROXY_HEADER_PATTERN.test(canonicalHeaderName) ||
       SEC_HEADER_PATTERN.test(canonicalHeaderName)
     ) {
-      continue;
+      if (
+        !signableHeaders ||
+        (signableHeaders && !signableHeaders.has(canonicalHeaderName))
+      ) {
+        continue;
+      }
     }
 
     canonical[canonicalHeaderName] = headers[headerName]
