@@ -24,7 +24,7 @@
     "./runtimeConfig": "./runtimeConfig.browser"
   },
   "react-native": {
-    "./runtimeConfig": "./runtimeConfig.rn"
+    "./runtimeConfig": "./runtimeConfig.native"
   },
   "sideEffects": false,
   "dependencies": {
