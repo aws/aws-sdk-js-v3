@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/chunked-blob-reader-rn",
+  "name": "@aws-sdk/chunked-blob-reader-native",
   "version": "1.0.0-alpha.1",
   "scripts": {
     "prepublishOnly": "tsc",
