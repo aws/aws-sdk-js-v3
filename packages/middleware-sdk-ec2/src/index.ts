@@ -62,7 +62,7 @@ export function copySnapshotPresignedUrlMiddleware(
         sha256: options.sha256,
         uriEscapePath: options.signingEscapePath
       });
-      const presignedRequest = await signer.presignRequest(
+      const presignedRequest = await signer.presign(
         request,
         expirationTime(3600)
       );

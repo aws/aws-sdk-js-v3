@@ -51,7 +51,7 @@ export interface RequestPresigner {
    *                      longer be honored.
    * @param options       Additional signing options.
    */
-  presignRequest(
+  presign(
     requestToSign: HttpRequest,
     expiration: DateInput,
     options?: RequestSigningArguments

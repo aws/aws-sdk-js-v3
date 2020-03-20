@@ -41,7 +41,7 @@ describe("s3 presigner", () => {
 
   it("should not double uri encode the path", async () => {
     const signer = new S3RequestPresigner(s3ResolvedConfig);
-    const signed = await signer.presignRequest(
+    const signed = await signer.presign(
       minimalRequest,
       expiration,
       presigningOptions
@@ -51,7 +51,7 @@ describe("s3 presigner", () => {
 
   it("should set the body digest to 'UNSIGNED_PAYLOAD'", async () => {
     const signer = new S3RequestPresigner(s3ResolvedConfig);
-    const signed = await signer.presignRequest(
+    const signed = await signer.presign(
       minimalRequest,
       expiration,
       presigningOptions
@@ -62,7 +62,7 @@ describe("s3 presigner", () => {
   it("should not change original request", async () => {
     const signer = new S3RequestPresigner(s3ResolvedConfig);
     const originalRequest = { ...minimalRequest };
-    const signed = await signer.presignRequest(
+    const signed = await signer.presign(
       minimalRequest,
       expiration,
       presigningOptions
@@ -87,7 +87,7 @@ describe("s3 presigner", () => {
         "Content-Type": "application/octet-stream"
       }
     };
-    const signed = await signer.presignRequest(
+    const signed = await signer.presign(
       requestWithContentTypeHeader,
       expiration,
       presigningOptions
