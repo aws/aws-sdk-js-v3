@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-rds",
-  "version": "1.0.0-alpha.10",
+  "version": "1.0.0-alpha.11",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,11 +14,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-http": "^1.0.0-alpha.7",
-    "@aws-sdk/signature-v4": "^1.0.0-alpha.13",
-    "@aws-sdk/types": "^1.0.0-alpha.5",
-    "@aws-sdk/util-format-url": "^1.0.0-alpha.5",
-    "@aws-sdk/util-uri-escape": "^1.0.0-alpha.2",
+    "@aws-sdk/protocol-http": "^1.0.0-alpha.8",
+    "@aws-sdk/signature-v4": "^1.0.0-alpha.14",
+    "@aws-sdk/types": "^1.0.0-alpha.6",
+    "@aws-sdk/util-format-url": "^1.0.0-alpha.6",
+    "@aws-sdk/util-uri-escape": "^1.0.0-alpha.3",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.13 (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.23 (2020-02-14)
+
+
+
+# 1.0.0-alpha.22 (2020-02-11)
+
+
+
+# 1.0.0-alpha.16 (2020-02-04)
+
+
+
+# 1.0.0-alpha.14 (2020-01-28)
+
+
+### Bug Fixes
+
+* **util-create-request:** fix creating undefined request ([#803](https://github.com/aws/aws-sdk-js-v3/issues/803)) ([b6a96c0](https://github.com/aws/aws-sdk-js-v3/commit/b6a96c069a3e3c797d8e7f7cec9c6fc456cb0cf4))
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.9 (2020-01-17)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Features
+
+* update according to new mw stack & smithy client interface ([df8176c](https://github.com/aws/aws-sdk-js-v3/commit/df8176c81d63e4ba6963d6464cd7c035b093a846))
+
+
+
+# 0.7.0 (2019-11-19)
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Bug Fixes
+
+* add npm badge for @aws-sdk/util-create-request ([#259](https://github.com/aws/aws-sdk-js-v3/issues/259)) ([067f75b](https://github.com/aws/aws-sdk-js-v3/commit/067f75b7768bd5eb03ad2e54b0011167fbaed228))
+
+
+### Features
+
+* **util-create-request:** create request package ([#257](https://github.com/aws/aws-sdk-js-v3/issues/257)) ([9855d49](https://github.com/aws/aws-sdk-js-v3/commit/9855d49e7ab4181bf42a6a84c05d2f8ef9bd850b))
+
+
+
+
+
 # 1.0.0-alpha.12 (2020-02-19)
 
 
