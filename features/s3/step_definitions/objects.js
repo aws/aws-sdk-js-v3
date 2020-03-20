@@ -20,7 +20,7 @@ module.exports = function() {
       .then(request => {
         const expiration = new Date(Date.now() + 1 * 60 * 60 * 1000);
         signer
-          .presignRequest(request, expiration)
+          .presign(request, expiration)
           .then(data => {
             callback(null, formatUrl(data));
           })

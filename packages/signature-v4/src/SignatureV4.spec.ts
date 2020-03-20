@@ -54,7 +54,7 @@ describe("SignatureV4", () => {
     };
 
     it("should sign requests without bodies", async () => {
-      const { query } = await signer.presignRequest(
+      const { query } = await signer.presign(
         minimalRequest,
         expiration,
         presigningOptions
@@ -71,7 +71,7 @@ describe("SignatureV4", () => {
     });
 
     it("should sign requests with string bodies", async () => {
-      const { query } = await signer.presignRequest(
+      const { query } = await signer.presign(
         new HttpRequest({
           ...minimalRequest,
           body: "It was the best of times, it was the worst of times"
@@ -91,7 +91,7 @@ describe("SignatureV4", () => {
     });
 
     it("should sign requests with binary bodies", async () => {
-      const { query } = await signer.presignRequest(
+      const { query } = await signer.presign(
         new HttpRequest({
           ...minimalRequest,
           body: new Uint8Array([0xde, 0xad, 0xbe, 0xef])
@@ -116,7 +116,7 @@ describe("SignatureV4", () => {
        */
       class ExoticStream {}
 
-      const { query } = await signer.presignRequest(
+      const { query } = await signer.presign(
         new HttpRequest({
           ...minimalRequest,
           body: new ExoticStream() as any
@@ -145,7 +145,7 @@ describe("SignatureV4", () => {
           sessionToken: "baz"
         }
       });
-      const { query } = await signer.presignRequest(
+      const { query } = await signer.presign(
         minimalRequest,
         expiration,
         presigningOptions
@@ -171,7 +171,7 @@ describe("SignatureV4", () => {
         credentials
       });
 
-      const { query } = await signer.presignRequest(
+      const { query } = await signer.presign(
         new HttpRequest({
           ...minimalRequest,
           body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
@@ -202,7 +202,7 @@ describe("SignatureV4", () => {
         foo: "bar",
         "user-agent": "baz"
       };
-      const { headers: headersAsSigned, query } = await signer.presignRequest(
+      const { headers: headersAsSigned, query } = await signer.presign(
         new HttpRequest({
           ...minimalRequest,
           headers
@@ -219,7 +219,7 @@ describe("SignatureV4", () => {
 
     it("should return a rejected promise if the expiration is more than one week in the future", async () => {
       await expect(
-        signer.presignRequest(minimalRequest, new Date(), presigningOptions)
+        signer.presign(minimalRequest, new Date(), presigningOptions)
       ).rejects.toMatch(/less than one week in the future/);
     });
 
@@ -237,7 +237,7 @@ describe("SignatureV4", () => {
         credentials: credsProvider
       });
 
-      const { query } = await signer.presignRequest(
+      const { query } = await signer.presign(
         minimalRequest,
         expiration,
         presigningOptions
@@ -261,7 +261,7 @@ describe("SignatureV4", () => {
         }
       });
 
-      const { query } = await signer.presignRequest(
+      const { query } = await signer.presign(
         minimalRequest,
         expiration,
         presigningOptions
@@ -284,7 +284,7 @@ describe("SignatureV4", () => {
       });
 
       it("should URI-encode the path by default", async () => {
-        const { query = {} } = await signer.presignRequest(
+        const { query = {} } = await signer.presign(
           minimalRequest,
           expiration,
           presigningOptions
@@ -311,7 +311,7 @@ describe("SignatureV4", () => {
           uriEscapePath: false
         });
 
-        const { query = {} } = await signer.presignRequest(
+        const { query = {} } = await signer.presign(
           new HttpRequest({
             ...minimalRequest,
             path: "/foo/bar/baz",
@@ -661,7 +661,7 @@ describe("SignatureV4", () => {
 
     it("should use the current date for presigning if no signing date was supplied", async () => {
       const date = new Date();
-      const { query } = await signer.presignRequest(
+      const { query } = await signer.presign(
         minimalRequest,
         Math.floor((date.valueOf() + 60 * 60 * 1000) / 1000)
       );

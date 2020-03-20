@@ -18,7 +18,7 @@ const signer = new S3Presigner({
 });
 const Day = 24 * 60 * 60 * 1000;
 const expiration = new Date(Date.now() + 1 * Day);
-const url = signer.presignRequest(request, expiration);
+const url = signer.presign(request, expiration);
 ```
 
 Typescript Example:
@@ -34,7 +34,7 @@ const signer = new S3RequestPresigner({
 });
 const Day = 24 * 60 * 60 * 1000;
 const expiration = new Date(Date.now() + 1 * Day);
-const url = signer.presignRequest(request, expiration);
+const url = signer.presign(request, expiration);
 ```
 
 To avoid redundant construction parameters when instantiate the s3 presigner,
