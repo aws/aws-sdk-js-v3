@@ -1,0 +1,33 @@
+{
+  "name": "@aws-sdk/stream-collector-native",
+  "version": "1.0.0-alpha.3",
+  "description": "Provides a way to store the contents of a stream into a Uint8Array",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.json",
+    "test": "karma start karma.conf.js"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "dependencies": {
+    "@aws-sdk/types": "^1.0.0-alpha.5",
+    "@aws-sdk/util-base64-browser": "1.0.0-alpha.2",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "jasmine-core": "^3.5.0",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^3.1.1",
+    "karma-typescript": "^4.1.1",
+    "puppeteer": "^2.0.0",
+    "source-map": "^0.7.3",
+    "typescript": "~3.8.3"
+  }
+}
