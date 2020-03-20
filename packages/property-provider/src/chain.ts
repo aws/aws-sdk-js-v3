@@ -17,7 +17,7 @@ export function chain<T>(...providers: Array<Provider<T>>): Provider<T> {
     );
     for (const provider of providers) {
       promise = promise.catch((err: any) => {
-        if (err && err.tryNextLink) {
+        if (err?.tryNextLink) {
           return provider();
         }
 

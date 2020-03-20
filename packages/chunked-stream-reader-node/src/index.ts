@@ -9,7 +9,7 @@ export function streamReader(
 
     stream.on("error", reject);
     stream.on("end", () => {
-      if (temporaryBuffer && temporaryBuffer.byteLength) {
+      if (temporaryBuffer?.byteLength) {
         for (let i = 0; i < temporaryBuffer.byteLength; i += chunkSize) {
           onChunk(
             temporaryBuffer.subarray(
