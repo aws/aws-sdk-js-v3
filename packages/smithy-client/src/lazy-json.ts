@@ -12,9 +12,9 @@ interface StringWrapper {
  * So here we create StringWrapper that duplicate everything from String
  * class including its prototype chain. So we can extend from here.
  */
-// @ts-ignore
+// @ts-ignore StringWrapper implementation is not a simple constructor
 export const StringWrapper: StringWrapper = function() {
-  //@ts-ignore 'this' cannot be assigned to any, but Object.getPrototypeOf accespts any
+  //@ts-ignore 'this' cannot be assigned to any, but Object.getPrototypeOf accepts any
   const Class = Object.getPrototypeOf(this).constructor;
   const Constructor = Function.bind.apply(String, [null as any, ...arguments]);
   //@ts-ignore Call wrapped String constructor directly, don't bother typing it.
