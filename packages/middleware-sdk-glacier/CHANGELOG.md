@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.9](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-glacier@0.1.0-preview.3...@aws-sdk/middleware-sdk-glacier@1.0.0-alpha.9) (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.16 (2020-02-04)
+
+
+### Features
+
+* glacier checksum middleware ([#789](https://github.com/aws/aws-sdk-js-v3/issues/789)) ([2b64381](https://github.com/aws/aws-sdk-js-v3/commit/2b64381b46986a6cbfb898ac5d1fe5cd161b8fc4))
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Features
+
+* shared Glacier plugin with accountIdDefaultMiddleware ([#548](https://github.com/aws/aws-sdk-js-v3/issues/548)) ([bd8d970](https://github.com/aws/aws-sdk-js-v3/commit/bd8d9700ffdc629aa998879d7ae3104b7bcc5e9d))
+
+
+
+# 0.7.0 (2019-11-19)
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.4.0 (2019-09-19)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10cb6b0ebc32004b797556bfc171c96bbf16))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab4ac5343058eaf7d448a428d8c4b72c844))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
 # [1.0.0-alpha.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-glacier@0.1.0-preview.3...@aws-sdk/middleware-sdk-glacier@1.0.0-alpha.8) (2020-02-19)
 
 
