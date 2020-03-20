@@ -127,7 +127,7 @@ export class SignatureV4
     }
   }
 
-  public async presignRequest(
+  public async presign(
     originalRequest: HttpRequest,
     expiration: DateInput,
     options: RequestSigningArguments = {}

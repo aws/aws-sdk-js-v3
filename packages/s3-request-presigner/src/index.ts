@@ -36,14 +36,14 @@ export class S3RequestPresigner implements RequestPresigner {
     this.signer = new SignatureV4(resolvedOptions);
   }
 
-  public async presignRequest(
+  public async presign(
     requestToSign: IHttpRequest,
     expiration: DateInput,
     { unsignableHeaders = new Set(), ...options }: RequestSigningArguments = {}
   ): Promise<IHttpRequest> {
     unsignableHeaders.add("content-type");
     requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
-    return this.signer.presignRequest(requestToSign, expiration, {
+    return this.signer.presign(requestToSign, expiration, {
       unsignableHeaders,
       ...options
     });
