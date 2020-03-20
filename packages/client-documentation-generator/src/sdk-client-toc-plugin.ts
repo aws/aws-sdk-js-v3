@@ -85,7 +85,7 @@ export class SdkClientTocPlugin extends RendererComponent {
   }
 
   private isUnion(model: DeclarationReflection): boolean {
-    return model.type && model.type.type === "union";
+    return model.type?.type === "union";
   }
 
   private isInputOrOutput(model: DeclarationReflection): boolean {

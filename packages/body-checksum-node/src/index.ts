@@ -20,8 +20,8 @@ export async function bodyChecksumGenerator(
     ArrayBuffer.isView(body) ||
     isArrayBuffer(body)
   ) {
-    contentHash && contentHash.update(body);
-    treeHash && treeHash.update(body);
+    contentHash?.update(body);
+    treeHash?.update(body);
   } else {
     if (typeof body.path !== "string") {
       throw new Error("Unable to calculate checksums for non-file streams.");
@@ -32,8 +32,8 @@ export async function bodyChecksumGenerator(
     });
 
     await streamReader(bodyTee, (chunk: any) => {
-      contentHash && contentHash.update(chunk);
-      treeHash && treeHash.update(chunk);
+      contentHash?.update(chunk);
+      treeHash?.update(chunk);
     });
   }
 

@@ -31,5 +31,5 @@ export const defaultRetryDecider = (error: SdkError) => {
 };
 
 function hasMetadata(error: any): error is MetadataBearer {
-  return error && error.$metadata;
+  return error?.$metadata;
 }

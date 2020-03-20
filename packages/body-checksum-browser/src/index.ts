@@ -26,8 +26,8 @@ export async function bodyChecksumGenerator(
       await blobReader(
         body,
         (chunk: any) => {
-          treeHash && treeHash.update(chunk);
-          contentHash && contentHash.update(chunk);
+          treeHash?.update(chunk);
+          contentHash?.update(chunk);
         },
         MiB
       );

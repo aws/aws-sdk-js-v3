@@ -18,16 +18,12 @@ export function getCanonicalHeaders(
     const canonicalHeaderName = headerName.toLowerCase();
     if (
       canonicalHeaderName in ALWAYS_UNSIGNABLE_HEADERS ||
-      (unsignableHeaders && unsignableHeaders.has(canonicalHeaderName)) ||
+      unsignableHeaders?.has(canonicalHeaderName) ||
+      !signableHeaders?.has(canonicalHeaderName) ||
       PROXY_HEADER_PATTERN.test(canonicalHeaderName) ||
       SEC_HEADER_PATTERN.test(canonicalHeaderName)
     ) {
-      if (
-        !signableHeaders ||
-        (signableHeaders && !signableHeaders.has(canonicalHeaderName))
-      ) {
-        continue;
-      }
+      continue;
     }
 
     canonical[canonicalHeaderName] = headers[headerName]
