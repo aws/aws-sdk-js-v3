@@ -35,6 +35,13 @@ export interface RequestSigningArguments extends SigningArguments {
   signableHeaders?: Set<string>;
 }
 
+export interface RequestPresigningArguments extends RequestSigningArguments {
+  /**
+   * The time at which the signed request should no longer be honored.
+   */
+  expiration?: DateInput;
+}
+
 export interface EventSigningArguments extends SigningArguments {
   priorSignature: string;
 }
@@ -47,14 +54,11 @@ export interface RequestPresigner {
    * passed or the underlying credentials have expired.
    *
    * @param requestToSign The request that should be signed.
-   * @param expiration    The time at which the signed request should no
-   *                      longer be honored.
    * @param options       Additional signing options.
    */
   presign(
     requestToSign: HttpRequest,
-    expiration: DateInput,
-    options?: RequestSigningArguments
+    options?: RequestPresigningArguments
   ): Promise<HttpRequest>;
 }
 
