@@ -63,7 +63,7 @@ export function copySnapshotPresignedUrlMiddleware(
         uriEscapePath: options.signingEscapePath
       });
       const presignedRequest = await signer.presign(request, {
-        expiration: expirationTime(3600)
+        expiresIn: 3600
       });
 
       args = {
@@ -78,10 +78,6 @@ export function copySnapshotPresignedUrlMiddleware(
 
     return next(args);
   };
-}
-
-function expirationTime(durationSeconds: number): DateInput {
-  return Math.round((new Date().valueOf() + durationSeconds * 1000) / 1000);
 }
 
 export const copySnapshotPresignedUrlMiddlewareOptions: InitializeHandlerOptions = {
