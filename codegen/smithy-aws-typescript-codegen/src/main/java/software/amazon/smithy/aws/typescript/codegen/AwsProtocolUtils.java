@@ -15,10 +15,13 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.model.knowledge.HttpBinding.Location.DOCUMENT;
+
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 import software.amazon.smithy.aws.traits.UnsignedPayloadTrait;
+import software.amazon.smithy.model.knowledge.HttpBindingIndex;
 import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
 import software.amazon.smithy.model.neighbor.Walker;
 import software.amazon.smithy.model.shapes.MemberShape;
@@ -26,8 +29,11 @@ import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.IoUtils;
 
@@ -236,5 +242,26 @@ final class AwsProtocolUtils {
             writer.openBlock("if ($L === undefined) {", "}", inputLocation, () ->
                     writer.write("$L = generateIdempotencyToken();", inputLocation));
         }
+    }
+
+    /**
+     * Gets a value provider for the timestamp member handling proper serialization
+     * formatting.
+     *
+     * @param context The generation context.
+     * @param memberShape The member that needs timestamp serialization.
+     * @param defaultFormat The timestamp format to default to.
+     * @param inputLocation The location of input data for the member.
+     * @return A string representing the proper value provider for this timestamp.
+     */
+    static String getInputTimestampValueProvider(
+            GenerationContext context,
+            MemberShape memberShape,
+            Format defaultFormat,
+            String inputLocation
+    ) {
+        HttpBindingIndex httpIndex = context.getModel().getKnowledge(HttpBindingIndex.class);
+        TimestampFormatTrait.Format format = httpIndex.determineTimestampFormat(memberShape, DOCUMENT, defaultFormat);
+        return HttpProtocolGeneratorUtils.getTimestampInputParam(context, inputLocation, memberShape, format);
     }
 }
