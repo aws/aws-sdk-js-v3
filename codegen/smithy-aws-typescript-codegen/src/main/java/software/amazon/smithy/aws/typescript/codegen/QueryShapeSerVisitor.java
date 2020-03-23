@@ -24,6 +24,7 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlFlattenedTrait;
 import software.amazon.smithy.model.traits.XmlNameTrait;
@@ -42,13 +43,14 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  * Timestamps are serialized to {@link Format}.DATE_TIME by default.
  */
 class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
+    private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;
 
     QueryShapeSerVisitor(GenerationContext context) {
         super(context);
     }
 
     private QueryMemberSerVisitor getMemberVisitor(String dataSource) {
-        return new QueryMemberSerVisitor(getContext(), dataSource, Format.DATE_TIME);
+        return new QueryMemberSerVisitor(getContext(), dataSource, TIMESTAMP_FORMAT);
     }
 
     @Override
@@ -65,8 +67,13 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         // Set up a counter to increment the member entries.
         writer.write("let counter = 1;");
         writer.openBlock("for (let entry of input) {", "}", () -> {
-            // Dispatch to the input value provider for any additional handling.
-            serializeUnnamedMemberEntryList(context, target, "entry", locationName);
+            QueryMemberSerVisitor inputVisitor = getMemberVisitor("entry");
+            if (inputVisitor.visitSuppliesEntryList(target)) {
+                // Dispatch to the input value provider for any additional handling.
+                serializeUnnamedMemberEntryList(context, target, "entry", locationName + ".${counter}");
+            } else {
+                writer.write("entries[`$L.$${counter}`] = $L;", locationName, target.accept(inputVisitor));
+            }
             writer.write("counter++;");
         });
 
@@ -95,7 +102,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             MemberShape keyMember = shape.getKey();
             Shape keyTarget = model.expectShape(keyMember.getTarget());
             String keyName = getMemberSerializedLocationName(keyMember, "key");
-            writer.write("entries[`entry.$L.$${counter}`] = $L;", keyName, keyTarget.accept(getMemberVisitor("key")));
+            writer.write("entries[`entry.$${counter}.$L`] = $L;", keyName, keyTarget.accept(getMemberVisitor("key")));
 
 
             // Prepare the value's entry.
@@ -103,7 +110,14 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             MemberShape valueMember = shape.getValue();
             Shape valueTarget = model.expectShape(valueMember.getTarget());
             String valueName = getMemberSerializedLocationName(valueMember, "value");
-            serializeUnnamedMemberEntryList(context, valueTarget, "input[key]", "entry." + valueName);
+
+            QueryMemberSerVisitor inputVisitor = getMemberVisitor("input[key]");
+            String valueLocation = "entry.${counter}." + valueName;
+            if (inputVisitor.visitSuppliesEntryList(valueTarget)) {
+                serializeUnnamedMemberEntryList(context, valueTarget, "input[key]", valueLocation);
+            } else {
+                writer.write("entries[`$L`] = $L;", valueLocation, valueTarget.accept(inputVisitor));
+            }
             writer.write("counter++;");
         });
 
@@ -120,14 +134,9 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
 
         QueryMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation);
         // Map entries that supply entry lists need to have them joined properly.
-        if (inputVisitor.visitSuppliesEntryList(target)) {
-            writer.write("const memberEntries = $L;", target.accept(inputVisitor));
-            // Expand each of the member entries in to the correct location.
-            writer.openBlock("Object.keys(memberEntries).forEach(key => {", "});",
-                    () -> writer.write("entries[`$L.$${counter}.$${key}`] = memberEntries[key];", entryWrapper));
-        } else {
-            writer.write("entries[`$L.$${counter}`] = $L;", entryWrapper, target.accept(inputVisitor));
-        }
+        writer.write("const memberEntries = $L;", target.accept(inputVisitor));
+        writer.openBlock("Object.keys(memberEntries).forEach(key => {", "});",
+                () -> writer.write("entries[`$L.$${key}`] = memberEntries[key];", entryWrapper));
     }
 
     @Override
@@ -157,7 +166,6 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             MemberShape memberShape,
             String inputLocation
     ) {
-        TypeScriptWriter writer = context.getWriter();
         // Grab the target shape so we can use a member serializer on it.
         Shape target = context.getModel().expectShape(memberShape.getTarget());
 
@@ -167,8 +175,26 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         if (inputVisitor.visitSuppliesEntryList(target)) {
             serializeNamedMemberEntryList(context, locationName, memberShape, target, inputVisitor);
         } else {
-            writer.write("entries[$S] = $L", locationName, target.accept(inputVisitor));
+            serializeNamedMemberValue(context, locationName, "input." + memberName, memberShape, target);
         }
+    }
+
+    private void serializeNamedMemberValue(
+            GenerationContext context,
+            String locationName,
+            String dataSource,
+            MemberShape memberShape,
+            Shape target
+    ) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Handle @timestampFormat on members not just the targeted shape.
+        String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
+                ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
+                        TIMESTAMP_FORMAT, dataSource)
+                : target.accept(getMemberVisitor(dataSource));
+
+        writer.write("entries[$S] = $L;", locationName, valueProvider);
     }
 
     /**
