@@ -46,11 +46,8 @@ const credentials: Credentials = {
 
 describe("SignatureV4", () => {
   describe("#presignRequest", () => {
-    const expiration = Math.floor(
-      (new Date("2000-01-01T00:00:00.000Z").valueOf() + 60 * 60 * 1000) / 1000
-    );
     const presigningOptions = {
-      expiration,
+      expiresIn: 3600,
       signingDate: new Date("2000-01-01T00:00:00.000Z")
     };
 
@@ -60,7 +57,7 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
           "477e1bb76b04bd9973b28d67a6307e43934ec8327fc17950539eb47573db3c4a"
@@ -86,7 +83,7 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
           "2e27ee66efe81b085eea0aa53948bb49b76efc90d285ae6b4960f6072608f495"
@@ -105,7 +102,7 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
           "0b13a0f33c2e949b565b61209478951f809bd6943310d44814c9526100047ea7"
@@ -129,7 +126,7 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
           "60f0eb0b56c453974f0980ac8004c117e5f70f5720288c5fca0180cd6073fb95"
@@ -153,7 +150,7 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
           "3663461416873c62951f3d97a93620d11f2b9bf584bb6790586cc8184aa2efd8"
@@ -185,7 +182,7 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
           "f098880292426cf244a8bf628c20eb6a1836f5e65acf7640193f0ff755592437"
@@ -212,11 +209,11 @@ describe("SignatureV4", () => {
       expect(headersAsSigned).toEqual(headers);
     });
 
-    it("should return a rejected promise if the expiration is more than one week in the future", async () => {
+    it("should return a rejected promise if the expiresIn is more than one week in the future", async () => {
       await expect(
         signer.presign(minimalRequest, {
           ...presigningOptions,
-          expiration: new Date()
+          expiresIn: 7 * 24 * 60 * 60 + 1
         })
       ).rejects.toMatch(/less than one week in the future/);
     });
@@ -649,9 +646,7 @@ describe("SignatureV4", () => {
 
     it("should use the current date for presigning if no signing date was supplied", async () => {
       const date = new Date();
-      const { query } = await signer.presign(minimalRequest, {
-        expiration: Math.floor((date.valueOf() + 60 * 60 * 1000) / 1000)
-      });
+      const { query } = await signer.presign(minimalRequest);
       expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
         iso8601(date).replace(/[\-:]/g, "")
       );
