@@ -26,6 +26,7 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlAttributeTrait;
 import software.amazon.smithy.model.traits.XmlFlattenedTrait;
@@ -47,13 +48,14 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
  */
 final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
+    private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;
 
     XmlShapeSerVisitor(GenerationContext context) {
         super(context);
     }
 
-    private DocumentMemberSerVisitor getMemberVisitor(String dataSource) {
-        return new XmlMemberSerVisitor(getContext(), dataSource, Format.DATE_TIME);
+    private XmlMemberSerVisitor getMemberVisitor(String dataSource) {
+        return new XmlMemberSerVisitor(getContext(), dataSource, TIMESTAMP_FORMAT);
     }
 
     @Override
@@ -71,6 +73,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         // Set up a location to store all of the child node(s).
         writer.write("const collectedNodes: any = [];");
         writer.openBlock("for (let entry of input) {", "}", () -> {
+            // TODO Handle wrapping?
             // Dispatch to the input value provider for any additional handling.
             writer.write("const node = $L;", target.accept(getMemberVisitor("entry")));
             writer.write("collectedNodes.push(node.withName($S));", locationName);
@@ -105,9 +108,8 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             String keyName = keyMember.getTrait(XmlNameTrait.class)
                     .map(XmlNameTrait::getValue)
                     .orElse("key");
-            writer.write("const keyNode = new __XmlNode($S);", keyName);
-            writer.write("keyNode.addChildNode($L)", keyTarget.accept(getMemberVisitor("key")));
-            writer.write("entryNode.addChildNode(keyNode);");
+            writer.write("entryNode.addChildNode($L.withName($S));",
+                    keyTarget.accept(getMemberVisitor("key")), keyName);
 
             // Prepare the value's node.
             // Use the @xmlName trait if present on the member, otherwise use "value".
@@ -116,9 +118,9 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             String valueName = valueMember.getTrait(XmlNameTrait.class)
                     .map(XmlNameTrait::getValue)
                     .orElse("value");
-            writer.write("const valueNode = new __XmlNode($S);", valueName);
-            writer.write("valueNode.addChildNode($L)", valueTarget.accept(getMemberVisitor("input[key]")));
-            writer.write("entryNode.addChildNode(valueNode);");
+            // TODO Handle wrapping?
+            writer.write("entryNode.addChildNode($L.withName($S))",
+                    valueTarget.accept(getMemberVisitor("input[key]")), valueName);
 
             // Add the entry to the collection.
             writer.write("collectedNodes.push(entryNode);");
@@ -178,15 +180,24 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         } else {
             // Grab the target shape so we can use a member serializer on it.
             Shape target = context.getModel().expectShape(memberShape.getTarget());
-            DocumentMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation.get());
+            XmlMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation.get());
 
             // Collected members must be handled with flattening and renaming.
             if (serializationReturnsArray(target)) {
                 serializeNamedMemberFromArray(context, locationName, memberShape, target, inputVisitor);
             } else {
+                // Handle @timestampFormat on members not just the targeted shape.
+                String valueProvider;
+                if (memberShape.hasTrait(TimestampFormatTrait.class)) {
+                    valueProvider = inputVisitor.getAsXmlText(target,
+                            AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
+                                    TIMESTAMP_FORMAT, inputLocation.get()) + ".toString()");
+                } else {
+                    valueProvider = target.accept(inputVisitor);
+                }
+
                 // Standard members are added as children after updating their names.
-                writer.write("const memberNode = $L;", target.accept(inputVisitor));
-                writer.write("bodyNode.addChildNode(memberNode.withName($S));", locationName);
+                writer.write("bodyNode.addChildNode($L.withName($S));", valueProvider, locationName);
             }
         }
     }
