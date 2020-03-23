@@ -28,6 +28,7 @@ import {
   RequestPresigner,
   RequestSigner,
   RequestSigningArguments,
+  RequestPresigningArguments,
   SigningArguments,
   StringSigner,
   EventSigner,
@@ -129,7 +130,7 @@ export class SignatureV4
 
   public async presign(
     originalRequest: HttpRequest,
-    options: RequestSigningArguments = {}
+    options: RequestPresigningArguments = {}
   ): Promise<HttpRequest> {
     const [region, credentials] = await Promise.all([
       this.regionProvider(),
