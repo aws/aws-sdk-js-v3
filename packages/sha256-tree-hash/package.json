@@ -22,7 +22,7 @@
     "@aws-sdk/util-hex-encoding": "^1.0.0-alpha.3",
     "@aws-sdk/util-utf8-node": "^1.0.0-alpha.3",
     "@types/jest": "^24.0.12",
-    "jest": "^24.7.1",
+    "jest": "^25.1.0",
     "typescript": "~3.8.3"
   }
 }
