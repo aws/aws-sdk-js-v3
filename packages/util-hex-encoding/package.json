@@ -17,8 +17,8 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.12",
-    "jest": "^24.7.1",
+    "@types/jest": "^25.1.4",
+    "jest": "^25.1.0",
     "typescript": "~3.8.3"
   },
   "types": "./build/index.d.ts"
