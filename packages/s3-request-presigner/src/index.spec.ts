@@ -27,6 +27,7 @@ describe("s3 presigner", () => {
     (new Date("2000-01-01T00:00:00.000Z").valueOf() + 60 * 60 * 1000) / 1000
   );
   const presigningOptions = {
+    expiration,
     signingDate: new Date("2000-01-01T00:00:00.000Z")
   };
   const minimalRequest = new HttpRequest({
@@ -41,32 +42,20 @@ describe("s3 presigner", () => {
 
   it("should not double uri encode the path", async () => {
     const signer = new S3RequestPresigner(s3ResolvedConfig);
-    const signed = await signer.presign(
-      minimalRequest,
-      expiration,
-      presigningOptions
-    );
+    const signed = await signer.presign(minimalRequest, presigningOptions);
     expect(signed.path).toEqual(minimalRequest.path);
   });
 
   it("should set the body digest to 'UNSIGNED_PAYLOAD'", async () => {
     const signer = new S3RequestPresigner(s3ResolvedConfig);
-    const signed = await signer.presign(
-      minimalRequest,
-      expiration,
-      presigningOptions
-    );
+    const signed = await signer.presign(minimalRequest, presigningOptions);
     expect(signed.query).toMatchObject({ [SHA256_HEADER]: UNSIGNED_PAYLOAD });
   });
 
   it("should not change original request", async () => {
     const signer = new S3RequestPresigner(s3ResolvedConfig);
     const originalRequest = { ...minimalRequest };
-    const signed = await signer.presign(
-      minimalRequest,
-      expiration,
-      presigningOptions
-    );
+    const signed = await signer.presign(minimalRequest, presigningOptions);
     expect(signed.query).toMatchObject({
       [SHA256_HEADER]: UNSIGNED_PAYLOAD,
       [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
@@ -89,11 +78,18 @@ describe("s3 presigner", () => {
     };
     const signed = await signer.presign(
       requestWithContentTypeHeader,
-      expiration,
       presigningOptions
     );
     expect(signed.query).toMatchObject({
       [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER
+    });
+  });
+
+  it("should default expiration to 900 seconds if not explicitly passed", async () => {
+    const signer = new S3RequestPresigner(s3ResolvedConfig);
+    const signed = await signer.presign(minimalRequest);
+    expect(signed.query).toMatchObject({
+      [EXPIRES_QUERY_PARAM]: "900"
     });
   });
 });
