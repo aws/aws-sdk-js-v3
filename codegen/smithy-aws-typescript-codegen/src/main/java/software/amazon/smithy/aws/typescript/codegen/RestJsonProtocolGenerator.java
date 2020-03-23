@@ -115,8 +115,14 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
             // Generate an if statement to set the bodyParam if the member is set.
             writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
-                writer.write("bodyParams['$L'] = $L;", locationName,
-                        target.accept(getMemberSerVisitor(context, inputLocation)));
+                // Handle @timestampFormat on members not just the targeted shape.
+                String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
+                        ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
+                                getDocumentTimestampFormat(), inputLocation)
+                        : target.accept(getMemberSerVisitor(context, inputLocation));
+
+                // Dispatch to the input value provider for any additional handling.
+                writer.write("bodyParams['$L'] = $L;", locationName, valueProvider);
             });
         }
 
