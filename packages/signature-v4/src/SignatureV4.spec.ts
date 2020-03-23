@@ -50,15 +50,12 @@ describe("SignatureV4", () => {
       (new Date("2000-01-01T00:00:00.000Z").valueOf() + 60 * 60 * 1000) / 1000
     );
     const presigningOptions = {
+      expiration,
       signingDate: new Date("2000-01-01T00:00:00.000Z")
     };
 
     it("should sign requests without bodies", async () => {
-      const { query } = await signer.presign(
-        minimalRequest,
-        expiration,
-        presigningOptions
-      );
+      const { query } = await signer.presign(minimalRequest, presigningOptions);
       expect(query).toEqual({
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
@@ -76,7 +73,6 @@ describe("SignatureV4", () => {
           ...minimalRequest,
           body: "It was the best of times, it was the worst of times"
         }),
-        expiration,
         presigningOptions
       );
       expect(query).toEqual({
@@ -96,7 +92,6 @@ describe("SignatureV4", () => {
           ...minimalRequest,
           body: new Uint8Array([0xde, 0xad, 0xbe, 0xef])
         }),
-        expiration,
         presigningOptions
       );
       expect(query).toEqual({
@@ -121,7 +116,6 @@ describe("SignatureV4", () => {
           ...minimalRequest,
           body: new ExoticStream() as any
         }),
-        expiration,
         presigningOptions
       );
       expect(query).toEqual({
@@ -145,11 +139,7 @@ describe("SignatureV4", () => {
           sessionToken: "baz"
         }
       });
-      const { query } = await signer.presign(
-        minimalRequest,
-        expiration,
-        presigningOptions
-      );
+      const { query } = await signer.presign(minimalRequest, presigningOptions);
 
       expect(query).toEqual({
         [TOKEN_QUERY_PARAM]: "baz",
@@ -180,7 +170,6 @@ describe("SignatureV4", () => {
             "X-Amz-Content-Sha256": "UNSIGNED-PAYLOAD"
           }
         }),
-        expiration,
         presigningOptions
       );
 
@@ -207,7 +196,6 @@ describe("SignatureV4", () => {
           ...minimalRequest,
           headers
         }),
-        expiration,
         {
           ...presigningOptions,
           unsignableHeaders: new Set(["foo"])
@@ -219,7 +207,10 @@ describe("SignatureV4", () => {
 
     it("should return a rejected promise if the expiration is more than one week in the future", async () => {
       await expect(
-        signer.presign(minimalRequest, new Date(), presigningOptions)
+        signer.presign(minimalRequest, {
+          ...presigningOptions,
+          expiration: new Date()
+        })
       ).rejects.toMatch(/less than one week in the future/);
     });
 
@@ -237,11 +228,7 @@ describe("SignatureV4", () => {
         credentials: credsProvider
       });
 
-      const { query } = await signer.presign(
-        minimalRequest,
-        expiration,
-        presigningOptions
-      );
+      const { query } = await signer.presign(minimalRequest, presigningOptions);
 
       expect(query).toMatchObject({
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request"
@@ -261,11 +248,7 @@ describe("SignatureV4", () => {
         }
       });
 
-      const { query } = await signer.presign(
-        minimalRequest,
-        expiration,
-        presigningOptions
-      );
+      const { query } = await signer.presign(minimalRequest, presigningOptions);
 
       expect(query).toMatchObject({
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request"
@@ -286,7 +269,6 @@ describe("SignatureV4", () => {
       it("should URI-encode the path by default", async () => {
         const { query = {} } = await signer.presign(
           minimalRequest,
-          expiration,
           presigningOptions
         );
         expect(query[SIGNATURE_QUERY_PARAM]).toBe(
@@ -320,7 +302,6 @@ describe("SignatureV4", () => {
               "X-Amz-Content-Sha256": "UNSIGNED-PAYLOAD"
             }
           }),
-          expiration,
           presigningOptions
         );
         expect(query[SIGNATURE_QUERY_PARAM]).toBe(
@@ -661,10 +642,9 @@ describe("SignatureV4", () => {
 
     it("should use the current date for presigning if no signing date was supplied", async () => {
       const date = new Date();
-      const { query } = await signer.presign(
-        minimalRequest,
-        Math.floor((date.valueOf() + 60 * 60 * 1000) / 1000)
-      );
+      const { query } = await signer.presign(minimalRequest, {
+        expiration: Math.floor((date.valueOf() + 60 * 60 * 1000) / 1000)
+      });
       expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
         iso8601(date).replace(/[\-:]/g, "")
       );

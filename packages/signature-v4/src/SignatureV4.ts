@@ -129,7 +129,6 @@ export class SignatureV4
 
   public async presign(
     originalRequest: HttpRequest,
-    expiration: DateInput,
     options: RequestSigningArguments = {}
   ): Promise<HttpRequest> {
     const [region, credentials] = await Promise.all([
@@ -139,6 +138,7 @@ export class SignatureV4
 
     const {
       signingDate = new Date(),
+      expiration = new Date(Date.now() + 3600 * 1000),
       unsignableHeaders,
       signableHeaders
     } = options;
