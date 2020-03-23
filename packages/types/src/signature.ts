@@ -18,6 +18,11 @@ export interface SigningArguments {
 
 export interface RequestSigningArguments extends SigningArguments {
   /**
+   * The time at which the signed request should no longer be honored.
+   */
+  expiration?: DateInput;
+
+  /**
    * A set of strings whose members represents headers that cannot be signed.
    * All headers in the provided request will have their names converted to
    * lower case and then checked for existence in the unsignableHeaders set.
@@ -47,13 +52,10 @@ export interface RequestPresigner {
    * passed or the underlying credentials have expired.
    *
    * @param requestToSign The request that should be signed.
-   * @param expiration    The time at which the signed request should no
-   *                      longer be honored.
    * @param options       Additional signing options.
    */
   presign(
     requestToSign: HttpRequest,
-    expiration: DateInput,
     options?: RequestSigningArguments
   ): Promise<HttpRequest>;
 }
