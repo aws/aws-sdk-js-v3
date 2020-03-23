@@ -20,19 +20,21 @@ import software.amazon.smithy.model.shapes.BigDecimalShape;
 import software.amazon.smithy.model.shapes.BigIntegerShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
-import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 
 /**
  * Overrides the default implementation of BigDecimal and BigInteger shape
- * deserialization to throw when encountered in AWS JSON based protocols.
+ * serialization to throw when encountered in AWS REST-JSON based protocols.
+ *
+ * TODO: Work out support for BigDecimal and BigInteger, natively or through a library.
  */
-final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
+final class RestJsonMemberSerVisitor extends DocumentMemberSerVisitor {
 
     /**
      * @inheritDoc
      */
-    JsonMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+    RestJsonMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
     }
 
@@ -49,7 +51,7 @@ final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot deserialize shape type %s on protocol, shape: %s.",
+        throw new CodegenException(String.format("Cannot serialize shape type %s on protocol, shape: %s.",
                 shape.getType(), shape.getId()));
     }
 }

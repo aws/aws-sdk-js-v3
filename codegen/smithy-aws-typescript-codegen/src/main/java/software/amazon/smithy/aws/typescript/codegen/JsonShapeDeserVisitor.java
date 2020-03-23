@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.function.Function;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
@@ -42,13 +43,18 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  * Timestamps are deserialized from {@link Format}.EPOCH_SECONDS by default.
  */
 final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
+    private final Function<String, DocumentMemberDeserVisitor> memberDeserVisitorSupplier;
 
-    JsonShapeDeserVisitor(GenerationContext context) {
+    JsonShapeDeserVisitor(
+            GenerationContext context,
+            Function<String, DocumentMemberDeserVisitor> memberDeserVisitorSupplier
+    ) {
         super(context);
+        this.memberDeserVisitorSupplier = memberDeserVisitorSupplier;
     }
 
     private DocumentMemberDeserVisitor getMemberVisitor(String dataSource) {
-        return new JsonMemberDeserVisitor(getContext(), dataSource, Format.EPOCH_SECONDS);
+        return memberDeserVisitorSupplier.apply(dataSource);
     }
 
     @Override
