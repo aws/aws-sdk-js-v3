@@ -18,6 +18,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.shapes.BigDecimalShape;
 import software.amazon.smithy.model.shapes.BigIntegerShape;
+import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.BooleanShape;
 import software.amazon.smithy.model.shapes.ByteShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
@@ -56,6 +57,11 @@ final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
     @Override
     public String stringShape(StringShape shape) {
         return getAsXmlText(shape, super.stringShape(shape));
+    }
+
+    @Override
+    public String blobShape(BlobShape shape) {
+        return getAsXmlText(shape, super.blobShape(shape));
     }
 
     @Override
@@ -102,7 +108,7 @@ final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
         return getAsXmlText(shape, "String(" + getDataSource() + ")");
     }
 
-    private String getAsXmlText(Shape shape, String dataSource) {
+    String getAsXmlText(Shape shape, String dataSource) {
         // Handle the @xmlName trait for the shape itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
