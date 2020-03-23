@@ -20,7 +20,7 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.12",
+    "@types/jest": "^25.1.4",
     "@types/node": "^10.0.0",
     "jest": "^25.1.0",
     "typescript": "~3.8.3"

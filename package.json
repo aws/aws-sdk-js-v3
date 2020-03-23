@@ -36,7 +36,7 @@
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
     "@types/fs-extra": "^8.0.1",
-    "@types/jest": "^24.0.12",
+    "@types/jest": "^25.1.4",
     "codecov": "^3.4.0",
     "cucumber": "0.5.x",
     "fs-extra": "^8.1.0",
