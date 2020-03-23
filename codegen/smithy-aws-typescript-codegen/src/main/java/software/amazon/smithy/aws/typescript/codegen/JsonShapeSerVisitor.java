@@ -27,6 +27,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
@@ -112,9 +113,16 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
             // Generate an if statement to set the bodyParam if the member is set.
             writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
+                String dataSource = "input." + memberName;
+
+                // Handle @timestampFormat on members not just the targeted shape.
+                String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
+                        ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
+                                TIMESTAMP_FORMAT, dataSource)
+                        : target.accept(getMemberVisitor(dataSource));
+
                 // Dispatch to the input value provider for any additional handling.
-                writer.write("bodyParams['$L'] = $L;", locationName,
-                        target.accept(getMemberVisitor("input." + memberName)));
+                writer.write("bodyParams['$L'] = $L;", locationName, valueProvider);
             });
         });
         writer.write("return bodyParams;");
