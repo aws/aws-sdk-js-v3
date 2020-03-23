@@ -67,6 +67,13 @@ describe("SignatureV4", () => {
       });
     });
 
+    it("should default expires to 3600 seconds if not explicitly passed", async () => {
+      const { query } = await signer.presign(minimalRequest);
+      expect(query).toMatchObject({
+        [EXPIRES_QUERY_PARAM]: "3600"
+      });
+    });
+
     it("should sign requests with string bodies", async () => {
       const { query } = await signer.presign(
         new HttpRequest({
