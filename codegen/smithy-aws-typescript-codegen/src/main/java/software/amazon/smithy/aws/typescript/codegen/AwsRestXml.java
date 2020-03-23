@@ -149,7 +149,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
-        writer.write("const bodyNode = new __XmlNode($S);", operation.getId().getName());
+        writer.write("const bodyNode = new __XmlNode($S);",
+                documentBindings.get(0).getMember().getContainer().getName());
 
         // Always add @xmlNamespace value of the service to the root node, since we're
         // creating a wrapper node not based on a structure.
