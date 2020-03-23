@@ -1,8 +1,4 @@
-import {
-  DateInput,
-  RequestPresigner,
-  RequestSigningArguments
-} from "@aws-sdk/types";
+import { RequestPresigner, RequestSigningArguments } from "@aws-sdk/types";
 import {
   SignatureV4,
   SignatureV4Init,
@@ -38,11 +34,16 @@ export class S3RequestPresigner implements RequestPresigner {
 
   public async presign(
     requestToSign: IHttpRequest,
-    { unsignableHeaders = new Set(), ...options }: RequestSigningArguments = {}
+    {
+      expiration = new Date(Date.now() + 900 * 1000),
+      unsignableHeaders = new Set(),
+      ...options
+    }: RequestSigningArguments = {}
   ): Promise<IHttpRequest> {
     unsignableHeaders.add("content-type");
     requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
     return this.signer.presign(requestToSign, {
+      expiration,
       unsignableHeaders,
       ...options
     });

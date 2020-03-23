@@ -84,4 +84,12 @@ describe("s3 presigner", () => {
       [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER
     });
   });
+
+  it("should default expiration to 900 seconds if not explicitly passed", async () => {
+    const signer = new S3RequestPresigner(s3ResolvedConfig);
+    const signed = await signer.presign(minimalRequest);
+    expect(signed.query).toMatchObject({
+      [EXPIRES_QUERY_PARAM]: "900"
+    });
+  });
 });
