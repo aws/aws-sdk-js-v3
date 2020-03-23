@@ -25,7 +25,7 @@
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^3.1.1",
-    "karma-typescript": "^4.1.1",
+    "karma-typescript": "^5.0.1",
     "puppeteer": "^2.0.0",
     "source-map": "^0.7.3",
     "typescript": "~3.8.3"
