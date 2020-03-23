@@ -30,6 +30,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
+import software.amazon.smithy.utils.IoUtils;
 
 /**
  * Handles general components across the AWS JSON protocols that have HTTP bindings.
@@ -51,7 +52,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
      * Creates a AWS JSON RPC protocol generator.
      */
     RestJsonProtocolGenerator() {
-        super(false);
+        super(true);
     }
 
     @Override
@@ -76,6 +77,10 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateJsonParseBody(context);
         AwsProtocolUtils.addItempotencyAutofillImport(context);
+
+        TypeScriptWriter writer = context.getWriter();
+        writer.addUseImports(getApplicationProtocol().getResponseType());
+        writer.write(IoUtils.readUtf8Resource(getClass(), "load-rest-json-error-code-stub.ts"));
     }
 
     @Override
@@ -146,9 +151,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     @Override
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
-        writer.openBlock("if (output.headers[\"x-amzn-errortype\"]) {", "}", () -> {
-            writer.write("errorCode = output.headers[\"x-amzn-errortype\"].split(':')[0];");
-        });
+
+        // Outsource error code parsing since it's complex for this protocol.
+        writer.write("errorCode = loadRestJsonErrorCode(output, parsedOutput.body);");
     }
 
     @Override
