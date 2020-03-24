@@ -23,6 +23,6 @@ export function fromImdsCredentials(creds: ImdsCredentials): Credentials {
     accessKeyId: creds.AccessKeyId,
     secretAccessKey: creds.SecretAccessKey,
     sessionToken: creds.Token,
-    expiration: Math.floor(new Date(creds.Expiration).valueOf() / 1000)
+    expiration: new Date(creds.Expiration)
   };
 }

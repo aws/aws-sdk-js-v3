@@ -48,8 +48,6 @@ describe("fromImdsCredentials", () => {
     expect(converted.accessKeyId).toEqual(creds.AccessKeyId);
     expect(converted.secretAccessKey).toEqual(creds.SecretAccessKey);
     expect(converted.sessionToken).toEqual(creds.Token);
-    expect(converted.expiration).toEqual(
-      Math.floor(new Date(creds.Expiration).valueOf() / 1000)
-    );
+    expect(converted.expiration).toEqual(new Date(creds.Expiration));
   });
 });

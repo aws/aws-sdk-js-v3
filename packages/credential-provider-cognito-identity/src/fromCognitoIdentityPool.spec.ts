@@ -6,8 +6,7 @@ jest.mock("./fromCognitoIdentity", () => {
   const promiseFunc = jest.fn().mockResolvedValue({
     accessKeyId: "foo",
     secretAccessKey: "bar",
-    sessionToken: "baz",
-    expiration: 946684800
+    sessionToken: "baz"
   });
   return { fromCognitoIdentity: jest.fn().mockReturnValue(promiseFunc) };
 });
@@ -52,8 +51,7 @@ describe("fromCognitoIdentityPool", () => {
     ).toEqual({
       accessKeyId: "foo",
       secretAccessKey: "bar",
-      sessionToken: "baz",
-      expiration: 946684800
+      sessionToken: "baz"
     });
 
     expect(send.mock.calls.length).toBe(1);
@@ -109,8 +107,7 @@ describe("fromCognitoIdentityPool", () => {
       expect(await provider()).toEqual({
         accessKeyId: "foo",
         secretAccessKey: "bar",
-        sessionToken: "baz",
-        expiration: 946684800
+        sessionToken: "baz"
       });
     }
 

@@ -393,7 +393,7 @@ describe("defaultProvider", () => {
         Promise.resolve({
           accessKeyId: "foo",
           secretAccessKey: "bar",
-          expiration: Date.now() + 600 // expires in ten minutes
+          expiration: new Date(Date.now() + 600000) // expires in ten minutes
         })
       );
       const memoized = defaultProvider();
