@@ -73,10 +73,17 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         // Set up a location to store all of the child node(s).
         writer.write("const collectedNodes: any = [];");
         writer.openBlock("for (let entry of input) {", "}", () -> {
-            // TODO Handle wrapping?
             // Dispatch to the input value provider for any additional handling.
             writer.write("const node = $L;", target.accept(getMemberVisitor("entry")));
-            writer.write("collectedNodes.push(node.withName($S));", locationName);
+            // Handle proper unwrapping of target nodes.
+            if (serializationReturnsArray(target)) {
+                writer.write("const container = new __XmlNode($S);", locationName);
+                writer.openBlock("for (let index in node) {", "}",
+                        () -> writer.write("container.addChildNode(node[index]);"));
+                writer.write("collectedNodes.push(container);");
+            } else {
+                writer.write("collectedNodes.push(node.withName($S));", locationName);
+            }
         });
 
         writer.write("return collectedNodes;");
@@ -118,9 +125,17 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             String valueName = valueMember.getTrait(XmlNameTrait.class)
                     .map(XmlNameTrait::getValue)
                     .orElse("value");
-            // TODO Handle wrapping?
-            writer.write("entryNode.addChildNode($L.withName($S))",
-                    valueTarget.accept(getMemberVisitor("input[key]")), valueName);
+            // Dispatch to the input value provider for any additional handling.
+            writer.write("const node = $L;", valueTarget.accept(getMemberVisitor("input[key]")));
+            // Handle proper unwrapping of target nodes.
+            if (serializationReturnsArray(valueTarget)) {
+                writer.write("const container = new __XmlNode($S);", valueName);
+                writer.openBlock("for (let index in node) {", "}",
+                        () -> writer.write("container.addChildNode(node[index]);"));
+                writer.write("entryNode.addChildNode(container);");
+            } else {
+                writer.write("entryNode.addChildNode(node.withName($S));", valueName);
+            }
 
             // Add the entry to the collection.
             writer.write("collectedNodes.push(entryNode);");
