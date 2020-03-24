@@ -39,7 +39,7 @@ import {
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { hasHeader } from "./hasHeader";
-import { toDate, iso8601 } from "./utilDate";
+import { iso8601 } from "./utilDate";
 
 export interface SignatureV4Init {
   /**
@@ -139,14 +139,13 @@ export class SignatureV4
 
     const {
       signingDate = new Date(),
-      expiration = new Date(Date.now() + 3600 * 1000),
+      expiresIn = 3600,
       unsignableHeaders,
       signableHeaders
     } = options;
 
     const { longDate, shortDate } = formatDate(signingDate);
-    const ttl = getTtl(signingDate, expiration);
-    if (ttl > MAX_PRESIGNED_TTL) {
+    if (expiresIn > MAX_PRESIGNED_TTL) {
       return Promise.reject(
         "Signature version 4 presigned URLs" +
           " must have an expiration date less than one week in" +
@@ -165,7 +164,7 @@ export class SignatureV4
       CREDENTIAL_QUERY_PARAM
     ] = `${credentials.accessKeyId}/${scope}`;
     request.query[AMZ_DATE_QUERY_PARAM] = longDate;
-    request.query[EXPIRES_QUERY_PARAM] = ttl.toString(10);
+    request.query[EXPIRES_QUERY_PARAM] = expiresIn.toString(10);
 
     const canonicalHeaders = getCanonicalHeaders(
       request,
@@ -387,10 +386,4 @@ function getCanonicalHeaderList(headers: object): string {
   return Object.keys(headers)
     .sort()
     .join(";");
-}
-
-function getTtl(start: DateInput, expiration: DateInput): number {
-  return Math.floor(
-    (toDate(expiration).valueOf() - toDate(start).valueOf()) / 1000
-  );
 }

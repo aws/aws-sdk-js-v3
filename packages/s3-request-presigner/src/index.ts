@@ -42,7 +42,7 @@ export class S3RequestPresigner implements RequestPresigner {
     unsignableHeaders.add("content-type");
     requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
     return this.signer.presign(requestToSign, {
-      expiration: new Date(Date.now() + 900 * 1000),
+      expiresIn: 900,
       unsignableHeaders,
       ...options
     });
