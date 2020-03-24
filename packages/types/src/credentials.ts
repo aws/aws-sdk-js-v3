@@ -21,10 +21,9 @@ export interface Credentials {
   readonly sessionToken?: string;
 
   /**
-   * UNIX epoch timestamp (seconds since 1 January, 1970 00:00:00 GMT) when
-   * these credentials will no longer be accepted.
+   * A {Date} when these credentials will no longer be accepted.
    */
-  readonly expiration?: number;
+  readonly expiration?: Date;
 }
 
 export type CredentialProvider = Provider<Credentials>;

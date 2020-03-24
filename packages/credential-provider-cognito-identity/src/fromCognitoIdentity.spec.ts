@@ -31,7 +31,7 @@ describe("fromCognitoIdentity", () => {
       accessKeyId: "foo",
       secretAccessKey: "bar",
       sessionToken: "baz",
-      expiration: Math.floor(expiration.valueOf() / 1000)
+      expiration
     });
 
     expect(send.mock.calls[0][0]).toEqual(
