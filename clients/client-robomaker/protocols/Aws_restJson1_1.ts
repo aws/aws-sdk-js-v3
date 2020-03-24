@@ -1232,7 +1232,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1374,19 +1374,22 @@ async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDescribeSimulationJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1394,9 +1397,10 @@ async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1404,9 +1408,10 @@ async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1414,14 +1419,15 @@ async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1459,19 +1465,22 @@ async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelDeploymentJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1479,9 +1488,10 @@ async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1489,9 +1499,10 @@ async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1499,14 +1510,15 @@ async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1544,19 +1556,22 @@ async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelSimulationJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1564,9 +1579,10 @@ async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1574,9 +1590,10 @@ async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1584,14 +1601,15 @@ async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1674,19 +1692,22 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentDeploymentException":
     case "com.amazonaws.robomaker#ConcurrentDeploymentException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentDeploymentExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1694,9 +1715,10 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1704,9 +1726,10 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1714,9 +1737,10 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1724,9 +1748,10 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1734,9 +1759,10 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1744,14 +1770,15 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1802,19 +1829,22 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1822,9 +1852,10 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1832,9 +1863,10 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1842,14 +1874,15 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1908,19 +1941,22 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRobotCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1928,9 +1964,10 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1938,9 +1975,10 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1948,9 +1986,10 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
     case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1958,14 +1997,15 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2041,19 +2081,22 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRobotApplicationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2061,9 +2104,10 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2071,9 +2115,10 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2081,9 +2126,10 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2091,9 +2137,10 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
     case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2101,14 +2148,15 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2180,19 +2228,22 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRobotApplicationVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2200,9 +2251,10 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2210,9 +2262,10 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2220,9 +2273,10 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2230,14 +2284,15 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2330,19 +2385,22 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSimulationApplicationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2350,9 +2408,10 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2360,9 +2419,10 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2370,9 +2430,10 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2380,9 +2441,10 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
     case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2390,14 +2452,15 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2486,19 +2549,22 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSimulationApplicationVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2506,9 +2572,10 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2516,9 +2583,10 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2526,9 +2594,10 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2536,14 +2605,15 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2679,19 +2749,22 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSimulationJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2699,9 +2772,10 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2709,9 +2783,10 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2719,9 +2794,10 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2729,9 +2805,10 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2739,9 +2816,10 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
     case "com.amazonaws.robomaker#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2749,14 +2827,15 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2791,19 +2870,22 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2811,9 +2893,10 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2821,14 +2904,15 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2863,19 +2947,22 @@ async function deserializeAws_restJson1_1DeleteRobotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRobotCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2883,9 +2970,10 @@ async function deserializeAws_restJson1_1DeleteRobotCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2893,14 +2981,15 @@ async function deserializeAws_restJson1_1DeleteRobotCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2938,19 +3027,22 @@ async function deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRobotApplicationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2958,9 +3050,10 @@ async function deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2968,14 +3061,15 @@ async function deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3013,19 +3107,22 @@ async function deserializeAws_restJson1_1DeleteSimulationApplicationCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSimulationApplicationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3033,9 +3130,10 @@ async function deserializeAws_restJson1_1DeleteSimulationApplicationCommandError
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3043,14 +3141,15 @@ async function deserializeAws_restJson1_1DeleteSimulationApplicationCommandError
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3096,19 +3195,22 @@ async function deserializeAws_restJson1_1DeregisterRobotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterRobotCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3116,9 +3218,10 @@ async function deserializeAws_restJson1_1DeregisterRobotCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3126,9 +3229,10 @@ async function deserializeAws_restJson1_1DeregisterRobotCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3136,14 +3240,15 @@ async function deserializeAws_restJson1_1DeregisterRobotCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3236,19 +3341,22 @@ async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeploymentJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3256,9 +3364,10 @@ async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3266,9 +3375,10 @@ async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3276,14 +3386,15 @@ async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3358,19 +3469,22 @@ async function deserializeAws_restJson1_1DescribeFleetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3378,9 +3492,10 @@ async function deserializeAws_restJson1_1DescribeFleetCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3388,9 +3503,10 @@ async function deserializeAws_restJson1_1DescribeFleetCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3398,14 +3514,15 @@ async function deserializeAws_restJson1_1DescribeFleetCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3485,19 +3602,22 @@ async function deserializeAws_restJson1_1DescribeRobotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRobotCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3505,9 +3625,10 @@ async function deserializeAws_restJson1_1DescribeRobotCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3515,9 +3636,10 @@ async function deserializeAws_restJson1_1DescribeRobotCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3525,14 +3647,15 @@ async function deserializeAws_restJson1_1DescribeRobotCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3608,19 +3731,22 @@ async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRobotApplicationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3628,9 +3754,10 @@ async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3638,9 +3765,10 @@ async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3648,14 +3776,15 @@ async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3748,19 +3877,22 @@ async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSimulationApplicationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3768,9 +3900,10 @@ async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandErr
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3778,9 +3911,10 @@ async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandErr
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3788,14 +3922,15 @@ async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandErr
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3946,19 +4081,22 @@ async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSimulationJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3966,9 +4104,10 @@ async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3976,9 +4115,10 @@ async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3986,14 +4126,15 @@ async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4042,19 +4183,22 @@ async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentJobsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4062,9 +4206,10 @@ async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4072,9 +4217,10 @@ async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4082,14 +4228,15 @@ async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4135,19 +4282,22 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4155,9 +4305,10 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4165,9 +4316,10 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4175,14 +4327,15 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4234,19 +4387,22 @@ async function deserializeAws_restJson1_1ListRobotApplicationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRobotApplicationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4254,9 +4410,10 @@ async function deserializeAws_restJson1_1ListRobotApplicationsCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4264,14 +4421,15 @@ async function deserializeAws_restJson1_1ListRobotApplicationsCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4314,19 +4472,22 @@ async function deserializeAws_restJson1_1ListRobotsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRobotsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4334,9 +4495,10 @@ async function deserializeAws_restJson1_1ListRobotsCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4344,9 +4506,10 @@ async function deserializeAws_restJson1_1ListRobotsCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4354,14 +4517,15 @@ async function deserializeAws_restJson1_1ListRobotsCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4413,19 +4577,22 @@ async function deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSimulationApplicationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4433,9 +4600,10 @@ async function deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4443,14 +4611,15 @@ async function deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4502,19 +4671,22 @@ async function deserializeAws_restJson1_1ListSimulationJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSimulationJobsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4522,9 +4694,10 @@ async function deserializeAws_restJson1_1ListSimulationJobsCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4532,14 +4705,15 @@ async function deserializeAws_restJson1_1ListSimulationJobsCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4581,19 +4755,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4601,9 +4778,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4611,9 +4789,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4621,14 +4800,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4671,19 +4851,22 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterRobotCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4691,9 +4874,10 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4701,9 +4885,10 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4711,9 +4896,10 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4721,14 +4907,15 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4766,19 +4953,22 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestartSimulationJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4786,9 +4976,10 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4796,9 +4987,10 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4806,9 +4998,10 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4816,14 +5009,15 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4902,19 +5096,22 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SyncDeploymentJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentDeploymentException":
     case "com.amazonaws.robomaker#ConcurrentDeploymentException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentDeploymentExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4922,9 +5119,10 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4932,9 +5130,10 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4942,9 +5141,10 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4952,9 +5152,10 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4962,9 +5163,10 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4972,14 +5174,15 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5014,19 +5217,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5034,9 +5240,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5044,9 +5251,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5054,14 +5262,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5096,19 +5305,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5116,9 +5328,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5126,9 +5339,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5136,14 +5350,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5215,19 +5430,22 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRobotApplicationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5235,9 +5453,10 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5245,9 +5464,10 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5255,9 +5475,10 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5265,14 +5486,15 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5361,19 +5583,22 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSimulationApplicationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5381,9 +5606,10 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5391,9 +5617,10 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
     case "com.amazonaws.robomaker#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5401,9 +5628,10 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5411,14 +5639,15 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5435,16 +5664,16 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
 }
 
 const deserializeAws_restJson1_1ConcurrentDeploymentExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentDeploymentException> => {
   const contents: ConcurrentDeploymentException = {
     name: "ConcurrentDeploymentException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5452,16 +5681,16 @@ const deserializeAws_restJson1_1ConcurrentDeploymentExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const contents: IdempotentParameterMismatchException = {
     name: "IdempotentParameterMismatchException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5469,16 +5698,16 @@ const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = a
 };
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5486,16 +5715,16 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5503,16 +5732,16 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5520,16 +5749,16 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5537,16 +5766,16 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5554,16 +5783,16 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5571,16 +5800,16 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7301,4 +7530,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

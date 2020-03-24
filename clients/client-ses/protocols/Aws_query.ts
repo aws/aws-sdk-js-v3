@@ -1770,7 +1770,7 @@ async function deserializeAws_queryCloneReceiptRuleSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -1780,6 +1780,7 @@ async function deserializeAws_queryCloneReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1790,6 +1791,7 @@ async function deserializeAws_queryCloneReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1800,6 +1802,7 @@ async function deserializeAws_queryCloneReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1854,7 +1857,7 @@ async function deserializeAws_queryCreateConfigurationSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetAlreadyExistsException":
@@ -1864,6 +1867,7 @@ async function deserializeAws_queryCreateConfigurationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1874,6 +1878,7 @@ async function deserializeAws_queryCreateConfigurationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1884,6 +1889,7 @@ async function deserializeAws_queryCreateConfigurationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1938,7 +1944,7 @@ async function deserializeAws_queryCreateConfigurationSetEventDestinationCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -1948,6 +1954,7 @@ async function deserializeAws_queryCreateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1958,6 +1965,7 @@ async function deserializeAws_queryCreateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1968,6 +1976,7 @@ async function deserializeAws_queryCreateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1978,6 +1987,7 @@ async function deserializeAws_queryCreateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1988,6 +1998,7 @@ async function deserializeAws_queryCreateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1998,6 +2009,7 @@ async function deserializeAws_queryCreateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2052,7 +2064,7 @@ async function deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -2062,6 +2074,7 @@ async function deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2072,6 +2085,7 @@ async function deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2082,6 +2096,7 @@ async function deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2129,7 +2144,7 @@ async function deserializeAws_queryCreateCustomVerificationEmailTemplateCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomVerificationEmailInvalidContentException":
@@ -2139,6 +2154,7 @@ async function deserializeAws_queryCreateCustomVerificationEmailTemplateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2149,6 +2165,7 @@ async function deserializeAws_queryCreateCustomVerificationEmailTemplateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2159,6 +2176,7 @@ async function deserializeAws_queryCreateCustomVerificationEmailTemplateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2169,6 +2187,7 @@ async function deserializeAws_queryCreateCustomVerificationEmailTemplateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2220,7 +2239,7 @@ async function deserializeAws_queryCreateReceiptFilterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -2230,6 +2249,7 @@ async function deserializeAws_queryCreateReceiptFilterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2240,6 +2260,7 @@ async function deserializeAws_queryCreateReceiptFilterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2291,7 +2312,7 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -2301,6 +2322,7 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2311,6 +2333,7 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2321,6 +2344,7 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2331,6 +2355,7 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2341,6 +2366,7 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2351,6 +2377,7 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2361,6 +2388,7 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2415,7 +2443,7 @@ async function deserializeAws_queryCreateReceiptRuleSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -2425,6 +2453,7 @@ async function deserializeAws_queryCreateReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2435,6 +2464,7 @@ async function deserializeAws_queryCreateReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2486,7 +2516,7 @@ async function deserializeAws_queryCreateTemplateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -2496,6 +2526,7 @@ async function deserializeAws_queryCreateTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2506,6 +2537,7 @@ async function deserializeAws_queryCreateTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2516,6 +2548,7 @@ async function deserializeAws_queryCreateTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2570,7 +2603,7 @@ async function deserializeAws_queryDeleteConfigurationSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -2580,6 +2613,7 @@ async function deserializeAws_queryDeleteConfigurationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2634,7 +2668,7 @@ async function deserializeAws_queryDeleteConfigurationSetEventDestinationCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -2644,6 +2678,7 @@ async function deserializeAws_queryDeleteConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2654,6 +2689,7 @@ async function deserializeAws_queryDeleteConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2708,7 +2744,7 @@ async function deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -2718,6 +2754,7 @@ async function deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2728,6 +2765,7 @@ async function deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2775,7 +2813,7 @@ async function deserializeAws_queryDeleteCustomVerificationEmailTemplateCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2826,7 +2864,7 @@ async function deserializeAws_queryDeleteIdentityCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2880,7 +2918,7 @@ async function deserializeAws_queryDeleteIdentityPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2931,7 +2969,7 @@ async function deserializeAws_queryDeleteReceiptFilterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2982,7 +3020,7 @@ async function deserializeAws_queryDeleteReceiptRuleCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleSetDoesNotExistException":
@@ -2992,6 +3030,7 @@ async function deserializeAws_queryDeleteReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3046,7 +3085,7 @@ async function deserializeAws_queryDeleteReceiptRuleSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CannotDeleteException":
@@ -3056,6 +3095,7 @@ async function deserializeAws_queryDeleteReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3107,7 +3147,7 @@ async function deserializeAws_queryDeleteTemplateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3154,7 +3194,7 @@ async function deserializeAws_queryDeleteVerifiedEmailAddressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3208,7 +3248,7 @@ async function deserializeAws_queryDescribeActiveReceiptRuleSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3262,7 +3302,7 @@ async function deserializeAws_queryDescribeConfigurationSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -3272,6 +3312,7 @@ async function deserializeAws_queryDescribeConfigurationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3323,7 +3364,7 @@ async function deserializeAws_queryDescribeReceiptRuleCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleDoesNotExistException":
@@ -3333,6 +3374,7 @@ async function deserializeAws_queryDescribeReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3343,6 +3385,7 @@ async function deserializeAws_queryDescribeReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3397,7 +3440,7 @@ async function deserializeAws_queryDescribeReceiptRuleSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleSetDoesNotExistException":
@@ -3407,6 +3450,7 @@ async function deserializeAws_queryDescribeReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3461,7 +3505,7 @@ async function deserializeAws_queryGetAccountSendingEnabledCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3515,7 +3559,7 @@ async function deserializeAws_queryGetCustomVerificationEmailTemplateCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomVerificationEmailTemplateDoesNotExistException":
@@ -3525,6 +3569,7 @@ async function deserializeAws_queryGetCustomVerificationEmailTemplateCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3579,7 +3624,7 @@ async function deserializeAws_queryGetIdentityDkimAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3633,7 +3678,7 @@ async function deserializeAws_queryGetIdentityMailFromDomainAttributesCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3687,7 +3732,7 @@ async function deserializeAws_queryGetIdentityNotificationAttributesCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3738,7 +3783,7 @@ async function deserializeAws_queryGetIdentityPoliciesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3792,7 +3837,7 @@ async function deserializeAws_queryGetIdentityVerificationAttributesCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3843,7 +3888,7 @@ async function deserializeAws_queryGetSendQuotaCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3894,7 +3939,7 @@ async function deserializeAws_queryGetSendStatisticsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3945,7 +3990,7 @@ async function deserializeAws_queryGetTemplateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "TemplateDoesNotExistException":
@@ -3955,6 +4000,7 @@ async function deserializeAws_queryGetTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4009,7 +4055,7 @@ async function deserializeAws_queryListConfigurationSetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4063,7 +4109,7 @@ async function deserializeAws_queryListCustomVerificationEmailTemplatesCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4114,7 +4160,7 @@ async function deserializeAws_queryListIdentitiesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4168,7 +4214,7 @@ async function deserializeAws_queryListIdentityPoliciesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4219,7 +4265,7 @@ async function deserializeAws_queryListReceiptFiltersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4270,7 +4316,7 @@ async function deserializeAws_queryListReceiptRuleSetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4321,7 +4367,7 @@ async function deserializeAws_queryListTemplatesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4375,7 +4421,7 @@ async function deserializeAws_queryListVerifiedEmailAddressesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4429,7 +4475,7 @@ async function deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -4439,6 +4485,7 @@ async function deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4449,6 +4496,7 @@ async function deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4500,7 +4548,7 @@ async function deserializeAws_queryPutIdentityPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPolicyException":
@@ -4510,6 +4558,7 @@ async function deserializeAws_queryPutIdentityPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4564,7 +4613,7 @@ async function deserializeAws_queryReorderReceiptRuleSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleDoesNotExistException":
@@ -4574,6 +4623,7 @@ async function deserializeAws_queryReorderReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4584,6 +4634,7 @@ async function deserializeAws_queryReorderReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4635,7 +4686,7 @@ async function deserializeAws_querySendBounceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MessageRejected":
@@ -4645,6 +4696,7 @@ async function deserializeAws_querySendBounceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4699,7 +4751,7 @@ async function deserializeAws_querySendBulkTemplatedEmailCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
@@ -4709,6 +4761,7 @@ async function deserializeAws_querySendBulkTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4719,6 +4772,7 @@ async function deserializeAws_querySendBulkTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4729,6 +4783,7 @@ async function deserializeAws_querySendBulkTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4739,6 +4794,7 @@ async function deserializeAws_querySendBulkTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4749,6 +4805,7 @@ async function deserializeAws_querySendBulkTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4759,6 +4816,7 @@ async function deserializeAws_querySendBulkTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4813,7 +4871,7 @@ async function deserializeAws_querySendCustomVerificationEmailCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -4823,6 +4881,7 @@ async function deserializeAws_querySendCustomVerificationEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4833,6 +4892,7 @@ async function deserializeAws_querySendCustomVerificationEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4843,6 +4903,7 @@ async function deserializeAws_querySendCustomVerificationEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4853,6 +4914,7 @@ async function deserializeAws_querySendCustomVerificationEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4863,6 +4925,7 @@ async function deserializeAws_querySendCustomVerificationEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4914,7 +4977,7 @@ async function deserializeAws_querySendEmailCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
@@ -4924,6 +4987,7 @@ async function deserializeAws_querySendEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4934,6 +4998,7 @@ async function deserializeAws_querySendEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4944,6 +5009,7 @@ async function deserializeAws_querySendEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4954,6 +5020,7 @@ async function deserializeAws_querySendEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4964,6 +5031,7 @@ async function deserializeAws_querySendEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5015,7 +5083,7 @@ async function deserializeAws_querySendRawEmailCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
@@ -5025,6 +5093,7 @@ async function deserializeAws_querySendRawEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5035,6 +5104,7 @@ async function deserializeAws_querySendRawEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5045,6 +5115,7 @@ async function deserializeAws_querySendRawEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5055,6 +5126,7 @@ async function deserializeAws_querySendRawEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5065,6 +5137,7 @@ async function deserializeAws_querySendRawEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5116,7 +5189,7 @@ async function deserializeAws_querySendTemplatedEmailCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
@@ -5126,6 +5199,7 @@ async function deserializeAws_querySendTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5136,6 +5210,7 @@ async function deserializeAws_querySendTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5146,6 +5221,7 @@ async function deserializeAws_querySendTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5156,6 +5232,7 @@ async function deserializeAws_querySendTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5166,6 +5243,7 @@ async function deserializeAws_querySendTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5176,6 +5254,7 @@ async function deserializeAws_querySendTemplatedEmailCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5230,7 +5309,7 @@ async function deserializeAws_querySetActiveReceiptRuleSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleSetDoesNotExistException":
@@ -5240,6 +5319,7 @@ async function deserializeAws_querySetActiveReceiptRuleSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5294,7 +5374,7 @@ async function deserializeAws_querySetIdentityDkimEnabledCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5348,7 +5428,7 @@ async function deserializeAws_querySetIdentityFeedbackForwardingEnabledCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5402,7 +5482,7 @@ async function deserializeAws_querySetIdentityHeadersInNotificationsEnabledComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5456,7 +5536,7 @@ async function deserializeAws_querySetIdentityMailFromDomainCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5510,7 +5590,7 @@ async function deserializeAws_querySetIdentityNotificationTopicCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5564,7 +5644,7 @@ async function deserializeAws_querySetReceiptRulePositionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleDoesNotExistException":
@@ -5574,6 +5654,7 @@ async function deserializeAws_querySetReceiptRulePositionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5584,6 +5665,7 @@ async function deserializeAws_querySetReceiptRulePositionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5635,7 +5717,7 @@ async function deserializeAws_queryTestRenderTemplateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRenderingParameterException":
@@ -5645,6 +5727,7 @@ async function deserializeAws_queryTestRenderTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5655,6 +5738,7 @@ async function deserializeAws_queryTestRenderTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5665,6 +5749,7 @@ async function deserializeAws_queryTestRenderTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5712,7 +5797,7 @@ async function deserializeAws_queryUpdateAccountSendingEnabledCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5766,7 +5851,7 @@ async function deserializeAws_queryUpdateConfigurationSetEventDestinationCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -5776,6 +5861,7 @@ async function deserializeAws_queryUpdateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5786,6 +5872,7 @@ async function deserializeAws_queryUpdateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5796,6 +5883,7 @@ async function deserializeAws_queryUpdateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5806,6 +5894,7 @@ async function deserializeAws_queryUpdateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5816,6 +5905,7 @@ async function deserializeAws_queryUpdateConfigurationSetEventDestinationCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5863,7 +5953,7 @@ async function deserializeAws_queryUpdateConfigurationSetReputationMetricsEnable
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -5873,6 +5963,7 @@ async function deserializeAws_queryUpdateConfigurationSetReputationMetricsEnable
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5920,7 +6011,7 @@ async function deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -5930,6 +6021,7 @@ async function deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandEr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5984,7 +6076,7 @@ async function deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -5994,6 +6086,7 @@ async function deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6004,6 +6097,7 @@ async function deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6014,6 +6108,7 @@ async function deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6061,7 +6156,7 @@ async function deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomVerificationEmailInvalidContentException":
@@ -6071,6 +6166,7 @@ async function deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6081,6 +6177,7 @@ async function deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6091,6 +6188,7 @@ async function deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6142,7 +6240,7 @@ async function deserializeAws_queryUpdateReceiptRuleCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLambdaFunctionException":
@@ -6152,6 +6250,7 @@ async function deserializeAws_queryUpdateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6162,6 +6261,7 @@ async function deserializeAws_queryUpdateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6172,6 +6272,7 @@ async function deserializeAws_queryUpdateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6182,6 +6283,7 @@ async function deserializeAws_queryUpdateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6192,6 +6294,7 @@ async function deserializeAws_queryUpdateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6202,6 +6305,7 @@ async function deserializeAws_queryUpdateReceiptRuleCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6253,7 +6357,7 @@ async function deserializeAws_queryUpdateTemplateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTemplateException":
@@ -6263,6 +6367,7 @@ async function deserializeAws_queryUpdateTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6273,6 +6378,7 @@ async function deserializeAws_queryUpdateTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6324,7 +6430,7 @@ async function deserializeAws_queryVerifyDomainDkimCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -6378,7 +6484,7 @@ async function deserializeAws_queryVerifyDomainIdentityCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -6422,7 +6528,7 @@ async function deserializeAws_queryVerifyEmailAddressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -6473,7 +6579,7 @@ async function deserializeAws_queryVerifyEmailIdentityCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -8148,7 +8254,8 @@ const serializeAws_queryMessageDsn = (
 ): any => {
   const entries: any = {};
   if (input.ArrivalDate !== undefined) {
-    entries["ArrivalDate"] = input.ArrivalDate.toISOString();
+    entries["ArrivalDate"] =
+      input.ArrivalDate.toISOString().split(".")[0] + "Z";
   }
   if (input.ExtensionFields !== undefined) {
     const memberEntries = serializeAws_queryExtensionFieldList(
@@ -8445,7 +8552,8 @@ const serializeAws_queryRecipientDsnFields = (
     entries["FinalRecipient"] = input.FinalRecipient;
   }
   if (input.LastAttemptDate !== undefined) {
-    entries["LastAttemptDate"] = input.LastAttemptDate.toISOString();
+    entries["LastAttemptDate"] =
+      input.LastAttemptDate.toISOString().split(".")[0] + "Z";
   }
   if (input.RemoteMta !== undefined) {
     entries["RemoteMta"] = input.RemoteMta;
@@ -9220,7 +9328,11 @@ const deserializeAws_queryAddressList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryAlreadyExistsException = (
@@ -9297,9 +9409,13 @@ const deserializeAws_queryBulkEmailDestinationStatusList = (
   output: any,
   context: __SerdeContext
 ): Array<BulkEmailDestinationStatus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryBulkEmailDestinationStatus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryBulkEmailDestinationStatus(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryCannotDeleteException = (
@@ -9383,9 +9499,13 @@ const deserializeAws_queryCloudWatchDimensionConfigurations = (
   output: any,
   context: __SerdeContext
 ): Array<CloudWatchDimensionConfiguration> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCloudWatchDimensionConfiguration(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryCloudWatchDimensionConfiguration(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryConfigurationSet = (
@@ -9460,9 +9580,11 @@ const deserializeAws_queryConfigurationSets = (
   output: any,
   context: __SerdeContext
 ): Array<ConfigurationSet> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryConfigurationSet(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryConfigurationSet(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCreateConfigurationSetEventDestinationResponse = (
@@ -9621,9 +9743,13 @@ const deserializeAws_queryCustomVerificationEmailTemplates = (
   output: any,
   context: __SerdeContext
 ): Array<CustomVerificationEmailTemplate> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCustomVerificationEmailTemplate(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryCustomVerificationEmailTemplate(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryDeleteConfigurationSetEventDestinationResponse = (
@@ -9979,16 +10105,22 @@ const deserializeAws_queryEventDestinations = (
   output: any,
   context: __SerdeContext
 ): Array<EventDestination> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEventDestination(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryEventDestination(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryEventTypes = (
   output: any,
   context: __SerdeContext
 ): Array<EventType | string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryFromEmailAddressNotVerifiedException = (
@@ -10294,7 +10426,11 @@ const deserializeAws_queryIdentityList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryIdentityMailFromDomainAttributes = (
@@ -10971,7 +11107,11 @@ const deserializeAws_queryPolicyNameList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryProductionAccessNotGrantedException = (
@@ -11071,9 +11211,11 @@ const deserializeAws_queryReceiptActionsList = (
   output: any,
   context: __SerdeContext
 ): Array<ReceiptAction> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryReceiptAction(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryReceiptAction(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryReceiptFilter = (
@@ -11101,9 +11243,11 @@ const deserializeAws_queryReceiptFilterList = (
   output: any,
   context: __SerdeContext
 ): Array<ReceiptFilter> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryReceiptFilter(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryReceiptFilter(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryReceiptIpFilter = (
@@ -11206,25 +11350,33 @@ const deserializeAws_queryReceiptRuleSetsLists = (
   output: any,
   context: __SerdeContext
 ): Array<ReceiptRuleSetMetadata> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryReceiptRuleSetMetadata(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryReceiptRuleSetMetadata(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryReceiptRulesList = (
   output: any,
   context: __SerdeContext
 ): Array<ReceiptRule> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryReceiptRule(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryReceiptRule(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryRecipientsList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryReorderReceiptRuleSetResponse = (
@@ -11443,9 +11595,11 @@ const deserializeAws_querySendDataPointList = (
   output: any,
   context: __SerdeContext
 ): Array<SendDataPoint> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySendDataPoint(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_querySendDataPoint(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_querySendEmailResponse = (
@@ -11644,9 +11798,11 @@ const deserializeAws_queryTemplateMetadataList = (
   output: any,
   context: __SerdeContext
 ): Array<TemplateMetadata> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTemplateMetadata(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryTemplateMetadata(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTestRenderTemplateResponse = (
@@ -11771,7 +11927,11 @@ const deserializeAws_queryVerificationTokenList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryVerifyDomainDkimResponse = (

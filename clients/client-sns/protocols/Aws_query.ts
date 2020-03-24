@@ -818,7 +818,7 @@ async function deserializeAws_queryAddPermissionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -828,6 +828,7 @@ async function deserializeAws_queryAddPermissionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -838,6 +839,7 @@ async function deserializeAws_queryAddPermissionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -848,6 +850,7 @@ async function deserializeAws_queryAddPermissionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -858,6 +861,7 @@ async function deserializeAws_queryAddPermissionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -912,7 +916,7 @@ async function deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -922,6 +926,7 @@ async function deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -932,6 +937,7 @@ async function deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -942,6 +948,7 @@ async function deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -952,6 +959,7 @@ async function deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1003,7 +1011,7 @@ async function deserializeAws_queryConfirmSubscriptionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1013,6 +1021,7 @@ async function deserializeAws_queryConfirmSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1023,6 +1032,7 @@ async function deserializeAws_queryConfirmSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1033,6 +1043,7 @@ async function deserializeAws_queryConfirmSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1043,6 +1054,7 @@ async function deserializeAws_queryConfirmSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1053,6 +1065,7 @@ async function deserializeAws_queryConfirmSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1063,6 +1076,7 @@ async function deserializeAws_queryConfirmSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1117,7 +1131,7 @@ async function deserializeAws_queryCreatePlatformApplicationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1127,6 +1141,7 @@ async function deserializeAws_queryCreatePlatformApplicationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1137,6 +1152,7 @@ async function deserializeAws_queryCreatePlatformApplicationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1147,6 +1163,7 @@ async function deserializeAws_queryCreatePlatformApplicationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1201,7 +1218,7 @@ async function deserializeAws_queryCreatePlatformEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1211,6 +1228,7 @@ async function deserializeAws_queryCreatePlatformEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1221,6 +1239,7 @@ async function deserializeAws_queryCreatePlatformEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1231,6 +1250,7 @@ async function deserializeAws_queryCreatePlatformEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1241,6 +1261,7 @@ async function deserializeAws_queryCreatePlatformEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1292,7 +1313,7 @@ async function deserializeAws_queryCreateTopicCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1302,6 +1323,7 @@ async function deserializeAws_queryCreateTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1312,6 +1334,7 @@ async function deserializeAws_queryCreateTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1322,6 +1345,7 @@ async function deserializeAws_queryCreateTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1332,6 +1356,7 @@ async function deserializeAws_queryCreateTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1342,6 +1367,7 @@ async function deserializeAws_queryCreateTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1352,6 +1378,7 @@ async function deserializeAws_queryCreateTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1362,6 +1389,7 @@ async function deserializeAws_queryCreateTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1372,6 +1400,7 @@ async function deserializeAws_queryCreateTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1382,6 +1411,7 @@ async function deserializeAws_queryCreateTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1426,7 +1456,7 @@ async function deserializeAws_queryDeleteEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1436,6 +1466,7 @@ async function deserializeAws_queryDeleteEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1446,6 +1477,7 @@ async function deserializeAws_queryDeleteEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1456,6 +1488,7 @@ async function deserializeAws_queryDeleteEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1503,7 +1536,7 @@ async function deserializeAws_queryDeletePlatformApplicationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1513,6 +1546,7 @@ async function deserializeAws_queryDeletePlatformApplicationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1523,6 +1557,7 @@ async function deserializeAws_queryDeletePlatformApplicationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1533,6 +1568,7 @@ async function deserializeAws_queryDeletePlatformApplicationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1577,7 +1613,7 @@ async function deserializeAws_queryDeleteTopicCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1587,6 +1623,7 @@ async function deserializeAws_queryDeleteTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1597,6 +1634,7 @@ async function deserializeAws_queryDeleteTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1607,6 +1645,7 @@ async function deserializeAws_queryDeleteTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1617,6 +1656,7 @@ async function deserializeAws_queryDeleteTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1627,6 +1667,7 @@ async function deserializeAws_queryDeleteTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1637,6 +1678,7 @@ async function deserializeAws_queryDeleteTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1647,6 +1689,7 @@ async function deserializeAws_queryDeleteTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1701,7 +1744,7 @@ async function deserializeAws_queryGetEndpointAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1711,6 +1754,7 @@ async function deserializeAws_queryGetEndpointAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1721,6 +1765,7 @@ async function deserializeAws_queryGetEndpointAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1731,6 +1776,7 @@ async function deserializeAws_queryGetEndpointAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1741,6 +1787,7 @@ async function deserializeAws_queryGetEndpointAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1795,7 +1842,7 @@ async function deserializeAws_queryGetPlatformApplicationAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1805,6 +1852,7 @@ async function deserializeAws_queryGetPlatformApplicationAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1815,6 +1863,7 @@ async function deserializeAws_queryGetPlatformApplicationAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1825,6 +1874,7 @@ async function deserializeAws_queryGetPlatformApplicationAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1835,6 +1885,7 @@ async function deserializeAws_queryGetPlatformApplicationAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1886,7 +1937,7 @@ async function deserializeAws_queryGetSMSAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1896,6 +1947,7 @@ async function deserializeAws_queryGetSMSAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1906,6 +1958,7 @@ async function deserializeAws_queryGetSMSAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1916,6 +1969,7 @@ async function deserializeAws_queryGetSMSAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1926,6 +1980,7 @@ async function deserializeAws_queryGetSMSAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1980,7 +2035,7 @@ async function deserializeAws_queryGetSubscriptionAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1990,6 +2045,7 @@ async function deserializeAws_queryGetSubscriptionAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2000,6 +2056,7 @@ async function deserializeAws_queryGetSubscriptionAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2010,6 +2067,7 @@ async function deserializeAws_queryGetSubscriptionAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2020,6 +2078,7 @@ async function deserializeAws_queryGetSubscriptionAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2071,7 +2130,7 @@ async function deserializeAws_queryGetTopicAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2081,6 +2140,7 @@ async function deserializeAws_queryGetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2091,6 +2151,7 @@ async function deserializeAws_queryGetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2101,6 +2162,7 @@ async function deserializeAws_queryGetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2111,6 +2173,7 @@ async function deserializeAws_queryGetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2121,6 +2184,7 @@ async function deserializeAws_queryGetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2175,7 +2239,7 @@ async function deserializeAws_queryListEndpointsByPlatformApplicationCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2185,6 +2249,7 @@ async function deserializeAws_queryListEndpointsByPlatformApplicationCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2195,6 +2260,7 @@ async function deserializeAws_queryListEndpointsByPlatformApplicationCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2205,6 +2271,7 @@ async function deserializeAws_queryListEndpointsByPlatformApplicationCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2215,6 +2282,7 @@ async function deserializeAws_queryListEndpointsByPlatformApplicationCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2269,7 +2337,7 @@ async function deserializeAws_queryListPhoneNumbersOptedOutCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2279,6 +2347,7 @@ async function deserializeAws_queryListPhoneNumbersOptedOutCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2289,6 +2358,7 @@ async function deserializeAws_queryListPhoneNumbersOptedOutCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2299,6 +2369,7 @@ async function deserializeAws_queryListPhoneNumbersOptedOutCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2309,6 +2380,7 @@ async function deserializeAws_queryListPhoneNumbersOptedOutCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2363,7 +2435,7 @@ async function deserializeAws_queryListPlatformApplicationsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2373,6 +2445,7 @@ async function deserializeAws_queryListPlatformApplicationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2383,6 +2456,7 @@ async function deserializeAws_queryListPlatformApplicationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2393,6 +2467,7 @@ async function deserializeAws_queryListPlatformApplicationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2444,7 +2519,7 @@ async function deserializeAws_queryListSubscriptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2454,6 +2529,7 @@ async function deserializeAws_queryListSubscriptionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2464,6 +2540,7 @@ async function deserializeAws_queryListSubscriptionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2474,6 +2551,7 @@ async function deserializeAws_queryListSubscriptionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2528,7 +2606,7 @@ async function deserializeAws_queryListSubscriptionsByTopicCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2538,6 +2616,7 @@ async function deserializeAws_queryListSubscriptionsByTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2548,6 +2627,7 @@ async function deserializeAws_queryListSubscriptionsByTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2558,6 +2638,7 @@ async function deserializeAws_queryListSubscriptionsByTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2568,6 +2649,7 @@ async function deserializeAws_queryListSubscriptionsByTopicCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2619,7 +2701,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2629,6 +2711,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2639,6 +2722,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2649,6 +2733,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2659,6 +2744,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2669,6 +2755,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2720,7 +2807,7 @@ async function deserializeAws_queryListTopicsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2730,6 +2817,7 @@ async function deserializeAws_queryListTopicsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2740,6 +2828,7 @@ async function deserializeAws_queryListTopicsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2750,6 +2839,7 @@ async function deserializeAws_queryListTopicsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2801,7 +2891,7 @@ async function deserializeAws_queryOptInPhoneNumberCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2811,6 +2901,7 @@ async function deserializeAws_queryOptInPhoneNumberCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2821,6 +2912,7 @@ async function deserializeAws_queryOptInPhoneNumberCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2831,6 +2923,7 @@ async function deserializeAws_queryOptInPhoneNumberCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2841,6 +2934,7 @@ async function deserializeAws_queryOptInPhoneNumberCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2889,7 +2983,7 @@ async function deserializeAws_queryPublishCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2899,6 +2993,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2909,6 +3004,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2919,6 +3015,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2929,6 +3026,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2939,6 +3037,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2949,6 +3048,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2959,6 +3059,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2969,6 +3070,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2979,6 +3081,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2989,6 +3092,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2999,6 +3103,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3009,6 +3114,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3019,6 +3125,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3029,6 +3136,7 @@ async function deserializeAws_queryPublishCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3073,7 +3181,7 @@ async function deserializeAws_queryRemovePermissionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3083,6 +3191,7 @@ async function deserializeAws_queryRemovePermissionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3093,6 +3202,7 @@ async function deserializeAws_queryRemovePermissionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3103,6 +3213,7 @@ async function deserializeAws_queryRemovePermissionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3113,6 +3224,7 @@ async function deserializeAws_queryRemovePermissionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3160,7 +3272,7 @@ async function deserializeAws_querySetEndpointAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3170,6 +3282,7 @@ async function deserializeAws_querySetEndpointAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3180,6 +3293,7 @@ async function deserializeAws_querySetEndpointAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3190,6 +3304,7 @@ async function deserializeAws_querySetEndpointAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3200,6 +3315,7 @@ async function deserializeAws_querySetEndpointAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3247,7 +3363,7 @@ async function deserializeAws_querySetPlatformApplicationAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3257,6 +3373,7 @@ async function deserializeAws_querySetPlatformApplicationAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3267,6 +3384,7 @@ async function deserializeAws_querySetPlatformApplicationAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3277,6 +3395,7 @@ async function deserializeAws_querySetPlatformApplicationAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3287,6 +3406,7 @@ async function deserializeAws_querySetPlatformApplicationAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3338,7 +3458,7 @@ async function deserializeAws_querySetSMSAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3348,6 +3468,7 @@ async function deserializeAws_querySetSMSAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3358,6 +3479,7 @@ async function deserializeAws_querySetSMSAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3368,6 +3490,7 @@ async function deserializeAws_querySetSMSAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3378,6 +3501,7 @@ async function deserializeAws_querySetSMSAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3425,7 +3549,7 @@ async function deserializeAws_querySetSubscriptionAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3435,6 +3559,7 @@ async function deserializeAws_querySetSubscriptionAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3445,6 +3570,7 @@ async function deserializeAws_querySetSubscriptionAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3455,6 +3581,7 @@ async function deserializeAws_querySetSubscriptionAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3465,6 +3592,7 @@ async function deserializeAws_querySetSubscriptionAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3475,6 +3603,7 @@ async function deserializeAws_querySetSubscriptionAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3519,7 +3648,7 @@ async function deserializeAws_querySetTopicAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3529,6 +3658,7 @@ async function deserializeAws_querySetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3539,6 +3669,7 @@ async function deserializeAws_querySetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3549,6 +3680,7 @@ async function deserializeAws_querySetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3559,6 +3691,7 @@ async function deserializeAws_querySetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3569,6 +3702,7 @@ async function deserializeAws_querySetTopicAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3620,7 +3754,7 @@ async function deserializeAws_querySubscribeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3630,6 +3764,7 @@ async function deserializeAws_querySubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3640,6 +3775,7 @@ async function deserializeAws_querySubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3650,6 +3786,7 @@ async function deserializeAws_querySubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3660,6 +3797,7 @@ async function deserializeAws_querySubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3670,6 +3808,7 @@ async function deserializeAws_querySubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3680,6 +3819,7 @@ async function deserializeAws_querySubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3690,6 +3830,7 @@ async function deserializeAws_querySubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3741,7 +3882,7 @@ async function deserializeAws_queryTagResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3751,6 +3892,7 @@ async function deserializeAws_queryTagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3761,6 +3903,7 @@ async function deserializeAws_queryTagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3771,6 +3914,7 @@ async function deserializeAws_queryTagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3781,6 +3925,7 @@ async function deserializeAws_queryTagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3791,6 +3936,7 @@ async function deserializeAws_queryTagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3801,6 +3947,7 @@ async function deserializeAws_queryTagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3811,6 +3958,7 @@ async function deserializeAws_queryTagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3855,7 +4003,7 @@ async function deserializeAws_queryUnsubscribeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3865,6 +4013,7 @@ async function deserializeAws_queryUnsubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3875,6 +4024,7 @@ async function deserializeAws_queryUnsubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3885,6 +4035,7 @@ async function deserializeAws_queryUnsubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3895,6 +4046,7 @@ async function deserializeAws_queryUnsubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3905,6 +4057,7 @@ async function deserializeAws_queryUnsubscribeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3956,7 +4109,7 @@ async function deserializeAws_queryUntagResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3966,6 +4119,7 @@ async function deserializeAws_queryUntagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3976,6 +4130,7 @@ async function deserializeAws_queryUntagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3986,6 +4141,7 @@ async function deserializeAws_queryUntagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3996,6 +4152,7 @@ async function deserializeAws_queryUntagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4006,6 +4163,7 @@ async function deserializeAws_queryUntagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4016,6 +4174,7 @@ async function deserializeAws_queryUntagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4026,6 +4185,7 @@ async function deserializeAws_queryUntagResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4826,8 +4986,8 @@ const serializeAws_queryMapStringToString = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input).forEach(key => {
-    entries[`entry.key.${counter}`] = key;
-    entries[`entry.value.${counter}`] = input[key];
+    entries[`entry.${counter}.key`] = key;
+    entries[`entry.${counter}.value`] = input[key];
     counter++;
   });
   return entries;
@@ -4840,13 +5000,13 @@ const serializeAws_queryMessageAttributeMap = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input).forEach(key => {
-    entries[`entry.Name.${counter}`] = key;
+    entries[`entry.${counter}.Name`] = key;
     const memberEntries = serializeAws_queryMessageAttributeValue(
       input[key],
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      entries[`entry.Value.${counter}.${key}`] = memberEntries[key];
+      entries[`entry.${counter}.Value.${key}`] = memberEntries[key];
     });
     counter++;
   });
@@ -5062,8 +5222,8 @@ const serializeAws_querySubscriptionAttributesMap = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input).forEach(key => {
-    entries[`entry.key.${counter}`] = key;
-    entries[`entry.value.${counter}`] = input[key];
+    entries[`entry.${counter}.key`] = key;
+    entries[`entry.${counter}.value`] = input[key];
     counter++;
   });
   return entries;
@@ -5134,8 +5294,8 @@ const serializeAws_queryTopicAttributesMap = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input).forEach(key => {
-    entries[`entry.key.${counter}`] = key;
-    entries[`entry.value.${counter}`] = input[key];
+    entries[`entry.${counter}.key`] = key;
+    entries[`entry.${counter}.value`] = input[key];
     counter++;
   });
   return entries;
@@ -5637,18 +5797,22 @@ const deserializeAws_queryListOfEndpoints = (
   output: any,
   context: __SerdeContext
 ): Array<Endpoint> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEndpoint(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryEndpoint(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryListOfPlatformApplications = (
   output: any,
   context: __SerdeContext
 ): Array<PlatformApplication> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryPlatformApplication(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryPlatformApplication(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
@@ -5863,7 +6027,11 @@ const deserializeAws_queryPhoneNumberList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryPlatformApplication = (
@@ -6036,9 +6204,11 @@ const deserializeAws_querySubscriptionsList = (
   output: any,
   context: __SerdeContext
 ): Array<Subscription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySubscription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_querySubscription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -6074,9 +6244,11 @@ const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
 ): Array<Tag> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTag(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryTag(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTagPolicyException = (
@@ -6160,9 +6332,11 @@ const deserializeAws_queryTopicsList = (
   output: any,
   context: __SerdeContext
 ): Array<Topic> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTopic(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryTopic(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryUntagResourceResponse = (

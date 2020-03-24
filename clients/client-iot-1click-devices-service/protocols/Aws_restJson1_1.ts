@@ -291,7 +291,9 @@ export async function serializeAws_restJson1_1ListDeviceEventsCommand(
   }
   const query: any = {};
   if (input.FromTimeStamp !== undefined) {
-    query["fromTimeStamp"] = input.FromTimeStamp.toISOString().toString();
+    query["fromTimeStamp"] = (
+      input.FromTimeStamp.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
@@ -300,7 +302,9 @@ export async function serializeAws_restJson1_1ListDeviceEventsCommand(
     query["nextToken"] = input.NextToken;
   }
   if (input.ToTimeStamp !== undefined) {
-    query["toTimeStamp"] = input.ToTimeStamp.toISOString().toString();
+    query["toTimeStamp"] = (
+      input.ToTimeStamp.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -460,7 +464,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -537,19 +541,22 @@ async function deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ClaimDevicesByClaimCodeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.iot_1click_devices_service#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -557,9 +564,10 @@ async function deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError(
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -567,14 +575,15 @@ async function deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -619,19 +628,22 @@ async function deserializeAws_restJson1_1DescribeDeviceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -639,9 +651,10 @@ async function deserializeAws_restJson1_1DescribeDeviceCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -649,14 +662,15 @@ async function deserializeAws_restJson1_1DescribeDeviceCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -698,19 +712,22 @@ async function deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FinalizeDeviceClaimCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -718,9 +735,10 @@ async function deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -728,9 +746,10 @@ async function deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(
     case "com.amazonaws.iot_1click_devices_service#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -738,9 +757,10 @@ async function deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -748,14 +768,15 @@ async function deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -800,19 +821,22 @@ async function deserializeAws_restJson1_1GetDeviceMethodsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceMethodsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -820,9 +844,10 @@ async function deserializeAws_restJson1_1GetDeviceMethodsCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -830,14 +855,15 @@ async function deserializeAws_restJson1_1GetDeviceMethodsCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -879,19 +905,22 @@ async function deserializeAws_restJson1_1InitiateDeviceClaimCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateDeviceClaimCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -899,9 +928,10 @@ async function deserializeAws_restJson1_1InitiateDeviceClaimCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -909,9 +939,10 @@ async function deserializeAws_restJson1_1InitiateDeviceClaimCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -919,14 +950,15 @@ async function deserializeAws_restJson1_1InitiateDeviceClaimCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -971,19 +1003,22 @@ async function deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeDeviceMethodCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -991,9 +1026,10 @@ async function deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1001,9 +1037,10 @@ async function deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
     case "com.amazonaws.iot_1click_devices_service#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1011,9 +1048,10 @@ async function deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
     case "com.amazonaws.iot_1click_devices_service#RangeNotSatisfiableException":
       response = {
         ...(await deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1021,9 +1059,10 @@ async function deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1031,14 +1070,15 @@ async function deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1087,19 +1127,22 @@ async function deserializeAws_restJson1_1ListDeviceEventsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceEventsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1107,9 +1150,10 @@ async function deserializeAws_restJson1_1ListDeviceEventsCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1117,9 +1161,10 @@ async function deserializeAws_restJson1_1ListDeviceEventsCommandError(
     case "com.amazonaws.iot_1click_devices_service#RangeNotSatisfiableException":
       response = {
         ...(await deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1127,14 +1172,15 @@ async function deserializeAws_restJson1_1ListDeviceEventsCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1180,19 +1226,22 @@ async function deserializeAws_restJson1_1ListDevicesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1200,9 +1249,10 @@ async function deserializeAws_restJson1_1ListDevicesCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1210,14 +1260,15 @@ async function deserializeAws_restJson1_1ListDevicesCommandError(
     case "com.amazonaws.iot_1click_devices_service#RangeNotSatisfiableException":
       response = {
         ...(await deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1262,19 +1313,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1282,14 +1336,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1323,19 +1378,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1343,9 +1401,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1353,14 +1412,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1399,19 +1459,22 @@ async function deserializeAws_restJson1_1UnclaimDeviceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnclaimDeviceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1419,9 +1482,10 @@ async function deserializeAws_restJson1_1UnclaimDeviceCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1429,14 +1493,15 @@ async function deserializeAws_restJson1_1UnclaimDeviceCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1470,19 +1535,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1490,9 +1558,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1500,14 +1569,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1545,19 +1615,22 @@ async function deserializeAws_restJson1_1UpdateDeviceStateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceStateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1565,9 +1638,10 @@ async function deserializeAws_restJson1_1UpdateDeviceStateCommandError(
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1575,14 +1649,15 @@ async function deserializeAws_restJson1_1UpdateDeviceStateCommandError(
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1599,17 +1674,17 @@ async function deserializeAws_restJson1_1UpdateDeviceStateCommandError(
 }
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
@@ -1620,17 +1695,17 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
@@ -1641,17 +1716,17 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
@@ -1662,17 +1737,17 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<PreconditionFailedException> => {
   const contents: PreconditionFailedException = {
     name: "PreconditionFailedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
@@ -1683,17 +1758,17 @@ const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<RangeNotSatisfiableException> => {
   const contents: RangeNotSatisfiableException = {
     name: "RangeNotSatisfiableException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
@@ -1704,17 +1779,17 @@ const deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceConflictException> => {
   const contents: ResourceConflictException = {
     name: "ResourceConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
@@ -1725,17 +1800,17 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
     contents.Code = data.code;
   }
@@ -1970,4 +2045,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

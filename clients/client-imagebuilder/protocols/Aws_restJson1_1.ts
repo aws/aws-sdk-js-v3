@@ -1456,7 +1456,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1670,19 +1670,22 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelImageCreationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1690,9 +1693,10 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1700,9 +1704,10 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1710,9 +1715,10 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1720,9 +1726,10 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1730,9 +1737,10 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1740,9 +1748,10 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1750,14 +1759,15 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1810,19 +1820,22 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1830,9 +1843,10 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1840,9 +1854,10 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1850,9 +1865,10 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1860,9 +1876,10 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1870,9 +1887,10 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1880,9 +1898,10 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1890,9 +1909,10 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1900,9 +1920,10 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1910,14 +1931,15 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1970,19 +1992,22 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDistributionConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1990,9 +2015,10 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2000,9 +2026,10 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2010,9 +2037,10 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2020,9 +2048,10 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2030,9 +2059,10 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2040,9 +2070,10 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2050,9 +2081,10 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2060,9 +2092,10 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2070,14 +2103,15 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2127,19 +2161,22 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2147,9 +2184,10 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2157,9 +2195,10 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2167,9 +2206,10 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2177,9 +2217,10 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2187,9 +2228,10 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2197,9 +2239,10 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2207,14 +2250,15 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2264,19 +2308,22 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImagePipelineCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2284,9 +2331,10 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2294,9 +2342,10 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2304,9 +2353,10 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2314,9 +2364,10 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2324,9 +2375,10 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2334,9 +2386,10 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2344,9 +2397,10 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2354,14 +2408,15 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2411,19 +2466,22 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageRecipeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2431,9 +2489,10 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2441,9 +2500,10 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2451,9 +2511,10 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2461,9 +2522,10 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2471,9 +2533,10 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2481,9 +2544,10 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2491,9 +2555,10 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2501,9 +2566,10 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2511,14 +2577,15 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2572,19 +2639,22 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInfrastructureConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2592,9 +2662,10 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2602,9 +2673,10 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2612,9 +2684,10 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2622,9 +2695,10 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2632,9 +2706,10 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2642,9 +2717,10 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2652,9 +2728,10 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2662,14 +2739,15 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2718,19 +2796,22 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2738,9 +2819,10 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2748,9 +2830,10 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2758,9 +2841,10 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2768,9 +2852,10 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
     case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2778,9 +2863,10 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2788,14 +2874,15 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2844,19 +2931,22 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDistributionConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2864,9 +2954,10 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2874,9 +2965,10 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2884,9 +2976,10 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2894,9 +2987,10 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2904,9 +2998,10 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2914,14 +3009,15 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2967,19 +3063,22 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2987,9 +3086,10 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2997,9 +3097,10 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3007,9 +3108,10 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3017,9 +3119,10 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
     case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3027,9 +3130,10 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3037,14 +3141,15 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3090,19 +3195,22 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImagePipelineCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3110,9 +3218,10 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3120,9 +3229,10 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3130,9 +3240,10 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3140,9 +3251,10 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3150,9 +3262,10 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3160,14 +3273,15 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3213,19 +3327,22 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageRecipeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3233,9 +3350,10 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3243,9 +3361,10 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3253,9 +3372,10 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3263,9 +3383,10 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3273,9 +3394,10 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3283,14 +3405,15 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3340,19 +3463,22 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInfrastructureConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3360,9 +3486,10 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3370,9 +3497,10 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3380,9 +3508,10 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3390,9 +3519,10 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3400,9 +3530,10 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3410,14 +3541,15 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3463,19 +3595,22 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComponentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3483,9 +3618,10 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3493,9 +3629,10 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3503,9 +3640,10 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3513,9 +3651,10 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3523,14 +3662,15 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3576,19 +3716,22 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComponentPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3596,9 +3739,10 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3606,9 +3750,10 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3616,9 +3761,10 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3626,9 +3772,10 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3636,14 +3783,15 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3695,19 +3843,22 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDistributionConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3715,9 +3866,10 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3725,9 +3877,10 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3735,9 +3888,10 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3745,9 +3899,10 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3755,14 +3910,15 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3805,19 +3961,22 @@ async function deserializeAws_restJson1_1GetImageCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImageCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3825,9 +3984,10 @@ async function deserializeAws_restJson1_1GetImageCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3835,9 +3995,10 @@ async function deserializeAws_restJson1_1GetImageCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3845,9 +4006,10 @@ async function deserializeAws_restJson1_1GetImageCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3855,9 +4017,10 @@ async function deserializeAws_restJson1_1GetImageCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3865,14 +4028,15 @@ async function deserializeAws_restJson1_1GetImageCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3921,19 +4085,22 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImagePipelineCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3941,9 +4108,10 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3951,9 +4119,10 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3961,9 +4130,10 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3971,9 +4141,10 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3981,14 +4152,15 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4034,19 +4206,22 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImagePolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4054,9 +4229,10 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4064,9 +4240,10 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4074,9 +4251,10 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4084,9 +4262,10 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4094,14 +4273,15 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4150,19 +4330,22 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImageRecipeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4170,9 +4353,10 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4180,9 +4364,10 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4190,9 +4375,10 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4200,9 +4386,10 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4210,14 +4397,15 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4263,19 +4451,22 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImageRecipePolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4283,9 +4474,10 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4293,9 +4485,10 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4303,9 +4496,10 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4313,9 +4507,10 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4323,14 +4518,15 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4382,19 +4578,22 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInfrastructureConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4402,9 +4601,10 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4412,9 +4612,10 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4422,9 +4623,10 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4432,9 +4634,10 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4442,14 +4645,15 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4502,19 +4706,22 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportComponentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4522,9 +4729,10 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4532,9 +4740,10 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4542,9 +4751,10 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4552,9 +4762,10 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4562,9 +4773,10 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4572,9 +4784,10 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4582,9 +4795,10 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4592,9 +4806,10 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4602,14 +4817,15 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4665,19 +4881,22 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComponentBuildVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4685,9 +4904,10 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4695,9 +4915,10 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4705,9 +4926,10 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4715,9 +4937,10 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4725,9 +4948,10 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4735,14 +4959,15 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4798,19 +5023,22 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4818,9 +5046,10 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4828,9 +5057,10 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4838,9 +5068,10 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
     case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4848,9 +5079,10 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4858,9 +5090,10 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4868,14 +5101,15 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4931,19 +5165,22 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDistributionConfigurationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4951,9 +5188,10 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4961,9 +5199,10 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4971,9 +5210,10 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
     case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4981,9 +5221,10 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4991,9 +5232,10 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5001,14 +5243,15 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5061,19 +5304,22 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImageBuildVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5081,9 +5327,10 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5091,9 +5338,10 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5101,9 +5349,10 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5111,9 +5360,10 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5121,9 +5371,10 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5131,14 +5382,15 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5191,19 +5443,22 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImagePipelineImagesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5211,9 +5466,10 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5221,9 +5477,10 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5231,9 +5488,10 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
     case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5241,9 +5499,10 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5251,9 +5510,10 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5261,9 +5521,10 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5271,14 +5532,15 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5331,19 +5593,22 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImagePipelinesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5351,9 +5616,10 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5361,9 +5627,10 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5371,9 +5638,10 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
     case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5381,9 +5649,10 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5391,9 +5660,10 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5401,14 +5671,15 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5464,19 +5735,22 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImageRecipesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5484,9 +5758,10 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5494,9 +5769,10 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5504,9 +5780,10 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
     case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5514,9 +5791,10 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5524,9 +5802,10 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5534,14 +5813,15 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5591,19 +5871,22 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImagesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5611,9 +5894,10 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5621,9 +5905,10 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5631,9 +5916,10 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
     case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5641,9 +5927,10 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5651,9 +5938,10 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5661,14 +5949,15 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5724,19 +6013,22 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInfrastructureConfigurationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5744,9 +6036,10 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5754,9 +6047,10 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5764,9 +6058,10 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
     case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5774,9 +6069,10 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5784,9 +6080,10 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5794,14 +6091,15 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5843,19 +6141,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.imagebuilder#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5863,9 +6164,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5873,14 +6175,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5926,19 +6229,22 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutComponentPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5946,9 +6252,10 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5956,9 +6263,10 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5966,9 +6274,10 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5976,9 +6285,10 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5986,9 +6296,10 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5996,9 +6307,10 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6006,14 +6318,15 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6059,19 +6372,22 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImagePolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6079,9 +6395,10 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6089,9 +6406,10 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6099,9 +6417,10 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6109,9 +6428,10 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6119,9 +6439,10 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6129,9 +6450,10 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6139,14 +6461,15 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6192,19 +6515,22 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageRecipePolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6212,9 +6538,10 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6222,9 +6549,10 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6232,9 +6560,10 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6242,9 +6571,10 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6252,9 +6582,10 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6262,9 +6593,10 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6272,14 +6604,15 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6332,19 +6665,22 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImagePipelineExecutionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6352,9 +6688,10 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6362,9 +6699,10 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6372,9 +6710,10 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6382,9 +6721,10 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6392,9 +6732,10 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6402,9 +6743,10 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6412,9 +6754,10 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6422,14 +6765,15 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6464,19 +6808,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.imagebuilder#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6484,9 +6831,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6494,14 +6842,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6536,19 +6885,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.imagebuilder#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6556,9 +6908,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6566,14 +6919,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6626,19 +6980,22 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDistributionConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6646,9 +7003,10 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6656,9 +7014,10 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6666,9 +7025,10 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6676,9 +7036,10 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6686,9 +7047,10 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6696,9 +7058,10 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6706,9 +7069,10 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6716,14 +7080,15 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6773,19 +7138,22 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateImagePipelineCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6793,9 +7161,10 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6803,9 +7172,10 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6813,9 +7183,10 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6823,9 +7194,10 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6833,9 +7205,10 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6843,9 +7216,10 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6853,14 +7227,15 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6914,19 +7289,22 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInfrastructureConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6934,9 +7312,10 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6944,9 +7323,10 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6954,9 +7334,10 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6964,9 +7345,10 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6974,9 +7356,10 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6984,9 +7367,10 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6994,14 +7378,15 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7018,16 +7403,16 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
 }
 
 const deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<CallRateLimitExceededException> => {
   const contents: CallRateLimitExceededException = {
     name: "CallRateLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7035,16 +7420,16 @@ const deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ClientExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClientException> => {
   const contents: ClientException = {
     name: "ClientException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7052,16 +7437,16 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7069,16 +7454,16 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const contents: IdempotentParameterMismatchException = {
     name: "IdempotentParameterMismatchException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7086,16 +7471,16 @@ const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = a
 };
 
 const deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPaginationTokenException> => {
   const contents: InvalidPaginationTokenException = {
     name: "InvalidPaginationTokenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7103,16 +7488,16 @@ const deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse = async 
 };
 
 const deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterCombinationException> => {
   const contents: InvalidParameterCombinationException = {
     name: "InvalidParameterCombinationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7120,16 +7505,16 @@ const deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse = a
 };
 
 const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7137,16 +7522,16 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7154,16 +7539,16 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7171,16 +7556,16 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidVersionNumberException> => {
   const contents: InvalidVersionNumberException = {
     name: "InvalidVersionNumberException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7188,16 +7573,16 @@ const deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7205,16 +7590,16 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceDependencyExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceDependencyException> => {
   const contents: ResourceDependencyException = {
     name: "ResourceDependencyException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7222,16 +7607,16 @@ const deserializeAws_restJson1_1ResourceDependencyExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7239,16 +7624,16 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7256,16 +7641,16 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServiceExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceException> => {
   const contents: ServiceException = {
     name: "ServiceException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7273,16 +7658,16 @@ const deserializeAws_restJson1_1ServiceExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -8865,4 +9250,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

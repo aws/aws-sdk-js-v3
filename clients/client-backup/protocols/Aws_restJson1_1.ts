@@ -1059,10 +1059,14 @@ export async function serializeAws_restJson1_1ListBackupJobsCommand(
     query["backupVaultName"] = input.ByBackupVaultName;
   }
   if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = input.ByCreatedAfter.toISOString().toString();
+    query["createdAfter"] = (
+      input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = input.ByCreatedBefore.toISOString().toString();
+    query["createdBefore"] = (
+      input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.ByResourceArn !== undefined) {
     query["resourceArn"] = input.ByResourceArn;
@@ -1249,10 +1253,14 @@ export async function serializeAws_restJson1_1ListCopyJobsCommand(
   let resolvedPath = "/copy-jobs";
   const query: any = {};
   if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = input.ByCreatedAfter.toISOString().toString();
+    query["createdAfter"] = (
+      input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = input.ByCreatedBefore.toISOString().toString();
+    query["createdBefore"] = (
+      input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.ByDestinationVaultArn !== undefined) {
     query["destinationVaultArn"] = input.ByDestinationVaultArn;
@@ -1332,10 +1340,14 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
     query["backupPlanId"] = input.ByBackupPlanId;
   }
   if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = input.ByCreatedAfter.toISOString().toString();
+    query["createdAfter"] = (
+      input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = input.ByCreatedBefore.toISOString().toString();
+    query["createdBefore"] = (
+      input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.ByResourceArn !== undefined) {
     query["resourceArn"] = input.ByResourceArn;
@@ -1911,19 +1923,22 @@ async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupPlanCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1931,9 +1946,10 @@ async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1941,9 +1957,10 @@ async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1951,9 +1968,10 @@ async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1961,14 +1979,15 @@ async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2018,19 +2037,22 @@ async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupSelectionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2038,9 +2060,10 @@ async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2048,9 +2071,10 @@ async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2058,9 +2082,10 @@ async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2068,14 +2093,15 @@ async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2125,19 +2151,22 @@ async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupVaultCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2145,9 +2174,10 @@ async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2155,9 +2185,10 @@ async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2165,9 +2196,10 @@ async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2175,14 +2207,15 @@ async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2236,19 +2269,22 @@ async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupPlanCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2256,9 +2292,10 @@ async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2266,9 +2303,10 @@ async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2276,9 +2314,10 @@ async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2286,14 +2325,15 @@ async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2330,19 +2370,22 @@ async function deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupSelectionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2350,9 +2393,10 @@ async function deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2360,9 +2404,10 @@ async function deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2370,14 +2415,15 @@ async function deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2414,19 +2460,22 @@ async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2434,9 +2483,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2444,9 +2494,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2454,9 +2505,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2464,14 +2516,15 @@ async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2508,19 +2561,22 @@ async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2528,9 +2584,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandErr
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2538,9 +2595,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandErr
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2548,14 +2606,15 @@ async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandErr
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2592,19 +2651,22 @@ async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultNotificationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2612,9 +2674,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandEr
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2622,9 +2685,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandEr
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2632,14 +2696,15 @@ async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandEr
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2676,19 +2741,22 @@ async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecoveryPointCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2696,9 +2764,10 @@ async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2706,9 +2775,10 @@ async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2716,9 +2786,10 @@ async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2726,14 +2797,15 @@ async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2847,19 +2919,22 @@ async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.services.cryo#DependencyFailureException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2867,9 +2942,10 @@ async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2877,9 +2953,10 @@ async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2887,9 +2964,10 @@ async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2897,14 +2975,15 @@ async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2969,19 +3048,22 @@ async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupVaultCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2989,9 +3071,10 @@ async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2999,9 +3082,10 @@ async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3009,14 +3093,15 @@ async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3058,19 +3143,22 @@ async function deserializeAws_restJson1_1DescribeCopyJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCopyJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3078,9 +3166,10 @@ async function deserializeAws_restJson1_1DescribeCopyJobCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3088,9 +3177,10 @@ async function deserializeAws_restJson1_1DescribeCopyJobCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3098,14 +3188,15 @@ async function deserializeAws_restJson1_1DescribeCopyJobCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3155,19 +3246,22 @@ async function deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProtectedResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3175,9 +3269,10 @@ async function deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3185,9 +3280,10 @@ async function deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3195,14 +3291,15 @@ async function deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3322,19 +3419,22 @@ async function deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecoveryPointCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3342,9 +3442,10 @@ async function deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3352,9 +3453,10 @@ async function deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3362,14 +3464,15 @@ async function deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3457,19 +3560,22 @@ async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRestoreJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.services.cryo#DependencyFailureException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3477,9 +3583,10 @@ async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3487,9 +3594,10 @@ async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3497,9 +3605,10 @@ async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3507,14 +3616,15 @@ async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3559,19 +3669,22 @@ async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportBackupPlanTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3579,9 +3692,10 @@ async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3589,9 +3703,10 @@ async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3599,14 +3714,15 @@ async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3678,19 +3794,22 @@ async function deserializeAws_restJson1_1GetBackupPlanCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3698,9 +3817,10 @@ async function deserializeAws_restJson1_1GetBackupPlanCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3708,9 +3828,10 @@ async function deserializeAws_restJson1_1GetBackupPlanCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3718,14 +3839,15 @@ async function deserializeAws_restJson1_1GetBackupPlanCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3770,19 +3892,22 @@ async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromJSONCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3790,9 +3915,10 @@ async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3800,9 +3926,10 @@ async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3810,9 +3937,10 @@ async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3820,14 +3948,15 @@ async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3875,19 +4004,22 @@ async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3895,9 +4027,10 @@ async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3905,9 +4038,10 @@ async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3915,14 +4049,15 @@ async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3983,19 +4118,22 @@ async function deserializeAws_restJson1_1GetBackupSelectionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupSelectionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4003,9 +4141,10 @@ async function deserializeAws_restJson1_1GetBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4013,9 +4152,10 @@ async function deserializeAws_restJson1_1GetBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4023,14 +4163,15 @@ async function deserializeAws_restJson1_1GetBackupSelectionCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4080,19 +4221,22 @@ async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultAccessPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4100,9 +4244,10 @@ async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4110,9 +4255,10 @@ async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4120,14 +4266,15 @@ async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4184,19 +4331,22 @@ async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultNotificationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4204,9 +4354,10 @@ async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4214,9 +4365,10 @@ async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4224,14 +4376,15 @@ async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4284,19 +4437,22 @@ async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4304,9 +4460,10 @@ async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandE
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4314,9 +4471,10 @@ async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandE
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4324,14 +4482,15 @@ async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandE
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4376,24 +4535,27 @@ async function deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSupportedResourceTypesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4442,19 +4604,22 @@ async function deserializeAws_restJson1_1ListBackupJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupJobsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4462,9 +4627,10 @@ async function deserializeAws_restJson1_1ListBackupJobsCommandError(
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4472,14 +4638,15 @@ async function deserializeAws_restJson1_1ListBackupJobsCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4531,19 +4698,22 @@ async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanTemplatesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4551,9 +4721,10 @@ async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4561,9 +4732,10 @@ async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4571,14 +4743,15 @@ async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4630,19 +4803,22 @@ async function deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4650,9 +4826,10 @@ async function deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4660,9 +4837,10 @@ async function deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4670,14 +4848,15 @@ async function deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4726,19 +4905,22 @@ async function deserializeAws_restJson1_1ListBackupPlansCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlansCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4746,9 +4928,10 @@ async function deserializeAws_restJson1_1ListBackupPlansCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4756,9 +4939,10 @@ async function deserializeAws_restJson1_1ListBackupPlansCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4766,14 +4950,15 @@ async function deserializeAws_restJson1_1ListBackupPlansCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4825,19 +5010,22 @@ async function deserializeAws_restJson1_1ListBackupSelectionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupSelectionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4845,9 +5033,10 @@ async function deserializeAws_restJson1_1ListBackupSelectionsCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4855,9 +5044,10 @@ async function deserializeAws_restJson1_1ListBackupSelectionsCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4865,14 +5055,15 @@ async function deserializeAws_restJson1_1ListBackupSelectionsCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4921,19 +5112,22 @@ async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupVaultsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4941,9 +5135,10 @@ async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4951,9 +5146,10 @@ async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4961,14 +5157,15 @@ async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5014,19 +5211,22 @@ async function deserializeAws_restJson1_1ListCopyJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCopyJobsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5034,14 +5234,15 @@ async function deserializeAws_restJson1_1ListCopyJobsCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5090,19 +5291,22 @@ async function deserializeAws_restJson1_1ListProtectedResourcesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtectedResourcesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5110,14 +5314,15 @@ async function deserializeAws_restJson1_1ListProtectedResourcesCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5166,19 +5371,22 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5186,9 +5394,10 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandE
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5196,9 +5405,10 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandE
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5206,14 +5416,15 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandE
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5262,19 +5473,22 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5282,9 +5496,10 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandErro
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5292,9 +5507,10 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandErro
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5302,14 +5518,15 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandErro
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5358,19 +5575,22 @@ async function deserializeAws_restJson1_1ListRestoreJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRestoreJobsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5378,9 +5598,10 @@ async function deserializeAws_restJson1_1ListRestoreJobsCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5388,9 +5609,10 @@ async function deserializeAws_restJson1_1ListRestoreJobsCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5398,14 +5620,15 @@ async function deserializeAws_restJson1_1ListRestoreJobsCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5448,19 +5671,22 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5468,9 +5694,10 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5478,9 +5705,10 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5488,14 +5716,15 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5532,19 +5761,22 @@ async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultAccessPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5552,9 +5784,10 @@ async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5562,9 +5795,10 @@ async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5572,14 +5806,15 @@ async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5616,19 +5851,22 @@ async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultNotificationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5636,9 +5874,10 @@ async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5646,9 +5885,10 @@ async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5656,14 +5896,15 @@ async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5713,19 +5954,22 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBackupJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5733,9 +5977,10 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5743,9 +5988,10 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5753,9 +5999,10 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5763,14 +6010,15 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5813,19 +6061,22 @@ async function deserializeAws_restJson1_1StartCopyJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCopyJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5833,9 +6084,10 @@ async function deserializeAws_restJson1_1StartCopyJobCommandError(
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5843,9 +6095,10 @@ async function deserializeAws_restJson1_1StartCopyJobCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5853,9 +6106,10 @@ async function deserializeAws_restJson1_1StartCopyJobCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5863,14 +6117,15 @@ async function deserializeAws_restJson1_1StartCopyJobCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5912,19 +6167,22 @@ async function deserializeAws_restJson1_1StartRestoreJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartRestoreJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5932,9 +6190,10 @@ async function deserializeAws_restJson1_1StartRestoreJobCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5942,9 +6201,10 @@ async function deserializeAws_restJson1_1StartRestoreJobCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5952,14 +6212,15 @@ async function deserializeAws_restJson1_1StartRestoreJobCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5993,19 +6254,22 @@ async function deserializeAws_restJson1_1StopBackupJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBackupJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6013,9 +6277,10 @@ async function deserializeAws_restJson1_1StopBackupJobCommandError(
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6023,9 +6288,10 @@ async function deserializeAws_restJson1_1StopBackupJobCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6033,9 +6299,10 @@ async function deserializeAws_restJson1_1StopBackupJobCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6043,14 +6310,15 @@ async function deserializeAws_restJson1_1StopBackupJobCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6084,19 +6352,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6104,9 +6375,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6114,9 +6386,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6124,9 +6397,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6134,14 +6408,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6175,19 +6450,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6195,9 +6473,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6205,9 +6484,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6215,14 +6495,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6276,19 +6557,22 @@ async function deserializeAws_restJson1_1UpdateBackupPlanCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackupPlanCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6296,9 +6580,10 @@ async function deserializeAws_restJson1_1UpdateBackupPlanCommandError(
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6306,9 +6591,10 @@ async function deserializeAws_restJson1_1UpdateBackupPlanCommandError(
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6316,14 +6602,15 @@ async function deserializeAws_restJson1_1UpdateBackupPlanCommandError(
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6386,19 +6673,22 @@ async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRecoveryPointLifecycleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6406,9 +6696,10 @@ async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandErro
     case "com.amazonaws.services.cryo#MissingParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6416,9 +6707,10 @@ async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandErro
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6426,14 +6718,15 @@ async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandErro
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6450,13 +6743,13 @@ async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandErro
 }
 
 const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Arn: undefined,
     Code: undefined,
     Context: undefined,
@@ -6464,7 +6757,7 @@ const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = data.Arn;
   }
@@ -6487,19 +6780,19 @@ const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1DependencyFailureExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyFailureException> => {
   const contents: DependencyFailureException = {
     name: "DependencyFailureException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Context: undefined,
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
@@ -6516,19 +6809,19 @@ const deserializeAws_restJson1_1DependencyFailureExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Context: undefined,
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
@@ -6545,19 +6838,19 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Context: undefined,
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
@@ -6574,19 +6867,19 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Context: undefined,
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
@@ -6603,19 +6896,19 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1MissingParameterValueExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingParameterValueException> => {
   const contents: MissingParameterValueException = {
     name: "MissingParameterValueException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Context: undefined,
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
@@ -6632,19 +6925,19 @@ const deserializeAws_restJson1_1MissingParameterValueExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Context: undefined,
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
@@ -6661,19 +6954,19 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,
     Context: undefined,
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = data.Code;
   }
@@ -7925,4 +8218,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

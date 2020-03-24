@@ -1280,7 +1280,7 @@ async function deserializeAws_queryAttachInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1290,6 +1290,7 @@ async function deserializeAws_queryAttachInstancesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1300,6 +1301,7 @@ async function deserializeAws_queryAttachInstancesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1354,7 +1356,7 @@ async function deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1364,6 +1366,7 @@ async function deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1374,6 +1377,7 @@ async function deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1425,7 +1429,7 @@ async function deserializeAws_queryAttachLoadBalancersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1435,6 +1439,7 @@ async function deserializeAws_queryAttachLoadBalancersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1445,6 +1450,7 @@ async function deserializeAws_queryAttachLoadBalancersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1499,7 +1505,7 @@ async function deserializeAws_queryBatchDeleteScheduledActionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1509,6 +1515,7 @@ async function deserializeAws_queryBatchDeleteScheduledActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1563,7 +1570,7 @@ async function deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1573,6 +1580,7 @@ async function deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1583,6 +1591,7 @@ async function deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1593,6 +1602,7 @@ async function deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1647,7 +1657,7 @@ async function deserializeAws_queryCompleteLifecycleActionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1657,6 +1667,7 @@ async function deserializeAws_queryCompleteLifecycleActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1704,7 +1715,7 @@ async function deserializeAws_queryCreateAutoScalingGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1714,6 +1725,7 @@ async function deserializeAws_queryCreateAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1724,6 +1736,7 @@ async function deserializeAws_queryCreateAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1734,6 +1747,7 @@ async function deserializeAws_queryCreateAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1744,6 +1758,7 @@ async function deserializeAws_queryCreateAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1791,7 +1806,7 @@ async function deserializeAws_queryCreateLaunchConfigurationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1801,6 +1816,7 @@ async function deserializeAws_queryCreateLaunchConfigurationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1811,6 +1827,7 @@ async function deserializeAws_queryCreateLaunchConfigurationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1821,6 +1838,7 @@ async function deserializeAws_queryCreateLaunchConfigurationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1865,7 +1883,7 @@ async function deserializeAws_queryCreateOrUpdateTagsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1875,6 +1893,7 @@ async function deserializeAws_queryCreateOrUpdateTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1885,6 +1904,7 @@ async function deserializeAws_queryCreateOrUpdateTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1895,6 +1915,7 @@ async function deserializeAws_queryCreateOrUpdateTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1905,6 +1926,7 @@ async function deserializeAws_queryCreateOrUpdateTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1952,7 +1974,7 @@ async function deserializeAws_queryDeleteAutoScalingGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1962,6 +1984,7 @@ async function deserializeAws_queryDeleteAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1972,6 +1995,7 @@ async function deserializeAws_queryDeleteAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1982,6 +2006,7 @@ async function deserializeAws_queryDeleteAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2029,7 +2054,7 @@ async function deserializeAws_queryDeleteLaunchConfigurationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2039,6 +2064,7 @@ async function deserializeAws_queryDeleteLaunchConfigurationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2049,6 +2075,7 @@ async function deserializeAws_queryDeleteLaunchConfigurationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2100,7 +2127,7 @@ async function deserializeAws_queryDeleteLifecycleHookCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2110,6 +2137,7 @@ async function deserializeAws_queryDeleteLifecycleHookCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2157,7 +2185,7 @@ async function deserializeAws_queryDeleteNotificationConfigurationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2167,6 +2195,7 @@ async function deserializeAws_queryDeleteNotificationConfigurationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2211,7 +2240,7 @@ async function deserializeAws_queryDeletePolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2221,6 +2250,7 @@ async function deserializeAws_queryDeletePolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2231,6 +2261,7 @@ async function deserializeAws_queryDeletePolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2278,7 +2309,7 @@ async function deserializeAws_queryDeleteScheduledActionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2288,6 +2319,7 @@ async function deserializeAws_queryDeleteScheduledActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2332,7 +2364,7 @@ async function deserializeAws_queryDeleteTagsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2342,6 +2374,7 @@ async function deserializeAws_queryDeleteTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2352,6 +2385,7 @@ async function deserializeAws_queryDeleteTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2406,7 +2440,7 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2416,6 +2450,7 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2470,7 +2505,7 @@ async function deserializeAws_queryDescribeAdjustmentTypesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2480,6 +2515,7 @@ async function deserializeAws_queryDescribeAdjustmentTypesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2534,7 +2570,7 @@ async function deserializeAws_queryDescribeAutoScalingGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2544,6 +2580,7 @@ async function deserializeAws_queryDescribeAutoScalingGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2554,6 +2591,7 @@ async function deserializeAws_queryDescribeAutoScalingGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2608,7 +2646,7 @@ async function deserializeAws_queryDescribeAutoScalingInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2618,6 +2656,7 @@ async function deserializeAws_queryDescribeAutoScalingInstancesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2628,6 +2667,7 @@ async function deserializeAws_queryDescribeAutoScalingInstancesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2682,7 +2722,7 @@ async function deserializeAws_queryDescribeAutoScalingNotificationTypesCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2692,6 +2732,7 @@ async function deserializeAws_queryDescribeAutoScalingNotificationTypesCommandEr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2746,7 +2787,7 @@ async function deserializeAws_queryDescribeLaunchConfigurationsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2756,6 +2797,7 @@ async function deserializeAws_queryDescribeLaunchConfigurationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2766,6 +2808,7 @@ async function deserializeAws_queryDescribeLaunchConfigurationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2820,7 +2863,7 @@ async function deserializeAws_queryDescribeLifecycleHookTypesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2830,6 +2873,7 @@ async function deserializeAws_queryDescribeLifecycleHookTypesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2884,7 +2928,7 @@ async function deserializeAws_queryDescribeLifecycleHooksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2894,6 +2938,7 @@ async function deserializeAws_queryDescribeLifecycleHooksCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2948,7 +2993,7 @@ async function deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2958,6 +3003,7 @@ async function deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3012,7 +3058,7 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3022,6 +3068,7 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3076,7 +3123,7 @@ async function deserializeAws_queryDescribeMetricCollectionTypesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3086,6 +3133,7 @@ async function deserializeAws_queryDescribeMetricCollectionTypesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3140,7 +3188,7 @@ async function deserializeAws_queryDescribeNotificationConfigurationsCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3150,6 +3198,7 @@ async function deserializeAws_queryDescribeNotificationConfigurationsCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3160,6 +3209,7 @@ async function deserializeAws_queryDescribeNotificationConfigurationsCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3211,7 +3261,7 @@ async function deserializeAws_queryDescribePoliciesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3221,6 +3271,7 @@ async function deserializeAws_queryDescribePoliciesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3231,6 +3282,7 @@ async function deserializeAws_queryDescribePoliciesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3241,6 +3293,7 @@ async function deserializeAws_queryDescribePoliciesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3295,7 +3348,7 @@ async function deserializeAws_queryDescribeScalingActivitiesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3305,6 +3358,7 @@ async function deserializeAws_queryDescribeScalingActivitiesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3315,6 +3369,7 @@ async function deserializeAws_queryDescribeScalingActivitiesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3369,7 +3424,7 @@ async function deserializeAws_queryDescribeScalingProcessTypesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3379,6 +3434,7 @@ async function deserializeAws_queryDescribeScalingProcessTypesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3433,7 +3489,7 @@ async function deserializeAws_queryDescribeScheduledActionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3443,6 +3499,7 @@ async function deserializeAws_queryDescribeScheduledActionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3453,6 +3510,7 @@ async function deserializeAws_queryDescribeScheduledActionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3501,7 +3559,7 @@ async function deserializeAws_queryDescribeTagsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3511,6 +3569,7 @@ async function deserializeAws_queryDescribeTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3521,6 +3580,7 @@ async function deserializeAws_queryDescribeTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3575,7 +3635,7 @@ async function deserializeAws_queryDescribeTerminationPolicyTypesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3585,6 +3645,7 @@ async function deserializeAws_queryDescribeTerminationPolicyTypesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3636,7 +3697,7 @@ async function deserializeAws_queryDetachInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3646,6 +3707,7 @@ async function deserializeAws_queryDetachInstancesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3700,7 +3762,7 @@ async function deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3710,6 +3772,7 @@ async function deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3761,7 +3824,7 @@ async function deserializeAws_queryDetachLoadBalancersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3771,6 +3834,7 @@ async function deserializeAws_queryDetachLoadBalancersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3818,7 +3882,7 @@ async function deserializeAws_queryDisableMetricsCollectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3828,6 +3892,7 @@ async function deserializeAws_queryDisableMetricsCollectionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3875,7 +3940,7 @@ async function deserializeAws_queryEnableMetricsCollectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3885,6 +3950,7 @@ async function deserializeAws_queryEnableMetricsCollectionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3936,7 +4002,7 @@ async function deserializeAws_queryEnterStandbyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3946,6 +4012,7 @@ async function deserializeAws_queryEnterStandbyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3990,7 +4057,7 @@ async function deserializeAws_queryExecutePolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4000,6 +4067,7 @@ async function deserializeAws_queryExecutePolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4010,6 +4078,7 @@ async function deserializeAws_queryExecutePolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4061,7 +4130,7 @@ async function deserializeAws_queryExitStandbyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4071,6 +4140,7 @@ async function deserializeAws_queryExitStandbyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4122,7 +4192,7 @@ async function deserializeAws_queryPutLifecycleHookCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4132,6 +4202,7 @@ async function deserializeAws_queryPutLifecycleHookCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4142,6 +4213,7 @@ async function deserializeAws_queryPutLifecycleHookCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4189,7 +4261,7 @@ async function deserializeAws_queryPutNotificationConfigurationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4199,6 +4271,7 @@ async function deserializeAws_queryPutNotificationConfigurationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4209,6 +4282,7 @@ async function deserializeAws_queryPutNotificationConfigurationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4219,6 +4293,7 @@ async function deserializeAws_queryPutNotificationConfigurationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4270,7 +4345,7 @@ async function deserializeAws_queryPutScalingPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4280,6 +4355,7 @@ async function deserializeAws_queryPutScalingPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4290,6 +4366,7 @@ async function deserializeAws_queryPutScalingPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4300,6 +4377,7 @@ async function deserializeAws_queryPutScalingPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4347,7 +4425,7 @@ async function deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -4357,6 +4435,7 @@ async function deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4367,6 +4446,7 @@ async function deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4377,6 +4457,7 @@ async function deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4431,7 +4512,7 @@ async function deserializeAws_queryRecordLifecycleActionHeartbeatCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4441,6 +4522,7 @@ async function deserializeAws_queryRecordLifecycleActionHeartbeatCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4485,7 +4567,7 @@ async function deserializeAws_queryResumeProcessesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4495,6 +4577,7 @@ async function deserializeAws_queryResumeProcessesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4505,6 +4588,7 @@ async function deserializeAws_queryResumeProcessesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4549,7 +4633,7 @@ async function deserializeAws_querySetDesiredCapacityCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4559,6 +4643,7 @@ async function deserializeAws_querySetDesiredCapacityCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4569,6 +4654,7 @@ async function deserializeAws_querySetDesiredCapacityCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4613,7 +4699,7 @@ async function deserializeAws_querySetInstanceHealthCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4623,6 +4709,7 @@ async function deserializeAws_querySetInstanceHealthCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4677,7 +4764,7 @@ async function deserializeAws_querySetInstanceProtectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4687,6 +4774,7 @@ async function deserializeAws_querySetInstanceProtectionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4697,6 +4785,7 @@ async function deserializeAws_querySetInstanceProtectionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4741,7 +4830,7 @@ async function deserializeAws_querySuspendProcessesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4751,6 +4840,7 @@ async function deserializeAws_querySuspendProcessesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4761,6 +4851,7 @@ async function deserializeAws_querySuspendProcessesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4815,7 +4906,7 @@ async function deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4825,6 +4916,7 @@ async function deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4835,6 +4927,7 @@ async function deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4882,7 +4975,7 @@ async function deserializeAws_queryUpdateAutoScalingGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4892,6 +4985,7 @@ async function deserializeAws_queryUpdateAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4902,6 +4996,7 @@ async function deserializeAws_queryUpdateAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4912,6 +5007,7 @@ async function deserializeAws_queryUpdateAutoScalingGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5840,7 +5936,7 @@ const serializeAws_queryDescribeScheduledActionsType = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString();
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
@@ -5859,7 +5955,7 @@ const serializeAws_queryDescribeScheduledActionsType = (
     });
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -6615,7 +6711,7 @@ const serializeAws_queryPutScheduledUpdateGroupActionType = (
     entries["DesiredCapacity"] = input.DesiredCapacity;
   }
   if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString();
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.MaxSize !== undefined) {
     entries["MaxSize"] = input.MaxSize;
@@ -6630,10 +6726,10 @@ const serializeAws_queryPutScheduledUpdateGroupActionType = (
     entries["ScheduledActionName"] = input.ScheduledActionName;
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   if (input.Time !== undefined) {
-    entries["Time"] = input.Time.toISOString();
+    entries["Time"] = input.Time.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -6701,7 +6797,7 @@ const serializeAws_queryScheduledUpdateGroupActionRequest = (
     entries["DesiredCapacity"] = input.DesiredCapacity;
   }
   if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString();
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.MaxSize !== undefined) {
     entries["MaxSize"] = input.MaxSize;
@@ -6716,7 +6812,7 @@ const serializeAws_queryScheduledUpdateGroupActionRequest = (
     entries["ScheduledActionName"] = input.ScheduledActionName;
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -7060,9 +7156,11 @@ const deserializeAws_queryActivities = (
   output: any,
   context: __SerdeContext
 ): Array<Activity> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryActivity(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryActivity(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryActivitiesType = (
@@ -7178,9 +7276,11 @@ const deserializeAws_queryAdjustmentTypes = (
   output: any,
   context: __SerdeContext
 ): Array<AdjustmentType> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAdjustmentType(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryAdjustmentType(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryAlarm = (
@@ -7205,9 +7305,11 @@ const deserializeAws_queryAlarms = (
   output: any,
   context: __SerdeContext
 ): Array<Alarm> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAlarm(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryAlarm(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryAlreadyExistsFault = (
@@ -7469,9 +7571,11 @@ const deserializeAws_queryAutoScalingGroups = (
   output: any,
   context: __SerdeContext
 ): Array<AutoScalingGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAutoScalingGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryAutoScalingGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryAutoScalingGroupsType = (
@@ -7562,9 +7666,13 @@ const deserializeAws_queryAutoScalingInstances = (
   output: any,
   context: __SerdeContext
 ): Array<AutoScalingInstanceDetails> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAutoScalingInstanceDetails(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryAutoScalingInstanceDetails(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryAutoScalingInstancesType = (
@@ -7602,14 +7710,22 @@ const deserializeAws_queryAutoScalingNotificationTypes = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryAvailabilityZones = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryBatchDeleteScheduledActionAnswer = (
@@ -7696,16 +7812,22 @@ const deserializeAws_queryBlockDeviceMappings = (
   output: any,
   context: __SerdeContext
 ): Array<BlockDeviceMapping> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryBlockDeviceMapping(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryBlockDeviceMapping(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryClassicLinkVPCSecurityGroups = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryCompleteLifecycleActionAnswer = (
@@ -8174,9 +8296,11 @@ const deserializeAws_queryEnabledMetrics = (
   output: any,
   context: __SerdeContext
 ): Array<EnabledMetric> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEnabledMetric(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryEnabledMetric(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryEnterStandbyAnswer = (
@@ -8253,9 +8377,16 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequests = (
   output: any,
   context: __SerdeContext
 ): Array<FailedScheduledUpdateGroupActionRequest> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryFailedScheduledUpdateGroupActionRequest(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryFailedScheduledUpdateGroupActionRequest(
+        entry,
+        context
+      )
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryInstance = (
@@ -8325,9 +8456,11 @@ const deserializeAws_queryInstances = (
   output: any,
   context: __SerdeContext
 ): Array<Instance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryInstancesDistribution = (
@@ -8513,9 +8646,11 @@ const deserializeAws_queryLaunchConfigurations = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchConfiguration> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLaunchConfiguration(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryLaunchConfiguration(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryLaunchConfigurationsType = (
@@ -8670,9 +8805,11 @@ const deserializeAws_queryLifecycleHooks = (
   output: any,
   context: __SerdeContext
 ): Array<LifecycleHook> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLifecycleHook(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryLifecycleHook(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryLimitExceededFault = (
@@ -8693,7 +8830,11 @@ const deserializeAws_queryLoadBalancerNames = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryLoadBalancerState = (
@@ -8718,9 +8859,11 @@ const deserializeAws_queryLoadBalancerStates = (
   output: any,
   context: __SerdeContext
 ): Array<LoadBalancerState> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLoadBalancerState(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryLoadBalancerState(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryLoadBalancerTargetGroupState = (
@@ -8745,9 +8888,13 @@ const deserializeAws_queryLoadBalancerTargetGroupStates = (
   output: any,
   context: __SerdeContext
 ): Array<LoadBalancerTargetGroupState> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLoadBalancerTargetGroupState(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryLoadBalancerTargetGroupState(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryMetricCollectionType = (
@@ -8768,9 +8915,11 @@ const deserializeAws_queryMetricCollectionTypes = (
   output: any,
   context: __SerdeContext
 ): Array<MetricCollectionType> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryMetricCollectionType(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryMetricCollectionType(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryMetricDimension = (
@@ -8795,9 +8944,11 @@ const deserializeAws_queryMetricDimensions = (
   output: any,
   context: __SerdeContext
 ): Array<MetricDimension> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryMetricDimension(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryMetricDimension(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryMetricGranularityType = (
@@ -8818,9 +8969,11 @@ const deserializeAws_queryMetricGranularityTypes = (
   output: any,
   context: __SerdeContext
 ): Array<MetricGranularityType> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryMetricGranularityType(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryMetricGranularityType(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryMixedInstancesPolicy = (
@@ -8873,18 +9026,24 @@ const deserializeAws_queryNotificationConfigurations = (
   output: any,
   context: __SerdeContext
 ): Array<NotificationConfiguration> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryNotificationConfiguration(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryNotificationConfiguration(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryOverrides = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplateOverrides> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLaunchTemplateOverrides(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryLaunchTemplateOverrides(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryPoliciesType = (
@@ -8982,9 +9141,11 @@ const deserializeAws_queryProcesses = (
   output: any,
   context: __SerdeContext
 ): Array<ProcessType> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryProcessType(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryProcessType(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryProcessesType = (
@@ -9077,9 +9238,11 @@ const deserializeAws_queryScalingPolicies = (
   output: any,
   context: __SerdeContext
 ): Array<ScalingPolicy> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryScalingPolicy(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryScalingPolicy(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryScalingPolicy = (
@@ -9263,16 +9426,24 @@ const deserializeAws_queryScheduledUpdateGroupActions = (
   output: any,
   context: __SerdeContext
 ): Array<ScheduledUpdateGroupAction> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryScheduledUpdateGroupAction(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryScheduledUpdateGroupAction(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_querySecurityGroups = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryServiceLinkedRoleFailure = (
@@ -9329,9 +9500,11 @@ const deserializeAws_queryStepAdjustments = (
   output: any,
   context: __SerdeContext
 ): Array<StepAdjustment> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStepAdjustment(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryStepAdjustment(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_querySuspendedProcess = (
@@ -9356,9 +9529,11 @@ const deserializeAws_querySuspendedProcesses = (
   output: any,
   context: __SerdeContext
 ): Array<SuspendedProcess> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySuspendedProcess(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_querySuspendedProcess(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTagDescription = (
@@ -9395,9 +9570,11 @@ const deserializeAws_queryTagDescriptionList = (
   output: any,
   context: __SerdeContext
 ): Array<TagDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTagDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryTagDescription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTagsType = (
@@ -9432,7 +9609,11 @@ const deserializeAws_queryTargetGroupARNs = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryTargetTrackingConfiguration = (
@@ -9471,7 +9652,11 @@ const deserializeAws_queryTerminationPolicies = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
