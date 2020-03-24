@@ -21,7 +21,7 @@ export function fromEnv(): CredentialProvider {
         accessKeyId,
         secretAccessKey,
         sessionToken: process.env[ENV_SESSION],
-        expiration: expiry ? Math.floor(Date.parse(expiry) / 1000) : undefined
+        expiration: expiry ? new Date(expiry) : undefined
       });
     }
 

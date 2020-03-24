@@ -60,13 +60,9 @@ export function defaultProvider(
     providerChain,
     credentials =>
       credentials.expiration !== undefined &&
-      credentials.expiration - getEpochTs() < 300,
+      credentials.expiration.getTime() - Date.now() < 300000,
     credentials => credentials.expiration !== undefined
   );
-}
-
-function getEpochTs() {
-  return Math.floor(Date.now() / 1000);
 }
 
 function remoteProvider(init: RemoteProviderInit): CredentialProvider {
