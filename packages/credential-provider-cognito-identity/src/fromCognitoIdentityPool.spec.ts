@@ -2,13 +2,11 @@ import { fromCognitoIdentityPool } from "./fromCognitoIdentityPool";
 import { ProviderError } from "@aws-sdk/property-provider";
 import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
 
-const expiration = new Date();
 jest.mock("./fromCognitoIdentity", () => {
   const promiseFunc = jest.fn().mockResolvedValue({
     accessKeyId: "foo",
     secretAccessKey: "bar",
-    sessionToken: "baz",
-    expiration
+    sessionToken: "baz"
   });
   return { fromCognitoIdentity: jest.fn().mockReturnValue(promiseFunc) };
 });
@@ -53,8 +51,7 @@ describe("fromCognitoIdentityPool", () => {
     ).toEqual({
       accessKeyId: "foo",
       secretAccessKey: "bar",
-      sessionToken: "baz",
-      expiration
+      sessionToken: "baz"
     });
 
     expect(send.mock.calls.length).toBe(1);
@@ -110,8 +107,7 @@ describe("fromCognitoIdentityPool", () => {
       expect(await provider()).toEqual({
         accessKeyId: "foo",
         secretAccessKey: "bar",
-        sessionToken: "baz",
-        expiration
+        sessionToken: "baz"
       });
     }
 
