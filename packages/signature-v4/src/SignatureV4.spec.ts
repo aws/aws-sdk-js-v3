@@ -46,11 +46,8 @@ const credentials: Credentials = {
 
 describe("SignatureV4", () => {
   describe("#presignRequest", () => {
-    const expiration = Math.floor(
-      (new Date("2000-01-01T00:00:00.000Z").valueOf() + 60 * 60 * 1000) / 1000
-    );
     const presigningOptions = {
-      expiration,
+      expiresIn: 1800,
       signingDate: new Date("2000-01-01T00:00:00.000Z")
     };
 
@@ -60,10 +57,10 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
-          "477e1bb76b04bd9973b28d67a6307e43934ec8327fc17950539eb47573db3c4a"
+          "46f0091f3e84cbd4552a184f43830a4f8b42fd18ceaefcdc2c225be1efd9e00e"
       });
     });
 
@@ -86,10 +83,10 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
-          "2e27ee66efe81b085eea0aa53948bb49b76efc90d285ae6b4960f6072608f495"
+          "3a7fc2cef9cab09384d0ef7a69bab0d942996846422bd041da5e52cae82612c3"
       });
     });
 
@@ -105,10 +102,10 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
-          "0b13a0f33c2e949b565b61209478951f809bd6943310d44814c9526100047ea7"
+          "bd1427cfdc9a3b0a55609b0114d1dab4dfebca81a9496d6c47dedf65a3ec3bcb"
       });
     });
 
@@ -129,10 +126,10 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
-          "60f0eb0b56c453974f0980ac8004c117e5f70f5720288c5fca0180cd6073fb95"
+          "457d44313f7b225c3523ddfc0ca161dfd010269b98c837a7a6f1b26ceb87ae4c"
       });
     });
 
@@ -153,10 +150,10 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
-          "3663461416873c62951f3d97a93620d11f2b9bf584bb6790586cc8184aa2efd8"
+          "1b57912615b8e7ae78790ba713193d34baa793d6be2a1b18370dd27dce2d05a7"
       });
     });
 
@@ -185,10 +182,10 @@ describe("SignatureV4", () => {
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-        [EXPIRES_QUERY_PARAM]: "3600",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
         [SIGNATURE_QUERY_PARAM]:
-          "f098880292426cf244a8bf628c20eb6a1836f5e65acf7640193f0ff755592437"
+          "04ccc7891757c0ca3811d0e018e4655919ef11fa7b956fe9b782f273cec2374f"
       });
     });
 
@@ -212,11 +209,11 @@ describe("SignatureV4", () => {
       expect(headersAsSigned).toEqual(headers);
     });
 
-    it("should return a rejected promise if the expiration is more than one week in the future", async () => {
+    it("should return a rejected promise if the expiresIn is more than one week in the future", async () => {
       await expect(
         signer.presign(minimalRequest, {
           ...presigningOptions,
-          expiration: new Date()
+          expiresIn: 7 * 24 * 60 * 60 + 1
         })
       ).rejects.toMatch(/less than one week in the future/);
     });
@@ -279,7 +276,7 @@ describe("SignatureV4", () => {
           presigningOptions
         );
         expect(query[SIGNATURE_QUERY_PARAM]).toBe(
-          "a70857a0dfb14773d814465001c5f0c0e708cc9a79609541fc22f57a70bdce12"
+          "6267d8b6f44d165d2b9f4d2c2b45fd6971de0962820243669bf685818c9c7849"
         );
       });
 
@@ -312,7 +309,7 @@ describe("SignatureV4", () => {
           presigningOptions
         );
         expect(query[SIGNATURE_QUERY_PARAM]).toBe(
-          "474f2588e722ea064242d050c2ce6bf45deed6a2e9ce887ffbc6fa4dac9da620"
+          "d1a68eff5d8d5be581f20c7793a67a6cd2e561a5b818055b21ad064139eb83b1"
         );
       });
     });
@@ -649,9 +646,7 @@ describe("SignatureV4", () => {
 
     it("should use the current date for presigning if no signing date was supplied", async () => {
       const date = new Date();
-      const { query } = await signer.presign(minimalRequest, {
-        expiration: Math.floor((date.valueOf() + 60 * 60 * 1000) / 1000)
-      });
+      const { query } = await signer.presign(minimalRequest);
       expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
         iso8601(date).replace(/[\-:]/g, "")
       );
