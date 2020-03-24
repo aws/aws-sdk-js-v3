@@ -2596,19 +2596,22 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFacetToObjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2616,9 +2619,10 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2626,9 +2630,10 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2636,9 +2641,10 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2646,9 +2652,10 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2656,9 +2663,10 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2666,9 +2674,10 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2676,9 +2685,10 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2686,14 +2696,15 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2736,19 +2747,22 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApplySchemaCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2756,9 +2770,10 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2766,9 +2781,10 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2776,9 +2792,10 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidAttachmentException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidAttachmentExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2786,9 +2803,10 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2796,9 +2814,10 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2806,9 +2825,10 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2816,9 +2836,10 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#SchemaAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1SchemaAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2826,14 +2847,15 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2875,19 +2897,22 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachObjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2895,9 +2920,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2905,9 +2931,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2915,9 +2942,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2925,9 +2953,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2935,9 +2964,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidAttachmentException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidAttachmentExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2945,9 +2975,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2955,9 +2986,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LinkNameAlreadyInUseException":
       response = {
         ...(await deserializeAws_restJson1_1LinkNameAlreadyInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2965,9 +2997,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2975,9 +3008,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2985,14 +3019,15 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3027,19 +3062,22 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3047,9 +3085,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3057,9 +3096,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3067,9 +3107,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3077,9 +3118,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3087,9 +3129,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#NotPolicyException":
       response = {
         ...(await deserializeAws_restJson1_1NotPolicyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3097,9 +3140,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3107,9 +3151,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3117,14 +3162,15 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3166,19 +3212,22 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachToIndexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3186,9 +3235,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3196,9 +3246,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#IndexedAttributeMissingException":
       response = {
         ...(await deserializeAws_restJson1_1IndexedAttributeMissingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3206,9 +3257,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3216,9 +3268,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3226,9 +3279,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidAttachmentException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidAttachmentExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3236,9 +3290,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3246,9 +3301,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LinkNameAlreadyInUseException":
       response = {
         ...(await deserializeAws_restJson1_1LinkNameAlreadyInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3256,9 +3312,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#NotIndexException":
       response = {
         ...(await deserializeAws_restJson1_1NotIndexExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3266,9 +3323,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3276,9 +3334,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3286,14 +3345,15 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3341,19 +3401,22 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachTypedLinkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3361,9 +3424,10 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3371,9 +3435,10 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3381,9 +3446,10 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3391,9 +3457,10 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3401,9 +3468,10 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidAttachmentException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidAttachmentExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3411,9 +3479,10 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3421,9 +3490,10 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3431,9 +3501,10 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3441,14 +3512,15 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3490,19 +3562,22 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchReadCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3510,9 +3585,10 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3520,9 +3596,10 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3530,9 +3607,10 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3540,9 +3618,10 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3550,9 +3629,10 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3560,14 +3640,15 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3609,19 +3690,22 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchWriteCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3629,9 +3713,10 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
     case "com.amazonaws.clouddirectory.v20170111#BatchWriteException":
       response = {
         ...(await deserializeAws_restJson1_1BatchWriteExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3639,9 +3724,10 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3649,9 +3735,10 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3659,9 +3746,10 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3669,9 +3757,10 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3679,9 +3768,10 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3689,14 +3779,15 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3750,19 +3841,22 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectoryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3770,9 +3864,10 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3780,9 +3875,10 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3790,9 +3886,10 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3800,9 +3897,10 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3810,9 +3908,10 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3820,9 +3919,10 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3830,14 +3930,15 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3872,19 +3973,22 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFacetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3892,9 +3996,10 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1FacetAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3902,9 +4007,10 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3912,9 +4018,10 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3922,9 +4029,10 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3932,9 +4040,10 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidRuleException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRuleExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3942,9 +4051,10 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3952,9 +4062,10 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3962,9 +4073,10 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3972,14 +4084,15 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4018,19 +4131,22 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIndexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4038,9 +4154,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4048,9 +4165,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4058,9 +4176,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4068,9 +4187,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4078,9 +4198,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4088,9 +4209,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LinkNameAlreadyInUseException":
       response = {
         ...(await deserializeAws_restJson1_1LinkNameAlreadyInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4098,9 +4220,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4108,9 +4231,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4118,9 +4242,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#UnsupportedIndexTypeException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedIndexTypeExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4128,14 +4253,15 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4174,19 +4300,22 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateObjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4194,9 +4323,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4204,9 +4334,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4214,9 +4345,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4224,9 +4356,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4234,9 +4367,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4244,9 +4378,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LinkNameAlreadyInUseException":
       response = {
         ...(await deserializeAws_restJson1_1LinkNameAlreadyInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4254,9 +4389,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4264,9 +4400,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4274,9 +4411,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#UnsupportedIndexTypeException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedIndexTypeExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4284,14 +4422,15 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4330,19 +4469,22 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4350,9 +4492,10 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4360,9 +4503,10 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4370,9 +4514,10 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4380,9 +4525,10 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4390,9 +4536,10 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#SchemaAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1SchemaAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4400,14 +4547,15 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4445,19 +4593,22 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTypedLinkFacetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4465,9 +4616,10 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1FacetAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4475,9 +4627,10 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4485,9 +4638,10 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4495,9 +4649,10 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4505,9 +4660,10 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidRuleException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRuleExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4515,9 +4671,10 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4525,9 +4682,10 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4535,9 +4693,10 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4545,14 +4704,15 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4594,19 +4754,22 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectoryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4614,9 +4777,10 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryDeletedException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryDeletedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4624,9 +4788,10 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotDisabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotDisabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4634,9 +4799,10 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4644,9 +4810,10 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4654,9 +4821,10 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4664,9 +4832,10 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4674,9 +4843,10 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4684,14 +4854,15 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4726,19 +4897,22 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFacetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4746,9 +4920,10 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetInUseException":
       response = {
         ...(await deserializeAws_restJson1_1FacetInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4756,9 +4931,10 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1FacetNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4766,9 +4942,10 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4776,9 +4953,10 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4786,9 +4964,10 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4796,9 +4975,10 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4806,9 +4986,10 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4816,14 +4997,15 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4858,19 +5040,22 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4878,9 +5063,10 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4888,9 +5074,10 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4898,9 +5085,10 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4908,9 +5096,10 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4918,9 +5107,10 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ObjectNotDetachedException":
       response = {
         ...(await deserializeAws_restJson1_1ObjectNotDetachedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4928,9 +5118,10 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4938,9 +5129,10 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4948,14 +5140,15 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4994,19 +5187,22 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5014,9 +5210,10 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5024,9 +5221,10 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5034,9 +5232,10 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5044,9 +5243,10 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5054,9 +5254,10 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5064,9 +5265,10 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#StillContainsLinksException":
       response = {
         ...(await deserializeAws_restJson1_1StillContainsLinksExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5074,14 +5276,15 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5119,19 +5322,22 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTypedLinkFacetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5139,9 +5345,10 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1FacetNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5149,9 +5356,10 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5159,9 +5367,10 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5169,9 +5378,10 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5179,9 +5389,10 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5189,9 +5400,10 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5199,14 +5411,15 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5251,19 +5464,22 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachFromIndexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5271,9 +5487,10 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5281,9 +5498,10 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5291,9 +5509,10 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5301,9 +5520,10 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5311,9 +5531,10 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#NotIndexException":
       response = {
         ...(await deserializeAws_restJson1_1NotIndexExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5321,9 +5542,10 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ObjectAlreadyDetachedException":
       response = {
         ...(await deserializeAws_restJson1_1ObjectAlreadyDetachedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5331,9 +5553,10 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5341,9 +5564,10 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5351,14 +5575,15 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5400,19 +5625,22 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachObjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5420,9 +5648,10 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5430,9 +5659,10 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5440,9 +5670,10 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5450,9 +5681,10 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5460,9 +5692,10 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#NotNodeException":
       response = {
         ...(await deserializeAws_restJson1_1NotNodeExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5470,9 +5703,10 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5480,9 +5714,10 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5490,14 +5725,15 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5532,19 +5768,22 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5552,9 +5791,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5562,9 +5802,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5572,9 +5813,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5582,9 +5824,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5592,9 +5835,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#NotPolicyException":
       response = {
         ...(await deserializeAws_restJson1_1NotPolicyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5602,9 +5846,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5612,9 +5857,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5622,14 +5868,15 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5666,19 +5913,22 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachTypedLinkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5686,9 +5936,10 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5696,9 +5947,10 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5706,9 +5958,10 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5716,9 +5969,10 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5726,9 +5980,10 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5736,9 +5991,10 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5746,9 +6002,10 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5756,14 +6013,15 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5805,19 +6063,22 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableDirectoryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5825,9 +6086,10 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryDeletedException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryDeletedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5835,9 +6097,10 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5845,9 +6108,10 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5855,9 +6119,10 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5865,9 +6130,10 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5875,9 +6141,10 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5885,14 +6152,15 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5934,19 +6202,22 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableDirectoryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5954,9 +6225,10 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryDeletedException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryDeletedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5964,9 +6236,10 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5974,9 +6247,10 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5984,9 +6258,10 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5994,9 +6269,10 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6004,9 +6280,10 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6014,14 +6291,15 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6063,19 +6341,22 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppliedSchemaVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6083,9 +6364,10 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6093,9 +6375,10 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6103,9 +6386,10 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6113,9 +6397,10 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6123,9 +6408,10 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6133,14 +6419,15 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6182,19 +6469,22 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDirectoryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6202,9 +6492,10 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6212,9 +6503,10 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6222,9 +6514,10 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6232,9 +6525,10 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6242,14 +6536,15 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6288,19 +6583,22 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFacetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6308,9 +6606,10 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1FacetNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6318,9 +6617,10 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6328,9 +6628,10 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6338,9 +6639,10 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6348,9 +6650,10 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6358,9 +6661,10 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6368,14 +6672,15 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6420,19 +6725,22 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinkAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6440,9 +6748,10 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6450,9 +6759,10 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6460,9 +6770,10 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6470,9 +6781,10 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6480,9 +6792,10 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6490,9 +6803,10 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6500,9 +6814,10 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6510,14 +6825,15 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6562,19 +6878,22 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6582,9 +6901,10 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6592,9 +6912,10 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6602,9 +6923,10 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6612,9 +6934,10 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6622,9 +6945,10 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6632,9 +6956,10 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6642,9 +6967,10 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6652,14 +6978,15 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6708,19 +7035,22 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectInformationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6728,9 +7058,10 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6738,9 +7069,10 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6748,9 +7080,10 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6758,9 +7091,10 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6768,9 +7102,10 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6778,9 +7113,10 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6788,14 +7124,15 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6841,19 +7178,22 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSchemaAsJsonCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6861,9 +7201,10 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6871,9 +7212,10 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6881,9 +7223,10 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6891,9 +7234,10 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6901,9 +7245,10 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6911,14 +7256,15 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6966,19 +7312,22 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTypedLinkFacetInformationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6986,9 +7335,10 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
     case "com.amazonaws.clouddirectory.v20170111#FacetNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1FacetNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6996,9 +7346,10 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7006,9 +7357,10 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7016,9 +7368,10 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7026,9 +7379,10 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7036,9 +7390,10 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7046,9 +7401,10 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7056,14 +7412,15 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7112,19 +7469,22 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppliedSchemaArnsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7132,9 +7492,10 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7142,9 +7503,10 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7152,9 +7514,10 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7162,9 +7525,10 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7172,9 +7536,10 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7182,9 +7547,10 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7192,14 +7558,15 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7248,19 +7615,22 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedIndicesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7268,9 +7638,10 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7278,9 +7649,10 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7288,9 +7660,10 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7298,9 +7671,10 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7308,9 +7682,10 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7318,9 +7693,10 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7328,14 +7704,15 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7384,19 +7761,22 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevelopmentSchemaArnsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7404,9 +7784,10 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7414,9 +7795,10 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7424,9 +7806,10 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7434,9 +7817,10 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7444,9 +7828,10 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7454,9 +7839,10 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7464,14 +7850,15 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7520,19 +7907,22 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDirectoriesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7540,9 +7930,10 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7550,9 +7941,10 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7560,9 +7952,10 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7570,9 +7963,10 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7580,9 +7974,10 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7590,14 +7985,15 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7646,19 +8042,22 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFacetAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7666,9 +8065,10 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1FacetNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7676,9 +8076,10 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7686,9 +8087,10 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7696,9 +8098,10 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7706,9 +8109,10 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7716,9 +8120,10 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7726,9 +8131,10 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7736,14 +8142,15 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7792,19 +8199,22 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFacetNamesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7812,9 +8222,10 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7822,9 +8233,10 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7832,9 +8244,10 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7842,9 +8255,10 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7852,9 +8266,10 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7862,9 +8277,10 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7872,14 +8288,15 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7928,19 +8345,22 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIncomingTypedLinksCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7948,9 +8368,10 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7958,9 +8379,10 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7968,9 +8390,10 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7978,9 +8401,10 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7988,9 +8412,10 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7998,9 +8423,10 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8008,9 +8434,10 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8018,9 +8445,10 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8028,14 +8456,15 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8081,19 +8510,22 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIndexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8101,9 +8533,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8111,9 +8544,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8121,9 +8555,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8131,9 +8566,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8141,9 +8577,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8151,9 +8588,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8161,9 +8599,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#NotIndexException":
       response = {
         ...(await deserializeAws_restJson1_1NotIndexExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8171,9 +8610,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8181,9 +8621,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8191,14 +8632,15 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8247,19 +8689,22 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListManagedSchemaArnsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8267,9 +8712,10 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8277,9 +8723,10 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8287,9 +8734,10 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8297,9 +8745,10 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8307,14 +8756,15 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8363,19 +8813,22 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8383,9 +8836,10 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8393,9 +8847,10 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8403,9 +8858,10 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8413,9 +8869,10 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8423,9 +8880,10 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8433,9 +8891,10 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8443,9 +8902,10 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8453,9 +8913,10 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8463,14 +8924,15 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8519,19 +8981,22 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectChildrenCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8539,9 +9004,10 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8549,9 +9015,10 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8559,9 +9026,10 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8569,9 +9037,10 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8579,9 +9048,10 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8589,9 +9059,10 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     case "com.amazonaws.clouddirectory.v20170111#NotNodeException":
       response = {
         ...(await deserializeAws_restJson1_1NotNodeExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8599,9 +9070,10 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8609,9 +9081,10 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8619,14 +9092,15 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8678,19 +9152,22 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectParentPathsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8698,9 +9175,10 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8708,9 +9186,10 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8718,9 +9197,10 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8728,9 +9208,10 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8738,9 +9219,10 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8748,9 +9230,10 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8758,9 +9241,10 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8768,14 +9252,15 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8831,19 +9316,22 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectParentsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8851,9 +9339,10 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#CannotListParentOfRootException":
       response = {
         ...(await deserializeAws_restJson1_1CannotListParentOfRootExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8861,9 +9350,10 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8871,9 +9361,10 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8881,9 +9372,10 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8891,9 +9383,10 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8901,9 +9394,10 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8911,9 +9405,10 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8921,9 +9416,10 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8931,14 +9427,15 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8987,19 +9484,22 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectPoliciesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9007,9 +9507,10 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9017,9 +9518,10 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9027,9 +9529,10 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9037,9 +9540,10 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9047,9 +9551,10 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9057,9 +9562,10 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9067,9 +9573,10 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9077,14 +9584,15 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9136,19 +9644,22 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOutgoingTypedLinksCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9156,9 +9667,10 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9166,9 +9678,10 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9176,9 +9689,10 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9186,9 +9700,10 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9196,9 +9711,10 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9206,9 +9722,10 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9216,9 +9733,10 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9226,9 +9744,10 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9236,14 +9755,15 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9292,19 +9812,22 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyAttachmentsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9312,9 +9835,10 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9322,9 +9846,10 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9332,9 +9857,10 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9342,9 +9868,10 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9352,9 +9879,10 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9362,9 +9890,10 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#NotPolicyException":
       response = {
         ...(await deserializeAws_restJson1_1NotPolicyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9372,9 +9901,10 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9382,9 +9912,10 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9392,14 +9923,15 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9448,19 +9980,22 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPublishedSchemaArnsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9468,9 +10003,10 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9478,9 +10014,10 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9488,9 +10025,10 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9498,9 +10036,10 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9508,9 +10047,10 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9518,9 +10058,10 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9528,14 +10069,15 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9581,19 +10123,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9601,9 +10146,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9611,9 +10157,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9621,9 +10168,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidTaggingRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidTaggingRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9631,9 +10179,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9641,9 +10190,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9651,9 +10201,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9661,14 +10212,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9717,19 +10269,22 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9737,9 +10292,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
     case "com.amazonaws.clouddirectory.v20170111#FacetNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1FacetNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9747,9 +10303,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9757,9 +10314,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9767,9 +10325,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9777,9 +10336,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9787,9 +10347,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9797,9 +10358,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9807,14 +10369,15 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9863,19 +10426,22 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetNamesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9883,9 +10449,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9893,9 +10460,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9903,9 +10471,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9913,9 +10482,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9923,9 +10493,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9933,9 +10504,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9943,14 +10515,15 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9996,19 +10569,22 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LookupPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10016,9 +10592,10 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10026,9 +10603,10 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10036,9 +10614,10 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10046,9 +10625,10 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10056,9 +10636,10 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10066,9 +10647,10 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10076,9 +10658,10 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10086,14 +10669,15 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10135,19 +10719,22 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishSchemaCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10155,9 +10742,10 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10165,9 +10753,10 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10175,9 +10764,10 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10185,9 +10775,10 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10195,9 +10786,10 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10205,9 +10797,10 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#SchemaAlreadyPublishedException":
       response = {
         ...(await deserializeAws_restJson1_1SchemaAlreadyPublishedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10215,14 +10808,15 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10264,19 +10858,22 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSchemaFromJsonCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10284,9 +10881,10 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10294,9 +10892,10 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10304,9 +10903,10 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidRuleException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRuleExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10314,9 +10914,10 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidSchemaDocException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidSchemaDocExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10324,9 +10925,10 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10334,9 +10936,10 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10344,14 +10947,15 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10389,19 +10993,22 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFacetFromObjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10409,9 +11016,10 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10419,9 +11027,10 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10429,9 +11038,10 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10439,9 +11049,10 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10449,9 +11060,10 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10459,9 +11071,10 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10469,9 +11082,10 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10479,14 +11093,15 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10521,19 +11136,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10541,9 +11159,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10551,9 +11170,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10561,9 +11181,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidTaggingRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidTaggingRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10571,9 +11192,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10581,9 +11203,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10591,9 +11214,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10601,14 +11225,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10643,19 +11268,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10663,9 +11291,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10673,9 +11302,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10683,9 +11313,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidTaggingRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidTaggingRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10693,9 +11324,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10703,9 +11335,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10713,9 +11346,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10723,14 +11357,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10765,19 +11400,22 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFacetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10785,9 +11423,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1FacetNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10795,9 +11434,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10805,9 +11445,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10815,9 +11456,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10825,9 +11467,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidFacetUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidFacetUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10835,9 +11478,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidRuleException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRuleExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10845,9 +11489,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10855,9 +11500,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10865,9 +11511,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10875,14 +11522,15 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10920,19 +11568,22 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLinkAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10940,9 +11591,10 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10950,9 +11602,10 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10960,9 +11613,10 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10970,9 +11624,10 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10980,9 +11635,10 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10990,9 +11646,10 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11000,9 +11657,10 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11010,14 +11668,15 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11059,19 +11718,22 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateObjectAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11079,9 +11741,10 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#DirectoryNotEnabledException":
       response = {
         ...(await deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11089,9 +11752,10 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11099,9 +11763,10 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11109,9 +11774,10 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11119,9 +11785,10 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11129,9 +11796,10 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LinkNameAlreadyInUseException":
       response = {
         ...(await deserializeAws_restJson1_1LinkNameAlreadyInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11139,9 +11807,10 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11149,9 +11818,10 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11159,14 +11829,15 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11205,19 +11876,22 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSchemaCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11225,9 +11899,10 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11235,9 +11910,10 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11245,9 +11921,10 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11255,9 +11932,10 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11265,9 +11943,10 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11275,14 +11954,15 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11320,19 +12000,22 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTypedLinkFacetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11340,9 +12023,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1FacetNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11350,9 +12034,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#FacetValidationException":
       response = {
         ...(await deserializeAws_restJson1_1FacetValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11360,9 +12045,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11370,9 +12056,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11380,9 +12067,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidFacetUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidFacetUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11390,9 +12078,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidRuleException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRuleExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11400,9 +12089,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11410,9 +12100,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11420,9 +12111,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11430,14 +12122,15 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11483,19 +12176,22 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradeAppliedSchemaCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11503,9 +12199,10 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#IncompatibleSchemaException":
       response = {
         ...(await deserializeAws_restJson1_1IncompatibleSchemaExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11513,9 +12210,10 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11523,9 +12221,10 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11533,9 +12232,10 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidAttachmentException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidAttachmentExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11543,9 +12243,10 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11553,9 +12254,10 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11563,9 +12265,10 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#SchemaAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1SchemaAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11573,14 +12276,15 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11622,19 +12326,22 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradePublishedSchemaCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11642,9 +12349,10 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#IncompatibleSchemaException":
       response = {
         ...(await deserializeAws_restJson1_1IncompatibleSchemaExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11652,9 +12360,10 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InternalServiceException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11662,9 +12371,10 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidArnException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidArnExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11672,9 +12382,10 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#InvalidAttachmentException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidAttachmentExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11682,9 +12393,10 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11692,9 +12404,10 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11702,9 +12415,10 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#RetryableConflictException":
       response = {
         ...(await deserializeAws_restJson1_1RetryableConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11712,14 +12426,15 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
     case "com.amazonaws.clouddirectory.v20170111#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11736,16 +12451,16 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
 }
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11753,18 +12468,18 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1BatchWriteExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BatchWriteException> => {
   const contents: BatchWriteException = {
     name: "BatchWriteException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Index: undefined,
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Index !== undefined && data.Index !== null) {
     contents.Index = data.Index;
   }
@@ -11778,16 +12493,16 @@ const deserializeAws_restJson1_1BatchWriteExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1CannotListParentOfRootExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<CannotListParentOfRootException> => {
   const contents: CannotListParentOfRootException = {
     name: "CannotListParentOfRootException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11795,16 +12510,16 @@ const deserializeAws_restJson1_1CannotListParentOfRootExceptionResponse = async 
 };
 
 const deserializeAws_restJson1_1DirectoryAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryAlreadyExistsException> => {
   const contents: DirectoryAlreadyExistsException = {
     name: "DirectoryAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11812,16 +12527,16 @@ const deserializeAws_restJson1_1DirectoryAlreadyExistsExceptionResponse = async 
 };
 
 const deserializeAws_restJson1_1DirectoryDeletedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryDeletedException> => {
   const contents: DirectoryDeletedException = {
     name: "DirectoryDeletedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11829,16 +12544,16 @@ const deserializeAws_restJson1_1DirectoryDeletedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1DirectoryNotDisabledExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryNotDisabledException> => {
   const contents: DirectoryNotDisabledException = {
     name: "DirectoryNotDisabledException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11846,16 +12561,16 @@ const deserializeAws_restJson1_1DirectoryNotDisabledExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryNotEnabledException> => {
   const contents: DirectoryNotEnabledException = {
     name: "DirectoryNotEnabledException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11863,16 +12578,16 @@ const deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1FacetAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<FacetAlreadyExistsException> => {
   const contents: FacetAlreadyExistsException = {
     name: "FacetAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11880,16 +12595,16 @@ const deserializeAws_restJson1_1FacetAlreadyExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1FacetInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<FacetInUseException> => {
   const contents: FacetInUseException = {
     name: "FacetInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11897,16 +12612,16 @@ const deserializeAws_restJson1_1FacetInUseExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1FacetNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<FacetNotFoundException> => {
   const contents: FacetNotFoundException = {
     name: "FacetNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11914,16 +12629,16 @@ const deserializeAws_restJson1_1FacetNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1FacetValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<FacetValidationException> => {
   const contents: FacetValidationException = {
     name: "FacetValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11931,16 +12646,16 @@ const deserializeAws_restJson1_1FacetValidationExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1IncompatibleSchemaExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncompatibleSchemaException> => {
   const contents: IncompatibleSchemaException = {
     name: "IncompatibleSchemaException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11948,16 +12663,16 @@ const deserializeAws_restJson1_1IncompatibleSchemaExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1IndexedAttributeMissingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IndexedAttributeMissingException> => {
   const contents: IndexedAttributeMissingException = {
     name: "IndexedAttributeMissingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11965,16 +12680,16 @@ const deserializeAws_restJson1_1IndexedAttributeMissingExceptionResponse = async
 };
 
 const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const contents: InternalServiceException = {
     name: "InternalServiceException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11982,16 +12697,16 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidArnExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArnException> => {
   const contents: InvalidArnException = {
     name: "InvalidArnException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11999,16 +12714,16 @@ const deserializeAws_restJson1_1InvalidArnExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidAttachmentExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAttachmentException> => {
   const contents: InvalidAttachmentException = {
     name: "InvalidAttachmentException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12016,16 +12731,16 @@ const deserializeAws_restJson1_1InvalidAttachmentExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidFacetUpdateExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidFacetUpdateException> => {
   const contents: InvalidFacetUpdateException = {
     name: "InvalidFacetUpdateException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12033,16 +12748,16 @@ const deserializeAws_restJson1_1InvalidFacetUpdateExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12050,16 +12765,16 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidRuleExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRuleException> => {
   const contents: InvalidRuleException = {
     name: "InvalidRuleException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12067,16 +12782,16 @@ const deserializeAws_restJson1_1InvalidRuleExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidSchemaDocExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSchemaDocException> => {
   const contents: InvalidSchemaDocException = {
     name: "InvalidSchemaDocException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12084,16 +12799,16 @@ const deserializeAws_restJson1_1InvalidSchemaDocExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidTaggingRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTaggingRequestException> => {
   const contents: InvalidTaggingRequestException = {
     name: "InvalidTaggingRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12101,16 +12816,16 @@ const deserializeAws_restJson1_1InvalidTaggingRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12118,16 +12833,16 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1LinkNameAlreadyInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LinkNameAlreadyInUseException> => {
   const contents: LinkNameAlreadyInUseException = {
     name: "LinkNameAlreadyInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12135,16 +12850,16 @@ const deserializeAws_restJson1_1LinkNameAlreadyInUseExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotIndexExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotIndexException> => {
   const contents: NotIndexException = {
     name: "NotIndexException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12152,16 +12867,16 @@ const deserializeAws_restJson1_1NotIndexExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotNodeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotNodeException> => {
   const contents: NotNodeException = {
     name: "NotNodeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12169,16 +12884,16 @@ const deserializeAws_restJson1_1NotNodeExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotPolicyExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotPolicyException> => {
   const contents: NotPolicyException = {
     name: "NotPolicyException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12186,16 +12901,16 @@ const deserializeAws_restJson1_1NotPolicyExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ObjectAlreadyDetachedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ObjectAlreadyDetachedException> => {
   const contents: ObjectAlreadyDetachedException = {
     name: "ObjectAlreadyDetachedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12203,16 +12918,16 @@ const deserializeAws_restJson1_1ObjectAlreadyDetachedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ObjectNotDetachedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ObjectNotDetachedException> => {
   const contents: ObjectNotDetachedException = {
     name: "ObjectNotDetachedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12220,16 +12935,16 @@ const deserializeAws_restJson1_1ObjectNotDetachedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12237,16 +12952,16 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1RetryableConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<RetryableConflictException> => {
   const contents: RetryableConflictException = {
     name: "RetryableConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12254,16 +12969,16 @@ const deserializeAws_restJson1_1RetryableConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1SchemaAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SchemaAlreadyExistsException> => {
   const contents: SchemaAlreadyExistsException = {
     name: "SchemaAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12271,16 +12986,16 @@ const deserializeAws_restJson1_1SchemaAlreadyExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1SchemaAlreadyPublishedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SchemaAlreadyPublishedException> => {
   const contents: SchemaAlreadyPublishedException = {
     name: "SchemaAlreadyPublishedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12288,16 +13003,16 @@ const deserializeAws_restJson1_1SchemaAlreadyPublishedExceptionResponse = async 
 };
 
 const deserializeAws_restJson1_1StillContainsLinksExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<StillContainsLinksException> => {
   const contents: StillContainsLinksException = {
     name: "StillContainsLinksException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12305,16 +13020,16 @@ const deserializeAws_restJson1_1StillContainsLinksExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1UnsupportedIndexTypeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedIndexTypeException> => {
   const contents: UnsupportedIndexTypeException = {
     name: "UnsupportedIndexTypeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12322,16 +13037,16 @@ const deserializeAws_restJson1_1UnsupportedIndexTypeExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -15576,4 +16291,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };
