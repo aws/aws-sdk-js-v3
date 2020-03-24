@@ -37,9 +37,9 @@ export interface RequestSigningArguments extends SigningArguments {
 
 export interface RequestPresigningArguments extends RequestSigningArguments {
   /**
-   * The time at which the signed request should no longer be honored.
+   * The number of seconds before the presigned URL expires
    */
-  expiration?: DateInput;
+  expiresIn?: number;
 }
 
 export interface EventSigningArguments extends SigningArguments {

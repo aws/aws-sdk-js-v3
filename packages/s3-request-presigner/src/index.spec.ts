@@ -23,11 +23,8 @@ describe("s3 presigner", () => {
     sha256: Hash.bind(null, "sha256"),
     signingName: "s3"
   };
-  const expiration = Math.floor(
-    (new Date("2000-01-01T00:00:00.000Z").valueOf() + 60 * 60 * 1000) / 1000
-  );
   const presigningOptions = {
-    expiration,
+    expiresIn: 1800,
     signingDate: new Date("2000-01-01T00:00:00.000Z")
   };
   const minimalRequest = new HttpRequest({
@@ -61,7 +58,7 @@ describe("s3 presigner", () => {
       [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
       [CREDENTIAL_QUERY_PARAM]: "akid/20000101/us-bar-1/s3/aws4_request",
       [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
-      [EXPIRES_QUERY_PARAM]: "3600",
+      [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
       [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER
     });
     expect(minimalRequest).toMatchObject(originalRequest);
@@ -85,7 +82,7 @@ describe("s3 presigner", () => {
     });
   });
 
-  it("should default expiration to 900 seconds if not explicitly passed", async () => {
+  it("should default expiresIn to 900 seconds if not explicitly passed", async () => {
     const signer = new S3RequestPresigner(s3ResolvedConfig);
     const signed = await signer.presign(minimalRequest);
     expect(signed.query).toMatchObject({
