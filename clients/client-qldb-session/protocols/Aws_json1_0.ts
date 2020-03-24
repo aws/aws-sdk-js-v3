@@ -79,7 +79,7 @@ async function deserializeAws_json1_0SendCommandCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -91,6 +91,7 @@ async function deserializeAws_json1_0SendCommandCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -101,6 +102,7 @@ async function deserializeAws_json1_0SendCommandCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -111,6 +113,7 @@ async function deserializeAws_json1_0SendCommandCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -121,6 +124,7 @@ async function deserializeAws_json1_0SendCommandCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -131,6 +135,7 @@ async function deserializeAws_json1_0SendCommandCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -255,7 +260,9 @@ const serializeAws_json1_0CommitTransactionRequest = (
 ): any => {
   const bodyParams: any = {};
   if (input.CommitDigest !== undefined) {
-    bodyParams["CommitDigest"] = context.base64Encoder(input.CommitDigest);
+    bodyParams["CommitDigest"] = Buffer.from(input.CommitDigest).toString(
+      "utf-8"
+    );
   }
   if (input.TransactionId !== undefined) {
     bodyParams["TransactionId"] = input.TransactionId;
@@ -402,7 +409,7 @@ const serializeAws_json1_0ValueHolder = (
 ): any => {
   const bodyParams: any = {};
   if (input.IonBinary !== undefined) {
-    bodyParams["IonBinary"] = context.base64Encoder(input.IonBinary);
+    bodyParams["IonBinary"] = Buffer.from(input.IonBinary).toString("utf-8");
   }
   if (input.IonText !== undefined) {
     bodyParams["IonText"] = input.IonText;
@@ -448,7 +455,7 @@ const deserializeAws_json1_0CommitTransactionResult = (
     TransactionId: undefined
   };
   if (output.CommitDigest !== undefined && output.CommitDigest !== null) {
-    contents.CommitDigest = context.base64Decoder(output.CommitDigest);
+    contents.CommitDigest = Uint8Array.from(output.CommitDigest);
   }
   if (output.TransactionId !== undefined && output.TransactionId !== null) {
     contents.TransactionId = output.TransactionId;
@@ -684,7 +691,7 @@ const deserializeAws_json1_0ValueHolder = (
     IonText: undefined
   };
   if (output.IonBinary !== undefined && output.IonBinary !== null) {
-    contents.IonBinary = context.base64Decoder(output.IonBinary);
+    contents.IonBinary = Uint8Array.from(output.IonBinary);
   }
   if (output.IonText !== undefined && output.IonText !== null) {
     contents.IonText = output.IonText;

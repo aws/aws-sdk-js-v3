@@ -1294,7 +1294,7 @@ export async function serializeAws_restJson1_1GetUtterancesViewCommand(
     view: "aggregation"
   };
   if (input.botVersions !== undefined) {
-    query["bot_versions"] = input.botVersions;
+    query["bot_versions"] = (input.botVersions || []).map(_entry => _entry);
   }
   if (input.statusType !== undefined) {
     query["status_type"] = input.statusType;
@@ -1725,19 +1725,22 @@ async function deserializeAws_restJson1_1CreateBotVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1745,9 +1748,10 @@ async function deserializeAws_restJson1_1CreateBotVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1755,9 +1759,10 @@ async function deserializeAws_restJson1_1CreateBotVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1765,9 +1770,10 @@ async function deserializeAws_restJson1_1CreateBotVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1775,9 +1781,10 @@ async function deserializeAws_restJson1_1CreateBotVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1785,14 +1792,15 @@ async function deserializeAws_restJson1_1CreateBotVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1928,19 +1936,22 @@ async function deserializeAws_restJson1_1CreateIntentVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntentVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1948,9 +1959,10 @@ async function deserializeAws_restJson1_1CreateIntentVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1958,9 +1970,10 @@ async function deserializeAws_restJson1_1CreateIntentVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1968,9 +1981,10 @@ async function deserializeAws_restJson1_1CreateIntentVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1978,9 +1992,10 @@ async function deserializeAws_restJson1_1CreateIntentVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1988,14 +2003,15 @@ async function deserializeAws_restJson1_1CreateIntentVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2073,19 +2089,22 @@ async function deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlotTypeVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2093,9 +2112,10 @@ async function deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2103,9 +2123,10 @@ async function deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2113,9 +2134,10 @@ async function deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2123,9 +2145,10 @@ async function deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2133,14 +2156,15 @@ async function deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2174,19 +2198,22 @@ async function deserializeAws_restJson1_1DeleteBotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2194,9 +2221,10 @@ async function deserializeAws_restJson1_1DeleteBotCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2204,9 +2232,10 @@ async function deserializeAws_restJson1_1DeleteBotCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2214,9 +2243,10 @@ async function deserializeAws_restJson1_1DeleteBotCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2224,9 +2254,10 @@ async function deserializeAws_restJson1_1DeleteBotCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2234,14 +2265,15 @@ async function deserializeAws_restJson1_1DeleteBotCommandError(
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2278,19 +2310,22 @@ async function deserializeAws_restJson1_1DeleteBotAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2298,9 +2333,10 @@ async function deserializeAws_restJson1_1DeleteBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2308,9 +2344,10 @@ async function deserializeAws_restJson1_1DeleteBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2318,9 +2355,10 @@ async function deserializeAws_restJson1_1DeleteBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2328,9 +2366,10 @@ async function deserializeAws_restJson1_1DeleteBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2338,14 +2377,15 @@ async function deserializeAws_restJson1_1DeleteBotAliasCommandError(
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2382,19 +2422,22 @@ async function deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotChannelAssociationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2402,9 +2445,10 @@ async function deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2412,9 +2456,10 @@ async function deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2422,9 +2467,10 @@ async function deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2432,14 +2478,15 @@ async function deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2476,19 +2523,22 @@ async function deserializeAws_restJson1_1DeleteBotVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2496,9 +2546,10 @@ async function deserializeAws_restJson1_1DeleteBotVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2506,9 +2557,10 @@ async function deserializeAws_restJson1_1DeleteBotVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2516,9 +2568,10 @@ async function deserializeAws_restJson1_1DeleteBotVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2526,9 +2579,10 @@ async function deserializeAws_restJson1_1DeleteBotVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2536,14 +2590,15 @@ async function deserializeAws_restJson1_1DeleteBotVersionCommandError(
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2577,19 +2632,22 @@ async function deserializeAws_restJson1_1DeleteIntentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2597,9 +2655,10 @@ async function deserializeAws_restJson1_1DeleteIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2607,9 +2666,10 @@ async function deserializeAws_restJson1_1DeleteIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2617,9 +2677,10 @@ async function deserializeAws_restJson1_1DeleteIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2627,9 +2688,10 @@ async function deserializeAws_restJson1_1DeleteIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2637,14 +2699,15 @@ async function deserializeAws_restJson1_1DeleteIntentCommandError(
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2681,19 +2744,22 @@ async function deserializeAws_restJson1_1DeleteIntentVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2701,9 +2767,10 @@ async function deserializeAws_restJson1_1DeleteIntentVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2711,9 +2778,10 @@ async function deserializeAws_restJson1_1DeleteIntentVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2721,9 +2789,10 @@ async function deserializeAws_restJson1_1DeleteIntentVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2731,9 +2800,10 @@ async function deserializeAws_restJson1_1DeleteIntentVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2741,14 +2811,15 @@ async function deserializeAws_restJson1_1DeleteIntentVersionCommandError(
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2785,19 +2856,22 @@ async function deserializeAws_restJson1_1DeleteSlotTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2805,9 +2879,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2815,9 +2890,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2825,9 +2901,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2835,9 +2912,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2845,14 +2923,15 @@ async function deserializeAws_restJson1_1DeleteSlotTypeCommandError(
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2889,19 +2968,22 @@ async function deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2909,9 +2991,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2919,9 +3002,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2929,9 +3013,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2939,9 +3024,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2949,14 +3035,15 @@ async function deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2993,19 +3080,22 @@ async function deserializeAws_restJson1_1DeleteUtterancesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUtterancesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3013,9 +3103,10 @@ async function deserializeAws_restJson1_1DeleteUtterancesCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3023,9 +3114,10 @@ async function deserializeAws_restJson1_1DeleteUtterancesCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3033,14 +3125,15 @@ async function deserializeAws_restJson1_1DeleteUtterancesCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3156,19 +3249,22 @@ async function deserializeAws_restJson1_1GetBotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3176,9 +3272,10 @@ async function deserializeAws_restJson1_1GetBotCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3186,9 +3283,10 @@ async function deserializeAws_restJson1_1GetBotCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3196,14 +3294,15 @@ async function deserializeAws_restJson1_1GetBotCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3275,19 +3374,22 @@ async function deserializeAws_restJson1_1GetBotAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3295,9 +3397,10 @@ async function deserializeAws_restJson1_1GetBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3305,9 +3408,10 @@ async function deserializeAws_restJson1_1GetBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3315,14 +3419,15 @@ async function deserializeAws_restJson1_1GetBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3368,19 +3473,22 @@ async function deserializeAws_restJson1_1GetBotAliasesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3388,9 +3496,10 @@ async function deserializeAws_restJson1_1GetBotAliasesCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3398,14 +3507,15 @@ async function deserializeAws_restJson1_1GetBotAliasesCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3482,19 +3592,22 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3502,9 +3615,10 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3512,9 +3626,10 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3522,14 +3637,15 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3581,19 +3697,22 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3601,9 +3720,10 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationsCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3611,14 +3731,15 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationsCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3667,19 +3788,22 @@ async function deserializeAws_restJson1_1GetBotVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3687,9 +3811,10 @@ async function deserializeAws_restJson1_1GetBotVersionsCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3697,9 +3822,10 @@ async function deserializeAws_restJson1_1GetBotVersionsCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3707,14 +3833,15 @@ async function deserializeAws_restJson1_1GetBotVersionsCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3760,19 +3887,22 @@ async function deserializeAws_restJson1_1GetBotsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3780,9 +3910,10 @@ async function deserializeAws_restJson1_1GetBotsCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3790,9 +3921,10 @@ async function deserializeAws_restJson1_1GetBotsCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3800,14 +3932,15 @@ async function deserializeAws_restJson1_1GetBotsCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3863,19 +3996,22 @@ async function deserializeAws_restJson1_1GetBuiltinIntentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3883,9 +4019,10 @@ async function deserializeAws_restJson1_1GetBuiltinIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3893,9 +4030,10 @@ async function deserializeAws_restJson1_1GetBuiltinIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3903,14 +4041,15 @@ async function deserializeAws_restJson1_1GetBuiltinIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3959,19 +4098,22 @@ async function deserializeAws_restJson1_1GetBuiltinIntentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3979,9 +4121,10 @@ async function deserializeAws_restJson1_1GetBuiltinIntentsCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3989,14 +4132,15 @@ async function deserializeAws_restJson1_1GetBuiltinIntentsCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4045,19 +4189,22 @@ async function deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinSlotTypesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4065,9 +4212,10 @@ async function deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4075,14 +4223,15 @@ async function deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4145,19 +4294,22 @@ async function deserializeAws_restJson1_1GetExportCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4165,9 +4317,10 @@ async function deserializeAws_restJson1_1GetExportCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4175,9 +4328,10 @@ async function deserializeAws_restJson1_1GetExportCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4185,14 +4339,15 @@ async function deserializeAws_restJson1_1GetExportCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4258,19 +4413,22 @@ async function deserializeAws_restJson1_1GetImportCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4278,9 +4436,10 @@ async function deserializeAws_restJson1_1GetImportCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4288,9 +4447,10 @@ async function deserializeAws_restJson1_1GetImportCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4298,14 +4458,15 @@ async function deserializeAws_restJson1_1GetImportCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4438,19 +4599,22 @@ async function deserializeAws_restJson1_1GetIntentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4458,9 +4622,10 @@ async function deserializeAws_restJson1_1GetIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4468,9 +4633,10 @@ async function deserializeAws_restJson1_1GetIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4478,14 +4644,15 @@ async function deserializeAws_restJson1_1GetIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4534,19 +4701,22 @@ async function deserializeAws_restJson1_1GetIntentVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4554,9 +4724,10 @@ async function deserializeAws_restJson1_1GetIntentVersionsCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4564,9 +4735,10 @@ async function deserializeAws_restJson1_1GetIntentVersionsCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4574,14 +4746,15 @@ async function deserializeAws_restJson1_1GetIntentVersionsCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4627,19 +4800,22 @@ async function deserializeAws_restJson1_1GetIntentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4647,9 +4823,10 @@ async function deserializeAws_restJson1_1GetIntentsCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4657,9 +4834,10 @@ async function deserializeAws_restJson1_1GetIntentsCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4667,14 +4845,15 @@ async function deserializeAws_restJson1_1GetIntentsCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4749,19 +4928,22 @@ async function deserializeAws_restJson1_1GetSlotTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4769,9 +4951,10 @@ async function deserializeAws_restJson1_1GetSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4779,9 +4962,10 @@ async function deserializeAws_restJson1_1GetSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4789,14 +4973,15 @@ async function deserializeAws_restJson1_1GetSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4845,19 +5030,22 @@ async function deserializeAws_restJson1_1GetSlotTypeVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4865,9 +5053,10 @@ async function deserializeAws_restJson1_1GetSlotTypeVersionsCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4875,9 +5064,10 @@ async function deserializeAws_restJson1_1GetSlotTypeVersionsCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4885,14 +5075,15 @@ async function deserializeAws_restJson1_1GetSlotTypeVersionsCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4938,19 +5129,22 @@ async function deserializeAws_restJson1_1GetSlotTypesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4958,9 +5152,10 @@ async function deserializeAws_restJson1_1GetSlotTypesCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4968,9 +5163,10 @@ async function deserializeAws_restJson1_1GetSlotTypesCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4978,14 +5174,15 @@ async function deserializeAws_restJson1_1GetSlotTypesCommandError(
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5034,19 +5231,22 @@ async function deserializeAws_restJson1_1GetUtterancesViewCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUtterancesViewCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5054,9 +5254,10 @@ async function deserializeAws_restJson1_1GetUtterancesViewCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5064,14 +5265,15 @@ async function deserializeAws_restJson1_1GetUtterancesViewCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5191,19 +5393,22 @@ async function deserializeAws_restJson1_1PutBotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBotCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5211,9 +5416,10 @@ async function deserializeAws_restJson1_1PutBotCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5221,9 +5427,10 @@ async function deserializeAws_restJson1_1PutBotCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5231,9 +5438,10 @@ async function deserializeAws_restJson1_1PutBotCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5241,14 +5449,15 @@ async function deserializeAws_restJson1_1PutBotCommandError(
     case "com.amazonaws.commonapi.exceptions#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5320,19 +5529,22 @@ async function deserializeAws_restJson1_1PutBotAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBotAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5340,9 +5552,10 @@ async function deserializeAws_restJson1_1PutBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5350,9 +5563,10 @@ async function deserializeAws_restJson1_1PutBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5360,9 +5574,10 @@ async function deserializeAws_restJson1_1PutBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5370,14 +5585,15 @@ async function deserializeAws_restJson1_1PutBotAliasCommandError(
     case "com.amazonaws.commonapi.exceptions#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5514,19 +5730,22 @@ async function deserializeAws_restJson1_1PutIntentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutIntentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5534,9 +5753,10 @@ async function deserializeAws_restJson1_1PutIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5544,9 +5764,10 @@ async function deserializeAws_restJson1_1PutIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5554,9 +5775,10 @@ async function deserializeAws_restJson1_1PutIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5564,14 +5786,15 @@ async function deserializeAws_restJson1_1PutIntentCommandError(
     case "com.amazonaws.commonapi.exceptions#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5650,19 +5873,22 @@ async function deserializeAws_restJson1_1PutSlotTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSlotTypeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5670,9 +5896,10 @@ async function deserializeAws_restJson1_1PutSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5680,9 +5907,10 @@ async function deserializeAws_restJson1_1PutSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5690,9 +5918,10 @@ async function deserializeAws_restJson1_1PutSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5700,14 +5929,15 @@ async function deserializeAws_restJson1_1PutSlotTypeCommandError(
     case "com.amazonaws.commonapi.exceptions#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5766,19 +5996,22 @@ async function deserializeAws_restJson1_1StartImportCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5786,9 +6019,10 @@ async function deserializeAws_restJson1_1StartImportCommandError(
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5796,14 +6030,15 @@ async function deserializeAws_restJson1_1StartImportCommandError(
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5820,16 +6055,16 @@ async function deserializeAws_restJson1_1StartImportCommandError(
 }
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5837,16 +6072,16 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5854,16 +6089,16 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5871,20 +6106,20 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
     retryAfterSeconds: undefined
   };
-  if (output.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = output.headers["retry-after"];
+  if (parsedOutput.headers["retry-after"] !== undefined) {
+    contents.retryAfterSeconds = parsedOutput.headers["retry-after"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5892,16 +6127,16 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5909,16 +6144,16 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<PreconditionFailedException> => {
   const contents: PreconditionFailedException = {
     name: "PreconditionFailedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5926,17 +6161,17 @@ const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     exampleReference: undefined,
     referenceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.exampleReference !== undefined && data.exampleReference !== null) {
     contents.exampleReference = deserializeAws_restJson1_1ResourceReference(
       data.exampleReference,
@@ -7097,4 +7332,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

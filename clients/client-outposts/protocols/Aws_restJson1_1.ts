@@ -213,19 +213,22 @@ async function deserializeAws_restJson1_1CreateOutpostCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOutpostCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -233,9 +236,10 @@ async function deserializeAws_restJson1_1CreateOutpostCommandError(
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -243,9 +247,10 @@ async function deserializeAws_restJson1_1CreateOutpostCommandError(
     case "com.amazonaws.outposts.olaf.service.model#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -253,9 +258,10 @@ async function deserializeAws_restJson1_1CreateOutpostCommandError(
     case "com.amazonaws.outposts.olaf.service.model#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -263,14 +269,15 @@ async function deserializeAws_restJson1_1CreateOutpostCommandError(
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -309,19 +316,22 @@ async function deserializeAws_restJson1_1GetOutpostCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOutpostCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -329,9 +339,10 @@ async function deserializeAws_restJson1_1GetOutpostCommandError(
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -339,9 +350,10 @@ async function deserializeAws_restJson1_1GetOutpostCommandError(
     case "com.amazonaws.outposts.olaf.service.model#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -349,14 +361,15 @@ async function deserializeAws_restJson1_1GetOutpostCommandError(
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -413,19 +426,22 @@ async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOutpostInstanceTypesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -433,9 +449,10 @@ async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -443,9 +460,10 @@ async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(
     case "com.amazonaws.outposts.olaf.service.model#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -453,14 +471,15 @@ async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -506,19 +525,22 @@ async function deserializeAws_restJson1_1ListOutpostsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOutpostsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -526,9 +548,10 @@ async function deserializeAws_restJson1_1ListOutpostsCommandError(
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -536,14 +559,15 @@ async function deserializeAws_restJson1_1ListOutpostsCommandError(
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -589,19 +613,22 @@ async function deserializeAws_restJson1_1ListSitesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSitesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -609,9 +636,10 @@ async function deserializeAws_restJson1_1ListSitesCommandError(
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -619,14 +647,15 @@ async function deserializeAws_restJson1_1ListSitesCommandError(
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -643,16 +672,16 @@ async function deserializeAws_restJson1_1ListSitesCommandError(
 }
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -660,16 +689,16 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -677,16 +706,16 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -694,16 +723,16 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const contents: ServiceQuotaExceededException = {
     name: "ServiceQuotaExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -711,16 +740,16 @@ const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -882,4 +911,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

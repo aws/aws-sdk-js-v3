@@ -349,20 +349,22 @@ export async function serializeAws_restXmlAssociateVPCWithHostedZoneCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("AssociateVPCWithHostedZone");
+  const bodyNode = new __XmlNode("AssociateVPCWithHostedZoneRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.Comment !== undefined) {
-    const memberNode = new __XmlNode("AssociateVPCComment").addChildNode(
-      new __XmlText(input.Comment)
+    bodyNode.addChildNode(
+      new __XmlNode("AssociateVPCComment")
+        .addChildNode(new __XmlText(input.Comment))
+        .withName("Comment")
     );
-    bodyNode.addChildNode(memberNode.withName("Comment"));
   }
   if (input.VPC !== undefined) {
-    const memberNode = serializeAws_restXmlVPC(input.VPC, context);
-    bodyNode.addChildNode(memberNode.withName("VPC"));
+    bodyNode.addChildNode(
+      serializeAws_restXmlVPC(input.VPC, context).withName("VPC")
+    );
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -398,17 +400,17 @@ export async function serializeAws_restXmlChangeResourceRecordSetsCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("ChangeResourceRecordSets");
+  const bodyNode = new __XmlNode("ChangeResourceRecordSetsRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.ChangeBatch !== undefined) {
-    const memberNode = serializeAws_restXmlChangeBatch(
-      input.ChangeBatch,
-      context
+    bodyNode.addChildNode(
+      serializeAws_restXmlChangeBatch(input.ChangeBatch, context).withName(
+        "ChangeBatch"
+      )
     );
-    bodyNode.addChildNode(memberNode.withName("ChangeBatch"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -456,7 +458,7 @@ export async function serializeAws_restXmlChangeTagsForResourceCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("ChangeTagsForResource");
+  const bodyNode = new __XmlNode("ChangeTagsForResourceRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
@@ -497,23 +499,25 @@ export async function serializeAws_restXmlCreateHealthCheckCommand(
   let resolvedPath = "/2013-04-01/healthcheck";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateHealthCheck");
+  const bodyNode = new __XmlNode("CreateHealthCheckRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.CallerReference !== undefined) {
-    const memberNode = new __XmlNode("HealthCheckNonce").addChildNode(
-      new __XmlText(input.CallerReference)
+    bodyNode.addChildNode(
+      new __XmlNode("HealthCheckNonce")
+        .addChildNode(new __XmlText(input.CallerReference))
+        .withName("CallerReference")
     );
-    bodyNode.addChildNode(memberNode.withName("CallerReference"));
   }
   if (input.HealthCheckConfig !== undefined) {
-    const memberNode = serializeAws_restXmlHealthCheckConfig(
-      input.HealthCheckConfig,
-      context
+    bodyNode.addChildNode(
+      serializeAws_restXmlHealthCheckConfig(
+        input.HealthCheckConfig,
+        context
+      ).withName("HealthCheckConfig")
     );
-    bodyNode.addChildNode(memberNode.withName("HealthCheckConfig"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -535,39 +539,44 @@ export async function serializeAws_restXmlCreateHostedZoneCommand(
   let resolvedPath = "/2013-04-01/hostedzone";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateHostedZone");
+  const bodyNode = new __XmlNode("CreateHostedZoneRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.CallerReference !== undefined) {
-    const memberNode = new __XmlNode("Nonce").addChildNode(
-      new __XmlText(input.CallerReference)
+    bodyNode.addChildNode(
+      new __XmlNode("Nonce")
+        .addChildNode(new __XmlText(input.CallerReference))
+        .withName("CallerReference")
     );
-    bodyNode.addChildNode(memberNode.withName("CallerReference"));
   }
   if (input.DelegationSetId !== undefined) {
-    const memberNode = new __XmlNode("ResourceId").addChildNode(
-      new __XmlText(input.DelegationSetId)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceId")
+        .addChildNode(new __XmlText(input.DelegationSetId))
+        .withName("DelegationSetId")
     );
-    bodyNode.addChildNode(memberNode.withName("DelegationSetId"));
   }
   if (input.HostedZoneConfig !== undefined) {
-    const memberNode = serializeAws_restXmlHostedZoneConfig(
-      input.HostedZoneConfig,
-      context
+    bodyNode.addChildNode(
+      serializeAws_restXmlHostedZoneConfig(
+        input.HostedZoneConfig,
+        context
+      ).withName("HostedZoneConfig")
     );
-    bodyNode.addChildNode(memberNode.withName("HostedZoneConfig"));
   }
   if (input.Name !== undefined) {
-    const memberNode = new __XmlNode("DNSName").addChildNode(
-      new __XmlText(input.Name)
+    bodyNode.addChildNode(
+      new __XmlNode("DNSName")
+        .addChildNode(new __XmlText(input.Name))
+        .withName("Name")
     );
-    bodyNode.addChildNode(memberNode.withName("Name"));
   }
   if (input.VPC !== undefined) {
-    const memberNode = serializeAws_restXmlVPC(input.VPC, context);
-    bodyNode.addChildNode(memberNode.withName("VPC"));
+    bodyNode.addChildNode(
+      serializeAws_restXmlVPC(input.VPC, context).withName("VPC")
+    );
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -589,22 +598,24 @@ export async function serializeAws_restXmlCreateQueryLoggingConfigCommand(
   let resolvedPath = "/2013-04-01/queryloggingconfig";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateQueryLoggingConfig");
+  const bodyNode = new __XmlNode("CreateQueryLoggingConfigRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.CloudWatchLogsLogGroupArn !== undefined) {
-    const memberNode = new __XmlNode("CloudWatchLogsLogGroupArn").addChildNode(
-      new __XmlText(input.CloudWatchLogsLogGroupArn)
+    bodyNode.addChildNode(
+      new __XmlNode("CloudWatchLogsLogGroupArn")
+        .addChildNode(new __XmlText(input.CloudWatchLogsLogGroupArn))
+        .withName("CloudWatchLogsLogGroupArn")
     );
-    bodyNode.addChildNode(memberNode.withName("CloudWatchLogsLogGroupArn"));
   }
   if (input.HostedZoneId !== undefined) {
-    const memberNode = new __XmlNode("ResourceId").addChildNode(
-      new __XmlText(input.HostedZoneId)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceId")
+        .addChildNode(new __XmlText(input.HostedZoneId))
+        .withName("HostedZoneId")
     );
-    bodyNode.addChildNode(memberNode.withName("HostedZoneId"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -626,22 +637,24 @@ export async function serializeAws_restXmlCreateReusableDelegationSetCommand(
   let resolvedPath = "/2013-04-01/delegationset";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateReusableDelegationSet");
+  const bodyNode = new __XmlNode("CreateReusableDelegationSetRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.CallerReference !== undefined) {
-    const memberNode = new __XmlNode("Nonce").addChildNode(
-      new __XmlText(input.CallerReference)
+    bodyNode.addChildNode(
+      new __XmlNode("Nonce")
+        .addChildNode(new __XmlText(input.CallerReference))
+        .withName("CallerReference")
     );
-    bodyNode.addChildNode(memberNode.withName("CallerReference"));
   }
   if (input.HostedZoneId !== undefined) {
-    const memberNode = new __XmlNode("ResourceId").addChildNode(
-      new __XmlText(input.HostedZoneId)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceId")
+        .addChildNode(new __XmlText(input.HostedZoneId))
+        .withName("HostedZoneId")
     );
-    bodyNode.addChildNode(memberNode.withName("HostedZoneId"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -663,28 +676,31 @@ export async function serializeAws_restXmlCreateTrafficPolicyCommand(
   let resolvedPath = "/2013-04-01/trafficpolicy";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateTrafficPolicy");
+  const bodyNode = new __XmlNode("CreateTrafficPolicyRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.Comment !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyComment").addChildNode(
-      new __XmlText(input.Comment)
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyComment")
+        .addChildNode(new __XmlText(input.Comment))
+        .withName("Comment")
     );
-    bodyNode.addChildNode(memberNode.withName("Comment"));
   }
   if (input.Document !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyDocument").addChildNode(
-      new __XmlText(input.Document)
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyDocument")
+        .addChildNode(new __XmlText(input.Document))
+        .withName("Document")
     );
-    bodyNode.addChildNode(memberNode.withName("Document"));
   }
   if (input.Name !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyName").addChildNode(
-      new __XmlText(input.Name)
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyName")
+        .addChildNode(new __XmlText(input.Name))
+        .withName("Name")
     );
-    bodyNode.addChildNode(memberNode.withName("Name"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -706,40 +722,45 @@ export async function serializeAws_restXmlCreateTrafficPolicyInstanceCommand(
   let resolvedPath = "/2013-04-01/trafficpolicyinstance";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateTrafficPolicyInstance");
+  const bodyNode = new __XmlNode("CreateTrafficPolicyInstanceRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.HostedZoneId !== undefined) {
-    const memberNode = new __XmlNode("ResourceId").addChildNode(
-      new __XmlText(input.HostedZoneId)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceId")
+        .addChildNode(new __XmlText(input.HostedZoneId))
+        .withName("HostedZoneId")
     );
-    bodyNode.addChildNode(memberNode.withName("HostedZoneId"));
   }
   if (input.Name !== undefined) {
-    const memberNode = new __XmlNode("DNSName").addChildNode(
-      new __XmlText(input.Name)
+    bodyNode.addChildNode(
+      new __XmlNode("DNSName")
+        .addChildNode(new __XmlText(input.Name))
+        .withName("Name")
     );
-    bodyNode.addChildNode(memberNode.withName("Name"));
   }
   if (input.TTL !== undefined) {
-    const memberNode = new __XmlNode("TTL").addChildNode(
-      new __XmlText(String(input.TTL))
+    bodyNode.addChildNode(
+      new __XmlNode("TTL")
+        .addChildNode(new __XmlText(String(input.TTL)))
+        .withName("TTL")
     );
-    bodyNode.addChildNode(memberNode.withName("TTL"));
   }
   if (input.TrafficPolicyId !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyId").addChildNode(
-      new __XmlText(input.TrafficPolicyId)
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyId")
+        .addChildNode(new __XmlText(input.TrafficPolicyId))
+        .withName("TrafficPolicyId")
     );
-    bodyNode.addChildNode(memberNode.withName("TrafficPolicyId"));
   }
   if (input.TrafficPolicyVersion !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyVersion").addChildNode(
-      new __XmlText(String(input.TrafficPolicyVersion))
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyVersion")
+        .addChildNode(new __XmlText(String(input.TrafficPolicyVersion)))
+        .withName("TrafficPolicyVersion")
     );
-    bodyNode.addChildNode(memberNode.withName("TrafficPolicyVersion"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -773,22 +794,24 @@ export async function serializeAws_restXmlCreateTrafficPolicyVersionCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateTrafficPolicyVersion");
+  const bodyNode = new __XmlNode("CreateTrafficPolicyVersionRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.Comment !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyComment").addChildNode(
-      new __XmlText(input.Comment)
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyComment")
+        .addChildNode(new __XmlText(input.Comment))
+        .withName("Comment")
     );
-    bodyNode.addChildNode(memberNode.withName("Comment"));
   }
   if (input.Document !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyDocument").addChildNode(
-      new __XmlText(input.Document)
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyDocument")
+        .addChildNode(new __XmlText(input.Document))
+        .withName("Document")
     );
-    bodyNode.addChildNode(memberNode.withName("Document"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -825,14 +848,15 @@ export async function serializeAws_restXmlCreateVPCAssociationAuthorizationComma
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateVPCAssociationAuthorization");
+  const bodyNode = new __XmlNode("CreateVPCAssociationAuthorizationRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.VPC !== undefined) {
-    const memberNode = serializeAws_restXmlVPC(input.VPC, context);
-    bodyNode.addChildNode(memberNode.withName("VPC"));
+    bodyNode.addChildNode(
+      serializeAws_restXmlVPC(input.VPC, context).withName("VPC")
+    );
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -1051,14 +1075,15 @@ export async function serializeAws_restXmlDeleteVPCAssociationAuthorizationComma
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("DeleteVPCAssociationAuthorization");
+  const bodyNode = new __XmlNode("DeleteVPCAssociationAuthorizationRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.VPC !== undefined) {
-    const memberNode = serializeAws_restXmlVPC(input.VPC, context);
-    bodyNode.addChildNode(memberNode.withName("VPC"));
+    bodyNode.addChildNode(
+      serializeAws_restXmlVPC(input.VPC, context).withName("VPC")
+    );
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -1094,20 +1119,22 @@ export async function serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("DisassociateVPCFromHostedZone");
+  const bodyNode = new __XmlNode("DisassociateVPCFromHostedZoneRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.Comment !== undefined) {
-    const memberNode = new __XmlNode("DisassociateVPCComment").addChildNode(
-      new __XmlText(input.Comment)
+    bodyNode.addChildNode(
+      new __XmlNode("DisassociateVPCComment")
+        .addChildNode(new __XmlText(input.Comment))
+        .withName("Comment")
     );
-    bodyNode.addChildNode(memberNode.withName("Comment"));
   }
   if (input.VPC !== undefined) {
-    const memberNode = serializeAws_restXmlVPC(input.VPC, context);
-    bodyNode.addChildNode(memberNode.withName("VPC"));
+    bodyNode.addChildNode(
+      serializeAws_restXmlVPC(input.VPC, context).withName("VPC")
+    );
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -1863,7 +1890,7 @@ export async function serializeAws_restXmlListTagsForResourcesCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("ListTagsForResources");
+  const bodyNode = new __XmlNode("ListTagsForResourcesRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
@@ -2144,17 +2171,18 @@ export async function serializeAws_restXmlUpdateHealthCheckCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateHealthCheck");
+  const bodyNode = new __XmlNode("UpdateHealthCheckRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.AlarmIdentifier !== undefined) {
-    const memberNode = serializeAws_restXmlAlarmIdentifier(
-      input.AlarmIdentifier,
-      context
+    bodyNode.addChildNode(
+      serializeAws_restXmlAlarmIdentifier(
+        input.AlarmIdentifier,
+        context
+      ).withName("AlarmIdentifier")
     );
-    bodyNode.addChildNode(memberNode.withName("AlarmIdentifier"));
   }
   if (input.ChildHealthChecks !== undefined) {
     const nodes = serializeAws_restXmlChildHealthCheckList(
@@ -2168,64 +2196,74 @@ export async function serializeAws_restXmlUpdateHealthCheckCommand(
     bodyNode.addChildNode(containerNode);
   }
   if (input.Disabled !== undefined) {
-    const memberNode = new __XmlNode("Disabled").addChildNode(
-      new __XmlText(String(input.Disabled))
+    bodyNode.addChildNode(
+      new __XmlNode("Disabled")
+        .addChildNode(new __XmlText(String(input.Disabled)))
+        .withName("Disabled")
     );
-    bodyNode.addChildNode(memberNode.withName("Disabled"));
   }
   if (input.EnableSNI !== undefined) {
-    const memberNode = new __XmlNode("EnableSNI").addChildNode(
-      new __XmlText(String(input.EnableSNI))
+    bodyNode.addChildNode(
+      new __XmlNode("EnableSNI")
+        .addChildNode(new __XmlText(String(input.EnableSNI)))
+        .withName("EnableSNI")
     );
-    bodyNode.addChildNode(memberNode.withName("EnableSNI"));
   }
   if (input.FailureThreshold !== undefined) {
-    const memberNode = new __XmlNode("FailureThreshold").addChildNode(
-      new __XmlText(String(input.FailureThreshold))
+    bodyNode.addChildNode(
+      new __XmlNode("FailureThreshold")
+        .addChildNode(new __XmlText(String(input.FailureThreshold)))
+        .withName("FailureThreshold")
     );
-    bodyNode.addChildNode(memberNode.withName("FailureThreshold"));
   }
   if (input.FullyQualifiedDomainName !== undefined) {
-    const memberNode = new __XmlNode("FullyQualifiedDomainName").addChildNode(
-      new __XmlText(input.FullyQualifiedDomainName)
+    bodyNode.addChildNode(
+      new __XmlNode("FullyQualifiedDomainName")
+        .addChildNode(new __XmlText(input.FullyQualifiedDomainName))
+        .withName("FullyQualifiedDomainName")
     );
-    bodyNode.addChildNode(memberNode.withName("FullyQualifiedDomainName"));
   }
   if (input.HealthCheckVersion !== undefined) {
-    const memberNode = new __XmlNode("HealthCheckVersion").addChildNode(
-      new __XmlText(String(input.HealthCheckVersion))
+    bodyNode.addChildNode(
+      new __XmlNode("HealthCheckVersion")
+        .addChildNode(new __XmlText(String(input.HealthCheckVersion)))
+        .withName("HealthCheckVersion")
     );
-    bodyNode.addChildNode(memberNode.withName("HealthCheckVersion"));
   }
   if (input.HealthThreshold !== undefined) {
-    const memberNode = new __XmlNode("HealthThreshold").addChildNode(
-      new __XmlText(String(input.HealthThreshold))
+    bodyNode.addChildNode(
+      new __XmlNode("HealthThreshold")
+        .addChildNode(new __XmlText(String(input.HealthThreshold)))
+        .withName("HealthThreshold")
     );
-    bodyNode.addChildNode(memberNode.withName("HealthThreshold"));
   }
   if (input.IPAddress !== undefined) {
-    const memberNode = new __XmlNode("IPAddress").addChildNode(
-      new __XmlText(input.IPAddress)
+    bodyNode.addChildNode(
+      new __XmlNode("IPAddress")
+        .addChildNode(new __XmlText(input.IPAddress))
+        .withName("IPAddress")
     );
-    bodyNode.addChildNode(memberNode.withName("IPAddress"));
   }
   if (input.InsufficientDataHealthStatus !== undefined) {
-    const memberNode = new __XmlNode(
-      "InsufficientDataHealthStatus"
-    ).addChildNode(new __XmlText(input.InsufficientDataHealthStatus));
-    bodyNode.addChildNode(memberNode.withName("InsufficientDataHealthStatus"));
+    bodyNode.addChildNode(
+      new __XmlNode("InsufficientDataHealthStatus")
+        .addChildNode(new __XmlText(input.InsufficientDataHealthStatus))
+        .withName("InsufficientDataHealthStatus")
+    );
   }
   if (input.Inverted !== undefined) {
-    const memberNode = new __XmlNode("Inverted").addChildNode(
-      new __XmlText(String(input.Inverted))
+    bodyNode.addChildNode(
+      new __XmlNode("Inverted")
+        .addChildNode(new __XmlText(String(input.Inverted)))
+        .withName("Inverted")
     );
-    bodyNode.addChildNode(memberNode.withName("Inverted"));
   }
   if (input.Port !== undefined) {
-    const memberNode = new __XmlNode("Port").addChildNode(
-      new __XmlText(String(input.Port))
+    bodyNode.addChildNode(
+      new __XmlNode("Port")
+        .addChildNode(new __XmlText(String(input.Port)))
+        .withName("Port")
     );
-    bodyNode.addChildNode(memberNode.withName("Port"));
   }
   if (input.Regions !== undefined) {
     const nodes = serializeAws_restXmlHealthCheckRegionList(
@@ -2250,16 +2288,18 @@ export async function serializeAws_restXmlUpdateHealthCheckCommand(
     bodyNode.addChildNode(containerNode);
   }
   if (input.ResourcePath !== undefined) {
-    const memberNode = new __XmlNode("ResourcePath").addChildNode(
-      new __XmlText(input.ResourcePath)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourcePath")
+        .addChildNode(new __XmlText(input.ResourcePath))
+        .withName("ResourcePath")
     );
-    bodyNode.addChildNode(memberNode.withName("ResourcePath"));
   }
   if (input.SearchString !== undefined) {
-    const memberNode = new __XmlNode("SearchString").addChildNode(
-      new __XmlText(input.SearchString)
+    bodyNode.addChildNode(
+      new __XmlNode("SearchString")
+        .addChildNode(new __XmlText(input.SearchString))
+        .withName("SearchString")
     );
-    bodyNode.addChildNode(memberNode.withName("SearchString"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -2293,16 +2333,17 @@ export async function serializeAws_restXmlUpdateHostedZoneCommentCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateHostedZoneComment");
+  const bodyNode = new __XmlNode("UpdateHostedZoneCommentRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.Comment !== undefined) {
-    const memberNode = new __XmlNode("ResourceDescription").addChildNode(
-      new __XmlText(input.Comment)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceDescription")
+        .addChildNode(new __XmlText(input.Comment))
+        .withName("Comment")
     );
-    bodyNode.addChildNode(memberNode.withName("Comment"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -2348,16 +2389,17 @@ export async function serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateTrafficPolicyComment");
+  const bodyNode = new __XmlNode("UpdateTrafficPolicyCommentRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.Comment !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyComment").addChildNode(
-      new __XmlText(input.Comment)
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyComment")
+        .addChildNode(new __XmlText(input.Comment))
+        .withName("Comment")
     );
-    bodyNode.addChildNode(memberNode.withName("Comment"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -2391,28 +2433,31 @@ export async function serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateTrafficPolicyInstance");
+  const bodyNode = new __XmlNode("UpdateTrafficPolicyInstanceRequest");
   bodyNode.addAttribute(
     "xmlns",
     "https://route53.amazonaws.com/doc/2013-04-01/"
   );
   if (input.TTL !== undefined) {
-    const memberNode = new __XmlNode("TTL").addChildNode(
-      new __XmlText(String(input.TTL))
+    bodyNode.addChildNode(
+      new __XmlNode("TTL")
+        .addChildNode(new __XmlText(String(input.TTL)))
+        .withName("TTL")
     );
-    bodyNode.addChildNode(memberNode.withName("TTL"));
   }
   if (input.TrafficPolicyId !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyId").addChildNode(
-      new __XmlText(input.TrafficPolicyId)
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyId")
+        .addChildNode(new __XmlText(input.TrafficPolicyId))
+        .withName("TrafficPolicyId")
     );
-    bodyNode.addChildNode(memberNode.withName("TrafficPolicyId"));
   }
   if (input.TrafficPolicyVersion !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyVersion").addChildNode(
-      new __XmlText(String(input.TrafficPolicyVersion))
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyVersion")
+        .addChildNode(new __XmlText(String(input.TrafficPolicyVersion)))
+        .withName("TrafficPolicyVersion")
     );
-    bodyNode.addChildNode(memberNode.withName("TrafficPolicyVersion"));
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -2459,7 +2504,7 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingDomainExists":
@@ -2469,6 +2514,7 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2479,6 +2525,7 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2489,6 +2536,7 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2499,6 +2547,7 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2509,6 +2558,7 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2519,6 +2569,7 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2529,6 +2580,7 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2584,7 +2636,7 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidChangeBatch":
@@ -2594,6 +2646,7 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2604,6 +2657,7 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2614,6 +2668,7 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2624,6 +2679,7 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2634,6 +2690,7 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2682,7 +2739,7 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -2692,6 +2749,7 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2702,6 +2760,7 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2712,6 +2771,7 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2722,6 +2782,7 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2732,6 +2793,7 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2788,7 +2850,7 @@ async function deserializeAws_restXmlCreateHealthCheckCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckAlreadyExists":
@@ -2798,6 +2860,7 @@ async function deserializeAws_restXmlCreateHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2808,6 +2871,7 @@ async function deserializeAws_restXmlCreateHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2818,6 +2882,7 @@ async function deserializeAws_restXmlCreateHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2892,7 +2957,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingDomainExists":
@@ -2902,6 +2967,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2912,6 +2978,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2922,6 +2989,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2932,6 +3000,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2942,6 +3011,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2952,6 +3022,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2962,6 +3033,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2972,6 +3044,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2982,6 +3055,7 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3041,7 +3115,7 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -3051,6 +3125,7 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3061,6 +3136,7 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3071,6 +3147,7 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3081,6 +3158,7 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3091,6 +3169,7 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3101,6 +3180,7 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3160,7 +3240,7 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetAlreadyCreated":
@@ -3170,6 +3250,7 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3180,6 +3261,7 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3190,6 +3272,7 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3200,6 +3283,7 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3210,6 +3294,7 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3220,6 +3305,7 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3230,6 +3316,7 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3289,7 +3376,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -3299,6 +3386,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3309,6 +3397,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3319,6 +3408,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3329,6 +3419,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3388,7 +3479,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -3398,6 +3489,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3408,6 +3500,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3418,6 +3511,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3428,6 +3522,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3438,6 +3533,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3497,7 +3593,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -3507,6 +3603,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3517,6 +3614,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3527,6 +3625,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3537,6 +3636,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3547,6 +3647,7 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3603,7 +3704,7 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -3613,6 +3714,7 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3623,6 +3725,7 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3633,6 +3736,7 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3643,6 +3747,7 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3653,6 +3758,7 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3698,7 +3804,7 @@ async function deserializeAws_restXmlDeleteHealthCheckCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckInUse":
@@ -3708,6 +3814,7 @@ async function deserializeAws_restXmlDeleteHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3718,6 +3825,7 @@ async function deserializeAws_restXmlDeleteHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3728,6 +3836,7 @@ async function deserializeAws_restXmlDeleteHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3780,7 +3889,7 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HostedZoneNotEmpty":
@@ -3790,6 +3899,7 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3800,6 +3910,7 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3810,6 +3921,7 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3820,6 +3932,7 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3830,6 +3943,7 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3878,7 +3992,7 @@ async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -3888,6 +4002,7 @@ async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3898,6 +4013,7 @@ async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3908,6 +4024,7 @@ async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3956,7 +4073,7 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetInUse":
@@ -3966,6 +4083,7 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3976,6 +4094,7 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3986,6 +4105,7 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3996,6 +4116,7 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4044,7 +4165,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -4054,6 +4175,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4064,6 +4186,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4074,6 +4197,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4084,6 +4208,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4132,7 +4257,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4142,6 +4267,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4152,6 +4278,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4162,6 +4289,7 @@ async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4210,7 +4338,7 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -4220,6 +4348,7 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4230,6 +4359,7 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4240,6 +4370,7 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4250,6 +4381,7 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4260,6 +4392,7 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4315,7 +4448,7 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4325,6 +4458,7 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4335,6 +4469,7 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4345,6 +4480,7 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4355,6 +4491,7 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4365,6 +4502,7 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4418,7 +4556,7 @@ async function deserializeAws_restXmlGetAccountLimitCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4428,6 +4566,7 @@ async function deserializeAws_restXmlGetAccountLimitCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4480,7 +4619,7 @@ async function deserializeAws_restXmlGetChangeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4490,6 +4629,7 @@ async function deserializeAws_restXmlGetChangeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4500,6 +4640,7 @@ async function deserializeAws_restXmlGetChangeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4565,7 +4706,7 @@ async function deserializeAws_restXmlGetCheckerIpRangesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4617,7 +4758,7 @@ async function deserializeAws_restXmlGetGeoLocationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4627,6 +4768,7 @@ async function deserializeAws_restXmlGetGeoLocationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4637,6 +4779,7 @@ async function deserializeAws_restXmlGetGeoLocationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4689,7 +4832,7 @@ async function deserializeAws_restXmlGetHealthCheckCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleVersion":
@@ -4699,6 +4842,7 @@ async function deserializeAws_restXmlGetHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4709,6 +4853,7 @@ async function deserializeAws_restXmlGetHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4719,6 +4864,7 @@ async function deserializeAws_restXmlGetHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4771,7 +4917,7 @@ async function deserializeAws_restXmlGetHealthCheckCountCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4836,7 +4982,7 @@ async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4846,6 +4992,7 @@ async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4856,6 +5003,7 @@ async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4921,7 +5069,7 @@ async function deserializeAws_restXmlGetHealthCheckStatusCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4931,6 +5079,7 @@ async function deserializeAws_restXmlGetHealthCheckStatusCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4941,6 +5090,7 @@ async function deserializeAws_restXmlGetHealthCheckStatusCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5011,7 +5161,7 @@ async function deserializeAws_restXmlGetHostedZoneCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5021,6 +5171,7 @@ async function deserializeAws_restXmlGetHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5031,6 +5182,7 @@ async function deserializeAws_restXmlGetHostedZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5083,7 +5235,7 @@ async function deserializeAws_restXmlGetHostedZoneCountCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5093,6 +5245,7 @@ async function deserializeAws_restXmlGetHostedZoneCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5152,7 +5305,7 @@ async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HostedZoneNotPrivate":
@@ -5162,6 +5315,7 @@ async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5172,6 +5326,7 @@ async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5182,6 +5337,7 @@ async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5237,7 +5393,7 @@ async function deserializeAws_restXmlGetQueryLoggingConfigCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5247,6 +5403,7 @@ async function deserializeAws_restXmlGetQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5257,6 +5414,7 @@ async function deserializeAws_restXmlGetQueryLoggingConfigCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5312,7 +5470,7 @@ async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetNotReusable":
@@ -5322,6 +5480,7 @@ async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5332,6 +5491,7 @@ async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5342,6 +5502,7 @@ async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5401,7 +5562,7 @@ async function deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5411,6 +5572,7 @@ async function deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5421,6 +5583,7 @@ async function deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5473,7 +5636,7 @@ async function deserializeAws_restXmlGetTrafficPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5483,6 +5646,7 @@ async function deserializeAws_restXmlGetTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5493,6 +5657,7 @@ async function deserializeAws_restXmlGetTrafficPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5548,7 +5713,7 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5558,6 +5723,7 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5568,6 +5734,7 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5622,7 +5789,7 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5704,7 +5871,7 @@ async function deserializeAws_restXmlListGeoLocationsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5714,6 +5881,7 @@ async function deserializeAws_restXmlListGeoLocationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5792,7 +5960,7 @@ async function deserializeAws_restXmlListHealthChecksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleVersion":
@@ -5802,6 +5970,7 @@ async function deserializeAws_restXmlListHealthChecksCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5812,6 +5981,7 @@ async function deserializeAws_restXmlListHealthChecksCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5890,7 +6060,7 @@ async function deserializeAws_restXmlListHostedZonesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetNotReusable":
@@ -5900,6 +6070,7 @@ async function deserializeAws_restXmlListHostedZonesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5910,6 +6081,7 @@ async function deserializeAws_restXmlListHostedZonesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5920,6 +6092,7 @@ async function deserializeAws_restXmlListHostedZonesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6009,7 +6182,7 @@ async function deserializeAws_restXmlListHostedZonesByNameCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDomainName":
@@ -6019,6 +6192,7 @@ async function deserializeAws_restXmlListHostedZonesByNameCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6029,6 +6203,7 @@ async function deserializeAws_restXmlListHostedZonesByNameCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6098,7 +6273,7 @@ async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6108,6 +6283,7 @@ async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6118,6 +6294,7 @@ async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6128,6 +6305,7 @@ async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6213,7 +6391,7 @@ async function deserializeAws_restXmlListResourceRecordSetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6223,6 +6401,7 @@ async function deserializeAws_restXmlListResourceRecordSetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6233,6 +6412,7 @@ async function deserializeAws_restXmlListResourceRecordSetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6314,7 +6494,7 @@ async function deserializeAws_restXmlListReusableDelegationSetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6324,6 +6504,7 @@ async function deserializeAws_restXmlListReusableDelegationSetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6379,7 +6560,7 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6389,6 +6570,7 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6399,6 +6581,7 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6409,6 +6592,7 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6419,6 +6603,7 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6429,6 +6614,7 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6494,7 +6680,7 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6504,6 +6690,7 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6514,6 +6701,7 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6524,6 +6712,7 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6534,6 +6723,7 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6544,6 +6734,7 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6621,7 +6812,7 @@ async function deserializeAws_restXmlListTrafficPoliciesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6631,6 +6822,7 @@ async function deserializeAws_restXmlListTrafficPoliciesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6718,7 +6910,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6728,6 +6920,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6738,6 +6931,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6821,7 +7015,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6831,6 +7025,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6841,6 +7036,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6851,6 +7047,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6938,7 +7135,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6948,6 +7145,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandEr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6958,6 +7156,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandEr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6968,6 +7167,7 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandEr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7045,7 +7245,7 @@ async function deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7055,6 +7255,7 @@ async function deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7065,6 +7266,7 @@ async function deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7132,7 +7334,7 @@ async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7142,6 +7344,7 @@ async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7152,6 +7355,7 @@ async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7162,6 +7366,7 @@ async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7244,7 +7449,7 @@ async function deserializeAws_restXmlTestDNSAnswerCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7254,6 +7459,7 @@ async function deserializeAws_restXmlTestDNSAnswerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7264,6 +7470,7 @@ async function deserializeAws_restXmlTestDNSAnswerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7316,7 +7523,7 @@ async function deserializeAws_restXmlUpdateHealthCheckCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckVersionMismatch":
@@ -7326,6 +7533,7 @@ async function deserializeAws_restXmlUpdateHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7336,6 +7544,7 @@ async function deserializeAws_restXmlUpdateHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7346,6 +7555,7 @@ async function deserializeAws_restXmlUpdateHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7401,7 +7611,7 @@ async function deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7411,6 +7621,7 @@ async function deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7421,6 +7632,7 @@ async function deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7476,7 +7688,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -7486,6 +7698,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7496,6 +7709,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7506,6 +7720,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7561,7 +7776,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingTypes":
@@ -7571,6 +7786,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7581,6 +7797,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7591,6 +7808,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7601,6 +7819,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7611,6 +7830,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8522,16 +8742,18 @@ const serializeAws_restXmlAlarmIdentifier = (
 ): any => {
   const bodyNode = new __XmlNode("AlarmIdentifier");
   if (input.Name !== undefined) {
-    const memberNode = new __XmlNode("AlarmName").addChildNode(
-      new __XmlText(input.Name)
+    bodyNode.addChildNode(
+      new __XmlNode("AlarmName")
+        .addChildNode(new __XmlText(input.Name))
+        .withName("Name")
     );
-    bodyNode.addChildNode(memberNode.withName("Name"));
   }
   if (input.Region !== undefined) {
-    const memberNode = new __XmlNode("CloudWatchRegion").addChildNode(
-      new __XmlText(input.Region)
+    bodyNode.addChildNode(
+      new __XmlNode("CloudWatchRegion")
+        .addChildNode(new __XmlText(input.Region))
+        .withName("Region")
     );
-    bodyNode.addChildNode(memberNode.withName("Region"));
   }
   return bodyNode;
 };
@@ -8542,22 +8764,25 @@ const serializeAws_restXmlAliasTarget = (
 ): any => {
   const bodyNode = new __XmlNode("AliasTarget");
   if (input.DNSName !== undefined) {
-    const memberNode = new __XmlNode("DNSName").addChildNode(
-      new __XmlText(input.DNSName)
+    bodyNode.addChildNode(
+      new __XmlNode("DNSName")
+        .addChildNode(new __XmlText(input.DNSName))
+        .withName("DNSName")
     );
-    bodyNode.addChildNode(memberNode.withName("DNSName"));
   }
   if (input.EvaluateTargetHealth !== undefined) {
-    const memberNode = new __XmlNode("AliasHealthEnabled").addChildNode(
-      new __XmlText(String(input.EvaluateTargetHealth))
+    bodyNode.addChildNode(
+      new __XmlNode("AliasHealthEnabled")
+        .addChildNode(new __XmlText(String(input.EvaluateTargetHealth)))
+        .withName("EvaluateTargetHealth")
     );
-    bodyNode.addChildNode(memberNode.withName("EvaluateTargetHealth"));
   }
   if (input.HostedZoneId !== undefined) {
-    const memberNode = new __XmlNode("ResourceId").addChildNode(
-      new __XmlText(input.HostedZoneId)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceId")
+        .addChildNode(new __XmlText(input.HostedZoneId))
+        .withName("HostedZoneId")
     );
-    bodyNode.addChildNode(memberNode.withName("HostedZoneId"));
   }
   return bodyNode;
 };
@@ -8568,17 +8793,19 @@ const serializeAws_restXmlChange = (
 ): any => {
   const bodyNode = new __XmlNode("Change");
   if (input.Action !== undefined) {
-    const memberNode = new __XmlNode("ChangeAction").addChildNode(
-      new __XmlText(input.Action)
+    bodyNode.addChildNode(
+      new __XmlNode("ChangeAction")
+        .addChildNode(new __XmlText(input.Action))
+        .withName("Action")
     );
-    bodyNode.addChildNode(memberNode.withName("Action"));
   }
   if (input.ResourceRecordSet !== undefined) {
-    const memberNode = serializeAws_restXmlResourceRecordSet(
-      input.ResourceRecordSet,
-      context
+    bodyNode.addChildNode(
+      serializeAws_restXmlResourceRecordSet(
+        input.ResourceRecordSet,
+        context
+      ).withName("ResourceRecordSet")
     );
-    bodyNode.addChildNode(memberNode.withName("ResourceRecordSet"));
   }
   return bodyNode;
 };
@@ -8597,10 +8824,11 @@ const serializeAws_restXmlChangeBatch = (
     bodyNode.addChildNode(containerNode);
   }
   if (input.Comment !== undefined) {
-    const memberNode = new __XmlNode("ResourceDescription").addChildNode(
-      new __XmlText(input.Comment)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceDescription")
+        .addChildNode(new __XmlText(input.Comment))
+        .withName("Comment")
     );
-    bodyNode.addChildNode(memberNode.withName("Comment"));
   }
   return bodyNode;
 };
@@ -8637,22 +8865,25 @@ const serializeAws_restXmlGeoLocation = (
 ): any => {
   const bodyNode = new __XmlNode("GeoLocation");
   if (input.ContinentCode !== undefined) {
-    const memberNode = new __XmlNode("GeoLocationContinentCode").addChildNode(
-      new __XmlText(input.ContinentCode)
+    bodyNode.addChildNode(
+      new __XmlNode("GeoLocationContinentCode")
+        .addChildNode(new __XmlText(input.ContinentCode))
+        .withName("ContinentCode")
     );
-    bodyNode.addChildNode(memberNode.withName("ContinentCode"));
   }
   if (input.CountryCode !== undefined) {
-    const memberNode = new __XmlNode("GeoLocationCountryCode").addChildNode(
-      new __XmlText(input.CountryCode)
+    bodyNode.addChildNode(
+      new __XmlNode("GeoLocationCountryCode")
+        .addChildNode(new __XmlText(input.CountryCode))
+        .withName("CountryCode")
     );
-    bodyNode.addChildNode(memberNode.withName("CountryCode"));
   }
   if (input.SubdivisionCode !== undefined) {
-    const memberNode = new __XmlNode("GeoLocationSubdivisionCode").addChildNode(
-      new __XmlText(input.SubdivisionCode)
+    bodyNode.addChildNode(
+      new __XmlNode("GeoLocationSubdivisionCode")
+        .addChildNode(new __XmlText(input.SubdivisionCode))
+        .withName("SubdivisionCode")
     );
-    bodyNode.addChildNode(memberNode.withName("SubdivisionCode"));
   }
   return bodyNode;
 };
@@ -8663,11 +8894,12 @@ const serializeAws_restXmlHealthCheckConfig = (
 ): any => {
   const bodyNode = new __XmlNode("HealthCheckConfig");
   if (input.AlarmIdentifier !== undefined) {
-    const memberNode = serializeAws_restXmlAlarmIdentifier(
-      input.AlarmIdentifier,
-      context
+    bodyNode.addChildNode(
+      serializeAws_restXmlAlarmIdentifier(
+        input.AlarmIdentifier,
+        context
+      ).withName("AlarmIdentifier")
     );
-    bodyNode.addChildNode(memberNode.withName("AlarmIdentifier"));
   }
   if (input.ChildHealthChecks !== undefined) {
     const nodes = serializeAws_restXmlChildHealthCheckList(
@@ -8681,64 +8913,74 @@ const serializeAws_restXmlHealthCheckConfig = (
     bodyNode.addChildNode(containerNode);
   }
   if (input.Disabled !== undefined) {
-    const memberNode = new __XmlNode("Disabled").addChildNode(
-      new __XmlText(String(input.Disabled))
+    bodyNode.addChildNode(
+      new __XmlNode("Disabled")
+        .addChildNode(new __XmlText(String(input.Disabled)))
+        .withName("Disabled")
     );
-    bodyNode.addChildNode(memberNode.withName("Disabled"));
   }
   if (input.EnableSNI !== undefined) {
-    const memberNode = new __XmlNode("EnableSNI").addChildNode(
-      new __XmlText(String(input.EnableSNI))
+    bodyNode.addChildNode(
+      new __XmlNode("EnableSNI")
+        .addChildNode(new __XmlText(String(input.EnableSNI)))
+        .withName("EnableSNI")
     );
-    bodyNode.addChildNode(memberNode.withName("EnableSNI"));
   }
   if (input.FailureThreshold !== undefined) {
-    const memberNode = new __XmlNode("FailureThreshold").addChildNode(
-      new __XmlText(String(input.FailureThreshold))
+    bodyNode.addChildNode(
+      new __XmlNode("FailureThreshold")
+        .addChildNode(new __XmlText(String(input.FailureThreshold)))
+        .withName("FailureThreshold")
     );
-    bodyNode.addChildNode(memberNode.withName("FailureThreshold"));
   }
   if (input.FullyQualifiedDomainName !== undefined) {
-    const memberNode = new __XmlNode("FullyQualifiedDomainName").addChildNode(
-      new __XmlText(input.FullyQualifiedDomainName)
+    bodyNode.addChildNode(
+      new __XmlNode("FullyQualifiedDomainName")
+        .addChildNode(new __XmlText(input.FullyQualifiedDomainName))
+        .withName("FullyQualifiedDomainName")
     );
-    bodyNode.addChildNode(memberNode.withName("FullyQualifiedDomainName"));
   }
   if (input.HealthThreshold !== undefined) {
-    const memberNode = new __XmlNode("HealthThreshold").addChildNode(
-      new __XmlText(String(input.HealthThreshold))
+    bodyNode.addChildNode(
+      new __XmlNode("HealthThreshold")
+        .addChildNode(new __XmlText(String(input.HealthThreshold)))
+        .withName("HealthThreshold")
     );
-    bodyNode.addChildNode(memberNode.withName("HealthThreshold"));
   }
   if (input.IPAddress !== undefined) {
-    const memberNode = new __XmlNode("IPAddress").addChildNode(
-      new __XmlText(input.IPAddress)
+    bodyNode.addChildNode(
+      new __XmlNode("IPAddress")
+        .addChildNode(new __XmlText(input.IPAddress))
+        .withName("IPAddress")
     );
-    bodyNode.addChildNode(memberNode.withName("IPAddress"));
   }
   if (input.InsufficientDataHealthStatus !== undefined) {
-    const memberNode = new __XmlNode(
-      "InsufficientDataHealthStatus"
-    ).addChildNode(new __XmlText(input.InsufficientDataHealthStatus));
-    bodyNode.addChildNode(memberNode.withName("InsufficientDataHealthStatus"));
+    bodyNode.addChildNode(
+      new __XmlNode("InsufficientDataHealthStatus")
+        .addChildNode(new __XmlText(input.InsufficientDataHealthStatus))
+        .withName("InsufficientDataHealthStatus")
+    );
   }
   if (input.Inverted !== undefined) {
-    const memberNode = new __XmlNode("Inverted").addChildNode(
-      new __XmlText(String(input.Inverted))
+    bodyNode.addChildNode(
+      new __XmlNode("Inverted")
+        .addChildNode(new __XmlText(String(input.Inverted)))
+        .withName("Inverted")
     );
-    bodyNode.addChildNode(memberNode.withName("Inverted"));
   }
   if (input.MeasureLatency !== undefined) {
-    const memberNode = new __XmlNode("MeasureLatency").addChildNode(
-      new __XmlText(String(input.MeasureLatency))
+    bodyNode.addChildNode(
+      new __XmlNode("MeasureLatency")
+        .addChildNode(new __XmlText(String(input.MeasureLatency)))
+        .withName("MeasureLatency")
     );
-    bodyNode.addChildNode(memberNode.withName("MeasureLatency"));
   }
   if (input.Port !== undefined) {
-    const memberNode = new __XmlNode("Port").addChildNode(
-      new __XmlText(String(input.Port))
+    bodyNode.addChildNode(
+      new __XmlNode("Port")
+        .addChildNode(new __XmlText(String(input.Port)))
+        .withName("Port")
     );
-    bodyNode.addChildNode(memberNode.withName("Port"));
   }
   if (input.Regions !== undefined) {
     const nodes = serializeAws_restXmlHealthCheckRegionList(
@@ -8752,28 +8994,32 @@ const serializeAws_restXmlHealthCheckConfig = (
     bodyNode.addChildNode(containerNode);
   }
   if (input.RequestInterval !== undefined) {
-    const memberNode = new __XmlNode("RequestInterval").addChildNode(
-      new __XmlText(String(input.RequestInterval))
+    bodyNode.addChildNode(
+      new __XmlNode("RequestInterval")
+        .addChildNode(new __XmlText(String(input.RequestInterval)))
+        .withName("RequestInterval")
     );
-    bodyNode.addChildNode(memberNode.withName("RequestInterval"));
   }
   if (input.ResourcePath !== undefined) {
-    const memberNode = new __XmlNode("ResourcePath").addChildNode(
-      new __XmlText(input.ResourcePath)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourcePath")
+        .addChildNode(new __XmlText(input.ResourcePath))
+        .withName("ResourcePath")
     );
-    bodyNode.addChildNode(memberNode.withName("ResourcePath"));
   }
   if (input.SearchString !== undefined) {
-    const memberNode = new __XmlNode("SearchString").addChildNode(
-      new __XmlText(input.SearchString)
+    bodyNode.addChildNode(
+      new __XmlNode("SearchString")
+        .addChildNode(new __XmlText(input.SearchString))
+        .withName("SearchString")
     );
-    bodyNode.addChildNode(memberNode.withName("SearchString"));
   }
   if (input.Type !== undefined) {
-    const memberNode = new __XmlNode("HealthCheckType").addChildNode(
-      new __XmlText(input.Type)
+    bodyNode.addChildNode(
+      new __XmlNode("HealthCheckType")
+        .addChildNode(new __XmlText(input.Type))
+        .withName("Type")
     );
-    bodyNode.addChildNode(memberNode.withName("Type"));
   }
   return bodyNode;
 };
@@ -8798,16 +9044,18 @@ const serializeAws_restXmlHostedZoneConfig = (
 ): any => {
   const bodyNode = new __XmlNode("HostedZoneConfig");
   if (input.Comment !== undefined) {
-    const memberNode = new __XmlNode("ResourceDescription").addChildNode(
-      new __XmlText(input.Comment)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceDescription")
+        .addChildNode(new __XmlText(input.Comment))
+        .withName("Comment")
     );
-    bodyNode.addChildNode(memberNode.withName("Comment"));
   }
   if (input.PrivateZone !== undefined) {
-    const memberNode = new __XmlNode("IsPrivateZone").addChildNode(
-      new __XmlText(String(input.PrivateZone))
+    bodyNode.addChildNode(
+      new __XmlNode("IsPrivateZone")
+        .addChildNode(new __XmlText(String(input.PrivateZone)))
+        .withName("PrivateZone")
     );
-    bodyNode.addChildNode(memberNode.withName("PrivateZone"));
   }
   return bodyNode;
 };
@@ -8832,10 +9080,11 @@ const serializeAws_restXmlResourceRecord = (
 ): any => {
   const bodyNode = new __XmlNode("ResourceRecord");
   if (input.Value !== undefined) {
-    const memberNode = new __XmlNode("RData").addChildNode(
-      new __XmlText(input.Value)
+    bodyNode.addChildNode(
+      new __XmlNode("RData")
+        .addChildNode(new __XmlText(input.Value))
+        .withName("Value")
     );
-    bodyNode.addChildNode(memberNode.withName("Value"));
   }
   return bodyNode;
 };
@@ -8846,48 +9095,53 @@ const serializeAws_restXmlResourceRecordSet = (
 ): any => {
   const bodyNode = new __XmlNode("ResourceRecordSet");
   if (input.AliasTarget !== undefined) {
-    const memberNode = serializeAws_restXmlAliasTarget(
-      input.AliasTarget,
-      context
+    bodyNode.addChildNode(
+      serializeAws_restXmlAliasTarget(input.AliasTarget, context).withName(
+        "AliasTarget"
+      )
     );
-    bodyNode.addChildNode(memberNode.withName("AliasTarget"));
   }
   if (input.Failover !== undefined) {
-    const memberNode = new __XmlNode("ResourceRecordSetFailover").addChildNode(
-      new __XmlText(input.Failover)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceRecordSetFailover")
+        .addChildNode(new __XmlText(input.Failover))
+        .withName("Failover")
     );
-    bodyNode.addChildNode(memberNode.withName("Failover"));
   }
   if (input.GeoLocation !== undefined) {
-    const memberNode = serializeAws_restXmlGeoLocation(
-      input.GeoLocation,
-      context
+    bodyNode.addChildNode(
+      serializeAws_restXmlGeoLocation(input.GeoLocation, context).withName(
+        "GeoLocation"
+      )
     );
-    bodyNode.addChildNode(memberNode.withName("GeoLocation"));
   }
   if (input.HealthCheckId !== undefined) {
-    const memberNode = new __XmlNode("HealthCheckId").addChildNode(
-      new __XmlText(input.HealthCheckId)
+    bodyNode.addChildNode(
+      new __XmlNode("HealthCheckId")
+        .addChildNode(new __XmlText(input.HealthCheckId))
+        .withName("HealthCheckId")
     );
-    bodyNode.addChildNode(memberNode.withName("HealthCheckId"));
   }
   if (input.MultiValueAnswer !== undefined) {
-    const memberNode = new __XmlNode(
-      "ResourceRecordSetMultiValueAnswer"
-    ).addChildNode(new __XmlText(String(input.MultiValueAnswer)));
-    bodyNode.addChildNode(memberNode.withName("MultiValueAnswer"));
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceRecordSetMultiValueAnswer")
+        .addChildNode(new __XmlText(String(input.MultiValueAnswer)))
+        .withName("MultiValueAnswer")
+    );
   }
   if (input.Name !== undefined) {
-    const memberNode = new __XmlNode("DNSName").addChildNode(
-      new __XmlText(input.Name)
+    bodyNode.addChildNode(
+      new __XmlNode("DNSName")
+        .addChildNode(new __XmlText(input.Name))
+        .withName("Name")
     );
-    bodyNode.addChildNode(memberNode.withName("Name"));
   }
   if (input.Region !== undefined) {
-    const memberNode = new __XmlNode("ResourceRecordSetRegion").addChildNode(
-      new __XmlText(input.Region)
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceRecordSetRegion")
+        .addChildNode(new __XmlText(input.Region))
+        .withName("Region")
     );
-    bodyNode.addChildNode(memberNode.withName("Region"));
   }
   if (input.ResourceRecords !== undefined) {
     const nodes = serializeAws_restXmlResourceRecords(
@@ -8901,34 +9155,39 @@ const serializeAws_restXmlResourceRecordSet = (
     bodyNode.addChildNode(containerNode);
   }
   if (input.SetIdentifier !== undefined) {
-    const memberNode = new __XmlNode(
-      "ResourceRecordSetIdentifier"
-    ).addChildNode(new __XmlText(input.SetIdentifier));
-    bodyNode.addChildNode(memberNode.withName("SetIdentifier"));
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceRecordSetIdentifier")
+        .addChildNode(new __XmlText(input.SetIdentifier))
+        .withName("SetIdentifier")
+    );
   }
   if (input.TTL !== undefined) {
-    const memberNode = new __XmlNode("TTL").addChildNode(
-      new __XmlText(String(input.TTL))
+    bodyNode.addChildNode(
+      new __XmlNode("TTL")
+        .addChildNode(new __XmlText(String(input.TTL)))
+        .withName("TTL")
     );
-    bodyNode.addChildNode(memberNode.withName("TTL"));
   }
   if (input.TrafficPolicyInstanceId !== undefined) {
-    const memberNode = new __XmlNode("TrafficPolicyInstanceId").addChildNode(
-      new __XmlText(input.TrafficPolicyInstanceId)
+    bodyNode.addChildNode(
+      new __XmlNode("TrafficPolicyInstanceId")
+        .addChildNode(new __XmlText(input.TrafficPolicyInstanceId))
+        .withName("TrafficPolicyInstanceId")
     );
-    bodyNode.addChildNode(memberNode.withName("TrafficPolicyInstanceId"));
   }
   if (input.Type !== undefined) {
-    const memberNode = new __XmlNode("RRType").addChildNode(
-      new __XmlText(input.Type)
+    bodyNode.addChildNode(
+      new __XmlNode("RRType")
+        .addChildNode(new __XmlText(input.Type))
+        .withName("Type")
     );
-    bodyNode.addChildNode(memberNode.withName("Type"));
   }
   if (input.Weight !== undefined) {
-    const memberNode = new __XmlNode("ResourceRecordSetWeight").addChildNode(
-      new __XmlText(String(input.Weight))
+    bodyNode.addChildNode(
+      new __XmlNode("ResourceRecordSetWeight")
+        .addChildNode(new __XmlText(String(input.Weight)))
+        .withName("Weight")
     );
-    bodyNode.addChildNode(memberNode.withName("Weight"));
   }
   return bodyNode;
 };
@@ -8948,16 +9207,18 @@ const serializeAws_restXmlResourceRecords = (
 const serializeAws_restXmlTag = (input: Tag, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Tag");
   if (input.Key !== undefined) {
-    const memberNode = new __XmlNode("TagKey").addChildNode(
-      new __XmlText(input.Key)
+    bodyNode.addChildNode(
+      new __XmlNode("TagKey")
+        .addChildNode(new __XmlText(input.Key))
+        .withName("Key")
     );
-    bodyNode.addChildNode(memberNode.withName("Key"));
   }
   if (input.Value !== undefined) {
-    const memberNode = new __XmlNode("TagValue").addChildNode(
-      new __XmlText(input.Value)
+    bodyNode.addChildNode(
+      new __XmlNode("TagValue")
+        .addChildNode(new __XmlText(input.Value))
+        .withName("Value")
     );
-    bodyNode.addChildNode(memberNode.withName("Value"));
   }
   return bodyNode;
 };
@@ -9003,16 +9264,18 @@ const serializeAws_restXmlTagResourceIdList = (
 const serializeAws_restXmlVPC = (input: VPC, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("VPC");
   if (input.VPCId !== undefined) {
-    const memberNode = new __XmlNode("VPCId").addChildNode(
-      new __XmlText(input.VPCId)
+    bodyNode.addChildNode(
+      new __XmlNode("VPCId")
+        .addChildNode(new __XmlText(input.VPCId))
+        .withName("VPCId")
     );
-    bodyNode.addChildNode(memberNode.withName("VPCId"));
   }
   if (input.VPCRegion !== undefined) {
-    const memberNode = new __XmlNode("VPCRegion").addChildNode(
-      new __XmlText(input.VPCRegion)
+    bodyNode.addChildNode(
+      new __XmlNode("VPCRegion")
+        .addChildNode(new __XmlText(input.VPCRegion))
+        .withName("VPCRegion")
     );
-    bodyNode.addChildNode(memberNode.withName("VPCRegion"));
   }
   return bodyNode;
 };
@@ -9105,14 +9368,22 @@ const deserializeAws_restXmlCheckerIpRanges = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlChildHealthCheckList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
@@ -9209,16 +9480,22 @@ const deserializeAws_restXmlDelegationSetNameServers = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlDelegationSets = (
   output: any,
   context: __SerdeContext
 ): Array<DelegationSet> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlDelegationSet(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlDelegationSet(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlDimension = (
@@ -9243,16 +9520,22 @@ const deserializeAws_restXmlDimensionList = (
   output: any,
   context: __SerdeContext
 ): Array<Dimension> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlDimension(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlDimension(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlErrorMessages = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlGeoLocation = (
@@ -9315,9 +9598,11 @@ const deserializeAws_restXmlGeoLocationDetailsList = (
   output: any,
   context: __SerdeContext
 ): Array<GeoLocationDetails> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlGeoLocationDetails(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlGeoLocationDetails(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlHealthCheck = (
@@ -9500,25 +9785,33 @@ const deserializeAws_restXmlHealthCheckObservations = (
   output: any,
   context: __SerdeContext
 ): Array<HealthCheckObservation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlHealthCheckObservation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlHealthCheckObservation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlHealthCheckRegionList = (
   output: any,
   context: __SerdeContext
 ): Array<HealthCheckRegion | string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlHealthChecks = (
   output: any,
   context: __SerdeContext
 ): Array<HealthCheck> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlHealthCheck(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlHealthCheck(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlHostedZone = (
@@ -9603,9 +9896,11 @@ const deserializeAws_restXmlHostedZones = (
   output: any,
   context: __SerdeContext
 ): Array<HostedZone> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlHostedZone(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlHostedZone(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlLinkedService = (
@@ -9652,16 +9947,22 @@ const deserializeAws_restXmlQueryLoggingConfigs = (
   output: any,
   context: __SerdeContext
 ): Array<QueryLoggingConfig> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlQueryLoggingConfig(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlQueryLoggingConfig(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlRecordData = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlResourceRecord = (
@@ -9763,18 +10064,22 @@ const deserializeAws_restXmlResourceRecordSets = (
   output: any,
   context: __SerdeContext
 ): Array<ResourceRecordSet> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlResourceRecordSet(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlResourceRecordSet(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlResourceRecords = (
   output: any,
   context: __SerdeContext
 ): Array<ResourceRecord> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlResourceRecord(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlResourceRecord(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlResourceTagSet = (
@@ -9810,9 +10115,11 @@ const deserializeAws_restXmlResourceTagSetList = (
   output: any,
   context: __SerdeContext
 ): Array<ResourceTagSet> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlResourceTagSet(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlResourceTagSet(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlReusableDelegationSetLimit = (
@@ -9873,18 +10180,22 @@ const deserializeAws_restXmlTagList = (
   output: any,
   context: __SerdeContext
 ): Array<Tag> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlTag(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlTag(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlTrafficPolicies = (
   output: any,
   context: __SerdeContext
 ): Array<TrafficPolicy> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlTrafficPolicy(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlTrafficPolicy(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlTrafficPolicy = (
@@ -9971,18 +10282,22 @@ const deserializeAws_restXmlTrafficPolicyInstances = (
   output: any,
   context: __SerdeContext
 ): Array<TrafficPolicyInstance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlTrafficPolicyInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlTrafficPolicyInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlTrafficPolicySummaries = (
   output: any,
   context: __SerdeContext
 ): Array<TrafficPolicySummary> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlTrafficPolicySummary(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlTrafficPolicySummary(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_restXmlTrafficPolicySummary = (
@@ -10037,9 +10352,11 @@ const deserializeAws_restXmlVPCs = (
   output: any,
   context: __SerdeContext
 ): Array<VPC> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlVPC(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_restXmlVPC(entry, context));
+  });
+  return contents;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

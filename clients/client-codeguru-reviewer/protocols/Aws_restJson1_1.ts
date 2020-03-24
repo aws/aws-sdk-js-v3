@@ -146,19 +146,19 @@ export async function serializeAws_restJson1_1ListRepositoryAssociationsCommand(
     query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.Names !== undefined) {
-    query["Name"] = input.Names;
+    query["Name"] = (input.Names || []).map(_entry => _entry);
   }
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
   }
   if (input.Owners !== undefined) {
-    query["Owner"] = input.Owners;
+    query["Owner"] = (input.Owners || []).map(_entry => _entry);
   }
   if (input.ProviderTypes !== undefined) {
-    query["ProviderType"] = input.ProviderTypes;
+    query["ProviderType"] = (input.ProviderTypes || []).map(_entry => _entry);
   }
   if (input.States !== undefined) {
-    query["State"] = input.States;
+    query["State"] = (input.States || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -202,19 +202,22 @@ async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateRepositoryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.guru#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -222,9 +225,10 @@ async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
     case "com.amazonaws.guru#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -232,9 +236,10 @@ async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
     case "com.amazonaws.guru#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -242,9 +247,10 @@ async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
     case "com.amazonaws.guru#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -252,14 +258,15 @@ async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
     case "com.amazonaws.guru#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -307,19 +314,22 @@ async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRepositoryAssociationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.guru#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -327,9 +337,10 @@ async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandErr
     case "com.amazonaws.guru#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -337,9 +348,10 @@ async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandErr
     case "com.amazonaws.guru#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -347,9 +359,10 @@ async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandErr
     case "com.amazonaws.guru#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -357,14 +370,15 @@ async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandErr
     case "com.amazonaws.guru#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -412,19 +426,22 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateRepositoryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.guru#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -432,9 +449,10 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
     case "com.amazonaws.guru#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -442,9 +460,10 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
     case "com.amazonaws.guru#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -452,9 +471,10 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
     case "com.amazonaws.guru#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -462,9 +482,10 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
     case "com.amazonaws.guru#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -472,14 +493,15 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
     case "com.amazonaws.guru#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -531,19 +553,22 @@ async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoryAssociationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.guru#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -551,9 +576,10 @@ async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
     case "com.amazonaws.guru#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -561,14 +587,15 @@ async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
     case "com.amazonaws.guru#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -585,16 +612,16 @@ async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
 }
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -602,16 +629,16 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -619,16 +646,16 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -636,16 +663,16 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -653,16 +680,16 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -670,16 +697,16 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -855,4 +882,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

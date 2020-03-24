@@ -630,7 +630,9 @@ export async function serializeAws_restJson1_1DescribeGlobalNetworksCommand(
   let resolvedPath = "/global-networks";
   const query: any = {};
   if (input.GlobalNetworkIds !== undefined) {
-    query["globalNetworkIds"] = input.GlobalNetworkIds;
+    query["globalNetworkIds"] = (input.GlobalNetworkIds || []).map(
+      _entry => _entry
+    );
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
@@ -757,7 +759,9 @@ export async function serializeAws_restJson1_1GetCustomerGatewayAssociationsComm
   }
   const query: any = {};
   if (input.CustomerGatewayArns !== undefined) {
-    query["customerGatewayArns"] = input.CustomerGatewayArns;
+    query["customerGatewayArns"] = (input.CustomerGatewayArns || []).map(
+      _entry => _entry
+    );
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
@@ -798,7 +802,7 @@ export async function serializeAws_restJson1_1GetDevicesCommand(
   }
   const query: any = {};
   if (input.DeviceIds !== undefined) {
-    query["deviceIds"] = input.DeviceIds;
+    query["deviceIds"] = (input.DeviceIds || []).map(_entry => _entry);
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
@@ -886,7 +890,7 @@ export async function serializeAws_restJson1_1GetLinksCommand(
   }
   const query: any = {};
   if (input.LinkIds !== undefined) {
-    query["linkIds"] = input.LinkIds;
+    query["linkIds"] = (input.LinkIds || []).map(_entry => _entry);
   }
   if (input.MaxResults !== undefined) {
     query["maxResults"] = input.MaxResults.toString();
@@ -942,7 +946,7 @@ export async function serializeAws_restJson1_1GetSitesCommand(
     query["nextToken"] = input.NextToken;
   }
   if (input.SiteIds !== undefined) {
-    query["siteIds"] = input.SiteIds;
+    query["siteIds"] = (input.SiteIds || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -984,7 +988,9 @@ export async function serializeAws_restJson1_1GetTransitGatewayRegistrationsComm
     query["nextToken"] = input.NextToken;
   }
   if (input.TransitGatewayArns !== undefined) {
-    query["transitGatewayArns"] = input.TransitGatewayArns;
+    query["transitGatewayArns"] = (input.TransitGatewayArns || []).map(
+      _entry => _entry
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1124,7 +1130,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1391,19 +1397,22 @@ async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateCustomerGatewayCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1411,9 +1420,10 @@ async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1421,9 +1431,10 @@ async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1431,9 +1442,10 @@ async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1441,9 +1453,10 @@ async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1451,9 +1464,10 @@ async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1461,14 +1475,15 @@ async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1510,19 +1525,22 @@ async function deserializeAws_restJson1_1AssociateLinkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateLinkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1530,9 +1548,10 @@ async function deserializeAws_restJson1_1AssociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1540,9 +1559,10 @@ async function deserializeAws_restJson1_1AssociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1550,9 +1570,10 @@ async function deserializeAws_restJson1_1AssociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1560,9 +1581,10 @@ async function deserializeAws_restJson1_1AssociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1570,9 +1592,10 @@ async function deserializeAws_restJson1_1AssociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1580,14 +1603,15 @@ async function deserializeAws_restJson1_1AssociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1626,19 +1650,22 @@ async function deserializeAws_restJson1_1CreateDeviceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1646,9 +1673,10 @@ async function deserializeAws_restJson1_1CreateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1656,9 +1684,10 @@ async function deserializeAws_restJson1_1CreateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1666,9 +1695,10 @@ async function deserializeAws_restJson1_1CreateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1676,9 +1706,10 @@ async function deserializeAws_restJson1_1CreateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1686,9 +1717,10 @@ async function deserializeAws_restJson1_1CreateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1696,14 +1728,15 @@ async function deserializeAws_restJson1_1CreateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1748,19 +1781,22 @@ async function deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGlobalNetworkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1768,9 +1804,10 @@ async function deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1778,9 +1815,10 @@ async function deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1788,9 +1826,10 @@ async function deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1798,9 +1837,10 @@ async function deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1808,14 +1848,15 @@ async function deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1854,19 +1895,22 @@ async function deserializeAws_restJson1_1CreateLinkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLinkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1874,9 +1918,10 @@ async function deserializeAws_restJson1_1CreateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1884,9 +1929,10 @@ async function deserializeAws_restJson1_1CreateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1894,9 +1940,10 @@ async function deserializeAws_restJson1_1CreateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1904,9 +1951,10 @@ async function deserializeAws_restJson1_1CreateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1914,9 +1962,10 @@ async function deserializeAws_restJson1_1CreateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1924,14 +1973,15 @@ async function deserializeAws_restJson1_1CreateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1970,19 +2020,22 @@ async function deserializeAws_restJson1_1CreateSiteCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSiteCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1990,9 +2043,10 @@ async function deserializeAws_restJson1_1CreateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2000,9 +2054,10 @@ async function deserializeAws_restJson1_1CreateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2010,9 +2065,10 @@ async function deserializeAws_restJson1_1CreateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2020,9 +2076,10 @@ async function deserializeAws_restJson1_1CreateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2030,9 +2087,10 @@ async function deserializeAws_restJson1_1CreateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2040,14 +2098,15 @@ async function deserializeAws_restJson1_1CreateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2086,19 +2145,22 @@ async function deserializeAws_restJson1_1DeleteDeviceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeviceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2106,9 +2168,10 @@ async function deserializeAws_restJson1_1DeleteDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2116,9 +2179,10 @@ async function deserializeAws_restJson1_1DeleteDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2126,9 +2190,10 @@ async function deserializeAws_restJson1_1DeleteDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2136,9 +2201,10 @@ async function deserializeAws_restJson1_1DeleteDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2146,14 +2212,15 @@ async function deserializeAws_restJson1_1DeleteDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2198,19 +2265,22 @@ async function deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGlobalNetworkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2218,9 +2288,10 @@ async function deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2228,9 +2299,10 @@ async function deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2238,9 +2310,10 @@ async function deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2248,9 +2321,10 @@ async function deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2258,14 +2332,15 @@ async function deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2304,19 +2379,22 @@ async function deserializeAws_restJson1_1DeleteLinkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLinkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2324,9 +2402,10 @@ async function deserializeAws_restJson1_1DeleteLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2334,9 +2413,10 @@ async function deserializeAws_restJson1_1DeleteLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2344,9 +2424,10 @@ async function deserializeAws_restJson1_1DeleteLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2354,9 +2435,10 @@ async function deserializeAws_restJson1_1DeleteLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2364,14 +2446,15 @@ async function deserializeAws_restJson1_1DeleteLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2410,19 +2493,22 @@ async function deserializeAws_restJson1_1DeleteSiteCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSiteCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2430,9 +2516,10 @@ async function deserializeAws_restJson1_1DeleteSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2440,9 +2527,10 @@ async function deserializeAws_restJson1_1DeleteSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2450,9 +2538,10 @@ async function deserializeAws_restJson1_1DeleteSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2460,9 +2549,10 @@ async function deserializeAws_restJson1_1DeleteSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2470,14 +2560,15 @@ async function deserializeAws_restJson1_1DeleteSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2525,19 +2616,22 @@ async function deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterTransitGatewayCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2545,9 +2639,10 @@ async function deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2555,9 +2650,10 @@ async function deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2565,9 +2661,10 @@ async function deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2575,9 +2672,10 @@ async function deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2585,14 +2683,15 @@ async function deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2641,19 +2740,22 @@ async function deserializeAws_restJson1_1DescribeGlobalNetworksCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalNetworksCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2661,9 +2763,10 @@ async function deserializeAws_restJson1_1DescribeGlobalNetworksCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2671,9 +2774,10 @@ async function deserializeAws_restJson1_1DescribeGlobalNetworksCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2681,9 +2785,10 @@ async function deserializeAws_restJson1_1DescribeGlobalNetworksCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2691,14 +2796,15 @@ async function deserializeAws_restJson1_1DescribeGlobalNetworksCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2746,19 +2852,22 @@ async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateCustomerGatewayCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2766,9 +2875,10 @@ async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2776,9 +2886,10 @@ async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2786,9 +2897,10 @@ async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2796,9 +2908,10 @@ async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2806,14 +2919,15 @@ async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2858,19 +2972,22 @@ async function deserializeAws_restJson1_1DisassociateLinkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateLinkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2878,9 +2995,10 @@ async function deserializeAws_restJson1_1DisassociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2888,9 +3006,10 @@ async function deserializeAws_restJson1_1DisassociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2898,9 +3017,10 @@ async function deserializeAws_restJson1_1DisassociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2908,9 +3028,10 @@ async function deserializeAws_restJson1_1DisassociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2918,14 +3039,15 @@ async function deserializeAws_restJson1_1DisassociateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2977,19 +3099,22 @@ async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCustomerGatewayAssociationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2997,9 +3122,10 @@ async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandEr
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3007,9 +3133,10 @@ async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandEr
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3017,9 +3144,10 @@ async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandEr
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3027,9 +3155,10 @@ async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandEr
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3037,14 +3166,15 @@ async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandEr
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3090,19 +3220,22 @@ async function deserializeAws_restJson1_1GetDevicesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDevicesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3110,9 +3243,10 @@ async function deserializeAws_restJson1_1GetDevicesCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3120,9 +3254,10 @@ async function deserializeAws_restJson1_1GetDevicesCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3130,9 +3265,10 @@ async function deserializeAws_restJson1_1GetDevicesCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3140,14 +3276,15 @@ async function deserializeAws_restJson1_1GetDevicesCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3196,19 +3333,22 @@ async function deserializeAws_restJson1_1GetLinkAssociationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinkAssociationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3216,9 +3356,10 @@ async function deserializeAws_restJson1_1GetLinkAssociationsCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3226,9 +3367,10 @@ async function deserializeAws_restJson1_1GetLinkAssociationsCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3236,9 +3378,10 @@ async function deserializeAws_restJson1_1GetLinkAssociationsCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3246,14 +3389,15 @@ async function deserializeAws_restJson1_1GetLinkAssociationsCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3296,19 +3440,22 @@ async function deserializeAws_restJson1_1GetLinksCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinksCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3316,9 +3463,10 @@ async function deserializeAws_restJson1_1GetLinksCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3326,9 +3474,10 @@ async function deserializeAws_restJson1_1GetLinksCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3336,9 +3485,10 @@ async function deserializeAws_restJson1_1GetLinksCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3346,14 +3496,15 @@ async function deserializeAws_restJson1_1GetLinksCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3396,19 +3547,22 @@ async function deserializeAws_restJson1_1GetSitesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSitesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3416,9 +3570,10 @@ async function deserializeAws_restJson1_1GetSitesCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3426,9 +3581,10 @@ async function deserializeAws_restJson1_1GetSitesCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3436,9 +3592,10 @@ async function deserializeAws_restJson1_1GetSitesCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3446,14 +3603,15 @@ async function deserializeAws_restJson1_1GetSitesCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3505,19 +3663,22 @@ async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTransitGatewayRegistrationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3525,9 +3686,10 @@ async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandEr
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3535,9 +3697,10 @@ async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandEr
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3545,9 +3708,10 @@ async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandEr
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3555,14 +3719,15 @@ async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandEr
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3604,19 +3769,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3624,9 +3792,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3634,9 +3803,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3644,9 +3814,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3654,14 +3825,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3709,19 +3881,22 @@ async function deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterTransitGatewayCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3729,9 +3904,10 @@ async function deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3739,9 +3915,10 @@ async function deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3749,9 +3926,10 @@ async function deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3759,9 +3937,10 @@ async function deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3769,14 +3948,15 @@ async function deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3811,19 +3991,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3831,9 +4014,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3841,9 +4025,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3851,9 +4036,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3861,9 +4047,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3871,9 +4058,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3881,14 +4069,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3923,19 +4112,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3943,9 +4135,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3953,9 +4146,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3963,9 +4157,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3973,9 +4168,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3983,14 +4179,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4029,19 +4226,22 @@ async function deserializeAws_restJson1_1UpdateDeviceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4049,9 +4249,10 @@ async function deserializeAws_restJson1_1UpdateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4059,9 +4260,10 @@ async function deserializeAws_restJson1_1UpdateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4069,9 +4271,10 @@ async function deserializeAws_restJson1_1UpdateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4079,9 +4282,10 @@ async function deserializeAws_restJson1_1UpdateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4089,14 +4293,15 @@ async function deserializeAws_restJson1_1UpdateDeviceCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4141,19 +4346,22 @@ async function deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGlobalNetworkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4161,9 +4369,10 @@ async function deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4171,9 +4380,10 @@ async function deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4181,9 +4391,10 @@ async function deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4191,9 +4402,10 @@ async function deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4201,14 +4413,15 @@ async function deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4247,19 +4460,22 @@ async function deserializeAws_restJson1_1UpdateLinkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLinkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4267,9 +4483,10 @@ async function deserializeAws_restJson1_1UpdateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4277,9 +4494,10 @@ async function deserializeAws_restJson1_1UpdateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4287,9 +4505,10 @@ async function deserializeAws_restJson1_1UpdateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4297,9 +4516,10 @@ async function deserializeAws_restJson1_1UpdateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4307,9 +4527,10 @@ async function deserializeAws_restJson1_1UpdateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4317,14 +4538,15 @@ async function deserializeAws_restJson1_1UpdateLinkCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4363,19 +4585,22 @@ async function deserializeAws_restJson1_1UpdateSiteCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSiteCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4383,9 +4608,10 @@ async function deserializeAws_restJson1_1UpdateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4393,9 +4619,10 @@ async function deserializeAws_restJson1_1UpdateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4403,9 +4630,10 @@ async function deserializeAws_restJson1_1UpdateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4413,9 +4641,10 @@ async function deserializeAws_restJson1_1UpdateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4423,14 +4652,15 @@ async function deserializeAws_restJson1_1UpdateSiteCommandError(
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4447,16 +4677,16 @@ async function deserializeAws_restJson1_1UpdateSiteCommandError(
 }
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -4464,18 +4694,18 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     ResourceId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -4489,20 +4719,23 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RetryAfterSeconds: undefined
   };
-  if (output.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = parseInt(output.headers["retry-after"], 10);
+  if (parsedOutput.headers["retry-after"] !== undefined) {
+    contents.RetryAfterSeconds = parseInt(
+      parsedOutput.headers["retry-after"],
+      10
+    );
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -4510,18 +4743,18 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     ResourceId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -4535,20 +4768,20 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const contents: ServiceQuotaExceededException = {
     name: "ServiceQuotaExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     LimitCode: undefined,
     Message: undefined,
     ResourceId: undefined,
     ResourceType: undefined,
     ServiceCode: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.LimitCode !== undefined && data.LimitCode !== null) {
     contents.LimitCode = data.LimitCode;
   }
@@ -4568,20 +4801,23 @@ const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RetryAfterSeconds: undefined
   };
-  if (output.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = parseInt(output.headers["retry-after"], 10);
+  if (parsedOutput.headers["retry-after"] !== undefined) {
+    contents.RetryAfterSeconds = parseInt(
+      parsedOutput.headers["retry-after"],
+      10
+    );
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -4589,18 +4825,18 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Fields: undefined,
     Message: undefined,
     Reason: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Fields !== undefined && data.Fields !== null) {
     contents.Fields = deserializeAws_restJson1_1ValidationExceptionFieldList(
       data.Fields,
@@ -5177,4 +5413,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

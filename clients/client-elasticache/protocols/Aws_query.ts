@@ -1291,7 +1291,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
@@ -1301,6 +1301,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1311,6 +1312,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1321,6 +1323,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1331,6 +1334,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1385,7 +1389,7 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -1395,6 +1399,7 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1405,6 +1410,7 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1415,6 +1421,7 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1425,6 +1432,7 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1435,6 +1443,7 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1489,7 +1498,7 @@ async function deserializeAws_queryBatchApplyUpdateActionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -1499,6 +1508,7 @@ async function deserializeAws_queryBatchApplyUpdateActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1509,6 +1519,7 @@ async function deserializeAws_queryBatchApplyUpdateActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1563,7 +1574,7 @@ async function deserializeAws_queryBatchStopUpdateActionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -1573,6 +1584,7 @@ async function deserializeAws_queryBatchStopUpdateActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1583,6 +1595,7 @@ async function deserializeAws_queryBatchStopUpdateActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1634,7 +1647,7 @@ async function deserializeAws_queryCompleteMigrationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidReplicationGroupStateFault":
@@ -1644,6 +1657,7 @@ async function deserializeAws_queryCompleteMigrationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1654,6 +1668,7 @@ async function deserializeAws_queryCompleteMigrationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1664,6 +1679,7 @@ async function deserializeAws_queryCompleteMigrationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1715,7 +1731,7 @@ async function deserializeAws_queryCopySnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -1725,6 +1741,7 @@ async function deserializeAws_queryCopySnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1735,6 +1752,7 @@ async function deserializeAws_queryCopySnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1745,6 +1763,7 @@ async function deserializeAws_queryCopySnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1755,6 +1774,7 @@ async function deserializeAws_queryCopySnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1765,6 +1785,7 @@ async function deserializeAws_queryCopySnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1775,6 +1796,7 @@ async function deserializeAws_queryCopySnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1826,7 +1848,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -1836,6 +1858,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1846,6 +1869,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1856,6 +1880,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1866,6 +1891,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1876,6 +1902,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1886,6 +1913,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1896,6 +1924,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1906,6 +1935,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1916,6 +1946,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1926,6 +1957,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1936,6 +1968,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1946,6 +1979,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1956,6 +1990,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1966,6 +2001,7 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2020,7 +2056,7 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -2030,6 +2066,7 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2040,6 +2077,7 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2050,6 +2088,7 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2060,6 +2099,7 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2070,6 +2110,7 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2124,7 +2165,7 @@ async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -2134,6 +2175,7 @@ async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2144,6 +2186,7 @@ async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2154,6 +2197,7 @@ async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2164,6 +2208,7 @@ async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2218,7 +2263,7 @@ async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupAlreadyExistsFault":
@@ -2228,6 +2273,7 @@ async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2238,6 +2284,7 @@ async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2248,6 +2295,7 @@ async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2258,6 +2306,7 @@ async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2312,7 +2361,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -2322,6 +2371,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2332,6 +2382,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2342,6 +2393,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2352,6 +2404,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2362,6 +2415,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2372,6 +2426,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2382,6 +2437,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2392,6 +2448,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2402,6 +2459,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2412,6 +2470,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2422,6 +2481,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2432,6 +2492,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2442,6 +2503,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2452,6 +2514,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2462,6 +2525,7 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2513,7 +2577,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -2523,6 +2587,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2533,6 +2598,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2543,6 +2609,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2553,6 +2620,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2563,6 +2631,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2573,6 +2642,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2583,6 +2653,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2593,6 +2664,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2603,6 +2675,7 @@ async function deserializeAws_queryCreateSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2657,7 +2730,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -2667,6 +2740,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2677,6 +2751,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2687,6 +2762,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2697,6 +2773,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2707,6 +2784,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2717,6 +2795,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2727,6 +2806,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2737,6 +2817,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2747,6 +2828,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2757,6 +2839,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2767,6 +2850,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2777,6 +2861,7 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2828,7 +2913,7 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -2838,6 +2923,7 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2848,6 +2934,7 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2858,6 +2945,7 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2868,6 +2956,7 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2878,6 +2967,7 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2888,6 +2978,7 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2898,6 +2989,7 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2945,7 +3037,7 @@ async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -2955,6 +3047,7 @@ async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2965,6 +3058,7 @@ async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2975,6 +3069,7 @@ async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2985,6 +3080,7 @@ async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3032,7 +3128,7 @@ async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3042,6 +3138,7 @@ async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3052,6 +3149,7 @@ async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3062,6 +3160,7 @@ async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3072,6 +3171,7 @@ async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3119,7 +3219,7 @@ async function deserializeAws_queryDeleteCacheSubnetGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupInUse":
@@ -3129,6 +3229,7 @@ async function deserializeAws_queryDeleteCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3139,6 +3240,7 @@ async function deserializeAws_queryDeleteCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3193,7 +3295,7 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3203,6 +3305,7 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3213,6 +3316,7 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3223,6 +3327,7 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3233,6 +3338,7 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3243,6 +3349,7 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3253,6 +3360,7 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3263,6 +3371,7 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3314,7 +3423,7 @@ async function deserializeAws_queryDeleteSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3324,6 +3433,7 @@ async function deserializeAws_queryDeleteSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3334,6 +3444,7 @@ async function deserializeAws_queryDeleteSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3344,6 +3455,7 @@ async function deserializeAws_queryDeleteSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3354,6 +3466,7 @@ async function deserializeAws_queryDeleteSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3408,7 +3521,7 @@ async function deserializeAws_queryDescribeCacheClustersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3418,6 +3531,7 @@ async function deserializeAws_queryDescribeCacheClustersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3428,6 +3542,7 @@ async function deserializeAws_queryDescribeCacheClustersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3438,6 +3553,7 @@ async function deserializeAws_queryDescribeCacheClustersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3492,7 +3608,7 @@ async function deserializeAws_queryDescribeCacheEngineVersionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3546,7 +3662,7 @@ async function deserializeAws_queryDescribeCacheParameterGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3556,6 +3672,7 @@ async function deserializeAws_queryDescribeCacheParameterGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3566,6 +3683,7 @@ async function deserializeAws_queryDescribeCacheParameterGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3576,6 +3694,7 @@ async function deserializeAws_queryDescribeCacheParameterGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3630,7 +3749,7 @@ async function deserializeAws_queryDescribeCacheParametersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3640,6 +3759,7 @@ async function deserializeAws_queryDescribeCacheParametersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3650,6 +3770,7 @@ async function deserializeAws_queryDescribeCacheParametersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3660,6 +3781,7 @@ async function deserializeAws_queryDescribeCacheParametersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3714,7 +3836,7 @@ async function deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3724,6 +3846,7 @@ async function deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3734,6 +3857,7 @@ async function deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3744,6 +3868,7 @@ async function deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3798,7 +3923,7 @@ async function deserializeAws_queryDescribeCacheSubnetGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupNotFoundFault":
@@ -3808,6 +3933,7 @@ async function deserializeAws_queryDescribeCacheSubnetGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3862,7 +3988,7 @@ async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3872,6 +3998,7 @@ async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3882,6 +4009,7 @@ async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3933,7 +4061,7 @@ async function deserializeAws_queryDescribeEventsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3943,6 +4071,7 @@ async function deserializeAws_queryDescribeEventsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3953,6 +4082,7 @@ async function deserializeAws_queryDescribeEventsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4007,7 +4137,7 @@ async function deserializeAws_queryDescribeReplicationGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -4017,6 +4147,7 @@ async function deserializeAws_queryDescribeReplicationGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4027,6 +4158,7 @@ async function deserializeAws_queryDescribeReplicationGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4037,6 +4169,7 @@ async function deserializeAws_queryDescribeReplicationGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4091,7 +4224,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -4101,6 +4234,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4111,6 +4245,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4121,6 +4256,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4175,7 +4311,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -4185,6 +4321,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4195,6 +4332,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4205,6 +4343,7 @@ async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4259,7 +4398,7 @@ async function deserializeAws_queryDescribeServiceUpdatesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -4269,6 +4408,7 @@ async function deserializeAws_queryDescribeServiceUpdatesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4279,6 +4419,7 @@ async function deserializeAws_queryDescribeServiceUpdatesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4289,6 +4430,7 @@ async function deserializeAws_queryDescribeServiceUpdatesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4340,7 +4482,7 @@ async function deserializeAws_queryDescribeSnapshotsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -4350,6 +4492,7 @@ async function deserializeAws_queryDescribeSnapshotsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4360,6 +4503,7 @@ async function deserializeAws_queryDescribeSnapshotsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4370,6 +4514,7 @@ async function deserializeAws_queryDescribeSnapshotsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4380,6 +4525,7 @@ async function deserializeAws_queryDescribeSnapshotsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4434,7 +4580,7 @@ async function deserializeAws_queryDescribeUpdateActionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -4444,6 +4590,7 @@ async function deserializeAws_queryDescribeUpdateActionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4454,6 +4601,7 @@ async function deserializeAws_queryDescribeUpdateActionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4508,7 +4656,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -4518,6 +4666,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4528,6 +4677,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4538,6 +4688,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4548,6 +4699,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4558,6 +4710,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4568,6 +4721,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4578,6 +4732,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4588,6 +4743,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4598,6 +4754,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4608,6 +4765,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4618,6 +4776,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4628,6 +4787,7 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4682,7 +4842,7 @@ async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -4692,6 +4852,7 @@ async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4702,6 +4863,7 @@ async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4712,6 +4874,7 @@ async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4722,6 +4885,7 @@ async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4773,7 +4937,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
@@ -4783,6 +4947,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4793,6 +4958,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4803,6 +4969,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4854,7 +5021,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -4864,6 +5031,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4874,6 +5042,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4884,6 +5053,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4894,6 +5064,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4904,6 +5075,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4914,6 +5086,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4924,6 +5097,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4934,6 +5108,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4944,6 +5119,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4954,6 +5130,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4964,6 +5141,7 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5018,7 +5196,7 @@ async function deserializeAws_queryModifyCacheParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -5028,6 +5206,7 @@ async function deserializeAws_queryModifyCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5038,6 +5217,7 @@ async function deserializeAws_queryModifyCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5048,6 +5228,7 @@ async function deserializeAws_queryModifyCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5058,6 +5239,7 @@ async function deserializeAws_queryModifyCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5112,7 +5294,7 @@ async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupNotFoundFault":
@@ -5122,6 +5304,7 @@ async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5132,6 +5315,7 @@ async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5142,6 +5326,7 @@ async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5152,6 +5337,7 @@ async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5206,7 +5392,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -5216,6 +5402,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5226,6 +5413,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5236,6 +5424,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5246,6 +5435,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5256,6 +5446,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5266,6 +5457,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5276,6 +5468,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5286,6 +5479,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5296,6 +5490,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5306,6 +5501,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5316,6 +5512,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5326,6 +5523,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5336,6 +5534,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5346,6 +5545,7 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5400,7 +5600,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -5410,6 +5610,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5420,6 +5621,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5430,6 +5632,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5440,6 +5643,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5450,6 +5654,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5460,6 +5665,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5470,6 +5676,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5480,6 +5687,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5490,6 +5698,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5500,6 +5709,7 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5554,7 +5764,7 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -5564,6 +5774,7 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5574,6 +5785,7 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5584,6 +5796,7 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5594,6 +5807,7 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5604,6 +5818,7 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5655,7 +5870,7 @@ async function deserializeAws_queryRebootCacheClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
@@ -5665,6 +5880,7 @@ async function deserializeAws_queryRebootCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5675,6 +5891,7 @@ async function deserializeAws_queryRebootCacheClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5729,7 +5946,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
@@ -5739,6 +5956,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5749,6 +5967,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5759,6 +5978,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5769,6 +5989,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5823,7 +6044,7 @@ async function deserializeAws_queryResetCacheParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -5833,6 +6054,7 @@ async function deserializeAws_queryResetCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5843,6 +6065,7 @@ async function deserializeAws_queryResetCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5853,6 +6076,7 @@ async function deserializeAws_queryResetCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5863,6 +6087,7 @@ async function deserializeAws_queryResetCacheParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5917,7 +6142,7 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -5927,6 +6152,7 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5937,6 +6163,7 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5947,6 +6174,7 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5957,6 +6185,7 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5967,6 +6196,7 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6018,7 +6248,7 @@ async function deserializeAws_queryStartMigrationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -6028,6 +6258,7 @@ async function deserializeAws_queryStartMigrationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6038,6 +6269,7 @@ async function deserializeAws_queryStartMigrationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6048,6 +6280,7 @@ async function deserializeAws_queryStartMigrationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6058,6 +6291,7 @@ async function deserializeAws_queryStartMigrationCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6109,7 +6343,7 @@ async function deserializeAws_queryTestFailoverCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -6119,6 +6353,7 @@ async function deserializeAws_queryTestFailoverCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6129,6 +6364,7 @@ async function deserializeAws_queryTestFailoverCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6139,6 +6375,7 @@ async function deserializeAws_queryTestFailoverCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6149,6 +6386,7 @@ async function deserializeAws_queryTestFailoverCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6159,6 +6397,7 @@ async function deserializeAws_queryTestFailoverCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6169,6 +6408,7 @@ async function deserializeAws_queryTestFailoverCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6179,6 +6419,7 @@ async function deserializeAws_queryTestFailoverCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6189,6 +6430,7 @@ async function deserializeAws_queryTestFailoverCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6199,6 +6441,7 @@ async function deserializeAws_queryTestFailoverCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7973,7 +8216,7 @@ const serializeAws_queryDescribeEventsMessage = (
     entries["Duration"] = input.Duration;
   }
   if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString();
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
@@ -7988,7 +8231,7 @@ const serializeAws_queryDescribeEventsMessage = (
     entries["SourceType"] = input.SourceType;
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -8952,10 +9195,10 @@ const serializeAws_queryTimeRangeFilter = (
 ): any => {
   const entries: any = {};
   if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString();
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -9780,7 +10023,11 @@ const deserializeAws_queryAvailabilityZonesList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheCluster = (
@@ -9961,9 +10208,11 @@ const deserializeAws_queryCacheClusterList = (
   output: any,
   context: __SerdeContext
 ): Array<CacheCluster> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheCluster(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCacheCluster(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheClusterMessage = (
@@ -10032,9 +10281,11 @@ const deserializeAws_queryCacheEngineVersionList = (
   output: any,
   context: __SerdeContext
 ): Array<CacheEngineVersion> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheEngineVersion(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCacheEngineVersion(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheEngineVersionMessage = (
@@ -10113,16 +10364,22 @@ const deserializeAws_queryCacheNodeIdsList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheNodeList = (
   output: any,
   context: __SerdeContext
 ): Array<CacheNode> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheNode(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCacheNode(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheNodeTypeSpecificParameter = (
@@ -10191,9 +10448,13 @@ const deserializeAws_queryCacheNodeTypeSpecificParametersList = (
   output: any,
   context: __SerdeContext
 ): Array<CacheNodeTypeSpecificParameter> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheNodeTypeSpecificParameter(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryCacheNodeTypeSpecificParameter(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheNodeTypeSpecificValue = (
@@ -10218,9 +10479,13 @@ const deserializeAws_queryCacheNodeTypeSpecificValueList = (
   output: any,
   context: __SerdeContext
 ): Array<CacheNodeTypeSpecificValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheNodeTypeSpecificValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryCacheNodeTypeSpecificValue(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheNodeUpdateStatus = (
@@ -10273,9 +10538,11 @@ const deserializeAws_queryCacheNodeUpdateStatusList = (
   output: any,
   context: __SerdeContext
 ): Array<CacheNodeUpdateStatus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheNodeUpdateStatus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCacheNodeUpdateStatus(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheParameterGroup = (
@@ -10362,9 +10629,11 @@ const deserializeAws_queryCacheParameterGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<CacheParameterGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheParameterGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCacheParameterGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheParameterGroupNameMessage = (
@@ -10508,9 +10777,13 @@ const deserializeAws_queryCacheSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): Array<CacheSecurityGroupMembership> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheSecurityGroupMembership(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryCacheSecurityGroupMembership(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheSecurityGroupMessage = (
@@ -10548,9 +10821,11 @@ const deserializeAws_queryCacheSecurityGroups = (
   output: any,
   context: __SerdeContext
 ): Array<CacheSecurityGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheSecurityGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCacheSecurityGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCacheSubnetGroup = (
@@ -10625,16 +10900,22 @@ const deserializeAws_queryCacheSubnetGroups = (
   output: any,
   context: __SerdeContext
 ): Array<CacheSubnetGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCacheSubnetGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCacheSubnetGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryClusterIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryCompleteMigrationResponse = (
@@ -10912,9 +11193,11 @@ const deserializeAws_queryEC2SecurityGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<EC2SecurityGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEC2SecurityGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryEC2SecurityGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryEndpoint = (
@@ -11027,9 +11310,11 @@ const deserializeAws_queryEventList = (
   output: any,
   context: __SerdeContext
 ): Array<Event> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEvent(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryEvent(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryEventsMessage = (
@@ -11245,9 +11530,11 @@ const deserializeAws_queryNodeGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<NodeGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryNodeGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryNodeGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryNodeGroupMember = (
@@ -11287,9 +11574,11 @@ const deserializeAws_queryNodeGroupMemberList = (
   output: any,
   context: __SerdeContext
 ): Array<NodeGroupMember> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryNodeGroupMember(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryNodeGroupMember(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryNodeGroupMemberUpdateStatus = (
@@ -11346,9 +11635,13 @@ const deserializeAws_queryNodeGroupMemberUpdateStatusList = (
   output: any,
   context: __SerdeContext
 ): Array<NodeGroupMemberUpdateStatus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryNodeGroupMemberUpdateStatus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryNodeGroupMemberUpdateStatus(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryNodeGroupUpdateStatus = (
@@ -11391,9 +11684,11 @@ const deserializeAws_queryNodeGroupUpdateStatusList = (
   output: any,
   context: __SerdeContext
 ): Array<NodeGroupUpdateStatus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryNodeGroupUpdateStatus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryNodeGroupUpdateStatus(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryNodeSnapshot = (
@@ -11441,16 +11736,22 @@ const deserializeAws_queryNodeSnapshotList = (
   output: any,
   context: __SerdeContext
 ): Array<NodeSnapshot> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryNodeSnapshot(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryNodeSnapshot(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryNodeTypeList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryNotificationConfiguration = (
@@ -11521,9 +11822,11 @@ const deserializeAws_queryParametersList = (
   output: any,
   context: __SerdeContext
 ): Array<Parameter> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryParameter(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryParameter(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryPendingModifiedValues = (
@@ -11599,9 +11902,11 @@ const deserializeAws_queryProcessedUpdateActionList = (
   output: any,
   context: __SerdeContext
 ): Array<ProcessedUpdateAction> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryProcessedUpdateAction(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryProcessedUpdateAction(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryPurchaseReservedCacheNodesOfferingResult = (
@@ -11662,9 +11967,11 @@ const deserializeAws_queryRecurringChargeList = (
   output: any,
   context: __SerdeContext
 ): Array<RecurringCharge> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryRecurringCharge(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryRecurringCharge(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryReplicationGroup = (
@@ -11791,9 +12098,11 @@ const deserializeAws_queryReplicationGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<ReplicationGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryReplicationGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryReplicationGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryReplicationGroupMessage = (
@@ -11936,9 +12245,11 @@ const deserializeAws_queryReservedCacheNodeList = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedCacheNode> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryReservedCacheNode(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryReservedCacheNode(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryReservedCacheNodeMessage = (
@@ -12032,9 +12343,13 @@ const deserializeAws_queryReservedCacheNodesOfferingList = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedCacheNodesOffering> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryReservedCacheNodesOffering(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryReservedCacheNodesOffering(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryReservedCacheNodesOfferingMessage = (
@@ -12127,9 +12442,11 @@ const deserializeAws_querySecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): Array<SecurityGroupMembership> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySecurityGroupMembership(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_querySecurityGroupMembership(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryServiceUpdate = (
@@ -12199,9 +12516,11 @@ const deserializeAws_queryServiceUpdateList = (
   output: any,
   context: __SerdeContext
 ): Array<ServiceUpdate> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryServiceUpdate(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryServiceUpdate(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryServiceUpdatesMessage = (
@@ -12382,9 +12701,11 @@ const deserializeAws_querySnapshotList = (
   output: any,
   context: __SerdeContext
 ): Array<Snapshot> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySnapshot(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_querySnapshot(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryStartMigrationResponse = (
@@ -12429,9 +12750,11 @@ const deserializeAws_querySubnetList = (
   output: any,
   context: __SerdeContext
 ): Array<Subnet> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySubnet(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_querySubnet(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -12453,9 +12776,11 @@ const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
 ): Array<Tag> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTag(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryTag(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTagListMessage = (
@@ -12533,9 +12858,11 @@ const deserializeAws_queryUnprocessedUpdateActionList = (
   output: any,
   context: __SerdeContext
 ): Array<UnprocessedUpdateAction> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryUnprocessedUpdateAction(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryUnprocessedUpdateAction(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryUpdateAction = (
@@ -12654,9 +12981,11 @@ const deserializeAws_queryUpdateActionList = (
   output: any,
   context: __SerdeContext
 ): Array<UpdateAction> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryUpdateAction(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryUpdateAction(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryUpdateActionResultsMessage = (

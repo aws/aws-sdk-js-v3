@@ -9898,7 +9898,7 @@ async function deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -9957,7 +9957,7 @@ async function deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10016,7 +10016,7 @@ async function deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10075,7 +10075,7 @@ async function deserializeAws_ec2AcceptVpcEndpointConnectionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10131,7 +10131,7 @@ async function deserializeAws_ec2AcceptVpcPeeringConnectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10184,7 +10184,7 @@ async function deserializeAws_ec2AdvertiseByoipCidrCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10237,7 +10237,7 @@ async function deserializeAws_ec2AllocateAddressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10290,7 +10290,7 @@ async function deserializeAws_ec2AllocateHostsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10349,7 +10349,7 @@ async function deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkComm
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10402,7 +10402,7 @@ async function deserializeAws_ec2AssignIpv6AddressesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10458,7 +10458,7 @@ async function deserializeAws_ec2AssignPrivateIpAddressesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10511,7 +10511,7 @@ async function deserializeAws_ec2AssociateAddressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10570,7 +10570,7 @@ async function deserializeAws_ec2AssociateClientVpnTargetNetworkCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10619,7 +10619,7 @@ async function deserializeAws_ec2AssociateDhcpOptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10675,7 +10675,7 @@ async function deserializeAws_ec2AssociateIamInstanceProfileCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10728,7 +10728,7 @@ async function deserializeAws_ec2AssociateRouteTableCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10784,7 +10784,7 @@ async function deserializeAws_ec2AssociateSubnetCidrBlockCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10843,7 +10843,7 @@ async function deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10902,7 +10902,7 @@ async function deserializeAws_ec2AssociateTransitGatewayRouteTableCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10955,7 +10955,7 @@ async function deserializeAws_ec2AssociateVpcCidrBlockCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11008,7 +11008,7 @@ async function deserializeAws_ec2AttachClassicLinkVpcCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11057,7 +11057,7 @@ async function deserializeAws_ec2AttachInternetGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11113,7 +11113,7 @@ async function deserializeAws_ec2AttachNetworkInterfaceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11166,7 +11166,7 @@ async function deserializeAws_ec2AttachVolumeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11219,7 +11219,7 @@ async function deserializeAws_ec2AttachVpnGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11275,7 +11275,7 @@ async function deserializeAws_ec2AuthorizeClientVpnIngressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11327,7 +11327,7 @@ async function deserializeAws_ec2AuthorizeSecurityGroupEgressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11379,7 +11379,7 @@ async function deserializeAws_ec2AuthorizeSecurityGroupIngressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11432,7 +11432,7 @@ async function deserializeAws_ec2BundleInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11485,7 +11485,7 @@ async function deserializeAws_ec2CancelBundleTaskCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11541,7 +11541,7 @@ async function deserializeAws_ec2CancelCapacityReservationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11590,7 +11590,7 @@ async function deserializeAws_ec2CancelConversionTaskCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11639,7 +11639,7 @@ async function deserializeAws_ec2CancelExportTaskCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11692,7 +11692,7 @@ async function deserializeAws_ec2CancelImportTaskCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11751,7 +11751,7 @@ async function deserializeAws_ec2CancelReservedInstancesListingCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11807,7 +11807,7 @@ async function deserializeAws_ec2CancelSpotFleetRequestsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11863,7 +11863,7 @@ async function deserializeAws_ec2CancelSpotInstanceRequestsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11919,7 +11919,7 @@ async function deserializeAws_ec2ConfirmProductInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11972,7 +11972,7 @@ async function deserializeAws_ec2CopyFpgaImageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12025,7 +12025,7 @@ async function deserializeAws_ec2CopyImageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12078,7 +12078,7 @@ async function deserializeAws_ec2CopySnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12134,7 +12134,7 @@ async function deserializeAws_ec2CreateCapacityReservationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12190,7 +12190,7 @@ async function deserializeAws_ec2CreateClientVpnEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12243,7 +12243,7 @@ async function deserializeAws_ec2CreateClientVpnRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12296,7 +12296,7 @@ async function deserializeAws_ec2CreateCustomerGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12349,7 +12349,7 @@ async function deserializeAws_ec2CreateDefaultSubnetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12402,7 +12402,7 @@ async function deserializeAws_ec2CreateDefaultVpcCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12455,7 +12455,7 @@ async function deserializeAws_ec2CreateDhcpOptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12514,7 +12514,7 @@ async function deserializeAws_ec2CreateEgressOnlyInternetGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12567,7 +12567,7 @@ async function deserializeAws_ec2CreateFleetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12620,7 +12620,7 @@ async function deserializeAws_ec2CreateFlowLogsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12673,7 +12673,7 @@ async function deserializeAws_ec2CreateFpgaImageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12726,7 +12726,7 @@ async function deserializeAws_ec2CreateImageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12782,7 +12782,7 @@ async function deserializeAws_ec2CreateInstanceExportTaskCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12835,7 +12835,7 @@ async function deserializeAws_ec2CreateInternetGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12888,7 +12888,7 @@ async function deserializeAws_ec2CreateKeyPairCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12941,7 +12941,7 @@ async function deserializeAws_ec2CreateLaunchTemplateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12997,7 +12997,7 @@ async function deserializeAws_ec2CreateLaunchTemplateVersionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13053,7 +13053,7 @@ async function deserializeAws_ec2CreateLocalGatewayRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13112,7 +13112,7 @@ async function deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13165,7 +13165,7 @@ async function deserializeAws_ec2CreateNatGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13218,7 +13218,7 @@ async function deserializeAws_ec2CreateNetworkAclCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13267,7 +13267,7 @@ async function deserializeAws_ec2CreateNetworkAclEntryCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13323,7 +13323,7 @@ async function deserializeAws_ec2CreateNetworkInterfaceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13382,7 +13382,7 @@ async function deserializeAws_ec2CreateNetworkInterfacePermissionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13431,7 +13431,7 @@ async function deserializeAws_ec2CreatePlacementGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13490,7 +13490,7 @@ async function deserializeAws_ec2CreateReservedInstancesListingCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13543,7 +13543,7 @@ async function deserializeAws_ec2CreateRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13596,7 +13596,7 @@ async function deserializeAws_ec2CreateRouteTableCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13649,7 +13649,7 @@ async function deserializeAws_ec2CreateSecurityGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13702,7 +13702,7 @@ async function deserializeAws_ec2CreateSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13755,7 +13755,7 @@ async function deserializeAws_ec2CreateSnapshotsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13814,7 +13814,7 @@ async function deserializeAws_ec2CreateSpotDatafeedSubscriptionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13867,7 +13867,7 @@ async function deserializeAws_ec2CreateSubnetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13916,7 +13916,7 @@ async function deserializeAws_ec2CreateTagsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13972,7 +13972,7 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14031,7 +14031,7 @@ async function deserializeAws_ec2CreateTrafficMirrorFilterRuleCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14087,7 +14087,7 @@ async function deserializeAws_ec2CreateTrafficMirrorSessionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14143,7 +14143,7 @@ async function deserializeAws_ec2CreateTrafficMirrorTargetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14196,7 +14196,7 @@ async function deserializeAws_ec2CreateTransitGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14255,7 +14255,7 @@ async function deserializeAws_ec2CreateTransitGatewayMulticastDomainCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14314,7 +14314,7 @@ async function deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14370,7 +14370,7 @@ async function deserializeAws_ec2CreateTransitGatewayRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14429,7 +14429,7 @@ async function deserializeAws_ec2CreateTransitGatewayRouteTableCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14488,7 +14488,7 @@ async function deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14541,7 +14541,7 @@ async function deserializeAws_ec2CreateVolumeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14594,7 +14594,7 @@ async function deserializeAws_ec2CreateVpcCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14647,7 +14647,7 @@ async function deserializeAws_ec2CreateVpcEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14706,7 +14706,7 @@ async function deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14765,7 +14765,7 @@ async function deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14821,7 +14821,7 @@ async function deserializeAws_ec2CreateVpcPeeringConnectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14874,7 +14874,7 @@ async function deserializeAws_ec2CreateVpnConnectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14926,7 +14926,7 @@ async function deserializeAws_ec2CreateVpnConnectionRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14979,7 +14979,7 @@ async function deserializeAws_ec2CreateVpnGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15035,7 +15035,7 @@ async function deserializeAws_ec2DeleteClientVpnEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15088,7 +15088,7 @@ async function deserializeAws_ec2DeleteClientVpnRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15137,7 +15137,7 @@ async function deserializeAws_ec2DeleteCustomerGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15186,7 +15186,7 @@ async function deserializeAws_ec2DeleteDhcpOptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15245,7 +15245,7 @@ async function deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15298,7 +15298,7 @@ async function deserializeAws_ec2DeleteFleetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15351,7 +15351,7 @@ async function deserializeAws_ec2DeleteFlowLogsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15404,7 +15404,7 @@ async function deserializeAws_ec2DeleteFpgaImageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15453,7 +15453,7 @@ async function deserializeAws_ec2DeleteInternetGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15502,7 +15502,7 @@ async function deserializeAws_ec2DeleteKeyPairCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15555,7 +15555,7 @@ async function deserializeAws_ec2DeleteLaunchTemplateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15614,7 +15614,7 @@ async function deserializeAws_ec2DeleteLaunchTemplateVersionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15670,7 +15670,7 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15729,7 +15729,7 @@ async function deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15782,7 +15782,7 @@ async function deserializeAws_ec2DeleteNatGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15831,7 +15831,7 @@ async function deserializeAws_ec2DeleteNetworkAclCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15880,7 +15880,7 @@ async function deserializeAws_ec2DeleteNetworkAclEntryCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15932,7 +15932,7 @@ async function deserializeAws_ec2DeleteNetworkInterfaceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15991,7 +15991,7 @@ async function deserializeAws_ec2DeleteNetworkInterfacePermissionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16040,7 +16040,7 @@ async function deserializeAws_ec2DeletePlacementGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16099,7 +16099,7 @@ async function deserializeAws_ec2DeleteQueuedReservedInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16148,7 +16148,7 @@ async function deserializeAws_ec2DeleteRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16197,7 +16197,7 @@ async function deserializeAws_ec2DeleteRouteTableCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16246,7 +16246,7 @@ async function deserializeAws_ec2DeleteSecurityGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16295,7 +16295,7 @@ async function deserializeAws_ec2DeleteSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16347,7 +16347,7 @@ async function deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16396,7 +16396,7 @@ async function deserializeAws_ec2DeleteSubnetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16445,7 +16445,7 @@ async function deserializeAws_ec2DeleteTagsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16501,7 +16501,7 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16560,7 +16560,7 @@ async function deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16616,7 +16616,7 @@ async function deserializeAws_ec2DeleteTrafficMirrorSessionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16672,7 +16672,7 @@ async function deserializeAws_ec2DeleteTrafficMirrorTargetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16725,7 +16725,7 @@ async function deserializeAws_ec2DeleteTransitGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16784,7 +16784,7 @@ async function deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16843,7 +16843,7 @@ async function deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16899,7 +16899,7 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16958,7 +16958,7 @@ async function deserializeAws_ec2DeleteTransitGatewayRouteTableCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17017,7 +17017,7 @@ async function deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17066,7 +17066,7 @@ async function deserializeAws_ec2DeleteVolumeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17115,7 +17115,7 @@ async function deserializeAws_ec2DeleteVpcCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17174,7 +17174,7 @@ async function deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17233,7 +17233,7 @@ async function deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17286,7 +17286,7 @@ async function deserializeAws_ec2DeleteVpcEndpointsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17342,7 +17342,7 @@ async function deserializeAws_ec2DeleteVpcPeeringConnectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17391,7 +17391,7 @@ async function deserializeAws_ec2DeleteVpnConnectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17443,7 +17443,7 @@ async function deserializeAws_ec2DeleteVpnConnectionRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17492,7 +17492,7 @@ async function deserializeAws_ec2DeleteVpnGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17545,7 +17545,7 @@ async function deserializeAws_ec2DeprovisionByoipCidrCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17594,7 +17594,7 @@ async function deserializeAws_ec2DeregisterImageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17653,7 +17653,7 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCo
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17712,7 +17712,7 @@ async function deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCo
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17768,7 +17768,7 @@ async function deserializeAws_ec2DescribeAccountAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17821,7 +17821,7 @@ async function deserializeAws_ec2DescribeAddressesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17877,7 +17877,7 @@ async function deserializeAws_ec2DescribeAggregateIdFormatCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17933,7 +17933,7 @@ async function deserializeAws_ec2DescribeAvailabilityZonesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17986,7 +17986,7 @@ async function deserializeAws_ec2DescribeBundleTasksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18039,7 +18039,7 @@ async function deserializeAws_ec2DescribeByoipCidrsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18098,7 +18098,7 @@ async function deserializeAws_ec2DescribeCapacityReservationsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18157,7 +18157,7 @@ async function deserializeAws_ec2DescribeClassicLinkInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18216,7 +18216,7 @@ async function deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18275,7 +18275,7 @@ async function deserializeAws_ec2DescribeClientVpnConnectionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18331,7 +18331,7 @@ async function deserializeAws_ec2DescribeClientVpnEndpointsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18387,7 +18387,7 @@ async function deserializeAws_ec2DescribeClientVpnRoutesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18446,7 +18446,7 @@ async function deserializeAws_ec2DescribeClientVpnTargetNetworksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18499,7 +18499,7 @@ async function deserializeAws_ec2DescribeCoipPoolsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18555,7 +18555,7 @@ async function deserializeAws_ec2DescribeConversionTasksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18611,7 +18611,7 @@ async function deserializeAws_ec2DescribeCustomerGatewaysCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18664,7 +18664,7 @@ async function deserializeAws_ec2DescribeDhcpOptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18723,7 +18723,7 @@ async function deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18776,7 +18776,7 @@ async function deserializeAws_ec2DescribeElasticGpusCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18832,7 +18832,7 @@ async function deserializeAws_ec2DescribeExportImageTasksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18885,7 +18885,7 @@ async function deserializeAws_ec2DescribeExportTasksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18944,7 +18944,7 @@ async function deserializeAws_ec2DescribeFastSnapshotRestoresCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18997,7 +18997,7 @@ async function deserializeAws_ec2DescribeFleetHistoryCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19053,7 +19053,7 @@ async function deserializeAws_ec2DescribeFleetInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19106,7 +19106,7 @@ async function deserializeAws_ec2DescribeFleetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19159,7 +19159,7 @@ async function deserializeAws_ec2DescribeFlowLogsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19215,7 +19215,7 @@ async function deserializeAws_ec2DescribeFpgaImageAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19268,7 +19268,7 @@ async function deserializeAws_ec2DescribeFpgaImagesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19327,7 +19327,7 @@ async function deserializeAws_ec2DescribeHostReservationOfferingsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19383,7 +19383,7 @@ async function deserializeAws_ec2DescribeHostReservationsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19436,7 +19436,7 @@ async function deserializeAws_ec2DescribeHostsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19495,7 +19495,7 @@ async function deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19548,7 +19548,7 @@ async function deserializeAws_ec2DescribeIdFormatCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19604,7 +19604,7 @@ async function deserializeAws_ec2DescribeIdentityIdFormatCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19660,7 +19660,7 @@ async function deserializeAws_ec2DescribeImageAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19713,7 +19713,7 @@ async function deserializeAws_ec2DescribeImagesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19769,7 +19769,7 @@ async function deserializeAws_ec2DescribeImportImageTasksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19825,7 +19825,7 @@ async function deserializeAws_ec2DescribeImportSnapshotTasksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19881,7 +19881,7 @@ async function deserializeAws_ec2DescribeInstanceAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19940,7 +19940,7 @@ async function deserializeAws_ec2DescribeInstanceCreditSpecificationsCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19996,7 +19996,7 @@ async function deserializeAws_ec2DescribeInstanceStatusCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20055,7 +20055,7 @@ async function deserializeAws_ec2DescribeInstanceTypeOfferingsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20108,7 +20108,7 @@ async function deserializeAws_ec2DescribeInstanceTypesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20161,7 +20161,7 @@ async function deserializeAws_ec2DescribeInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20217,7 +20217,7 @@ async function deserializeAws_ec2DescribeInternetGatewaysCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20270,7 +20270,7 @@ async function deserializeAws_ec2DescribeIpv6PoolsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20323,7 +20323,7 @@ async function deserializeAws_ec2DescribeKeyPairsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20382,7 +20382,7 @@ async function deserializeAws_ec2DescribeLaunchTemplateVersionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20438,7 +20438,7 @@ async function deserializeAws_ec2DescribeLaunchTemplatesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20502,7 +20502,7 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceG
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20561,7 +20561,7 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCo
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20620,7 +20620,7 @@ async function deserializeAws_ec2DescribeLocalGatewayRouteTablesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20679,7 +20679,7 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20738,7 +20738,7 @@ async function deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20791,7 +20791,7 @@ async function deserializeAws_ec2DescribeLocalGatewaysCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20847,7 +20847,7 @@ async function deserializeAws_ec2DescribeMovingAddressesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20900,7 +20900,7 @@ async function deserializeAws_ec2DescribeNatGatewaysCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20953,7 +20953,7 @@ async function deserializeAws_ec2DescribeNetworkAclsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21012,7 +21012,7 @@ async function deserializeAws_ec2DescribeNetworkInterfaceAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21071,7 +21071,7 @@ async function deserializeAws_ec2DescribeNetworkInterfacePermissionsCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21127,7 +21127,7 @@ async function deserializeAws_ec2DescribeNetworkInterfacesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21183,7 +21183,7 @@ async function deserializeAws_ec2DescribePlacementGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21236,7 +21236,7 @@ async function deserializeAws_ec2DescribePrefixListsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21292,7 +21292,7 @@ async function deserializeAws_ec2DescribePrincipalIdFormatCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21348,7 +21348,7 @@ async function deserializeAws_ec2DescribePublicIpv4PoolsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21401,7 +21401,7 @@ async function deserializeAws_ec2DescribeRegionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21457,7 +21457,7 @@ async function deserializeAws_ec2DescribeReservedInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21516,7 +21516,7 @@ async function deserializeAws_ec2DescribeReservedInstancesListingsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21575,7 +21575,7 @@ async function deserializeAws_ec2DescribeReservedInstancesModificationsCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21634,7 +21634,7 @@ async function deserializeAws_ec2DescribeReservedInstancesOfferingsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21687,7 +21687,7 @@ async function deserializeAws_ec2DescribeRouteTablesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21746,7 +21746,7 @@ async function deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21802,7 +21802,7 @@ async function deserializeAws_ec2DescribeScheduledInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21861,7 +21861,7 @@ async function deserializeAws_ec2DescribeSecurityGroupReferencesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21917,7 +21917,7 @@ async function deserializeAws_ec2DescribeSecurityGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21973,7 +21973,7 @@ async function deserializeAws_ec2DescribeSnapshotAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22026,7 +22026,7 @@ async function deserializeAws_ec2DescribeSnapshotsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22085,7 +22085,7 @@ async function deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22144,7 +22144,7 @@ async function deserializeAws_ec2DescribeSpotFleetInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22203,7 +22203,7 @@ async function deserializeAws_ec2DescribeSpotFleetRequestHistoryCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22259,7 +22259,7 @@ async function deserializeAws_ec2DescribeSpotFleetRequestsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22318,7 +22318,7 @@ async function deserializeAws_ec2DescribeSpotInstanceRequestsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22374,7 +22374,7 @@ async function deserializeAws_ec2DescribeSpotPriceHistoryCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22430,7 +22430,7 @@ async function deserializeAws_ec2DescribeStaleSecurityGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22483,7 +22483,7 @@ async function deserializeAws_ec2DescribeSubnetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22536,7 +22536,7 @@ async function deserializeAws_ec2DescribeTagsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22595,7 +22595,7 @@ async function deserializeAws_ec2DescribeTrafficMirrorFiltersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22654,7 +22654,7 @@ async function deserializeAws_ec2DescribeTrafficMirrorSessionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22713,7 +22713,7 @@ async function deserializeAws_ec2DescribeTrafficMirrorTargetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22772,7 +22772,7 @@ async function deserializeAws_ec2DescribeTransitGatewayAttachmentsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22831,7 +22831,7 @@ async function deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22890,7 +22890,7 @@ async function deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22949,7 +22949,7 @@ async function deserializeAws_ec2DescribeTransitGatewayRouteTablesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23008,7 +23008,7 @@ async function deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23064,7 +23064,7 @@ async function deserializeAws_ec2DescribeTransitGatewaysCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23120,7 +23120,7 @@ async function deserializeAws_ec2DescribeVolumeAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23173,7 +23173,7 @@ async function deserializeAws_ec2DescribeVolumeStatusCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23226,7 +23226,7 @@ async function deserializeAws_ec2DescribeVolumesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23285,7 +23285,7 @@ async function deserializeAws_ec2DescribeVolumesModificationsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23338,7 +23338,7 @@ async function deserializeAws_ec2DescribeVpcAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23394,7 +23394,7 @@ async function deserializeAws_ec2DescribeVpcClassicLinkCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23453,7 +23453,7 @@ async function deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23512,7 +23512,7 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23571,7 +23571,7 @@ async function deserializeAws_ec2DescribeVpcEndpointConnectionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23630,7 +23630,7 @@ async function deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23689,7 +23689,7 @@ async function deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23745,7 +23745,7 @@ async function deserializeAws_ec2DescribeVpcEndpointServicesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23798,7 +23798,7 @@ async function deserializeAws_ec2DescribeVpcEndpointsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23857,7 +23857,7 @@ async function deserializeAws_ec2DescribeVpcPeeringConnectionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23910,7 +23910,7 @@ async function deserializeAws_ec2DescribeVpcsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23966,7 +23966,7 @@ async function deserializeAws_ec2DescribeVpnConnectionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24019,7 +24019,7 @@ async function deserializeAws_ec2DescribeVpnGatewaysCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24072,7 +24072,7 @@ async function deserializeAws_ec2DetachClassicLinkVpcCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24121,7 +24121,7 @@ async function deserializeAws_ec2DetachInternetGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24173,7 +24173,7 @@ async function deserializeAws_ec2DetachNetworkInterfaceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24226,7 +24226,7 @@ async function deserializeAws_ec2DetachVolumeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24275,7 +24275,7 @@ async function deserializeAws_ec2DetachVpnGatewayCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24334,7 +24334,7 @@ async function deserializeAws_ec2DisableEbsEncryptionByDefaultCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24390,7 +24390,7 @@ async function deserializeAws_ec2DisableFastSnapshotRestoresCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24449,7 +24449,7 @@ async function deserializeAws_ec2DisableTransitGatewayRouteTablePropagationComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24501,7 +24501,7 @@ async function deserializeAws_ec2DisableVgwRoutePropagationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24554,7 +24554,7 @@ async function deserializeAws_ec2DisableVpcClassicLinkCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24613,7 +24613,7 @@ async function deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24662,7 +24662,7 @@ async function deserializeAws_ec2DisassociateAddressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24721,7 +24721,7 @@ async function deserializeAws_ec2DisassociateClientVpnTargetNetworkCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24780,7 +24780,7 @@ async function deserializeAws_ec2DisassociateIamInstanceProfileCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24832,7 +24832,7 @@ async function deserializeAws_ec2DisassociateRouteTableCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24888,7 +24888,7 @@ async function deserializeAws_ec2DisassociateSubnetCidrBlockCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24947,7 +24947,7 @@ async function deserializeAws_ec2DisassociateTransitGatewayMulticastDomainComman
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25006,7 +25006,7 @@ async function deserializeAws_ec2DisassociateTransitGatewayRouteTableCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25062,7 +25062,7 @@ async function deserializeAws_ec2DisassociateVpcCidrBlockCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25121,7 +25121,7 @@ async function deserializeAws_ec2EnableEbsEncryptionByDefaultCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25177,7 +25177,7 @@ async function deserializeAws_ec2EnableFastSnapshotRestoresCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25236,7 +25236,7 @@ async function deserializeAws_ec2EnableTransitGatewayRouteTablePropagationComman
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25288,7 +25288,7 @@ async function deserializeAws_ec2EnableVgwRoutePropagationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25337,7 +25337,7 @@ async function deserializeAws_ec2EnableVolumeIOCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25390,7 +25390,7 @@ async function deserializeAws_ec2EnableVpcClassicLinkCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25449,7 +25449,7 @@ async function deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25508,7 +25508,7 @@ async function deserializeAws_ec2ExportClientVpnClientCertificateRevocationListC
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25567,7 +25567,7 @@ async function deserializeAws_ec2ExportClientVpnClientConfigurationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25620,7 +25620,7 @@ async function deserializeAws_ec2ExportImageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25676,7 +25676,7 @@ async function deserializeAws_ec2ExportTransitGatewayRoutesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25732,7 +25732,7 @@ async function deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25788,7 +25788,7 @@ async function deserializeAws_ec2GetCapacityReservationUsageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25841,7 +25841,7 @@ async function deserializeAws_ec2GetCoipPoolUsageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25894,7 +25894,7 @@ async function deserializeAws_ec2GetConsoleOutputCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25947,7 +25947,7 @@ async function deserializeAws_ec2GetConsoleScreenshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26006,7 +26006,7 @@ async function deserializeAws_ec2GetDefaultCreditSpecificationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26059,7 +26059,7 @@ async function deserializeAws_ec2GetEbsDefaultKmsKeyIdCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26115,7 +26115,7 @@ async function deserializeAws_ec2GetEbsEncryptionByDefaultCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26174,7 +26174,7 @@ async function deserializeAws_ec2GetHostReservationPurchasePreviewCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26227,7 +26227,7 @@ async function deserializeAws_ec2GetLaunchTemplateDataCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26280,7 +26280,7 @@ async function deserializeAws_ec2GetPasswordDataCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26339,7 +26339,7 @@ async function deserializeAws_ec2GetReservedInstancesExchangeQuoteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26398,7 +26398,7 @@ async function deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26457,7 +26457,7 @@ async function deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCom
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26516,7 +26516,7 @@ async function deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26575,7 +26575,7 @@ async function deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26634,7 +26634,7 @@ async function deserializeAws_ec2ImportClientVpnClientCertificateRevocationListC
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26687,7 +26687,7 @@ async function deserializeAws_ec2ImportImageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26740,7 +26740,7 @@ async function deserializeAws_ec2ImportInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26793,7 +26793,7 @@ async function deserializeAws_ec2ImportKeyPairCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26846,7 +26846,7 @@ async function deserializeAws_ec2ImportSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26899,7 +26899,7 @@ async function deserializeAws_ec2ImportVolumeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26955,7 +26955,7 @@ async function deserializeAws_ec2ModifyCapacityReservationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27011,7 +27011,7 @@ async function deserializeAws_ec2ModifyClientVpnEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27070,7 +27070,7 @@ async function deserializeAws_ec2ModifyDefaultCreditSpecificationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27126,7 +27126,7 @@ async function deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27179,7 +27179,7 @@ async function deserializeAws_ec2ModifyFleetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27235,7 +27235,7 @@ async function deserializeAws_ec2ModifyFpgaImageAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27288,7 +27288,7 @@ async function deserializeAws_ec2ModifyHostsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27337,7 +27337,7 @@ async function deserializeAws_ec2ModifyIdFormatCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27389,7 +27389,7 @@ async function deserializeAws_ec2ModifyIdentityIdFormatCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27438,7 +27438,7 @@ async function deserializeAws_ec2ModifyImageAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27490,7 +27490,7 @@ async function deserializeAws_ec2ModifyInstanceAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27549,7 +27549,7 @@ async function deserializeAws_ec2ModifyInstanceCapacityReservationAttributesComm
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27608,7 +27608,7 @@ async function deserializeAws_ec2ModifyInstanceCreditSpecificationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27667,7 +27667,7 @@ async function deserializeAws_ec2ModifyInstanceEventStartTimeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27726,7 +27726,7 @@ async function deserializeAws_ec2ModifyInstanceMetadataOptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27782,7 +27782,7 @@ async function deserializeAws_ec2ModifyInstancePlacementCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27835,7 +27835,7 @@ async function deserializeAws_ec2ModifyLaunchTemplateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27887,7 +27887,7 @@ async function deserializeAws_ec2ModifyNetworkInterfaceAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27943,7 +27943,7 @@ async function deserializeAws_ec2ModifyReservedInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27995,7 +27995,7 @@ async function deserializeAws_ec2ModifySnapshotAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28051,7 +28051,7 @@ async function deserializeAws_ec2ModifySpotFleetRequestCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28100,7 +28100,7 @@ async function deserializeAws_ec2ModifySubnetAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28159,7 +28159,7 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28218,7 +28218,7 @@ async function deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28274,7 +28274,7 @@ async function deserializeAws_ec2ModifyTrafficMirrorSessionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28333,7 +28333,7 @@ async function deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28386,7 +28386,7 @@ async function deserializeAws_ec2ModifyVolumeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28435,7 +28435,7 @@ async function deserializeAws_ec2ModifyVolumeAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28484,7 +28484,7 @@ async function deserializeAws_ec2ModifyVpcAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28537,7 +28537,7 @@ async function deserializeAws_ec2ModifyVpcEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28596,7 +28596,7 @@ async function deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28655,7 +28655,7 @@ async function deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28714,7 +28714,7 @@ async function deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28773,7 +28773,7 @@ async function deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28826,7 +28826,7 @@ async function deserializeAws_ec2ModifyVpcTenancyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28879,7 +28879,7 @@ async function deserializeAws_ec2ModifyVpnConnectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28935,7 +28935,7 @@ async function deserializeAws_ec2ModifyVpnTunnelCertificateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28991,7 +28991,7 @@ async function deserializeAws_ec2ModifyVpnTunnelOptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29044,7 +29044,7 @@ async function deserializeAws_ec2MonitorInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29097,7 +29097,7 @@ async function deserializeAws_ec2MoveAddressToVpcCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29150,7 +29150,7 @@ async function deserializeAws_ec2ProvisionByoipCidrCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29206,7 +29206,7 @@ async function deserializeAws_ec2PurchaseHostReservationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29265,7 +29265,7 @@ async function deserializeAws_ec2PurchaseReservedInstancesOfferingCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29321,7 +29321,7 @@ async function deserializeAws_ec2PurchaseScheduledInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29370,7 +29370,7 @@ async function deserializeAws_ec2RebootInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29423,7 +29423,7 @@ async function deserializeAws_ec2RegisterImageCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29482,7 +29482,7 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersComm
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29541,7 +29541,7 @@ async function deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesComm
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29600,7 +29600,7 @@ async function deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29659,7 +29659,7 @@ async function deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29718,7 +29718,7 @@ async function deserializeAws_ec2RejectVpcEndpointConnectionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29774,7 +29774,7 @@ async function deserializeAws_ec2RejectVpcPeeringConnectionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29823,7 +29823,7 @@ async function deserializeAws_ec2ReleaseAddressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29876,7 +29876,7 @@ async function deserializeAws_ec2ReleaseHostsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29935,7 +29935,7 @@ async function deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29994,7 +29994,7 @@ async function deserializeAws_ec2ReplaceNetworkAclAssociationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30046,7 +30046,7 @@ async function deserializeAws_ec2ReplaceNetworkAclEntryCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30095,7 +30095,7 @@ async function deserializeAws_ec2ReplaceRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30154,7 +30154,7 @@ async function deserializeAws_ec2ReplaceRouteTableAssociationCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30210,7 +30210,7 @@ async function deserializeAws_ec2ReplaceTransitGatewayRouteCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30259,7 +30259,7 @@ async function deserializeAws_ec2ReportInstanceStatusCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30312,7 +30312,7 @@ async function deserializeAws_ec2RequestSpotFleetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30365,7 +30365,7 @@ async function deserializeAws_ec2RequestSpotInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30421,7 +30421,7 @@ async function deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30477,7 +30477,7 @@ async function deserializeAws_ec2ResetFpgaImageAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30526,7 +30526,7 @@ async function deserializeAws_ec2ResetImageAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30578,7 +30578,7 @@ async function deserializeAws_ec2ResetInstanceAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30630,7 +30630,7 @@ async function deserializeAws_ec2ResetNetworkInterfaceAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30682,7 +30682,7 @@ async function deserializeAws_ec2ResetSnapshotAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30738,7 +30738,7 @@ async function deserializeAws_ec2RestoreAddressToClassicCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30794,7 +30794,7 @@ async function deserializeAws_ec2RevokeClientVpnIngressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30846,7 +30846,7 @@ async function deserializeAws_ec2RevokeSecurityGroupEgressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30898,7 +30898,7 @@ async function deserializeAws_ec2RevokeSecurityGroupIngressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30951,7 +30951,7 @@ async function deserializeAws_ec2RunInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31004,7 +31004,7 @@ async function deserializeAws_ec2RunScheduledInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31060,7 +31060,7 @@ async function deserializeAws_ec2SearchLocalGatewayRoutesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31119,7 +31119,7 @@ async function deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31175,7 +31175,7 @@ async function deserializeAws_ec2SearchTransitGatewayRoutesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31227,7 +31227,7 @@ async function deserializeAws_ec2SendDiagnosticInterruptCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31280,7 +31280,7 @@ async function deserializeAws_ec2StartInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31339,7 +31339,7 @@ async function deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCo
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31392,7 +31392,7 @@ async function deserializeAws_ec2StopInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31451,7 +31451,7 @@ async function deserializeAws_ec2TerminateClientVpnConnectionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31504,7 +31504,7 @@ async function deserializeAws_ec2TerminateInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31557,7 +31557,7 @@ async function deserializeAws_ec2UnassignIpv6AddressesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31609,7 +31609,7 @@ async function deserializeAws_ec2UnassignPrivateIpAddressesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31662,7 +31662,7 @@ async function deserializeAws_ec2UnmonitorInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31721,7 +31721,7 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressComman
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31780,7 +31780,7 @@ async function deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31833,7 +31833,7 @@ async function deserializeAws_ec2WithdrawByoipCidrCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -32986,13 +32986,14 @@ const serializeAws_ec2ClientData = (
     entries["Comment"] = input.Comment;
   }
   if (input.UploadEnd !== undefined) {
-    entries["UploadEnd"] = input.UploadEnd.toISOString();
+    entries["UploadEnd"] = input.UploadEnd.toISOString().split(".")[0] + "Z";
   }
   if (input.UploadSize !== undefined) {
     entries["UploadSize"] = input.UploadSize;
   }
   if (input.UploadStart !== undefined) {
-    entries["UploadStart"] = input.UploadStart.toISOString();
+    entries["UploadStart"] =
+      input.UploadStart.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -33255,7 +33256,7 @@ const serializeAws_ec2CreateCapacityReservationRequest = (
     entries["EbsOptimized"] = input.EbsOptimized;
   }
   if (input.EndDate !== undefined) {
-    entries["EndDate"] = input.EndDate.toISOString();
+    entries["EndDate"] = input.EndDate.toISOString().split(".")[0] + "Z";
   }
   if (input.EndDateType !== undefined) {
     entries["EndDateType"] = input.EndDateType;
@@ -33562,10 +33563,10 @@ const serializeAws_ec2CreateFleetRequest = (
     entries["Type"] = input.Type;
   }
   if (input.ValidFrom !== undefined) {
-    entries["ValidFrom"] = input.ValidFrom.toISOString();
+    entries["ValidFrom"] = input.ValidFrom.toISOString().split(".")[0] + "Z";
   }
   if (input.ValidUntil !== undefined) {
-    entries["ValidUntil"] = input.ValidUntil.toISOString();
+    entries["ValidUntil"] = input.ValidUntil.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -36562,7 +36563,7 @@ const serializeAws_ec2DescribeFleetHistoryRequest = (
     entries["NextToken"] = input.NextToken;
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -38400,7 +38401,7 @@ const serializeAws_ec2DescribeSpotFleetRequestHistoryRequest = (
     entries["SpotFleetRequestId"] = input.SpotFleetRequestId;
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -38480,7 +38481,7 @@ const serializeAws_ec2DescribeSpotPriceHistoryRequest = (
     entries["DryRun"] = input.DryRun;
   }
   if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString();
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.Filters !== undefined) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
@@ -38516,7 +38517,7 @@ const serializeAws_ec2DescribeSpotPriceHistoryRequest = (
     });
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -42357,7 +42358,7 @@ const serializeAws_ec2LaunchTemplateSpotMarketOptionsRequest = (
     entries["SpotInstanceType"] = input.SpotInstanceType;
   }
   if (input.ValidUntil !== undefined) {
-    entries["ValidUntil"] = input.ValidUntil.toISOString();
+    entries["ValidUntil"] = input.ValidUntil.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -42617,7 +42618,7 @@ const serializeAws_ec2ModifyCapacityReservationRequest = (
     entries["DryRun"] = input.DryRun;
   }
   if (input.EndDate !== undefined) {
-    entries["EndDate"] = input.EndDate.toISOString();
+    entries["EndDate"] = input.EndDate.toISOString().split(".")[0] + "Z";
   }
   if (input.EndDateType !== undefined) {
     entries["EndDateType"] = input.EndDateType;
@@ -43135,7 +43136,7 @@ const serializeAws_ec2ModifyInstanceEventStartTimeRequest = (
     entries["InstanceId"] = input.InstanceId;
   }
   if (input.NotBefore !== undefined) {
-    entries["NotBefore"] = input.NotBefore.toISOString();
+    entries["NotBefore"] = input.NotBefore.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -44830,7 +44831,8 @@ const serializeAws_ec2PurchaseReservedInstancesOfferingRequest = (
     });
   }
   if (input.PurchaseTime !== undefined) {
-    entries["PurchaseTime"] = input.PurchaseTime.toISOString();
+    entries["PurchaseTime"] =
+      input.PurchaseTime.toISOString().split(".")[0] + "Z";
   }
   if (input.ReservedInstancesOfferingId !== undefined) {
     entries["ReservedInstancesOfferingId"] = input.ReservedInstancesOfferingId;
@@ -45319,7 +45321,7 @@ const serializeAws_ec2ReportInstanceStatusRequest = (
     entries["DryRun"] = input.DryRun;
   }
   if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString();
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.Instances !== undefined) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(
@@ -45342,7 +45344,7 @@ const serializeAws_ec2ReportInstanceStatusRequest = (
     });
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   if (input.Status !== undefined) {
     entries["Status"] = input.Status;
@@ -45664,10 +45666,10 @@ const serializeAws_ec2RequestSpotInstancesRequest = (
     entries["Type"] = input.Type;
   }
   if (input.ValidFrom !== undefined) {
-    entries["ValidFrom"] = input.ValidFrom.toISOString();
+    entries["ValidFrom"] = input.ValidFrom.toISOString().split(".")[0] + "Z";
   }
   if (input.ValidUntil !== undefined) {
-    entries["ValidUntil"] = input.ValidUntil.toISOString();
+    entries["ValidUntil"] = input.ValidUntil.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -46977,10 +46979,11 @@ const serializeAws_ec2SlotDateTimeRangeRequest = (
 ): any => {
   const entries: any = {};
   if (input.EarliestTime !== undefined) {
-    entries["EarliestTime"] = input.EarliestTime.toISOString();
+    entries["EarliestTime"] =
+      input.EarliestTime.toISOString().split(".")[0] + "Z";
   }
   if (input.LatestTime !== undefined) {
-    entries["LatestTime"] = input.LatestTime.toISOString();
+    entries["LatestTime"] = input.LatestTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -46991,10 +46994,11 @@ const serializeAws_ec2SlotStartTimeRangeRequest = (
 ): any => {
   const entries: any = {};
   if (input.EarliestTime !== undefined) {
-    entries["EarliestTime"] = input.EarliestTime.toISOString();
+    entries["EarliestTime"] =
+      input.EarliestTime.toISOString().split(".")[0] + "Z";
   }
   if (input.LatestTime !== undefined) {
-    entries["LatestTime"] = input.LatestTime.toISOString();
+    entries["LatestTime"] = input.LatestTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -47250,10 +47254,10 @@ const serializeAws_ec2SpotFleetRequestConfigData = (
     entries["Type"] = input.Type;
   }
   if (input.ValidFrom !== undefined) {
-    entries["ValidFrom"] = input.ValidFrom.toISOString();
+    entries["ValidFrom"] = input.ValidFrom.toISOString().split(".")[0] + "Z";
   }
   if (input.ValidUntil !== undefined) {
-    entries["ValidUntil"] = input.ValidUntil.toISOString();
+    entries["ValidUntil"] = input.ValidUntil.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -47327,7 +47331,7 @@ const serializeAws_ec2SpotMarketOptions = (
     entries["SpotInstanceType"] = input.SpotInstanceType;
   }
   if (input.ValidUntil !== undefined) {
-    entries["ValidUntil"] = input.ValidUntil.toISOString();
+    entries["ValidUntil"] = input.ValidUntil.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -48458,9 +48462,11 @@ const deserializeAws_ec2AccountAttributeList = (
   output: any,
   context: __SerdeContext
 ): Array<AccountAttribute> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2AccountAttribute(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2AccountAttribute(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2AccountAttributeValue = (
@@ -48481,9 +48487,11 @@ const deserializeAws_ec2AccountAttributeValueList = (
   output: any,
   context: __SerdeContext
 ): Array<AccountAttributeValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2AccountAttributeValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2AccountAttributeValue(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ActiveInstance = (
@@ -48516,9 +48524,11 @@ const deserializeAws_ec2ActiveInstanceSet = (
   output: any,
   context: __SerdeContext
 ): Array<ActiveInstance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ActiveInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ActiveInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Address = (
@@ -48597,9 +48607,11 @@ const deserializeAws_ec2AddressList = (
   output: any,
   context: __SerdeContext
 ): Array<Address> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Address(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Address(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2AdvertiseByoipCidrResult = (
@@ -48706,9 +48718,11 @@ const deserializeAws_ec2AllowedPrincipalSet = (
   output: any,
   context: __SerdeContext
 ): Array<AllowedPrincipal> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2AllowedPrincipal(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2AllowedPrincipal(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkResult = (
@@ -48742,7 +48756,11 @@ const deserializeAws_ec2ArchitectureTypeList = (
   output: any,
   context: __SerdeContext
 ): Array<ArchitectureType | string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2AssignIpv6AddressesResult = (
@@ -48825,9 +48843,11 @@ const deserializeAws_ec2AssignedPrivateIpAddressList = (
   output: any,
   context: __SerdeContext
 ): Array<AssignedPrivateIpAddress> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2AssignedPrivateIpAddress(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2AssignedPrivateIpAddress(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2AssociateAddressResult = (
@@ -49008,9 +49028,11 @@ const deserializeAws_ec2AssociatedTargetNetworkSet = (
   output: any,
   context: __SerdeContext
 ): Array<AssociatedTargetNetwork> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2AssociatedTargetNetwork(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2AssociatedTargetNetwork(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2AssociationStatus = (
@@ -49145,9 +49167,11 @@ const deserializeAws_ec2AuthorizationRuleSet = (
   output: any,
   context: __SerdeContext
 ): Array<AuthorizationRule> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2AuthorizationRule(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2AuthorizationRule(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2AuthorizeClientVpnIngressResult = (
@@ -49226,9 +49250,11 @@ const deserializeAws_ec2AvailabilityZoneList = (
   output: any,
   context: __SerdeContext
 ): Array<AvailabilityZone> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2AvailabilityZone(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2AvailabilityZone(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2AvailabilityZoneMessage = (
@@ -49249,9 +49275,11 @@ const deserializeAws_ec2AvailabilityZoneMessageList = (
   output: any,
   context: __SerdeContext
 ): Array<AvailabilityZoneMessage> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2AvailabilityZoneMessage(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2AvailabilityZoneMessage(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2AvailableCapacity = (
@@ -49289,9 +49317,11 @@ const deserializeAws_ec2AvailableInstanceCapacityList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceCapacity> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceCapacity(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceCapacity(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2BlockDeviceMapping = (
@@ -49324,9 +49354,11 @@ const deserializeAws_ec2BlockDeviceMappingList = (
   output: any,
   context: __SerdeContext
 ): Array<BlockDeviceMapping> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2BlockDeviceMapping(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2BlockDeviceMapping(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2BundleInstanceResult = (
@@ -49413,9 +49445,11 @@ const deserializeAws_ec2BundleTaskList = (
   output: any,
   context: __SerdeContext
 ): Array<BundleTask> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2BundleTask(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2BundleTask(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ByoipCidr = (
@@ -49448,9 +49482,11 @@ const deserializeAws_ec2ByoipCidrSet = (
   output: any,
   context: __SerdeContext
 ): Array<ByoipCidr> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ByoipCidr(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ByoipCidr(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CancelBundleTaskResult = (
@@ -49576,9 +49612,13 @@ const deserializeAws_ec2CancelSpotFleetRequestsErrorSet = (
   output: any,
   context: __SerdeContext
 ): Array<CancelSpotFleetRequestsErrorItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CancelSpotFleetRequestsErrorItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2CancelSpotFleetRequestsErrorItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CancelSpotFleetRequestsResponse = (
@@ -49653,9 +49693,13 @@ const deserializeAws_ec2CancelSpotFleetRequestsSuccessSet = (
   output: any,
   context: __SerdeContext
 ): Array<CancelSpotFleetRequestsSuccessItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CancelSpotFleetRequestsSuccessItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2CancelSpotFleetRequestsSuccessItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
@@ -49707,9 +49751,13 @@ const deserializeAws_ec2CancelledSpotInstanceRequestList = (
   output: any,
   context: __SerdeContext
 ): Array<CancelledSpotInstanceRequest> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CancelledSpotInstanceRequest(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2CancelledSpotInstanceRequest(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CapacityReservation = (
@@ -49824,9 +49872,11 @@ const deserializeAws_ec2CapacityReservationSet = (
   output: any,
   context: __SerdeContext
 ): Array<CapacityReservation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CapacityReservation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2CapacityReservation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CapacityReservationSpecificationResponse = (
@@ -49897,9 +49947,11 @@ const deserializeAws_ec2CidrBlockSet = (
   output: any,
   context: __SerdeContext
 ): Array<CidrBlock> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CidrBlock(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2CidrBlock(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ClassicLinkDnsSupport = (
@@ -49925,9 +49977,11 @@ const deserializeAws_ec2ClassicLinkDnsSupportList = (
   output: any,
   context: __SerdeContext
 ): Array<ClassicLinkDnsSupport> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ClassicLinkDnsSupport(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ClassicLinkDnsSupport(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ClassicLinkInstance = (
@@ -49983,9 +50037,11 @@ const deserializeAws_ec2ClassicLinkInstanceList = (
   output: any,
   context: __SerdeContext
 ): Array<ClassicLinkInstance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ClassicLinkInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ClassicLinkInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ClassicLoadBalancer = (
@@ -50006,9 +50062,11 @@ const deserializeAws_ec2ClassicLoadBalancers = (
   output: any,
   context: __SerdeContext
 ): Array<ClassicLoadBalancer> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ClassicLoadBalancer(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ClassicLoadBalancer(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ClassicLoadBalancersConfig = (
@@ -50088,9 +50146,11 @@ const deserializeAws_ec2ClientVpnAuthenticationList = (
   output: any,
   context: __SerdeContext
 ): Array<ClientVpnAuthentication> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ClientVpnAuthentication(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ClientVpnAuthentication(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ClientVpnAuthorizationRuleStatus = (
@@ -50180,9 +50240,11 @@ const deserializeAws_ec2ClientVpnConnectionSet = (
   output: any,
   context: __SerdeContext
 ): Array<ClientVpnConnection> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ClientVpnConnection(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ClientVpnConnection(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ClientVpnConnectionStatus = (
@@ -50399,9 +50461,11 @@ const deserializeAws_ec2ClientVpnRouteSet = (
   output: any,
   context: __SerdeContext
 ): Array<ClientVpnRoute> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ClientVpnRoute(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ClientVpnRoute(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ClientVpnRouteStatus = (
@@ -50426,7 +50490,11 @@ const deserializeAws_ec2ClientVpnSecurityGroupIdSet = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CoipAddressUsage = (
@@ -50459,9 +50527,11 @@ const deserializeAws_ec2CoipAddressUsageSet = (
   output: any,
   context: __SerdeContext
 ): Array<CoipAddressUsage> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CoipAddressUsage(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2CoipAddressUsage(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CoipPool = (
@@ -50517,9 +50587,11 @@ const deserializeAws_ec2CoipPoolSet = (
   output: any,
   context: __SerdeContext
 ): Array<CoipPool> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CoipPool(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2CoipPool(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ConfirmProductInstanceResult = (
@@ -50618,9 +50690,11 @@ const deserializeAws_ec2ConnectionNotificationSet = (
   output: any,
   context: __SerdeContext
 ): Array<ConnectionNotification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ConnectionNotification(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ConnectionNotification(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ConversionTask = (
@@ -50737,7 +50811,11 @@ const deserializeAws_ec2CoreCountList = (
   output: any,
   context: __SerdeContext
 ): Array<number> => {
-  return (output || []).map((entry: any) => parseInt(entry));
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(parseInt(entry));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CpuOptions = (
@@ -50933,9 +51011,11 @@ const deserializeAws_ec2CreateFleetErrorsSet = (
   output: any,
   context: __SerdeContext
 ): Array<CreateFleetError> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CreateFleetError(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2CreateFleetError(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CreateFleetInstance = (
@@ -50988,9 +51068,11 @@ const deserializeAws_ec2CreateFleetInstancesSet = (
   output: any,
   context: __SerdeContext
 ): Array<CreateFleetInstance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CreateFleetInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2CreateFleetInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CreateFleetResult = (
@@ -51630,9 +51712,11 @@ const deserializeAws_ec2CreateVolumePermissionList = (
   output: any,
   context: __SerdeContext
 ): Array<CreateVolumePermission> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CreateVolumePermission(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2CreateVolumePermission(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2CreateVpcEndpointConnectionNotificationResult = (
@@ -51833,9 +51917,11 @@ const deserializeAws_ec2CustomerGatewayList = (
   output: any,
   context: __SerdeContext
 ): Array<CustomerGateway> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2CustomerGateway(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2CustomerGateway(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DeleteClientVpnEndpointResult = (
@@ -51929,9 +52015,11 @@ const deserializeAws_ec2DeleteFleetErrorSet = (
   output: any,
   context: __SerdeContext
 ): Array<DeleteFleetErrorItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DeleteFleetErrorItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2DeleteFleetErrorItem(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DeleteFleetSuccessItem = (
@@ -51960,9 +52048,11 @@ const deserializeAws_ec2DeleteFleetSuccessSet = (
   output: any,
   context: __SerdeContext
 ): Array<DeleteFleetSuccessItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DeleteFleetSuccessItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2DeleteFleetSuccessItem(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DeleteFleetsResult = (
@@ -52100,12 +52190,16 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorSet = (
   output: any,
   context: __SerdeContext
 ): Array<DeleteLaunchTemplateVersionsResponseErrorItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorItem(
-      entry,
-      context
-    )
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorItem(
+        entry,
+        context
+      )
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessItem = (
@@ -52134,12 +52228,16 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessSet = (
   output: any,
   context: __SerdeContext
 ): Array<DeleteLaunchTemplateVersionsResponseSuccessItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessItem(
-      entry,
-      context
-    )
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessItem(
+        entry,
+        context
+      )
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
@@ -53024,9 +53122,11 @@ const deserializeAws_ec2DescribeConversionTaskList = (
   output: any,
   context: __SerdeContext
 ): Array<ConversionTask> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ConversionTask(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ConversionTask(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DescribeConversionTasksResult = (
@@ -53296,9 +53396,13 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessSet = (
   output: any,
   context: __SerdeContext
 ): Array<DescribeFastSnapshotRestoreSuccessItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DescribeFastSnapshotRestoreSuccessItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2DescribeFastSnapshotRestoreSuccessItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DescribeFastSnapshotRestoresResult = (
@@ -53443,9 +53547,11 @@ const deserializeAws_ec2DescribeFleetsErrorSet = (
   output: any,
   context: __SerdeContext
 ): Array<DescribeFleetError> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DescribeFleetError(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2DescribeFleetError(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DescribeFleetsInstances = (
@@ -53498,9 +53604,11 @@ const deserializeAws_ec2DescribeFleetsInstancesSet = (
   output: any,
   context: __SerdeContext
 ): Array<DescribeFleetsInstances> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DescribeFleetsInstances(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2DescribeFleetsInstances(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DescribeFleetsResult = (
@@ -56178,18 +56286,22 @@ const deserializeAws_ec2DhcpConfigurationList = (
   output: any,
   context: __SerdeContext
 ): Array<DhcpConfiguration> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DhcpConfiguration(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2DhcpConfiguration(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DhcpConfigurationValueList = (
   output: any,
   context: __SerdeContext
 ): Array<AttributeValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2AttributeValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2AttributeValue(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DhcpOptions = (
@@ -56245,9 +56357,11 @@ const deserializeAws_ec2DhcpOptionsList = (
   output: any,
   context: __SerdeContext
 ): Array<DhcpOptions> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DhcpOptions(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2DhcpOptions(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DirectoryServiceAuthentication = (
@@ -56314,9 +56428,13 @@ const deserializeAws_ec2DisableFastSnapshotRestoreErrorSet = (
   output: any,
   context: __SerdeContext
 ): Array<DisableFastSnapshotRestoreErrorItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DisableFastSnapshotRestoreErrorItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2DisableFastSnapshotRestoreErrorItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DisableFastSnapshotRestoreStateError = (
@@ -56362,9 +56480,13 @@ const deserializeAws_ec2DisableFastSnapshotRestoreStateErrorSet = (
   output: any,
   context: __SerdeContext
 ): Array<DisableFastSnapshotRestoreStateErrorItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DisableFastSnapshotRestoreStateErrorItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2DisableFastSnapshotRestoreStateErrorItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DisableFastSnapshotRestoreSuccessItem = (
@@ -56425,9 +56547,13 @@ const deserializeAws_ec2DisableFastSnapshotRestoreSuccessSet = (
   output: any,
   context: __SerdeContext
 ): Array<DisableFastSnapshotRestoreSuccessItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DisableFastSnapshotRestoreSuccessItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2DisableFastSnapshotRestoreSuccessItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DisableFastSnapshotRestoresResult = (
@@ -56710,9 +56836,11 @@ const deserializeAws_ec2DiskInfoList = (
   output: any,
   context: __SerdeContext
 ): Array<DiskInfo> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DiskInfo(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2DiskInfo(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2DnsEntry = (
@@ -56737,9 +56865,11 @@ const deserializeAws_ec2DnsEntrySet = (
   output: any,
   context: __SerdeContext
 ): Array<DnsEntry> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2DnsEntry(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2DnsEntry(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2EbsBlockDevice = (
@@ -56874,9 +57004,11 @@ const deserializeAws_ec2EgressOnlyInternetGatewayList = (
   output: any,
   context: __SerdeContext
 ): Array<EgressOnlyInternetGateway> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2EgressOnlyInternetGateway(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2EgressOnlyInternetGateway(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ElasticGpuAssociation = (
@@ -56909,9 +57041,11 @@ const deserializeAws_ec2ElasticGpuAssociationList = (
   output: any,
   context: __SerdeContext
 ): Array<ElasticGpuAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ElasticGpuAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ElasticGpuAssociation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ElasticGpuHealth = (
@@ -56932,9 +57066,11 @@ const deserializeAws_ec2ElasticGpuSet = (
   output: any,
   context: __SerdeContext
 ): Array<ElasticGpus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ElasticGpus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ElasticGpus(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ElasticGpuSpecificationResponse = (
@@ -56955,9 +57091,13 @@ const deserializeAws_ec2ElasticGpuSpecificationResponseList = (
   output: any,
   context: __SerdeContext
 ): Array<ElasticGpuSpecificationResponse> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ElasticGpuSpecificationResponse(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2ElasticGpuSpecificationResponse(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ElasticGpus = (
@@ -57046,9 +57186,13 @@ const deserializeAws_ec2ElasticInferenceAcceleratorAssociationList = (
   output: any,
   context: __SerdeContext
 ): Array<ElasticInferenceAcceleratorAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ElasticInferenceAcceleratorAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2ElasticInferenceAcceleratorAssociation(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2EnableEbsEncryptionByDefaultResult = (
@@ -57101,9 +57245,13 @@ const deserializeAws_ec2EnableFastSnapshotRestoreErrorSet = (
   output: any,
   context: __SerdeContext
 ): Array<EnableFastSnapshotRestoreErrorItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2EnableFastSnapshotRestoreErrorItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2EnableFastSnapshotRestoreErrorItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2EnableFastSnapshotRestoreStateError = (
@@ -57149,9 +57297,13 @@ const deserializeAws_ec2EnableFastSnapshotRestoreStateErrorSet = (
   output: any,
   context: __SerdeContext
 ): Array<EnableFastSnapshotRestoreStateErrorItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2EnableFastSnapshotRestoreStateErrorItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2EnableFastSnapshotRestoreStateErrorItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem = (
@@ -57212,9 +57364,13 @@ const deserializeAws_ec2EnableFastSnapshotRestoreSuccessSet = (
   output: any,
   context: __SerdeContext
 ): Array<EnableFastSnapshotRestoreSuccessItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2EnableFastSnapshotRestoresResult = (
@@ -57310,9 +57466,11 @@ const deserializeAws_ec2EndpointSet = (
   output: any,
   context: __SerdeContext
 ): Array<ClientVpnEndpoint> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ClientVpnEndpoint(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ClientVpnEndpoint(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2EventInformation = (
@@ -57466,9 +57624,11 @@ const deserializeAws_ec2ExportImageTaskList = (
   output: any,
   context: __SerdeContext
 ): Array<ExportImageTask> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ExportImageTask(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ExportImageTask(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ExportTask = (
@@ -57529,9 +57689,11 @@ const deserializeAws_ec2ExportTaskList = (
   output: any,
   context: __SerdeContext
 ): Array<ExportTask> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ExportTask(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ExportTask(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ExportTaskS3Location = (
@@ -57617,9 +57779,13 @@ const deserializeAws_ec2FailedQueuedPurchaseDeletionSet = (
   output: any,
   context: __SerdeContext
 ): Array<FailedQueuedPurchaseDeletion> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2FailedQueuedPurchaseDeletion(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2FailedQueuedPurchaseDeletion(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2FleetData = (
@@ -57813,9 +57979,11 @@ const deserializeAws_ec2FleetLaunchTemplateConfigList = (
   output: any,
   context: __SerdeContext
 ): Array<FleetLaunchTemplateConfig> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2FleetLaunchTemplateConfig(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2FleetLaunchTemplateConfig(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2FleetLaunchTemplateOverrides = (
@@ -57863,9 +58031,13 @@ const deserializeAws_ec2FleetLaunchTemplateOverridesList = (
   output: any,
   context: __SerdeContext
 ): Array<FleetLaunchTemplateOverrides> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2FleetLaunchTemplateOverrides(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2FleetLaunchTemplateOverrides(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2FleetLaunchTemplateSpecification = (
@@ -57894,9 +58066,11 @@ const deserializeAws_ec2FleetSet = (
   output: any,
   context: __SerdeContext
 ): Array<FleetData> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2FleetData(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2FleetData(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2FlowLog = (
@@ -57961,9 +58135,11 @@ const deserializeAws_ec2FlowLogSet = (
   output: any,
   context: __SerdeContext
 ): Array<FlowLog> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2FlowLog(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2FlowLog(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2FpgaDeviceInfo = (
@@ -57999,9 +58175,11 @@ const deserializeAws_ec2FpgaDeviceInfoList = (
   output: any,
   context: __SerdeContext
 ): Array<FpgaDeviceInfo> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2FpgaDeviceInfo(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2FpgaDeviceInfo(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2FpgaDeviceMemoryInfo = (
@@ -58168,9 +58346,11 @@ const deserializeAws_ec2FpgaImageList = (
   output: any,
   context: __SerdeContext
 ): Array<FpgaImage> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2FpgaImage(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2FpgaImage(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2FpgaImageState = (
@@ -58733,9 +58913,11 @@ const deserializeAws_ec2GpuDeviceInfoList = (
   output: any,
   context: __SerdeContext
 ): Array<GpuDeviceInfo> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2GpuDeviceInfo(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2GpuDeviceInfo(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2GpuDeviceMemoryInfo = (
@@ -58781,7 +58963,11 @@ const deserializeAws_ec2GroupIdStringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2GroupIdentifier = (
@@ -58806,18 +58992,22 @@ const deserializeAws_ec2GroupIdentifierList = (
   output: any,
   context: __SerdeContext
 ): Array<GroupIdentifier> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2GroupIdentifier(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2GroupIdentifier(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2GroupIdentifierSet = (
   output: any,
   context: __SerdeContext
 ): Array<SecurityGroupIdentifier> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SecurityGroupIdentifier(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SecurityGroupIdentifier(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2HibernationOptions = (
@@ -58888,18 +59078,22 @@ const deserializeAws_ec2HistoryRecordSet = (
   output: any,
   context: __SerdeContext
 ): Array<HistoryRecordEntry> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2HistoryRecordEntry(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2HistoryRecordEntry(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2HistoryRecords = (
   output: any,
   context: __SerdeContext
 ): Array<HistoryRecord> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2HistoryRecord(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2HistoryRecord(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
@@ -59034,18 +59228,22 @@ const deserializeAws_ec2HostInstanceList = (
   output: any,
   context: __SerdeContext
 ): Array<HostInstance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2HostInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2HostInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2HostList = (
   output: any,
   context: __SerdeContext
 ): Array<Host> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Host(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Host(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2HostOffering = (
@@ -59090,9 +59288,11 @@ const deserializeAws_ec2HostOfferingSet = (
   output: any,
   context: __SerdeContext
 ): Array<HostOffering> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2HostOffering(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2HostOffering(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2HostProperties = (
@@ -59218,18 +59418,22 @@ const deserializeAws_ec2HostReservationSet = (
   output: any,
   context: __SerdeContext
 ): Array<HostReservation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2HostReservation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2HostReservation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2IKEVersionsList = (
   output: any,
   context: __SerdeContext
 ): Array<IKEVersionsListValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2IKEVersionsListValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2IKEVersionsListValue(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2IKEVersionsListValue = (
@@ -59301,9 +59505,13 @@ const deserializeAws_ec2IamInstanceProfileAssociationSet = (
   output: any,
   context: __SerdeContext
 ): Array<IamInstanceProfileAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2IamInstanceProfileAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2IamInstanceProfileAssociation(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2IamInstanceProfileSpecification = (
@@ -59368,9 +59576,11 @@ const deserializeAws_ec2IdFormatList = (
   output: any,
   context: __SerdeContext
 ): Array<IdFormat> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2IdFormat(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2IdFormat(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Image = (
@@ -59615,9 +59825,11 @@ const deserializeAws_ec2ImageList = (
   output: any,
   context: __SerdeContext
 ): Array<Image> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Image(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Image(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListResult = (
@@ -59652,9 +59864,13 @@ const deserializeAws_ec2ImportImageLicenseSpecificationListResponse = (
   output: any,
   context: __SerdeContext
 ): Array<ImportImageLicenseConfigurationResponse> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ImportImageLicenseConfigurationResponse(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2ImportImageLicenseConfigurationResponse(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ImportImageResult = (
@@ -59859,9 +60075,11 @@ const deserializeAws_ec2ImportImageTaskList = (
   output: any,
   context: __SerdeContext
 ): Array<ImportImageTask> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ImportImageTask(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ImportImageTask(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ImportInstanceResult = (
@@ -59968,9 +60186,13 @@ const deserializeAws_ec2ImportInstanceVolumeDetailSet = (
   output: any,
   context: __SerdeContext
 ): Array<ImportInstanceVolumeDetailItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ImportInstanceVolumeDetailItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2ImportInstanceVolumeDetailItem(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ImportKeyPairResult = (
@@ -60059,9 +60281,11 @@ const deserializeAws_ec2ImportSnapshotTaskList = (
   output: any,
   context: __SerdeContext
 ): Array<ImportSnapshotTask> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ImportSnapshotTask(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ImportSnapshotTask(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ImportVolumeResult = (
@@ -60170,9 +60394,11 @@ const deserializeAws_ec2InferenceDeviceInfoList = (
   output: any,
   context: __SerdeContext
 ): Array<InferenceDeviceInfo> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InferenceDeviceInfo(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InferenceDeviceInfo(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Instance = (
@@ -60666,9 +60892,11 @@ const deserializeAws_ec2InstanceBlockDeviceMappingList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceBlockDeviceMapping> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceBlockDeviceMapping(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceBlockDeviceMapping(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceCapacity = (
@@ -60715,9 +60943,11 @@ const deserializeAws_ec2InstanceCountList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceCount> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceCount(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceCount(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceCreditSpecification = (
@@ -60742,9 +60972,13 @@ const deserializeAws_ec2InstanceCreditSpecificationList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceCreditSpecification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceCreditSpecification(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2InstanceCreditSpecification(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceExportDetails = (
@@ -60787,14 +61021,22 @@ const deserializeAws_ec2InstanceIdSet = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceIdsSet = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceIpv6Address = (
@@ -60815,18 +61057,22 @@ const deserializeAws_ec2InstanceIpv6AddressList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceIpv6Address> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceIpv6Address(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceIpv6Address(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceList = (
   output: any,
   context: __SerdeContext
 ): Array<Instance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Instance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Instance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceMetadataOptionsResponse = (
@@ -60882,9 +61128,11 @@ const deserializeAws_ec2InstanceMonitoringList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceMonitoring> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceMonitoring(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceMonitoring(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceNetworkInterface = (
@@ -61062,9 +61310,11 @@ const deserializeAws_ec2InstanceNetworkInterfaceList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceNetworkInterface> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceNetworkInterface(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceNetworkInterface(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
@@ -61175,9 +61425,13 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceNetworkInterfaceSpecification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceNetworkInterfaceSpecification(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2InstanceNetworkInterfaceSpecification(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstancePrivateIpAddress = (
@@ -61213,9 +61467,11 @@ const deserializeAws_ec2InstancePrivateIpAddressList = (
   output: any,
   context: __SerdeContext
 ): Array<InstancePrivateIpAddress> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstancePrivateIpAddress(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstancePrivateIpAddress(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceState = (
@@ -61268,9 +61524,11 @@ const deserializeAws_ec2InstanceStateChangeList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceStateChange> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceStateChange(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceStateChange(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceStatus = (
@@ -61359,9 +61617,11 @@ const deserializeAws_ec2InstanceStatusDetailsList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceStatusDetails> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceStatusDetails(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceStatusDetails(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceStatusEvent = (
@@ -61402,18 +61662,22 @@ const deserializeAws_ec2InstanceStatusEventList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceStatusEvent> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceStatusEvent(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceStatusEvent(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceStatusList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceStatus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceStatus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceStatus(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceStatusSummary = (
@@ -61621,9 +61885,11 @@ const deserializeAws_ec2InstanceTypeInfoList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceTypeInfo> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceTypeInfo(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceTypeInfo(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceTypeOffering = (
@@ -61652,9 +61918,11 @@ const deserializeAws_ec2InstanceTypeOfferingsList = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceTypeOffering> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceTypeOffering(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceTypeOffering(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InstanceUsage = (
@@ -61679,9 +61947,11 @@ const deserializeAws_ec2InstanceUsageSet = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceUsage> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InstanceUsage(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InstanceUsage(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InternetGateway = (
@@ -61755,18 +62025,22 @@ const deserializeAws_ec2InternetGatewayAttachmentList = (
   output: any,
   context: __SerdeContext
 ): Array<InternetGatewayAttachment> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InternetGatewayAttachment(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InternetGatewayAttachment(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2InternetGatewayList = (
   output: any,
   context: __SerdeContext
 ): Array<InternetGateway> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2InternetGateway(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2InternetGateway(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2IpPermission = (
@@ -61857,9 +62131,11 @@ const deserializeAws_ec2IpPermissionList = (
   output: any,
   context: __SerdeContext
 ): Array<IpPermission> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2IpPermission(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2IpPermission(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2IpRange = (
@@ -61884,23 +62160,33 @@ const deserializeAws_ec2IpRangeList = (
   output: any,
   context: __SerdeContext
 ): Array<IpRange> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2IpRange(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2IpRange(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2IpRanges = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Ipv6AddressList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Ipv6CidrAssociation = (
@@ -61925,9 +62211,11 @@ const deserializeAws_ec2Ipv6CidrAssociationSet = (
   output: any,
   context: __SerdeContext
 ): Array<Ipv6CidrAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Ipv6CidrAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Ipv6CidrAssociation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Ipv6CidrBlock = (
@@ -61948,9 +62236,11 @@ const deserializeAws_ec2Ipv6CidrBlockSet = (
   output: any,
   context: __SerdeContext
 ): Array<Ipv6CidrBlock> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Ipv6CidrBlock(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Ipv6CidrBlock(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Ipv6Pool = (
@@ -62006,9 +62296,11 @@ const deserializeAws_ec2Ipv6PoolSet = (
   output: any,
   context: __SerdeContext
 ): Array<Ipv6Pool> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Ipv6Pool(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Ipv6Pool(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Ipv6Range = (
@@ -62033,9 +62325,11 @@ const deserializeAws_ec2Ipv6RangeList = (
   output: any,
   context: __SerdeContext
 ): Array<Ipv6Range> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Ipv6Range(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Ipv6Range(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2KeyPair = (
@@ -62104,9 +62398,11 @@ const deserializeAws_ec2KeyPairList = (
   output: any,
   context: __SerdeContext
 ): Array<KeyPairInfo> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2KeyPairInfo(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2KeyPairInfo(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LastError = (
@@ -62149,9 +62445,11 @@ const deserializeAws_ec2LaunchPermissionList = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchPermission> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchPermission(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LaunchPermission(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchSpecification = (
@@ -62276,9 +62574,13 @@ const deserializeAws_ec2LaunchSpecsList = (
   output: any,
   context: __SerdeContext
 ): Array<SpotFleetLaunchSpecification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SpotFleetLaunchSpecification(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2SpotFleetLaunchSpecification(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplate = (
@@ -62386,9 +62688,13 @@ const deserializeAws_ec2LaunchTemplateBlockDeviceMappingList = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplateBlockDeviceMapping> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchTemplateBlockDeviceMapping(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2LaunchTemplateBlockDeviceMapping(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplateCapacityReservationSpecificationResponse = (
@@ -62451,9 +62757,11 @@ const deserializeAws_ec2LaunchTemplateConfigList = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplateConfig> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchTemplateConfig(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LaunchTemplateConfig(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplateCpuOptions = (
@@ -62534,12 +62842,16 @@ const deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponseList = 
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplateElasticInferenceAcceleratorResponse> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponse(
-      entry,
-      context
-    )
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponse(
+        entry,
+        context
+      )
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplateHibernationOptions = (
@@ -62728,12 +63040,16 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationList 
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplateInstanceNetworkInterfaceSpecification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification(
-      entry,
-      context
-    )
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification(
+        entry,
+        context
+      )
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplateLicenseConfiguration = (
@@ -62754,9 +63070,13 @@ const deserializeAws_ec2LaunchTemplateLicenseList = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplateLicenseConfiguration> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchTemplateLicenseConfiguration(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2LaunchTemplateLicenseConfiguration(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplateOverrides = (
@@ -62797,9 +63117,11 @@ const deserializeAws_ec2LaunchTemplateOverridesList = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplateOverrides> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchTemplateOverrides(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LaunchTemplateOverrides(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplatePlacement = (
@@ -62848,9 +63170,11 @@ const deserializeAws_ec2LaunchTemplateSet = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplate> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchTemplate(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LaunchTemplate(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplateSpotMarketOptions = (
@@ -62916,9 +63240,13 @@ const deserializeAws_ec2LaunchTemplateTagSpecificationList = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplateTagSpecification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchTemplateTagSpecification(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2LaunchTemplateTagSpecification(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplateVersion = (
@@ -62970,9 +63298,11 @@ const deserializeAws_ec2LaunchTemplateVersionSet = (
   output: any,
   context: __SerdeContext
 ): Array<LaunchTemplateVersion> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LaunchTemplateVersion(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LaunchTemplateVersion(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LaunchTemplatesMonitoring = (
@@ -63007,9 +63337,11 @@ const deserializeAws_ec2LicenseList = (
   output: any,
   context: __SerdeContext
 ): Array<LicenseConfiguration> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LicenseConfiguration(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LicenseConfiguration(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LoadBalancersConfig = (
@@ -63058,9 +63390,11 @@ const deserializeAws_ec2LoadPermissionList = (
   output: any,
   context: __SerdeContext
 ): Array<LoadPermission> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LoadPermission(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LoadPermission(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LocalGateway = (
@@ -63138,9 +63472,11 @@ const deserializeAws_ec2LocalGatewayRouteList = (
   output: any,
   context: __SerdeContext
 ): Array<LocalGatewayRoute> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LocalGatewayRoute(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LocalGatewayRoute(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LocalGatewayRouteTable = (
@@ -63187,9 +63523,11 @@ const deserializeAws_ec2LocalGatewayRouteTableSet = (
   output: any,
   context: __SerdeContext
 ): Array<LocalGatewayRouteTable> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LocalGatewayRouteTable(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LocalGatewayRouteTable(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation = (
@@ -63245,12 +63583,16 @@ const deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationSe
   output: any,
   context: __SerdeContext
 ): Array<LocalGatewayRouteTableVirtualInterfaceGroupAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation(
-      entry,
-      context
-    )
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+        entry,
+        context
+      )
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LocalGatewayRouteTableVpcAssociation = (
@@ -63302,18 +63644,24 @@ const deserializeAws_ec2LocalGatewayRouteTableVpcAssociationSet = (
   output: any,
   context: __SerdeContext
 ): Array<LocalGatewayRouteTableVpcAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LocalGatewayRouteTableVpcAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2LocalGatewayRouteTableVpcAssociation(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LocalGatewaySet = (
   output: any,
   context: __SerdeContext
 ): Array<LocalGateway> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LocalGateway(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2LocalGateway(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LocalGatewayVirtualInterface = (
@@ -63423,25 +63771,37 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroupSet = (
   output: any,
   context: __SerdeContext
 ): Array<LocalGatewayVirtualInterfaceGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LocalGatewayVirtualInterfaceGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2LocalGatewayVirtualInterfaceGroup(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LocalGatewayVirtualInterfaceIdSet = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2LocalGatewayVirtualInterfaceSet = (
   output: any,
   context: __SerdeContext
 ): Array<LocalGatewayVirtualInterface> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2LocalGatewayVirtualInterface(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2LocalGatewayVirtualInterface(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2MemoryInfo = (
@@ -64061,9 +64421,11 @@ const deserializeAws_ec2MovingAddressStatusSet = (
   output: any,
   context: __SerdeContext
 ): Array<MovingAddressStatus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2MovingAddressStatus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2MovingAddressStatus(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2NatGateway = (
@@ -64176,18 +64538,22 @@ const deserializeAws_ec2NatGatewayAddressList = (
   output: any,
   context: __SerdeContext
 ): Array<NatGatewayAddress> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2NatGatewayAddress(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2NatGatewayAddress(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2NatGatewayList = (
   output: any,
   context: __SerdeContext
 ): Array<NatGateway> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2NatGateway(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2NatGateway(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2NetworkAcl = (
@@ -64290,9 +64656,11 @@ const deserializeAws_ec2NetworkAclAssociationList = (
   output: any,
   context: __SerdeContext
 ): Array<NetworkAclAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2NetworkAclAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2NetworkAclAssociation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2NetworkAclEntry = (
@@ -64347,18 +64715,22 @@ const deserializeAws_ec2NetworkAclEntryList = (
   output: any,
   context: __SerdeContext
 ): Array<NetworkAclEntry> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2NetworkAclEntry(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2NetworkAclEntry(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2NetworkAclList = (
   output: any,
   context: __SerdeContext
 ): Array<NetworkAcl> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2NetworkAcl(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2NetworkAcl(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2NetworkInfo = (
@@ -64636,18 +65008,24 @@ const deserializeAws_ec2NetworkInterfaceIpv6AddressesList = (
   output: any,
   context: __SerdeContext
 ): Array<NetworkInterfaceIpv6Address> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2NetworkInterfaceIpv6Address(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2NetworkInterfaceIpv6Address(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2NetworkInterfaceList = (
   output: any,
   context: __SerdeContext
 ): Array<NetworkInterface> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2NetworkInterface(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2NetworkInterface(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2NetworkInterfacePermission = (
@@ -64692,9 +65070,11 @@ const deserializeAws_ec2NetworkInterfacePermissionList = (
   output: any,
   context: __SerdeContext
 ): Array<NetworkInterfacePermission> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2NetworkInterfacePermission(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2NetworkInterfacePermission(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2NetworkInterfacePermissionState = (
@@ -64748,16 +65128,24 @@ const deserializeAws_ec2NetworkInterfacePrivateIpAddressList = (
   output: any,
   context: __SerdeContext
 ): Array<NetworkInterfacePrivateIpAddress> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2NetworkInterfacePrivateIpAddress(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2NetworkInterfacePrivateIpAddress(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2OccurrenceDaySet = (
   output: any,
   context: __SerdeContext
 ): Array<number> => {
-  return (output || []).map((entry: any) => parseInt(entry));
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(parseInt(entry));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2OnDemandOptions = (
@@ -64893,9 +65281,13 @@ const deserializeAws_ec2Phase1DHGroupNumbersList = (
   output: any,
   context: __SerdeContext
 ): Array<Phase1DHGroupNumbersListValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Phase1DHGroupNumbersListValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2Phase1DHGroupNumbersListValue(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Phase1DHGroupNumbersListValue = (
@@ -64916,9 +65308,13 @@ const deserializeAws_ec2Phase1EncryptionAlgorithmsList = (
   output: any,
   context: __SerdeContext
 ): Array<Phase1EncryptionAlgorithmsListValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Phase1EncryptionAlgorithmsListValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2Phase1EncryptionAlgorithmsListValue(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Phase1EncryptionAlgorithmsListValue = (
@@ -64939,9 +65335,13 @@ const deserializeAws_ec2Phase1IntegrityAlgorithmsList = (
   output: any,
   context: __SerdeContext
 ): Array<Phase1IntegrityAlgorithmsListValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Phase1IntegrityAlgorithmsListValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2Phase1IntegrityAlgorithmsListValue(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Phase1IntegrityAlgorithmsListValue = (
@@ -64962,9 +65362,13 @@ const deserializeAws_ec2Phase2DHGroupNumbersList = (
   output: any,
   context: __SerdeContext
 ): Array<Phase2DHGroupNumbersListValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Phase2DHGroupNumbersListValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2Phase2DHGroupNumbersListValue(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Phase2DHGroupNumbersListValue = (
@@ -64985,9 +65389,13 @@ const deserializeAws_ec2Phase2EncryptionAlgorithmsList = (
   output: any,
   context: __SerdeContext
 ): Array<Phase2EncryptionAlgorithmsListValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Phase2EncryptionAlgorithmsListValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2Phase2EncryptionAlgorithmsListValue(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Phase2EncryptionAlgorithmsListValue = (
@@ -65008,9 +65416,13 @@ const deserializeAws_ec2Phase2IntegrityAlgorithmsList = (
   output: any,
   context: __SerdeContext
 ): Array<Phase2IntegrityAlgorithmsListValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Phase2IntegrityAlgorithmsListValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2Phase2IntegrityAlgorithmsListValue(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Phase2IntegrityAlgorithmsListValue = (
@@ -65144,16 +65556,22 @@ const deserializeAws_ec2PlacementGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<PlacementGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PlacementGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PlacementGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PlacementGroupStrategyList = (
   output: any,
   context: __SerdeContext
 ): Array<PlacementGroupStrategy | string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PlacementResponse = (
@@ -65188,9 +65606,11 @@ const deserializeAws_ec2PoolCidrBlocksSet = (
   output: any,
   context: __SerdeContext
 ): Array<PoolCidrBlock> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PoolCidrBlock(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PoolCidrBlock(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PortRange = (
@@ -65265,25 +65685,33 @@ const deserializeAws_ec2PrefixListIdList = (
   output: any,
   context: __SerdeContext
 ): Array<PrefixListId> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PrefixListId(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PrefixListId(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PrefixListIdSet = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PrefixListSet = (
   output: any,
   context: __SerdeContext
 ): Array<PrefixList> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PrefixList(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PrefixList(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PriceSchedule = (
@@ -65316,9 +65744,11 @@ const deserializeAws_ec2PriceScheduleList = (
   output: any,
   context: __SerdeContext
 ): Array<PriceSchedule> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PriceSchedule(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PriceSchedule(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PricingDetail = (
@@ -65343,9 +65773,11 @@ const deserializeAws_ec2PricingDetailsList = (
   output: any,
   context: __SerdeContext
 ): Array<PricingDetail> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PricingDetail(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PricingDetail(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PrincipalIdFormat = (
@@ -65380,9 +65812,11 @@ const deserializeAws_ec2PrincipalIdFormatList = (
   output: any,
   context: __SerdeContext
 ): Array<PrincipalIdFormat> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PrincipalIdFormat(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PrincipalIdFormat(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PrivateDnsNameConfiguration = (
@@ -65433,9 +65867,13 @@ const deserializeAws_ec2PrivateIpAddressSpecificationList = (
   output: any,
   context: __SerdeContext
 ): Array<PrivateIpAddressSpecification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PrivateIpAddressSpecification(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2PrivateIpAddressSpecification(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ProcessorInfo = (
@@ -65493,9 +65931,11 @@ const deserializeAws_ec2ProductCodeList = (
   output: any,
   context: __SerdeContext
 ): Array<ProductCode> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ProductCode(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ProductCode(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PropagatingVgw = (
@@ -65516,9 +65956,11 @@ const deserializeAws_ec2PropagatingVgwList = (
   output: any,
   context: __SerdeContext
 ): Array<PropagatingVgw> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PropagatingVgw(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PropagatingVgw(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ProvisionByoipCidrResult = (
@@ -65643,18 +66085,22 @@ const deserializeAws_ec2PublicIpv4PoolRangeSet = (
   output: any,
   context: __SerdeContext
 ): Array<PublicIpv4PoolRange> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PublicIpv4PoolRange(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PublicIpv4PoolRange(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PublicIpv4PoolSet = (
   output: any,
   context: __SerdeContext
 ): Array<PublicIpv4Pool> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2PublicIpv4Pool(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2PublicIpv4Pool(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Purchase = (
@@ -65797,18 +66243,22 @@ const deserializeAws_ec2PurchaseSet = (
   output: any,
   context: __SerdeContext
 ): Array<Purchase> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Purchase(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Purchase(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2PurchasedScheduledInstanceSet = (
   output: any,
   context: __SerdeContext
 ): Array<ScheduledInstance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ScheduledInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ScheduledInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2RecurringCharge = (
@@ -65833,9 +66283,11 @@ const deserializeAws_ec2RecurringChargesList = (
   output: any,
   context: __SerdeContext
 ): Array<RecurringCharge> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2RecurringCharge(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2RecurringCharge(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Region = (
@@ -65864,9 +66316,11 @@ const deserializeAws_ec2RegionList = (
   output: any,
   context: __SerdeContext
 ): Array<Region> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Region(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Region(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2RegisterImageResult = (
@@ -66203,9 +66657,11 @@ const deserializeAws_ec2ReservationList = (
   output: any,
   context: __SerdeContext
 ): Array<Reservation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Reservation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Reservation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ReservationValue = (
@@ -66255,9 +66711,13 @@ const deserializeAws_ec2ReservedInstanceReservationValueSet = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedInstanceReservationValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ReservedInstanceReservationValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2ReservedInstanceReservationValue(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ReservedInstances = (
@@ -66413,9 +66873,11 @@ const deserializeAws_ec2ReservedInstancesList = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedInstances> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ReservedInstances(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ReservedInstances(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ReservedInstancesListing = (
@@ -66508,9 +66970,11 @@ const deserializeAws_ec2ReservedInstancesListingList = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedInstancesListing> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ReservedInstancesListing(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ReservedInstancesListing(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ReservedInstancesModification = (
@@ -66590,9 +67054,13 @@ const deserializeAws_ec2ReservedInstancesModificationList = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedInstancesModification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ReservedInstancesModification(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2ReservedInstancesModification(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ReservedInstancesModificationResult = (
@@ -66620,9 +67088,13 @@ const deserializeAws_ec2ReservedInstancesModificationResultList = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedInstancesModificationResult> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ReservedInstancesModificationResult(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2ReservedInstancesModificationResult(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ReservedInstancesOffering = (
@@ -66726,18 +67198,22 @@ const deserializeAws_ec2ReservedInstancesOfferingList = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedInstancesOffering> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ReservedInstancesOffering(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ReservedInstancesOffering(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ReservedIntancesIds = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedInstancesId> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ReservedInstancesId(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ReservedInstancesId(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ResetEbsDefaultKmsKeyIdResult = (
@@ -66790,14 +67266,22 @@ const deserializeAws_ec2ResponseHostIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ResponseHostIdSet = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ResponseLaunchTemplateData = (
@@ -67085,7 +67569,11 @@ const deserializeAws_ec2RootDeviceTypeList = (
   output: any,
   context: __SerdeContext
 ): Array<RootDeviceType | string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Route = (
@@ -67159,9 +67647,11 @@ const deserializeAws_ec2RouteList = (
   output: any,
   context: __SerdeContext
 ): Array<Route> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Route(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Route(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2RouteTable = (
@@ -67289,9 +67779,11 @@ const deserializeAws_ec2RouteTableAssociationList = (
   output: any,
   context: __SerdeContext
 ): Array<RouteTableAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2RouteTableAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2RouteTableAssociation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2RouteTableAssociationState = (
@@ -67316,9 +67808,11 @@ const deserializeAws_ec2RouteTableList = (
   output: any,
   context: __SerdeContext
 ): Array<RouteTable> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2RouteTable(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2RouteTable(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2RunInstancesMonitoringEnabled = (
@@ -67540,9 +68034,13 @@ const deserializeAws_ec2ScheduledInstanceAvailabilitySet = (
   output: any,
   context: __SerdeContext
 ): Array<ScheduledInstanceAvailability> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ScheduledInstanceAvailability(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2ScheduledInstanceAvailability(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ScheduledInstanceRecurrence = (
@@ -67593,9 +68091,11 @@ const deserializeAws_ec2ScheduledInstanceSet = (
   output: any,
   context: __SerdeContext
 ): Array<ScheduledInstance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ScheduledInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ScheduledInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SearchLocalGatewayRoutesResult = (
@@ -67774,7 +68274,11 @@ const deserializeAws_ec2SecurityGroupIdStringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SecurityGroupIdentifier = (
@@ -67799,9 +68303,11 @@ const deserializeAws_ec2SecurityGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<SecurityGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SecurityGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SecurityGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SecurityGroupReference = (
@@ -67830,9 +68336,11 @@ const deserializeAws_ec2SecurityGroupReferences = (
   output: any,
   context: __SerdeContext
 ): Array<SecurityGroupReference> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SecurityGroupReference(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SecurityGroupReference(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ServiceConfiguration = (
@@ -67962,9 +68470,11 @@ const deserializeAws_ec2ServiceConfigurationSet = (
   output: any,
   context: __SerdeContext
 ): Array<ServiceConfiguration> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ServiceConfiguration(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ServiceConfiguration(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ServiceDetail = (
@@ -68080,9 +68590,11 @@ const deserializeAws_ec2ServiceDetailSet = (
   output: any,
   context: __SerdeContext
 ): Array<ServiceDetail> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ServiceDetail(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ServiceDetail(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2ServiceTypeDetail = (
@@ -68103,9 +68615,11 @@ const deserializeAws_ec2ServiceTypeDetailSet = (
   output: any,
   context: __SerdeContext
 ): Array<ServiceTypeDetail> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2ServiceTypeDetail(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2ServiceTypeDetail(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Snapshot = (
@@ -68241,9 +68755,11 @@ const deserializeAws_ec2SnapshotDetailList = (
   output: any,
   context: __SerdeContext
 ): Array<SnapshotDetail> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SnapshotDetail(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SnapshotDetail(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SnapshotInfo = (
@@ -68310,18 +68826,22 @@ const deserializeAws_ec2SnapshotList = (
   output: any,
   context: __SerdeContext
 ): Array<Snapshot> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Snapshot(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Snapshot(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SnapshotSet = (
   output: any,
   context: __SerdeContext
 ): Array<SnapshotInfo> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SnapshotInfo(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SnapshotInfo(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SnapshotTaskDetail = (
@@ -68745,9 +69265,11 @@ const deserializeAws_ec2SpotFleetRequestConfigSet = (
   output: any,
   context: __SerdeContext
 ): Array<SpotFleetRequestConfig> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SpotFleetRequestConfig(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SpotFleetRequestConfig(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SpotFleetTagSpecification = (
@@ -68779,9 +69301,11 @@ const deserializeAws_ec2SpotFleetTagSpecificationList = (
   output: any,
   context: __SerdeContext
 ): Array<SpotFleetTagSpecification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SpotFleetTagSpecification(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SpotFleetTagSpecification(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SpotInstanceRequest = (
@@ -68894,9 +69418,11 @@ const deserializeAws_ec2SpotInstanceRequestList = (
   output: any,
   context: __SerdeContext
 ): Array<SpotInstanceRequest> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SpotInstanceRequest(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SpotInstanceRequest(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SpotInstanceStateFault = (
@@ -69037,9 +69563,11 @@ const deserializeAws_ec2SpotPriceHistoryList = (
   output: any,
   context: __SerdeContext
 ): Array<SpotPrice> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SpotPrice(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SpotPrice(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2StaleIpPermission = (
@@ -69116,9 +69644,11 @@ const deserializeAws_ec2StaleIpPermissionSet = (
   output: any,
   context: __SerdeContext
 ): Array<StaleIpPermission> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2StaleIpPermission(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2StaleIpPermission(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2StaleSecurityGroup = (
@@ -69185,9 +69715,11 @@ const deserializeAws_ec2StaleSecurityGroupSet = (
   output: any,
   context: __SerdeContext
 ): Array<StaleSecurityGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2StaleSecurityGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2StaleSecurityGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2StartInstancesResult = (
@@ -69408,9 +69940,11 @@ const deserializeAws_ec2SubnetAssociationList = (
   output: any,
   context: __SerdeContext
 ): Array<SubnetAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SubnetAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2SubnetAssociation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SubnetCidrBlockState = (
@@ -69460,18 +69994,24 @@ const deserializeAws_ec2SubnetIpv6CidrBlockAssociationSet = (
   output: any,
   context: __SerdeContext
 ): Array<SubnetIpv6CidrBlockAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SubnetIpv6CidrBlockAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2SubnetIpv6CidrBlockAssociation(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SubnetList = (
   output: any,
   context: __SerdeContext
 ): Array<Subnet> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Subnet(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Subnet(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SuccessfulInstanceCreditSpecificationItem = (
@@ -69492,9 +70032,16 @@ const deserializeAws_ec2SuccessfulInstanceCreditSpecificationSet = (
   output: any,
   context: __SerdeContext
 ): Array<SuccessfulInstanceCreditSpecificationItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SuccessfulInstanceCreditSpecificationItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2SuccessfulInstanceCreditSpecificationItem(
+        entry,
+        context
+      )
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2SuccessfulQueuedPurchaseDeletion = (
@@ -69515,9 +70062,13 @@ const deserializeAws_ec2SuccessfulQueuedPurchaseDeletionSet = (
   output: any,
   context: __SerdeContext
 ): Array<SuccessfulQueuedPurchaseDeletion> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2SuccessfulQueuedPurchaseDeletion(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2SuccessfulQueuedPurchaseDeletion(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Tag = (output: any, context: __SerdeContext): Tag => {
@@ -69565,18 +70116,22 @@ const deserializeAws_ec2TagDescriptionList = (
   output: any,
   context: __SerdeContext
 ): Array<TagDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TagDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TagDescription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TagList = (
   output: any,
   context: __SerdeContext
 ): Array<Tag> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Tag(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Tag(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TargetCapacitySpecification = (
@@ -69643,9 +70198,11 @@ const deserializeAws_ec2TargetGroups = (
   output: any,
   context: __SerdeContext
 ): Array<TargetGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TargetGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TargetGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TargetGroupsConfig = (
@@ -69729,9 +70286,11 @@ const deserializeAws_ec2TargetNetworkSet = (
   output: any,
   context: __SerdeContext
 ): Array<TargetNetwork> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TargetNetwork(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TargetNetwork(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TargetReservationValue = (
@@ -69762,9 +70321,11 @@ const deserializeAws_ec2TargetReservationValueSet = (
   output: any,
   context: __SerdeContext
 ): Array<TargetReservationValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TargetReservationValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TargetReservationValue(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TerminateClientVpnConnectionsResult = (
@@ -69834,9 +70395,11 @@ const deserializeAws_ec2TerminateConnectionStatusSet = (
   output: any,
   context: __SerdeContext
 ): Array<TerminateConnectionStatus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TerminateConnectionStatus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TerminateConnectionStatus(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TerminateInstancesResult = (
@@ -69870,7 +70433,11 @@ const deserializeAws_ec2ThreadsPerCoreList = (
   output: any,
   context: __SerdeContext
 ): Array<number> => {
-  return (output || []).map((entry: any) => parseInt(entry));
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(parseInt(entry));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TrafficMirrorFilter = (
@@ -70020,25 +70587,33 @@ const deserializeAws_ec2TrafficMirrorFilterRuleList = (
   output: any,
   context: __SerdeContext
 ): Array<TrafficMirrorFilterRule> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TrafficMirrorFilterRule(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TrafficMirrorFilterRule(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TrafficMirrorFilterSet = (
   output: any,
   context: __SerdeContext
 ): Array<TrafficMirrorFilter> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TrafficMirrorFilter(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TrafficMirrorFilter(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TrafficMirrorNetworkServiceList = (
   output: any,
   context: __SerdeContext
 ): Array<TrafficMirrorNetworkService | string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TrafficMirrorPortRange = (
@@ -70123,9 +70698,11 @@ const deserializeAws_ec2TrafficMirrorSessionSet = (
   output: any,
   context: __SerdeContext
 ): Array<TrafficMirrorSession> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TrafficMirrorSession(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TrafficMirrorSession(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TrafficMirrorTarget = (
@@ -70180,9 +70757,11 @@ const deserializeAws_ec2TrafficMirrorTargetSet = (
   output: any,
   context: __SerdeContext
 ): Array<TrafficMirrorTarget> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TrafficMirrorTarget(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TrafficMirrorTarget(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGateway = (
@@ -70355,9 +70934,11 @@ const deserializeAws_ec2TransitGatewayAttachmentList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayAttachment> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayAttachment(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TransitGatewayAttachment(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayAttachmentPropagation = (
@@ -70382,18 +70963,24 @@ const deserializeAws_ec2TransitGatewayAttachmentPropagationList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayAttachmentPropagation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayAttachmentPropagation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2TransitGatewayAttachmentPropagation(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGateway> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGateway(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TransitGateway(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupMembers = (
@@ -70542,9 +71129,13 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociationList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayMulticastDomainAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayMulticastDomainAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2TransitGatewayMulticastDomainAssociation(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayMulticastDomainAssociations = (
@@ -70595,9 +71186,13 @@ const deserializeAws_ec2TransitGatewayMulticastDomainList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayMulticastDomain> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayMulticastDomain(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2TransitGatewayMulticastDomain(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayMulticastGroup = (
@@ -70654,9 +71249,13 @@ const deserializeAws_ec2TransitGatewayMulticastGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayMulticastGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayMulticastGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2TransitGatewayMulticastGroup(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupMembers = (
@@ -70843,9 +71442,13 @@ const deserializeAws_ec2TransitGatewayPeeringAttachmentList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayPeeringAttachment> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayPeeringAttachment(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2TransitGatewayPeeringAttachment(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayPropagation = (
@@ -70943,18 +71546,24 @@ const deserializeAws_ec2TransitGatewayRouteAttachmentList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayRouteAttachment> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayRouteAttachment(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2TransitGatewayRouteAttachment(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayRouteList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayRoute> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayRoute(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TransitGatewayRoute(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayRouteTable = (
@@ -71037,18 +71646,24 @@ const deserializeAws_ec2TransitGatewayRouteTableAssociationList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayRouteTableAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayRouteTableAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2TransitGatewayRouteTableAssociation(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayRouteTableList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayRouteTable> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayRouteTable(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TransitGatewayRouteTable(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayRouteTablePropagation = (
@@ -71081,9 +71696,13 @@ const deserializeAws_ec2TransitGatewayRouteTablePropagationList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayRouteTablePropagation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayRouteTablePropagation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2TransitGatewayRouteTablePropagation(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayVpcAttachment = (
@@ -71162,9 +71781,13 @@ const deserializeAws_ec2TransitGatewayVpcAttachmentList = (
   output: any,
   context: __SerdeContext
 ): Array<TransitGatewayVpcAttachment> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TransitGatewayVpcAttachment(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2TransitGatewayVpcAttachment(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayVpcAttachmentOptions = (
@@ -71356,9 +71979,11 @@ const deserializeAws_ec2TunnelOptionsList = (
   output: any,
   context: __SerdeContext
 ): Array<TunnelOption> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2TunnelOption(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2TunnelOption(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2UnassignIpv6AddressesResult = (
@@ -71462,12 +72087,16 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationSet = (
   output: any,
   context: __SerdeContext
 ): Array<UnsuccessfulInstanceCreditSpecificationItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationItem(
-      entry,
-      context
-    )
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationItem(
+        entry,
+        context
+      )
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2UnsuccessfulItem = (
@@ -71513,18 +72142,22 @@ const deserializeAws_ec2UnsuccessfulItemList = (
   output: any,
   context: __SerdeContext
 ): Array<UnsuccessfulItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2UnsuccessfulItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2UnsuccessfulItem(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2UnsuccessfulItemSet = (
   output: any,
   context: __SerdeContext
 ): Array<UnsuccessfulItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2UnsuccessfulItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2UnsuccessfulItem(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressResult = (
@@ -71559,7 +72192,11 @@ const deserializeAws_ec2UsageClassTypeList = (
   output: any,
   context: __SerdeContext
 ): Array<UsageClassType | string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2UserBucketDetails = (
@@ -71622,18 +72259,22 @@ const deserializeAws_ec2UserIdGroupPairList = (
   output: any,
   context: __SerdeContext
 ): Array<UserIdGroupPair> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2UserIdGroupPair(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2UserIdGroupPair(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2UserIdGroupPairSet = (
   output: any,
   context: __SerdeContext
 ): Array<UserIdGroupPair> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2UserIdGroupPair(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2UserIdGroupPair(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VCpuInfo = (
@@ -71693,7 +72334,11 @@ const deserializeAws_ec2ValueStringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VgwTelemetry = (
@@ -71734,9 +72379,11 @@ const deserializeAws_ec2VgwTelemetryList = (
   output: any,
   context: __SerdeContext
 ): Array<VgwTelemetry> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VgwTelemetry(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VgwTelemetry(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Volume = (
@@ -71866,18 +72513,22 @@ const deserializeAws_ec2VolumeAttachmentList = (
   output: any,
   context: __SerdeContext
 ): Array<VolumeAttachment> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VolumeAttachment(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VolumeAttachment(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VolumeList = (
   output: any,
   context: __SerdeContext
 ): Array<Volume> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Volume(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Volume(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VolumeModification = (
@@ -71942,9 +72593,11 @@ const deserializeAws_ec2VolumeModificationList = (
   output: any,
   context: __SerdeContext
 ): Array<VolumeModification> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VolumeModification(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VolumeModification(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VolumeStatusAction = (
@@ -71977,9 +72630,11 @@ const deserializeAws_ec2VolumeStatusActionsList = (
   output: any,
   context: __SerdeContext
 ): Array<VolumeStatusAction> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VolumeStatusAction(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VolumeStatusAction(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VolumeStatusDetails = (
@@ -72004,9 +72659,11 @@ const deserializeAws_ec2VolumeStatusDetailsList = (
   output: any,
   context: __SerdeContext
 ): Array<VolumeStatusDetails> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VolumeStatusDetails(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VolumeStatusDetails(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VolumeStatusEvent = (
@@ -72043,9 +72700,11 @@ const deserializeAws_ec2VolumeStatusEventsList = (
   output: any,
   context: __SerdeContext
 ): Array<VolumeStatusEvent> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VolumeStatusEvent(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VolumeStatusEvent(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VolumeStatusInfo = (
@@ -72146,9 +72805,11 @@ const deserializeAws_ec2VolumeStatusList = (
   output: any,
   context: __SerdeContext
 ): Array<VolumeStatusItem> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VolumeStatusItem(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VolumeStatusItem(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
@@ -72256,9 +72917,11 @@ const deserializeAws_ec2VpcAttachmentList = (
   output: any,
   context: __SerdeContext
 ): Array<VpcAttachment> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpcAttachment(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VpcAttachment(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpcCidrBlockAssociation = (
@@ -72290,9 +72953,11 @@ const deserializeAws_ec2VpcCidrBlockAssociationSet = (
   output: any,
   context: __SerdeContext
 ): Array<VpcCidrBlockAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpcCidrBlockAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VpcCidrBlockAssociation(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpcCidrBlockState = (
@@ -72349,9 +73014,11 @@ const deserializeAws_ec2VpcClassicLinkList = (
   output: any,
   context: __SerdeContext
 ): Array<VpcClassicLink> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpcClassicLink(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VpcClassicLink(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpcEndpoint = (
@@ -72572,18 +73239,22 @@ const deserializeAws_ec2VpcEndpointConnectionSet = (
   output: any,
   context: __SerdeContext
 ): Array<VpcEndpointConnection> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpcEndpointConnection(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VpcEndpointConnection(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpcEndpointSet = (
   output: any,
   context: __SerdeContext
 ): Array<VpcEndpoint> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpcEndpoint(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VpcEndpoint(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpcIpv6CidrBlockAssociation = (
@@ -72623,18 +73294,24 @@ const deserializeAws_ec2VpcIpv6CidrBlockAssociationSet = (
   output: any,
   context: __SerdeContext
 ): Array<VpcIpv6CidrBlockAssociation> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpcIpv6CidrBlockAssociation(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_ec2VpcIpv6CidrBlockAssociation(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpcList = (
   output: any,
   context: __SerdeContext
 ): Array<Vpc> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2Vpc(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2Vpc(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpcPeeringConnection = (
@@ -72694,9 +73371,11 @@ const deserializeAws_ec2VpcPeeringConnectionList = (
   output: any,
   context: __SerdeContext
 ): Array<VpcPeeringConnection> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpcPeeringConnection(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VpcPeeringConnection(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpcPeeringConnectionOptionsDescription = (
@@ -72911,9 +73590,11 @@ const deserializeAws_ec2VpnConnectionList = (
   output: any,
   context: __SerdeContext
 ): Array<VpnConnection> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpnConnection(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VpnConnection(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpnConnectionOptions = (
@@ -73016,9 +73697,11 @@ const deserializeAws_ec2VpnGatewayList = (
   output: any,
   context: __SerdeContext
 ): Array<VpnGateway> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpnGateway(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VpnGateway(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2VpnStaticRoute = (
@@ -73047,9 +73730,11 @@ const deserializeAws_ec2VpnStaticRouteList = (
   output: any,
   context: __SerdeContext
 ): Array<VpnStaticRoute> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2VpnStaticRoute(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_ec2VpnStaticRoute(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_ec2WithdrawByoipCidrResult = (

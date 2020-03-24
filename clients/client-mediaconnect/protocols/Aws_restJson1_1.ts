@@ -564,7 +564,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -824,19 +824,22 @@ async function deserializeAws_restJson1_1AddFlowOutputsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowOutputsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AddFlowOutputs420Exception":
     case "com.amazonaws.mediaconnect#AddFlowOutputs420Exception":
       response = {
         ...(await deserializeAws_restJson1_1AddFlowOutputs420ExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -844,9 +847,10 @@ async function deserializeAws_restJson1_1AddFlowOutputsCommandError(
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -854,9 +858,10 @@ async function deserializeAws_restJson1_1AddFlowOutputsCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -864,9 +869,10 @@ async function deserializeAws_restJson1_1AddFlowOutputsCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -874,9 +880,10 @@ async function deserializeAws_restJson1_1AddFlowOutputsCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -884,9 +891,10 @@ async function deserializeAws_restJson1_1AddFlowOutputsCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -894,14 +902,15 @@ async function deserializeAws_restJson1_1AddFlowOutputsCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -940,19 +949,22 @@ async function deserializeAws_restJson1_1CreateFlowCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFlowCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -960,9 +972,10 @@ async function deserializeAws_restJson1_1CreateFlowCommandError(
     case "com.amazonaws.mediaconnect#CreateFlow420Exception":
       response = {
         ...(await deserializeAws_restJson1_1CreateFlow420ExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -970,9 +983,10 @@ async function deserializeAws_restJson1_1CreateFlowCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -980,9 +994,10 @@ async function deserializeAws_restJson1_1CreateFlowCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -990,9 +1005,10 @@ async function deserializeAws_restJson1_1CreateFlowCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1000,14 +1016,15 @@ async function deserializeAws_restJson1_1CreateFlowCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1050,19 +1067,22 @@ async function deserializeAws_restJson1_1DeleteFlowCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFlowCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1070,9 +1090,10 @@ async function deserializeAws_restJson1_1DeleteFlowCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1080,9 +1101,10 @@ async function deserializeAws_restJson1_1DeleteFlowCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1090,9 +1112,10 @@ async function deserializeAws_restJson1_1DeleteFlowCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1100,9 +1123,10 @@ async function deserializeAws_restJson1_1DeleteFlowCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1110,14 +1134,15 @@ async function deserializeAws_restJson1_1DeleteFlowCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1163,19 +1188,22 @@ async function deserializeAws_restJson1_1DescribeFlowCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFlowCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1183,9 +1211,10 @@ async function deserializeAws_restJson1_1DescribeFlowCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1193,9 +1222,10 @@ async function deserializeAws_restJson1_1DescribeFlowCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1203,9 +1233,10 @@ async function deserializeAws_restJson1_1DescribeFlowCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1213,9 +1244,10 @@ async function deserializeAws_restJson1_1DescribeFlowCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1223,14 +1255,15 @@ async function deserializeAws_restJson1_1DescribeFlowCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1279,19 +1312,22 @@ async function deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GrantFlowEntitlementsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1299,9 +1335,10 @@ async function deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1309,9 +1346,10 @@ async function deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
     case "com.amazonaws.mediaconnect#GrantFlowEntitlements420Exception":
       response = {
         ...(await deserializeAws_restJson1_1GrantFlowEntitlements420ExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1319,9 +1357,10 @@ async function deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1329,9 +1368,10 @@ async function deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1339,9 +1379,10 @@ async function deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1349,14 +1390,15 @@ async function deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1405,19 +1447,22 @@ async function deserializeAws_restJson1_1ListEntitlementsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitlementsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1425,9 +1470,10 @@ async function deserializeAws_restJson1_1ListEntitlementsCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1435,9 +1481,10 @@ async function deserializeAws_restJson1_1ListEntitlementsCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1445,14 +1492,15 @@ async function deserializeAws_restJson1_1ListEntitlementsCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1498,19 +1546,22 @@ async function deserializeAws_restJson1_1ListFlowsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFlowsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1518,9 +1569,10 @@ async function deserializeAws_restJson1_1ListFlowsCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1528,9 +1580,10 @@ async function deserializeAws_restJson1_1ListFlowsCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1538,14 +1591,15 @@ async function deserializeAws_restJson1_1ListFlowsCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1590,19 +1644,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1610,9 +1667,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1620,14 +1678,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1673,19 +1732,22 @@ async function deserializeAws_restJson1_1RemoveFlowOutputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowOutputCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1693,9 +1755,10 @@ async function deserializeAws_restJson1_1RemoveFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1703,9 +1766,10 @@ async function deserializeAws_restJson1_1RemoveFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1713,9 +1777,10 @@ async function deserializeAws_restJson1_1RemoveFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1723,9 +1788,10 @@ async function deserializeAws_restJson1_1RemoveFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1733,14 +1799,15 @@ async function deserializeAws_restJson1_1RemoveFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1786,19 +1853,22 @@ async function deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeFlowEntitlementCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1806,9 +1876,10 @@ async function deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1816,9 +1887,10 @@ async function deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1826,9 +1898,10 @@ async function deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1836,9 +1909,10 @@ async function deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1846,14 +1920,15 @@ async function deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1896,19 +1971,22 @@ async function deserializeAws_restJson1_1StartFlowCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFlowCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1916,9 +1994,10 @@ async function deserializeAws_restJson1_1StartFlowCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1926,9 +2005,10 @@ async function deserializeAws_restJson1_1StartFlowCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1936,9 +2016,10 @@ async function deserializeAws_restJson1_1StartFlowCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1946,9 +2027,10 @@ async function deserializeAws_restJson1_1StartFlowCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1956,14 +2038,15 @@ async function deserializeAws_restJson1_1StartFlowCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2006,19 +2089,22 @@ async function deserializeAws_restJson1_1StopFlowCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopFlowCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2026,9 +2112,10 @@ async function deserializeAws_restJson1_1StopFlowCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2036,9 +2123,10 @@ async function deserializeAws_restJson1_1StopFlowCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2046,9 +2134,10 @@ async function deserializeAws_restJson1_1StopFlowCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2056,9 +2145,10 @@ async function deserializeAws_restJson1_1StopFlowCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2066,14 +2156,15 @@ async function deserializeAws_restJson1_1StopFlowCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2107,19 +2198,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2127,9 +2221,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2137,14 +2232,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2178,19 +2274,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2198,9 +2297,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2208,14 +2308,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2264,19 +2365,22 @@ async function deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowEntitlementCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2284,9 +2388,10 @@ async function deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2294,9 +2399,10 @@ async function deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2304,9 +2410,10 @@ async function deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2314,9 +2421,10 @@ async function deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2324,14 +2432,15 @@ async function deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2377,19 +2486,22 @@ async function deserializeAws_restJson1_1UpdateFlowOutputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowOutputCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2397,9 +2509,10 @@ async function deserializeAws_restJson1_1UpdateFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2407,9 +2520,10 @@ async function deserializeAws_restJson1_1UpdateFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2417,9 +2531,10 @@ async function deserializeAws_restJson1_1UpdateFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2427,9 +2542,10 @@ async function deserializeAws_restJson1_1UpdateFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2437,14 +2553,15 @@ async function deserializeAws_restJson1_1UpdateFlowOutputCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2490,19 +2607,22 @@ async function deserializeAws_restJson1_1UpdateFlowSourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowSourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2510,9 +2630,10 @@ async function deserializeAws_restJson1_1UpdateFlowSourceCommandError(
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2520,9 +2641,10 @@ async function deserializeAws_restJson1_1UpdateFlowSourceCommandError(
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2530,9 +2652,10 @@ async function deserializeAws_restJson1_1UpdateFlowSourceCommandError(
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2540,9 +2663,10 @@ async function deserializeAws_restJson1_1UpdateFlowSourceCommandError(
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2550,14 +2674,15 @@ async function deserializeAws_restJson1_1UpdateFlowSourceCommandError(
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2574,16 +2699,16 @@ async function deserializeAws_restJson1_1UpdateFlowSourceCommandError(
 }
 
 const deserializeAws_restJson1_1AddFlowOutputs420ExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AddFlowOutputs420Exception> => {
   const contents: AddFlowOutputs420Exception = {
     name: "AddFlowOutputs420Exception",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -2591,16 +2716,16 @@ const deserializeAws_restJson1_1AddFlowOutputs420ExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -2608,16 +2733,16 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1CreateFlow420ExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<CreateFlow420Exception> => {
   const contents: CreateFlow420Exception = {
     name: "CreateFlow420Exception",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -2625,16 +2750,16 @@ const deserializeAws_restJson1_1CreateFlow420ExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -2642,16 +2767,16 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1GrantFlowEntitlements420ExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<GrantFlowEntitlements420Exception> => {
   const contents: GrantFlowEntitlements420Exception = {
     name: "GrantFlowEntitlements420Exception",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -2659,16 +2784,16 @@ const deserializeAws_restJson1_1GrantFlowEntitlements420ExceptionResponse = asyn
 };
 
 const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -2676,16 +2801,16 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -2693,16 +2818,16 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -2710,16 +2835,16 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -3447,4 +3572,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };
