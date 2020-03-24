@@ -36,8 +36,6 @@ export function fromCognitoIdentity(
       secretAccessKey: SecretKey,
       sessionToken: SessionToken,
       expiration: Expiration
-        ? Math.floor(Expiration.valueOf() / 1000)
-        : undefined
     };
   };
 }

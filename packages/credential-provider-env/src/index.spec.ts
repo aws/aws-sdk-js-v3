@@ -22,16 +22,17 @@ afterAll(() => {
 
 describe("fromEnv", () => {
   it("should read credentials from known environment variables", async () => {
+    const dateString = "1970-01-01T07:00:00Z";
     process.env[ENV_KEY] = "foo";
     process.env[ENV_SECRET] = "bar";
     process.env[ENV_SESSION] = "baz";
-    process.env[ENV_EXPIRATION] = "1970-01-01T07:00:00Z";
+    process.env[ENV_EXPIRATION] = dateString;
 
     expect(await fromEnv()()).toEqual({
       accessKeyId: "foo",
       secretAccessKey: "bar",
       sessionToken: "baz",
-      expiration: 25200
+      expiration: new Date(dateString)
     });
   });
 
